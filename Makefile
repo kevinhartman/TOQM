@@ -58,12 +58,13 @@ debug: default
 prof: CFLAGS += -pg -fno-inline
 prof: default
 
-
 mapper: src/main.cpp ${OBJs} ${HPPs}
 	${CC} ${CFLAGS} ${OBJs} $< -o $@
 
 mapper.exe: src/main.cpp ${OBJs} ${HPPs}
 	${CC} ${CFLAGS} ${OBJs} $< -o $@
+
+all: mapper
 
 objs:
 	${mkdir} objs
