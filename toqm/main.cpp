@@ -1,12 +1,23 @@
 //#include "QASMparser.h"
-#include "myParser.hpp"
-#include "Node.hpp"
-#include "Expander/Meta.hpp"
-#include "CostFunc/Meta.hpp"
-#include "Latency/Meta.hpp"
-#include "NodeMod/Meta.hpp"
-#include "Filter/Meta.hpp"
-#include "Queue/Meta.hpp"
+
+#include <myParser.hpp>
+#include <Node.hpp>
+#include <CostFunc/CXFrontier.hpp>
+#include <CostFunc/CXFull.hpp>
+#include <CostFunc/SimpleCost.hpp>
+#include <Expander/DefaultExpander.hpp>
+#include <Expander/GreedyTopK.hpp>
+#include <Expander/NoSwaps.hpp>
+#include <Filter/HashFilter.hpp>
+#include <Filter/HashFilter2.hpp>
+#include <Latency/Latency_1.hpp>
+#include <Latency/Latency_1_2_6.hpp>
+#include <Latency/Latency_1_3.hpp>
+#include <Latency/Table.hpp>
+#include <NodeMod/GreedyMapper.hpp>
+#include <Queue/DefaultQueue.hpp>
+#include <Queue/TrimSlowNodes.hpp>
+
 #include <cassert>
 #include <cstring>
 #include <fstream>

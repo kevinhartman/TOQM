@@ -4,9 +4,9 @@ cmake_minimum_required(VERSION 3.11...3.22)
 project("TOQM"
         VERSION 0.1.0
         DESCRIPTION
-        "Chi Zhang, Ari B. Hayes, Longfei Qiu, Yuwei Jin, Yanhao Chen, and Eddy Z. Zhang. 2021. Time-Optimal Qubit
-        Mapping. In Proceedings of the 26th ACM International Conference on Architectural Support for Programming
-        Languages and Operating Systems (ASPLOS ’21), April 19–23, 2021, Virtual, USA.
+        "Chi Zhang, Ari B. Hayes, Longfei Qiu, Yuwei Jin, Yanhao Chen, and Eddy Z. Zhang. 2021. Time-Optimal Qubit \
+        Mapping. In Proceedings of the 26th ACM International Conference on Architectural Support for Programming \
+        Languages and Operating Systems (ASPLOS ’21), April 19–23, 2021, Virtual, USA. \
         ACM, New York, NY, USA, 14 pages."
         HOMEPAGE_URL "https://doi.org/10.1145/3445814.3446706"
         LANGUAGES CXX)
