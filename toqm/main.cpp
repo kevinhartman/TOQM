@@ -17,6 +17,75 @@ using namespace std;
 
 bool _verbose = false;
 
+const int NUMCOSTFUNCTIONS = 3;
+tuple<CostFunc*, string, string> costFunctions[NUMCOSTFUNCTIONS] = {
+        make_tuple(new CXFrontier(),
+                   "CXFrontier",
+                   "Calculates lower-bound cost, including swaps to enable gates in the CX frontier"),
+        make_tuple(new CXFull(),
+                   "CXFull",
+                   "Calculates lower-bound cost, including swaps to enable CX gates in remaining circuit"),
+        make_tuple(new SimpleCost(),
+                   "SimpleCost",
+                   "Calculates lower-bound cost, assuming no more swaps will be inserted"),
+};
+
+const int NUMEXPANDERS = 3;
+tuple<Expander*, string, string> expanders[NUMEXPANDERS] = {
+        make_tuple(new DefaultExpander(),
+                   "DefaultExpander",
+                   "The default expander. Includes acyclic swap and dependent state optimizations."),
+        make_tuple(new GreedyTopK(),
+                   "GreedyTopK",
+                   "Keep only top K nodes and schedule original gates ASAP [non-optimal!]"),
+        make_tuple(new NoSwaps(),
+                   "NoSwaps",
+                   "An expander that tries various possible initial mappings, and cannot insert swaps."),
+};
+
+const int NUMFILTERS = 2;
+tuple<Filter*, string, string> FILTERS[NUMFILTERS] = {
+        make_tuple(new HashFilter(),
+                   "HashFilter",
+                   "using hash, this tries to filter out worse nodes."),
+        make_tuple(new HashFilter2(),
+                   "HashFilter2",
+                   "using hash, this tries to filter out worse nodes, or mark old nodes as dead if a new node is strictly-better."),
+};
+
+const int NUMLATENCIES = 4;
+tuple<Latency*, string, string> latencies[NUMLATENCIES] = {
+        make_tuple(new Latency_1_2_6(),
+                   "Latency_1_2_6",
+                   "swap cost 6, 2-bit gate cost 2, 1-bit gate cost 1."),
+        make_tuple(new Latency_1_3(),
+                   "Latency_1_3",
+                   "swap cost 3, all else cost 1."),
+        make_tuple(new Latency_1(),
+                   "Latency_1",
+                   "every gate takes 1 cycle."),
+        make_tuple(new Table(),
+                   "Table",
+                   "gets latencies from specified latency-table file"),
+};
+
+const int NUMNODEMODS = 1;
+tuple<NodeMod*, string, string> nodeMods[NUMNODEMODS] = {
+        make_tuple(new GreedyMapper(),
+                   "GreedyMapper",
+                   "Deletes default initial mapping, and greedily maps qubits in ready CX gates"),
+};
+
+const int NUMQUEUES = 2;
+tuple<Queue*, string, string> queues[NUMQUEUES] = {
+        make_tuple(new DefaultQueue(),
+                   "DefaultQueue",
+                   "uses std priority_queue."),
+        make_tuple(new TrimSlowNodes(),
+                   "TrimSlowNodes",
+                   "Takes 2 params; when reaching max # nodes it removes slowest until it reaches target # nodes."),
+};
+
 //set each node's distance to furthest leaf node
 //while we're at it, record the next 2-bit gate (cnot) from each gate node
 int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
