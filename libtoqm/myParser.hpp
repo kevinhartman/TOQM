@@ -5,10 +5,12 @@
 #include <vector>
 using namespace std;
 
+namespace toqm {
+
 struct ParsedGate {
-	char * type;
-	int target;
-	int control;
+    char *type;
+    int target;
+    int control;
 };
 
 /**
@@ -17,6 +19,8 @@ struct ParsedGate {
  * @param fileName File path for openqasm 2.0 file
  * @return vector of ParsedGate
  */
-std::vector<ParsedGate> parse(Environment * env, const char * fileName);
+std::vector<ParsedGate> parse(Environment *env, const char *fileName);
+
+}
 
 #endif
