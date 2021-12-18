@@ -21,81 +21,79 @@
 
 #include <cassert>
 #include <iostream>
-#include <stack>
 #include <vector>
 
 using namespace std;
-using namespace toqm;
 
 namespace toqm {
 bool _verbose = false;
 }
 
 const int NUMCOSTFUNCTIONS = 3;
-tuple<CostFunc*, string, string> costFunctions[NUMCOSTFUNCTIONS] = {
-        make_tuple(new CXFrontier(),
+tuple<toqm::CostFunc*, string, string> costFunctions[NUMCOSTFUNCTIONS] = {
+        make_tuple(new toqm::CXFrontier(),
                    "CXFrontier",
                    "Calculates lower-bound cost, including swaps to enable gates in the CX frontier"),
-        make_tuple(new CXFull(),
+        make_tuple(new toqm::CXFull(),
                    "CXFull",
                    "Calculates lower-bound cost, including swaps to enable CX gates in remaining circuit"),
-        make_tuple(new SimpleCost(),
+        make_tuple(new toqm::SimpleCost(),
                    "SimpleCost",
                    "Calculates lower-bound cost, assuming no more swaps will be inserted"),
 };
 
 const int NUMEXPANDERS = 3;
-tuple<Expander*, string, string> expanders[NUMEXPANDERS] = {
-        make_tuple(new DefaultExpander(),
+tuple<toqm::Expander*, string, string> expanders[NUMEXPANDERS] = {
+        make_tuple(new toqm::DefaultExpander(),
                    "DefaultExpander",
                    "The default expander. Includes acyclic swap and dependent state optimizations."),
-        make_tuple(new GreedyTopK(),
+        make_tuple(new toqm::GreedyTopK(),
                    "GreedyTopK",
                    "Keep only top K nodes and schedule original gates ASAP [non-optimal!]"),
-        make_tuple(new NoSwaps(),
+        make_tuple(new toqm::NoSwaps(),
                    "NoSwaps",
                    "An expander that tries various possible initial mappings, and cannot insert swaps."),
 };
 
 const int NUMFILTERS = 2;
-tuple<Filter*, string, string> FILTERS[NUMFILTERS] = {
-        make_tuple(new HashFilter(),
+tuple<toqm::Filter*, string, string> FILTERS[NUMFILTERS] = {
+        make_tuple(new toqm::HashFilter(),
                    "HashFilter",
                    "using hash, this tries to filter out worse nodes."),
-        make_tuple(new HashFilter2(),
+        make_tuple(new toqm::HashFilter2(),
                    "HashFilter2",
                    "using hash, this tries to filter out worse nodes, or mark old nodes as dead if a new node is strictly-better."),
 };
 
 const int NUMLATENCIES = 4;
-tuple<Latency*, string, string> latencies[NUMLATENCIES] = {
-        make_tuple(new Latency_1_2_6(),
+tuple<toqm::Latency*, string, string> latencies[NUMLATENCIES] = {
+        make_tuple(new toqm::Latency_1_2_6(),
                    "Latency_1_2_6",
                    "swap cost 6, 2-bit gate cost 2, 1-bit gate cost 1."),
-        make_tuple(new Latency_1_3(),
+        make_tuple(new toqm::Latency_1_3(),
                    "Latency_1_3",
                    "swap cost 3, all else cost 1."),
-        make_tuple(new Latency_1(),
+        make_tuple(new toqm::Latency_1(),
                    "Latency_1",
                    "every gate takes 1 cycle."),
-        make_tuple(new Table(),
+        make_tuple(new toqm::Table(),
                    "Table",
                    "gets latencies from specified latency-table file"),
 };
 
 const int NUMNODEMODS = 1;
-tuple<NodeMod*, string, string> nodeMods[NUMNODEMODS] = {
-        make_tuple(new GreedyMapper(),
+tuple<toqm::NodeMod*, string, string> nodeMods[NUMNODEMODS] = {
+        make_tuple(new toqm::GreedyMapper(),
                    "GreedyMapper",
                    "Deletes default initial mapping, and greedily maps qubits in ready CX gates"),
 };
 
 const int NUMQUEUES = 2;
-tuple<Queue*, string, string> queues[NUMQUEUES] = {
-        make_tuple(new DefaultQueue(),
+tuple<toqm::Queue*, string, string> queues[NUMQUEUES] = {
+        make_tuple(new toqm::DefaultQueue(),
                    "DefaultQueue",
                    "uses std priority_queue."),
-        make_tuple(new TrimSlowNodes(),
+        make_tuple(new toqm::TrimSlowNodes(),
                    "TrimSlowNodes",
                    "Takes 2 params; when reaching max # nodes it removes slowest until it reaches target # nodes."),
 };
@@ -126,12 +124,12 @@ int caseInsensitiveCompare(const char * c1, string str) {
 int main(int argc, char** argv) {
 	char * qasmFileName = NULL;
 	char * couplingMapFileName = NULL;
-	
-	Expander * ex = NULL;
-	CostFunc * cf = NULL;
-	Latency * lat = NULL;
-	Queue * nodes = NULL;
-	Environment * env = new Environment;
+
+    toqm::Expander * ex = NULL;
+    toqm::CostFunc * cf = NULL;
+    toqm::Latency * lat = NULL;
+    toqm::Queue * nodes = NULL;
+    toqm::Environment * env = new toqm::Environment;
 	
 	unsigned int retainPopped = 0;
 	
@@ -142,8 +140,8 @@ int main(int argc, char** argv) {
 	int initialSearchCycles = 0;
 	
 	//variables for user-specified initial mapping:
-	char init_qal[MAX_QUBITS];
-	char init_laq[MAX_QUBITS];
+	char init_qal[toqm::MAX_QUBITS];
+	char init_laq[toqm::MAX_QUBITS];
 	int use_specified_init_mapping = 0;
 	
 	//Parse command-line arguments:
@@ -164,7 +162,7 @@ int main(int argc, char** argv) {
 				}
 				init_qal[i++] = atoi(&(argv[iter][c]));
 			}
-			for(; i < MAX_QUBITS; i++) {
+			for(; i < toqm::MAX_QUBITS; i++) {
 				init_qal[i] = -1;
 			}
 		} else if(!caseInsensitiveCompare(argv[iter], "-laq")) {
@@ -181,7 +179,7 @@ int main(int argc, char** argv) {
 				}
 				init_laq[i++] = atoi(&(argv[iter][c]));
 			}
-			for(; i < MAX_QUBITS; i++) {
+			for(; i < toqm::MAX_QUBITS; i++) {
 				init_laq[i] = -1;
 			}
 		} else if(!caseInsensitiveCompare(argv[iter], "-default") || !caseInsensitiveCompare(argv[iter], "-defaults")) {
@@ -212,7 +210,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMNODEMODS; x++) {
 				if(!caseInsensitiveCompare(std::get<1>(nodeMods[x]), choiceStr)) {
 					found = true;
-					NodeMod * nm = std::get<0>(nodeMods[x]);
+                    toqm::NodeMod * nm = std::get<0>(nodeMods[x]);
 					env->nodeMods.push_back(nm);
 					iter += nm->setArgs(argv + (iter+1));
 					break;
@@ -249,7 +247,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMFILTERS; x++) {
 				if(!caseInsensitiveCompare(std::get<1>(FILTERS[x]), choiceStr)) {
 					found = true;
-					Filter * fil = std::get<0>(FILTERS[x]);
+                    toqm::Filter * fil = std::get<0>(FILTERS[x]);
 					env->filters.push_back(fil);
 					iter += fil->setArgs(argv + (iter+1));
 					break;
@@ -269,7 +267,7 @@ int main(int argc, char** argv) {
 			}
 			assert(found);
 		} else if(!caseInsensitiveCompare(argv[iter], "-v")) {
-			_verbose = true;
+            toqm::_verbose = true;
 		} else if(!qasmFileName) {
 			qasmFileName = argv[iter];
 		} else if(!couplingMapFileName) {
@@ -358,7 +356,7 @@ int main(int argc, char** argv) {
 			if(!filtersOn[choice]) {
 				numselected++;
 				filtersOn[choice] = true;
-				Filter * fil = std::get<0>(FILTERS[choice]);
+                toqm::Filter * fil = std::get<0>(FILTERS[choice]);
 				env->filters.push_back(fil);
 				fil->setArgs();
 			}
@@ -386,7 +384,7 @@ int main(int argc, char** argv) {
 			if(!nodeModsOn[choice]) {
 				numselected++;
 				nodeModsOn[choice] = true;
-				NodeMod * nm = std::get<0>(nodeMods[choice]);
+                toqm::NodeMod * nm = std::get<0>(nodeMods[choice]);
 				env->nodeMods.push_back(nm);
 				nm->setArgs();
 			}
@@ -397,7 +395,7 @@ int main(int argc, char** argv) {
 	env->swapCost = lat->getLatency("swp", 2, -1, -1);
 	env->cost = cf;
 
-    run(qasmFileName,
+    toqm::run(qasmFileName,
         couplingMapFileName,
         ex,
         cf,
