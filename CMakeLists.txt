@@ -31,10 +31,10 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 endif()
 
 # The compiled library code is here
-add_subdirectory(libtoqm)
+add_subdirectory(libtoqm/libtoqm)
 
 # The executable code is here
-add_subdirectory(toqm)
+add_subdirectory(mapper)
 
 # Testing only available if this is the main app
 # Emergency override MODERN_CMAKE_BUILD_TESTING provided as well

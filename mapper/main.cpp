@@ -1,5 +1,3 @@
-//#include "QASMparser.h"
-
 #include <libtoqm/Toqm.hpp>
 #include <libtoqm/myParser.hpp>
 #include <libtoqm/Node.hpp>
