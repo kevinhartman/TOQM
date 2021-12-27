@@ -129,8 +129,9 @@ int main(int argc, char** argv) {
     toqm::CostFunc * cf = NULL;
     toqm::Latency * lat = NULL;
     toqm::Queue * nodes = NULL;
-    toqm::Environment * env = new toqm::Environment;
-	
+    vector<toqm::NodeMod *> mods {};
+    vector<toqm::Filter *> filters {};
+
 	unsigned int retainPopped = 0;
 	
 	int choice = -1;
@@ -211,7 +212,7 @@ int main(int argc, char** argv) {
 				if(!caseInsensitiveCompare(std::get<1>(nodeMods[x]), choiceStr)) {
 					found = true;
                     toqm::NodeMod * nm = std::get<0>(nodeMods[x]);
-					env->nodeMods.push_back(nm);
+					mods.push_back(nm);
 					iter += nm->setArgs(argv + (iter+1));
 					break;
 				}
@@ -248,7 +249,7 @@ int main(int argc, char** argv) {
 				if(!caseInsensitiveCompare(std::get<1>(FILTERS[x]), choiceStr)) {
 					found = true;
                     toqm::Filter * fil = std::get<0>(FILTERS[x]);
-					env->filters.push_back(fil);
+					filters.push_back(fil);
 					iter += fil->setArgs(argv + (iter+1));
 					break;
 				}
@@ -357,7 +358,7 @@ int main(int argc, char** argv) {
 				numselected++;
 				filtersOn[choice] = true;
                 toqm::Filter * fil = std::get<0>(FILTERS[choice]);
-				env->filters.push_back(fil);
+				filters.push_back(fil);
 				fil->setArgs();
 			}
 		}
@@ -385,15 +386,11 @@ int main(int argc, char** argv) {
 				numselected++;
 				nodeModsOn[choice] = true;
                 toqm::NodeMod * nm = std::get<0>(nodeMods[choice]);
-				env->nodeMods.push_back(nm);
+				mods.push_back(nm);
 				nm->setArgs();
 			}
 		}
 	}
-	
-	env->latency = lat;
-	env->swapCost = lat->getLatency("swp", 2, -1, -1);
-	env->cost = cf;
 
     toqm::run(qasmFileName,
         couplingMapFileName,
@@ -401,7 +398,8 @@ int main(int argc, char** argv) {
         cf,
         lat,
         nodes,
-        env,
+        mods,
+        filters,
         retainPopped,
         initialSearchCycles,
         use_specified_init_mapping,

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <iostream>
 #include <stack>
+#include <utility>
 #include <vector>
 
 #include "Queue.hpp"
@@ -27,8 +28,8 @@ int setCriticality(GateNode **lastGatePerQubit, int numQubits) {
     for (int x = 0; x < numQubits; x++) {
         gates[x] = lastGatePerQubit[x];
         if (gates[x]) {
-            gates[x]->nextTargetCNOT = NULL;
-            gates[x]->nextControlCNOT = NULL;
+            gates[x]->nextTargetCNOT = nullptr;
+            gates[x]->nextControlCNOT = nullptr;
             gates[x]->criticality = 0;
         }
     }
@@ -124,7 +125,7 @@ int setCriticality(GateNode **lastGatePerQubit, int numQubits) {
 
 //parse qasm, build dependence graph, put root gates into firstGates:
 void
-buildDependencyGraph(string qasmFileName, Latency *lat, set<GateNode *> &firstGates, int &numQubits, Environment *env,
+buildDependencyGraph(const string& qasmFileName, Latency *lat, set<GateNode *> &firstGates, int &numQubits, Environment *env,
                      int &idealCycles) {
     numQubits = 0;
 
@@ -215,7 +216,7 @@ buildDependencyGraph(string qasmFileName, Latency *lat, set<GateNode *> &firstGa
 }
 
 //parse coupling map, producing a list of edges and number of physical qubits
-void buildCouplingMap(string filename, set<pair<int, int> > &edges, int &numPhysicalQubits) {
+void buildCouplingMap(const string& filename, set<pair<int, int> > &edges, int &numPhysicalQubits) {
     std::fstream myfile(filename, std::ios_base::in);
     unsigned int numEdges;
 
@@ -298,48 +299,26 @@ int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
     return cycles;
 }
 
-//string comparison
-int caseInsensitiveCompare(const char *c1, const char *c2) {
-    for (int x = 0;; x++) {
-        if (toupper(c1[x]) == toupper(c2[x])) {
-            if (!c1[x]) {
-                return 0;
-            }
-        } else {
-            return toupper(c1[x]) - toupper(c2[x]);
-        }
-    }
-}
-
-//string comparison
-int caseInsensitiveCompare(string str, const char *c2) {
-    const char *c1 = str.c_str();
-    return caseInsensitiveCompare(c1, c2);
-}
-
-int caseInsensitiveCompare(const char *c1, string str) {
-    const char *c2 = str.c_str();
-    return caseInsensitiveCompare(c1, c2);
-}
-
-void run(std::string qasmFileName,
-         std::string couplingMapFileName,
+void run(const std::string& qasmFileName,
+         const std::string& couplingMapFileName,
          Expander *ex,
          CostFunc *cf,
          Latency *lat,
          Queue *nodes,
-         Environment *env,
-         int retainPopped = 0,
+         const std::vector<NodeMod*>& node_mods,
+         const std::vector<Filter*>& filters,
+         unsigned int retainPopped = 0,
          int initialSearchCycles = 0,
          int use_specified_init_mapping = 0,
-         char *init_qal = nullptr,
-         char *init_laq = nullptr) {
+         const char *init_qal = nullptr,
+         const char *init_laq = nullptr) {
 
-    int choice = -1;
-
+    auto env = new Environment {};
     env->latency = lat;
     env->swapCost = lat->getLatency("swp", 2, -1, -1);
     env->cost = cf;
+    env->filters = filters;
+    env->nodeMods = node_mods;
 
     set<GateNode *> firstGates;
     int idealCycles = -1;
@@ -412,7 +391,7 @@ void run(std::string qasmFileName,
             }
         }
     }
-    root->parent = NULL;
+    root->parent = nullptr;
     root->numUnscheduledGates = env->numGates;
     root->env = env;
     root->cycle = -1;
