@@ -1,12 +1,13 @@
 #ifndef DEFAULTEXPANDER_HPP
 #define DEFAULTEXPANDER_HPP
 
+#include "libtoqm/Expander.hpp"
+#include "libtoqm/Queue.hpp"
+#include "libtoqm/CostFunc.hpp"
+
 #include <cassert>
 #include <vector>
 #include <iostream>
-#include "Expander.hpp"
-#include "Queue.hpp"
-#include "CostFunc.hpp"
 
 namespace toqm {
 

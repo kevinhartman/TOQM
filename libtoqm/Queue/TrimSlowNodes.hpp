@@ -1,4 +1,8 @@
-#include "Queue.hpp"
+#ifndef TRIM_SLOW_NODES_HPP
+#define TRIM_SLOW_NODES_HPP
+
+#include "libtoqm/Queue.hpp"
+
 #include <queue>
 #include <vector>
 #include <iostream>
@@ -162,3 +166,5 @@ public:
 };
 
 }
+
+#endif

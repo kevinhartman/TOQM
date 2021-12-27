@@ -40,7 +40,7 @@ add_library(toqm
         ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too
-target_include_directories(toqm PUBLIC .)
+target_include_directories(toqm PUBLIC ${TOQM_SOURCE_DIR})
 
 # All users of this library will need at least C++11
 target_compile_features(toqm PUBLIC cxx_std_11)

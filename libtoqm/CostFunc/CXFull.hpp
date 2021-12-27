@@ -1,8 +1,9 @@
 #ifndef CXFULL_HPP
 #define CXFULL_HPP
 
-#include "CostFunc.hpp"
-#include "Node.hpp"
+#include "libtoqm/CostFunc.hpp"
+#include "libtoqm/Node.hpp"
+
 #include <cassert>
 
 namespace toqm {

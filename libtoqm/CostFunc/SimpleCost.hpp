@@ -1,8 +1,9 @@
 #ifndef SIMPLECOST_HPP
 #define SIMPLECOST_HPP
 
-#include "CostFunc.hpp"
-#include "Node.hpp"
+#include "libtoqm/CostFunc.hpp"
+#include "libtoqm/Node.hpp"
+
 #include <cassert>
 
 namespace toqm {

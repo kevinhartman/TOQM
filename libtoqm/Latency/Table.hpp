@@ -1,7 +1,8 @@
 #ifndef LATENCY_TABLE_HPP
 #define LATENCY_TABLE_HPP
 
-#include "Latency.hpp"
+#include "libtoqm/Latency.hpp"
+
 #include <cstring>
 #include <fstream>
 #include <iostream>

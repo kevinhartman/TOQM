@@ -1,4 +1,8 @@
-#include "Queue.hpp"
+#ifndef DEFAULT_QUEUE_HPP
+#define DEFAULT_QUEUE_HPP
+
+#include "libtoqm/Queue.hpp"
+
 #include <queue>
 #include <vector>
 #include <iostream>
@@ -86,3 +90,5 @@ public:
 };
 
 }
+
+#endif

@@ -1,4 +1,7 @@
-#include "Latency.hpp"
+#ifndef LATENCY_1_3_HPP
+#define LATENCY_1_3_HPP
+
+#include "libtoqm/Latency.hpp"
 
 namespace toqm {
 
@@ -15,3 +18,5 @@ public:
 };
 
 }
+
+#endif

@@ -1,5 +1,9 @@
-#include "Filter.hpp"
-#include "Node.hpp"
+#ifndef HASHFILTER_HPP
+#define HASHFILTER_HPP
+
+#include "libtoqm/Filter.hpp"
+#include "libtoqm/Node.hpp"
+
 #include <iostream>
 #include <functional>
 #include <unordered_map>
@@ -134,3 +138,5 @@ public:
 };
 
 }
+
+#endif

@@ -1,7 +1,7 @@
 #ifndef LATENCY_1_HPP
 #define LATENCY_1_HPP
 
-#include "Latency.hpp"
+#include "libtoqm/Latency.hpp"
 
 namespace toqm {
 

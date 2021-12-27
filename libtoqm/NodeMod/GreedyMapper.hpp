@@ -1,5 +1,9 @@
-#include "NodeMod.hpp"
-#include "Node.hpp"
+#ifndef GREEDY_MAPPER_HPP
+#define GREEDY_MAPPER_HPP
+
+#include "libtoqm/NodeMod.hpp"
+#include "libtoqm/Node.hpp"
+
 #include <iostream>
 
 namespace toqm {
@@ -128,3 +132,5 @@ public:
 };
 
 }
+
+#endif
