@@ -404,8 +404,8 @@ void run(const std::string& qasmFileName,
     root->cost = cf->getCost(root);
     nodes->push(root);
 
-    // TODO: is this needed? what does this do, and can it happen in main.cpp?
-    //Cleanup filters before I start messing things up:
+//    // TODO: is this needed? why delete filters that the user didn't select?
+//    //Cleanup filters before I start messing things up:
 //    for (int x = 0; x < NUMFILTERS; x++) {
 //        bool del = true;
 //        for (unsigned int y = 0; y < env->filters.size(); y++) {
@@ -418,7 +418,7 @@ void run(const std::string& qasmFileName,
 //            delete std::get<0>(FILTERS[x]);
 //        }
 //    }
-//    env->resetFilters();
+    env->resetFilters();
 
     //Pop nodes from the queue until we're done:
     bool notDone = true;
