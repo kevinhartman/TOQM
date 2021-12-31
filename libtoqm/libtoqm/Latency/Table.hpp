@@ -85,7 +85,7 @@ private:
     std::unordered_map<key_t2, int, key_hash2, key_equal2> optimisticLatencies;
 
     //Tokenizer for parsing the latency table file:
-    char *getToken(std::ifstream &infile) {
+    char *getToken(std::istream &infile) {
         char c;
         int MAXBUFFERSIZE = 256;
         char buffer[MAXBUFFERSIZE];
@@ -140,9 +140,7 @@ private:
     }
 
     //Parse the latency table file:
-    void parseTable(char *filename) {
-        std::ifstream infile(filename);
-
+    void parseTable(std::istream &infile) {
         char *token;
         while ((token = getToken(infile))) {//Reminder: the single = instead of double == here is intentional.
             int numBits = atoi(token);
@@ -190,7 +188,11 @@ private:
     }
 
 public:
-    int getLatency(string gateName, int numQubits, int target, int control) {
+    explicit Table(std::istream& source) {
+        parseTable(source);
+    }
+
+    int getLatency(string gateName, int numQubits, int target, int control) const override {
         if (numQubits > 0 && target < 0 && control < 0) {
             //We're dealing with a logical gate, so let's return the best case among physical possibilities (so that our a* search will still work okay):
             auto search = optimisticLatencies.find(make_tuple((char *) gateName.c_str(), numQubits));
@@ -221,23 +223,6 @@ public:
         std::cerr << "FATAL ERROR: could not find any valid latency for specified " << gateName << " gate.\n";
         std::cerr << "\t" << numQubits << "\t" << gateName << "\t" << target << "\t" << control << "\n";
         exit(1);
-    }
-
-    int setArgs(char **argv) {
-        char *filename = argv[0];
-
-        parseTable(filename);
-
-        return 1;
-    }
-
-    int setArgs() {
-        char *filename = 0;
-        std::cin >> filename;
-
-        parseTable(filename);
-
-        return 1;
     }
 };
 

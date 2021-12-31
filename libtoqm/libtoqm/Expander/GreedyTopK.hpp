@@ -30,18 +30,11 @@ private:
     };
 
 public:
-    int setArgs(char **argv) {
-        K = atoi(argv[0]);
-        return 1;
+    explicit GreedyTopK(unsigned int k) {
+        this->K = k;
     }
 
-    int setArgs() {
-        std::cerr << "Enter value of K for top-k expander: K=";
-        std::cin >> K;
-        return 1;
-    }
-
-    bool expand(Queue *nodes, Node *node) {
+    bool expand(Queue *nodes, Node *node) const override {
         //return false if we're done expanding
         if (nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
             return false;
@@ -296,7 +289,7 @@ public:
                     assert(good);
                 }
 
-                child->cost = node->env->cost->getCost(child);
+                child->cost = node->env->cost.getCost(child);
 
                 //if(!this->K || this->K >= numIters) {
                 //	if(!nodes->push(child)) {

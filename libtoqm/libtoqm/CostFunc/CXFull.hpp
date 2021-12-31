@@ -10,7 +10,7 @@ namespace toqm {
 
 class CXFull : public CostFunc {
 public:
-    int _getCost(Node *node) {
+    int _getCost(Node *node) const {
         //bool debug = node->cost > 0;//called getCost for second time on this node
 
         int cost = 0;

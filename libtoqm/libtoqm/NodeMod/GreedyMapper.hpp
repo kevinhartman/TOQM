@@ -13,7 +13,7 @@ private:
 
 public:
 
-    void mod(Node *node, int flag) {
+    void mod(Node *node, int flag) const override {
         //Return unless this was called before calculating node's cost
         if (flag != MOD_TYPE_BEFORECOST) {
             return;

@@ -45,13 +45,13 @@ private:
     std::unordered_map<std::size_t, vector<Node *> > hashmap;
 
 public:
-    Filter *createEmptyCopy() {
-        HashFilter *f = new HashFilter();
+    std::unique_ptr<Filter> createEmptyCopy() override {
+        auto f = std::make_unique<HashFilter>();
         f->numFiltered = this->numFiltered;
         return f;
     }
 
-    void deleteRecord(Node *n) {
+    void deleteRecord(Node *n) override {
         std::size_t hash_result = hashFunc1(n);
         vector<Node *> *mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
         for (unsigned int blah = 0; blah < mapValue->size(); blah++) {
@@ -66,7 +66,7 @@ public:
         }
     }
 
-    bool filter(Node *newNode) {
+    bool filter(Node *newNode) override {
         int numQubits = newNode->env->numPhysicalQubits;
         std::size_t hash_result = hashFunc1(newNode);
 
@@ -132,7 +132,7 @@ public:
         return false;
     }
 
-    virtual void printStatistics(std::ostream &stream) {
+    void printStatistics(std::ostream &stream) override {
         stream << "//HashFilter filtered " << numFiltered << " total nodes.\n";
     }
 };

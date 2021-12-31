@@ -11,7 +11,7 @@ namespace toqm {
 //CostFunc example
 class SimpleCost : public CostFunc {
 public:
-    int _getCost(Node *node) {
+    int _getCost(Node *node) const {
         int cost = 0;
         int costT = 99999;
         Environment *env = node->env;

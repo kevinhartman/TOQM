@@ -17,25 +17,11 @@ private:
     virtual bool pushNode(Node *newNode) = 0;
 
 protected:
-    Node *bestFinalNode = 0;
+    Node *bestFinalNode = nullptr;
     int numPushed = 0, numFiltered = 0, numPopped = 0;
 
 public:
     virtual ~Queue() {};
-
-    virtual int setArgs(char **argv) {
-        //This is used to set the queue's parameters via command-line
-        //return number of args consumed
-
-        return 0;
-    }
-
-    virtual int setArgs() {
-        //This is used to set the queue's parameters via std::cin
-        //return number of args consumed
-
-        return 0;
-    }
 
     ///Pop a node and return it
     virtual Node *pop() = 0;

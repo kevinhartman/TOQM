@@ -120,7 +120,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
     ScheduledGate *sg = new ScheduledGate(gate, this->cycle + timeOffset);
     sg->physicalControl = physicalControl;
     sg->physicalTarget = physicalTarget;
-    sg->latency = env->latency->getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
+    sg->latency = env->latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
                                            sg->physicalControl);
 
     if (physicalControl >= 0) {

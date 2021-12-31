@@ -38,7 +38,7 @@ bool isCyclic(Node *node, GateNode *g) {
 
 class DefaultExpander : public Expander {
 public:
-    bool expand(Queue *nodes, Node *node) {
+    bool expand(Queue *nodes, Node *node) const {
         //return false if we're done expanding
         if (nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
             return false;
@@ -117,7 +117,7 @@ public:
             }
 
             if (good) {
-                int latency = node->env->latency->getLatency(g->name, (control >= 0 ? 2 : 1), target, control);
+                int latency = node->env->latency.getLatency(g->name, (control >= 0 ? 2 : 1), target, control);
                 if (latency == 1) {
                     singleCycleGates.push_back(g);
                 } else {
@@ -250,7 +250,7 @@ public:
 
                 int cycleMod = (child->cycle < 0) ? child->cycle : 0;
                 child->cycle -= cycleMod;
-                child->cost = node->env->cost->getCost(child);
+                child->cost = node->env->cost.getCost(child);
                 child->cycle += cycleMod;
 
                 if (!nodes->push(child)) {

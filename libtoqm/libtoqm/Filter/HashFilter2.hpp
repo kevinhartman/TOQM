@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <functional>
+#include <memory>
 #include <unordered_map>
 #include <vector>
 
@@ -76,14 +77,14 @@ private:
     std::unordered_map<std::size_t, vector<Node *> > hashmap;
 
 public:
-    Filter *createEmptyCopy() {
-        HashFilter2 *f = new HashFilter2();
+    std::unique_ptr<Filter> createEmptyCopy() override {
+        auto f = std::make_unique<HashFilter2>();
         f->numFiltered = this->numFiltered;
         f->numMarkedDead = this->numMarkedDead;
         return f;
     }
 
-    void deleteRecord(Node *n) {
+    void deleteRecord(Node *n) override {
         std::size_t hash_result = hashFunc2(n);
         vector<Node *> *mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here, hence the awkward pointers
         //assert(mapValue->size() > 0);
@@ -100,7 +101,7 @@ public:
         //assert(false && "hashfilter2 failed to find node to delete");
     }
 
-    bool filter(Node *newNode) {
+    bool filter(Node *newNode) override {
         //if(newNode->parent && newNode->parent->dead) {
         //	return true;
         //}
@@ -333,7 +334,7 @@ public:
         return false;
     }
 
-    virtual void printStatistics(std::ostream &stream) {
+    void printStatistics(std::ostream &stream) override {
         stream << "//HashFilter2 filtered " << numFiltered << " total nodes.\n";
         stream << "//HashFilter2 marked " << numMarkedDead << " total nodes.\n";
     }

@@ -1,4 +1,4 @@
-#include "myParser.hpp"
+#include "Qasm2Parser.hpp"
 #include "Environment.hpp"
 #include <cassert>
 #include <cstring>
@@ -193,9 +193,9 @@ char *getRestOfStatement(std::ifstream &infile) {
 }
 
 ///Parses the specified OPENQASM file
-std::vector<ParsedGate> parse(Environment *env, const char *fileName) {
+std::vector<GateOp> parseQasm2(Environment *env, const char *fileName) {
     std::ifstream infile(fileName);
-    vector<ParsedGate> gates;
+    vector<GateOp> gates;
 
     char *token = 0;
     bool b = false;
@@ -301,7 +301,7 @@ std::vector<ParsedGate> parse(Environment *env, const char *fileName) {
             }
             *temp = 0;
 
-            env->measures.push_back(std::make_pair(qdx + env->getQregOffset(qbit), cdx + env->getCregOffset(cbit)));
+            env->measures.emplace_back(qdx + env->getQregOffset(qbit), cdx + env->getCregOffset(cbit));
         } else if (!strcmp(token, ";")) {
             std::cerr << "Warning: unexpected semicolon.\n";
         } else {

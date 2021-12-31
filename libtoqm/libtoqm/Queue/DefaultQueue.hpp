@@ -30,7 +30,7 @@ private:
 
     std::priority_queue<Node *, std::vector<Node *>, CmpDefaultQueue> nodes;
 
-    bool pushNode(Node *newNode) {
+    bool pushNode(Node *newNode) override {
         nodes.push(newNode);
         if (_verbose) {
             if (newNode->numUnscheduledGates < garbage) {
@@ -60,7 +60,7 @@ private:
     int garbage2 = 9999999;
 
 public:
-    Node *pop() {
+    Node *pop() override {
         numPopped++;
 
         Node *ret = nodes.top();
@@ -84,7 +84,7 @@ public:
         return ret;
     }
 
-    int size() {
+    int size() override {
         return nodes.size();
     }
 };

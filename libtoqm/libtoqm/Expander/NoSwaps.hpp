@@ -13,7 +13,7 @@ namespace toqm {
 
 class NoSwaps : public Expander {
 private:
-    int busyCycles(Node *n, int logicalQubit) {
+    int busyCycles(Node *n, int logicalQubit) const {
         if (!n->lastNonSwapGate[logicalQubit]) return 0;
         int cycles = n->lastNonSwapGate[logicalQubit]->cycle + n->lastNonSwapGate[logicalQubit]->latency - n->cycle;
         if (cycles < 0) return 0;
@@ -21,7 +21,7 @@ private:
     }
 
 public:
-    bool expand(Queue *nodes, Node *node) {
+    bool expand(Queue *nodes, Node *node) const override {
         //return false if we're done expanding
         if (nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
             return false;

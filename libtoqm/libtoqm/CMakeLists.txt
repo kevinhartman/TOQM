@@ -24,19 +24,19 @@ set(HEADER_LIST
         "GateNode.hpp"
         "Latency.hpp"
         "LinkedStack.hpp"
-        "myParser.hpp"
+        "Qasm2Parser.hpp"
         "Node.hpp"
         "NodeMod.hpp"
         "Queue.hpp"
         "ScheduledGate.hpp"
-        "Toqm.hpp"
+        "ToqmMapper.hpp"
         )
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(toqm
-        toqm.cpp
+        ToqmMapper.cpp
         Node.cpp
-        myParser.cpp
+        Qasm2Parser.cpp
         ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too

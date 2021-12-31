@@ -57,7 +57,7 @@ private:
      */
     std::priority_queue<Node *, std::vector<Node *>, CmpProgress> tempQueue;
 
-    bool pushNode(Node *newNode) {
+    bool pushNode(Node *newNode) override {
         nodes.push(newNode);
         if (_verbose) {
             if (newNode->numUnscheduledGates < garbage) {
@@ -112,28 +112,17 @@ private:
     int garbage2 = 9999999;
 
 public:
-    int setArgs(char **argv) {
-        this->maxSize = atoi(argv[0]);
-        this->targetSize = atoi(argv[1]);
+    TrimSlowNodes() = default;
+    TrimSlowNodes(unsigned int maxSize, unsigned int targetSize) {
+        this->maxSize = maxSize;
+        this->targetSize = targetSize;
         if (this->maxSize < this->targetSize) {
             std::swap(this->maxSize, this->targetSize);
         }
         assert(this->maxSize != this->targetSize);
-        return 2;
     }
 
-    int setArgs() {
-        std::cerr << "Enter max size and then target size for queue:\n";
-        std::cin >> this->maxSize;
-        std::cin >> this->targetSize;
-        if (this->maxSize < this->targetSize) {
-            std::swap(this->maxSize, this->targetSize);
-        }
-        assert(this->maxSize != this->targetSize);
-        return 2;
-    }
-
-    Node *pop() {
+    Node *pop() override {
         numPopped++;
 
         Node *ret = nodes.top();
@@ -160,7 +149,7 @@ public:
         return ret;
     }
 
-    int size() {
+    int size() override {
         return nodes.size();
     }
 };

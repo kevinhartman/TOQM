@@ -2,6 +2,7 @@
 #define FILTER_HPP
 
 #include <iostream>
+#include <memory>
 
 namespace toqm {
 
@@ -10,7 +11,7 @@ class Queue;
 
 class Filter {
 public:
-    virtual ~Filter() {};
+    virtual ~Filter() = default;;
 
     //this should be called after we're done scheduling gates in newNode
     //return true iff we don't want to add newNode to the nodes list
@@ -24,21 +25,7 @@ public:
         //if this filter retains node info, delete the filter's records of node n
     }
 
-    virtual Filter *createEmptyCopy() = 0;
-
-    virtual int setArgs(char **argv) {
-        //This is used to set the queue's parameters via command-line
-        //return number of args consumed
-
-        return 0;
-    }
-
-    virtual int setArgs() {
-        //This is used to set the queue's parameters via std::cin
-        //return number of args consumed
-
-        return 0;
-    }
+    virtual std::unique_ptr<Filter> createEmptyCopy() = 0;
 };
 
 }
