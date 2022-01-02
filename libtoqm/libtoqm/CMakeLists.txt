@@ -2,9 +2,11 @@
 # show up in IDEs unless they are listed in add_library.
 
 set(HEADER_LIST
+        "CommonTypes.hpp"
         "CostFunc/CXFrontier.hpp"
         "CostFunc/CXFull.hpp"
         "CostFunc/SimpleCost.hpp"
+        "CouplingMapParser.hpp"
         "Expander/DefaultExpander.hpp"
         "Expander/GreedyTopK.hpp"
         "Expander/NoSwaps.hpp"
@@ -24,19 +26,20 @@ set(HEADER_LIST
         "GateNode.hpp"
         "Latency.hpp"
         "LinkedStack.hpp"
-        "Qasm2Parser.hpp"
+        "QasmObject.hpp"
         "Node.hpp"
         "NodeMod.hpp"
         "Queue.hpp"
         "ScheduledGate.hpp"
         "ToqmMapper.hpp"
-        )
+        ToqmResult.hpp)
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(toqm
         ToqmMapper.cpp
         Node.cpp
-        Qasm2Parser.cpp
+        QasmObject.cpp
+        CouplingMapParser.cpp
         ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too

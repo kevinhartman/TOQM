@@ -1,7 +1,7 @@
 #ifndef TOQM_COUPLINGMAPPARSER_H
 #define TOQM_COUPLINGMAPPARSER_H
 
-#include "CommonTypes.h"
+#include "CommonTypes.hpp"
 
 #include <istream>
 

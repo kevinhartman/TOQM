@@ -1,5 +1,6 @@
 #include <libtoqm/ToqmMapper.hpp>
-#include <libtoqm/Qasm2Parser.hpp>
+#include <libtoqm/QasmObject.hpp>
+#include <libtoqm/CouplingMapParser.hpp>
 #include <libtoqm/Node.hpp>
 #include <libtoqm/CostFunc/CXFrontier.hpp>
 #include <libtoqm/CostFunc/CXFull.hpp>
@@ -478,7 +479,6 @@ int main(int argc, char** argv) {
         move(mods),
         move(filters));
 
-    // TODO: set other options as well as constructor args
     mapper->setRetainPopped(retainPopped);
     mapper->setInitialSearchCycles(initialSearchCycles);
     mapper->setVerbose(toqm::_verbose);
@@ -489,22 +489,17 @@ int main(int argc, char** argv) {
         mapper->setInitialMappingLaq(init_laq);
     }
 
-    // TODO: call run method!
-    //auto gate_ops = toqm::parseQasm2()
+    auto qasmFile = ifstream(qasmFileName);
+    auto couplingMapFile = ifstream(couplingMapFileName);
 
-//    toqm::run(qasmFileName,
-//        couplingMapFileName,
-//        ex,
-//        cf,
-//        lat,
-//        nodes,
-//        mods,
-//        filters,
-//        retainPopped,
-//        initialSearchCycles,
-//        use_specified_init_mapping,
-//        init_qal,
-//        init_laq);
+    auto qasm = toqm::QasmObject::fromQasm2(qasmFile);
+    auto couplingMap = toqm::parseCouplingMap(couplingMapFile);
+
+    // invoke TOQM algo
+    auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap);
+
+    // write new qasm to std::cout
+    qasm->toQasm2(cout, *result);
 	
 	return 0;
 }

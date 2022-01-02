@@ -5,6 +5,7 @@
 #include <stack>
 #include <utility>
 #include <vector>
+#include <sstream>
 
 #include "Queue.hpp"
 #include "CostFunc.hpp"
@@ -15,6 +16,7 @@
 #include "ScheduledGate.hpp"
 #include "LinkedStack.hpp"
 #include "Node.hpp"
+#include "ToqmResult.hpp"
 
 namespace toqm {
 
@@ -123,17 +125,11 @@ int setCriticality(GateNode **lastGatePerQubit, int numQubits) {
 
 //build dependence graph, put root gates into firstGates:
 void
-buildDependencyGraph(const std::vector<GateOp>& gates, const Latency &lat, set<GateNode *> &firstGates, int &numQubits, Environment *env,
+buildDependencyGraph(const std::vector<GateOp>& gates, std::size_t maxQubits, const Latency &lat, set<GateNode *> &firstGates, int &numQubits, Environment *env,
                      int &idealCycles) {
     numQubits = 0;
 
-    //parseQasm2 qasm
     env->numGates = gates.size();
-    int maxQubits = 0;
-    for (unsigned int x = 0; x < env->qregName.size(); x++) {
-        maxQubits += env->qregSize[x];
-    }
-
     env->firstCXPerQubit = new GateNode *[maxQubits];
     for (int x = 0; x < maxQubits; x++) {
         env->firstCXPerQubit[x] = 0;
@@ -144,11 +140,11 @@ buildDependencyGraph(const std::vector<GateOp>& gates, const Latency &lat, set<G
     for (int x = 0; x < maxQubits; x++) {
         lastGatePerQubit[x] = 0;
     }
-    for (unsigned int x = 0; x < gates.size(); x++) {
+    for (const auto & gate : gates) {
         GateNode *v = new GateNode;
-        v->control = gates.at(x).control;
-        v->target = gates.at(x).target;
-        v->name = gates.at(x).type;
+        v->control = gate.control;
+        v->target = gate.target;
+        v->name = gate.type;
         v->criticality = 0;
         v->optimisticLatency = lat.getLatency(v->name, (v->control >= 0 ? 2 : 1), -1, -1);
         v->controlChild = 0;
@@ -255,46 +251,6 @@ void calcDistances(int *distances, int numQubits) {
     }
 }
 
-//Print a node's scheduled gates
-//returns how many cycles the node takes to complete all its gates
-int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
-    int cycles = 0;
-    std::stack<ScheduledGate *> gateStack;
-    while (gates->size > 0) {
-        gateStack.push(gates->value);
-        gates = gates->next;
-    }
-
-    while (!gateStack.empty()) {
-        ScheduledGate *sg = gateStack.top();
-        gateStack.pop();
-        int target = sg->physicalTarget;
-        int control = sg->physicalControl;
-        stream << sg->gate->name << " ";
-        if (control >= 0) {
-            stream << "q[" << control << "],";
-        }
-        stream << "q[" << target << "]";
-        stream << ";";
-        stream << " //cycle: " << sg->cycle;
-        if (sg->gate->name.compare("swp") && sg->gate->name.compare("SWP")) {
-            int target = sg->gate->target;
-            int control = sg->gate->control;
-            stream << " //" << sg->gate->name << " ";
-            if (control >= 0) {
-                stream << "q[" << control << "],";
-            }
-            stream << "q[" << target << "]";
-        }
-        stream << "\n";
-
-        if (sg->cycle + sg->latency > cycles) {
-            cycles = sg->cycle + sg->latency;
-        }
-    }
-
-    return cycles;
-}
 }
 
 enum InitMapping {
@@ -317,7 +273,7 @@ struct ToqmMapper::Impl {
     const char *init_laq;
     bool verbose;
 
-    std::vector<GateOp> run(const std::vector<GateOp> &gate_ops, const CouplingMap &coupling_map) {
+    std::unique_ptr<ToqmResult> run(const std::vector<GateOp> &gate_ops, std::size_t num_qubits, const CouplingMap &coupling_map) const {
         auto nodes = nodes_queue();
 
         // create fresh deep copy of filters for run
@@ -335,7 +291,7 @@ struct ToqmMapper::Impl {
 
         set<GateNode *> firstGates;
         int idealCycles = -1;
-        buildDependencyGraph(gate_ops, *latency, firstGates, env->numLogicalQubits, env, idealCycles);
+        buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, env, idealCycles);
 
         assert(env->numPhysicalQubits >= env->numLogicalQubits);
 
@@ -352,6 +308,7 @@ struct ToqmMapper::Impl {
         }
         calcDistances(env->couplingDistances, env->numPhysicalQubits);
 
+        int initialSearchCycles = this->initialSearchCycles;
         if (initialSearchCycles < 0) {
             int diameter = 0;
             for (int x = 0; x < env->numPhysicalQubits - 1; x++) {
@@ -532,8 +489,11 @@ struct ToqmMapper::Impl {
 
         //Figure out what the initial mapping must have been
         LinkedStack<ScheduledGate *> *sg = finalNode->scheduled;
-        char inferredQal[env->numPhysicalQubits];
-        char inferredLaq[env->numPhysicalQubits];
+        std::vector<char> inferredQal(env->numPhysicalQubits);
+        std::vector<char> inferredLaq(env->numPhysicalQubits);
+
+        //char inferredQal[env->numPhysicalQubits];
+        //char inferredLaq[env->numPhysicalQubits];
         for (int x = 0; x < env->numPhysicalQubits; x++) {
             inferredQal[x] = finalNode->qal[x];
             inferredLaq[x] = finalNode->laq[x];
@@ -585,50 +545,22 @@ struct ToqmMapper::Impl {
             sg = sg->next;
         }
 
-        //Print out the initial mapping:
-        std::cout << "//Note: initial mapping (logical qubit at each location): ";
-        for (int x = 0; x < env->numPhysicalQubits; x++) {
-            std::cout << (int) inferredQal[x] << ", ";
-        }
-        std::cout << "\n";
-        std::cout << "//Note: initial mapping (location of each logical qubit): ";
-        for (int x = 0; x < env->numLogicalQubits; x++) {
-            std::cout << (int) inferredLaq[x] << ", ";
-        }
-        std::cout << "\n";
+        stringstream filterStats;
+        env->printFilterStats(filterStats);
 
-        //Print the OPENQASM output:
-        std::cout << "OPENQASM " << env->QASM_version << ";\n";
-        for (unsigned int x = 0; x < env->includes.size(); x++) {
-            std::cout << "include " << env->includes[x] << ";\n";
-        }
-        for (unsigned int x = 0; x < env->customGates.size(); x++) {
-            std::cout << "gate " << env->customGates[x] << "\n";
-        }
-        for (unsigned int x = 0; x < env->opaqueGates.size(); x++) {
-            std::cout << "opaque " << env->opaqueGates[x] << "\n";
-        }
-        std::cout << "qreg q[" << env->numPhysicalQubits << "];\n";
-        std::cout << "creg c[" << env->numPhysicalQubits << "];\n";
-        int numCycles = printNode(std::cout, finalNode->scheduled);
-        for (unsigned int x = 0; x < env->measures.size(); x++) {
-            std::cout << "measure q[" << (int) finalNode->laq[env->measures[x].first] << "] -> c["
-                      << env->measures[x].second << "];\n";
-        }
+        auto result = unique_ptr<ToqmResult>(new ToqmResult {
+            unique_ptr<Node>(finalNode),
+            std::move(nodes),
+            env->numPhysicalQubits,
+            env->numLogicalQubits,
+            std::move(inferredQal),
+            std::move(inferredLaq),
+            idealCycles,
+            numPopped,
+            filterStats.str()
+        });
 
-        //if(verbose) {
-        //Print some metadata about the input & output:
-        std::cout << "//" << env->numGates << " original gates\n";
-        std::cout << "//" << finalNode->scheduled->size << " gates in generated circuit\n";
-        std::cout << "//" << idealCycles << " ideal depth (cycles)\n";
-        std::cout << "//" << numCycles
-                  << " depth of generated circuit\n"; //" (and costFunc reports " << finalNode->cost << ")\n";
-        std::cout << "//" << (numPopped - 1) << " nodes popped from queue for processing.\n";
-        std::cout << "//" << nodes->size() << " nodes remain in queue.\n";
-        env->printFilterStats(std::cout);
-        //}
-
-        // TODO: return something!
+        return result;
     }
 };
 
@@ -674,8 +606,8 @@ void ToqmMapper::setVerbose(bool verbose) {
     this->impl->verbose = verbose;
 }
 
-std::vector<GateOp> ToqmMapper::run(const std::vector<GateOp> &gate_ops, const CouplingMap &coupling_map) {
-    return impl->run(gate_ops, coupling_map);
+std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> &gate_ops, std::size_t num_qubits, const CouplingMap &coupling_map) const {
+    return impl->run(gate_ops, num_qubits, coupling_map);
 }
 
 }

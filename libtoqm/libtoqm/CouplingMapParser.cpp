@@ -1,4 +1,4 @@
-#include "CouplingMapParser.h"
+#include "CouplingMapParser.hpp"
 
 namespace toqm {
 

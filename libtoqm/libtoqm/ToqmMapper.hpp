@@ -1,7 +1,8 @@
 #ifndef TOQM_TOQMMAPPER_HPP
 #define TOQM_TOQMMAPPER_HPP
 
-#include "CommonTypes.h"
+#include "CommonTypes.hpp"
+#include "ToqmResult.hpp"
 
 #include <string>
 #include <vector>
@@ -44,7 +45,7 @@ public:
     void clearInitialMapping();
     void setVerbose(bool verbose);
 
-    std::vector<GateOp> run(const std::vector<GateOp> &gates, const CouplingMap &coupling_map);
+    std::unique_ptr<ToqmResult> run(const std::vector<GateOp> &gates, std::size_t num_qubits, const CouplingMap &coupling_map) const;
 
 private:
     class Impl;

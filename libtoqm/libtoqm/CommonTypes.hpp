@@ -1,5 +1,5 @@
-#ifndef TOQM_COMMONTYPES_H
-#define TOQM_COMMONTYPES_H
+#ifndef TOQM_COMMONTYPES_HPP
+#define TOQM_COMMONTYPES_HPP
 
 #include <set>
 #include <string>
@@ -20,4 +20,4 @@ struct GateOp {
 
 }
 
-#endif //TOQM_COMMONTYPES_H
+#endif //TOQM_COMMONTYPES_HPP

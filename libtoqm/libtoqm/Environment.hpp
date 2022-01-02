@@ -21,13 +21,6 @@ public:
     Environment(const CostFunc& cost, const Latency& latency, const vector<std::unique_ptr<NodeMod>> &node_mods)
         : cost(cost), latency(latency), nodeMods(node_mods) {}
 
-    //Important variables for outputting an OPENQASM file:
-    char *QASM_version {};//string representation of OPENQASM version number (i.e. "2.0")
-    vector<char *> includes;//list of include statements we need to reproduce in output
-    vector<char *> customGates;//list of gate definitions we need to reproduce in output
-    vector<char *> opaqueGates;//list of opaque gate definitions we need to reproduce in output
-    vector<std::pair<int, int>> measures;//list of measurement gates; first is qbit, second is cbit
-
     const vector<std::unique_ptr<NodeMod>> &nodeMods;
     const CostFunc &cost;//contains function to calculate a node's cost
     const Latency &latency;//contains function to calculate a gate's latency
@@ -45,46 +38,6 @@ public:
     int numGates {}; //the number of gates in the original circuit
 
     GateNode **firstCXPerQubit {};//the first 2-qubit gate that uses each logical qubit
-
-    //necessary info for mapping original qubit IDs to flat array (and back again, if necessary)
-    vector<char *> qregName;
-    vector<int> qregSize;
-
-    //necessary info for mapping original cbit IDs to flat array (and back again, if necessary)
-    vector<char *> cregName;
-    vector<int> cregSize;
-
-    ///Gives the flat-array index of the first bit in the specified qreg
-    int getQregOffset(char *name) {
-        int offset = 0;
-        for (unsigned int x = 0; x < qregName.size(); x++) {
-            if (!std::strcmp(name, qregName[x])) {
-                return offset;
-            } else {
-                offset += qregSize[x];
-            }
-        }
-
-        std::cerr << "FATAL ERROR: couldn't recognize qreg name " << name << "\n";
-
-        assert(false);
-        return -1;
-    }
-
-    ///Gives the flat-array index of the first bit in the specified creg
-    int getCregOffset(char *name) {
-        int offset = 0;
-        for (unsigned int x = 0; x < cregName.size(); x++) {
-            if (!std::strcmp(name, cregName[x])) {
-                return offset;
-            } else {
-                offset += cregSize[x];
-            }
-        }
-
-        assert(false);
-        return -1;
-    }
 
     ///Invoke all node mods, using the specified node and specified flag
     void runNodeModifiers(Node *node, int flag) {
