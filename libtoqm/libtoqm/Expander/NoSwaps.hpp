@@ -13,15 +13,15 @@ namespace toqm {
 
 class NoSwaps : public Expander {
 private:
-	int busyCycles(Node *n, int logicalQubit) const {
+	int busyCycles(Node * n, int logicalQubit) const {
 		if(!n->lastNonSwapGate[logicalQubit]) return 0;
-		int cycles = n->lastNonSwapGate[logicalQubit]->cycle+n->lastNonSwapGate[logicalQubit]->latency-n->cycle;
+		int cycles = n->lastNonSwapGate[logicalQubit]->cycle + n->lastNonSwapGate[logicalQubit]->latency - n->cycle;
 		if(cycles < 0) return 0;
 		return cycles;
 	}
 
 public:
-	bool expand(Queue *nodes, Node *node) const override {
+	bool expand(Queue * nodes, Node * node) const override {
 		//return false if we're done expanding
 		if(nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
 			return false;
@@ -37,8 +37,8 @@ public:
 		
 		//if this node has any unmapped qubits affecting frontier, make alternate nodes where they're mapped:
 		bool addedNodes = false;
-		Node *n = node;
-		Environment *env = node->env;
+		Node * n = node;
+		Environment * env = node->env;
 		for(auto iter = n->readyGates.begin(); iter != n->readyGates.end(); iter++) {
 			if(addedNodes) {
 				//just let the child nodes handle the next one:
@@ -47,7 +47,7 @@ public:
 			
 			int numAdded = 0;
 			
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			//GateNode * g = env->firstCXPerQubit[z];
 			
 			if(g && g->control < 0) {
@@ -60,28 +60,28 @@ public:
 				if(physC < 0 && physT < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env->couplings.size(); x++) {
-						GateNode *sw = env->possibleSwaps[x];
+						GateNode * sw = env->possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] < 0) {
-							Node *n1 = n->prepChild();
+							Node * n1 = n->prepChild();
 							n1->cycle--;
 							n1->laq[g->control] = sw->control;
 							n1->laq[g->target] = sw->target;
 							n1->qal[sw->control] = g->control;
 							n1->qal[sw->target] = g->target;
-							n1->cost = n->cost-1;//env->cost->getCost(n1);
+							n1->cost = n->cost - 1;//env->cost->getCost(n1);
 							if(nodes->push(n1)) {
 								numAdded++;
 							} else {
 								delete n1;
 							}
 							
-							Node *n2 = n->prepChild();
+							Node * n2 = n->prepChild();
 							n2->cycle--;
 							n2->laq[g->control] = sw->target;
 							n2->laq[g->target] = sw->control;
 							n2->qal[sw->control] = g->target;
 							n2->qal[sw->target] = g->control;
-							n2->cost = n->cost-1;//env->cost->getCost(n2);
+							n2->cost = n->cost - 1;//env->cost->getCost(n2);
 							if(nodes->push(n2)) {
 								numAdded++;
 							} else {
@@ -92,26 +92,26 @@ public:
 				} else if(physC < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env->couplings.size(); x++) {
-						GateNode *sw = env->possibleSwaps[x];
+						GateNode * sw = env->possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] == g->target) {
-							Node *n1 = n->prepChild();
+							Node * n1 = n->prepChild();
 							n1->cycle--;
 							n1->laq[g->control] = sw->control;
 							n1->qal[sw->control] = g->control;
 							assert(n1->laq[g->target] == sw->target);
-							n1->cost = n->cost-1;//env->cost->getCost(n1);
+							n1->cost = n->cost - 1;//env->cost->getCost(n1);
 							if(nodes->push(n1)) {
 								numAdded++;
 							} else {
 								delete n1;
 							}
 						} else if(n->qal[sw->target] < 0 && n->qal[sw->control] == g->target) {
-							Node *n1 = n->prepChild();
+							Node * n1 = n->prepChild();
 							n1->cycle--;
 							n1->laq[g->control] = sw->target;
 							n1->qal[sw->target] = g->control;
 							assert(n1->laq[g->target] == sw->control);
-							n1->cost = n->cost-1;//env->cost->getCost(n1);
+							n1->cost = n->cost - 1;//env->cost->getCost(n1);
 							if(nodes->push(n1)) {
 								numAdded++;
 							} else {
@@ -122,26 +122,26 @@ public:
 				} else if(physT < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env->couplings.size(); x++) {
-						GateNode *sw = env->possibleSwaps[x];
+						GateNode * sw = env->possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] == g->control) {
-							Node *n1 = n->prepChild();
+							Node * n1 = n->prepChild();
 							n1->cycle--;
 							n1->laq[g->target] = sw->control;
 							n1->qal[sw->control] = g->target;
 							assert(n1->laq[g->control] == sw->target);
-							n1->cost = n->cost-1;//env->cost->getCost(n1);
+							n1->cost = n->cost - 1;//env->cost->getCost(n1);
 							if(nodes->push(n1)) {
 								numAdded++;
 							} else {
 								delete n1;
 							}
 						} else if(n->qal[sw->target] < 0 && n->qal[sw->control] == g->control) {
-							Node *n1 = n->prepChild();
+							Node * n1 = n->prepChild();
 							n1->cycle--;
 							n1->laq[g->target] = sw->target;
 							n1->qal[sw->target] = g->target;
 							assert(n1->laq[g->control] == sw->control);
-							n1->cost = n->cost-1;//env->cost->getCost(n1);
+							n1->cost = n->cost - 1;//env->cost->getCost(n1);
 							if(nodes->push(n1)) {
 								numAdded++;
 							} else {
@@ -158,7 +158,7 @@ public:
 		
 		vector<GateNode *> possibleGates;//executable ready gates
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			int target = g->target;
 			int control = g->control;
 			
@@ -192,7 +192,7 @@ public:
 			}
 		}
 		
-		Node *child = node->prepChild();
+		Node * child = node->prepChild();
 		int numgatesscheduled = 0;
 		
 		//schedule the gates
@@ -219,7 +219,7 @@ public:
 		}
 		
 		if(good) {
-			child->cost = node->cost-numgatesscheduled;//node->env->cost->getCost(child);
+			child->cost = node->cost - numgatesscheduled;//node->env->cost->getCost(child);
 			
 			if(!nodes->push(child)) {
 				delete child;

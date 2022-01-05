@@ -48,16 +48,16 @@ public:
 	
 	void setRetainPopped(int retain_popped);
 	
-	void setInitialMappingQal(const char *init_qal);
+	void setInitialMappingQal(const char * init_qal);
 	
-	void setInitialMappingLaq(const char *init_laq);
+	void setInitialMappingLaq(const char * init_laq);
 	
 	void clearInitialMapping();
 	
 	void setVerbose(bool verbose);
 	
 	std::unique_ptr<ToqmResult>
-	run(const std::vector<GateOp> &gates, std::size_t num_qubits, const CouplingMap &coupling_map) const;
+	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map) const;
 
 private:
 	class Impl;

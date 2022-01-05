@@ -11,10 +11,10 @@ namespace toqm {
 //CostFunc example
 class SimpleCost : public CostFunc {
 public:
-	int _getCost(Node *node) const {
+	int _getCost(Node * node) const {
 		int cost = 0;
 		int costT = 99999;
-		Environment *env = node->env;
+		Environment * env = node->env;
 		
 		//Calculate remaining cost of scheduled gates that haven't finished
 		int busyCyclesRemaining[env->numPhysicalQubits];
@@ -28,9 +28,9 @@ public:
 		//Consider cost of unscheduled gates
 		auto iter = node->readyGates.begin();
 		while(iter != node->readyGates.end()) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			
-			int tempcost = g->criticality+g->optimisticLatency;
+			int tempcost = g->criticality + g->optimisticLatency;
 			int tempcost2 = tempcost;
 			
 			int control = -1;
@@ -58,8 +58,8 @@ public:
 			}
 			
 			if(control >= 0 && target >= 0) {
-				int dist = env->couplingDistances[control * env->numPhysicalQubits+target];
-				if(dist < costT) costT = dist-1;
+				int dist = env->couplingDistances[control * env->numPhysicalQubits + target];
+				if(dist < costT) costT = dist - 1;
 				int minSwapCost = env->swapCost * (dist / 2);
 				assert(minSwapCost >= 0);
 				
@@ -69,10 +69,10 @@ public:
 						tempcost2 += minSwapCost;
 					} else if(tempcost < tempcost2) {
 						tempcost += minSwapCost;
-						tempcost2 += minSwapCost-env->swapCost;
+						tempcost2 += minSwapCost - env->swapCost;
 					} else {
 						tempcost2 += minSwapCost;
-						tempcost += minSwapCost-env->swapCost;
+						tempcost += minSwapCost - env->swapCost;
 					}
 				}
 			}

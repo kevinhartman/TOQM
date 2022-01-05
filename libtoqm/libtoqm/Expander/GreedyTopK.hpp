@@ -18,7 +18,7 @@ private:
 	
 	struct CmpNodeCost {
 		//REMINDER: I reversed the cost function here so I could remove inferior nodes on the fly, maintaining a smaller priority queue of only K nodes
-		bool operator()(const Node *lhs, const Node *rhs) const {
+		bool operator()(const Node * lhs, const Node * rhs) const {
 			//tiebreaker:
 			if(lhs->cost == rhs->cost) {
 				return lhs->cost2 <= rhs->cost2;
@@ -34,7 +34,7 @@ public:
 		this->K = k;
 	}
 	
-	bool expand(Queue *nodes, Node *node) const override {
+	bool expand(Queue * nodes, Node * node) const override {
 		//return false if we're done expanding
 		if(nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
 			return false;
@@ -55,19 +55,19 @@ public:
 		}
 		
 		//Identify, for each logical qubit, the CX (if any) that's on the CX frontier:
-		GateNode *CXFrontier[numQubits];
+		GateNode * CXFrontier[numQubits];
 		for(int x = 0; x < numQubits; x++) {
 			CXFrontier[x] = NULL;
 		}
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			if(g->control >= 0) {
 				CXFrontier[g->target] = g;
 				CXFrontier[g->control] = g;
 			}
 		}
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			if(g->control < 0) {
 				g = g->nextTargetCNOT;
 				if(g) {
@@ -87,7 +87,7 @@ public:
 		vector<GateNode *> possibleGates;
 		vector<GateNode *> guaranteedGates;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
 			int control = (g->control < 0) ? -1 : node->laq[g->control];
 			
@@ -133,7 +133,7 @@ public:
 			}
 		}
 		for(unsigned int x = 0; x < node->env->couplings.size(); x++) {
-			GateNode *g = node->env->possibleSwaps[x];
+			GateNode * g = node->env->possibleSwaps[x];
 			int target = g->target;//note: since g is swap, this is already the physical target
 			int control = g->control;//note: since g is swap, this is already the physical control
 			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
@@ -142,14 +142,14 @@ public:
 			bool helpsCX = false;
 			//bool hurtsExecutableCX = false;
 			if(logicalTarget >= 0 && CXFrontier[logicalTarget]) {
-				GateNode *cx = CXFrontier[logicalTarget];
+				GateNode * cx = CXFrontier[logicalTarget];
 				assert(cx->target >= 0);
 				assert(cx->control >= 0);
-				int currentDist = node->env->couplingDistances[node->laq[cx->control] * node->env->numPhysicalQubits+
+				int currentDist = node->env->couplingDistances[node->laq[cx->control] * node->env->numPhysicalQubits +
 															   node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
 				int hypotheticDist = node->env->couplingDistances[
-						node->laq[cx->control] * node->env->numPhysicalQubits+node->laq[cx->target]];
+						node->laq[cx->control] * node->env->numPhysicalQubits + node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
 				
 				if(hypotheticDist < currentDist) {
@@ -159,14 +159,14 @@ public:
 				}
 			}
 			if(logicalControl >= 0 && CXFrontier[logicalControl]) {
-				GateNode *cx = CXFrontier[logicalControl];
+				GateNode * cx = CXFrontier[logicalControl];
 				assert(cx->target >= 0);
 				assert(cx->control >= 0);
-				int currentDist = node->env->couplingDistances[node->laq[cx->control] * node->env->numPhysicalQubits+
+				int currentDist = node->env->couplingDistances[node->laq[cx->control] * node->env->numPhysicalQubits +
 															   node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
 				int hypotheticDist = node->env->couplingDistances[
-						node->laq[cx->control] * node->env->numPhysicalQubits+node->laq[cx->target]];
+						node->laq[cx->control] * node->env->numPhysicalQubits + node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
 				
 				if(hypotheticDist < currentDist) {
@@ -192,9 +192,9 @@ public:
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
-					ScheduledGate *t = node->lastNonSwapGate[logicalTarget];
+					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
-						GateNode *tg = t->gate;
+						GateNode * tg = t->gate;
 						if(tg->target == logicalTarget) {
 							if(tg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -211,9 +211,9 @@ public:
 				}
 				
 				if(logicalControl >= 0) {
-					ScheduledGate *c = node->lastNonSwapGate[logicalControl];
+					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
 					if(c) {
-						GateNode *cg = c->gate;
+						GateNode * cg = c->gate;
 						if(cg->target == logicalControl) {
 							if(cg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -261,7 +261,7 @@ public:
 		unsigned long long numIters = 1LL << possibleGates.size();
 		
 		for(unsigned long long x = 0; x < numIters; x++) {
-			Node *child = node->prepChild();
+			Node * child = node->prepChild();
 			bool good = true;
 			//schedule different subset of swaps and 2-qubit gates than for previous child nodes
 			for(unsigned int y = 0; good && y < possibleGates.size(); y++) {
@@ -300,7 +300,7 @@ public:
 				
 				//If priority queue is overfilled, delete extra node:
 				if(tempNodes.size() > this->K) {
-					Node *worstNode = tempNodes.top();
+					Node * worstNode = tempNodes.top();
 					tempNodes.pop();
 					delete worstNode;
 				}
@@ -313,7 +313,7 @@ public:
 		//Push top K into main priority queue
 		int counter = this->K;
 		while(counter > 0 && tempNodes.size() > 0) {
-			Node *child = tempNodes.top();
+			Node * child = tempNodes.top();
 			tempNodes.pop();
 			if(nodes->push(child)) {
 				counter--;
@@ -326,7 +326,7 @@ public:
 		
 		//cleanup the discarded children
 		while(tempNodes.size() > 0) {
-			Node *child = tempNodes.top();
+			Node * child = tempNodes.top();
 			tempNodes.pop();
 			delete child;
 		}

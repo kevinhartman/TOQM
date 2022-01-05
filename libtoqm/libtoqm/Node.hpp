@@ -21,8 +21,8 @@ const int MAX_QUBITS = 20;
 
 class Node {
 public:
-	Node *parent;//node from which this one expanded
-	Environment *env;//object with functions/data shared by all nodes
+	Node * parent;//node from which this one expanded
+	Environment * env;//object with functions/data shared by all nodes
 	int cycle;//current cycle
 	int cost;//the node's cost (in cycles)
 	int cost2 = 0;//used as tiebreaker in some places
@@ -36,21 +36,21 @@ public:
 	char qal[MAX_QUBITS];//qubit mapping
 	char laq[MAX_QUBITS];//qubit mapping (inverted)
 	
-	ScheduledGate *lastNonSwapGate[MAX_QUBITS];//last scheduled non-swap gate per LOGICAL qubit
-	ScheduledGate *lastGate[MAX_QUBITS];//last scheduled gate per PHYSICAL qubit
+	ScheduledGate * lastNonSwapGate[MAX_QUBITS];//last scheduled non-swap gate per LOGICAL qubit
+	ScheduledGate * lastGate[MAX_QUBITS];//last scheduled gate per PHYSICAL qubit
 	
 	//the number of cycles until the specified physical qubit is available
 	inline int busyCycles(int physicalQubit) {
-		ScheduledGate *sg = this->lastGate[physicalQubit];
+		ScheduledGate * sg = this->lastGate[physicalQubit];
 		if(!sg) return 0;
-		int cycles = sg->cycle+sg->latency-this->cycle;
+		int cycles = sg->cycle + sg->latency - this->cycle;
 		if(cycles < 0) return 0;
 		return cycles;
 	}
 	
 	std::set<GateNode *> readyGates;//set of gates in DAG whose parents have already been scheduled
 	
-	LinkedStack<ScheduledGate *> *scheduled;//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
+	LinkedStack<ScheduledGate *> * scheduled;//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
 	
 	Node();
 	
@@ -75,10 +75,10 @@ public:
 	//the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
 	//the timeOffset can be used if we want to schedule a gate to start X cycles in the future
 	//this function adjusts qubit map when scheduling a swap
-	bool scheduleGate(GateNode *gate, unsigned int timeOffset = 0);
+	bool scheduleGate(GateNode * gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
-	Node *prepChild();
+	Node * prepChild();
 };
 
 }

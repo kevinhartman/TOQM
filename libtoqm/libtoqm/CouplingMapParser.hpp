@@ -8,7 +8,7 @@
 namespace toqm {
 
 //parse coupling map, producing a list of edges and number of physical qubits
-CouplingMap parseCouplingMap(std::istream &in);
+CouplingMap parseCouplingMap(std::istream & in);
 
 }
 

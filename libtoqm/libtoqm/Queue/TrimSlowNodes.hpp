@@ -22,7 +22,7 @@ private:
 	unsigned int targetSize = 500;
 	
 	struct CmpCost {
-		bool operator()(const Node *lhs, const Node *rhs) const {
+		bool operator()(const Node * lhs, const Node * rhs) const {
 			//tiebreaker:
 			if(lhs->cost == rhs->cost) {
 				//return lhs->scheduled->size > rhs->scheduled->size;
@@ -36,7 +36,7 @@ private:
 	};
 	
 	struct CmpProgress {
-		bool operator()(const Node *lhs, const Node *rhs) const {
+		bool operator()(const Node * lhs, const Node * rhs) const {
 			//tiebreaker:
 			if(lhs->numUnscheduledGates == rhs->numUnscheduledGates) {
 				return lhs->cost > rhs->cost;
@@ -57,7 +57,7 @@ private:
 	 */
 	std::priority_queue<Node *, std::vector<Node *>, CmpProgress> tempQueue;
 	
-	bool pushNode(Node *newNode) override {
+	bool pushNode(Node * newNode) override {
 		nodes.push(newNode);
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
@@ -98,7 +98,7 @@ private:
 			}
 			//Delete the rest of the nodes
 			while(tempQueue.size() > 0) {
-				Node *n = tempQueue.top();
+				Node * n = tempQueue.top();
 				tempQueue.pop();
 				n->env->deleteRecord(n);
 				delete n;
@@ -123,10 +123,10 @@ public:
 		assert(this->maxSize != this->targetSize);
 	}
 	
-	Node *pop() override {
+	Node * pop() override {
 		numPopped++;
 		
-		Node *ret = nodes.top();
+		Node * ret = nodes.top();
 		nodes.pop();
 		
 		//std::cerr << "Debug message: popped node with cost " << ret->cost << "\n";

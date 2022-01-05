@@ -14,16 +14,16 @@
 
 //based on hash_combine from Boost libraries
 template<class T>
-inline void hash_combine(std::size_t &seed, const T &v) {
+inline void hash_combine(std::size_t & seed, const T & v) {
 	std::hash<T> hasher;
-	seed ^= hasher(v)+0x9e3779b9+(seed << 6)+(seed >> 2);
+	seed ^= hasher(v) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
 }
 
 #endif
 
 namespace toqm {
 
-inline std::size_t hashFunc1(Node *n) {
+inline std::size_t hashFunc1(Node * n) {
 	std::size_t hash_result = 0;
 	int numQubits = n->env->numPhysicalQubits;
 	
@@ -52,14 +52,14 @@ public:
 		return f;
 	}
 	
-	void deleteRecord(Node *n) override {
+	void deleteRecord(Node * n) override {
 		std::size_t hash_result = hashFunc1(n);
-		vector<Node *> *mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
+		vector<Node *> * mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
 		for(unsigned int blah = 0; blah < mapValue->size(); blah++) {
-			Node *n2 = (*mapValue)[blah];
+			Node * n2 = (*mapValue)[blah];
 			if(n2 == n) {
-				if(mapValue->size() > 1 && blah < mapValue->size()-1) {
-					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size()-1]);
+				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
+					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
 				}
 				mapValue->pop_back();
 				return;
@@ -67,13 +67,13 @@ public:
 		}
 	}
 	
-	bool filter(Node *newNode) override {
+	bool filter(Node * newNode) override {
 		int numQubits = newNode->env->numPhysicalQubits;
 		std::size_t hash_result = hashFunc1(newNode);
 		
 		//auto findNode = this->hashmap.find(hash_result);
 		//if(findNode != this->hashmap.end()) {
-		for(Node *candidate: this->hashmap[hash_result]) {
+		for(Node * candidate: this->hashmap[hash_result]) {
 			//Node * candidate = findNode->second;
 			bool willFilter = true;
 			
@@ -102,14 +102,14 @@ public:
 				int time = 0;
 				int newBusy = newNode->busyCycles(x);
 				if(newBusy) {
-					int temp = newBusy+newNode->cycle;
+					int temp = newBusy + newNode->cycle;
 					assert(temp > time);
 					time = temp;
 				}
 				int time2 = 0;
 				int canBusy = candidate->busyCycles(x);
 				if(canBusy) {
-					int temp = canBusy+candidate->cycle;
+					int temp = canBusy + candidate->cycle;
 					assert(temp > time2);
 					time2 = temp;
 				}
@@ -133,7 +133,7 @@ public:
 		return false;
 	}
 	
-	void printStatistics(std::ostream &stream) override {
+	void printStatistics(std::ostream & stream) override {
 		stream << "//HashFilter filtered " << numFiltered << " total nodes.\n";
 	}
 };

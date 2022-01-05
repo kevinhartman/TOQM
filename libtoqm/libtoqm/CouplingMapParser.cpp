@@ -2,7 +2,7 @@
 
 namespace toqm {
 
-CouplingMap parseCouplingMap(std::istream &in) {
+CouplingMap parseCouplingMap(std::istream & in) {
 	auto map = CouplingMap{};
 	
 	unsigned int numEdges;

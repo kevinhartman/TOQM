@@ -50,13 +50,13 @@ private:
 	typedef std::tuple<char *, int, int, int> key_t;
 	
 	struct key_hash : public std::unary_function<key_t, std::size_t> {
-		std::size_t operator()(const key_t &k) const {
+		std::size_t operator()(const key_t & k) const {
 			return std::get<0>(k)[0] ^ std::get<1>(k) ^ std::get<2>(k) ^ std::get<3>(k);
 		}
 	};
 	
 	struct key_equal : public std::binary_function<key_t, key_t, bool> {
-		bool operator()(const key_t &v0, const key_t &v1) const {
+		bool operator()(const key_t & v0, const key_t & v1) const {
 			return (!strcmp(std::get<0>(v0), std::get<0>(v1)) &&
 					std::get<1>(v0) == std::get<1>(v1) &&
 					std::get<2>(v0) == std::get<2>(v1) &&
@@ -67,13 +67,13 @@ private:
 	typedef std::tuple<char *, int> key_t2;
 	
 	struct key_hash2 : public std::unary_function<key_t2, std::size_t> {
-		std::size_t operator()(const key_t2 &k) const {
+		std::size_t operator()(const key_t2 & k) const {
 			return std::get<0>(k)[0] ^ std::get<1>(k);
 		}
 	};
 	
 	struct key_equal2 : public std::binary_function<key_t2, key_t2, bool> {
-		bool operator()(const key_t2 &v0, const key_t2 &v1) const {
+		bool operator()(const key_t2 & v0, const key_t2 & v1) const {
 			return (!strcmp(std::get<0>(v0), std::get<0>(v1)) &&
 					std::get<1>(v0) == std::get<1>(v1));
 		}
@@ -86,7 +86,7 @@ private:
 	std::unordered_map<key_t2, int, key_hash2, key_equal2> optimisticLatencies;
 	
 	//Tokenizer for parsing the latency table file:
-	char *getToken(std::istream &infile) {
+	char * getToken(std::istream & infile) {
 		char c;
 		int MAXBUFFERSIZE = 256;
 		char buffer[MAXBUFFERSIZE];
@@ -102,7 +102,7 @@ private:
 					comment = false;
 				}
 			} else if(c == '/') {//probably parsing the start of a single-line comment
-				if(bufferLoc && buffer[bufferLoc-1] == '/') {
+				if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 					bufferLoc--;//remove '/' from buffer
 					comment = true;
 				} else {
@@ -113,7 +113,7 @@ private:
 					buffer[bufferLoc++] = c;
 				} else if(bufferLoc) { //this whitespace is a token separator
 					buffer[bufferLoc++] = 0;
-					char *token = new char[bufferLoc];
+					char * token = new char[bufferLoc];
 					strcpy(token, buffer);
 					return token;
 				}
@@ -132,7 +132,7 @@ private:
 		
 		if(bufferLoc) {
 			buffer[bufferLoc++] = 0;
-			char *token = new char[bufferLoc];
+			char * token = new char[bufferLoc];
 			strcpy(token, buffer);
 			return token;
 		} else {
@@ -141,14 +141,14 @@ private:
 	}
 	
 	//Parse the latency table file:
-	void parseTable(std::istream &infile) {
-		char *token;
+	void parseTable(std::istream & infile) {
+		char * token;
 		while((token = getToken(infile))) {//Reminder: the single = instead of double == here is intentional.
 			int numBits = atoi(token);
-			char *gateName = getToken(infile);
-			char *target = getToken(infile);
-			char *control = getToken(infile);
-			char *latency = getToken(infile);;
+			char * gateName = getToken(infile);
+			char * target = getToken(infile);
+			char * control = getToken(infile);
+			char * latency = getToken(infile);;
 			
 			//Don't allow entries where physical qubits are only partially specified:
 			assert(numBits < 2 || (strcmp(target, "-") == strcmp(control, "-")));
@@ -189,7 +189,7 @@ private:
 	}
 
 public:
-	explicit Table(std::istream &source) {
+	explicit Table(std::istream & source) {
 		parseTable(source);
 	}
 	

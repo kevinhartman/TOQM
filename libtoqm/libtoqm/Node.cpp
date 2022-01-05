@@ -29,7 +29,7 @@ Node::~Node() {
 //the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
 //the timeOffset can be used if we want to schedule a gate to start X cycles in the future
 //this function adjusts qubit map when scheduling a swap
-bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
+bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 	bool isSwap = !gate->name.compare("swp");
 	isSwap = isSwap || !gate->name.compare("swp");
 	
@@ -64,7 +64,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 				readyGates.insert(gate->controlChild);
 			} else {
 				int childParentBit;
-				GateNode *otherParent;
+				GateNode * otherParent;
 				if(gate->controlChild->controlParent == gate) {
 					otherParent = gate->controlChild->targetParent;
 					if(gate->controlChild->targetParent) {
@@ -93,7 +93,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 				readyGates.insert(gate->targetChild);
 			} else {
 				int childParentBit;
-				GateNode *otherParent;
+				GateNode * otherParent;
 				if(gate->targetChild->controlParent == gate) {
 					otherParent = gate->targetChild->targetParent;
 					if(gate->targetChild->targetParent) {
@@ -118,7 +118,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 		}
 	}
 	
-	ScheduledGate *sg = new ScheduledGate(gate, this->cycle+timeOffset);
+	ScheduledGate * sg = new ScheduledGate(gate, this->cycle + timeOffset);
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
 	sg->latency = env->latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
@@ -168,12 +168,12 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 }
 
 //prepares a new child node (without scheduling any more gates)
-Node *Node::prepChild() {
-	Node *child = new Node;
+Node * Node::prepChild() {
+	Node * child = new Node;
 	child->numUnscheduledGates = this->numUnscheduledGates;
 	child->env = this->env;
 	child->parent = this;
-	child->cycle = this->cycle+1;
+	child->cycle = this->cycle + 1;
 	child->readyGates = this->readyGates;//note: this actually produces a separate copy
 	child->scheduled = scheduled->newRef();
 	for(int x = 0; x < env->numPhysicalQubits; x++) {

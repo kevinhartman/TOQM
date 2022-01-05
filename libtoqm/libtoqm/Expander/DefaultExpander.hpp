@@ -12,12 +12,12 @@
 namespace toqm {
 
 //return true iff inserting swap g in node's child would make a useless swap cycle
-bool isCyclic(Node *node, GateNode *g) {
+bool isCyclic(Node * node, GateNode * g) {
 	int target = g->target;
 	int control = g->control;
 	
 	if(node->lastGate[target] && node->lastGate[control]) {
-		LinkedStack<ScheduledGate *> *schdule = node->scheduled;
+		LinkedStack<ScheduledGate *> * schdule = node->scheduled;
 		while(schdule->size > 0) {
 			if(schdule->value->gate == g) {
 				return true;
@@ -38,7 +38,7 @@ bool isCyclic(Node *node, GateNode *g) {
 
 class DefaultExpander : public Expander {
 public:
-	bool expand(Queue *nodes, Node *node) const {
+	bool expand(Queue * nodes, Node * node) const {
 		//return false if we're done expanding
 		if(nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
 			return false;
@@ -49,7 +49,7 @@ public:
 		bool noMoreCX[node->env->numPhysicalQubits];
 		for(int x = 0; x < node->env->numPhysicalQubits; x++) {
 			noMoreCX[x] = false;
-			ScheduledGate *sg = node->lastNonSwapGate[x];
+			ScheduledGate * sg = node->lastNonSwapGate[x];
 			if(sg) {
 				if(sg->gate->target == x) {
 					if(!sg->gate->nextTargetCNOT) {
@@ -69,7 +69,7 @@ public:
 		vector<GateNode *> singleCycleGates;//valid 1 cycle non-swap gates
 		int numDependentGates = 0;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
 			int control = (g->control < 0) ? -1 : node->laq[g->control];
 			
@@ -127,7 +127,7 @@ public:
 		}
 		//generate list of valid gates, based on possible swaps
 		for(unsigned int x = 0; x < node->env->couplings.size(); x++) {
-			GateNode *g = node->env->possibleSwaps[x];
+			GateNode * g = node->env->possibleSwaps[x];
 			int target = g->target;//note: since g is swap, this is already a physical target
 			int control = g->control;//note: since g is swap, this is already a physical control
 			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
@@ -153,9 +153,9 @@ public:
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
-					ScheduledGate *t = node->lastNonSwapGate[logicalTarget];
+					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
-						GateNode *tg = t->gate;
+						GateNode * tg = t->gate;
 						if(tg->target == logicalTarget) {
 							if(tg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -172,9 +172,9 @@ public:
 				}
 				
 				if(logicalControl >= 0) {
-					ScheduledGate *c = node->lastNonSwapGate[logicalControl];
+					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
 					if(c) {
-						GateNode *cg = c->gate;
+						GateNode * cg = c->gate;
 						if(cg->target == logicalControl) {
 							if(cg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -227,7 +227,7 @@ public:
 		assert(possibleGates.size() < 64); //or else I need to do this differently
 		unsigned long long numIters = 1LL << possibleGates.size();
 		for(unsigned long long x = 0; x < numIters; x++) {
-			Node *child = node->prepChild();
+			Node * child = node->prepChild();
 			bool good = true;
 			//Schedule a unique subset of {swaps and 2-qubit gates}:
 			for(unsigned int y = 0; good && y < possibleGates.size(); y++) {

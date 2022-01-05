@@ -18,7 +18,7 @@ namespace toqm {
 
 struct QasmObject::Impl {
 	//Important variables for outputting an OPENQASM file:
-	char *QASM_version{};//string representation of OPENQASM version number (i.e. "2.0")
+	char * QASM_version{};//string representation of OPENQASM version number (i.e. "2.0")
 	std::vector<char *> includes;//list of include statements we need to reproduce in output
 	std::vector<char *> customGates;//list of gate definitions we need to reproduce in output
 	std::vector<char *> opaqueGates;//list of opaque gate definitions we need to reproduce in output
@@ -35,7 +35,7 @@ struct QasmObject::Impl {
 	std::vector<GateOp> gate_ops;
 	
 	///Gives the flat-array index of the first bit in the specified qreg
-	int getQregOffset(char *name) {
+	int getQregOffset(char * name) {
 		int offset = 0;
 		for(unsigned int x = 0; x < qregName.size(); x++) {
 			if(!std::strcmp(name, qregName[x])) {
@@ -52,7 +52,7 @@ struct QasmObject::Impl {
 	}
 	
 	///Gives the flat-array index of the first bit in the specified creg
-	int getCregOffset(char *name) {
+	int getCregOffset(char * name) {
 		int offset = 0;
 		for(unsigned int x = 0; x < cregName.size(); x++) {
 			if(!std::strcmp(name, cregName[x])) {
@@ -79,14 +79,14 @@ std::size_t QasmObject::numQubits() const {
 	return qubits;
 }
 
-const std::vector<GateOp> &QasmObject::gateOperations() const {
+const std::vector<GateOp> & QasmObject::gateOperations() const {
 	return impl->gate_ops;
 }
 
 namespace {
 
 ///Gets next token in the OPENQASM file we're parsing
-char *getToken(std::istream &infile, bool &sawSemicolon) {
+char * getToken(std::istream & infile, bool & sawSemicolon) {
 	char c;
 	int MAXBUFFERSIZE = 256;
 	char buffer[MAXBUFFERSIZE];
@@ -98,7 +98,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 	
 	if(sawSemicolon) {//saw semicolon in previous call, but had to return a different token
 		sawSemicolon = false;
-		char *token = new char[2];
+		char * token = new char[2];
 		token[0] = ';';
 		token[1] = 0;
 		return token;
@@ -116,7 +116,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 			if(c == '"') {
 				quote = false;
 				buffer[bufferLoc++] = 0;
-				char *token = new char[bufferLoc];
+				char * token = new char[bufferLoc];
 				strcpy(token, buffer);
 				return token;
 			}
@@ -126,7 +126,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 			buffer[bufferLoc++] = c;
 		} else if(c == '\r') {
 		} else if(c == '/') {//probably parsing the start of a single-line comment
-			if(bufferLoc && buffer[bufferLoc-1] == '/') {
+			if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 				bufferLoc--;//remove '/' from buffer
 				comment = true;
 			} else {
@@ -143,7 +143,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 			}
 			
 			buffer[bufferLoc++] = 0;
-			char *token = new char[bufferLoc];
+			char * token = new char[bufferLoc];
 			strcpy(token, buffer);
 			return token;
 		} else if(c == ' ' || c == '\n' || c == '\t' || c == ',') {
@@ -151,7 +151,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 				buffer[bufferLoc++] = c;
 			} else if(bufferLoc) { //this whitespace is a token separator
 				buffer[bufferLoc++] = 0;
-				char *token = new char[bufferLoc];
+				char * token = new char[bufferLoc];
 				strcpy(token, buffer);
 				return token;
 			}
@@ -182,7 +182,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 	
 	if(bufferLoc) {
 		buffer[bufferLoc++] = 0;
-		char *token = new char[bufferLoc];
+		char * token = new char[bufferLoc];
 		strcpy(token, buffer);
 		return token;
 	} else {
@@ -191,7 +191,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 }
 
 //returns entire gate definition (except the 'gate' keyword) as a string.
-char *getCustomGate(std::istream &infile) {
+char * getCustomGate(std::istream & infile) {
 	char c;
 	int MAXBUFFERSIZE = 1024;
 	char buffer[MAXBUFFERSIZE];
@@ -207,7 +207,7 @@ char *getCustomGate(std::istream &infile) {
 				comment = false;
 			}
 		} else if(c == '/') {//probably parsing the start of a single-line comment
-			if(bufferLoc && buffer[bufferLoc-1] == '/') {
+			if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 				bufferLoc--;//remove '/' from buffer
 				comment = true;
 			}
@@ -220,7 +220,7 @@ char *getCustomGate(std::istream &infile) {
 			buffer[bufferLoc++] = c;
 			
 			buffer[bufferLoc++] = 0;
-			char *token = new char[bufferLoc];
+			char * token = new char[bufferLoc];
 			strcpy(token, buffer);
 			return token;
 		} else {
@@ -234,7 +234,7 @@ char *getCustomGate(std::istream &infile) {
 
 //returns the rest of the statement up to and including the semicolon at its end
 //I use this for saving opaque gate statements
-char *getRestOfStatement(std::istream &infile) {
+char * getRestOfStatement(std::istream & infile) {
 	char c;
 	int MAXBUFFERSIZE = 1024;
 	char buffer[MAXBUFFERSIZE];
@@ -249,7 +249,7 @@ char *getRestOfStatement(std::istream &infile) {
 				comment = false;
 			}
 		} else if(c == '/') {//probably parsing the start of a single-line comment
-			if(bufferLoc && buffer[bufferLoc-1] == '/') {
+			if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 				bufferLoc--;//remove '/' from buffer
 				comment = true;
 			}
@@ -257,7 +257,7 @@ char *getRestOfStatement(std::istream &infile) {
 			buffer[bufferLoc++] = c;
 			
 			buffer[bufferLoc++] = 0;
-			char *token = new char[bufferLoc];
+			char * token = new char[bufferLoc];
 			strcpy(token, buffer);
 			return token;
 		} else {
@@ -271,7 +271,7 @@ char *getRestOfStatement(std::istream &infile) {
 
 //Print a node's scheduled gates
 //returns how many cycles the node takes to complete all its gates
-int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
+int printNode(std::ostream & stream, LinkedStack<ScheduledGate *> * gates) {
 	int cycles = 0;
 	std::stack<ScheduledGate *> gateStack;
 	while(gates->size > 0) {
@@ -280,7 +280,7 @@ int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
 	}
 	
 	while(!gateStack.empty()) {
-		ScheduledGate *sg = gateStack.top();
+		ScheduledGate * sg = gateStack.top();
 		gateStack.pop();
 		int target = sg->physicalTarget;
 		int control = sg->physicalControl;
@@ -302,8 +302,8 @@ int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
 		}
 		stream << "\n";
 		
-		if(sg->cycle+sg->latency > cycles) {
-			cycles = sg->cycle+sg->latency;
+		if(sg->cycle + sg->latency > cycles) {
+			cycles = sg->cycle + sg->latency;
 		}
 	}
 	
@@ -313,13 +313,13 @@ int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
 }
 
 ///Parses the specified OPENQASM file
-std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
+std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 	auto qasmObject = std::unique_ptr<QasmObject>(new QasmObject());
-	auto &impl = qasmObject->impl;
+	auto & impl = qasmObject->impl;
 	
-	vector<GateOp> &gates = impl->gate_ops;
+	vector<GateOp> & gates = impl->gate_ops;
 	
-	char *token = 0;
+	char * token = 0;
 	bool b = false;
 	while((token = getToken(infile, b))) {//Reminder: the single = instead of double == here is intentional.
 		
@@ -351,11 +351,11 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
 		} else if(!strcmp(token, "qreg")) {
-			char *bitArray = getToken(infile, b);
+			char * bitArray = getToken(infile, b);
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
 			
-			char *temp = bitArray;
+			char * temp = bitArray;
 			int size = 0;
 			while(*temp != '[' && *temp != 0) {
 				temp++;
@@ -363,18 +363,18 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			if(*temp == 0) {
 				size = 1;
 			} else {
-				size = std::atoi(temp+1);
+				size = std::atoi(temp + 1);
 			}
 			
 			*temp = 0;
 			impl->qregName.push_back(bitArray);
 			impl->qregSize.push_back(size);
 		} else if(!strcmp(token, "creg")) {
-			char *bitArray = getToken(infile, b);
+			char * bitArray = getToken(infile, b);
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
 			
-			char *temp = bitArray;
+			char * temp = bitArray;
 			int size = 0;
 			while(*temp != '[' && *temp != 0) {
 				temp++;
@@ -382,24 +382,24 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			if(*temp == 0) {
 				size = 1;
 			} else {
-				size = std::atoi(temp+1);
+				size = std::atoi(temp + 1);
 			}
 			
 			*temp = 0;
 			impl->cregName.push_back(bitArray);
 			impl->cregSize.push_back(size);
 		} else if(!strcmp(token, "measure")) {
-			char *qbit = getToken(infile, b);
+			char * qbit = getToken(infile, b);
 			
 			token = getToken(infile, b);
 			assert(!strcmp(token, "->"));
 			
-			char *cbit = getToken(infile, b);
+			char * cbit = getToken(infile, b);
 			
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
 			
-			char *temp = qbit;
+			char * temp = qbit;
 			int qdx = 0;
 			while(*temp != '[' && *temp != 0) {
 				temp++;
@@ -407,7 +407,7 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			if(*temp == 0) {
 				qdx = 0;
 			} else {
-				qdx = std::atoi(temp+1);
+				qdx = std::atoi(temp + 1);
 			}
 			*temp = 0;
 			
@@ -419,16 +419,16 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			if(*temp == 0) {
 				cdx = 0;
 			} else {
-				cdx = std::atoi(temp+1);
+				cdx = std::atoi(temp + 1);
 			}
 			*temp = 0;
 			
-			impl->measures.emplace_back(qdx+impl->getQregOffset(qbit), cdx+impl->getCregOffset(cbit));
+			impl->measures.emplace_back(qdx + impl->getQregOffset(qbit), cdx + impl->getCregOffset(cbit));
 		} else if(!strcmp(token, ";")) {
 			std::cerr << "Warning: unexpected semicolon.\n";
 		} else {
-			char *gateName = token;
-			char *qubit1Token = getToken(infile, b);
+			char * gateName = token;
+			char * qubit1Token = getToken(infile, b);
 			if(strcmp(qubit1Token, ";")) {
 				assert(qubit1Token && qubit1Token[0] != 0);
 				int temp = 1;
@@ -439,12 +439,12 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 				//Get flat array index corresponding to this qubit
 				int originalOffset = 0;
 				if(qubit1Token[temp] != 0) {
-					originalOffset = atoi(qubit1Token+temp+1);
+					originalOffset = atoi(qubit1Token + temp + 1);
 				}
 				qubit1Token[temp] = 0;
-				int qubit1FlatOffset = impl->getQregOffset(qubit1Token)+originalOffset;
+				int qubit1FlatOffset = impl->getQregOffset(qubit1Token) + originalOffset;
 				
-				char *qubit2Token = getToken(infile, b);
+				char * qubit2Token = getToken(infile, b);
 				if(strcmp(qubit2Token, ";")) {
 					assert(qubit2Token && qubit2Token[0] != 0);
 					int temp = 1;
@@ -455,10 +455,10 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 					//Get flat array index corresponding to this qubit
 					int originalOffset = 0;
 					if(qubit2Token[temp] != 0) {
-						originalOffset = atoi(qubit2Token+temp+1);
+						originalOffset = atoi(qubit2Token + temp + 1);
 					}
 					qubit2Token[temp] = 0;
-					int qubit2FlatOffset = impl->getQregOffset(qubit2Token)+originalOffset;
+					int qubit2FlatOffset = impl->getQregOffset(qubit2Token) + originalOffset;
 					
 					//We do not accept gates with three (or more) qubits:
 					token = getToken(infile, b);
@@ -481,8 +481,8 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 	return qasmObject;
 }
 
-void QasmObject::toQasm2(std::ostream &out, const ToqmResult &result) const {
-	auto &finalNode = *result.finalNode;
+void QasmObject::toQasm2(std::ostream & out, const ToqmResult & result) const {
+	auto & finalNode = *result.finalNode;
 	
 	//Print out the initial mapping:
 	std::cout << "//Note: initial mapping (logical qubit at each location): ";
@@ -498,19 +498,19 @@ void QasmObject::toQasm2(std::ostream &out, const ToqmResult &result) const {
 	
 	//Print the OPENQASM output:
 	out << "OPENQASM " << impl->QASM_version << ";\n";
-	for(auto &include: impl->includes) {
+	for(auto & include: impl->includes) {
 		out << "include " << include << ";\n";
 	}
-	for(auto &customGate: impl->customGates) {
+	for(auto & customGate: impl->customGates) {
 		out << "gate " << customGate << "\n";
 	}
-	for(auto &opaqueGate: impl->opaqueGates) {
+	for(auto & opaqueGate: impl->opaqueGates) {
 		out << "opaque " << opaqueGate << "\n";
 	}
 	out << "qreg q[" << result.numPhysicalQubits << "];\n";
 	out << "creg c[" << result.numPhysicalQubits << "];\n";
 	int numCycles = printNode(out, finalNode.scheduled);
-	for(auto &measure: impl->measures) {
+	for(auto & measure: impl->measures) {
 		out << "measure q[" << (int) finalNode.laq[measure.first] << "] -> c["
 			<< measure.second << "];\n";
 	}
@@ -522,7 +522,7 @@ void QasmObject::toQasm2(std::ostream &out, const ToqmResult &result) const {
 	std::cout << "//" << result.idealCycles << " ideal depth (cycles)\n";
 	std::cout << "//" << numCycles
 			  << " depth of generated circuit\n"; //" (and costFunc reports " << finalNode->cost << ")\n";
-	std::cout << "//" << (result.numPopped-1) << " nodes popped from queue for processing.\n";
+	std::cout << "//" << (result.numPopped - 1) << " nodes popped from queue for processing.\n";
 	std::cout << "//" << result.remaining->size() << " nodes remain in queue.\n";
 	std::cout << result.filterStats;
 	//}

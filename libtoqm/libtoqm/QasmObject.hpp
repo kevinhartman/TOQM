@@ -16,18 +16,18 @@ public:
 	
 	~QasmObject();
 	
-	const std::vector<GateOp> &gateOperations() const;
+	const std::vector<GateOp> & gateOperations() const;
 	
 	std::size_t numQubits() const;
 	
-	void toQasm2(std::ostream &out, const ToqmResult &result) const;
+	void toQasm2(std::ostream & out, const ToqmResult & result) const;
 	
 	/**
 	 * Parses a quantum file.
 	 * @param in stream of openqasm 2.0 contents
 	 * @return an object representation of the openqasm 2.0 contents.
 	 */
-	static std::unique_ptr<QasmObject> fromQasm2(std::istream &in);
+	static std::unique_ptr<QasmObject> fromQasm2(std::istream & in);
 
 private:
 	class Impl;

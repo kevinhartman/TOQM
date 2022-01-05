@@ -15,7 +15,7 @@ extern bool _verbose;
 class DefaultQueue : public Queue {
 private:
 	struct CmpDefaultQueue {
-		bool operator()(const Node *lhs, const Node *rhs) const {
+		bool operator()(const Node * lhs, const Node * rhs) const {
 			//tiebreaker:
 			if(lhs->cost == rhs->cost) {
 				//return lhs->scheduled->size > rhs->scheduled->size;
@@ -30,7 +30,7 @@ private:
 	
 	std::priority_queue<Node *, std::vector<Node *>, CmpDefaultQueue> nodes;
 	
-	bool pushNode(Node *newNode) override {
+	bool pushNode(Node * newNode) override {
 		nodes.push(newNode);
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
@@ -60,10 +60,10 @@ private:
 	int garbage2 = 9999999;
 
 public:
-	Node *pop() override {
+	Node * pop() override {
 		numPopped++;
 		
-		Node *ret = nodes.top();
+		Node * ret = nodes.top();
 		nodes.pop();
 		
 		if(!ret->readyGates.size()) {

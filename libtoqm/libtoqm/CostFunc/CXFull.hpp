@@ -10,15 +10,15 @@ namespace toqm {
 
 class CXFull : public CostFunc {
 public:
-	int _getCost(Node *node) const {
+	int _getCost(Node * node) const {
 		//bool debug = node->cost > 0;//called getCost for second time on this node
 		
 		int cost = 0;
 		int costT = 99999;
-		Environment *env = node->env;
-		GateNode *next2BitGate[env->numPhysicalQubits];
+		Environment * env = node->env;
+		GateNode * next2BitGate[env->numPhysicalQubits];
 		int pathLength[env->numPhysicalQubits];
-		GateNode *next2BitGate2[env->numPhysicalQubits];
+		GateNode * next2BitGate2[env->numPhysicalQubits];
 		for(int x = 0; x < env->numPhysicalQubits; x++) {
 			next2BitGate[x] = NULL;
 			next2BitGate2[x] = NULL;
@@ -31,7 +31,7 @@ public:
 		
 		//search from last scheduled (non-swap) gates
 		for(int x = 0; x < env->numPhysicalQubits; x++) {
-			ScheduledGate *sg = node->lastNonSwapGate[x];
+			ScheduledGate * sg = node->lastNonSwapGate[x];
 			if(sg) {
 				//get latest physical location of logical qubit x:
 				int actualQubit;
@@ -47,7 +47,7 @@ public:
 				if(!pathLength[actualQubit]) {
 					pathLength[actualQubit] = 1;//since we won't schedule any more gates this cycle
 				}
-				GateNode *temp;
+				GateNode * temp;
 				if(sg->gate->target == x) {
 					temp = sg->gate->targetChild;
 				} else {
@@ -66,7 +66,7 @@ public:
 		//also search from ready gates, in case some qubits haven't scheduled gates yet
 		auto iter = node->readyGates.begin();
 		while(iter != node->readyGates.end()) {
-			GateNode *g = *iter;
+			GateNode * g = *iter;
 			int physicalTarget = node->laq[g->target];
 			
 			if(physicalTarget < 0) {
@@ -80,7 +80,7 @@ public:
 				if(!pathLength[physicalTarget]) {
 					pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 				}
-				GateNode *temp = g;
+				GateNode * temp = g;
 				while(temp && temp->control < 0) {
 					pathLength[physicalTarget] += temp->optimisticLatency;
 					temp = temp->targetChild;
@@ -139,7 +139,7 @@ public:
 			iterNum++;
 			nonemptyFrontier = false;
 			for(int x = 0; x < env->numPhysicalQubits; x++) {
-				GateNode *g = next2BitGate[x];
+				GateNode * g = next2BitGate[x];
 				next2BitGate2[x] = NULL;
 				if(g) {
 					//if(debug) std::cerr << "  considering next gate for physical qubit " << x << "\n";
@@ -175,7 +175,7 @@ public:
 					}
 					
 					int minSwaps =
-							env->couplingDistances[physicalControl * env->numPhysicalQubits+physicalTarget]-1;
+							env->couplingDistances[physicalControl * env->numPhysicalQubits + physicalTarget] - 1;
 					if(!iterNum && minSwaps < costT) costT = minSwaps;
 					int totalSwapCost = env->swapCost * minSwaps;
 					
@@ -186,7 +186,7 @@ public:
 					//if(debug) std::cerr << "   path lengths: " << length1 << "," << length2 << "\n";
 					//if(debug) std::cerr << "   swaps needed at least: " << minSwaps << "\n";
 					
-					int slack = length1-length2;
+					int slack = length1 - length2;
 					int effectiveSlack = (slack / env->swapCost) * env->swapCost;
 					if(effectiveSlack > totalSwapCost) {
 						effectiveSlack = totalSwapCost;
@@ -194,14 +194,14 @@ public:
 					
 					//if(debug) std::cerr << "   effective slack cycles: " << effectiveSlack << "\n";
 					
-					int mutualSwapCost = totalSwapCost-effectiveSlack;
+					int mutualSwapCost = totalSwapCost - effectiveSlack;
 					int extraSwapCost = (0x1 & (mutualSwapCost / env->swapCost)) * env->swapCost;
 					mutualSwapCost -= extraSwapCost;
 					assert((mutualSwapCost % env->swapCost) == 0);
 					mutualSwapCost = mutualSwapCost >> 1;
 					
-					int cost1 = g->optimisticLatency+g->criticality+length1+mutualSwapCost;
-					int cost2 = g->optimisticLatency+g->criticality+length2+mutualSwapCost+effectiveSlack;
+					int cost1 = g->optimisticLatency + g->criticality + length1 + mutualSwapCost;
+					int cost2 = g->optimisticLatency + g->criticality + length2 + mutualSwapCost + effectiveSlack;
 					
 					if(cost1 < cost2) {
 						cost1 += extraSwapCost;
@@ -229,7 +229,7 @@ public:
 			
 			for(int x = 0; x < env->numPhysicalQubits; x++) {
 				if(next2BitGate[x] && next2BitGate2[x] == next2BitGate[x]) {
-					GateNode *g = next2BitGate[x];
+					GateNode * g = next2BitGate[x];
 					int addlPath = g->optimisticLatency;
 					int physicalTarget = node->laq[g->target];
 					int physicalControl = node->laq[g->control];
