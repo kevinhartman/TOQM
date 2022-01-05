@@ -3,43 +3,43 @@
 
 set(HEADER_LIST
         "CommonTypes.hpp"
+        "CostFunc.hpp"
         "CostFunc/CXFrontier.hpp"
         "CostFunc/CXFull.hpp"
         "CostFunc/SimpleCost.hpp"
-        "CouplingMapParser.hpp"
+        "CouplingMap.hpp"
+        "Environment.hpp"
+        "Expander.hpp"
         "Expander/DefaultExpander.hpp"
         "Expander/GreedyTopK.hpp"
         "Expander/NoSwaps.hpp"
+        "Filter.hpp"
         "Filter/HashFilter.hpp"
         "Filter/HashFilter2.hpp"
+        "GateNode.hpp"
+        "Latency.hpp"
         "Latency/Latency_1.hpp"
         "Latency/Latency_1_2_6.hpp"
         "Latency/Latency_1_3.hpp"
         "Latency/Table.hpp"
-        "NodeMod/GreedyMapper.hpp"
-        "Queue/DefaultQueue.hpp"
-        "Queue/TrimSlowNodes.hpp"
-        "CostFunc.hpp"
-        "Environment.hpp"
-        "Expander.hpp"
-        "Filter.hpp"
-        "GateNode.hpp"
-        "Latency.hpp"
         "LinkedStack.hpp"
-        "QasmObject.hpp"
         "Node.hpp"
         "NodeMod.hpp"
+        "NodeMod/GreedyMapper.hpp"
+        "QasmObject.hpp"
         "Queue.hpp"
+        "Queue/DefaultQueue.hpp"
+        "Queue/TrimSlowNodes.hpp"
         "ScheduledGate.hpp"
         "ToqmMapper.hpp"
-        ToqmResult.hpp)
+        "ToqmResult.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(toqm
-        ToqmMapper.cpp
+        CouplingMap.cpp
         Node.cpp
         QasmObject.cpp
-        CouplingMapParser.cpp
+        ToqmMapper.cpp
         ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too

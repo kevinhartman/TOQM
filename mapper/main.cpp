@@ -1,6 +1,6 @@
 #include <libtoqm/ToqmMapper.hpp>
 #include <libtoqm/QasmObject.hpp>
-#include <libtoqm/CouplingMapParser.hpp>
+#include <libtoqm/CouplingMap.hpp>
 #include <libtoqm/Node.hpp>
 #include <libtoqm/CostFunc/CXFrontier.hpp>
 #include <libtoqm/CostFunc/CXFull.hpp>
@@ -472,13 +472,13 @@ int main(int argc, char ** argv) {
 		}
 	}
 	
-	auto mapper = std::make_unique<toqm::ToqmMapper>(
+	auto mapper = unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(
 			nodes,
 			move(ex),
 			move(cf),
 			move(lat),
 			move(mods),
-			move(filters));
+			move(filters)));
 	
 	mapper->setRetainPopped(retainPopped);
 	mapper->setInitialSearchCycles(initialSearchCycles);
@@ -493,7 +493,7 @@ int main(int argc, char ** argv) {
 	auto qasmFile = ifstream(qasmFileName);
 	auto couplingMapFile = ifstream(couplingMapFileName);
 	
-	auto qasm = toqm::QasmObject::fromQasm2(qasmFile);
+	auto qasm = toqm::parseQasm2(qasmFile);
 	auto couplingMap = toqm::parseCouplingMap(couplingMapFile);
 	
 	// invoke TOQM algo

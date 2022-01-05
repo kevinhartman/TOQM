@@ -78,7 +78,7 @@ private:
 
 public:
 	std::unique_ptr<Filter> createEmptyCopy() override {
-		auto f = std::make_unique<HashFilter2>();
+		auto f = std::unique_ptr<HashFilter2>(new HashFilter2());
 		f->numFiltered = this->numFiltered;
 		f->numMarkedDead = this->numMarkedDead;
 		return f;

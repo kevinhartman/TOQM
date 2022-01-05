@@ -1,5 +1,5 @@
-#ifndef TOQM_COUPLINGMAPPARSER_H
-#define TOQM_COUPLINGMAPPARSER_H
+#ifndef TOQM_COUPLINGMAPPARSER_HPP
+#define TOQM_COUPLINGMAPPARSER_HPP
 
 #include "CommonTypes.hpp"
 
@@ -12,4 +12,4 @@ CouplingMap parseCouplingMap(std::istream & in);
 
 }
 
-#endif //TOQM_COUPLINGMAPPARSER_H
+#endif //TOQM_COUPLINGMAPPARSER_HPP

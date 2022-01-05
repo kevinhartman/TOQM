@@ -1,5 +1,5 @@
-#ifndef QASM2_HPP
-#define QASM2_HPP
+#ifndef QASMOBJECT_HPP
+#define QASMOBJECT_HPP
 
 #include "CommonTypes.hpp"
 
@@ -34,6 +34,8 @@ private:
 	
 	std::unique_ptr<Impl> impl;
 };
+
+constexpr auto parseQasm2 = QasmObject::fromQasm2;
 
 }
 
