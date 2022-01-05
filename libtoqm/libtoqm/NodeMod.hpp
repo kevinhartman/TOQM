@@ -9,9 +9,9 @@ class Node;
 
 class NodeMod {
 public:
-    virtual ~NodeMod() {};
-
-    virtual void mod(Node *node, int flag) const = 0;
+	virtual ~NodeMod() {};
+	
+	virtual void mod(Node * node, int flag) const = 0;
 };
 
 }
