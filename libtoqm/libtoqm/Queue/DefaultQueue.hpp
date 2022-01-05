@@ -22,21 +22,21 @@ private:
 				//return lhs->numUnscheduledGates > rhs->numUnscheduledGates;
 				//return lhs->cycle < rhs->cycle;
 			}
-
+			
 			//lower cost is better
 			return lhs->cost > rhs->cost;
 		}
 	};
-
+	
 	std::priority_queue<Node *, std::vector<Node *>, CmpDefaultQueue> nodes;
-
+	
 	bool pushNode(Node *newNode) override {
 		nodes.push(newNode);
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
 				garbage = newNode->numUnscheduledGates;
 				garbage2 = newNode->cost;
-
+				
 				std::cerr << "dbg More progress!\n";
 				std::cerr << " " << garbage << " gates remain!\n";
 				std::cerr << " cost is " << newNode->cost << "\n";
@@ -55,17 +55,17 @@ private:
 		}
 		return true;
 	}
-
+	
 	int garbage = 9999999;
 	int garbage2 = 9999999;
 
 public:
 	Node *pop() override {
 		numPopped++;
-
+		
 		Node *ret = nodes.top();
 		nodes.pop();
-
+		
 		if(!ret->readyGates.size()) {
 			assert(ret->numUnscheduledGates == 0);
 			bool done = true;
@@ -80,10 +80,10 @@ public:
 				}
 			}
 		}
-
+		
 		return ret;
 	}
-
+	
 	int size() override {
 		return nodes.size();
 	}

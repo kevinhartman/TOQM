@@ -15,7 +15,7 @@ namespace toqm {
 bool isCyclic(Node *node, GateNode *g) {
 	int target = g->target;
 	int control = g->control;
-
+	
 	if(node->lastGate[target] && node->lastGate[control]) {
 		LinkedStack<ScheduledGate *> *schdule = node->scheduled;
 		while(schdule->size > 0) {
@@ -43,9 +43,9 @@ public:
 		if(nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
 			return false;
 		}
-
+		
 		unsigned int nodesSize = nodes->size();
-
+		
 		bool noMoreCX[node->env->numPhysicalQubits];
 		for(int x = 0; x < node->env->numPhysicalQubits; x++) {
 			noMoreCX[x] = false;
@@ -63,7 +63,7 @@ public:
 				}
 			}
 		}
-
+		
 		//generate list of valid gates, based on ready list
 		vector<GateNode *> possibleGates;//possible swaps and valid 2+ cycle gates
 		vector<GateNode *> singleCycleGates;//valid 1 cycle non-swap gates
@@ -72,10 +72,10 @@ public:
 			GateNode *g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
 			int control = (g->control < 0) ? -1 : node->laq[g->control];
-
+			
 			bool good = node->cycle >= -1;
 			bool dependsOnSomething = false;
-
+			
 			if(control >= 0) {//gate has a control qubit
 				int busy = node->busyCycles(control);
 				if(busy) {
@@ -89,7 +89,7 @@ public:
 					noMoreCX[target] = true;
 				}
 			}
-
+			
 			if(g->target >= 0) {//gate has a target qubit
 				int busy = node->busyCycles(target);
 				if(busy) {
@@ -99,15 +99,15 @@ public:
 					}
 				}
 			}
-
+			
 			if(dependsOnSomething) {
 				numDependentGates++;
 			}
-
+			
 			if(good && node->cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
 				good = false;
 			}
-
+			
 			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
 				if(node->env->couplings.count(make_pair(target, control)) <= 0) {
 					if(node->env->couplings.count(make_pair(control, target)) <= 0) {
@@ -115,7 +115,7 @@ public:
 					}
 				}
 			}
-
+			
 			if(good) {
 				int latency = node->env->latency.getLatency(g->name, (control >= 0 ? 2 : 1), target, control);
 				if(latency == 1) {
@@ -132,10 +132,10 @@ public:
 			int control = g->control;//note: since g is swap, this is already a physical control
 			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
 			int logicalControl = (control >= 0) ? node->qal[control] : -1;
-
+			
 			bool good = true;
 			bool dependsOnSomething = false;
-
+			
 			bool usesLogicalQubit = false;
 			if(good && logicalTarget >= 0) {
 				usesLogicalQubit = true;
@@ -144,12 +144,12 @@ public:
 				usesLogicalQubit = true;
 			}
 			good = good && usesLogicalQubit;
-
+			
 			//make sure this swap involves a qubit that has more 2-qubit gates ahead
 			if(good && (noMoreCX[logicalTarget] && noMoreCX[logicalControl])) {
 				good = false;
 			}
-
+			
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
@@ -170,7 +170,7 @@ public:
 						usesUsefulLogicalQubit = true;//better safe than sorry
 					}
 				}
-
+				
 				if(logicalControl >= 0) {
 					ScheduledGate *c = node->lastNonSwapGate[logicalControl];
 					if(c) {
@@ -193,7 +193,7 @@ public:
 			if(!usesUsefulLogicalQubit) {//swapping qubits that are never used again
 				good = false;
 			}
-
+			
 			int busyT = node->busyCycles(target);
 			if(good && busyT) {
 				dependsOnSomething = true;
@@ -223,7 +223,7 @@ public:
 			//Reminder: this line caused problems when I tried placing it before looking at swaps
 			return true;
 		}
-
+		
 		assert(possibleGates.size() < 64); //or else I need to do this differently
 		unsigned long long numIters = 1LL << possibleGates.size();
 		for(unsigned long long x = 0; x < numIters; x++) {
@@ -239,7 +239,7 @@ public:
 					}
 				}
 			}
-
+			
 			if(!good) {
 				delete child;
 			} else {
@@ -247,18 +247,18 @@ public:
 				for(unsigned int y = 0; good && y < singleCycleGates.size(); y++) {
 					child->scheduleGate(singleCycleGates[y]);
 				}
-
+				
 				int cycleMod = (child->cycle < 0) ? child->cycle : 0;
 				child->cycle -= cycleMod;
 				child->cost = node->env->cost.getCost(child);
 				child->cycle += cycleMod;
-
+				
 				if(!nodes->push(child)) {
 					delete child;
 				}
 			}
 		}
-
+		
 		return true;
 	}
 };

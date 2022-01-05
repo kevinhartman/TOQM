@@ -9,9 +9,9 @@ namespace toqm {
 class CostFunc {
 public:
 	virtual ~CostFunc() {};
-
+	
 	virtual int _getCost(Node *node) const = 0;
-
+	
 	///Returns the cost of the node
 	///This may invoke node modifiers prior to calculating the cost.
 	int getCost(Node *node) const {

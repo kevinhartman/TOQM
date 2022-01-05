@@ -20,7 +20,7 @@ class TrimSlowNodes : public Queue {
 private:
 	unsigned int maxSize = 1000;
 	unsigned int targetSize = 500;
-
+	
 	struct CmpCost {
 		bool operator()(const Node *lhs, const Node *rhs) const {
 			//tiebreaker:
@@ -29,41 +29,41 @@ private:
 				//return lhs->numUnscheduledGates > rhs->numUnscheduledGates;
 				//return lhs->cycle < rhs->cycle;
 			}
-
+			
 			//lower cost is better
 			return lhs->cost > rhs->cost;
 		}
 	};
-
+	
 	struct CmpProgress {
 		bool operator()(const Node *lhs, const Node *rhs) const {
 			//tiebreaker:
 			if(lhs->numUnscheduledGates == rhs->numUnscheduledGates) {
 				return lhs->cost > rhs->cost;
 			}
-
+			
 			//fewer not-yet-scheduled gates is better
 			return lhs->numUnscheduledGates > rhs->numUnscheduledGates;
 		}
 	};
-
+	
 	/**
 	 * The queue containing the nodes
 	 */
 	std::priority_queue<Node *, std::vector<Node *>, CmpCost> nodes;
-
+	
 	/**
 	 * A temporary queue used to organize nodes by progress through the original circuit
 	 */
 	std::priority_queue<Node *, std::vector<Node *>, CmpProgress> tempQueue;
-
+	
 	bool pushNode(Node *newNode) override {
 		nodes.push(newNode);
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
 				garbage = newNode->numUnscheduledGates;
 				garbage2 = newNode->cost;
-
+				
 				std::cerr << "dbg More progress!\n";
 				std::cerr << " " << garbage << " gates remain!\n";
 				std::cerr << " cost is " << newNode->cost << "\n";
@@ -80,12 +80,12 @@ private:
 				}
 			}
 		}
-
+		
 		if(nodes.size() > maxSize) {
 			if(_verbose) {
 				std::cerr << "dbg Queue needs trimming...\n";
 			}
-
+			
 			//Move all nodes to queue that sorts them by progress
 			while(nodes.size() > 0) {
 				tempQueue.push(nodes.top());
@@ -104,16 +104,16 @@ private:
 				delete n;
 			}
 		}
-
+		
 		return true;
 	}
-
+	
 	int garbage = 9999999;
 	int garbage2 = 9999999;
 
 public:
 	TrimSlowNodes() = default;
-
+	
 	TrimSlowNodes(unsigned int maxSize, unsigned int targetSize) {
 		this->maxSize = maxSize;
 		this->targetSize = targetSize;
@@ -122,16 +122,16 @@ public:
 		}
 		assert(this->maxSize != this->targetSize);
 	}
-
+	
 	Node *pop() override {
 		numPopped++;
-
+		
 		Node *ret = nodes.top();
 		nodes.pop();
-
+		
 		//std::cerr << "Debug message: popped node with cost " << ret->cost << "\n";
 		//std::cerr << "Debug message: queue has size " << nodes.size() << " now.\n";
-
+		
 		if(!ret->readyGates.size()) {
 			assert(ret->numUnscheduledGates == 0);
 			bool done = true;
@@ -146,10 +146,10 @@ public:
 				}
 			}
 		}
-
+		
 		return ret;
 	}
-
+	
 	int size() override {
 		return nodes.size();
 	}

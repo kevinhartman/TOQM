@@ -13,9 +13,9 @@ public:
 	int cycle;//cycle when this gate started
 	int physicalControl;
 	int physicalTarget;
-
+	
 	int latency;
-
+	
 	ScheduledGate(GateNode *gate, int cycle) {
 		this->gate = gate;
 		this->cycle = cycle;

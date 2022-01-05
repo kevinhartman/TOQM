@@ -34,9 +34,9 @@ inline int catchUp(GateNode *ancestor, GateNode *descendant, int logQubit, int m
 		} else {
 			assert(false && "bad qubit in filter?");
 		}
-
+		
 		cycles += ancestor->optimisticLatency;
-
+		
 		if(ancestor == descendant) {
 			break;
 		}
@@ -47,25 +47,25 @@ inline int catchUp(GateNode *ancestor, GateNode *descendant, int logQubit, int m
 inline std::size_t hashFunc2(Node *n) {
 	std::size_t hash_result = 0;
 	int numQubits = n->env->numPhysicalQubits;
-
+	
 	//combine into hash: qubit map (array of integers)
 	for(int x = 0; x < numQubits; x += 4) {
 		unsigned int sum = 0;
-		for(int y = 0; y < 4 && (x + y) < numQubits; y++) {
+		for(int y = 0; y < 4 && (x+y) < numQubits; y++) {
 			sum = sum << 8;
-			sum += 0xff & n->laq[x + y];
+			sum += 0xff & n->laq[x+y];
 		}
 		hash_combine(hash_result, sum);
-
+		
 		hash_combine(hash_result, n->qal[x]);//added this to try to discourage hash conflict
 	}
-
+	
 	//Note: this line may avoid hash conflicts in some benchmarks?
 	//if(numQubits > 4) hash_combine(hash_result, (int)(n->laq[1]+1)*(int)(n->laq[2]+1)*(int)(n->laq[3]+1)*((int)n->laq[4]+1));
-
+	
 	//adding part of cycle to hash means we filter fewer nodes, but the filter runs much faster:
 	hash_combine(hash_result, n->cycle >> 3);
-
+	
 	return hash_result;
 }
 
@@ -83,7 +83,7 @@ public:
 		f->numMarkedDead = this->numMarkedDead;
 		return f;
 	}
-
+	
 	void deleteRecord(Node *n) override {
 		std::size_t hash_result = hashFunc2(n);
 		vector<Node *> *mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here, hence the awkward pointers
@@ -91,8 +91,8 @@ public:
 		for(unsigned int blah = 0; blah < mapValue->size(); blah++) {
 			Node *n2 = (*mapValue)[blah];
 			if(n2 == n) {
-				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
-					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
+				if(mapValue->size() > 1 && blah < mapValue->size()-1) {
+					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size()-1]);
 				}
 				mapValue->pop_back();
 				return;
@@ -100,41 +100,41 @@ public:
 		}
 		//assert(false && "hashfilter2 failed to find node to delete");
 	}
-
+	
 	bool filter(Node *newNode) override {
 		//if(newNode->parent && newNode->parent->dead) {
 		//	return true;
 		//}
-
+		
 		int numQubits = newNode->env->numPhysicalQubits;
-
+		
 		std::size_t hash_result = hashFunc2(newNode);
-
+		
 		int swapCost = newNode->env->swapCost;
 		vector<Node *> *mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
-		for(unsigned int blah = mapValue->size() - 1; blah < mapValue->size() && blah >= 0; blah--) {
+		for(unsigned int blah = mapValue->size()-1; blah < mapValue->size() && blah >= 0; blah--) {
 			Node *candidate = (*mapValue)[blah];
-
+			
 			//if there's a very big gap between nodes' progress then we probably won't benefit from comparing them:
 			//if(candidate->cycle - newNode->cycle >= 6 || newNode->cycle - candidate->cycle >= 6) {
 			//	continue;
 			//}
-
+			
 			if(candidate->dead) {
 				continue;
 			} //else if(candidate->parent && candidate->parent->dead) {
 			//	candidate->dead = true;
 			//}
-
+			
 			bool willFilter = candidate->cycle <= newNode->cycle;
 			bool willMarkDead = newNode->cycle <= candidate->cycle;
 			bool canMarkDead = false;
-
-			int cycleDiff = newNode->cycle - candidate->cycle;
+			
+			int cycleDiff = newNode->cycle-candidate->cycle;
 			if(cycleDiff < 0) {
 				cycleDiff = -cycleDiff;
 			}
-
+			
 			///*
 			//check for simple descendant relationship (without additional gates)
 			if(newNode->scheduled == candidate->scheduled) {
@@ -153,11 +153,11 @@ public:
 				willMarkDead = false;
 			}
 			//*/
-
+			
 			if(willFilter || willMarkDead) {
-				if(this->foundConflict || blah == mapValue->size() - 1) {
+				if(this->foundConflict || blah == mapValue->size()-1) {
 					bool conflict = false;
-					for(int x = 0; x < numQubits - 1; x++) {
+					for(int x = 0; x < numQubits-1; x++) {
 						if(candidate->laq[x] != newNode->laq[x]) {
 							if(!this->foundConflict) {
 								std::cerr << "//WARNING: hash conflict detected.\n";
@@ -173,7 +173,7 @@ public:
 					}
 				}
 			}
-
+			
 			//set willFilter and willMarkDead to false as appropriate based on qubit progress
 			for(int x = 0; (willFilter || willMarkDead) && x < numQubits; x++) {
 				ScheduledGate *lastCanGate = candidate->lastNonSwapGate[x];
@@ -190,14 +190,14 @@ public:
 					willFilter = false;
 					canMarkDead = true;
 					//ToDo can probably be more selective here too:
-					if(newBusy > 1 && candidate->cycle + canBusy < newNode->cycle + newBusy) {
+					if(newBusy > 1 && candidate->cycle+canBusy < newNode->cycle+newBusy) {
 						willMarkDead = false;
 					}
 				} else if(lastCanGate && !lastNewGate) {//candidate has more scheduled gates for this qubit
 					//ToDo can maybe avoid setting to false here if newNode has made more progress on a high-latency swap?
 					willMarkDead = false;
 					//ToDo can probably be more selective here too:
-					if(canBusy > 1 && newNode->cycle + newBusy < candidate->cycle + canBusy) {
+					if(canBusy > 1 && newNode->cycle+newBusy < candidate->cycle+canBusy) {
 						willFilter = false;
 					}
 				} else if((lastCanGate && lastNewGate) || (!lastCanGate && !lastNewGate)) {
@@ -207,14 +207,14 @@ public:
 						if(qubit >= 0) {
 							if((willFilter || !canMarkDead) && canBusy > 1) {
 								if(newBusy) {//both nodes are busy
-									int candidateCycle = canBusy + candidate->cycle;
-									int newCycle = newBusy + newNode->cycle;
+									int candidateCycle = canBusy+candidate->cycle;
+									int newCycle = newBusy+newNode->cycle;
 									if(candidateCycle > newCycle) {
 										willFilter = false;
 										canMarkDead = true;
 									}
 								} else {//only candidate is busy
-									int candidateCycle = canBusy + candidate->cycle;
+									int candidateCycle = canBusy+candidate->cycle;
 									if(candidateCycle > newNode->cycle) {
 										willFilter = false;
 										canMarkDead = true;
@@ -223,13 +223,13 @@ public:
 							}
 							if(willMarkDead && newBusy > 1) {
 								if(canBusy) {//both nodes are busy
-									int candidateCycle = canBusy + candidate->cycle;
-									int newCycle = newBusy + newNode->cycle;
+									int candidateCycle = canBusy+candidate->cycle;
+									int newCycle = newBusy+newNode->cycle;
 									if(newCycle > candidateCycle) {
 										willMarkDead = false;
 									}
 								} else {//only newNode is busy
-									int newCycle = newBusy + newNode->cycle;
+									int newCycle = newBusy+newNode->cycle;
 									if(newCycle > candidate->cycle) {
 										willMarkDead = false;
 									}
@@ -239,14 +239,14 @@ public:
 					} else if(lastCanGate->gate->criticality >
 							  lastNewGate->gate->criticality) {//newNode has scheduled gates candidate hasn't
 						if(willFilter &&
-						   (newBusy <= 1 || newBusy <= canBusy || newNode->cycle - candidate->cycle >= swapCost)) {
+						   (newBusy <= 1 || newBusy <= canBusy || newNode->cycle-candidate->cycle >= swapCost)) {
 							willFilter = false;
 							canMarkDead = true;
 						} else {
 							///*
-							int catchup = catchUp(lastCanGate->gate, lastNewGate->gate, x, swapCost + 1);
+							int catchup = catchUp(lastCanGate->gate, lastNewGate->gate, x, swapCost+1);
 							//if(willFilter) {
-							if(catchup + newNode->cycle + newBusy > candidate->cycle + canBusy) {
+							if(catchup+newNode->cycle+newBusy > candidate->cycle+canBusy) {
 								willFilter = false;
 								canMarkDead = true;
 							} else if(catchup >= swapCost) {
@@ -256,7 +256,7 @@ public:
 							//}
 							if(willMarkDead) {
 								if(catchup <= swapCost) {
-									if(catchup + candidate->cycle + canBusy <= newNode->cycle + newBusy) {
+									if(catchup+candidate->cycle+canBusy <= newNode->cycle+newBusy) {
 										willMarkDead = false;
 									}
 								}
@@ -272,13 +272,13 @@ public:
 					} else if(lastCanGate->gate->criticality <
 							  lastNewGate->gate->criticality) {//candidate has more scheduled gates for this qubit
 						if(willMarkDead &&
-						   (canBusy <= 1 || canBusy <= newBusy || candidate->cycle - newNode->cycle >= swapCost)) {
+						   (canBusy <= 1 || canBusy <= newBusy || candidate->cycle-newNode->cycle >= swapCost)) {
 							willMarkDead = false;
 						} else {
 							///*
-							int catchup = catchUp(lastNewGate->gate, lastCanGate->gate, x, swapCost + 1);
+							int catchup = catchUp(lastNewGate->gate, lastCanGate->gate, x, swapCost+1);
 							if(willMarkDead) {
-								if(catchup + candidate->cycle + canBusy > newNode->cycle + newBusy) {
+								if(catchup+candidate->cycle+canBusy > newNode->cycle+newBusy) {
 									willMarkDead = false;
 								} else if(catchup >= swapCost) {
 									willMarkDead = false;
@@ -286,7 +286,7 @@ public:
 							}
 							//if(willFilter) {
 							if(catchup <= swapCost) {
-								if(catchup + newNode->cycle + newBusy <= candidate->cycle + canBusy) {
+								if(catchup+newNode->cycle+newBusy <= candidate->cycle+canBusy) {
 									willFilter = false;
 									canMarkDead = true;
 								}
@@ -307,7 +307,7 @@ public:
 					assert(false);
 				}
 			}
-
+			
 			if(!canMarkDead || willFilter) {
 				willMarkDead = false;
 			}
@@ -315,25 +315,25 @@ public:
 				candidate->dead = true;
 				numMarkedDead++;
 			}
-
+			
 			//remove dead node from vector
 			if(candidate->dead) {
-				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
-					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
+				if(mapValue->size() > 1 && blah < mapValue->size()-1) {
+					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size()-1]);
 				}
 				mapValue->pop_back();
 			}
-
+			
 			if(willFilter) {
 				numFiltered++;
 				return true;
 			}
 		}
 		mapValue->push_back(newNode);
-
+		
 		return false;
 	}
-
+	
 	void printStatistics(std::ostream &stream) override {
 		stream << "//HashFilter2 filtered " << numFiltered << " total nodes.\n";
 		stream << "//HashFilter2 marked " << numMarkedDead << " total nodes.\n";

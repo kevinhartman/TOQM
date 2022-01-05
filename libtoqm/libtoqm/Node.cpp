@@ -32,7 +32,7 @@ Node::~Node() {
 bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 	bool isSwap = !gate->name.compare("swp");
 	isSwap = isSwap || !gate->name.compare("swp");
-
+	
 	int physicalControl = gate->control;
 	int physicalTarget = gate->target;
 	if(!isSwap) {
@@ -43,7 +43,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 			physicalTarget = laq[physicalTarget];
 		}
 	}
-
+	
 	int busyControl = this->busyCycles(physicalControl);
 	if(physicalControl >= 0 && busyControl > 0 && busyControl > (int) timeOffset) {
 		return false;
@@ -52,7 +52,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 	if(physicalTarget >= 0 && busyTarget > 0 && busyTarget > (int) timeOffset) {
 		return false;
 	}
-
+	
 	if(!isSwap) {
 		//if appropriate, add double-child to ready gates
 		if(gate->controlChild && gate->controlChild == gate->targetChild) {
@@ -117,27 +117,27 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 			}
 		}
 	}
-
-	ScheduledGate *sg = new ScheduledGate(gate, this->cycle + timeOffset);
+	
+	ScheduledGate *sg = new ScheduledGate(gate, this->cycle+timeOffset);
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
 	sg->latency = env->latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
 										  sg->physicalControl);
-
+	
 	if(physicalControl >= 0) {
 		this->lastGate[physicalControl] = sg;
 	}
 	if(sg->gate->control >= 0 && !isSwap) {
 		this->lastNonSwapGate[sg->gate->control] = sg;
 	}
-
+	
 	if(physicalTarget >= 0) {
 		this->lastGate[physicalTarget] = sg;
 	}
 	if(sg->gate->target >= 0 && !isSwap) {
 		this->lastNonSwapGate[sg->gate->target] = sg;
 	}
-
+	
 	if(!isSwap) {
 		if(this->readyGates.erase(gate) != 1) {
 			std::cerr << "FATAL ERROR: unable to remove scheduled gate from ready list.\n";
@@ -147,9 +147,9 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 		}
 		this->numUnscheduledGates--;
 	}
-
+	
 	this->scheduled = this->scheduled->push(sg);
-
+	
 	//adjust qubit map
 	if(isSwap) {
 		if(qal[physicalControl] >= 0 && qal[physicalTarget] >= 0) {
@@ -163,7 +163,7 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 		}
 		std::swap(qal[physicalControl], qal[physicalTarget]);
 	}
-
+	
 	return true;
 }
 
@@ -173,7 +173,7 @@ Node *Node::prepChild() {
 	child->numUnscheduledGates = this->numUnscheduledGates;
 	child->env = this->env;
 	child->parent = this;
-	child->cycle = this->cycle + 1;
+	child->cycle = this->cycle+1;
 	child->readyGates = this->readyGates;//note: this actually produces a separate copy
 	child->scheduled = scheduled->newRef();
 	for(int x = 0; x < env->numPhysicalQubits; x++) {
@@ -183,7 +183,7 @@ Node *Node::prepChild() {
 		child->lastGate[x] = this->lastGate[x];
 	}
 	child->cost = 0;//Remember to calculate cost in expander, *after* it's done scheduling new gates for this node //child->cost = env->cost->getCost(child);
-
+	
 	return child;
 }
 

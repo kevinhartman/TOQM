@@ -13,15 +13,15 @@ class ToqmResult;
 class QasmObject {
 public:
 	QasmObject();
-
+	
 	~QasmObject();
-
+	
 	const std::vector<GateOp> &gateOperations() const;
-
+	
 	std::size_t numQubits() const;
-
+	
 	void toQasm2(std::ostream &out, const ToqmResult &result) const;
-
+	
 	/**
 	 * Parses a quantum file.
 	 * @param in stream of openqasm 2.0 contents
@@ -31,7 +31,7 @@ public:
 
 private:
 	class Impl;
-
+	
 	std::unique_ptr<Impl> impl;
 };
 

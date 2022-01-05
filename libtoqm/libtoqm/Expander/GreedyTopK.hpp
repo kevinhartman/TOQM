@@ -15,7 +15,7 @@ namespace toqm {
 class GreedyTopK : public Expander {
 private:
 	unsigned int K = 0;
-
+	
 	struct CmpNodeCost {
 		//REMINDER: I reversed the cost function here so I could remove inferior nodes on the fly, maintaining a smaller priority queue of only K nodes
 		bool operator()(const Node *lhs, const Node *rhs) const {
@@ -23,7 +23,7 @@ private:
 			if(lhs->cost == rhs->cost) {
 				return lhs->cost2 <= rhs->cost2;
 			}
-
+			
 			//lower cost is better
 			return lhs->cost < rhs->cost;
 		}
@@ -33,16 +33,16 @@ public:
 	explicit GreedyTopK(unsigned int k) {
 		this->K = k;
 	}
-
+	
 	bool expand(Queue *nodes, Node *node) const override {
 		//return false if we're done expanding
 		if(nodes->getBestFinalNode() && node->cost >= nodes->getBestFinalNode()->cost) {
 			return false;
 		}
-
+		
 		unsigned int nodesSize = nodes->size();
 		int numQubits = node->env->numPhysicalQubits;
-
+		
 		bool occupied[numQubits];
 		bool onReadyFrontier[numQubits];
 		bool hasBusyQubits = false;
@@ -53,7 +53,7 @@ public:
 				hasBusyQubits = true;
 			}
 		}
-
+		
 		//Identify, for each logical qubit, the CX (if any) that's on the CX frontier:
 		GateNode *CXFrontier[numQubits];
 		for(int x = 0; x < numQubits; x++) {
@@ -82,7 +82,7 @@ public:
 				}
 			}
 		}
-
+		
 		//generate list of valid gates, based on ready list and list of possible swaps
 		vector<GateNode *> possibleGates;
 		vector<GateNode *> guaranteedGates;
@@ -90,10 +90,10 @@ public:
 			GateNode *g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
 			int control = (g->control < 0) ? -1 : node->laq[g->control];
-
+			
 			bool good = (node->cycle >= -1);
 			//bool dependsOnSomething = false;
-
+			
 			if(control >= 0) {//gate has a control qubit
 				onReadyFrontier[control] = true;
 				int busy = node->busyCycles(control);
@@ -104,7 +104,7 @@ public:
 					}
 				}
 			}
-
+			
 			if(target >= 0) {//gate has a target qubit
 				onReadyFrontier[target] = true;
 				int busy = node->busyCycles(target);
@@ -115,7 +115,7 @@ public:
 					}
 				}
 			}
-
+			
 			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
 				if(node->env->couplings.count(make_pair(target, control)) <= 0) {
 					if(node->env->couplings.count(make_pair(control, target)) <= 0) {
@@ -123,7 +123,7 @@ public:
 					}
 				}
 			}
-
+			
 			if(good) {
 				guaranteedGates.push_back(g);
 				occupied[target] = true;
@@ -138,20 +138,20 @@ public:
 			int control = g->control;//note: since g is swap, this is already the physical control
 			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
 			int logicalControl = (control >= 0) ? node->qal[control] : -1;
-
+			
 			bool helpsCX = false;
 			//bool hurtsExecutableCX = false;
 			if(logicalTarget >= 0 && CXFrontier[logicalTarget]) {
 				GateNode *cx = CXFrontier[logicalTarget];
 				assert(cx->target >= 0);
 				assert(cx->control >= 0);
-				int currentDist = node->env->couplingDistances[node->laq[cx->control]*node->env->numPhysicalQubits +
+				int currentDist = node->env->couplingDistances[node->laq[cx->control] * node->env->numPhysicalQubits+
 															   node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
 				int hypotheticDist = node->env->couplingDistances[
-						node->laq[cx->control]*node->env->numPhysicalQubits + node->laq[cx->target]];
+						node->laq[cx->control] * node->env->numPhysicalQubits+node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
-
+				
 				if(hypotheticDist < currentDist) {
 					helpsCX = true;
 				} else if(hypotheticDist > currentDist && currentDist == 1) {
@@ -162,24 +162,24 @@ public:
 				GateNode *cx = CXFrontier[logicalControl];
 				assert(cx->target >= 0);
 				assert(cx->control >= 0);
-				int currentDist = node->env->couplingDistances[node->laq[cx->control]*node->env->numPhysicalQubits +
+				int currentDist = node->env->couplingDistances[node->laq[cx->control] * node->env->numPhysicalQubits+
 															   node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
 				int hypotheticDist = node->env->couplingDistances[
-						node->laq[cx->control]*node->env->numPhysicalQubits + node->laq[cx->target]];
+						node->laq[cx->control] * node->env->numPhysicalQubits+node->laq[cx->target]];
 				assert(node->swapQubits(target, control));
-
+				
 				if(hypotheticDist < currentDist) {
 					helpsCX = true;
 				} else if(hypotheticDist > currentDist && currentDist == 1) {
 					//hurtsExecutableCX = true;
 				}
 			}
-
+			
 			bool good = (node->cycle < -1 || (!occupied[target] && !occupied[control])) &&
 						(helpsCX);// && !hurtsExecutableCX);
 			bool dependsOnSomething = false;
-
+			
 			bool usesLogicalQubit = false;
 			if(good && logicalTarget >= 0) {
 				usesLogicalQubit = true;
@@ -188,7 +188,7 @@ public:
 				usesLogicalQubit = true;
 			}
 			good = good && usesLogicalQubit;
-
+			
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
@@ -209,7 +209,7 @@ public:
 						usesUsefulLogicalQubit = true;//better safe than sorry
 					}
 				}
-
+				
 				if(logicalControl >= 0) {
 					ScheduledGate *c = node->lastNonSwapGate[logicalControl];
 					if(c) {
@@ -232,7 +232,7 @@ public:
 			if(!usesUsefulLogicalQubit) {//swapping qubits that are never used again
 				good = false;
 			}
-
+			
 			int busyT = node->busyCycles(target);
 			if(good && busyT) {
 				dependsOnSomething = true;
@@ -254,12 +254,12 @@ public:
 				possibleGates.push_back(g);
 			}
 		}
-
+		
 		std::priority_queue<Node *, std::vector<Node *>, CmpNodeCost> tempNodes;
-
+		
 		assert(possibleGates.size() < 64); //or else I need to do this differently
 		unsigned long long numIters = 1LL << possibleGates.size();
-
+		
 		for(unsigned long long x = 0; x < numIters; x++) {
 			Node *child = node->prepChild();
 			bool good = true;
@@ -273,13 +273,13 @@ public:
 					}
 				}
 			}
-
+			
 			if(x == 0) {
 				if(guaranteedGates.size() == 0 && !hasBusyQubits) {
 					continue;
 				}
 			}
-
+			
 			if(!good) {
 				delete child;
 			} else {
@@ -288,16 +288,16 @@ public:
 					good = child->scheduleGate(guaranteedGates[y]);
 					assert(good);
 				}
-
+				
 				child->cost = node->env->cost.getCost(child);
-
+				
 				//if(!this->K || this->K >= numIters) {
 				//	if(!nodes->push(child)) {
 				//		delete child;
 				//	}
 				//} else {
 				tempNodes.push(child);
-
+				
 				//If priority queue is overfilled, delete extra node:
 				if(tempNodes.size() > this->K) {
 					Node *worstNode = tempNodes.top();
@@ -308,7 +308,7 @@ public:
 				//}
 			}
 		}
-
+		
 		//if(this->K && this->K < numIters) {
 		//Push top K into main priority queue
 		int counter = this->K;
@@ -323,7 +323,7 @@ public:
 				delete child;
 			}
 		}
-
+		
 		//cleanup the discarded children
 		while(tempNodes.size() > 0) {
 			Node *child = tempNodes.top();
@@ -331,7 +331,7 @@ public:
 			delete child;
 		}
 		//}
-
+		
 		return true;
 	}
 };

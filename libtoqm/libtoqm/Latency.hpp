@@ -10,7 +10,7 @@ namespace toqm {
 class Latency {
 public:
 	virtual ~Latency() = default;;
-
+	
 	virtual int getLatency(string gateName, int numQubits, int target, int control) const = 0;
 };
 

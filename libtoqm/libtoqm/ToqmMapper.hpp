@@ -41,27 +41,27 @@ public:
 			std::vector<std::unique_ptr<NodeMod>> node_mods,
 			std::vector<std::unique_ptr<Filter>> filters
 	);
-
+	
 	~ToqmMapper();
-
+	
 	void setInitialSearchCycles(int initial_search_cycles);
-
+	
 	void setRetainPopped(int retain_popped);
-
+	
 	void setInitialMappingQal(const char *init_qal);
-
+	
 	void setInitialMappingLaq(const char *init_laq);
-
+	
 	void clearInitialMapping();
-
+	
 	void setVerbose(bool verbose);
-
+	
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> &gates, std::size_t num_qubits, const CouplingMap &coupling_map) const;
 
 private:
 	class Impl;
-
+	
 	std::unique_ptr<Impl> impl;
 };
 
