@@ -28,12 +28,12 @@ inline std::size_t hashFunc1(Node *n) {
 	int numQubits = n->env->numPhysicalQubits;
 
 	//combine into hash: qubit map (array of integers)
-	for (int x = 0; x < numQubits; x++) {
+	for(int x = 0; x < numQubits; x++) {
 		hash_combine(hash_result, n->laq[x]);
 	}
 
 	//combine into hash: ready gate (set of pointers)
-	for (auto x = n->readyGates.begin(); x != n->readyGates.end(); x++) {
+	for(auto x = n->readyGates.begin(); x != n->readyGates.end(); x++) {
 		hash_combine(hash_result, (std::uintptr_t) (*x));
 	}
 
@@ -55,10 +55,10 @@ public:
 	void deleteRecord(Node *n) override {
 		std::size_t hash_result = hashFunc1(n);
 		vector<Node *> *mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
-		for (unsigned int blah = 0; blah < mapValue->size(); blah++) {
+		for(unsigned int blah = 0; blah < mapValue->size(); blah++) {
 			Node *n2 = (*mapValue)[blah];
-			if (n2 == n) {
-				if (mapValue->size() > 1 && blah < mapValue->size() - 1) {
+			if(n2 == n) {
+				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
 					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
 				}
 				mapValue->pop_back();
@@ -73,24 +73,24 @@ public:
 
 		//auto findNode = this->hashmap.find(hash_result);
 		//if(findNode != this->hashmap.end()) {
-		for (Node *candidate: this->hashmap[hash_result]) {
+		for(Node *candidate: this->hashmap[hash_result]) {
 			//Node * candidate = findNode->second;
 			bool willFilter = true;
 
-			for (int x = 0; x < numQubits; x++) {
-				if (candidate->laq[x] != newNode->laq[x]) {
+			for(int x = 0; x < numQubits; x++) {
+				if(candidate->laq[x] != newNode->laq[x]) {
 					//std::cerr << "Warning: duplicate hash values.\n";
 					willFilter = false;
 					break;
 				}
 			}
-			if (newNode->readyGates.size() != candidate->readyGates.size()) {
+			if(newNode->readyGates.size() != candidate->readyGates.size()) {
 				//std::cerr << "Warning: duplicate hash values.\n";
 				willFilter = false;
-			} else if (willFilter) {
-				for (auto x = newNode->readyGates.begin(), y = candidate->readyGates.begin();
-					 x != newNode->readyGates.end(); x++, y++) {
-					if ((*x) != (*y)) {
+			} else if(willFilter) {
+				for(auto x = newNode->readyGates.begin(), y = candidate->readyGates.begin();
+					x != newNode->readyGates.end(); x++, y++) {
+					if((*x) != (*y)) {
 						//std::cerr << "Warning: duplicate hash values.\n";
 						willFilter = false;
 						break;
@@ -98,32 +98,32 @@ public:
 				}
 			}
 			bool allEqual = willFilter;
-			for (int x = 0; willFilter && x < numQubits; x++) {
+			for(int x = 0; willFilter && x < numQubits; x++) {
 				int time = 0;
 				int newBusy = newNode->busyCycles(x);
-				if (newBusy) {
+				if(newBusy) {
 					int temp = newBusy + newNode->cycle;
 					assert(temp > time);
 					time = temp;
 				}
 				int time2 = 0;
 				int canBusy = candidate->busyCycles(x);
-				if (canBusy) {
+				if(canBusy) {
 					int temp = canBusy + candidate->cycle;
 					assert(temp > time2);
 					time2 = temp;
 				}
-				if (time < time2) {
+				if(time < time2) {
 					//std::cerr << "Warning: duplicate hash values.\n";
 					willFilter = false;
 					allEqual = false;
 					break;
-				} else if (time > time2) {
+				} else if(time > time2) {
 					allEqual = false;
 				}
 			}
 
-			if (willFilter && (newNode->cycle == candidate->cycle || !allEqual)) {
+			if(willFilter && (newNode->cycle == candidate->cycle || !allEqual)) {
 				numFiltered++;
 				return true;
 			}

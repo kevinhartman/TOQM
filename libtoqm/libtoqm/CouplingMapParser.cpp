@@ -9,7 +9,7 @@ CouplingMap parseCouplingMap(std::istream &in) {
 
 	in >> map.numPhysicalQubits;
 	in >> numEdges;
-	for (unsigned int x = 0; x < numEdges; x++) {
+	for(unsigned int x = 0; x < numEdges; x++) {
 		int a, b;
 		in >> a;
 		in >> b;

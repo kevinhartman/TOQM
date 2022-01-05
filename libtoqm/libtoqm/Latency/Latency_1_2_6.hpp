@@ -9,9 +9,9 @@ namespace toqm {
 class Latency_1_2_6 : public Latency {
 public:
 	int getLatency(string gateName, int numQubits, int target, int control) const {
-		if (!gateName.compare("swp") || !gateName.compare("SWP")) {
+		if(!gateName.compare("swp") || !gateName.compare("SWP")) {
 			return 6;
-		} else if (numQubits > 1) {
+		} else if(numQubits > 1) {
 			return 2;
 		} else {
 			return 1;

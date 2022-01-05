@@ -42,9 +42,9 @@ public:
 	//the number of cycles until the specified physical qubit is available
 	inline int busyCycles(int physicalQubit) {
 		ScheduledGate *sg = this->lastGate[physicalQubit];
-		if (!sg) return 0;
+		if(!sg) return 0;
 		int cycles = sg->cycle + sg->latency - this->cycle;
-		if (cycles < 0) return 0;
+		if(cycles < 0) return 0;
 		return cycles;
 	}
 
@@ -58,11 +58,11 @@ public:
 
 	//swap two physical qubits in qubit map, without scheduling a gate
 	inline bool swapQubits(int physicalControl, int physicalTarget) {
-		if (qal[physicalControl] < 0 && qal[physicalTarget] < 0) {
+		if(qal[physicalControl] < 0 && qal[physicalTarget] < 0) {
 			return false;
-		} else if (qal[physicalTarget] < 0) {
+		} else if(qal[physicalTarget] < 0) {
 			laq[(int) qal[physicalControl]] = physicalTarget;
-		} else if (qal[physicalControl] < 0) {
+		} else if(qal[physicalControl] < 0) {
 			laq[(int) qal[physicalTarget]] = physicalControl;
 		} else {
 			std::swap(laq[(int) qal[physicalControl]], laq[(int) qal[physicalTarget]]);

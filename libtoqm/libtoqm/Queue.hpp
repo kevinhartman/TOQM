@@ -34,9 +34,9 @@ public:
 	///Pre-condition: newNode->cost has already been set
 	bool push(Node *newNode) {
 		numPushed++;
-		if (!newNode->env->filter(newNode)) {
+		if(!newNode->env->filter(newNode)) {
 			bool success = this->pushNode(newNode);
-			if (success) {
+			if(success) {
 				return true;
 			} else {
 				std::cerr << "WARNING: pushNode(Node*) failed somehow.\n";

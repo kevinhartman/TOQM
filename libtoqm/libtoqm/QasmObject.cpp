@@ -37,8 +37,8 @@ struct QasmObject::Impl {
 	///Gives the flat-array index of the first bit in the specified qreg
 	int getQregOffset(char *name) {
 		int offset = 0;
-		for (unsigned int x = 0; x < qregName.size(); x++) {
-			if (!std::strcmp(name, qregName[x])) {
+		for(unsigned int x = 0; x < qregName.size(); x++) {
+			if(!std::strcmp(name, qregName[x])) {
 				return offset;
 			} else {
 				offset += qregSize[x];
@@ -54,8 +54,8 @@ struct QasmObject::Impl {
 	///Gives the flat-array index of the first bit in the specified creg
 	int getCregOffset(char *name) {
 		int offset = 0;
-		for (unsigned int x = 0; x < cregName.size(); x++) {
-			if (!std::strcmp(name, cregName[x])) {
+		for(unsigned int x = 0; x < cregName.size(); x++) {
+			if(!std::strcmp(name, cregName[x])) {
 				return offset;
 			} else {
 				offset += cregSize[x];
@@ -73,7 +73,7 @@ QasmObject::~QasmObject() = default;
 
 std::size_t QasmObject::numQubits() const {
 	std::size_t qubits = 0;
-	for (std::size_t x = 0; x < impl->qregName.size(); x++) {
+	for(std::size_t x = 0; x < impl->qregName.size(); x++) {
 		qubits += impl->qregSize[x];
 	}
 	return qubits;
@@ -96,7 +96,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 	bool quote = false;//true if inside quotation marks
 	bool comment = false;//true if between "//" and end-of-line
 
-	if (sawSemicolon) {//saw semicolon in previous call, but had to return a different token
+	if(sawSemicolon) {//saw semicolon in previous call, but had to return a different token
 		sawSemicolon = false;
 		char *token = new char[2];
 		token[0] = ';';
@@ -104,39 +104,39 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 		return token;
 	}
 
-	while (infile.get(c)) {
+	while(infile.get(c)) {
 		assert(bufferLoc < MAXBUFFERSIZE);
 
-		if (comment) {//currently parsing a single-line comment
-			if (c == '\n') {
+		if(comment) {//currently parsing a single-line comment
+			if(c == '\n') {
 				comment = false;
 			}
-		} else if (quote) {
+		} else if(quote) {
 			buffer[bufferLoc++] = c;
-			if (c == '"') {
+			if(c == '"') {
 				quote = false;
 				buffer[bufferLoc++] = 0;
 				char *token = new char[bufferLoc];
 				strcpy(token, buffer);
 				return token;
 			}
-		} else if (c == '"') {
+		} else if(c == '"') {
 			assert(!bufferLoc);
 			quote = true;
 			buffer[bufferLoc++] = c;
-		} else if (c == '\r') {
-		} else if (c == '/') {//probably parsing the start of a single-line comment
-			if (bufferLoc && buffer[bufferLoc - 1] == '/') {
+		} else if(c == '\r') {
+		} else if(c == '/') {//probably parsing the start of a single-line comment
+			if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 				bufferLoc--;//remove '/' from buffer
 				comment = true;
 			} else {
 				buffer[bufferLoc++] = c;
 			}
-		} else if (c == ';') {
+		} else if(c == ';') {
 			assert(!paren);
 			assert(!bracket);
 
-			if (bufferLoc == 0) {
+			if(bufferLoc == 0) {
 				buffer[bufferLoc++] = c;
 			} else {
 				sawSemicolon = true;
@@ -146,31 +146,31 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 			char *token = new char[bufferLoc];
 			strcpy(token, buffer);
 			return token;
-		} else if (c == ' ' || c == '\n' || c == '\t' || c == ',') {
-			if (paren || bracket) {
+		} else if(c == ' ' || c == '\n' || c == '\t' || c == ',') {
+			if(paren || bracket) {
 				buffer[bufferLoc++] = c;
-			} else if (bufferLoc) { //this whitespace is a token separator
+			} else if(bufferLoc) { //this whitespace is a token separator
 				buffer[bufferLoc++] = 0;
 				char *token = new char[bufferLoc];
 				strcpy(token, buffer);
 				return token;
 			}
-		} else if (c == '(') {
+		} else if(c == '(') {
 			assert(!paren);
 			assert(!bracket);
 			paren = true;
 			buffer[bufferLoc++] = c;
-		} else if (c == ')') {
+		} else if(c == ')') {
 			assert(paren);
 			assert(!bracket);
 			paren = false;
 			buffer[bufferLoc++] = c;
-		} else if (c == '[') {
+		} else if(c == '[') {
 			assert(!paren);
 			assert(!bracket);
 			bracket = true;
 			buffer[bufferLoc++] = c;
-		} else if (c == ']') {
+		} else if(c == ']') {
 			assert(!paren);
 			assert(bracket);
 			bracket = false;
@@ -180,7 +180,7 @@ char *getToken(std::istream &infile, bool &sawSemicolon) {
 		}
 	}
 
-	if (bufferLoc) {
+	if(bufferLoc) {
 		buffer[bufferLoc++] = 0;
 		char *token = new char[bufferLoc];
 		strcpy(token, buffer);
@@ -199,23 +199,23 @@ char *getCustomGate(std::istream &infile) {
 	bool curlybrace = false;
 	bool comment = false;//true if between "//" and end-of-line
 
-	while (infile.get(c)) {
+	while(infile.get(c)) {
 		assert(bufferLoc < MAXBUFFERSIZE);
 
-		if (comment) {//currently parsing a single-line comment
-			if (c == '\n') {
+		if(comment) {//currently parsing a single-line comment
+			if(c == '\n') {
 				comment = false;
 			}
-		} else if (c == '/') {//probably parsing the start of a single-line comment
-			if (bufferLoc && buffer[bufferLoc - 1] == '/') {
+		} else if(c == '/') {//probably parsing the start of a single-line comment
+			if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 				bufferLoc--;//remove '/' from buffer
 				comment = true;
 			}
-		} else if (c == '{') {
+		} else if(c == '{') {
 			assert(!curlybrace);
 			curlybrace = true;
 			buffer[bufferLoc++] = c;
-		} else if (c == '}') {
+		} else if(c == '}') {
 			assert(curlybrace);
 			buffer[bufferLoc++] = c;
 
@@ -241,19 +241,19 @@ char *getRestOfStatement(std::istream &infile) {
 	int bufferLoc = 0;
 	bool comment = false;//true if between "//" and end-of-line
 
-	while (infile.get(c)) {
+	while(infile.get(c)) {
 		assert(bufferLoc < MAXBUFFERSIZE);
 
-		if (comment) {//currently parsing a single-line comment
-			if (c == '\n') {
+		if(comment) {//currently parsing a single-line comment
+			if(c == '\n') {
 				comment = false;
 			}
-		} else if (c == '/') {//probably parsing the start of a single-line comment
-			if (bufferLoc && buffer[bufferLoc - 1] == '/') {
+		} else if(c == '/') {//probably parsing the start of a single-line comment
+			if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 				bufferLoc--;//remove '/' from buffer
 				comment = true;
 			}
-		} else if (c == ';') {
+		} else if(c == ';') {
 			buffer[bufferLoc++] = c;
 
 			buffer[bufferLoc++] = 0;
@@ -274,35 +274,35 @@ char *getRestOfStatement(std::istream &infile) {
 int printNode(std::ostream &stream, LinkedStack<ScheduledGate *> *gates) {
 	int cycles = 0;
 	std::stack<ScheduledGate *> gateStack;
-	while (gates->size > 0) {
+	while(gates->size > 0) {
 		gateStack.push(gates->value);
 		gates = gates->next;
 	}
 
-	while (!gateStack.empty()) {
+	while(!gateStack.empty()) {
 		ScheduledGate *sg = gateStack.top();
 		gateStack.pop();
 		int target = sg->physicalTarget;
 		int control = sg->physicalControl;
 		stream << sg->gate->name << " ";
-		if (control >= 0) {
+		if(control >= 0) {
 			stream << "q[" << control << "],";
 		}
 		stream << "q[" << target << "]";
 		stream << ";";
 		stream << " //cycle: " << sg->cycle;
-		if (sg->gate->name.compare("swp") && sg->gate->name.compare("SWP")) {
+		if(sg->gate->name.compare("swp") && sg->gate->name.compare("SWP")) {
 			int target = sg->gate->target;
 			int control = sg->gate->control;
 			stream << " //" << sg->gate->name << " ";
-			if (control >= 0) {
+			if(control >= 0) {
 				stream << "q[" << control << "],";
 			}
 			stream << "q[" << target << "]";
 		}
 		stream << "\n";
 
-		if (sg->cycle + sg->latency > cycles) {
+		if(sg->cycle + sg->latency > cycles) {
 			cycles = sg->cycle + sg->latency;
 		}
 	}
@@ -321,11 +321,11 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 
 	char *token = 0;
 	bool b = false;
-	while ((token = getToken(infile, b))) {//Reminder: the single = instead of double == here is intentional.
+	while((token = getToken(infile, b))) {//Reminder: the single = instead of double == here is intentional.
 
-		if (!strcmp(token, "OPENQASM")) {
+		if(!strcmp(token, "OPENQASM")) {
 			token = getToken(infile, b);
-			if (strcmp(token, "2.0")) {
+			if(strcmp(token, "2.0")) {
 				std::cerr << "WARNING: unexpected OPENQASM version. This may fail.\n";
 			}
 
@@ -334,33 +334,33 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
-		} else if (!strcmp(token, "if")) {
+		} else if(!strcmp(token, "if")) {
 			std::cerr << "FATAL ERROR: if-statements not supported.\n";
 			exit(1);
-		} else if (!strcmp(token, "gate")) {
+		} else if(!strcmp(token, "gate")) {
 			token = getCustomGate(infile);
 			impl->customGates.push_back(token);
-		} else if (!strcmp(token, "opaque")) {
+		} else if(!strcmp(token, "opaque")) {
 			token = getRestOfStatement(infile);
 			impl->opaqueGates.push_back(token);
-		} else if (!strcmp(token, "include")) {
+		} else if(!strcmp(token, "include")) {
 			token = getToken(infile, b);
 			assert(token[0] == '"');
 			impl->includes.push_back(token);
 
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
-		} else if (!strcmp(token, "qreg")) {
+		} else if(!strcmp(token, "qreg")) {
 			char *bitArray = getToken(infile, b);
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
 
 			char *temp = bitArray;
 			int size = 0;
-			while (*temp != '[' && *temp != 0) {
+			while(*temp != '[' && *temp != 0) {
 				temp++;
 			}
-			if (*temp == 0) {
+			if(*temp == 0) {
 				size = 1;
 			} else {
 				size = std::atoi(temp + 1);
@@ -369,17 +369,17 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			*temp = 0;
 			impl->qregName.push_back(bitArray);
 			impl->qregSize.push_back(size);
-		} else if (!strcmp(token, "creg")) {
+		} else if(!strcmp(token, "creg")) {
 			char *bitArray = getToken(infile, b);
 			token = getToken(infile, b);
 			assert(!strcmp(token, ";"));
 
 			char *temp = bitArray;
 			int size = 0;
-			while (*temp != '[' && *temp != 0) {
+			while(*temp != '[' && *temp != 0) {
 				temp++;
 			}
-			if (*temp == 0) {
+			if(*temp == 0) {
 				size = 1;
 			} else {
 				size = std::atoi(temp + 1);
@@ -388,7 +388,7 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			*temp = 0;
 			impl->cregName.push_back(bitArray);
 			impl->cregSize.push_back(size);
-		} else if (!strcmp(token, "measure")) {
+		} else if(!strcmp(token, "measure")) {
 			char *qbit = getToken(infile, b);
 
 			token = getToken(infile, b);
@@ -401,10 +401,10 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 
 			char *temp = qbit;
 			int qdx = 0;
-			while (*temp != '[' && *temp != 0) {
+			while(*temp != '[' && *temp != 0) {
 				temp++;
 			}
-			if (*temp == 0) {
+			if(*temp == 0) {
 				qdx = 0;
 			} else {
 				qdx = std::atoi(temp + 1);
@@ -413,10 +413,10 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 
 			temp = cbit;
 			int cdx = 0;
-			while (*temp != '[' && *temp != 0) {
+			while(*temp != '[' && *temp != 0) {
 				temp++;
 			}
-			if (*temp == 0) {
+			if(*temp == 0) {
 				cdx = 0;
 			} else {
 				cdx = std::atoi(temp + 1);
@@ -424,37 +424,37 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream &infile) {
 			*temp = 0;
 
 			impl->measures.emplace_back(qdx + impl->getQregOffset(qbit), cdx + impl->getCregOffset(cbit));
-		} else if (!strcmp(token, ";")) {
+		} else if(!strcmp(token, ";")) {
 			std::cerr << "Warning: unexpected semicolon.\n";
 		} else {
 			char *gateName = token;
 			char *qubit1Token = getToken(infile, b);
-			if (strcmp(qubit1Token, ";")) {
+			if(strcmp(qubit1Token, ";")) {
 				assert(qubit1Token && qubit1Token[0] != 0);
 				int temp = 1;
-				while (qubit1Token[temp] != '[' && qubit1Token[temp] != 0) {
+				while(qubit1Token[temp] != '[' && qubit1Token[temp] != 0) {
 					temp++;
 				}
 
 				//Get flat array index corresponding to this qubit
 				int originalOffset = 0;
-				if (qubit1Token[temp] != 0) {
+				if(qubit1Token[temp] != 0) {
 					originalOffset = atoi(qubit1Token + temp + 1);
 				}
 				qubit1Token[temp] = 0;
 				int qubit1FlatOffset = impl->getQregOffset(qubit1Token) + originalOffset;
 
 				char *qubit2Token = getToken(infile, b);
-				if (strcmp(qubit2Token, ";")) {
+				if(strcmp(qubit2Token, ";")) {
 					assert(qubit2Token && qubit2Token[0] != 0);
 					int temp = 1;
-					while (qubit2Token[temp] != '[' && qubit2Token[temp] != 0) {
+					while(qubit2Token[temp] != '[' && qubit2Token[temp] != 0) {
 						temp++;
 					}
 
 					//Get flat array index corresponding to this qubit
 					int originalOffset = 0;
-					if (qubit2Token[temp] != 0) {
+					if(qubit2Token[temp] != 0) {
 						originalOffset = atoi(qubit2Token + temp + 1);
 					}
 					qubit2Token[temp] = 0;
@@ -486,31 +486,31 @@ void QasmObject::toQasm2(std::ostream &out, const ToqmResult &result) const {
 
 	//Print out the initial mapping:
 	std::cout << "//Note: initial mapping (logical qubit at each location): ";
-	for (int x = 0; x < result.numPhysicalQubits; x++) {
+	for(int x = 0; x < result.numPhysicalQubits; x++) {
 		std::cout << (int) result.inferredQal[x] << ", ";
 	}
 	std::cout << "\n";
 	std::cout << "//Note: initial mapping (location of each logical qubit): ";
-	for (int x = 0; x < result.numLogicalQubits; x++) {
+	for(int x = 0; x < result.numLogicalQubits; x++) {
 		std::cout << (int) result.inferredLaq[x] << ", ";
 	}
 	std::cout << "\n";
 
 	//Print the OPENQASM output:
 	out << "OPENQASM " << impl->QASM_version << ";\n";
-	for (auto &include: impl->includes) {
+	for(auto &include: impl->includes) {
 		out << "include " << include << ";\n";
 	}
-	for (auto &customGate: impl->customGates) {
+	for(auto &customGate: impl->customGates) {
 		out << "gate " << customGate << "\n";
 	}
-	for (auto &opaqueGate: impl->opaqueGates) {
+	for(auto &opaqueGate: impl->opaqueGates) {
 		out << "opaque " << opaqueGate << "\n";
 	}
 	out << "qreg q[" << result.numPhysicalQubits << "];\n";
 	out << "creg c[" << result.numPhysicalQubits << "];\n";
 	int numCycles = printNode(out, finalNode.scheduled);
-	for (auto &measure: impl->measures) {
+	for(auto &measure: impl->measures) {
 		out << "measure q[" << (int) finalNode.laq[measure.first] << "] -> c["
 			<< measure.second << "];\n";
 	}

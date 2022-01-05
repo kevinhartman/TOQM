@@ -37,15 +37,15 @@ public:
 
 	void clean() {
 		this->numRefs--;
-		if (this->numRefs > 0) {
+		if(this->numRefs > 0) {
 			return;
 		}
 
-		if (this->next) {
+		if(this->next) {
 			this->next->clean();
 		}
 
-		if (this->value) {
+		if(this->value) {
 			delete this->value;
 		}
 		delete this;

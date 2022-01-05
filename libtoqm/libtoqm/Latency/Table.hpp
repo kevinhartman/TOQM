@@ -94,34 +94,34 @@ private:
 		bool paren = false;//true iff inside parentheses, i.e. partway through reading U3(...) gate name
 		bool comment = false;//true iff between "//" and end-of-line
 
-		while (infile.get(c)) {
+		while(infile.get(c)) {
 			assert(bufferLoc < MAXBUFFERSIZE);
 
-			if (comment) {//currently parsing a single-line comment
-				if (c == '\n') {
+			if(comment) {//currently parsing a single-line comment
+				if(c == '\n') {
 					comment = false;
 				}
-			} else if (c == '/') {//probably parsing the start of a single-line comment
-				if (bufferLoc && buffer[bufferLoc - 1] == '/') {
+			} else if(c == '/') {//probably parsing the start of a single-line comment
+				if(bufferLoc && buffer[bufferLoc - 1] == '/') {
 					bufferLoc--;//remove '/' from buffer
 					comment = true;
 				} else {
 					buffer[bufferLoc++] = c;
 				}
-			} else if (c == ' ' || c == '\n' || c == '\t' || c == ',' || c == '\r') {
-				if (paren) {
+			} else if(c == ' ' || c == '\n' || c == '\t' || c == ',' || c == '\r') {
+				if(paren) {
 					buffer[bufferLoc++] = c;
-				} else if (bufferLoc) { //this whitespace is a token separator
+				} else if(bufferLoc) { //this whitespace is a token separator
 					buffer[bufferLoc++] = 0;
 					char *token = new char[bufferLoc];
 					strcpy(token, buffer);
 					return token;
 				}
-			} else if (c == '(') {
+			} else if(c == '(') {
 				assert(!paren);
 				paren = true;
 				buffer[bufferLoc++] = c;
-			} else if (c == ')') {
+			} else if(c == ')') {
 				assert(paren);
 				paren = false;
 				buffer[bufferLoc++] = c;
@@ -130,7 +130,7 @@ private:
 			}
 		}
 
-		if (bufferLoc) {
+		if(bufferLoc) {
 			buffer[bufferLoc++] = 0;
 			char *token = new char[bufferLoc];
 			strcpy(token, buffer);
@@ -143,7 +143,7 @@ private:
 	//Parse the latency table file:
 	void parseTable(std::istream &infile) {
 		char *token;
-		while ((token = getToken(infile))) {//Reminder: the single = instead of double == here is intentional.
+		while((token = getToken(infile))) {//Reminder: the single = instead of double == here is intentional.
 			int numBits = atoi(token);
 			char *gateName = getToken(infile);
 			char *target = getToken(infile);
@@ -154,17 +154,17 @@ private:
 			assert(numBits < 2 || (strcmp(target, "-") == strcmp(control, "-")));
 
 			int targetVal = -1;
-			if (strcmp(target, "-")) {
+			if(strcmp(target, "-")) {
 				targetVal = atoi(target);
 			}
 
 			int controlVal = -1;
-			if (strcmp(control, "-")) {
+			if(strcmp(control, "-")) {
 				controlVal = atoi(control);
 			}
 
 			int latencyVal = -1;
-			if (strcmp(latency, "-")) {
+			if(strcmp(latency, "-")) {
 				latencyVal = atoi(latency);
 			}
 
@@ -175,12 +175,12 @@ private:
 			latencies.emplace(make_tuple(gateName, numBits, targetVal, controlVal), latencyVal);
 
 			//record best-case latency for this gate regardless of physical qubits
-			if (strcmp(gateName, "-")) {
+			if(strcmp(gateName, "-")) {
 				auto search = optimisticLatencies.find(make_tuple((char *) gateName, numBits));
-				if (search == optimisticLatencies.end()) {
+				if(search == optimisticLatencies.end()) {
 					optimisticLatencies.emplace(make_tuple((char *) gateName, numBits), latencyVal);
 				} else {
-					if (search->second > latencyVal) {
+					if(search->second > latencyVal) {
 						search->second = latencyVal;
 					}
 				}
@@ -194,29 +194,29 @@ public:
 	}
 
 	int getLatency(string gateName, int numQubits, int target, int control) const override {
-		if (numQubits > 0 && target < 0 && control < 0) {
+		if(numQubits > 0 && target < 0 && control < 0) {
 			//We're dealing with a logical gate, so let's return the best case among physical possibilities (so that our a* search will still work okay):
 			auto search = optimisticLatencies.find(make_tuple((char *) gateName.c_str(), numQubits));
-			if (search != optimisticLatencies.end()) {
+			if(search != optimisticLatencies.end()) {
 				return search->second;
 			}
 		}
 
 		//Try to find perfectly matching latency:
 		auto search = latencies.find(make_tuple((char *) gateName.c_str(), numQubits, target, control));
-		if (search != latencies.end()) {
+		if(search != latencies.end()) {
 			return search->second;
 		}
 
 		//Try to find matching latency without physical qubits specified
 		search = latencies.find(make_tuple((char *) gateName.c_str(), numQubits, -1, -1));
-		if (search != latencies.end()) {
+		if(search != latencies.end()) {
 			return search->second;
 		}
 
 		//Try to find matching latency without physical qubits or gate name specified
 		search = latencies.find(make_tuple((char *) "-", numQubits, -1, -1));
-		if (search != latencies.end()) {
+		if(search != latencies.end()) {
 			return search->second;
 		}
 

@@ -42,16 +42,16 @@ public:
 
 	///Invoke all node mods, using the specified node and specified flag
 	void runNodeModifiers(Node *node, int flag) {
-		for (unsigned int x = 0; x < this->nodeMods.size(); x++) {
+		for(unsigned int x = 0; x < this->nodeMods.size(); x++) {
 			this->nodeMods[x]->mod(node, flag);
 		}
 	}
 
 	///Invoke the active filters; returns true if we should delete the node.
 	bool filter(Node *newNode) {
-		for (unsigned int x = 0; x < this->filters.size(); x++) {
-			if (this->filters[x]->filter(newNode)) {
-				for (unsigned int y = 0; y < x; y++) {
+		for(unsigned int x = 0; x < this->filters.size(); x++) {
+			if(this->filters[x]->filter(newNode)) {
+				for(unsigned int y = 0; y < x; y++) {
 					this->filters[y]->deleteRecord(newNode);
 				}
 				return true;
@@ -63,14 +63,14 @@ public:
 
 	///Instructs all active filters to delete all pointers to the specified node.
 	void deleteRecord(Node *oldNode) {
-		for (unsigned int x = 0; x < this->filters.size(); x++) {
+		for(unsigned int x = 0; x < this->filters.size(); x++) {
 			this->filters[x]->deleteRecord(oldNode);
 		}
 	}
 
 	///Recreates the filters, forcibly erasing any data they've gathered.
 	void resetFilters() {
-		for (unsigned int x = 0; x < this->filters.size(); x++) {
+		for(unsigned int x = 0; x < this->filters.size(); x++) {
 			auto &old = this->filters[x];
 			this->filters[x] = old->createEmptyCopy();
 		}
@@ -78,7 +78,7 @@ public:
 
 	///Invokes the printStatistics function for every active filter.
 	void printFilterStats(std::ostream &stream) {
-		for (unsigned int x = 0; x < this->filters.size(); x++) {
+		for(unsigned int x = 0; x < this->filters.size(); x++) {
 			this->filters[x]->printStatistics(stream);
 		}
 	}

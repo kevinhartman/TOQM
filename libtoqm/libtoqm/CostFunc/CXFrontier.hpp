@@ -18,22 +18,22 @@ public:
 		Environment *env = node->env;
 		GateNode *next2BitGate[env->numPhysicalQubits];
 		int pathLength[env->numPhysicalQubits];
-		for (int x = 0; x < env->numPhysicalQubits; x++) {
+		for(int x = 0; x < env->numPhysicalQubits; x++) {
 			next2BitGate[x] = NULL;
 			pathLength[x] = 0;
 			int busy = node->busyCycles(x);
-			if (busy > cost) {
+			if(busy > cost) {
 				cost = busy;
 			}
 		}
 
 		//search from last scheduled (non-swap) gates
-		for (int x = 0; x < env->numPhysicalQubits; x++) {
+		for(int x = 0; x < env->numPhysicalQubits; x++) {
 			ScheduledGate *sg = node->lastNonSwapGate[x];
-			if (sg) {
+			if(sg) {
 				//get latest physical location of logical qubit x:
 				int actualQubit;
-				if (sg->gate->target == x) {
+				if(sg->gate->target == x) {
 					actualQubit = node->laq[sg->gate->target];
 				} else {
 					assert(sg->gate->control == x);
@@ -42,18 +42,18 @@ public:
 
 				//get path length to next 2-qubit gate along this qubit:
 				pathLength[actualQubit] = node->busyCycles(actualQubit);
-				if (!pathLength[actualQubit]) {
+				if(!pathLength[actualQubit]) {
 					pathLength[actualQubit] = 1;//since we won't schedule any more gates this cycle
 				}
 				GateNode *temp;
-				if (sg->gate->target == x) {
+				if(sg->gate->target == x) {
 					temp = sg->gate->targetChild;
 				} else {
 					assert(sg->gate->control == x);
 					temp = sg->gate->controlChild;
 				}
 
-				while (temp && temp->control < 0) {
+				while(temp && temp->control < 0) {
 					pathLength[actualQubit] += temp->optimisticLatency;
 					temp = temp->targetChild;
 				}
@@ -63,32 +63,32 @@ public:
 
 		//also search from ready gates, in case some qubits haven't scheduled gates yet
 		auto iter = node->readyGates.begin();
-		while (iter != node->readyGates.end()) {
+		while(iter != node->readyGates.end()) {
 			GateNode *g = *iter;
 			int physicalTarget = node->laq[g->target];
 
-			if (physicalTarget < 0) {
+			if(physicalTarget < 0) {
 				iter++;
 				continue;
 			}
 
-			if (g->control < 0) {
+			if(g->control < 0) {
 				//if(next2BitGate[physicalTarget] == NULL) {
 				pathLength[physicalTarget] = node->busyCycles(physicalTarget);
-				if (!pathLength[physicalTarget]) {
+				if(!pathLength[physicalTarget]) {
 					pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 				}
 				GateNode *temp = g;
-				while (temp && temp->control < 0) {
+				while(temp && temp->control < 0) {
 					pathLength[physicalTarget] += temp->optimisticLatency;
 					temp = temp->targetChild;
 				}
 				next2BitGate[physicalTarget] = temp;
 
-				if (temp) {
+				if(temp) {
 					int otherBit;
 					bool noOtherParent = false;
-					if (temp->target == g->target) {
+					if(temp->target == g->target) {
 						noOtherParent = temp->controlParent == NULL;
 						otherBit = node->laq[temp->control];
 					} else {
@@ -96,10 +96,10 @@ public:
 						noOtherParent = temp->targetParent == NULL;
 						otherBit = node->laq[temp->target];
 					}
-					if (noOtherParent && next2BitGate[otherBit] == NULL) {
+					if(noOtherParent && next2BitGate[otherBit] == NULL) {
 						next2BitGate[otherBit] = temp;
 						pathLength[otherBit] = node->busyCycles(otherBit);
-						if (!pathLength[otherBit]) {
+						if(!pathLength[otherBit]) {
 							pathLength[otherBit] = 1;//since we won't schedule any more gates this cycle
 						}
 					}
@@ -107,7 +107,7 @@ public:
 				//}
 			} else {
 				int physicalControl = node->laq[g->control];
-				if (physicalControl < 0) {
+				if(physicalControl < 0) {
 					iter++;
 					continue;
 				}
@@ -115,13 +115,13 @@ public:
 				assert(next2BitGate[physicalTarget] == g || next2BitGate[physicalTarget] == NULL);
 
 				pathLength[physicalTarget] = node->busyCycles(physicalTarget);
-				if (!pathLength[physicalTarget]) {
+				if(!pathLength[physicalTarget]) {
 					pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 				}
 				next2BitGate[physicalTarget] = g;
 
 				pathLength[physicalControl] = node->busyCycles(physicalControl);
-				if (!pathLength[physicalControl]) {
+				if(!pathLength[physicalControl]) {
 					pathLength[physicalControl] = 1;//since we won't schedule any more gates this cycle
 				}
 				next2BitGate[physicalControl] = g;
@@ -131,9 +131,9 @@ public:
 		}
 
 		//analyze cnot frontier
-		for (int x = 0; x < env->numPhysicalQubits - 1; x++) {
+		for(int x = 0; x < env->numPhysicalQubits - 1; x++) {
 			GateNode *g = next2BitGate[x];
-			if (g) {
+			if(g) {
 				//if(debug) std::cerr << "  considering next gate for physical qubit " << x << "\n";
 				//if(debug) std::cerr << "   logical qubits: " << g->control << "," << g->target << "\n";
 				int physicalTarget = node->laq[g->target];
@@ -144,7 +144,7 @@ public:
 				assert(physicalTarget == x || physicalControl == x);
 				assert(physicalTarget != physicalControl);
 				//assert(physicalTarget >= 0 && physicalControl >= 0);
-				if (physicalTarget < 0 || physicalControl < 0) {
+				if(physicalTarget < 0 || physicalControl < 0) {
 					continue;
 				}
 
@@ -153,41 +153,41 @@ public:
 
 				bool skipCheckedCheck = false;
 
-				if (next2BitGate[physicalTarget] == NULL && g->targetParent == NULL) {
+				if(next2BitGate[physicalTarget] == NULL && g->targetParent == NULL) {
 					next2BitGate[physicalTarget] = g;
 					length1 = node->busyCycles(physicalTarget);
-					if (!length1) {
+					if(!length1) {
 						length1 = 1;//since we won't schedule any more gates this cycle
 					}
 					skipCheckedCheck = true;
 				}
 
-				if (next2BitGate[physicalControl] == NULL && g->controlParent == NULL) {
+				if(next2BitGate[physicalControl] == NULL && g->controlParent == NULL) {
 					next2BitGate[physicalControl] = g;
 					length2 = node->busyCycles(physicalControl);
-					if (!length2) {
+					if(!length2) {
 						length2 = 1;//since we won't schedule any more gates this cycle
 					}
 					skipCheckedCheck = true;
 				}
 
 				//skip if this cnot depends on another unscheduled cnot
-				if (next2BitGate[physicalTarget] != next2BitGate[physicalControl]) {
+				if(next2BitGate[physicalTarget] != next2BitGate[physicalControl]) {
 					//if(debug) std::cerr << "   skipping (non-frontier)\n";
 					continue;
 				}
 
 				//skip if we already processed this in earlier iteration:
-				if (!skipCheckedCheck && physicalTarget <= x && physicalControl <= x) {
+				if(!skipCheckedCheck && physicalTarget <= x && physicalControl <= x) {
 					//if(debug) std::cerr << "   skipping (already checked)\n";
 					continue;
 				}
 
-				int minSwaps = env->couplingDistances[physicalControl * env->numPhysicalQubits + physicalTarget] - 1;
-				if (minSwaps < costT) costT = minSwaps;
-				int totalSwapCost = env->swapCost * minSwaps;
+				int minSwaps = env->couplingDistances[physicalControl*env->numPhysicalQubits + physicalTarget] - 1;
+				if(minSwaps < costT) costT = minSwaps;
+				int totalSwapCost = env->swapCost*minSwaps;
 
-				if (length1 < length2) {
+				if(length1 < length2) {
 					std::swap(length1, length2);
 				}
 
@@ -195,23 +195,23 @@ public:
 				//if(debug) std::cerr << "   swaps needed at least: " << minSwaps << "\n";
 
 				int slack = length1 - length2;
-				int effectiveSlack = (slack / env->swapCost) * env->swapCost;
-				if (effectiveSlack > totalSwapCost) {
+				int effectiveSlack = (slack/env->swapCost)*env->swapCost;
+				if(effectiveSlack > totalSwapCost) {
 					effectiveSlack = totalSwapCost;
 				}
 
 				//if(debug) std::cerr << "   effective slack cycles: " << effectiveSlack << "\n";
 
 				int mutualSwapCost = totalSwapCost - effectiveSlack;
-				int extraSwapCost = (0x1 & (mutualSwapCost / env->swapCost)) * env->swapCost;
+				int extraSwapCost = (0x1 & (mutualSwapCost/env->swapCost))*env->swapCost;
 				mutualSwapCost -= extraSwapCost;
-				assert((mutualSwapCost % env->swapCost) == 0);
+				assert((mutualSwapCost%env->swapCost) == 0);
 				mutualSwapCost = mutualSwapCost >> 1;
 
 				int cost1 = g->optimisticLatency + g->criticality + length1 + mutualSwapCost;
 				int cost2 = g->optimisticLatency + g->criticality + length2 + mutualSwapCost + effectiveSlack;
 
-				if (cost1 < cost2) {
+				if(cost1 < cost2) {
 					cost1 += extraSwapCost;
 				} else {
 					cost2 += extraSwapCost;
@@ -222,10 +222,10 @@ public:
 
 				//if(debug) std::cerr << "   subcircuit cost: " << cost1 << " vs " << cost2 << "\n";
 
-				if (cost1 > cost) {
+				if(cost1 > cost) {
 					cost = cost1;
 				}
-				if (cost2 > cost) {
+				if(cost2 > cost) {
 					cost = cost2;
 				}
 			}
@@ -234,7 +234,7 @@ public:
 		//add old cycles to cost
 		cost += node->cycle;
 
-		if (costT == 99999) costT = 0;
+		if(costT == 99999) costT = 0;
 		node->cost2 = costT;
 
 		return cost;

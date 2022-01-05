@@ -11,7 +11,7 @@ namespace toqm {
 int GLOBALCOUNTER = 0;
 
 Node::Node() {
-	for (int x = 0; x < MAX_QUBITS; x++) {
+	for(int x = 0; x < MAX_QUBITS; x++) {
 		qal[x] = x;
 		laq[x] = x;
 		lastNonSwapGate[x] = NULL;
@@ -35,39 +35,39 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 
 	int physicalControl = gate->control;
 	int physicalTarget = gate->target;
-	if (!isSwap) {
-		if (physicalControl >= 0) {
+	if(!isSwap) {
+		if(physicalControl >= 0) {
 			physicalControl = laq[physicalControl];
 		}
-		if (physicalTarget >= 0) {
+		if(physicalTarget >= 0) {
 			physicalTarget = laq[physicalTarget];
 		}
 	}
 
 	int busyControl = this->busyCycles(physicalControl);
-	if (physicalControl >= 0 && busyControl > 0 && busyControl > (int) timeOffset) {
+	if(physicalControl >= 0 && busyControl > 0 && busyControl > (int) timeOffset) {
 		return false;
 	}
 	int busyTarget = this->busyCycles(physicalTarget);
-	if (physicalTarget >= 0 && busyTarget > 0 && busyTarget > (int) timeOffset) {
+	if(physicalTarget >= 0 && busyTarget > 0 && busyTarget > (int) timeOffset) {
 		return false;
 	}
 
-	if (!isSwap) {
+	if(!isSwap) {
 		//if appropriate, add double-child to ready gates
-		if (gate->controlChild && gate->controlChild == gate->targetChild) {
+		if(gate->controlChild && gate->controlChild == gate->targetChild) {
 			readyGates.insert(gate->controlChild);
 		}
 		//if appropriate, add control child to ready gates
-		if (gate->controlChild && gate->controlChild != gate->targetChild) {
-			if (gate->controlChild->control < 0) {//single-qubit gate
+		if(gate->controlChild && gate->controlChild != gate->targetChild) {
+			if(gate->controlChild->control < 0) {//single-qubit gate
 				readyGates.insert(gate->controlChild);
 			} else {
 				int childParentBit;
 				GateNode *otherParent;
-				if (gate->controlChild->controlParent == gate) {
+				if(gate->controlChild->controlParent == gate) {
 					otherParent = gate->controlChild->targetParent;
-					if (gate->controlChild->targetParent) {
+					if(gate->controlChild->targetParent) {
 						childParentBit = gate->controlChild->target;
 					} else {
 						childParentBit = -1;
@@ -75,28 +75,28 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 				} else {
 					assert(gate->controlChild->targetParent == gate);
 					otherParent = gate->controlChild->controlParent;
-					if (gate->controlChild->controlParent) {
+					if(gate->controlChild->controlParent) {
 						childParentBit = gate->controlChild->control;
 					} else {
 						childParentBit = -1;
 					}
 				}
-				if (childParentBit < 0 || (this->lastNonSwapGate[childParentBit] &&
-										   this->lastNonSwapGate[childParentBit]->gate == otherParent)) {
+				if(childParentBit < 0 || (this->lastNonSwapGate[childParentBit] &&
+										  this->lastNonSwapGate[childParentBit]->gate == otherParent)) {
 					readyGates.insert(gate->controlChild);
 				}
 			}
 		}
 		//if appropriate, add target child to ready gates
-		if (gate->targetChild && gate->controlChild != gate->targetChild) {
-			if (gate->targetChild->control < 0) {//single-qubit gate
+		if(gate->targetChild && gate->controlChild != gate->targetChild) {
+			if(gate->targetChild->control < 0) {//single-qubit gate
 				readyGates.insert(gate->targetChild);
 			} else {
 				int childParentBit;
 				GateNode *otherParent;
-				if (gate->targetChild->controlParent == gate) {
+				if(gate->targetChild->controlParent == gate) {
 					otherParent = gate->targetChild->targetParent;
-					if (gate->targetChild->targetParent) {
+					if(gate->targetChild->targetParent) {
 						childParentBit = gate->targetChild->target;
 					} else {
 						childParentBit = -1;
@@ -104,14 +104,14 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 				} else {
 					assert(gate->targetChild->targetParent == gate);
 					otherParent = gate->targetChild->controlParent;
-					if (gate->targetChild->controlParent) {
+					if(gate->targetChild->controlParent) {
 						childParentBit = gate->targetChild->control;
 					} else {
 						childParentBit = -1;
 					}
 				}
-				if (childParentBit < 0 || (this->lastNonSwapGate[childParentBit] &&
-										   this->lastNonSwapGate[childParentBit]->gate == otherParent)) {
+				if(childParentBit < 0 || (this->lastNonSwapGate[childParentBit] &&
+										  this->lastNonSwapGate[childParentBit]->gate == otherParent)) {
 					readyGates.insert(gate->targetChild);
 				}
 			}
@@ -124,22 +124,22 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 	sg->latency = env->latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
 										  sg->physicalControl);
 
-	if (physicalControl >= 0) {
+	if(physicalControl >= 0) {
 		this->lastGate[physicalControl] = sg;
 	}
-	if (sg->gate->control >= 0 && !isSwap) {
+	if(sg->gate->control >= 0 && !isSwap) {
 		this->lastNonSwapGate[sg->gate->control] = sg;
 	}
 
-	if (physicalTarget >= 0) {
+	if(physicalTarget >= 0) {
 		this->lastGate[physicalTarget] = sg;
 	}
-	if (sg->gate->target >= 0 && !isSwap) {
+	if(sg->gate->target >= 0 && !isSwap) {
 		this->lastNonSwapGate[sg->gate->target] = sg;
 	}
 
-	if (!isSwap) {
-		if (this->readyGates.erase(gate) != 1) {
+	if(!isSwap) {
+		if(this->readyGates.erase(gate) != 1) {
 			std::cerr << "FATAL ERROR: unable to remove scheduled gate from ready list.\n";
 			std::cerr << "\tGate name: " << gate->name << "\n";
 			std::cerr << "\tTime offset: " << timeOffset << "\n";
@@ -151,12 +151,12 @@ bool Node::scheduleGate(GateNode *gate, unsigned int timeOffset) {
 	this->scheduled = this->scheduled->push(sg);
 
 	//adjust qubit map
-	if (isSwap) {
-		if (qal[physicalControl] >= 0 && qal[physicalTarget] >= 0) {
+	if(isSwap) {
+		if(qal[physicalControl] >= 0 && qal[physicalTarget] >= 0) {
 			std::swap(laq[(int) qal[physicalControl]], laq[(int) qal[physicalTarget]]);
-		} else if (qal[physicalControl] >= 0) {
+		} else if(qal[physicalControl] >= 0) {
 			laq[(int) qal[physicalControl]] = physicalTarget;
-		} else if (qal[physicalTarget] >= 0) {
+		} else if(qal[physicalTarget] >= 0) {
 			laq[(int) qal[physicalTarget]] = physicalControl;
 		} else {
 			assert(false);
@@ -176,7 +176,7 @@ Node *Node::prepChild() {
 	child->cycle = this->cycle + 1;
 	child->readyGates = this->readyGates;//note: this actually produces a separate copy
 	child->scheduled = scheduled->newRef();
-	for (int x = 0; x < env->numPhysicalQubits; x++) {
+	for(int x = 0; x < env->numPhysicalQubits; x++) {
 		child->qal[x] = this->qal[x];
 		child->laq[x] = this->laq[x];
 		child->lastNonSwapGate[x] = this->lastNonSwapGate[x];
