@@ -74,36 +74,36 @@ public:
 			
 			if(g->control < 0) {
 				//if(next2BitGate[physicalTarget] == NULL) {
-				pathLength[physicalTarget] = node->busyCycles(physicalTarget);
-				if(!pathLength[physicalTarget]) {
-					pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
-				}
-				GateNode * temp = g;
-				while(temp && temp->control < 0) {
-					pathLength[physicalTarget] += temp->optimisticLatency;
-					temp = temp->targetChild;
-				}
-				next2BitGate[physicalTarget] = temp;
-				
-				if(temp) {
-					int otherBit;
-					bool noOtherParent = false;
-					if(temp->target == g->target) {
-						noOtherParent = temp->controlParent == NULL;
-						otherBit = node->laq[temp->control];
-					} else {
-						assert(temp->control == g->target);
-						noOtherParent = temp->targetParent == NULL;
-						otherBit = node->laq[temp->target];
+					pathLength[physicalTarget] = node->busyCycles(physicalTarget);
+					if(!pathLength[physicalTarget]) {
+						pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 					}
-					if(noOtherParent && next2BitGate[otherBit] == NULL) {
-						next2BitGate[otherBit] = temp;
-						pathLength[otherBit] = node->busyCycles(otherBit);
-						if(!pathLength[otherBit]) {
-							pathLength[otherBit] = 1;//since we won't schedule any more gates this cycle
+					GateNode * temp = g;
+					while(temp && temp->control < 0) {
+						pathLength[physicalTarget] += temp->optimisticLatency;
+						temp = temp->targetChild;
+					}
+					next2BitGate[physicalTarget] = temp;
+					
+					if(temp) {
+						int otherBit;
+						bool noOtherParent = false;
+						if(temp->target == g->target) {
+							noOtherParent = temp->controlParent == NULL;
+							otherBit = node->laq[temp->control];
+						} else {
+							assert(temp->control == g->target);
+							noOtherParent = temp->targetParent == NULL;
+							otherBit = node->laq[temp->target];
+						}
+						if(noOtherParent && next2BitGate[otherBit] == NULL) {
+							next2BitGate[otherBit] = temp;
+							pathLength[otherBit] = node->busyCycles(otherBit);
+							if(!pathLength[otherBit]) {
+								pathLength[otherBit] = 1;//since we won't schedule any more gates this cycle
+							}
 						}
 					}
-				}
 				//}
 			} else {
 				int physicalControl = node->laq[g->control];

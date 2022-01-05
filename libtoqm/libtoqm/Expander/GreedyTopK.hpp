@@ -296,40 +296,40 @@ public:
 				//		delete child;
 				//	}
 				//} else {
-				tempNodes.push(child);
-				
-				//If priority queue is overfilled, delete extra node:
-				if(tempNodes.size() > this->K) {
-					Node * worstNode = tempNodes.top();
-					tempNodes.pop();
-					delete worstNode;
-				}
-				assert(tempNodes.size() <= this->K);
+					tempNodes.push(child);
+					
+					//If priority queue is overfilled, delete extra node:
+					if(tempNodes.size() > this->K) {
+						Node * worstNode = tempNodes.top();
+						tempNodes.pop();
+						delete worstNode;
+					}
+					assert(tempNodes.size() <= this->K);
 				//}
 			}
 		}
 		
 		//if(this->K && this->K < numIters) {
-		//Push top K into main priority queue
-		int counter = this->K;
-		while(counter > 0 && tempNodes.size() > 0) {
-			Node * child = tempNodes.top();
-			tempNodes.pop();
-			if(nodes->push(child)) {
-				counter--;
-			} else {
-				std::cerr
-						<< "SANITY CHECK ERROR: looks like not all pushed nodes will go through for top-k after all; I need to redo the optimization that handles the overfill\n";
+			//Push top K into main priority queue
+			int counter = this->K;
+			while(counter > 0 && tempNodes.size() > 0) {
+				Node * child = tempNodes.top();
+				tempNodes.pop();
+				if(nodes->push(child)) {
+					counter--;
+				} else {
+					std::cerr
+							<< "SANITY CHECK ERROR: looks like not all pushed nodes will go through for top-k after all; I need to redo the optimization that handles the overfill\n";
+					delete child;
+				}
+			}
+			
+			//cleanup the discarded children
+			while(tempNodes.size() > 0) {
+				Node * child = tempNodes.top();
+				tempNodes.pop();
 				delete child;
 			}
-		}
-		
-		//cleanup the discarded children
-		while(tempNodes.size() > 0) {
-			Node * child = tempNodes.top();
-			tempNodes.pop();
-			delete child;
-		}
 		//}
 		
 		return true;

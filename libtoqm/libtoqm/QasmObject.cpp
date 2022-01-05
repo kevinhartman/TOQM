@@ -516,15 +516,15 @@ void QasmObject::toQasm2(std::ostream & out, const ToqmResult & result) const {
 	}
 	
 	//if(verbose) {
-	//Print some metadata about the input & output:
-	std::cout << "//" << impl->gate_ops.size() << " original gates\n";
-	std::cout << "//" << finalNode.scheduled->size << " gates in generated circuit\n";
-	std::cout << "//" << result.idealCycles << " ideal depth (cycles)\n";
-	std::cout << "//" << numCycles
-			  << " depth of generated circuit\n"; //" (and costFunc reports " << finalNode->cost << ")\n";
-	std::cout << "//" << (result.numPopped - 1) << " nodes popped from queue for processing.\n";
-	std::cout << "//" << result.remaining->size() << " nodes remain in queue.\n";
-	std::cout << result.filterStats;
+		//Print some metadata about the input & output:
+		std::cout << "//" << impl->gate_ops.size() << " original gates\n";
+		std::cout << "//" << finalNode.scheduled->size << " gates in generated circuit\n";
+		std::cout << "//" << result.idealCycles << " ideal depth (cycles)\n";
+		std::cout << "//" << numCycles
+				  << " depth of generated circuit\n"; //" (and costFunc reports " << finalNode->cost << ")\n";
+		std::cout << "//" << (result.numPopped - 1) << " nodes popped from queue for processing.\n";
+		std::cout << "//" << result.remaining->size() << " nodes remain in queue.\n";
+		std::cout << result.filterStats;
 	//}
 }
 
