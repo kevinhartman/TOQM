@@ -8,14 +8,14 @@
 namespace toqm {
 
 struct CouplingMap {
-    unsigned int numPhysicalQubits;
-    std::set <std::pair<int, int>> edges;
+	unsigned int numPhysicalQubits;
+	std::set<std::pair<int, int>> edges;
 };
 
 struct GateOp {
-    std::string type;
-    int target;
-    int control;
+	std::string type;
+	int target;
+	int control;
 };
 
 }

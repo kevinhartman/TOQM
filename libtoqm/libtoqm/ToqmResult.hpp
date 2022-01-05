@@ -12,15 +12,15 @@ namespace toqm {
 
 class ToqmResult {
 public:
-    std::unique_ptr<Node> finalNode;
-    std::unique_ptr<Queue> remaining;
-    int numPhysicalQubits;
-    int  numLogicalQubits;
-    std::vector<char> inferredQal;
-    std::vector<char> inferredLaq;
-    int idealCycles;
-    int numPopped;
-    std::string filterStats;
+	std::unique_ptr<Node> finalNode;
+	std::unique_ptr<Queue> remaining;
+	int numPhysicalQubits;
+	int numLogicalQubits;
+	std::vector<char> inferredQal;
+	std::vector<char> inferredLaq;
+	int idealCycles;
+	int numPopped;
+	std::string filterStats;
 };
 
 }
