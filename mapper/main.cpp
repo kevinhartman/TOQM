@@ -35,158 +35,158 @@ using FactoryFunc = function<unique_ptr<T>()>;
 
 template<typename T>
 struct UserOption {
-    string name;
-    string description;
-    function<FactoryFunc<T>()> fromStdin;
-    function<FactoryFunc<T>(char**, int&)> fromArg;
+	string name;
+	string description;
+	function<FactoryFunc<T>()> fromStdin;
+	function<FactoryFunc<T>(char **, int &)> fromArg;
 };
 
 template<typename TBase, typename TDerived>
 UserOption<TBase> NoArgsOption(string name, string description) {
-    return UserOption<TBase> {
-        name,
-        description,
-        []() { return []() { return unique_ptr<TBase>(new TDerived());}; },
-        [](char**, int&) { return []() { return unique_ptr<TBase>(new TDerived()); }; }
-    };
+	return UserOption<TBase>{
+			name,
+			description,
+			[]() { return []() { return unique_ptr<TBase>(new TDerived()); }; },
+			[](char **, int &) { return []() { return unique_ptr<TBase>(new TDerived()); }; }
+	};
 }
 
 const int NUMCOSTFUNCTIONS = 3;
 UserOption<toqm::CostFunc> costFunctions[NUMCOSTFUNCTIONS] = {
-    NoArgsOption<toqm::CostFunc, toqm::CXFrontier>(
-        "CXFrontier",
-        "Calculates lower-bound cost, including swaps to enable gates in the CX frontier"
-    ),
-    NoArgsOption<toqm::CostFunc, toqm::CXFull>(
-        "CXFull",
-        "Calculates lower-bound cost, including swaps to enable CX gates in remaining circuit"
-    ),
-    NoArgsOption<toqm::CostFunc, toqm::SimpleCost>(
-        "SimpleCost",
-        "Calculates lower-bound cost, assuming no more swaps will be inserted"
-    ),
+		NoArgsOption<toqm::CostFunc, toqm::CXFrontier>(
+				"CXFrontier",
+				"Calculates lower-bound cost, including swaps to enable gates in the CX frontier"
+		),
+		NoArgsOption<toqm::CostFunc, toqm::CXFull>(
+				"CXFull",
+				"Calculates lower-bound cost, including swaps to enable CX gates in remaining circuit"
+		),
+		NoArgsOption<toqm::CostFunc, toqm::SimpleCost>(
+				"SimpleCost",
+				"Calculates lower-bound cost, assuming no more swaps will be inserted"
+		),
 };
 
 const int NUMEXPANDERS = 3;
 UserOption<toqm::Expander> expanders[NUMEXPANDERS] = {
-    NoArgsOption<toqm::Expander, toqm::DefaultExpander>(
-        "DefaultExpander",
-        "The default expander. Includes acyclic swap and dependent state optimizations."
-    ),
-    {
-        "GreedyTopK",
-        "Keep only top K nodes and schedule original gates ASAP [non-optimal!]",
-        []() {
-            unsigned int k;
-            std::cerr << "Enter value of K for top-k expander: K=";
-            std::cin >> k;
-
-            return [=]() {
-                return unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
-            };
-        },
-        [](char**argv, int& iter) {
-            iter += 1;
-            auto k = atoi(argv[0]);
-
-            return [=]() {
-                return unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
-            };
-        },
-    },
-    NoArgsOption<toqm::Expander, toqm::NoSwaps>(
-        "NoSwaps",
-        "An expander that tries various possible initial mappings, and cannot insert swaps."
-    ),
+		NoArgsOption<toqm::Expander, toqm::DefaultExpander>(
+				"DefaultExpander",
+				"The default expander. Includes acyclic swap and dependent state optimizations."
+		),
+		{
+				"GreedyTopK",
+				"Keep only top K nodes and schedule original gates ASAP [non-optimal!]",
+				[]() {
+					unsigned int k;
+					std::cerr << "Enter value of K for top-k expander: K=";
+					std::cin >> k;
+					
+					return [=]() {
+						return unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
+					};
+				},
+				[](char ** argv, int & iter) {
+					iter += 1;
+					auto k = atoi(argv[0]);
+					
+					return [=]() {
+						return unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
+					};
+				},
+		},
+		NoArgsOption<toqm::Expander, toqm::NoSwaps>(
+				"NoSwaps",
+				"An expander that tries various possible initial mappings, and cannot insert swaps."
+		),
 };
 
 const int NUMFILTERS = 2;
 UserOption<toqm::Filter> FILTERS[NUMFILTERS] = {
-        NoArgsOption<toqm::Filter, toqm::HashFilter>(
-            "HashFilter",
-            "using hash, this tries to filter out worse nodes."
-        ),
-        NoArgsOption<toqm::Filter, toqm::HashFilter2>(
-            "HashFilter2",
-            "using hash, this tries to filter out worse nodes, or mark old nodes as dead if a new node is strictly-better."
-        ),
+		NoArgsOption<toqm::Filter, toqm::HashFilter>(
+				"HashFilter",
+				"using hash, this tries to filter out worse nodes."
+		),
+		NoArgsOption<toqm::Filter, toqm::HashFilter2>(
+				"HashFilter2",
+				"using hash, this tries to filter out worse nodes, or mark old nodes as dead if a new node is strictly-better."
+		),
 };
 
 const int NUMLATENCIES = 4;
 UserOption<toqm::Latency> latencies[NUMLATENCIES] = {
-    NoArgsOption<toqm::Latency, toqm::Latency_1_2_6>(
-        "Latency_1_2_6",
-        "swap cost 6, 2-bit gate cost 2, 1-bit gate cost 1."
-    ),
-    NoArgsOption<toqm::Latency, toqm::Latency_1_3>(
-        "Latency_1_3",
-        "swap cost 3, all else cost 1."
-    ),
-    NoArgsOption<toqm::Latency, toqm::Latency_1>(
-        "Latency_1",
-        "every gate takes 1 cycle."
-    ),
-    {
-        "Table",
-        "gets latencies from specified latency-table file",
-        []() {
-            string filename;
-            std::cin >> filename;
-
-            return [=]() {
-                std::ifstream infile(filename);
-                return unique_ptr<toqm::Latency>(new toqm::Table(infile));
-            };
-        },
-        [](char**argv, int& iter) {
-            iter += 1;
-            char *filename = argv[0];
-
-            return [=]() {
-                std::ifstream infile(filename);
-                return unique_ptr<toqm::Latency>(new toqm::Table(infile));
-            };
-        }
-    }
+		NoArgsOption<toqm::Latency, toqm::Latency_1_2_6>(
+				"Latency_1_2_6",
+				"swap cost 6, 2-bit gate cost 2, 1-bit gate cost 1."
+		),
+		NoArgsOption<toqm::Latency, toqm::Latency_1_3>(
+				"Latency_1_3",
+				"swap cost 3, all else cost 1."
+		),
+		NoArgsOption<toqm::Latency, toqm::Latency_1>(
+				"Latency_1",
+				"every gate takes 1 cycle."
+		),
+		{
+				"Table",
+				"gets latencies from specified latency-table file",
+				[]() {
+					string filename;
+					std::cin >> filename;
+					
+					return [=]() {
+						std::ifstream infile(filename);
+						return unique_ptr<toqm::Latency>(new toqm::Table(infile));
+					};
+				},
+				[](char ** argv, int & iter) {
+					iter += 1;
+					char * filename = argv[0];
+					
+					return [=]() {
+						std::ifstream infile(filename);
+						return unique_ptr<toqm::Latency>(new toqm::Table(infile));
+					};
+				}
+		}
 };
 
 const int NUMNODEMODS = 1;
 UserOption<toqm::NodeMod> nodeMods[NUMNODEMODS] = {
-        NoArgsOption<toqm::NodeMod, toqm::GreedyMapper>(
-            "GreedyMapper",
-            "Deletes default initial mapping, and greedily maps qubits in ready CX gates"
-        ),
+		NoArgsOption<toqm::NodeMod, toqm::GreedyMapper>(
+				"GreedyMapper",
+				"Deletes default initial mapping, and greedily maps qubits in ready CX gates"
+		),
 };
 
 const int NUMQUEUES = 2;
 UserOption<toqm::Queue> queues[NUMQUEUES] = {
-        NoArgsOption<toqm::Queue, toqm::DefaultQueue>(
-            "DefaultQueue",
-            "uses std priority_queue."
-        ),
-        {
-            "TrimSlowNodes",
-            "Takes 2 params; when reaching max # nodes it removes slowest until it reaches target # nodes.",
-            []() {
-                unsigned int maxSize, targetSize;
-                std::cerr << "Enter max size and then target size for queue:\n";
-                std::cin >> maxSize;
-                std::cin >> targetSize;
-
-                return [=]() {
-                    return unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
-                };
-            },
-            [](char**argv, int& iter) {
-                iter += 2;
-                unsigned int maxSize = atoi(argv[0]);
-                unsigned int targetSize = atoi(argv[1]);
-
-                return [=]() {
-                    return unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
-                };
-            },
-        }
+		NoArgsOption<toqm::Queue, toqm::DefaultQueue>(
+				"DefaultQueue",
+				"uses std priority_queue."
+		),
+		{
+				"TrimSlowNodes",
+				"Takes 2 params; when reaching max # nodes it removes slowest until it reaches target # nodes.",
+				[]() {
+					unsigned int maxSize, targetSize;
+					std::cerr << "Enter max size and then target size for queue:\n";
+					std::cin >> maxSize;
+					std::cin >> targetSize;
+					
+					return [=]() {
+						return unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
+					};
+				},
+				[](char ** argv, int & iter) {
+					iter += 2;
+					unsigned int maxSize = atoi(argv[0]);
+					unsigned int targetSize = atoi(argv[1]);
+					
+					return [=]() {
+						return unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
+					};
+				},
+		}
 };
 
 //string comparison
@@ -207,22 +207,23 @@ int caseInsensitiveCompare(string str, const char * c2) {
 	const char * c1 = str.c_str();
 	return caseInsensitiveCompare(c1, c2);
 }
+
 int caseInsensitiveCompare(const char * c1, string str) {
 	const char * c2 = str.c_str();
 	return caseInsensitiveCompare(c1, c2);
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char ** argv) {
 	char * qasmFileName = NULL;
 	char * couplingMapFileName = NULL;
-
-    FactoryFunc<toqm::Queue> nodes;
-    unique_ptr<toqm::Expander> ex;
-    unique_ptr<toqm::CostFunc> cf;
-    unique_ptr<toqm::Latency> lat;
-    vector<unique_ptr<toqm::NodeMod>> mods {};
-    vector<unique_ptr<toqm::Filter>> filters {};
-
+	
+	FactoryFunc<toqm::Queue> nodes;
+	unique_ptr<toqm::Expander> ex;
+	unique_ptr<toqm::CostFunc> cf;
+	unique_ptr<toqm::Latency> lat;
+	vector<unique_ptr<toqm::NodeMod>> mods{};
+	vector<unique_ptr<toqm::Filter>> filters{};
+	
 	unsigned int retainPopped = 0;
 	
 	int choice = -1;
@@ -285,7 +286,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMEXPANDERS; x++) {
 				if(!caseInsensitiveCompare(expanders[x].name, choiceStr)) {
 					found = true;
-                    ex = expanders->fromArg(argv + (iter+1), iter)();
+					ex = expanders->fromArg(argv + (iter + 1), iter)();
 					break;
 				}
 			}
@@ -301,7 +302,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMNODEMODS; x++) {
 				if(!caseInsensitiveCompare(nodeMods[x].name, choiceStr)) {
 					found = true;
-                    auto nm = nodeMods[x].fromArg(argv + (iter+1), iter)();
+					auto nm = nodeMods[x].fromArg(argv + (iter + 1), iter)();
 					mods.push_back(move(nm));
 					break;
 				}
@@ -313,7 +314,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMCOSTFUNCTIONS; x++) {
 				if(!caseInsensitiveCompare(costFunctions[x].name, choiceStr)) {
 					found = true;
-                    cf = costFunctions[x].fromArg(argv + (iter+1), iter)();
+					cf = costFunctions[x].fromArg(argv + (iter + 1), iter)();
 					break;
 				}
 			}
@@ -324,7 +325,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMLATENCIES; x++) {
 				if(!caseInsensitiveCompare(latencies[x].name, choiceStr)) {
 					found = true;
-                    lat = latencies[x].fromArg(argv + (iter+1), iter)();
+					lat = latencies[x].fromArg(argv + (iter + 1), iter)();
 					break;
 				}
 			}
@@ -335,7 +336,7 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMFILTERS; x++) {
 				if(!caseInsensitiveCompare(FILTERS[x].name, choiceStr)) {
 					found = true;
-                    auto fil = FILTERS[x].fromArg(argv + (iter+1), iter)();
+					auto fil = FILTERS[x].fromArg(argv + (iter + 1), iter)();
 					filters.push_back(move(fil));
 					break;
 				}
@@ -347,13 +348,13 @@ int main(int argc, char** argv) {
 			for(int x = 0; x < NUMQUEUES; x++) {
 				if(!caseInsensitiveCompare(queues[x].name, choiceStr)) {
 					found = true;
-                    nodes = queues[x].fromArg(argv + (iter+1), iter);
+					nodes = queues[x].fromArg(argv + (iter + 1), iter);
 					break;
 				}
 			}
 			assert(found);
 		} else if(!caseInsensitiveCompare(argv[iter], "-v")) {
-            toqm::_verbose = true;
+			toqm::_verbose = true;
 		} else if(!qasmFileName) {
 			qasmFileName = argv[iter];
 		} else if(!couplingMapFileName) {
@@ -386,7 +387,7 @@ int main(int argc, char** argv) {
 		}
 		cin >> choice;
 		assert(choice >= 0 && choice < NUMCOSTFUNCTIONS);
-        cf = costFunctions[choice].fromStdin()();
+		cf = costFunctions[choice].fromStdin()();
 	}
 	
 	if(!lat) {
@@ -398,7 +399,7 @@ int main(int argc, char** argv) {
 		}
 		cin >> choice;
 		assert(choice >= 0 && choice < NUMLATENCIES);
-        lat = latencies[choice].fromStdin()();
+		lat = latencies[choice].fromStdin()();
 	}
 	
 	if(!nodes) {
@@ -438,7 +439,7 @@ int main(int argc, char** argv) {
 			if(!filtersOn[choice]) {
 				numselected++;
 				filtersOn[choice] = true;
-                auto fil = FILTERS[choice].fromStdin()();
+				auto fil = FILTERS[choice].fromStdin()();
 				filters.push_back(move(fil));
 			}
 		}
@@ -465,41 +466,41 @@ int main(int argc, char** argv) {
 			if(!nodeModsOn[choice]) {
 				numselected++;
 				nodeModsOn[choice] = true;
-                auto nm = nodeMods[choice].fromStdin()();
+				auto nm = nodeMods[choice].fromStdin()();
 				mods.push_back(move(nm));
 			}
 		}
 	}
-
-    auto mapper = std::make_unique<toqm::ToqmMapper>(
-        nodes,
-        move(ex),
-        move(cf),
-        move(lat),
-        move(mods),
-        move(filters));
-
-    mapper->setRetainPopped(retainPopped);
-    mapper->setInitialSearchCycles(initialSearchCycles);
-    mapper->setVerbose(toqm::_verbose);
-
-    if (use_specified_init_mapping == 1) {
-        mapper->setInitialMappingQal(init_qal);
-    } else if (use_specified_init_mapping == 2) {
-        mapper->setInitialMappingLaq(init_laq);
-    }
-
-    auto qasmFile = ifstream(qasmFileName);
-    auto couplingMapFile = ifstream(couplingMapFileName);
-
-    auto qasm = toqm::QasmObject::fromQasm2(qasmFile);
-    auto couplingMap = toqm::parseCouplingMap(couplingMapFile);
-
-    // invoke TOQM algo
-    auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap);
-
-    // write new qasm to std::cout
-    qasm->toQasm2(cout, *result);
+	
+	auto mapper = std::make_unique<toqm::ToqmMapper>(
+			nodes,
+			move(ex),
+			move(cf),
+			move(lat),
+			move(mods),
+			move(filters));
+	
+	mapper->setRetainPopped(retainPopped);
+	mapper->setInitialSearchCycles(initialSearchCycles);
+	mapper->setVerbose(toqm::_verbose);
+	
+	if(use_specified_init_mapping == 1) {
+		mapper->setInitialMappingQal(init_qal);
+	} else if(use_specified_init_mapping == 2) {
+		mapper->setInitialMappingLaq(init_laq);
+	}
+	
+	auto qasmFile = ifstream(qasmFileName);
+	auto couplingMapFile = ifstream(couplingMapFileName);
+	
+	auto qasm = toqm::QasmObject::fromQasm2(qasmFile);
+	auto couplingMap = toqm::parseCouplingMap(couplingMapFile);
+	
+	// invoke TOQM algo
+	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap);
+	
+	// write new qasm to std::cout
+	qasm->toQasm2(cout, *result);
 	
 	return 0;
 }
