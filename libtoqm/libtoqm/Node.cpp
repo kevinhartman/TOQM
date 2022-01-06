@@ -1,4 +1,7 @@
 #include "Node.hpp"
+
+#include <libtoqm/Environment.hpp>
+
 #include <set>
 #include <cassert>
 #include <iostream>

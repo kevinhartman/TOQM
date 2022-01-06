@@ -1,13 +1,14 @@
 #ifndef ENVIRONMENT_HPP
 #define ENVIRONMENT_HPP
 
-#include "Latency.hpp"
-#include "Filter.hpp"
-#include "NodeMod.hpp"
+#include "libtoqm/Latency.hpp"
+#include "libtoqm/Filter.hpp"
+#include "libtoqm/NodeMod.hpp"
 #include <set>
 #include <vector>
 #include <cassert>
 #include <cstring>
+#include <iosfwd>
 
 using namespace std;
 

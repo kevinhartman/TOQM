@@ -3,7 +3,7 @@
 
 #include "CommonTypes.hpp"
 
-#include <iostream>
+#include <iosfwd>
 #include <memory>
 
 namespace toqm {

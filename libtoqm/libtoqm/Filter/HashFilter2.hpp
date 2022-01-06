@@ -3,6 +3,7 @@
 
 #include "libtoqm/Filter.hpp"
 #include "libtoqm/Node.hpp"
+#include "libtoqm/Environment.hpp"
 
 #include <iostream>
 #include <functional>

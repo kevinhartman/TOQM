@@ -1,7 +1,7 @@
 #ifndef FILTER_HPP
 #define FILTER_HPP
 
-#include <iostream>
+#include <iosfwd>
 #include <memory>
 
 namespace toqm {

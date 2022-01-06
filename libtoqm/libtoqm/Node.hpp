@@ -1,7 +1,6 @@
 #ifndef NODE_HPP
 #define NODE_HPP
 
-#include "Environment.hpp"
 #include "GateNode.hpp"
 #include "LinkedStack.hpp"
 #include "ScheduledGate.hpp"
@@ -12,6 +11,8 @@
 using namespace std;
 
 namespace toqm {
+
+class Environment;
 
 class Queue;
 
