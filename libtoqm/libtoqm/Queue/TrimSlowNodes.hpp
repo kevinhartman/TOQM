@@ -22,7 +22,7 @@ private:
 	unsigned int targetSize = 500;
 	
 	struct CmpCost {
-		bool operator()(const Node * lhs, const Node * rhs) const {
+		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
 			//tiebreaker:
 			if(lhs->cost == rhs->cost) {
 				//return lhs->scheduled->size > rhs->scheduled->size;
@@ -36,7 +36,7 @@ private:
 	};
 	
 	struct CmpProgress {
-		bool operator()(const Node * lhs, const Node * rhs) const {
+		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
 			//tiebreaker:
 			if(lhs->numUnscheduledGates == rhs->numUnscheduledGates) {
 				return lhs->cost > rhs->cost;
@@ -50,14 +50,14 @@ private:
 	/**
 	 * The queue containing the nodes
 	 */
-	std::priority_queue<Node *, std::vector<Node *>, CmpCost> nodes;
+	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpCost> nodes;
 	
 	/**
 	 * A temporary queue used to organize nodes by progress through the original circuit
 	 */
-	std::priority_queue<Node *, std::vector<Node *>, CmpProgress> tempQueue;
+	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpProgress> tempQueue;
 	
-	bool pushNode(Node * newNode) override {
+	bool pushNode(const std::shared_ptr<Node>& newNode) override {
 		nodes.push(newNode);
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
@@ -87,7 +87,7 @@ private:
 			}
 			
 			//Move all nodes to queue that sorts them by progress
-			while(nodes.size() > 0) {
+			while(!nodes.empty()) {
 				tempQueue.push(nodes.top());
 				nodes.pop();
 			}
@@ -97,11 +97,10 @@ private:
 				tempQueue.pop();
 			}
 			//Delete the rest of the nodes
-			while(tempQueue.size() > 0) {
-				Node * n = tempQueue.top();
+			while(!tempQueue.empty()) {
+				auto n = tempQueue.top();
 				tempQueue.pop();
-				n->env->deleteRecord(n);
-				delete n;
+				n->env->deleteRecord(*n);
 			}
 		}
 		
@@ -123,16 +122,16 @@ public:
 		assert(this->maxSize != this->targetSize);
 	}
 	
-	Node * pop() override {
+	std::shared_ptr<Node> pop() override {
 		numPopped++;
 		
-		Node * ret = nodes.top();
+		auto ret = nodes.top();
 		nodes.pop();
 		
 		//std::cerr << "Debug message: popped node with cost " << ret->cost << "\n";
 		//std::cerr << "Debug message: queue has size " << nodes.size() << " now.\n";
 		
-		if(!ret->readyGates.size()) {
+		if(ret->readyGates.empty()) {
 			assert(ret->numUnscheduledGates == 0);
 			bool done = true;
 			if(done) {

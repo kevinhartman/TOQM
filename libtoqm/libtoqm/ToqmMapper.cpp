@@ -342,7 +342,7 @@ struct ToqmMapper::Impl {
 		}
 		
 		//Set up root node (for cycle -1, before any gates are scheduled):
-		Node * root = new Node();
+		auto root = std::shared_ptr<Node>(new Node());
 		for(int x = env->numLogicalQubits; x < env->numPhysicalQubits; x++) {
 			root->laq[x] = -1;
 			root->qal[x] = -1;
@@ -372,7 +372,7 @@ struct ToqmMapper::Impl {
 		}
 		root->readyGates = firstGates;
 		root->scheduled = new LinkedStack<ScheduledGate *>;
-		root->cost = cost_func->getCost(root);
+		root->cost = cost_func->getCost(*root);
 		nodes->push(root);
 
 //    // TODO: is this needed? why delete filters that the user didn't select?
@@ -393,33 +393,31 @@ struct ToqmMapper::Impl {
 		
 		//Pop nodes from the queue until we're done:
 		bool notDone = true;
-		std::vector<Node *> tempNodes;
+		std::vector<std::shared_ptr<Node>> tempNodes;
 		int numPopped = 0;
 		int counter = 0;
-		std::deque<Node *> oldNodes;
+		std::deque<std::shared_ptr<Node>> oldNodes;
 		while(notDone) {
 			assert(nodes->size() > 0);
 			
 			while(retainPopped && oldNodes.size() > retainPopped) {
-				Node * pop = oldNodes.front();
+				auto pop = oldNodes.front();
 				oldNodes.pop_front();
 				if(pop == nodes->getBestFinalNode()) {
 					oldNodes.push_back(pop);
 				} else {
-					env->deleteRecord(pop);
-					delete pop;
+					env->deleteRecord(*pop);
 				}
 			}
 			
-			Node * n = nodes->pop();
+			auto n = nodes->pop();
 			n->expanded = true;
 			
 			if(n->dead) {
 				if(n == nodes->getBestFinalNode()) {
 					oldNodes.push_back(n);
 				} else {
-					env->deleteRecord(n);
-					delete n;
+					env->deleteRecord(*n);
 				}
 				continue;
 			}
@@ -482,21 +480,18 @@ struct ToqmMapper::Impl {
 				if(counter < 0) exit(1);
 			}
 			
-			notDone = expander->expand(nodes.get(), n);
+			notDone = expander->expand(*nodes, *n);
 			
 			counter--;
 		}
 		
-		Node * finalNode = nodes->getBestFinalNode();
-		
+		auto finalNode = nodes->getBestFinalNode();
 		
 		//Figure out what the initial mapping must have been
 		LinkedStack<ScheduledGate *> * sg = finalNode->scheduled;
 		std::vector<char> inferredQal(env->numPhysicalQubits);
 		std::vector<char> inferredLaq(env->numPhysicalQubits);
 		
-		//char inferredQal[env->numPhysicalQubits];
-		//char inferredLaq[env->numPhysicalQubits];
 		for(int x = 0; x < env->numPhysicalQubits; x++) {
 			inferredQal[x] = finalNode->qal[x];
 			inferredLaq[x] = finalNode->laq[x];
@@ -553,7 +548,7 @@ struct ToqmMapper::Impl {
 		env->printFilterStats(filterStats);
 		
 		auto result = unique_ptr<ToqmResult>(new ToqmResult{
-				unique_ptr<Node>(finalNode),
+				finalNode,
 				std::move(nodes),
 				env->numPhysicalQubits,
 				env->numLogicalQubits,

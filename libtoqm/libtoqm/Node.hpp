@@ -40,7 +40,7 @@ public:
 	ScheduledGate * lastGate[MAX_QUBITS];//last scheduled gate per PHYSICAL qubit
 	
 	//the number of cycles until the specified physical qubit is available
-	inline int busyCycles(int physicalQubit) {
+	inline int busyCycles(int physicalQubit) const {
 		ScheduledGate * sg = this->lastGate[physicalQubit];
 		if(!sg) return 0;
 		int cycles = sg->cycle + sg->latency - this->cycle;
@@ -78,7 +78,7 @@ public:
 	bool scheduleGate(GateNode * gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
-	Node * prepChild();
+	std::unique_ptr<Node> prepChild();
 };
 
 }

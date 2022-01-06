@@ -12,7 +12,7 @@ namespace toqm {
 
 class ToqmResult {
 public:
-	std::unique_ptr<Node> finalNode;
+	std::shared_ptr<Node> finalNode;
 	std::unique_ptr<Queue> remaining;
 	int numPhysicalQubits;
 	int numLogicalQubits;

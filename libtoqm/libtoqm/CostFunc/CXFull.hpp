@@ -10,12 +10,12 @@ namespace toqm {
 
 class CXFull : public CostFunc {
 public:
-	int _getCost(Node * node) const {
-		//bool debug = node->cost > 0;//called getCost for second time on this node
+	int _getCost(Node& node) const override {
+		//bool debug = node.cost > 0;//called getCost for second time on this node
 		
 		int cost = 0;
 		int costT = 99999;
-		Environment * env = node->env;
+		Environment * env = node.env;
 		GateNode * next2BitGate[env->numPhysicalQubits];
 		int pathLength[env->numPhysicalQubits];
 		GateNode * next2BitGate2[env->numPhysicalQubits];
@@ -23,7 +23,7 @@ public:
 			next2BitGate[x] = NULL;
 			next2BitGate2[x] = NULL;
 			pathLength[x] = 0;
-			int busy = node->busyCycles(x);
+			int busy = node.busyCycles(x);
 			if(busy > cost) {
 				cost = busy;
 			}
@@ -31,19 +31,19 @@ public:
 		
 		//search from last scheduled (non-swap) gates
 		for(int x = 0; x < env->numPhysicalQubits; x++) {
-			ScheduledGate * sg = node->lastNonSwapGate[x];
+			ScheduledGate * sg = node.lastNonSwapGate[x];
 			if(sg) {
 				//get latest physical location of logical qubit x:
 				int actualQubit;
 				if(sg->gate->target == x) {
-					actualQubit = node->laq[sg->gate->target];
+					actualQubit = node.laq[sg->gate->target];
 				} else {
 					assert(sg->gate->control == x);
-					actualQubit = node->laq[sg->gate->control];
+					actualQubit = node.laq[sg->gate->control];
 				}
 				
 				//get path length to next 2-qubit gate along this qubit:
-				pathLength[actualQubit] = node->busyCycles(actualQubit);
+				pathLength[actualQubit] = node.busyCycles(actualQubit);
 				if(!pathLength[actualQubit]) {
 					pathLength[actualQubit] = 1;//since we won't schedule any more gates this cycle
 				}
@@ -64,10 +64,10 @@ public:
 		}
 		
 		//also search from ready gates, in case some qubits haven't scheduled gates yet
-		auto iter = node->readyGates.begin();
-		while(iter != node->readyGates.end()) {
+		auto iter = node.readyGates.begin();
+		while(iter != node.readyGates.end()) {
 			GateNode * g = *iter;
-			int physicalTarget = node->laq[g->target];
+			int physicalTarget = node.laq[g->target];
 			
 			if(physicalTarget < 0) {
 				iter++;
@@ -76,7 +76,7 @@ public:
 			
 			if(g->control < 0) {
 				//if(next2BitGate[physicalTarget] == NULL) {
-					pathLength[physicalTarget] = node->busyCycles(physicalTarget);
+					pathLength[physicalTarget] = node.busyCycles(physicalTarget);
 					if(!pathLength[physicalTarget]) {
 						pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 					}
@@ -92,15 +92,15 @@ public:
 						bool noOtherParent = false;
 						if(temp->target == g->target) {
 							noOtherParent = temp->controlParent == NULL;
-							otherBit = node->laq[temp->control];
+							otherBit = node.laq[temp->control];
 						} else {
 							assert(temp->control == g->target);
 							noOtherParent = temp->targetParent == NULL;
-							otherBit = node->laq[temp->target];
+							otherBit = node.laq[temp->target];
 						}
 						if(noOtherParent && next2BitGate[otherBit] == NULL) {
 							next2BitGate[otherBit] = temp;
-							pathLength[otherBit] = node->busyCycles(otherBit);
+							pathLength[otherBit] = node.busyCycles(otherBit);
 							if(!pathLength[otherBit]) {
 								pathLength[otherBit] = 1;//since we won't schedule any more gates this cycle
 							}
@@ -108,7 +108,7 @@ public:
 					}
 				//}
 			} else {
-				int physicalControl = node->laq[g->control];
+				int physicalControl = node.laq[g->control];
 				if(physicalControl < 0) {
 					iter++;
 					continue;
@@ -116,13 +116,13 @@ public:
 				assert(next2BitGate[physicalControl] == g || next2BitGate[physicalControl] == NULL);
 				assert(next2BitGate[physicalTarget] == g || next2BitGate[physicalTarget] == NULL);
 				
-				pathLength[physicalTarget] = node->busyCycles(physicalTarget);
+				pathLength[physicalTarget] = node.busyCycles(physicalTarget);
 				if(!pathLength[physicalTarget]) {
 					pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 				}
 				next2BitGate[physicalTarget] = g;
 				
-				pathLength[physicalControl] = node->busyCycles(physicalControl);
+				pathLength[physicalControl] = node.busyCycles(physicalControl);
 				if(!pathLength[physicalControl]) {
 					pathLength[physicalControl] = 1;//since we won't schedule any more gates this cycle
 				}
@@ -144,8 +144,8 @@ public:
 				if(g) {
 					//if(debug) std::cerr << "  considering next gate for physical qubit " << x << "\n";
 					//if(debug) std::cerr << "   logical qubits: " << g->control << "," << g->target << "\n";
-					int physicalTarget = node->laq[g->target];
-					int physicalControl = node->laq[g->control];
+					int physicalTarget = node.laq[g->target];
+					int physicalControl = node.laq[g->control];
 					
 					//if(debug) std::cerr << "   physical qubits: " << physicalControl << "," << physicalTarget << "\n";
 					
@@ -231,8 +231,8 @@ public:
 				if(next2BitGate[x] && next2BitGate2[x] == next2BitGate[x]) {
 					GateNode * g = next2BitGate[x];
 					int addlPath = g->optimisticLatency;
-					int physicalTarget = node->laq[g->target];
-					int physicalControl = node->laq[g->control];
+					int physicalTarget = node.laq[g->target];
+					int physicalControl = node.laq[g->control];
 					if(physicalTarget == x) {
 						g = g->targetChild;
 					} else {
@@ -256,10 +256,10 @@ public:
 		}
 		
 		//add old cycles to cost
-		cost += node->cycle;
+		cost += node.cycle;
 		
 		if(costT == 99999) costT = 0;
-		node->cost2 = costT;
+		node.cost2 = costT;
 		
 		return cost;
 	}

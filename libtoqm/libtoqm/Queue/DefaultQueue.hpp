@@ -15,7 +15,7 @@ extern bool _verbose;
 class DefaultQueue : public Queue {
 private:
 	struct CmpDefaultQueue {
-		bool operator()(const Node * lhs, const Node * rhs) const {
+		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
 			//tiebreaker:
 			if(lhs->cost == rhs->cost) {
 				//return lhs->scheduled->size > rhs->scheduled->size;
@@ -28,9 +28,9 @@ private:
 		}
 	};
 	
-	std::priority_queue<Node *, std::vector<Node *>, CmpDefaultQueue> nodes;
+	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpDefaultQueue> nodes;
 	
-	bool pushNode(Node * newNode) override {
+	bool pushNode(const std::shared_ptr<Node>& newNode) override {
 		nodes.push(newNode);
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
@@ -53,6 +53,7 @@ private:
 				}
 			}
 		}
+		
 		return true;
 	}
 	
@@ -60,10 +61,10 @@ private:
 	int garbage2 = 9999999;
 
 public:
-	Node * pop() override {
+	std::shared_ptr<Node> pop() override {
 		numPopped++;
 		
-		Node * ret = nodes.top();
+		auto ret = nodes.top();
 		nodes.pop();
 		
 		if(!ret->readyGates.size()) {

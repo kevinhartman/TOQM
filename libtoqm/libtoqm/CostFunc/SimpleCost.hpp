@@ -11,23 +11,23 @@ namespace toqm {
 //CostFunc example
 class SimpleCost : public CostFunc {
 public:
-	int _getCost(Node * node) const {
+	int _getCost(Node& node) const override {
 		int cost = 0;
 		int costT = 99999;
-		Environment * env = node->env;
+		Environment * env = node.env;
 		
 		//Calculate remaining cost of scheduled gates that haven't finished
 		int busyCyclesRemaining[env->numPhysicalQubits];
 		for(int x = 0; x < env->numPhysicalQubits; x++) {
-			busyCyclesRemaining[x] = node->busyCycles(x);
+			busyCyclesRemaining[x] = node.busyCycles(x);
 			if(busyCyclesRemaining[x] > cost) {
 				cost = busyCyclesRemaining[x];
 			}
 		}
 		
 		//Consider cost of unscheduled gates
-		auto iter = node->readyGates.begin();
-		while(iter != node->readyGates.end()) {
+		auto iter = node.readyGates.begin();
+		while(iter != node.readyGates.end()) {
 			GateNode * g = *iter;
 			
 			int tempcost = g->criticality + g->optimisticLatency;
@@ -35,11 +35,11 @@ public:
 			
 			int control = -1;
 			if(g->control >= 0) {
-				control = node->laq[g->control];
+				control = node.laq[g->control];
 			}
 			int target = -1;
 			if(g->target >= 0) {
-				target = node->laq[g->target];
+				target = node.laq[g->target];
 			}
 			
 			if(control >= 0) {
@@ -88,10 +88,10 @@ public:
 		}
 		
 		//Consider cost of completed gates
-		cost += node->cycle;
+		cost += node.cycle;
 		
 		if(costT == 99999) costT = 0;
-		node->cost2 = costT;
+		node.cost2 = costT;
 		
 		return cost;
 	}

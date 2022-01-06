@@ -23,17 +23,17 @@ inline void hash_combine(std::size_t & seed, const T & v) {
 
 namespace toqm {
 
-inline std::size_t hashFunc1(Node * n) {
+inline std::size_t hashFunc1(const Node& n) {
 	std::size_t hash_result = 0;
-	int numQubits = n->env->numPhysicalQubits;
+	int numQubits = n.env->numPhysicalQubits;
 	
 	//combine into hash: qubit map (array of integers)
 	for(int x = 0; x < numQubits; x++) {
-		hash_combine(hash_result, n->laq[x]);
+		hash_combine(hash_result, n.laq[x]);
 	}
 	
 	//combine into hash: ready gate (set of pointers)
-	for(auto x = n->readyGates.begin(); x != n->readyGates.end(); x++) {
+	for(auto x = n.readyGates.begin(); x != n.readyGates.end(); x++) {
 		hash_combine(hash_result, (std::uintptr_t) (*x));
 	}
 	
@@ -43,7 +43,7 @@ inline std::size_t hashFunc1(Node * n) {
 class HashFilter : public Filter {
 private:
 	int numFiltered = 0;
-	std::unordered_map<std::size_t, vector<Node *> > hashmap;
+	std::unordered_map<std::size_t, vector<std::shared_ptr<Node>>> hashmap;
 
 public:
 	std::unique_ptr<Filter> createEmptyCopy() override {
@@ -52,28 +52,28 @@ public:
 		return f;
 	}
 	
-	void deleteRecord(Node * n) override {
+	void deleteRecord(const Node& n) override {
 		std::size_t hash_result = hashFunc1(n);
-		vector<Node *> * mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
-		for(unsigned int blah = 0; blah < mapValue->size(); blah++) {
-			Node * n2 = (*mapValue)[blah];
-			if(n2 == n) {
-				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
-					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
+		auto & mapValue = this->hashmap[hash_result];
+		for(unsigned int blah = 0; blah < mapValue.size(); blah++) {
+			auto n2 = mapValue[blah];
+			if(n2.get() == &n) {
+				if(mapValue.size() > 1 && blah < mapValue.size() - 1) {
+					std::swap(mapValue[blah], mapValue[mapValue.size() - 1]);
 				}
-				mapValue->pop_back();
+				mapValue.pop_back();
 				return;
 			}
 		}
 	}
 	
-	bool filter(Node * newNode) override {
+	bool filter(const std::shared_ptr<Node>& newNode) override {
 		int numQubits = newNode->env->numPhysicalQubits;
-		std::size_t hash_result = hashFunc1(newNode);
+		std::size_t hash_result = hashFunc1(*newNode);
 		
 		//auto findNode = this->hashmap.find(hash_result);
 		//if(findNode != this->hashmap.end()) {
-		for(Node * candidate: this->hashmap[hash_result]) {
+		for(const auto& candidate: this->hashmap[hash_result]) {
 			//Node * candidate = findNode->second;
 			bool willFilter = true;
 			

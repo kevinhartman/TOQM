@@ -44,27 +44,27 @@ inline int catchUp(GateNode * ancestor, GateNode * descendant, int logQubit, int
 	return cycles;
 }
 
-inline std::size_t hashFunc2(Node * n) {
+inline std::size_t hashFunc2(const Node & n) {
 	std::size_t hash_result = 0;
-	int numQubits = n->env->numPhysicalQubits;
+	int numQubits = n.env->numPhysicalQubits;
 	
 	//combine into hash: qubit map (array of integers)
 	for(int x = 0; x < numQubits; x += 4) {
 		unsigned int sum = 0;
 		for(int y = 0; y < 4 && (x + y) < numQubits; y++) {
 			sum = sum << 8;
-			sum += 0xff & n->laq[x + y];
+			sum += 0xff & n.laq[x + y];
 		}
 		hash_combine(hash_result, sum);
 		
-		hash_combine(hash_result, n->qal[x]);//added this to try to discourage hash conflict
+		hash_combine(hash_result, n.qal[x]);//added this to try to discourage hash conflict
 	}
 	
 	//Note: this line may avoid hash conflicts in some benchmarks?
 	//if(numQubits > 4) hash_combine(hash_result, (int)(n->laq[1]+1)*(int)(n->laq[2]+1)*(int)(n->laq[3]+1)*((int)n->laq[4]+1));
 	
 	//adding part of cycle to hash means we filter fewer nodes, but the filter runs much faster:
-	hash_combine(hash_result, n->cycle >> 3);
+	hash_combine(hash_result, n.cycle >> 3);
 	
 	return hash_result;
 }
@@ -74,7 +74,7 @@ private:
 	int numFiltered = 0;
 	int numMarkedDead = 0;
 	bool foundConflict = false;
-	std::unordered_map<std::size_t, vector<Node *> > hashmap;
+	std::unordered_map<std::size_t, std::vector<std::shared_ptr<Node>>> hashmap;
 
 public:
 	std::unique_ptr<Filter> createEmptyCopy() override {
@@ -84,36 +84,36 @@ public:
 		return f;
 	}
 	
-	void deleteRecord(Node * n) override {
+	void deleteRecord(const Node& n) override {
 		std::size_t hash_result = hashFunc2(n);
-		vector<Node *> * mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here, hence the awkward pointers
+		auto & mapValue = this->hashmap[hash_result];
 		//assert(mapValue->size() > 0);
-		for(unsigned int blah = 0; blah < mapValue->size(); blah++) {
-			Node * n2 = (*mapValue)[blah];
-			if(n2 == n) {
-				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
-					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
+		for(unsigned int blah = 0; blah < mapValue.size(); blah++) {
+			auto n2 = mapValue[blah];
+			if(n2.get() == &n) {
+				if(mapValue.size() > 1 && blah < mapValue.size() - 1) {
+					std::swap(mapValue[blah], mapValue[mapValue.size() - 1]);
 				}
-				mapValue->pop_back();
+				mapValue.pop_back();
 				return;
 			}
 		}
 		//assert(false && "hashfilter2 failed to find node to delete");
 	}
 	
-	bool filter(Node * newNode) override {
+	bool filter(const std::shared_ptr<Node>& newNode) override {
 		//if(newNode->parent && newNode->parent->dead) {
 		//	return true;
 		//}
 		
 		int numQubits = newNode->env->numPhysicalQubits;
 		
-		std::size_t hash_result = hashFunc2(newNode);
+		std::size_t hash_result = hashFunc2(*newNode);
 		
 		int swapCost = newNode->env->swapCost;
-		vector<Node *> * mapValue = &this->hashmap[hash_result];//Note: I'm terrified of accidentally making an actual copy of the vector here
-		for(unsigned int blah = mapValue->size() - 1; blah < mapValue->size() && blah >= 0; blah--) {
-			Node * candidate = (*mapValue)[blah];
+		auto & mapValue = this->hashmap[hash_result];
+		for(unsigned int blah = mapValue.size() - 1; blah < mapValue.size() && blah >= 0; blah--) {
+			auto candidate = mapValue[blah];
 			
 			//if there's a very big gap between nodes' progress then we probably won't benefit from comparing them:
 			//if(candidate->cycle - newNode->cycle >= 6 || newNode->cycle - candidate->cycle >= 6) {
@@ -155,7 +155,7 @@ public:
 			//*/
 			
 			if(willFilter || willMarkDead) {
-				if(this->foundConflict || blah == mapValue->size() - 1) {
+				if(this->foundConflict || blah == mapValue.size() - 1) {
 					bool conflict = false;
 					for(int x = 0; x < numQubits - 1; x++) {
 						if(candidate->laq[x] != newNode->laq[x]) {
@@ -318,10 +318,10 @@ public:
 			
 			//remove dead node from vector
 			if(candidate->dead) {
-				if(mapValue->size() > 1 && blah < mapValue->size() - 1) {
-					std::swap((*mapValue)[blah], (*mapValue)[mapValue->size() - 1]);
+				if(mapValue.size() > 1 && blah < mapValue.size() - 1) {
+					std::swap(mapValue[blah], mapValue[mapValue.size() - 1]);
 				}
-				mapValue->pop_back();
+				mapValue.pop_back();
 			}
 			
 			if(willFilter) {
@@ -329,7 +329,7 @@ public:
 				return true;
 			}
 		}
-		mapValue->push_back(newNode);
+		mapValue.push_back(newNode);
 		
 		return false;
 	}

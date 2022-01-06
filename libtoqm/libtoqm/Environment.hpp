@@ -41,18 +41,18 @@ public:
 	GateNode ** firstCXPerQubit{};//the first 2-qubit gate that uses each logical qubit
 	
 	///Invoke all node mods, using the specified node and specified flag
-	void runNodeModifiers(Node * node, int flag) {
-		for(unsigned int x = 0; x < this->nodeMods.size(); x++) {
-			this->nodeMods[x]->mod(node, flag);
+	void runNodeModifiers(Node& node, int flag) {
+		for(const auto & nodeMod : this->nodeMods) {
+			nodeMod->mod(node, flag);
 		}
 	}
 	
 	///Invoke the active filters; returns true if we should delete the node.
-	bool filter(Node * newNode) {
+	bool filter(const std::shared_ptr<Node> & newNode) {
 		for(unsigned int x = 0; x < this->filters.size(); x++) {
 			if(this->filters[x]->filter(newNode)) {
 				for(unsigned int y = 0; y < x; y++) {
-					this->filters[y]->deleteRecord(newNode);
+					this->filters[y]->deleteRecord(*newNode);
 				}
 				return true;
 			}
@@ -62,24 +62,24 @@ public:
 	}
 	
 	///Instructs all active filters to delete all pointers to the specified node.
-	void deleteRecord(Node * oldNode) {
-		for(unsigned int x = 0; x < this->filters.size(); x++) {
-			this->filters[x]->deleteRecord(oldNode);
+	void deleteRecord(const Node & oldNode) {
+		for(auto & filter : this->filters) {
+			filter->deleteRecord(oldNode);
 		}
 	}
 	
 	///Recreates the filters, forcibly erasing any data they've gathered.
 	void resetFilters() {
-		for(unsigned int x = 0; x < this->filters.size(); x++) {
-			auto & old = this->filters[x];
-			this->filters[x] = old->createEmptyCopy();
+		for(auto & filter : this->filters) {
+			auto & old = filter;
+			filter = old->createEmptyCopy();
 		}
 	}
 	
 	///Invokes the printStatistics function for every active filter.
 	void printFilterStats(std::ostream & stream) {
-		for(unsigned int x = 0; x < this->filters.size(); x++) {
-			this->filters[x]->printStatistics(stream);
+		for(auto & filter : this->filters) {
+			filter->printStatistics(stream);
 		}
 	}
 };

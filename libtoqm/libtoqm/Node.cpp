@@ -168,8 +168,8 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 }
 
 //prepares a new child node (without scheduling any more gates)
-Node * Node::prepChild() {
-	Node * child = new Node;
+std::unique_ptr<Node> Node::prepChild() {
+	auto child = unique_ptr<Node>(new Node);
 	child->numUnscheduledGates = this->numUnscheduledGates;
 	child->env = this->env;
 	child->parent = this;

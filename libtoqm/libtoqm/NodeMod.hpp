@@ -1,6 +1,8 @@
 #ifndef NODEMOD_HPP
 #define NODEMOD_HPP
 
+#include <memory>
+
 namespace toqm {
 
 class Node;
@@ -9,9 +11,9 @@ class Node;
 
 class NodeMod {
 public:
-	virtual ~NodeMod() {};
+	virtual ~NodeMod() = default;
 	
-	virtual void mod(Node * node, int flag) const = 0;
+	virtual void mod(Node & node, int flag) const = 0;
 };
 
 }
