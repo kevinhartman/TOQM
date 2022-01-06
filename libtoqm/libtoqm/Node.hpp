@@ -7,6 +7,7 @@
 #include <set>
 #include <cassert>
 #include <iostream>
+#include <memory>
 
 using namespace std;
 
@@ -22,23 +23,23 @@ const int MAX_QUBITS = 20;
 
 class Node {
 public:
-	Node * parent;//node from which this one expanded
-	Environment * env;//object with functions/data shared by all nodes
-	int cycle;//current cycle
-	int cost;//the node's cost (in cycles)
+	Environment & env;//object with functions/data shared by all nodes
+	std::shared_ptr<Node> parent;//node from which this one expanded
+	int cycle {};//current cycle
+	int cost {};//the node's cost (in cycles)
 	int cost2 = 0;//used as tiebreaker in some places
 	
-	int numUnscheduledGates;//the number of gates from the original circuit that are not yet part of this node's schedule
+	int numUnscheduledGates {};//the number of gates from the original circuit that are not yet part of this node's schedule
 	bool expanded = false;//whether or not this node has been popped from the queue
 	bool dead = false;//where or not this node has been marked as 'dead' by a filter
 	
 	//int debugID = GLOBALCOUNTER++;
 	
-	char qal[MAX_QUBITS];//qubit mapping
-	char laq[MAX_QUBITS];//qubit mapping (inverted)
+	char qal[MAX_QUBITS]{};//qubit mapping
+	char laq[MAX_QUBITS]{};//qubit mapping (inverted)
 	
-	ScheduledGate * lastNonSwapGate[MAX_QUBITS];//last scheduled non-swap gate per LOGICAL qubit
-	ScheduledGate * lastGate[MAX_QUBITS];//last scheduled gate per PHYSICAL qubit
+	ScheduledGate * lastNonSwapGate[MAX_QUBITS]{};//last scheduled non-swap gate per LOGICAL qubit
+	ScheduledGate * lastGate[MAX_QUBITS]{};//last scheduled gate per PHYSICAL qubit
 	
 	//the number of cycles until the specified physical qubit is available
 	inline int busyCycles(int physicalQubit) const {
@@ -51,9 +52,9 @@ public:
 	
 	std::set<GateNode *> readyGates;//set of gates in DAG whose parents have already been scheduled
 	
-	LinkedStack<ScheduledGate *> * scheduled;//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
+	LinkedStack<ScheduledGate *> * scheduled{};//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
 	
-	Node();
+	explicit Node(Environment& environment);
 	
 	~Node();
 	
@@ -79,7 +80,7 @@ public:
 	bool scheduleGate(GateNode * gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
-	std::unique_ptr<Node> prepChild();
+	static std::unique_ptr<Node> prepChild(const std::shared_ptr<Node>& parent);
 };
 
 }

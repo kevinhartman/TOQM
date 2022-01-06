@@ -125,14 +125,14 @@ int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
 //build dependence graph, put root gates into firstGates:
 void
 buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, const Latency & lat,
-					 set<GateNode *> & firstGates, int & numQubits, Environment * env,
+					 set<GateNode *> & firstGates, int & numQubits, Environment& env,
 					 int & idealCycles) {
 	numQubits = 0;
 	
-	env->numGates = gates.size();
-	env->firstCXPerQubit = new GateNode * [maxQubits];
+	env.numGates = gates.size();
+	env.firstCXPerQubit = new GateNode * [maxQubits];
 	for(int x = 0; x < maxQubits; x++) {
-		env->firstCXPerQubit[x] = 0;
+		env.firstCXPerQubit[x] = 0;
 	}
 	
 	//build dependence graph
@@ -153,11 +153,11 @@ buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, c
 		v->targetParent = 0;
 		
 		if(v->control >= 0) {
-			if(!env->firstCXPerQubit[v->control]) {
-				env->firstCXPerQubit[v->control] = v;
+			if(!env.firstCXPerQubit[v->control]) {
+				env.firstCXPerQubit[v->control] = v;
 			}
-			if(!env->firstCXPerQubit[v->target]) {
-				env->firstCXPerQubit[v->target] = v;
+			if(!env.firstCXPerQubit[v->target]) {
+				env.firstCXPerQubit[v->target] = v;
 			}
 		}
 		
@@ -286,7 +286,7 @@ struct ToqmMapper::Impl {
 			run_filters.push_back(filter->createEmptyCopy());
 		}
 		
-		auto env = new Environment(*cost_func, *latency, node_mods);
+		auto env = std::unique_ptr<Environment>(new Environment(*cost_func, *latency, node_mods));
 		env->swapCost = latency->getLatency("swp", 2, -1, -1);
 		env->filters = std::move(run_filters);
 		env->couplings = coupling_map.edges;
@@ -294,7 +294,7 @@ struct ToqmMapper::Impl {
 		
 		set<GateNode *> firstGates;
 		int idealCycles = -1;
-		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, env, idealCycles);
+		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
 		assert(env->numPhysicalQubits >= env->numLogicalQubits);
 		
@@ -341,8 +341,10 @@ struct ToqmMapper::Impl {
 			iter++;
 		}
 		
-		//Set up root node (for cycle -1, before any gates are scheduled):
-		auto root = std::shared_ptr<Node>(new Node());
+		// Set up root node (for cycle -1, before any gates are scheduled).
+		// Note: the lifetimes of all Node instances are tied to the lifetime
+		//       of env and hence, this method.
+		auto root = std::shared_ptr<Node>(new Node(*env));
 		for(int x = env->numLogicalQubits; x < env->numPhysicalQubits; x++) {
 			root->laq[x] = -1;
 			root->qal[x] = -1;
@@ -364,7 +366,6 @@ struct ToqmMapper::Impl {
 		}
 		root->parent = nullptr;
 		root->numUnscheduledGates = env->numGates;
-		root->env = env;
 		root->cycle = -1;
 		if(initialSearchCycles) {
 			//std::cerr << "//Note: making attempt to find better initial mapping.\n";
@@ -480,12 +481,12 @@ struct ToqmMapper::Impl {
 				if(counter < 0) exit(1);
 			}
 			
-			notDone = expander->expand(*nodes, *n);
+			notDone = expander->expand(*nodes, n);
 			
 			counter--;
 		}
 		
-		auto finalNode = nodes->getBestFinalNode();
+		auto & finalNode = nodes->getBestFinalNode();
 		
 		//Figure out what the initial mapping must have been
 		LinkedStack<ScheduledGate *> * sg = finalNode->scheduled;

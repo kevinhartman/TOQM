@@ -100,7 +100,7 @@ private:
 			while(!tempQueue.empty()) {
 				auto n = tempQueue.top();
 				tempQueue.pop();
-				n->env->deleteRecord(*n);
+				n->env.deleteRecord(*n);
 			}
 		}
 		

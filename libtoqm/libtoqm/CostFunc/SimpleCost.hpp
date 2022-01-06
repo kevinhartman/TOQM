@@ -14,11 +14,11 @@ public:
 	int _getCost(Node& node) const override {
 		int cost = 0;
 		int costT = 99999;
-		Environment * env = node.env;
+		Environment & env = node.env;
 		
 		//Calculate remaining cost of scheduled gates that haven't finished
-		int busyCyclesRemaining[env->numPhysicalQubits];
-		for(int x = 0; x < env->numPhysicalQubits; x++) {
+		int busyCyclesRemaining[env.numPhysicalQubits];
+		for(int x = 0; x < env.numPhysicalQubits; x++) {
 			busyCyclesRemaining[x] = node.busyCycles(x);
 			if(busyCyclesRemaining[x] > cost) {
 				cost = busyCyclesRemaining[x];
@@ -58,9 +58,9 @@ public:
 			}
 			
 			if(control >= 0 && target >= 0) {
-				int dist = env->couplingDistances[control * env->numPhysicalQubits + target];
+				int dist = env.couplingDistances[control * env.numPhysicalQubits + target];
 				if(dist < costT) costT = dist - 1;
-				int minSwapCost = env->swapCost * (dist / 2);
+				int minSwapCost = env.swapCost * (dist / 2);
 				assert(minSwapCost >= 0);
 				
 				if(dist > 1) {//at least one node between target and control
@@ -69,10 +69,10 @@ public:
 						tempcost2 += minSwapCost;
 					} else if(tempcost < tempcost2) {
 						tempcost += minSwapCost;
-						tempcost2 += minSwapCost - env->swapCost;
+						tempcost2 += minSwapCost - env.swapCost;
 					} else {
 						tempcost2 += minSwapCost;
-						tempcost += minSwapCost - env->swapCost;
+						tempcost += minSwapCost - env.swapCost;
 					}
 				}
 			}

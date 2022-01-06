@@ -13,7 +13,7 @@ namespace toqm {
 //const int MAX_QUBITS = 20;
 int GLOBALCOUNTER = 0;
 
-Node::Node() {
+Node::Node(Environment& environment) : env(environment) {
 	for(int x = 0; x < MAX_QUBITS; x++) {
 		qal[x] = x;
 		laq[x] = x;
@@ -124,7 +124,7 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 	ScheduledGate * sg = new ScheduledGate(gate, this->cycle + timeOffset);
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
-	sg->latency = env->latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
+	sg->latency = env.latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
 										  sg->physicalControl);
 	
 	if(physicalControl >= 0) {
@@ -171,19 +171,18 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 }
 
 //prepares a new child node (without scheduling any more gates)
-std::unique_ptr<Node> Node::prepChild() {
-	auto child = unique_ptr<Node>(new Node);
-	child->numUnscheduledGates = this->numUnscheduledGates;
-	child->env = this->env;
-	child->parent = this;
-	child->cycle = this->cycle + 1;
-	child->readyGates = this->readyGates;//note: this actually produces a separate copy
-	child->scheduled = scheduled->newRef();
-	for(int x = 0; x < env->numPhysicalQubits; x++) {
-		child->qal[x] = this->qal[x];
-		child->laq[x] = this->laq[x];
-		child->lastNonSwapGate[x] = this->lastNonSwapGate[x];
-		child->lastGate[x] = this->lastGate[x];
+std::unique_ptr<Node> Node::prepChild(const std::shared_ptr<Node>& parent) {
+	auto child = unique_ptr<Node>(new Node(parent->env));
+	child->numUnscheduledGates = parent->numUnscheduledGates;
+	child->parent = parent;
+	child->cycle = parent->cycle + 1;
+	child->readyGates = parent->readyGates;//note: this actually produces a separate copy
+	child->scheduled = parent->scheduled->newRef();
+	for(int x = 0; x < parent->env.numPhysicalQubits; x++) {
+		child->qal[x] = parent->qal[x];
+		child->laq[x] = parent->laq[x];
+		child->lastNonSwapGate[x] = parent->lastNonSwapGate[x];
+		child->lastGate[x] = parent->lastGate[x];
 	}
 	child->cost = 0;//Remember to calculate cost in expander, *after* it's done scheduling new gates for this node //child->cost = env->cost->getCost(child);
 	

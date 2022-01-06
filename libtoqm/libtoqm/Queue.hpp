@@ -36,7 +36,7 @@ public:
 	///Pre-condition: newNode->cost has already been set
 	bool push(const std::shared_ptr<Node>& newNode) {
 		numPushed++;
-		if(!newNode->env->filter(newNode)) {
+		if(!newNode->env.filter(newNode)) {
 			bool success = this->pushNode(newNode);
 			if(success) {
 				return true;

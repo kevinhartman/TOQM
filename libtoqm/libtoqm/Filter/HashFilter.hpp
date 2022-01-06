@@ -25,7 +25,7 @@ namespace toqm {
 
 inline std::size_t hashFunc1(const Node& n) {
 	std::size_t hash_result = 0;
-	int numQubits = n.env->numPhysicalQubits;
+	int numQubits = n.env.numPhysicalQubits;
 	
 	//combine into hash: qubit map (array of integers)
 	for(int x = 0; x < numQubits; x++) {
@@ -68,7 +68,7 @@ public:
 	}
 	
 	bool filter(const std::shared_ptr<Node>& newNode) override {
-		int numQubits = newNode->env->numPhysicalQubits;
+		int numQubits = newNode->env.numPhysicalQubits;
 		std::size_t hash_result = hashFunc1(*newNode);
 		
 		//auto findNode = this->hashmap.find(hash_result);

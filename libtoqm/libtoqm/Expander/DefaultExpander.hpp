@@ -38,18 +38,18 @@ bool isCyclic(const Node& node, GateNode * g) {
 
 class DefaultExpander : public Expander {
 public:
-	bool expand(Queue& nodes, Node& node) const override {
+	bool expand(Queue& nodes, const std::shared_ptr<Node>& node) const override {
 		//return false if we're done expanding
-		if(nodes.getBestFinalNode() && node.cost >= nodes.getBestFinalNode()->cost) {
+		if(nodes.getBestFinalNode() && node->cost >= nodes.getBestFinalNode()->cost) {
 			return false;
 		}
 		
 		unsigned int nodesSize = nodes.size();
 		
-		bool noMoreCX[node.env->numPhysicalQubits];
-		for(int x = 0; x < node.env->numPhysicalQubits; x++) {
+		bool noMoreCX[node->env.numPhysicalQubits];
+		for(int x = 0; x < node->env.numPhysicalQubits; x++) {
 			noMoreCX[x] = false;
-			ScheduledGate * sg = node.lastNonSwapGate[x];
+			ScheduledGate * sg = node->lastNonSwapGate[x];
 			if(sg) {
 				if(sg->gate->target == x) {
 					if(!sg->gate->nextTargetCNOT) {
@@ -68,16 +68,16 @@ public:
 		vector<GateNode *> possibleGates;//possible swaps and valid 2+ cycle gates
 		vector<GateNode *> singleCycleGates;//valid 1 cycle non-swap gates
 		int numDependentGates = 0;
-		for(auto iter = node.readyGates.begin(); iter != node.readyGates.end(); iter++) {
+		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			GateNode * g = *iter;
-			int target = (g->target < 0) ? -1 : node.laq[g->target];
-			int control = (g->control < 0) ? -1 : node.laq[g->control];
+			int target = (g->target < 0) ? -1 : node->laq[g->target];
+			int control = (g->control < 0) ? -1 : node->laq[g->control];
 			
-			bool good = node.cycle >= -1;
+			bool good = node->cycle >= -1;
 			bool dependsOnSomething = false;
 			
 			if(control >= 0) {//gate has a control qubit
-				int busy = node.busyCycles(control);
+				int busy = node->busyCycles(control);
 				if(busy) {
 					dependsOnSomething = true;
 					if(busy > 1) {
@@ -91,7 +91,7 @@ public:
 			}
 			
 			if(g->target >= 0) {//gate has a target qubit
-				int busy = node.busyCycles(target);
+				int busy = node->busyCycles(target);
 				if(busy) {
 					dependsOnSomething = true;
 					if(busy > 1) {
@@ -104,20 +104,20 @@ public:
 				numDependentGates++;
 			}
 			
-			if(good && node.cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
+			if(good && node->cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
 				good = false;
 			}
 			
 			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
-				if(node.env->couplings.count(make_pair(target, control)) <= 0) {
-					if(node.env->couplings.count(make_pair(control, target)) <= 0) {
+				if(node->env.couplings.count(make_pair(target, control)) <= 0) {
+					if(node->env.couplings.count(make_pair(control, target)) <= 0) {
 						good = false;
 					}
 				}
 			}
 			
 			if(good) {
-				int latency = node.env->latency.getLatency(g->name, (control >= 0 ? 2 : 1), target, control);
+				int latency = node->env.latency.getLatency(g->name, (control >= 0 ? 2 : 1), target, control);
 				if(latency == 1) {
 					singleCycleGates.push_back(g);
 				} else {
@@ -126,12 +126,12 @@ public:
 			}
 		}
 		//generate list of valid gates, based on possible swaps
-		for(unsigned int x = 0; x < node.env->couplings.size(); x++) {
-			GateNode * g = node.env->possibleSwaps[x];
+		for(unsigned int x = 0; x < node->env.couplings.size(); x++) {
+			GateNode * g = node->env.possibleSwaps[x];
 			int target = g->target;//note: since g is swap, this is already a physical target
 			int control = g->control;//note: since g is swap, this is already a physical control
-			int logicalTarget = (target >= 0) ? node.qal[target] : -1;
-			int logicalControl = (control >= 0) ? node.qal[control] : -1;
+			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
+			int logicalControl = (control >= 0) ? node->qal[control] : -1;
 			
 			bool good = true;
 			bool dependsOnSomething = false;
@@ -153,7 +153,7 @@ public:
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
-					ScheduledGate * t = node.lastNonSwapGate[logicalTarget];
+					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
 						GateNode * tg = t->gate;
 						if(tg->target == logicalTarget) {
@@ -172,7 +172,7 @@ public:
 				}
 				
 				if(logicalControl >= 0) {
-					ScheduledGate * c = node.lastNonSwapGate[logicalControl];
+					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
 					if(c) {
 						GateNode * cg = c->gate;
 						if(cg->target == logicalControl) {
@@ -194,24 +194,24 @@ public:
 				good = false;
 			}
 			
-			int busyT = node.busyCycles(target);
+			int busyT = node->busyCycles(target);
 			if(good && busyT) {
 				dependsOnSomething = true;
 				if(busyT > 1) {
 					good = false;
 				}
 			}
-			int busyC = node.busyCycles(control);
+			int busyC = node->busyCycles(control);
 			if(good && busyC) {
 				dependsOnSomething = true;
 				if(busyC > 1) {
 					good = false;
 				}
 			}
-			if(good && node.cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
+			if(good && node->cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
 				good = false;
 			}
-			if(good && isCyclic(node, g)) {
+			if(good && isCyclic(*node, g)) {
 				good = false;
 			}
 			if(good) {
@@ -227,12 +227,12 @@ public:
 		assert(possibleGates.size() < 64); //or else I need to do this differently
 		unsigned long long numIters = 1LL << possibleGates.size();
 		for(unsigned long long x = 0; x < numIters; x++) {
-			std::shared_ptr<Node> child = node.prepChild();
+			std::shared_ptr<Node> child = Node::prepChild(node);
 			bool good = true;
 			//Schedule a unique subset of {swaps and 2-qubit gates}:
 			for(unsigned int y = 0; good && y < possibleGates.size(); y++) {
 				if(x & (1LL << y)) {
-					if(node.cycle >= -1) {
+					if(node->cycle >= -1) {
 						good = good && child->scheduleGate(possibleGates[y]);
 					} else {
 						good = good && child->swapQubits(possibleGates[y]->target, possibleGates[y]->control);
@@ -249,7 +249,7 @@ public:
 				
 				int cycleMod = (child->cycle < 0) ? child->cycle : 0;
 				child->cycle -= cycleMod;
-				child->cost = node.env->cost.getCost(*child);
+				child->cost = node->env.cost.getCost(*child);
 				child->cycle += cycleMod;
 				
 				nodes.push(child);

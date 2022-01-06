@@ -15,8 +15,8 @@ public:
 	///Returns the cost of the node
 	///This may invoke node modifiers prior to calculating the cost.
 	int getCost(Node& node) const {
-		Environment * env = node.env;
-		env->runNodeModifiers(node, MOD_TYPE_BEFORECOST);
+		auto & env = node.env;
+		env.runNodeModifiers(node, MOD_TYPE_BEFORECOST);
 		return _getCost(node);
 	}
 };

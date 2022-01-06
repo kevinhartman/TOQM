@@ -19,11 +19,11 @@ public:
 			return;
 		}
 		
-		Environment * env = node.env;
+		Environment & env = node.env;
 		
 		//if this is the root node, unmap the qubits
 		if(node.cycle < 0 && node.parent == NULL) {
-			for(int x = 0; x < env->numPhysicalQubits; x++) {
+			for(int x = 0; x < env.numPhysicalQubits; x++) {
 				node.laq[x] = -1;
 				node.qal[x] = -1;
 			}
@@ -31,7 +31,7 @@ public:
 		
 		//return if there are no more unmapped qubits
 		bool mayNeedAssignment = false;
-		for(int x = 0; x < env->numLogicalQubits; x++) {
+		for(int x = 0; x < env.numLogicalQubits; x++) {
 			if(node.laq[x] < 0) {
 				mayNeedAssignment = true;
 				break;
@@ -55,12 +55,12 @@ public:
 				if(physC < 0 && physT < 0) {
 					int bestTarget = -1;
 					int bestControl = -1;
-					int bestDistance = 2 * env->numPhysicalQubits * env->numPhysicalQubits;
-					for(int x = 0; x < env->numPhysicalQubits - 1; x++) {
+					int bestDistance = 2 * env.numPhysicalQubits * env.numPhysicalQubits;
+					for(int x = 0; x < env.numPhysicalQubits - 1; x++) {
 						if(node.qal[x] < 0) {
-							for(int y = x + 1; y < env->numPhysicalQubits; y++) {
+							for(int y = x + 1; y < env.numPhysicalQubits; y++) {
 								if(node.qal[y] < 0) {
-									int dist = env->couplingDistances[x * env->numPhysicalQubits + y];
+									int dist = env.couplingDistances[x * env.numPhysicalQubits + y];
 									if(dist < bestDistance) {
 										bestTarget = x;
 										bestControl = y;
@@ -83,11 +83,11 @@ public:
 					
 				} else if(physC < 0) {
 					int bestBit = -1;
-					int bestDistance = 2 * env->numPhysicalQubits * env->numPhysicalQubits;
-					for(int x = 0; x < env->numPhysicalQubits; x++) {
+					int bestDistance = 2 * env.numPhysicalQubits * env.numPhysicalQubits;
+					for(int x = 0; x < env.numPhysicalQubits; x++) {
 						if(x != physT) {
 							if(node.qal[x] < 0) {
-								int dist = env->couplingDistances[x * env->numPhysicalQubits + physT];
+								int dist = env.couplingDistances[x * env.numPhysicalQubits + physT];
 								if(dist < bestDistance) {
 									bestBit = x;
 									bestDistance = dist;
@@ -101,11 +101,11 @@ public:
 					node.qal[bestBit] = g->control;
 				} else if(physT < 0) {
 					int bestBit = -1;
-					int bestDistance = 2 * env->numPhysicalQubits * env->numPhysicalQubits;
-					for(int x = 0; x < env->numPhysicalQubits; x++) {
+					int bestDistance = 2 * env.numPhysicalQubits * env.numPhysicalQubits;
+					for(int x = 0; x < env.numPhysicalQubits; x++) {
 						if(x != physC) {
 							if(node.qal[x] < 0) {
-								int dist = env->couplingDistances[x * env->numPhysicalQubits + physC];
+								int dist = env.couplingDistances[x * env.numPhysicalQubits + physC];
 								if(dist < bestDistance) {
 									bestBit = x;
 									bestDistance = dist;
@@ -119,7 +119,7 @@ public:
 					node.qal[bestBit] = g->target;
 				}
 			} else if(false && g) {
-				for(int x = 0; x < env->numPhysicalQubits; x++) {
+				for(int x = 0; x < env.numPhysicalQubits; x++) {
 					if(node.qal[x] < 0) {
 						node.laq[g->target] = x;
 						node.qal[x] = g->target;

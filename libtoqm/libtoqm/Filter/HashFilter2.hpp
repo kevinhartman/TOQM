@@ -47,7 +47,7 @@ inline int catchUp(GateNode * ancestor, GateNode * descendant, int logQubit, int
 
 inline std::size_t hashFunc2(const Node & n) {
 	std::size_t hash_result = 0;
-	int numQubits = n.env->numPhysicalQubits;
+	int numQubits = n.env.numPhysicalQubits;
 	
 	//combine into hash: qubit map (array of integers)
 	for(int x = 0; x < numQubits; x += 4) {
@@ -107,11 +107,11 @@ public:
 		//	return true;
 		//}
 		
-		int numQubits = newNode->env->numPhysicalQubits;
+		int numQubits = newNode->env.numPhysicalQubits;
 		
 		std::size_t hash_result = hashFunc2(*newNode);
 		
-		int swapCost = newNode->env->swapCost;
+		int swapCost = newNode->env.swapCost;
 		auto & mapValue = this->hashmap[hash_result];
 		for(unsigned int blah = mapValue.size() - 1; blah < mapValue.size() && blah >= 0; blah--) {
 			auto candidate = mapValue[blah];

@@ -1,5 +1,7 @@
 #include "CouplingMap.hpp"
 
+#include <istream>
+
 namespace toqm {
 
 CouplingMap parseCouplingMap(std::istream & in) {

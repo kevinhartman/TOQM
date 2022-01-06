@@ -15,11 +15,11 @@ public:
 		
 		int cost = 0;
 		int costT = 99999;
-		Environment * env = node.env;
-		GateNode * next2BitGate[env->numPhysicalQubits];
-		int pathLength[env->numPhysicalQubits];
-		GateNode * next2BitGate2[env->numPhysicalQubits];
-		for(int x = 0; x < env->numPhysicalQubits; x++) {
+		Environment & env = node.env;
+		GateNode * next2BitGate[env.numPhysicalQubits];
+		int pathLength[env.numPhysicalQubits];
+		GateNode * next2BitGate2[env.numPhysicalQubits];
+		for(int x = 0; x < env.numPhysicalQubits; x++) {
 			next2BitGate[x] = NULL;
 			next2BitGate2[x] = NULL;
 			pathLength[x] = 0;
@@ -30,7 +30,7 @@ public:
 		}
 		
 		//search from last scheduled (non-swap) gates
-		for(int x = 0; x < env->numPhysicalQubits; x++) {
+		for(int x = 0; x < env.numPhysicalQubits; x++) {
 			ScheduledGate * sg = node.lastNonSwapGate[x];
 			if(sg) {
 				//get latest physical location of logical qubit x:
@@ -138,7 +138,7 @@ public:
 		while(nonemptyFrontier) {
 			iterNum++;
 			nonemptyFrontier = false;
-			for(int x = 0; x < env->numPhysicalQubits; x++) {
+			for(int x = 0; x < env.numPhysicalQubits; x++) {
 				GateNode * g = next2BitGate[x];
 				next2BitGate2[x] = NULL;
 				if(g) {
@@ -175,9 +175,9 @@ public:
 					}
 					
 					int minSwaps =
-							env->couplingDistances[physicalControl * env->numPhysicalQubits + physicalTarget] - 1;
+							env.couplingDistances[physicalControl * env.numPhysicalQubits + physicalTarget] - 1;
 					if(!iterNum && minSwaps < costT) costT = minSwaps;
-					int totalSwapCost = env->swapCost * minSwaps;
+					int totalSwapCost = env.swapCost * minSwaps;
 					
 					if(length1 < length2) {
 						std::swap(length1, length2);
@@ -187,7 +187,7 @@ public:
 					//if(debug) std::cerr << "   swaps needed at least: " << minSwaps << "\n";
 					
 					int slack = length1 - length2;
-					int effectiveSlack = (slack / env->swapCost) * env->swapCost;
+					int effectiveSlack = (slack / env.swapCost) * env.swapCost;
 					if(effectiveSlack > totalSwapCost) {
 						effectiveSlack = totalSwapCost;
 					}
@@ -195,9 +195,9 @@ public:
 					//if(debug) std::cerr << "   effective slack cycles: " << effectiveSlack << "\n";
 					
 					int mutualSwapCost = totalSwapCost - effectiveSlack;
-					int extraSwapCost = (0x1 & (mutualSwapCost / env->swapCost)) * env->swapCost;
+					int extraSwapCost = (0x1 & (mutualSwapCost / env.swapCost)) * env.swapCost;
 					mutualSwapCost -= extraSwapCost;
-					assert((mutualSwapCost % env->swapCost) == 0);
+					assert((mutualSwapCost % env.swapCost) == 0);
 					mutualSwapCost = mutualSwapCost >> 1;
 					
 					int cost1 = g->optimisticLatency + g->criticality + length1 + mutualSwapCost;
@@ -227,7 +227,7 @@ public:
 				break;
 			}
 			
-			for(int x = 0; x < env->numPhysicalQubits; x++) {
+			for(int x = 0; x < env.numPhysicalQubits; x++) {
 				if(next2BitGate[x] && next2BitGate2[x] == next2BitGate[x]) {
 					GateNode * g = next2BitGate[x];
 					int addlPath = g->optimisticLatency;
