@@ -145,8 +145,11 @@ public:
 			}
 			good = good && usesLogicalQubit;
 			
+			bool moreCXLogicalTarget = logicalTarget >= 0 && !noMoreCX[logicalTarget];
+			bool moreCXLogicalControl = logicalControl >= 0 && !noMoreCX[logicalControl];
+			
 			//make sure this swap involves a qubit that has more 2-qubit gates ahead
-			if(good && (noMoreCX[logicalTarget] && noMoreCX[logicalControl])) {
+			if(good && (!moreCXLogicalTarget && !moreCXLogicalControl)) {
 				good = false;
 			}
 			
