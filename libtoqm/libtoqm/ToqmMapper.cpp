@@ -341,7 +341,7 @@ struct ToqmMapper::Impl {
 			iter++;
 		}
 		
-		// Set up root node (for cycle -1, before any gates are scheduled).
+		// Set up root node (for cycle -1, before any gates are scheduled_final).
 		// Note: the lifetimes of all Node instances are tied to the lifetime
 		//       of env and hence, this method.
 		auto root = std::shared_ptr<Node>(new Node(*env));
@@ -428,7 +428,7 @@ struct ToqmMapper::Impl {
 			/*
 			if(n->parent && n->parent->dead) {
 				std::cerr << "skipping child of dead node:\n";
-				printNode(std::cerr, lastNode->scheduled);
+				printNode(std::cerr, lastNode->scheduled_final);
 				n->dead = true;
 				continue;
 			}
@@ -454,7 +454,7 @@ struct ToqmMapper::Impl {
 				std::cerr << "//" << (numPopped - 1) << " nodes popped from queue so far.\n";
 				std::cerr << "//" << nodes->size() << " nodes remain in queue.\n";
 				env->printFilterStats(std::cerr);
-				//printNode(std::cerr, n->scheduled);
+				//printNode(std::cerr, n->scheduled_final);
 				//cf->getCost(n);
 				for(GateNode * ready: n->readyGates) {
 					std::cerr << "ready: ";
@@ -545,14 +545,31 @@ struct ToqmMapper::Impl {
 			sg = sg->next;
 		}
 		
+		// Create copy of scheduled_final gates for result
+		auto & gates = finalNode->scheduled;
+		std::vector<std::unique_ptr<ScheduledGate>> scheduled_final(gates->size);
+		auto insertAt = gates->size - 1;
+		while(insertAt >= 0) {
+			assert(gates->size > 0);
+			scheduled_final.at(insertAt--) = unique_ptr<ScheduledGate>(new ScheduledGate(*gates->value));
+			gates = gates->next;
+		}
+		
+		// Create copy of laq for result
+		std::vector<char> laq_final(MAX_QUBITS);
+		for (auto i = 0; i < MAX_QUBITS; i++) {
+			laq_final[i] = finalNode->laq[i];
+		}
+		
 		stringstream filterStats;
 		env->printFilterStats(filterStats);
 		
 		auto result = unique_ptr<ToqmResult>(new ToqmResult{
-				finalNode,
-				std::move(nodes),
+				std::move(scheduled_final),
+				nodes->size(),
 				env->numPhysicalQubits,
 				env->numLogicalQubits,
+				std::move(laq_final),
 				std::move(inferredQal),
 				std::move(inferredLaq),
 				idealCycles,

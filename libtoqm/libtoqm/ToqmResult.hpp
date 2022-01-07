@@ -12,10 +12,11 @@ namespace toqm {
 
 class ToqmResult {
 public:
-	std::shared_ptr<Node> finalNode;
-	std::unique_ptr<Queue> remaining;
+	std::vector<std::unique_ptr<ScheduledGate>> scheduledGates;
+	int remainingInQueue;
 	int numPhysicalQubits;
 	int numLogicalQubits;
+	std::vector<char> laq;
 	std::vector<char> inferredQal;
 	std::vector<char> inferredLaq;
 	int idealCycles;

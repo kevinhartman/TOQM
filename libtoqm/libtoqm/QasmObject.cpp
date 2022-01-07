@@ -271,17 +271,10 @@ char * getRestOfStatement(std::istream & infile) {
 
 //Print a node's scheduled gates
 //returns how many cycles the node takes to complete all its gates
-int printNode(std::ostream & stream, LinkedStack<ScheduledGate *> * gates) {
+int printNode(std::ostream & stream, const std::vector<std::unique_ptr<ScheduledGate>>& gateStack) {
 	int cycles = 0;
-	std::stack<ScheduledGate *> gateStack;
-	while(gates->size > 0) {
-		gateStack.push(gates->value);
-		gates = gates->next;
-	}
 	
-	while(!gateStack.empty()) {
-		ScheduledGate * sg = gateStack.top();
-		gateStack.pop();
+	for (auto & sg : gateStack) {
 		int target = sg->physicalTarget;
 		int control = sg->physicalControl;
 		stream << sg->gate->name << " ";
@@ -482,8 +475,6 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 }
 
 void QasmObject::toQasm2(std::ostream & out, const ToqmResult & result) const {
-	auto & finalNode = *result.finalNode;
-	
 	//Print out the initial mapping:
 	std::cout << "//Note: initial mapping (logical qubit at each location): ";
 	for(int x = 0; x < result.numPhysicalQubits; x++) {
@@ -509,21 +500,21 @@ void QasmObject::toQasm2(std::ostream & out, const ToqmResult & result) const {
 	}
 	out << "qreg q[" << result.numPhysicalQubits << "];\n";
 	out << "creg c[" << result.numPhysicalQubits << "];\n";
-	int numCycles = printNode(out, finalNode.scheduled);
+	int numCycles = printNode(out, result.scheduledGates);
 	for(auto & measure: impl->measures) {
-		out << "measure q[" << (int) finalNode.laq[measure.first] << "] -> c["
+		out << "measure q[" << (int) result.laq[measure.first] << "] -> c["
 			<< measure.second << "];\n";
 	}
 	
 	//if(verbose) {
 		//Print some metadata about the input & output:
 		std::cout << "//" << impl->gate_ops.size() << " original gates\n";
-		std::cout << "//" << finalNode.scheduled->size << " gates in generated circuit\n";
+		std::cout << "//" << result.scheduledGates.size() << " gates in generated circuit\n";
 		std::cout << "//" << result.idealCycles << " ideal depth (cycles)\n";
 		std::cout << "//" << numCycles
 				  << " depth of generated circuit\n"; //" (and costFunc reports " << finalNode->cost << ")\n";
 		std::cout << "//" << (result.numPopped - 1) << " nodes popped from queue for processing.\n";
-		std::cout << "//" << result.remaining->size() << " nodes remain in queue.\n";
+		std::cout << "//" << result.remainingInQueue << " nodes remain in queue.\n";
 		std::cout << result.filterStats;
 	//}
 }
