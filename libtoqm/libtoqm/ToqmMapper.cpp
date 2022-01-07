@@ -577,6 +577,12 @@ struct ToqmMapper::Impl {
 				filterStats.str()
 		});
 		
+		// Cleanup
+		// TODO: migrate Environment to smart pointers
+		delete [] env->possibleSwaps;
+		delete [] env->firstCXPerQubit;
+		delete [] env->couplingDistances;
+		
 		return result;
 	}
 };
