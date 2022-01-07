@@ -16,14 +16,16 @@
 #include "LinkedStack.hpp"
 #include "Node.hpp"
 #include "ToqmResult.hpp"
+#include <unordered_map>
 
 namespace toqm {
 
 namespace {
+
 //set each node's distance to furthest leaf node
 //while we're at it, record the next 2-bit gate (cnot) from each gate node
-int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
-	GateNode ** gates = new GateNode * [numQubits];
+int setCriticality(const std::vector<std::shared_ptr<GateNode>>& lastGatePerQubit, int numQubits) {
+	std::vector<std::shared_ptr<GateNode>> gates(numQubits, std::shared_ptr<GateNode>{});
 	for(int x = 0; x < numQubits; x++) {
 		gates[x] = lastGatePerQubit[x];
 		if(gates[x]) {
@@ -39,7 +41,7 @@ int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
 	while(!done) {
 		done = true;
 		for(int x = 0; x < numQubits; x++) {
-			GateNode * g = gates[x];
+			auto g = gates[x];
 			if(g) {
 				done = false;
 			} else {
@@ -55,8 +57,8 @@ int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
 					maxCrit = crit;
 				}
 				
-				GateNode * parentT = g->targetParent;
-				GateNode * parentC = g->controlParent;
+				auto parentT = g->targetParent;
+				auto parentC = g->controlParent;
 				if(parentT) {
 					//set parent's criticality
 					if(crit > parentT->criticality) {
@@ -64,7 +66,7 @@ int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
 					}
 					
 					//set parent's next 2-bit gate
-					GateNode * nextCX;
+					std::shared_ptr<GateNode> nextCX;
 					if(g->control >= 0) {
 						nextCX = g;
 					} else {
@@ -88,7 +90,7 @@ int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
 					}
 					
 					//set parent's next 2-bit gate
-					GateNode * nextCX;
+					std::shared_ptr<GateNode> nextCX;
 					if(g->control >= 0) {
 						nextCX = g;
 					} else {
@@ -117,31 +119,24 @@ int setCriticality(GateNode ** lastGatePerQubit, int numQubits) {
 		}
 	}
 	
-	delete[] gates;
-	
 	return maxCrit;
 }
 
 //build dependence graph, put root gates into firstGates:
 void
 buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, const Latency & lat,
-					 set<GateNode *> & firstGates, int & numQubits, Environment& env,
+					 set<std::shared_ptr<GateNode>> & firstGates, int & numQubits, Environment& env,
 					 int & idealCycles) {
 	numQubits = 0;
 	
 	env.numGates = gates.size();
-	env.firstCXPerQubit = new GateNode * [maxQubits];
-	for(int x = 0; x < maxQubits; x++) {
-		env.firstCXPerQubit[x] = 0;
-	}
+	env.firstCXPerQubit.resize(maxQubits, {});
 	
 	//build dependence graph
-	GateNode ** lastGatePerQubit = new GateNode * [maxQubits];
-	for(int x = 0; x < maxQubits; x++) {
-		lastGatePerQubit[x] = 0;
-	}
+	std::vector<std::shared_ptr<GateNode>> lastGatePerQubit(maxQubits, std::shared_ptr<GateNode>{});
+
 	for(const auto & gate: gates) {
-		GateNode * v = new GateNode;
+		auto v = std::shared_ptr<GateNode>(new GateNode);
 		v->control = gate.control;
 		v->target = gate.target;
 		v->name = gate.type;
@@ -204,8 +199,6 @@ buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, c
 	
 	//set critical path lengths starting from each gate
 	idealCycles = setCriticality(lastGatePerQubit, numQubits);
-	
-	delete[] lastGatePerQubit;
 }
 
 ////parseQasm2 coupling map, producing a list of edges and number of physical qubits
@@ -292,7 +285,7 @@ struct ToqmMapper::Impl {
 		env->couplings = coupling_map.edges;
 		env->numPhysicalQubits = coupling_map.numPhysicalQubits;
 		
-		set<GateNode *> firstGates;
+		set<std::shared_ptr<GateNode>> firstGates;
 		int idealCycles = -1;
 		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
@@ -327,16 +320,16 @@ struct ToqmMapper::Impl {
 		//Prepare list of gates corresponding to possible swaps
 		//ToDo: make it so this won't cause redundancies when given directed coupling map
 		//might need to adjust parts of code that infer its size from coupling's size
-		env->possibleSwaps = new GateNode * [env->couplings.size()];
+		env->possibleSwaps.resize(env->couplings.size());
 		auto iter = env->couplings.begin();
 		int x = 0;
 		while(iter != env->couplings.end()) {
-			GateNode * g = new GateNode();
+			auto g = std::unique_ptr<GateNode>(new GateNode());
 			g->control = (*iter).first;
 			g->target = (*iter).second;
 			g->name = "swp";
 			g->optimisticLatency = latency->getLatency("swp", 2, g->target, g->control);
-			env->possibleSwaps[x] = g;
+			env->possibleSwaps[x] = std::move(g);
 			x++;
 			iter++;
 		}
@@ -372,7 +365,7 @@ struct ToqmMapper::Impl {
 			root->cycle -= initialSearchCycles;
 		}
 		root->readyGates = firstGates;
-		root->scheduled = new LinkedStack<ScheduledGate *>;
+		root->scheduled = std::shared_ptr<ScheduledGateStack>(new ScheduledGateStack());
 		root->cost = cost_func->getCost(*root);
 		nodes->push(root);
 
@@ -456,7 +449,7 @@ struct ToqmMapper::Impl {
 				env->printFilterStats(std::cerr);
 				//printNode(std::cerr, n->scheduled_final);
 				//cf->getCost(n);
-				for(GateNode * ready: n->readyGates) {
+				for(auto & ready: n->readyGates) {
 					std::cerr << "ready: ";
 					int control = (ready->control >= 0) ? n->laq[ready->control] : -1;
 					int target = (ready->target >= 0) ? n->laq[ready->target] : -1;
@@ -489,7 +482,7 @@ struct ToqmMapper::Impl {
 		auto & finalNode = nodes->getBestFinalNode();
 		
 		//Figure out what the initial mapping must have been
-		LinkedStack<ScheduledGate *> * sg = finalNode->scheduled;
+		auto sg = finalNode->scheduled;
 		std::vector<char> inferredQal(env->numPhysicalQubits);
 		std::vector<char> inferredLaq(env->numPhysicalQubits);
 		
@@ -579,8 +572,7 @@ struct ToqmMapper::Impl {
 		
 		// Cleanup
 		// TODO: migrate Environment to smart pointers
-		delete [] env->possibleSwaps;
-		delete [] env->firstCXPerQubit;
+		//delete [] env->possibleSwaps;
 		delete [] env->couplingDistances;
 		
 		return result;

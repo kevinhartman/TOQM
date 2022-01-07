@@ -50,7 +50,7 @@ public:
 		return cycles;
 	}
 	
-	std::set<GateNode *> readyGates;//set of gates in DAG whose parents have already been scheduled
+	std::set<std::shared_ptr<GateNode>> readyGates;//set of gates in DAG whose parents have already been scheduled
 	
 	LinkedStack<ScheduledGate *> * scheduled{};//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
 	
@@ -77,7 +77,7 @@ public:
 	//the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
 	//the timeOffset can be used if we want to schedule a gate to start X cycles in the future
 	//this function adjusts qubit map when scheduling a swap
-	bool scheduleGate(GateNode * gate, unsigned int timeOffset = 0);
+	bool scheduleGate(const std::shared_ptr<GateNode>& gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
 	static std::unique_ptr<Node> prepChild(const std::shared_ptr<Node>& parent);

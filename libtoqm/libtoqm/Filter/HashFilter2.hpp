@@ -29,9 +29,9 @@ inline int catchUp(GateNode * ancestor, GateNode * descendant, int logQubit, int
 	int cycles = 0;
 	while(cycles < maxCycles) {
 		if(ancestor->target == logQubit) {
-			ancestor = ancestor->targetChild;
+			ancestor = ancestor->targetChild.get();
 		} else if(ancestor->control == logQubit) {
-			ancestor = ancestor->controlChild;
+			ancestor = ancestor->controlChild.get();
 		} else {
 			assert(false && "bad qubit in filter?");
 		}
@@ -245,7 +245,7 @@ public:
 							canMarkDead = true;
 						} else {
 							///*
-							int catchup = catchUp(lastCanGate->gate, lastNewGate->gate, x, swapCost + 1);
+							int catchup = catchUp(lastCanGate->gate.get(), lastNewGate->gate.get(), x, swapCost + 1);
 							//if(willFilter) {
 							if(catchup + newNode->cycle + newBusy > candidate->cycle + canBusy) {
 								willFilter = false;
@@ -277,7 +277,7 @@ public:
 							willMarkDead = false;
 						} else {
 							///*
-							int catchup = catchUp(lastNewGate->gate, lastCanGate->gate, x, swapCost + 1);
+							int catchup = catchUp(lastNewGate->gate.get(), lastCanGate->gate.get(), x, swapCost + 1);
 							if(willMarkDead) {
 								if(catchup + candidate->cycle + canBusy > newNode->cycle + newBusy) {
 									willMarkDead = false;

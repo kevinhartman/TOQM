@@ -32,7 +32,7 @@ Node::~Node() {
 //the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
 //the timeOffset can be used if we want to schedule a gate to start X cycles in the future
 //this function adjusts qubit map when scheduling a swap
-bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
+bool Node::scheduleGate(const std::shared_ptr<GateNode>& gate, unsigned int timeOffset) {
 	bool isSwap = !gate->name.compare("swp");
 	isSwap = isSwap || !gate->name.compare("swp");
 	
@@ -69,7 +69,7 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 				int childParentBit;
 				GateNode * otherParent;
 				if(gate->controlChild->controlParent == gate) {
-					otherParent = gate->controlChild->targetParent;
+					otherParent = gate->controlChild->targetParent.get();
 					if(gate->controlChild->targetParent) {
 						childParentBit = gate->controlChild->target;
 					} else {
@@ -77,7 +77,7 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 					}
 				} else {
 					assert(gate->controlChild->targetParent == gate);
-					otherParent = gate->controlChild->controlParent;
+					otherParent = gate->controlChild->controlParent.get();
 					if(gate->controlChild->controlParent) {
 						childParentBit = gate->controlChild->control;
 					} else {
@@ -85,7 +85,7 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 					}
 				}
 				if(childParentBit < 0 || (this->lastNonSwapGate[childParentBit] &&
-										  this->lastNonSwapGate[childParentBit]->gate == otherParent)) {
+										  this->lastNonSwapGate[childParentBit]->gate.get() == otherParent)) {
 					readyGates.insert(gate->controlChild);
 				}
 			}
@@ -98,7 +98,7 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 				int childParentBit;
 				GateNode * otherParent;
 				if(gate->targetChild->controlParent == gate) {
-					otherParent = gate->targetChild->targetParent;
+					otherParent = gate->targetChild->targetParent.get();
 					if(gate->targetChild->targetParent) {
 						childParentBit = gate->targetChild->target;
 					} else {
@@ -106,7 +106,7 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 					}
 				} else {
 					assert(gate->targetChild->targetParent == gate);
-					otherParent = gate->targetChild->controlParent;
+					otherParent = gate->targetChild->controlParent.get();
 					if(gate->targetChild->controlParent) {
 						childParentBit = gate->targetChild->control;
 					} else {
@@ -114,14 +114,14 @@ bool Node::scheduleGate(GateNode * gate, unsigned int timeOffset) {
 					}
 				}
 				if(childParentBit < 0 || (this->lastNonSwapGate[childParentBit] &&
-										  this->lastNonSwapGate[childParentBit]->gate == otherParent)) {
+										  this->lastNonSwapGate[childParentBit]->gate.get() == otherParent)) {
 					readyGates.insert(gate->targetChild);
 				}
 			}
 		}
 	}
 	
-	ScheduledGate * sg = new ScheduledGate(gate, this->cycle + timeOffset);
+	auto * sg = new ScheduledGate(gate, this->cycle + timeOffset);
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
 	sg->latency = env.latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,

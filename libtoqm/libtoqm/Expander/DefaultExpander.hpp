@@ -12,14 +12,14 @@
 namespace toqm {
 
 //return true iff inserting swap g in node's child would make a useless swap cycle
-bool isCyclic(const Node& node, GateNode * g) {
+bool isCyclic(const Node& node, const GateNode * g) {
 	int target = g->target;
 	int control = g->control;
 	
 	if(node.lastGate[target] && node.lastGate[control]) {
 		LinkedStack<ScheduledGate *> * schdule = node.scheduled;
 		while(schdule->size > 0) {
-			if(schdule->value->gate == g) {
+			if(schdule->value->gate.get() == g) {
 				return true;
 			} else {
 				int c = schdule->value->physicalControl;
@@ -65,11 +65,11 @@ public:
 		}
 		
 		//generate list of valid gates, based on ready list
-		vector<GateNode *> possibleGates;//possible swaps and valid 2+ cycle gates
-		vector<GateNode *> singleCycleGates;//valid 1 cycle non-swap gates
+		vector<std::shared_ptr<GateNode>> possibleGates;//possible swaps and valid 2+ cycle gates
+		vector<std::shared_ptr<GateNode>> singleCycleGates;//valid 1 cycle non-swap gates
 		int numDependentGates = 0;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = *iter;
+			auto & g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
 			int control = (g->control < 0) ? -1 : node->laq[g->control];
 			
@@ -127,7 +127,7 @@ public:
 		}
 		//generate list of valid gates, based on possible swaps
 		for(unsigned int x = 0; x < node->env.couplings.size(); x++) {
-			GateNode * g = node->env.possibleSwaps[x];
+			auto & g = node->env.possibleSwaps[x];
 			int target = g->target;//note: since g is swap, this is already a physical target
 			int control = g->control;//note: since g is swap, this is already a physical control
 			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
@@ -158,7 +158,7 @@ public:
 				if(logicalTarget >= 0) {
 					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
-						GateNode * tg = t->gate;
+						GateNode * tg = t->gate.get();
 						if(tg->target == logicalTarget) {
 							if(tg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -177,7 +177,7 @@ public:
 				if(logicalControl >= 0) {
 					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
 					if(c) {
-						GateNode * cg = c->gate;
+						GateNode * cg = c->gate.get();
 						if(cg->target == logicalControl) {
 							if(cg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -214,7 +214,7 @@ public:
 			if(good && node->cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
 				good = false;
 			}
-			if(good && isCyclic(*node, g)) {
+			if(good && isCyclic(*node, g.get())) {
 				good = false;
 			}
 			if(good) {

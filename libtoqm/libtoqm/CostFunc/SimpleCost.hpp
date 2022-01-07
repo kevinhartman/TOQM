@@ -28,7 +28,7 @@ public:
 		//Consider cost of unscheduled gates
 		auto iter = node.readyGates.begin();
 		while(iter != node.readyGates.end()) {
-			GateNode * g = *iter;
+			GateNode * g = (*iter).get();
 			
 			int tempcost = g->criticality + g->optimisticLatency;
 			int tempcost2 = tempcost;

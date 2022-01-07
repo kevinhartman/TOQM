@@ -47,11 +47,11 @@ public:
 			
 			int numAdded = 0;
 			
-			GateNode * g = *iter;
+			GateNode * g = (*iter).get();
 			//GateNode * g = env.firstCXPerQubit[z];
 			
 			if(g && g->control < 0) {
-				g = g->nextTargetCNOT ? g->nextTargetCNOT : g;
+				g = g->nextTargetCNOT ? g->nextTargetCNOT.get() : g;
 			}
 			
 			if(g && g->control >= 0) {
@@ -60,7 +60,7 @@ public:
 				if(physC < 0 && physT < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
-						GateNode * sw = env.possibleSwaps[x];
+						GateNode * sw = env.possibleSwaps[x].get();
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] < 0) {
 							std::shared_ptr<Node> n1 = Node::prepChild(n);
 							n1->cycle--;
@@ -88,7 +88,7 @@ public:
 				} else if(physC < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
-						GateNode * sw = env.possibleSwaps[x];
+						auto & sw = env.possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] == g->target) {
 							std::shared_ptr<Node> n1 = Node::prepChild(n);
 							n1->cycle--;
@@ -114,7 +114,7 @@ public:
 				} else if(physT < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
-						GateNode * sw = env.possibleSwaps[x];
+						auto & sw = env.possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] == g->control) {
 							std::shared_ptr<Node> n1 = Node::prepChild(n);
 							n1->cycle--;
@@ -144,9 +144,9 @@ public:
 			return true;
 		}
 		
-		vector<GateNode *> possibleGates;//executable ready gates
+		vector<std::shared_ptr<GateNode>> possibleGates;//executable ready gates
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = *iter;
+			auto & g = *iter;
 			int target = g->target;
 			int control = g->control;
 			

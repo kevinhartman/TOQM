@@ -43,7 +43,7 @@ public:
 		
 		//Greedily map qubits that are needed for gates whose dependencies are satisfied:
 		for(auto iter = node.readyGates.begin(); iter != node.readyGates.end(); iter++) {
-			GateNode * g = *iter;
+			auto & g = *iter;
 			
 			if(g && g->control < 0) {
 				//g = g->nextTargetCNOT ? g->nextTargetCNOT : g;

@@ -33,8 +33,8 @@ inline std::size_t hashFunc1(const Node& n) {
 	}
 	
 	//combine into hash: ready gate (set of pointers)
-	for(auto x = n.readyGates.begin(); x != n.readyGates.end(); x++) {
-		hash_combine(hash_result, (std::uintptr_t) (*x));
+	for(const auto & readyGate : n.readyGates) {
+		hash_combine(hash_result, (std::uintptr_t) readyGate.get());
 	}
 	
 	return hash_result;

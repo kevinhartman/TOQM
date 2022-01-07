@@ -3,20 +3,22 @@
 
 #include "GateNode.hpp"
 
+#include <memory>
+
 using namespace std;
 
 namespace toqm {
 
 class ScheduledGate {
 public:
-	GateNode * gate;
+	std::shared_ptr<GateNode> gate;
 	int cycle;//cycle when this gate started
 	int physicalControl;
 	int physicalTarget;
 	
 	int latency;
 	
-	ScheduledGate(GateNode * gate, int cycle) {
+	ScheduledGate(const std::shared_ptr<GateNode>& gate, int cycle) {
 		this->gate = gate;
 		this->cycle = cycle;
 		this->physicalControl = -1;

@@ -60,16 +60,16 @@ public:
 			CXFrontier[x] = NULL;
 		}
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = *iter;
+			GateNode * g = (*iter).get();
 			if(g->control >= 0) {
 				CXFrontier[g->target] = g;
 				CXFrontier[g->control] = g;
 			}
 		}
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = *iter;
+			GateNode * g = (*iter).get();
 			if(g->control < 0) {
-				g = g->nextTargetCNOT;
+				g = g->nextTargetCNOT.get();
 				if(g) {
 					if(!CXFrontier[g->control]) {
 						CXFrontier[g->target] = g;
@@ -84,10 +84,10 @@ public:
 		}
 		
 		//generate list of valid gates, based on ready list and list of possible swaps
-		vector<GateNode *> possibleGates;
-		vector<GateNode *> guaranteedGates;
+		vector<std::shared_ptr<GateNode>> possibleGates;
+		vector<std::shared_ptr<GateNode>> guaranteedGates;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = *iter;
+			auto & g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
 			int control = (g->control < 0) ? -1 : node->laq[g->control];
 			
@@ -133,7 +133,7 @@ public:
 			}
 		}
 		for(unsigned int x = 0; x < node->env.couplings.size(); x++) {
-			GateNode * g = node->env.possibleSwaps[x];
+			auto & g = node->env.possibleSwaps[x];
 			int target = g->target;//note: since g is swap, this is already the physical target
 			int control = g->control;//note: since g is swap, this is already the physical control
 			int logicalTarget = (target >= 0) ? node->qal[target] : -1;
@@ -194,7 +194,7 @@ public:
 				if(logicalTarget >= 0) {
 					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
-						GateNode * tg = t->gate;
+						auto & tg = t->gate;
 						if(tg->target == logicalTarget) {
 							if(tg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -213,7 +213,7 @@ public:
 				if(logicalControl >= 0) {
 					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
 					if(c) {
-						GateNode * cg = c->gate;
+						auto & cg = c->gate;
 						if(cg->target == logicalControl) {
 							if(cg->targetChild) {
 								usesUsefulLogicalQubit = true;
