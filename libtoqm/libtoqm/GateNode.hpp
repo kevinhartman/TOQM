@@ -2,6 +2,7 @@
 #define GATENODE_HPP
 
 #include <string>
+#include <memory>
 
 using namespace std;
 

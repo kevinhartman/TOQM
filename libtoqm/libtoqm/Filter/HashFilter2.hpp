@@ -177,8 +177,8 @@ public:
 			
 			//set willFilter and willMarkDead to false as appropriate based on qubit progress
 			for(int x = 0; (willFilter || willMarkDead) && x < numQubits; x++) {
-				ScheduledGate * lastCanGate = candidate->lastNonSwapGate[x];
-				ScheduledGate * lastNewGate = newNode->lastNonSwapGate[x];
+				auto lastCanGate = candidate->lastNonSwapGate[x];
+				auto lastNewGate = newNode->lastNonSwapGate[x];
 				int qubit = newNode->laq[x];//physical qubit containing logical qubit x
 				int canBusy = 0;
 				int newBusy = 0;

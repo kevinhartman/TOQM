@@ -21,6 +21,8 @@ class Queue;
 const int MAX_QUBITS = 20;
 //extern int GLOBALCOUNTER;
 
+using ScheduledGateStack = LinkedStack<std::shared_ptr<ScheduledGate>>;
+
 class Node {
 public:
 	Environment & env;//object with functions/data shared by all nodes
@@ -38,12 +40,12 @@ public:
 	char qal[MAX_QUBITS]{};//qubit mapping
 	char laq[MAX_QUBITS]{};//qubit mapping (inverted)
 	
-	ScheduledGate * lastNonSwapGate[MAX_QUBITS]{};//last scheduled non-swap gate per LOGICAL qubit
-	ScheduledGate * lastGate[MAX_QUBITS]{};//last scheduled gate per PHYSICAL qubit
+	std::shared_ptr<ScheduledGate> lastNonSwapGate[MAX_QUBITS]{};//last scheduled non-swap gate per LOGICAL qubit
+	std::shared_ptr<ScheduledGate> lastGate[MAX_QUBITS]{};//last scheduled gate per PHYSICAL qubit
 	
 	//the number of cycles until the specified physical qubit is available
 	inline int busyCycles(int physicalQubit) const {
-		ScheduledGate * sg = this->lastGate[physicalQubit];
+		auto & sg = this->lastGate[physicalQubit];
 		if(!sg) return 0;
 		int cycles = sg->cycle + sg->latency - this->cycle;
 		if(cycles < 0) return 0;
@@ -52,7 +54,7 @@ public:
 	
 	std::set<std::shared_ptr<GateNode>> readyGates;//set of gates in DAG whose parents have already been scheduled
 	
-	LinkedStack<ScheduledGate *> * scheduled{};//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
+	std::shared_ptr<ScheduledGateStack> scheduled{};//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
 	
 	explicit Node(Environment& environment);
 	

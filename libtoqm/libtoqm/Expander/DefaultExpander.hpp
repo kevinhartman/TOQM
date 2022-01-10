@@ -17,7 +17,7 @@ bool isCyclic(const Node& node, const GateNode * g) {
 	int control = g->control;
 	
 	if(node.lastGate[target] && node.lastGate[control]) {
-		LinkedStack<ScheduledGate *> * schdule = node.scheduled;
+		auto schdule = node.scheduled;
 		while(schdule->size > 0) {
 			if(schdule->value->gate.get() == g) {
 				return true;
@@ -49,7 +49,7 @@ public:
 		bool noMoreCX[node->env.numPhysicalQubits];
 		for(int x = 0; x < node->env.numPhysicalQubits; x++) {
 			noMoreCX[x] = false;
-			ScheduledGate * sg = node->lastNonSwapGate[x];
+			auto sg = node->lastNonSwapGate[x];
 			if(sg) {
 				if(sg->gate->target == x) {
 					if(!sg->gate->nextTargetCNOT) {
@@ -156,7 +156,7 @@ public:
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
-					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
+					auto t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
 						GateNode * tg = t->gate.get();
 						if(tg->target == logicalTarget) {
@@ -175,7 +175,7 @@ public:
 				}
 				
 				if(logicalControl >= 0) {
-					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
+					auto c = node->lastNonSwapGate[logicalControl];
 					if(c) {
 						GateNode * cg = c->gate.get();
 						if(cg->target == logicalControl) {

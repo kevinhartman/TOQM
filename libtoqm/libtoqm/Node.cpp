@@ -24,9 +24,7 @@ Node::Node(Environment& environment) : env(environment) {
 	this->dead = false;
 }
 
-Node::~Node() {
-	scheduled->clean();
-}
+Node::~Node() = default;
 
 //schedule a gate, or return false if it conflicts with an active gate
 //the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
@@ -121,7 +119,7 @@ bool Node::scheduleGate(const std::shared_ptr<GateNode>& gate, unsigned int time
 		}
 	}
 	
-	auto * sg = new ScheduledGate(gate, this->cycle + timeOffset);
+	auto sg = std::shared_ptr<ScheduledGate>(new ScheduledGate(gate, this->cycle + timeOffset));
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
 	sg->latency = env.latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
@@ -151,7 +149,7 @@ bool Node::scheduleGate(const std::shared_ptr<GateNode>& gate, unsigned int time
 		this->numUnscheduledGates--;
 	}
 	
-	this->scheduled = this->scheduled->push(sg);
+	this->scheduled = ScheduledGateStack::push(this->scheduled, sg);
 	
 	//adjust qubit map
 	if(isSwap) {
@@ -177,7 +175,7 @@ std::unique_ptr<Node> Node::prepChild(const std::shared_ptr<Node>& parent) {
 	child->parent = parent;
 	child->cycle = parent->cycle + 1;
 	child->readyGates = parent->readyGates;//note: this actually produces a separate copy
-	child->scheduled = parent->scheduled->newRef();
+	child->scheduled = parent->scheduled;
 	for(int x = 0; x < parent->env.numPhysicalQubits; x++) {
 		child->qal[x] = parent->qal[x];
 		child->laq[x] = parent->laq[x];

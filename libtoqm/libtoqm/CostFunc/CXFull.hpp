@@ -31,7 +31,7 @@ public:
 		
 		//search from last scheduled (non-swap) gates
 		for(int x = 0; x < env.numPhysicalQubits; x++) {
-			ScheduledGate * sg = node.lastNonSwapGate[x];
+			auto sg = node.lastNonSwapGate[x];
 			if(sg) {
 				//get latest physical location of logical qubit x:
 				int actualQubit;

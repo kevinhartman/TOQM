@@ -192,7 +192,7 @@ public:
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {
-					ScheduledGate * t = node->lastNonSwapGate[logicalTarget];
+					auto t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
 						auto & tg = t->gate;
 						if(tg->target == logicalTarget) {
@@ -211,7 +211,7 @@ public:
 				}
 				
 				if(logicalControl >= 0) {
-					ScheduledGate * c = node->lastNonSwapGate[logicalControl];
+					auto c = node->lastNonSwapGate[logicalControl];
 					if(c) {
 						auto & cg = c->gate;
 						if(cg->target == logicalControl) {
