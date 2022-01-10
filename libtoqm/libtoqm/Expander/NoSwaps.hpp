@@ -47,11 +47,11 @@ public:
 			
 			int numAdded = 0;
 			
-			GateNode * g = (*iter).get();
+			GateNode * g = *iter;
 			//GateNode * g = env.firstCXPerQubit[z];
 			
 			if(g && g->control < 0) {
-				g = g->nextTargetCNOT ? g->nextTargetCNOT.get() : g;
+				g = g->nextTargetCNOT ? g->nextTargetCNOT : g;
 			}
 			
 			if(g && g->control >= 0) {
@@ -60,7 +60,7 @@ public:
 				if(physC < 0 && physT < 0) {
 					addedNodes = true;
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
-						GateNode * sw = env.possibleSwaps[x].get();
+						GateNode * sw = env.possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] < 0) {
 							std::shared_ptr<Node> n1 = Node::prepChild(n);
 							n1->cycle--;
@@ -144,7 +144,7 @@ public:
 			return true;
 		}
 		
-		vector<std::shared_ptr<GateNode>> possibleGates;//executable ready gates
+		vector<GateNode*> possibleGates;//executable ready gates
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
 			int target = g->target;

@@ -1,10 +1,8 @@
 #ifndef TOQM_TOQMRESULT_HPP
 #define TOQM_TOQMRESULT_HPP
 
-#include "Node.hpp"
-#include "Queue.hpp"
+#include "CommonTypes.hpp"
 
-#include <memory>
 #include <vector>
 #include <string>
 
@@ -12,7 +10,7 @@ namespace toqm {
 
 class ToqmResult {
 public:
-	std::vector<std::unique_ptr<ScheduledGate>> scheduledGates;
+	std::vector<ScheduledGateOp> scheduledGates;
 	int remainingInQueue;
 	int numPhysicalQubits;
 	int numLogicalQubits;

@@ -11,14 +11,14 @@ namespace toqm {
 
 class ScheduledGate {
 public:
-	std::shared_ptr<GateNode> gate;
+	GateNode* gate;
 	int cycle;//cycle when this gate started
 	int physicalControl;
 	int physicalTarget;
 	
 	int latency;
 	
-	ScheduledGate(const std::shared_ptr<GateNode>& gate, int cycle) {
+	ScheduledGate(GateNode* gate, int cycle) {
 		this->gate = gate;
 		this->cycle = cycle;
 		this->physicalControl = -1;

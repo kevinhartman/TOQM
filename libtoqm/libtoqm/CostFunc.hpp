@@ -1,6 +1,7 @@
 #ifndef COSTFUNC_HPP
 #define COSTFUNC_HPP
 
+#include "Environment.hpp"
 #include "Node.hpp"
 #include "NodeMod.hpp"
 

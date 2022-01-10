@@ -49,15 +49,15 @@ public:
 				}
 				GateNode * temp;
 				if(sg->gate->target == x) {
-					temp = sg->gate->targetChild.get();
+					temp = sg->gate->targetChild;
 				} else {
 					assert(sg->gate->control == x);
-					temp = sg->gate->controlChild.get();
+					temp = sg->gate->controlChild;
 				}
 				
 				while(temp && temp->control < 0) {
 					pathLength[actualQubit] += temp->optimisticLatency;
-					temp = temp->targetChild.get();
+					temp = temp->targetChild;
 				}
 				next2BitGate[actualQubit] = temp;
 			}
@@ -66,7 +66,7 @@ public:
 		//also search from ready gates, in case some qubits haven't scheduled gates yet
 		auto iter = node.readyGates.begin();
 		while(iter != node.readyGates.end()) {
-			GateNode * g = (*iter).get();
+			GateNode * g = *iter;
 			int physicalTarget = node.laq[g->target];
 			
 			if(physicalTarget < 0) {
@@ -83,7 +83,7 @@ public:
 					GateNode * temp = g;
 					while(temp && temp->control < 0) {
 						pathLength[physicalTarget] += temp->optimisticLatency;
-						temp = temp->targetChild.get();
+						temp = temp->targetChild;
 					}
 					next2BitGate[physicalTarget] = temp;
 					
@@ -234,15 +234,15 @@ public:
 					int physicalTarget = node.laq[g->target];
 					int physicalControl = node.laq[g->control];
 					if(physicalTarget == x) {
-						g = g->targetChild.get();
+						g = g->targetChild;
 					} else {
 						assert(physicalControl == x);
-						g = g->controlChild.get();
+						g = g->controlChild;
 					}
 					
 					while(g && g->control < 0) {
 						addlPath += g->optimisticLatency;
-						g = g->targetChild.get();
+						g = g->targetChild;
 					}
 					
 					if(g) {

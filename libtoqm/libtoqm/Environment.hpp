@@ -31,7 +31,7 @@ public:
 	vector<unique_ptr<Filter>> filters;
 	
 	set<pair<int, int> > couplings; //the coupling map (as a list of qubit-pairs)
-	std::vector<std::shared_ptr<GateNode>> possibleSwaps{}; //list of swaps implied by the coupling map
+	std::vector<GateNode*> possibleSwaps{}; //list of swaps implied by the coupling map
 	int * couplingDistances{};//array of size (numPhysicalQubits*numPhysicalQubits), containing the minimal number of hops between each pair of qubits in the coupling graph
 	
 	int numLogicalQubits{};//number of logical qubits in circuit; if there's a gap then this includes unused qubits
@@ -39,7 +39,11 @@ public:
 	int swapCost{}; //best possible swap cost; this should be set by main using the latency function
 	int numGates{}; //the number of gates in the original circuit
 	
-	std::vector<std::shared_ptr<GateNode>> firstCXPerQubit{}; //the first 2-qubit gate that uses each logical qubit
+	std::vector<GateNode*> firstCXPerQubit{}; //the first 2-qubit gate that uses each logical qubit
+	
+	// Gate nodes are used via raw pointer everywhere,
+	// but their memory is managed here.
+	std::vector<std::unique_ptr<GateNode>> managedGateNodes {};
 	
 	///Invoke all node mods, using the specified node and specified flag
 	void runNodeModifiers(Node& node, int flag) {

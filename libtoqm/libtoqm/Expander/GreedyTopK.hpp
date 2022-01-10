@@ -60,16 +60,16 @@ public:
 			CXFrontier[x] = NULL;
 		}
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = (*iter).get();
+			GateNode * g = *iter;
 			if(g->control >= 0) {
 				CXFrontier[g->target] = g;
 				CXFrontier[g->control] = g;
 			}
 		}
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
-			GateNode * g = (*iter).get();
+			GateNode * g = *iter;
 			if(g->control < 0) {
-				g = g->nextTargetCNOT.get();
+				g = g->nextTargetCNOT;
 				if(g) {
 					if(!CXFrontier[g->control]) {
 						CXFrontier[g->target] = g;
@@ -84,8 +84,8 @@ public:
 		}
 		
 		//generate list of valid gates, based on ready list and list of possible swaps
-		vector<std::shared_ptr<GateNode>> possibleGates;
-		vector<std::shared_ptr<GateNode>> guaranteedGates;
+		vector<GateNode*> possibleGates;
+		vector<GateNode*> guaranteedGates;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];

@@ -19,7 +19,7 @@ bool isCyclic(const Node& node, const GateNode * g) {
 	if(node.lastGate[target] && node.lastGate[control]) {
 		auto schdule = node.scheduled;
 		while(schdule->size > 0) {
-			if(schdule->value->gate.get() == g) {
+			if(schdule->value->gate == g) {
 				return true;
 			} else {
 				int c = schdule->value->physicalControl;
@@ -65,8 +65,8 @@ public:
 		}
 		
 		//generate list of valid gates, based on ready list
-		vector<std::shared_ptr<GateNode>> possibleGates;//possible swaps and valid 2+ cycle gates
-		vector<std::shared_ptr<GateNode>> singleCycleGates;//valid 1 cycle non-swap gates
+		vector<GateNode*> possibleGates;//possible swaps and valid 2+ cycle gates
+		vector<GateNode*> singleCycleGates;//valid 1 cycle non-swap gates
 		int numDependentGates = 0;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
@@ -158,7 +158,7 @@ public:
 				if(logicalTarget >= 0) {
 					auto t = node->lastNonSwapGate[logicalTarget];
 					if(t) {
-						GateNode * tg = t->gate.get();
+						GateNode * tg = t->gate;
 						if(tg->target == logicalTarget) {
 							if(tg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -177,7 +177,7 @@ public:
 				if(logicalControl >= 0) {
 					auto c = node->lastNonSwapGate[logicalControl];
 					if(c) {
-						GateNode * cg = c->gate.get();
+						GateNode * cg = c->gate;
 						if(cg->target == logicalControl) {
 							if(cg->targetChild) {
 								usesUsefulLogicalQubit = true;
@@ -214,7 +214,7 @@ public:
 			if(good && node->cycle > 0 && nodesSize > 0 && !dependsOnSomething) {
 				good = false;
 			}
-			if(good && isCyclic(*node, g.get())) {
+			if(good && isCyclic(*node, g)) {
 				good = false;
 			}
 			if(good) {

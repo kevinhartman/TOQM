@@ -7,6 +7,7 @@
 #include <vector>
 #include <sstream>
 
+#include "Queue.hpp"
 #include "CostFunc.hpp"
 #include "GateNode.hpp"
 #include "Latency.hpp"
@@ -24,8 +25,8 @@ namespace {
 
 //set each node's distance to furthest leaf node
 //while we're at it, record the next 2-bit gate (cnot) from each gate node
-int setCriticality(const std::vector<std::shared_ptr<GateNode>>& lastGatePerQubit, int numQubits) {
-	std::vector<std::shared_ptr<GateNode>> gates(numQubits, std::shared_ptr<GateNode>{});
+int setCriticality(const std::vector<GateNode*>& lastGatePerQubit, int numQubits) {
+	std::vector<GateNode*> gates(numQubits);
 	for(int x = 0; x < numQubits; x++) {
 		gates[x] = lastGatePerQubit[x];
 		if(gates[x]) {
@@ -66,7 +67,7 @@ int setCriticality(const std::vector<std::shared_ptr<GateNode>>& lastGatePerQubi
 					}
 					
 					//set parent's next 2-bit gate
-					std::shared_ptr<GateNode> nextCX;
+					GateNode* nextCX;
 					if(g->control >= 0) {
 						nextCX = g;
 					} else {
@@ -90,7 +91,7 @@ int setCriticality(const std::vector<std::shared_ptr<GateNode>>& lastGatePerQubi
 					}
 					
 					//set parent's next 2-bit gate
-					std::shared_ptr<GateNode> nextCX;
+					GateNode * nextCX;
 					if(g->control >= 0) {
 						nextCX = g;
 					} else {
@@ -125,18 +126,21 @@ int setCriticality(const std::vector<std::shared_ptr<GateNode>>& lastGatePerQubi
 //build dependence graph, put root gates into firstGates:
 void
 buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, const Latency & lat,
-					 set<std::shared_ptr<GateNode>> & firstGates, int & numQubits, Environment& env,
+					 set<GateNode*> & firstGates, int & numQubits, Environment& env,
 					 int & idealCycles) {
 	numQubits = 0;
 	
 	env.numGates = gates.size();
-	env.firstCXPerQubit.resize(maxQubits, {});
+	env.firstCXPerQubit.resize(maxQubits);
 	
 	//build dependence graph
-	std::vector<std::shared_ptr<GateNode>> lastGatePerQubit(maxQubits, std::shared_ptr<GateNode>{});
+	std::vector<GateNode*> lastGatePerQubit(maxQubits);
 
 	for(const auto & gate: gates) {
-		auto v = std::shared_ptr<GateNode>(new GateNode);
+		auto v_shared = std::unique_ptr<GateNode>(new GateNode{});
+		const auto v = v_shared.get();
+		env.managedGateNodes.push_back(std::move(v_shared));
+		
 		v->control = gate.control;
 		v->target = gate.target;
 		v->name = gate.type;
@@ -200,22 +204,6 @@ buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, c
 	//set critical path lengths starting from each gate
 	idealCycles = setCriticality(lastGatePerQubit, numQubits);
 }
-
-////parseQasm2 coupling map, producing a list of edges and number of physical qubits
-//void buildCouplingMap(const string& filename, set<pair<int, int> > &edges, int &numPhysicalQubits) {
-//    std::fstream myfile(filename, std::ios_base::in);
-//    unsigned int numEdges;
-//
-//    myfile >> numPhysicalQubits;
-//    myfile >> numEdges;
-//    for (unsigned int x = 0; x < numEdges; x++) {
-//        int a, b;
-//        myfile >> a;
-//        myfile >> b;
-//        pair<int, int> edge = make_pair(a, b);
-//        edges.insert(edge);
-//    }
-//}
 
 //Calculate minimum distance between each pair of physical qubits
 //ToDo replace this with something more efficient?
@@ -285,7 +273,7 @@ struct ToqmMapper::Impl {
 		env->couplings = coupling_map.edges;
 		env->numPhysicalQubits = coupling_map.numPhysicalQubits;
 		
-		set<std::shared_ptr<GateNode>> firstGates;
+		set<GateNode*> firstGates;
 		int idealCycles = -1;
 		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
@@ -324,12 +312,15 @@ struct ToqmMapper::Impl {
 		auto iter = env->couplings.begin();
 		int x = 0;
 		while(iter != env->couplings.end()) {
-			auto g = std::unique_ptr<GateNode>(new GateNode());
+			auto g_shared = std::unique_ptr<GateNode>(new GateNode{});
+			auto g = g_shared.get();
+			env->managedGateNodes.push_back(std::move(g_shared));
+			
 			g->control = (*iter).first;
 			g->target = (*iter).second;
 			g->name = "swp";
 			g->optimisticLatency = latency->getLatency("swp", 2, g->target, g->control);
-			env->possibleSwaps[x] = std::move(g);
+			env->possibleSwaps[x] = g;
 			x++;
 			iter++;
 		}
@@ -540,11 +531,25 @@ struct ToqmMapper::Impl {
 		
 		// Create copy of scheduled_final gates for result
 		auto & gates = finalNode->scheduled;
-		std::vector<std::unique_ptr<ScheduledGate>> scheduled_final(gates->size);
+		std::vector<ScheduledGateOp> scheduled_final(gates->size);
 		auto insertAt = gates->size - 1;
 		while(insertAt >= 0) {
 			assert(gates->size > 0);
-			scheduled_final.at(insertAt--) = unique_ptr<ScheduledGate>(new ScheduledGate(*gates->value));
+			
+			auto & sg = gates->value;
+			auto & g = gates->value->gate;
+			scheduled_final.at(insertAt--) = {
+					{
+						g->name,
+						g->target,
+						g->control,
+					},
+					sg->physicalTarget,
+					sg->physicalControl,
+					sg->cycle,
+					sg->latency
+			};
+			
 			gates = gates->next;
 		}
 		

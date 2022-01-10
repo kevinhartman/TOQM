@@ -1,9 +1,5 @@
 #include "QasmObject.hpp"
 
-#include "Queue.hpp"
-#include "Node.hpp"
-#include "ScheduledGate.hpp"
-#include "LinkedStack.hpp"
 #include "ToqmResult.hpp"
 
 #include <cassert>
@@ -271,23 +267,23 @@ char * getRestOfStatement(std::istream & infile) {
 
 //Print a node's scheduled gates
 //returns how many cycles the node takes to complete all its gates
-int printNode(std::ostream & stream, const std::vector<std::unique_ptr<ScheduledGate>>& gateStack) {
+int printNode(std::ostream & stream, const std::vector<ScheduledGateOp>& gateStack) {
 	int cycles = 0;
 	
 	for (auto & sg : gateStack) {
-		int target = sg->physicalTarget;
-		int control = sg->physicalControl;
-		stream << sg->gate->name << " ";
+		int target = sg.physicalTarget;
+		int control = sg.physicalControl;
+		stream << sg.gateOp.type << " ";
 		if(control >= 0) {
 			stream << "q[" << control << "],";
 		}
 		stream << "q[" << target << "]";
 		stream << ";";
-		stream << " //cycle: " << sg->cycle;
-		if(sg->gate->name.compare("swp") && sg->gate->name.compare("SWP")) {
-			int target = sg->gate->target;
-			int control = sg->gate->control;
-			stream << " //" << sg->gate->name << " ";
+		stream << " //cycle: " << sg.cycle;
+		if(sg.gateOp.type.compare("swp") && sg.gateOp.type.compare("SWP")) {
+			int target = sg.gateOp.target;
+			int control = sg.gateOp.control;
+			stream << " //" << sg.gateOp.type << " ";
 			if(control >= 0) {
 				stream << "q[" << control << "],";
 			}
@@ -295,8 +291,8 @@ int printNode(std::ostream & stream, const std::vector<std::unique_ptr<Scheduled
 		}
 		stream << "\n";
 		
-		if(sg->cycle + sg->latency > cycles) {
-			cycles = sg->cycle + sg->latency;
+		if(sg.cycle + sg.latency > cycles) {
+			cycles = sg.cycle + sg.latency;
 		}
 	}
 	
