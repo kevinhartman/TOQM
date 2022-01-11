@@ -4,13 +4,11 @@
 #include <string>
 #include <memory>
 
-using namespace std;
-
 namespace toqm {
 
 class GateNode { //part of a DAG of nodes
 public:
-	string name{};
+	std::string name{};
 	int control{};//control qubit, or -1
 	int target{};//target qubit
 	

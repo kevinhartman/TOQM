@@ -13,11 +13,9 @@
 #include "Latency.hpp"
 #include "Environment.hpp"
 #include "Expander.hpp"
-#include "ScheduledGate.hpp"
-#include "LinkedStack.hpp"
+
 #include "Node.hpp"
 #include "ToqmResult.hpp"
-#include <unordered_map>
 
 namespace toqm {
 
@@ -126,7 +124,7 @@ int setCriticality(const std::vector<GateNode*>& lastGatePerQubit, int numQubits
 //build dependence graph, put root gates into firstGates:
 void
 buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, const Latency & lat,
-					 set<GateNode*> & firstGates, int & numQubits, Environment& env,
+					 std::set<GateNode*> & firstGates, int & numQubits, Environment& env,
 					 int & idealCycles) {
 	numQubits = 0;
 	
@@ -273,7 +271,7 @@ struct ToqmMapper::Impl {
 		env->couplings = coupling_map.edges;
 		env->numPhysicalQubits = coupling_map.numPhysicalQubits;
 		
-		set<GateNode*> firstGates;
+		std::set<GateNode*> firstGates;
 		int idealCycles = -1;
 		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
@@ -326,7 +324,7 @@ struct ToqmMapper::Impl {
 		}
 		
 		// Set up root node (for cycle -1, before any gates are scheduled_final).
-		// Note: the lifetimes of all Node instances are tied to the lifetime
+		// Note: the lifetimes of all Node instances must not exceed the lifetime
 		//       of env and hence, this method.
 		auto root = std::shared_ptr<Node>(new Node(*env));
 		for(int x = env->numLogicalQubits; x < env->numPhysicalQubits; x++) {
@@ -358,7 +356,7 @@ struct ToqmMapper::Impl {
 		root->readyGates = firstGates;
 		root->scheduled = std::shared_ptr<ScheduledGateStack>(new ScheduledGateStack());
 		root->cost = cost_func->getCost(*root);
-		nodes->push(root);
+		nodes->push(root); // TODO: should Queue own all nodes, only?
 
 //    // TODO: is this needed? why delete filters that the user didn't select?
 //    //Cleanup filters before I start messing things up:
@@ -422,9 +420,9 @@ struct ToqmMapper::Impl {
 			
 			//In verbose mode, we pause after popping some number of nodes:
 			if(verbose && counter <= 0) {
-				cerr << "cycle " << n->cycle << "\n";
-				cerr << "cost " << n->cost << "\n";
-				cerr << "unscheduled " << n->numUnscheduledGates << " from this node\n";
+				std::cerr << "cycle " << n->cycle << "\n";
+				std::cerr << "cost " << n->cost << "\n";
+				std::cerr << "unscheduled " << n->numUnscheduledGates << " from this node\n";
 				std::cerr << "mapping (logical qubit at each location): ";
 				for(int x = 0; x < env->numPhysicalQubits; x++) {
 					std::cerr << (int) n->qal[x] << ", ";
@@ -461,7 +459,7 @@ struct ToqmMapper::Impl {
 					std::cerr << "\n";
 				}
 				
-				cin >> counter;//pause the program after (counter) steps
+				std::cin >> counter;//pause the program after (counter) steps
 				if(counter < 0) exit(1);
 			}
 			
@@ -559,10 +557,10 @@ struct ToqmMapper::Impl {
 			laq_final[i] = finalNode->laq[i];
 		}
 		
-		stringstream filterStats;
+		std::stringstream filterStats;
 		env->printFilterStats(filterStats);
 		
-		auto result = unique_ptr<ToqmResult>(new ToqmResult{
+		auto result = std::unique_ptr<ToqmResult>(new ToqmResult{
 				std::move(scheduled_final),
 				nodes->size(),
 				env->numPhysicalQubits,

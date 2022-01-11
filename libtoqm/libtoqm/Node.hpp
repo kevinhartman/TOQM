@@ -9,8 +9,6 @@
 #include <iostream>
 #include <memory>
 
-using namespace std;
-
 namespace toqm {
 
 class Environment;

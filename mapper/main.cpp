@@ -24,30 +24,28 @@
 #include <vector>
 #include <functional>
 
-using namespace std;
-
 namespace toqm {
 bool _verbose = false;
 }
 
 template<typename T>
-using FactoryFunc = function<unique_ptr<T>()>;
+using FactoryFunc = std::function<std::unique_ptr<T>()>;
 
 template<typename T>
 struct UserOption {
-	string name;
-	string description;
-	function<FactoryFunc<T>()> fromStdin;
-	function<FactoryFunc<T>(char **, int &)> fromArg;
+	std::string name;
+	std::string description;
+	std::function<FactoryFunc<T>()> fromStdin;
+	std::function<FactoryFunc<T>(char **, int &)> fromArg;
 };
 
 template<typename TBase, typename TDerived>
-UserOption<TBase> NoArgsOption(string name, string description) {
+UserOption<TBase> NoArgsOption(std::string name, std::string description) {
 	return UserOption<TBase>{
 			name,
 			description,
-			[]() { return []() { return unique_ptr<TBase>(new TDerived()); }; },
-			[](char **, int &) { return []() { return unique_ptr<TBase>(new TDerived()); }; }
+			[]() { return []() { return std::unique_ptr<TBase>(new TDerived()); }; },
+			[](char **, int &) { return []() { return std::unique_ptr<TBase>(new TDerived()); }; }
 	};
 }
 
@@ -82,7 +80,7 @@ UserOption<toqm::Expander> expanders[NUMEXPANDERS] = {
 					std::cin >> k;
 					
 					return [=]() {
-						return unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
+						return std::unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
 					};
 				},
 				[](char ** argv, int & iter) {
@@ -90,7 +88,7 @@ UserOption<toqm::Expander> expanders[NUMEXPANDERS] = {
 					auto k = atoi(argv[0]);
 					
 					return [=]() {
-						return unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
+						return std::unique_ptr<toqm::Expander>(new toqm::GreedyTopK(k));
 					};
 				},
 		},
@@ -130,12 +128,12 @@ UserOption<toqm::Latency> latencies[NUMLATENCIES] = {
 				"Table",
 				"gets latencies from specified latency-table file",
 				[]() {
-					string filename;
+					std::string filename;
 					std::cin >> filename;
 					
 					return [=]() {
 						std::ifstream infile(filename);
-						return unique_ptr<toqm::Latency>(new toqm::Table(infile));
+						return std::unique_ptr<toqm::Latency>(new toqm::Table(infile));
 					};
 				},
 				[](char ** argv, int & iter) {
@@ -144,7 +142,7 @@ UserOption<toqm::Latency> latencies[NUMLATENCIES] = {
 					
 					return [=]() {
 						std::ifstream infile(filename);
-						return unique_ptr<toqm::Latency>(new toqm::Table(infile));
+						return std::unique_ptr<toqm::Latency>(new toqm::Table(infile));
 					};
 				}
 		}
@@ -174,7 +172,7 @@ UserOption<toqm::Queue> queues[NUMQUEUES] = {
 					std::cin >> targetSize;
 					
 					return [=]() {
-						return unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
+						return std::unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
 					};
 				},
 				[](char ** argv, int & iter) {
@@ -183,7 +181,7 @@ UserOption<toqm::Queue> queues[NUMQUEUES] = {
 					unsigned int targetSize = atoi(argv[1]);
 					
 					return [=]() {
-						return unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
+						return std::unique_ptr<toqm::Queue>(new toqm::TrimSlowNodes(maxSize, targetSize));
 					};
 				},
 		}
@@ -203,12 +201,12 @@ int caseInsensitiveCompare(const char * c1, const char * c2) {
 }
 
 //string comparison
-int caseInsensitiveCompare(string str, const char * c2) {
+int caseInsensitiveCompare(std::string str, const char * c2) {
 	const char * c1 = str.c_str();
 	return caseInsensitiveCompare(c1, c2);
 }
 
-int caseInsensitiveCompare(const char * c1, string str) {
+int caseInsensitiveCompare(const char * c1, std::string str) {
 	const char * c2 = str.c_str();
 	return caseInsensitiveCompare(c1, c2);
 }
@@ -218,11 +216,11 @@ int main(int argc, char ** argv) {
 	char * couplingMapFileName = NULL;
 	
 	FactoryFunc<toqm::Queue> nodes;
-	unique_ptr<toqm::Expander> ex;
-	unique_ptr<toqm::CostFunc> cf;
-	unique_ptr<toqm::Latency> lat;
-	vector<unique_ptr<toqm::NodeMod>> mods{};
-	vector<unique_ptr<toqm::Filter>> filters{};
+	std::unique_ptr<toqm::Expander> ex;
+	std::unique_ptr<toqm::CostFunc> cf;
+	std::unique_ptr<toqm::Latency> lat;
+	std::vector<std::unique_ptr<toqm::NodeMod>> mods{};
+	std::vector<std::unique_ptr<toqm::Filter>> filters{};
 	
 	unsigned int retainPopped = 0;
 	
@@ -369,11 +367,11 @@ int main(int argc, char ** argv) {
 	if(!ex) {
 		userChoices = true;
 		choice = -1;
-		cerr << "Select an expander.\n";
+		std::cerr << "Select an expander.\n";
 		for(int x = 0; x < NUMEXPANDERS; x++) {
-			cerr << " " << x << ": " << expanders[x].name << ": " << expanders[x].description << "\n";
+			std::cerr << " " << x << ": " << expanders[x].name << ": " << expanders[x].description << "\n";
 		}
-		cin >> choice;
+		std::cin >> choice;
 		assert(choice >= 0 && choice < NUMEXPANDERS);
 		ex = expanders[choice].fromStdin()();
 	}
@@ -381,11 +379,11 @@ int main(int argc, char ** argv) {
 	if(!cf) {
 		userChoices = true;
 		choice = -1;
-		cerr << "Select a cost function.\n";
+		std::cerr << "Select a cost function.\n";
 		for(int x = 0; x < NUMCOSTFUNCTIONS; x++) {
-			cerr << " " << x << ": " << costFunctions[x].name << ": " << costFunctions[x].description << "\n";
+			std::cerr << " " << x << ": " << costFunctions[x].name << ": " << costFunctions[x].description << "\n";
 		}
-		cin >> choice;
+		std::cin >> choice;
 		assert(choice >= 0 && choice < NUMCOSTFUNCTIONS);
 		cf = costFunctions[choice].fromStdin()();
 	}
@@ -393,11 +391,11 @@ int main(int argc, char ** argv) {
 	if(!lat) {
 		userChoices = true;
 		choice = -1;
-		cerr << "Select a latency setting.\n";
+		std::cerr << "Select a latency setting.\n";
 		for(int x = 0; x < NUMLATENCIES; x++) {
-			cerr << " " << x << ": " << latencies[x].name << ": " << latencies[x].description << "\n";
+			std::cerr << " " << x << ": " << latencies[x].name << ": " << latencies[x].description << "\n";
 		}
-		cin >> choice;
+		std::cin >> choice;
 		assert(choice >= 0 && choice < NUMLATENCIES);
 		lat = latencies[choice].fromStdin()();
 	}
@@ -405,11 +403,11 @@ int main(int argc, char ** argv) {
 	if(!nodes) {
 		userChoices = true;
 		choice = -1;
-		cerr << "Select a queue structure.\n";
+		std::cerr << "Select a queue structure.\n";
 		for(int x = 0; x < NUMQUEUES; x++) {
-			cerr << " " << x << ": " << queues[x].name << ": " << queues[x].description << "\n";
+			std::cerr << " " << x << ": " << queues[x].name << ": " << queues[x].description << "\n";
 		}
-		cin >> choice;
+		std::cin >> choice;
 		assert(choice >= 0 && choice < NUMQUEUES);
 		nodes = queues[choice].fromStdin();
 	}
@@ -424,15 +422,15 @@ int main(int argc, char ** argv) {
 		numselected = 0;
 		while(numselected < NUMFILTERS) {
 			choice = -1;
-			cerr << "Select a filter, or -1 for no additional filters.\n";
-			cerr << " " << -1 << ": " << "no more filters\n";
+			std::cerr << "Select a filter, or -1 for no additional filters.\n";
+			std::cerr << " " << -1 << ": " << "no more filters\n";
 			for(int x = 0; x < NUMFILTERS; x++) {
 				if(!filtersOn[x]) {
-					if(x < 10) cerr << " ";
-					cerr << " " << x << ": " << FILTERS[x].name << ": " << FILTERS[x].description << "\n";
+					if(x < 10) std::cerr << " ";
+					std::cerr << " " << x << ": " << FILTERS[x].name << ": " << FILTERS[x].description << "\n";
 				}
 			}
-			cin >> choice;
+			std::cin >> choice;
 			if(choice < 0 || choice >= NUMFILTERS) {
 				break;
 			}
@@ -451,15 +449,15 @@ int main(int argc, char ** argv) {
 		}
 		while(numselected < NUMNODEMODS) {
 			choice = -1;
-			cerr << "Select a node modifier, or -1 for no additional mods.\n";
-			cerr << " " << -1 << ": " << "no more node mods\n";
+			std::cerr << "Select a node modifier, or -1 for no additional mods.\n";
+			std::cerr << " " << -1 << ": " << "no more node mods\n";
 			for(int x = 0; x < NUMNODEMODS; x++) {
 				if(!nodeModsOn[x]) {
-					if(x < 10) cerr << " ";
-					cerr << " " << x << ": " << nodeMods[x].name << ": " << nodeMods[x].description << "\n";
+					if(x < 10) std::cerr << " ";
+					std::cerr << " " << x << ": " << nodeMods[x].name << ": " << nodeMods[x].description << "\n";
 				}
 			}
-			cin >> choice;
+			std::cin >> choice;
 			if(choice < 0 || choice >= NUMNODEMODS) {
 				break;
 			}
@@ -472,7 +470,7 @@ int main(int argc, char ** argv) {
 		}
 	}
 	
-	auto mapper = unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(
+	auto mapper = std::unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(
 			nodes,
 			move(ex),
 			move(cf),
@@ -490,8 +488,8 @@ int main(int argc, char ** argv) {
 		mapper->setInitialMappingLaq(init_laq);
 	}
 	
-	auto qasmFile = ifstream(qasmFileName);
-	auto couplingMapFile = ifstream(couplingMapFileName);
+	auto qasmFile = std::ifstream(qasmFileName);
+	auto couplingMapFile = std::ifstream(couplingMapFileName);
 	
 	auto qasm = toqm::parseQasm2(qasmFile);
 	auto couplingMap = toqm::parseCouplingMap(couplingMapFile);
@@ -500,7 +498,7 @@ int main(int argc, char ** argv) {
 	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap);
 	
 	// write new qasm to std::cout
-	qasm->toQasm2(cout, *result);
+	qasm->toQasm2(std::cout, *result);
 	
 	return 0;
 }

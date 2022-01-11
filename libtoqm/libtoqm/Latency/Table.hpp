@@ -11,8 +11,6 @@
 #include <utility>
 #include <tuple>
 
-using namespace std;
-
 namespace toqm {
 
 /**
@@ -169,16 +167,16 @@ private:
 			}
 			
 			//Don't allow duplicate entries
-			auto search = latencies.find(make_tuple(gateName, numBits, targetVal, controlVal));
+			auto search = latencies.find(std::make_tuple(gateName, numBits, targetVal, controlVal));
 			assert(search == latencies.end());
 			
-			latencies.emplace(make_tuple(gateName, numBits, targetVal, controlVal), latencyVal);
+			latencies.emplace(std::make_tuple(gateName, numBits, targetVal, controlVal), latencyVal);
 			
 			//record best-case latency for this gate regardless of physical qubits
 			if(strcmp(gateName, "-")) {
-				auto search = optimisticLatencies.find(make_tuple((char *) gateName, numBits));
+				auto search = optimisticLatencies.find(std::make_tuple((char *) gateName, numBits));
 				if(search == optimisticLatencies.end()) {
-					optimisticLatencies.emplace(make_tuple((char *) gateName, numBits), latencyVal);
+					optimisticLatencies.emplace(std::make_tuple((char *) gateName, numBits), latencyVal);
 				} else {
 					if(search->second > latencyVal) {
 						search->second = latencyVal;
@@ -193,29 +191,29 @@ public:
 		parseTable(source);
 	}
 	
-	int getLatency(string gateName, int numQubits, int target, int control) const override {
+	int getLatency(std::string gateName, int numQubits, int target, int control) const override {
 		if(numQubits > 0 && target < 0 && control < 0) {
 			//We're dealing with a logical gate, so let's return the best case among physical possibilities (so that our a* search will still work okay):
-			auto search = optimisticLatencies.find(make_tuple((char *) gateName.c_str(), numQubits));
+			auto search = optimisticLatencies.find(std::make_tuple((char *) gateName.c_str(), numQubits));
 			if(search != optimisticLatencies.end()) {
 				return search->second;
 			}
 		}
 		
 		//Try to find perfectly matching latency:
-		auto search = latencies.find(make_tuple((char *) gateName.c_str(), numQubits, target, control));
+		auto search = latencies.find(std::make_tuple((char *) gateName.c_str(), numQubits, target, control));
 		if(search != latencies.end()) {
 			return search->second;
 		}
 		
 		//Try to find matching latency without physical qubits specified
-		search = latencies.find(make_tuple((char *) gateName.c_str(), numQubits, -1, -1));
+		search = latencies.find(std::make_tuple((char *) gateName.c_str(), numQubits, -1, -1));
 		if(search != latencies.end()) {
 			return search->second;
 		}
 		
 		//Try to find matching latency without physical qubits or gate name specified
-		search = latencies.find(make_tuple((char *) "-", numQubits, -1, -1));
+		search = latencies.find(std::make_tuple((char *) "-", numQubits, -1, -1));
 		if(search != latencies.end()) {
 			return search->second;
 		}

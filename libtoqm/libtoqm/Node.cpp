@@ -6,8 +6,6 @@
 #include <cassert>
 #include <iostream>
 
-using namespace std;
-
 namespace toqm {
 
 //const int MAX_QUBITS = 20;
@@ -170,7 +168,7 @@ bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
 
 //prepares a new child node (without scheduling any more gates)
 std::unique_ptr<Node> Node::prepChild(const std::shared_ptr<Node>& parent) {
-	auto child = unique_ptr<Node>(new Node(parent->env));
+	auto child = std::unique_ptr<Node>(new Node(parent->env));
 	child->numUnscheduledGates = parent->numUnscheduledGates;
 	child->parent = parent;
 	child->cycle = parent->cycle + 1;

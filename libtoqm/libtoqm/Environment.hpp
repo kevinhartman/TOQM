@@ -10,8 +10,6 @@
 #include <cstring>
 #include <iosfwd>
 
-using namespace std;
-
 namespace toqm {
 
 class GateNode;
@@ -20,17 +18,17 @@ class CostFunc;
 
 class Environment {//for data shared across all nodes
 public:
-	Environment(const CostFunc & cost, const Latency & latency, const vector<std::unique_ptr<NodeMod>> & node_mods)
+	Environment(const CostFunc & cost, const Latency & latency, const std::vector<std::unique_ptr<NodeMod>> & node_mods)
 			: cost(cost), latency(latency), nodeMods(node_mods) {}
 	
-	const vector<std::unique_ptr<NodeMod>> & nodeMods;
+	const std::vector<std::unique_ptr<NodeMod>> & nodeMods;
 	const CostFunc & cost;//contains function to calculate a node's cost
 	const Latency & latency;//contains function to calculate a gate's latency
 	
 	//each env gets its own copy
-	vector<unique_ptr<Filter>> filters;
+	std::vector<std::unique_ptr<Filter>> filters;
 	
-	set<pair<int, int> > couplings; //the coupling map (as a list of qubit-pairs)
+	std::set<std::pair<int, int> > couplings; //the coupling map (as a list of qubit-pairs)
 	std::vector<GateNode*> possibleSwaps{}; //list of swaps implied by the coupling map
 	int * couplingDistances{};//array of size (numPhysicalQubits*numPhysicalQubits), containing the minimal number of hops between each pair of qubits in the coupling graph
 	

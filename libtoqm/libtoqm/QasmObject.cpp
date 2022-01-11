@@ -8,8 +8,6 @@
 #include <fstream>
 #include <vector>
 
-using namespace std;
-
 namespace toqm {
 
 struct QasmObject::Impl {
@@ -306,7 +304,7 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 	auto qasmObject = std::unique_ptr<QasmObject>(new QasmObject());
 	auto & impl = qasmObject->impl;
 	
-	vector<GateOp> & gates = impl->gate_ops;
+	std::vector<GateOp> & gates = impl->gate_ops;
 	
 	char * token = 0;
 	bool b = false;

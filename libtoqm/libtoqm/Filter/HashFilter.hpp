@@ -43,7 +43,7 @@ inline std::size_t hashFunc1(const Node& n) {
 class HashFilter : public Filter {
 private:
 	int numFiltered = 0;
-	std::unordered_map<std::size_t, vector<std::shared_ptr<Node>>> hashmap;
+	std::unordered_map<std::size_t, std::vector<std::shared_ptr<Node>>> hashmap;
 
 public:
 	std::unique_ptr<Filter> createEmptyCopy() override {

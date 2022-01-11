@@ -8,7 +8,7 @@ namespace toqm {
 //Latency example: 1 cycle for EVERY gate
 class Latency_1 : public Latency {
 public:
-	int getLatency(string gateName, int numQubits, int target, int control) const {
+	int getLatency(std::string gateName, int numQubits, int target, int control) const {
 		return 1;
 	}
 };

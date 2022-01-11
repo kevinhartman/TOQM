@@ -84,8 +84,8 @@ public:
 		}
 		
 		//generate list of valid gates, based on ready list and list of possible swaps
-		vector<GateNode*> possibleGates;
-		vector<GateNode*> guaranteedGates;
+		std::vector<GateNode*> possibleGates;
+		std::vector<GateNode*> guaranteedGates;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
 			int target = (g->target < 0) ? -1 : node->laq[g->target];
@@ -117,8 +117,8 @@ public:
 			}
 			
 			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
-				if(node->env.couplings.count(make_pair(target, control)) <= 0) {
-					if(node->env.couplings.count(make_pair(control, target)) <= 0) {
+				if(node->env.couplings.count(std::make_pair(target, control)) <= 0) {
+					if(node->env.couplings.count(std::make_pair(control, target)) <= 0) {
 						good = false;
 					}
 				}

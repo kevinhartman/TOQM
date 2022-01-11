@@ -65,8 +65,8 @@ public:
 		}
 		
 		//generate list of valid gates, based on ready list
-		vector<GateNode*> possibleGates;//possible swaps and valid 2+ cycle gates
-		vector<GateNode*> singleCycleGates;//valid 1 cycle non-swap gates
+		std::vector<GateNode*> possibleGates;//possible swaps and valid 2+ cycle gates
+		std::vector<GateNode*> singleCycleGates;//valid 1 cycle non-swap gates
 		int numDependentGates = 0;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
@@ -109,8 +109,8 @@ public:
 			}
 			
 			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
-				if(node->env.couplings.count(make_pair(target, control)) <= 0) {
-					if(node->env.couplings.count(make_pair(control, target)) <= 0) {
+				if(node->env.couplings.count(std::make_pair(target, control)) <= 0) {
+					if(node->env.couplings.count(std::make_pair(control, target)) <= 0) {
 						good = false;
 					}
 				}

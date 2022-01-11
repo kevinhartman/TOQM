@@ -144,7 +144,7 @@ public:
 			return true;
 		}
 		
-		vector<GateNode*> possibleGates;//executable ready gates
+		std::vector<GateNode*> possibleGates;//executable ready gates
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
 			int target = g->target;
@@ -168,8 +168,8 @@ public:
 			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
 				int physicalTarget = node->laq[target];
 				int physicalControl = node->laq[control];
-				if(node->env.couplings.count(make_pair(physicalTarget, physicalControl)) <= 0) {
-					if(node->env.couplings.count(make_pair(physicalControl, physicalTarget)) <= 0) {
+				if(node->env.couplings.count(std::make_pair(physicalTarget, physicalControl)) <= 0) {
+					if(node->env.couplings.count(std::make_pair(physicalControl, physicalTarget)) <= 0) {
 						good = false;
 					}
 				}

@@ -5,8 +5,6 @@
 
 #include <memory>
 
-using namespace std;
-
 namespace toqm {
 
 class ScheduledGate {
