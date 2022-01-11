@@ -25,10 +25,6 @@
 #include <vector>
 #include <functional>
 
-namespace toqm {
-bool _verbose = false;
-}
-
 template<typename T>
 using FactoryFunc = std::function<std::unique_ptr<T>()>;
 
@@ -471,6 +467,7 @@ int main(int argc, char ** argv) {
 		}
 	}
 	
+	toqm::ToqmMapper::setVerbose(true);
 	auto mapper = std::unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(
 			nodes,
 			move(ex),
@@ -481,7 +478,6 @@ int main(int argc, char ** argv) {
 	
 	mapper->setRetainPopped(retainPopped);
 	mapper->setInitialSearchCycles(initialSearchCycles);
-	mapper->setVerbose(toqm::_verbose);
 	
 	if(use_specified_init_mapping == 1) {
 		mapper->setInitialMappingQal(init_qal);

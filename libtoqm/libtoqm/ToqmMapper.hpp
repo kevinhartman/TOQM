@@ -25,9 +25,6 @@ class NodeMod;
 
 class Filter;
 
-// TODO: remove this everywhere
-extern bool _verbose;
-
 using QueueFactory = std::function<std::unique_ptr<Queue>()>;
 
 class ToqmMapper {
@@ -53,7 +50,7 @@ public:
 	
 	void clearInitialMapping();
 	
-	void setVerbose(bool verbose);
+	static void setVerbose(bool verbose);
 	
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map) const;

@@ -17,6 +17,8 @@
 
 namespace toqm {
 
+bool _verbose = false;
+
 namespace {
 
 //set each node's distance to furthest leaf node
@@ -250,7 +252,6 @@ struct ToqmMapper::Impl {
 	InitMapping init_mapping;
 	const char * init_qal;
 	const char * init_laq;
-	bool verbose;
 	
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map) const {
@@ -417,7 +418,7 @@ struct ToqmMapper::Impl {
 			numPopped++;
 			
 			//In verbose mode, we pause after popping some number of nodes:
-			if(verbose && counter <= 0) {
+			if(_verbose && counter <= 0) {
 				std::cerr << "cycle " << n->cycle << "\n";
 				std::cerr << "cost " << n->cost << "\n";
 				std::cerr << "unscheduled " << n->numUnscheduledGates << " from this node\n";
@@ -588,7 +589,7 @@ ToqmMapper::ToqmMapper(QueueFactory node_queue,
 					   std::vector<std::unique_ptr<Filter>> filters)
 		: impl(new Impl{std::move(node_queue), std::move(expander), std::move(cost_func), std::move(latency),
 						std::move(node_mods), std::move(filters), 0, 0, None,
-						nullptr, nullptr, false}) {}
+						nullptr, nullptr}) {}
 
 ToqmMapper::~ToqmMapper() = default;
 
@@ -619,7 +620,7 @@ void ToqmMapper::clearInitialMapping() {
 }
 
 void ToqmMapper::setVerbose(bool verbose) {
-	this->impl->verbose = verbose;
+	_verbose = verbose;
 }
 
 std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits,
