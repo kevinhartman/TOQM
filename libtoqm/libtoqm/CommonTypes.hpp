@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 #include <utility>
+#include <vector>
 
 namespace toqm {
 
@@ -24,6 +25,19 @@ struct ScheduledGateOp {
 	int physicalControl{};
 	int cycle{}; //cycle when this gate started
 	int latency{};
+};
+
+struct ToqmResult {
+	std::vector<ScheduledGateOp> scheduledGates;
+	int remainingInQueue;
+	int numPhysicalQubits;
+	int numLogicalQubits;
+	std::vector<char> laq;
+	std::vector<char> inferredQal;
+	std::vector<char> inferredLaq;
+	int idealCycles;
+	int numPopped;
+	std::string filterStats;
 };
 
 }

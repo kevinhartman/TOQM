@@ -2,10 +2,8 @@
 
 #include <istream>
 
-namespace toqm {
-
-CouplingMap parseCouplingMap(std::istream & in) {
-	auto map = CouplingMap{};
+toqm::CouplingMap parseCouplingMap(std::istream & in) {
+	auto map = toqm::CouplingMap{};
 	
 	unsigned int numEdges;
 	
@@ -21,6 +19,3 @@ CouplingMap parseCouplingMap(std::istream & in) {
 	
 	return map;
 }
-
-}
-

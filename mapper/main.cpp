@@ -1,6 +1,7 @@
+#include "QasmObject.hpp"
+#include "CouplingMap.hpp"
+
 #include <libtoqm/ToqmMapper.hpp>
-#include <libtoqm/QasmObject.hpp>
-#include <libtoqm/CouplingMap.hpp>
 #include <libtoqm/Node.hpp>
 #include <libtoqm/CostFunc/CXFrontier.hpp>
 #include <libtoqm/CostFunc/CXFull.hpp>
@@ -491,8 +492,8 @@ int main(int argc, char ** argv) {
 	auto qasmFile = std::ifstream(qasmFileName);
 	auto couplingMapFile = std::ifstream(couplingMapFileName);
 	
-	auto qasm = toqm::parseQasm2(qasmFile);
-	auto couplingMap = toqm::parseCouplingMap(couplingMapFile);
+	auto qasm = parseQasm2(qasmFile);
+	auto couplingMap = parseCouplingMap(couplingMapFile);
 	
 	// invoke TOQM algo
 	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap);

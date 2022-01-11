@@ -1,14 +1,10 @@
 #ifndef QASMOBJECT_HPP
 #define QASMOBJECT_HPP
 
-#include "CommonTypes.hpp"
+#include <libtoqm/CommonTypes.hpp>
 
 #include <iosfwd>
 #include <memory>
-
-namespace toqm {
-
-class ToqmResult;
 
 class QasmObject {
 public:
@@ -16,11 +12,11 @@ public:
 	
 	~QasmObject();
 	
-	const std::vector<GateOp> & gateOperations() const;
+	const std::vector<toqm::GateOp> & gateOperations() const;
 	
 	std::size_t numQubits() const;
 	
-	void toQasm2(std::ostream & out, const ToqmResult & result) const;
+	void toQasm2(std::ostream & out, const toqm::ToqmResult & result) const;
 	
 	/**
 	 * Parses a quantum file.
@@ -36,7 +32,5 @@ private:
 };
 
 constexpr auto parseQasm2 = QasmObject::fromQasm2;
-
-}
 
 #endif

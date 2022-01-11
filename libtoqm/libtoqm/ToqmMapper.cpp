@@ -7,15 +7,13 @@
 #include <vector>
 #include <sstream>
 
-#include "Queue.hpp"
 #include "CostFunc.hpp"
-#include "GateNode.hpp"
-#include "Latency.hpp"
 #include "Environment.hpp"
 #include "Expander.hpp"
-
+#include "GateNode.hpp"
+#include "Latency.hpp"
 #include "Node.hpp"
-#include "ToqmResult.hpp"
+#include "Queue.hpp"
 
 namespace toqm {
 

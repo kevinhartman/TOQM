@@ -2,7 +2,6 @@
 #define TOQM_TOQMMAPPER_HPP
 
 #include "CommonTypes.hpp"
-#include "ToqmResult.hpp"
 
 #include <string>
 #include <vector>

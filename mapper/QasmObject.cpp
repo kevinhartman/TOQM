@@ -1,14 +1,9 @@
 #include "QasmObject.hpp"
 
-#include "ToqmResult.hpp"
-
 #include <cassert>
 #include <cstring>
 #include <iostream>
-#include <fstream>
 #include <vector>
-
-namespace toqm {
 
 struct QasmObject::Impl {
 	//Important variables for outputting an OPENQASM file:
@@ -26,7 +21,7 @@ struct QasmObject::Impl {
 	std::vector<char *> cregName;
 	std::vector<int> cregSize;
 	
-	std::vector<GateOp> gate_ops;
+	std::vector<toqm::GateOp> gate_ops;
 	
 	///Gives the flat-array index of the first bit in the specified qreg
 	int getQregOffset(char * name) {
@@ -73,7 +68,7 @@ std::size_t QasmObject::numQubits() const {
 	return qubits;
 }
 
-const std::vector<GateOp> & QasmObject::gateOperations() const {
+const std::vector<toqm::GateOp> & QasmObject::gateOperations() const {
 	return impl->gate_ops;
 }
 
@@ -265,7 +260,7 @@ char * getRestOfStatement(std::istream & infile) {
 
 //Print a node's scheduled gates
 //returns how many cycles the node takes to complete all its gates
-int printNode(std::ostream & stream, const std::vector<ScheduledGateOp>& gateStack) {
+int printNode(std::ostream & stream, const std::vector<toqm::ScheduledGateOp>& gateStack) {
 	int cycles = 0;
 	
 	for (auto & sg : gateStack) {
@@ -304,7 +299,7 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 	auto qasmObject = std::unique_ptr<QasmObject>(new QasmObject());
 	auto & impl = qasmObject->impl;
 	
-	std::vector<GateOp> & gates = impl->gate_ops;
+	std::vector<toqm::GateOp> & gates = impl->gate_ops;
 	
 	char * token = 0;
 	bool b = false;
@@ -468,7 +463,7 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 	return qasmObject;
 }
 
-void QasmObject::toQasm2(std::ostream & out, const ToqmResult & result) const {
+void QasmObject::toQasm2(std::ostream & out, const toqm::ToqmResult & result) const {
 	//Print out the initial mapping:
 	std::cout << "//Note: initial mapping (logical qubit at each location): ";
 	for(int x = 0; x < result.numPhysicalQubits; x++) {
@@ -511,6 +506,5 @@ void QasmObject::toQasm2(std::ostream & out, const ToqmResult & result) const {
 		std::cout << "//" << result.remainingInQueue << " nodes remain in queue.\n";
 		std::cout << result.filterStats;
 	//}
-}
 
 }

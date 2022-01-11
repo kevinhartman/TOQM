@@ -7,7 +7,6 @@ set(HEADER_LIST
         "CostFunc/CXFrontier.hpp"
         "CostFunc/CXFull.hpp"
         "CostFunc/SimpleCost.hpp"
-        "CouplingMap.hpp"
         "Environment.hpp"
         "Expander.hpp"
         "Expander/DefaultExpander.hpp"
@@ -26,19 +25,15 @@ set(HEADER_LIST
         "Node.hpp"
         "NodeMod.hpp"
         "NodeMod/GreedyMapper.hpp"
-        "QasmObject.hpp"
         "Queue.hpp"
         "Queue/DefaultQueue.hpp"
         "Queue/TrimSlowNodes.hpp"
         "ScheduledGate.hpp"
-        "ToqmMapper.hpp"
-        "ToqmResult.hpp")
+        "ToqmMapper.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(toqm
-        CouplingMap.cpp
         Node.cpp
-        QasmObject.cpp
         ToqmMapper.cpp
         ${HEADER_LIST})
 
