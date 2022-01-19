@@ -20,11 +20,11 @@ struct GateOp {
 };
 
 struct ScheduledGateOp {
-	GateOp gateOp {};
-	int physicalTarget{};
-	int physicalControl{};
-	int cycle{}; //cycle when this gate started
-	int latency{};
+	GateOp gateOp;
+	int physicalTarget;
+	int physicalControl;
+	int cycle; //cycle when this gate started
+	int latency;
 };
 
 struct ToqmResult {

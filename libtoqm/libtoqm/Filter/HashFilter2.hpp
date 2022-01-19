@@ -339,6 +339,10 @@ public:
 		stream << "//HashFilter2 filtered " << numFiltered << " total nodes.\n";
 		stream << "//HashFilter2 marked " << numMarkedDead << " total nodes.\n";
 	}
+	
+	std::unique_ptr<Filter> clone() const override {
+		return std::unique_ptr<Filter>(new HashFilter2(*this));
+	}
 };
 
 }

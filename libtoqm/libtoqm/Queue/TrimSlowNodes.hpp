@@ -152,6 +152,10 @@ public:
 	int size() override {
 		return nodes.size();
 	}
+	
+	std::unique_ptr<Queue> clone() const override {
+		return std::unique_ptr<Queue>(new TrimSlowNodes(*this));
+	}
 };
 
 }

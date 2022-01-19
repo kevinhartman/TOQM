@@ -129,6 +129,10 @@ public:
 			}
 		}
 	}
+	
+	std::unique_ptr<NodeMod> clone() const override {
+		return std::unique_ptr<NodeMod>(new GreedyMapper(*this));
+	}
 };
 
 }

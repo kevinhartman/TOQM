@@ -20,6 +20,8 @@ public:
 		env.runNodeModifiers(node, MOD_TYPE_BEFORECOST);
 		return _getCost(node);
 	}
+	
+	virtual std::unique_ptr<CostFunc> clone() const = 0;
 };
 
 }

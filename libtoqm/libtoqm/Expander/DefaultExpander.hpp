@@ -261,6 +261,10 @@ public:
 		
 		return true;
 	}
+	
+	std::unique_ptr<Expander> clone() const override {
+		return std::unique_ptr<Expander>(new DefaultExpander(*this));
+	}
 };
 
 }

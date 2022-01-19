@@ -263,6 +263,10 @@ public:
 		
 		return cost;
 	}
+	
+	std::unique_ptr<CostFunc> clone() const override {
+		return std::unique_ptr<CostFunc>(new CXFull(*this));
+	}
 };
 
 }

@@ -136,6 +136,10 @@ public:
 	void printStatistics(std::ostream & stream) override {
 		stream << "//HashFilter filtered " << numFiltered << " total nodes.\n";
 	}
+	
+	std::unique_ptr<Filter> clone() const override {
+		return std::unique_ptr<Filter>(new HashFilter(*this));
+	}
 };
 
 }

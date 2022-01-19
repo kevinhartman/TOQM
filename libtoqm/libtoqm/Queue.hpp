@@ -52,6 +52,8 @@ public:
 	inline const std::shared_ptr<Node>& getBestFinalNode() const {
 		return bestFinalNode;
 	}
+	
+	virtual std::unique_ptr<Queue> clone() const = 0;
 };
 
 }

@@ -27,6 +27,8 @@ public:
 	}
 	
 	virtual std::unique_ptr<Filter> createEmptyCopy() = 0;
+	
+	virtual std::unique_ptr<Filter> clone() const = 0;
 };
 
 }

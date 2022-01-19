@@ -84,7 +84,7 @@ private:
 	std::unordered_map<key_t2, int, key_hash2, key_equal2> optimisticLatencies;
 	
 	//Tokenizer for parsing the latency table file:
-	char * getToken(std::istream & infile) {
+	static char * getToken(std::istream & infile) {
 		char c;
 		int MAXBUFFERSIZE = 256;
 		char buffer[MAXBUFFERSIZE];
@@ -222,6 +222,10 @@ public:
 		std::cerr << "FATAL ERROR: could not find any valid latency for specified " << gateName << " gate.\n";
 		std::cerr << "\t" << numQubits << "\t" << gateName << "\t" << target << "\t" << control << "\n";
 		exit(1);
+	}
+	
+	std::unique_ptr<Latency> clone() const override {
+		return std::unique_ptr<Latency>(new Table(*this));
 	}
 };
 

@@ -14,6 +14,8 @@ public:
 	virtual ~NodeMod() = default;
 	
 	virtual void mod(Node & node, int flag) const = 0;
+	
+	virtual std::unique_ptr<NodeMod> clone() const = 0;
 };
 
 }
