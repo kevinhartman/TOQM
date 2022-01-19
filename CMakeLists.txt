@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.11...3.22)
 
 # Project name and a few useful settings. Other commands can pick up the results
-project("TOQM"
+project("libtoqm"
         VERSION 0.1.0
         DESCRIPTION
         "Chi Zhang, Ari B. Hayes, Longfei Qiu, Yuwei Jin, Yanhao Chen, and Eddy Z. Zhang. 2021. Time-Optimal Qubit \
