@@ -43,8 +43,8 @@ public:
 		unsigned int nodesSize = nodes.size();
 		int numQubits = node->env.numPhysicalQubits;
 		
-		bool occupied[numQubits];
-		bool onReadyFrontier[numQubits];
+		auto occupied = std::vector<bool>(numQubits);
+		auto onReadyFrontier = std::vector<bool>(numQubits);
 		bool hasBusyQubits = false;
 		for(int x = 0; x < numQubits; x++) {
 			occupied[x] = false;
@@ -55,7 +55,7 @@ public:
 		}
 		
 		//Identify, for each logical qubit, the CX (if any) that's on the CX frontier:
-		GateNode * CXFrontier[numQubits];
+		auto CXFrontier = std::vector<GateNode *>(numQubits);
 		for(int x = 0; x < numQubits; x++) {
 			CXFrontier[x] = NULL;
 		}

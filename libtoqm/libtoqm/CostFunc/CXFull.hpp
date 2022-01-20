@@ -16,9 +16,9 @@ public:
 		int cost = 0;
 		int costT = 99999;
 		Environment & env = node.env;
-		GateNode * next2BitGate[env.numPhysicalQubits];
-		int pathLength[env.numPhysicalQubits];
-		GateNode * next2BitGate2[env.numPhysicalQubits];
+		auto next2BitGate = std::vector<GateNode *>(env.numPhysicalQubits);
+		auto pathLength = std::vector<int>(env.numPhysicalQubits);
+		auto next2BitGate2 = std::vector<GateNode *>(env.numPhysicalQubits);
 		for(int x = 0; x < env.numPhysicalQubits; x++) {
 			next2BitGate[x] = NULL;
 			next2BitGate2[x] = NULL;

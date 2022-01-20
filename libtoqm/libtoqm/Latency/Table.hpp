@@ -86,7 +86,7 @@ private:
 	//Tokenizer for parsing the latency table file:
 	static char * getToken(std::istream & infile) {
 		char c;
-		int MAXBUFFERSIZE = 256;
+		const int MAXBUFFERSIZE = 256;
 		char buffer[MAXBUFFERSIZE];
 		int bufferLoc = 0;
 		bool paren = false;//true iff inside parentheses, i.e. partway through reading U3(...) gate name

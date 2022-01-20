@@ -77,7 +77,7 @@ namespace {
 ///Gets next token in the OPENQASM file we're parsing
 char * getToken(std::istream & infile, bool & sawSemicolon) {
 	char c;
-	int MAXBUFFERSIZE = 256;
+	const int MAXBUFFERSIZE = 256;
 	char buffer[MAXBUFFERSIZE];
 	int bufferLoc = 0;
 	bool paren = false;//true if inside parentheses, e.g. partway through reading U3(...) gate
@@ -182,7 +182,7 @@ char * getToken(std::istream & infile, bool & sawSemicolon) {
 //returns entire gate definition (except the 'gate' keyword) as a string.
 char * getCustomGate(std::istream & infile) {
 	char c;
-	int MAXBUFFERSIZE = 1024;
+	const int MAXBUFFERSIZE = 1024;
 	char buffer[MAXBUFFERSIZE];
 	int bufferLoc = 0;
 	bool curlybrace = false;
@@ -225,7 +225,7 @@ char * getCustomGate(std::istream & infile) {
 //I use this for saving opaque gate statements
 char * getRestOfStatement(std::istream & infile) {
 	char c;
-	int MAXBUFFERSIZE = 1024;
+	const int MAXBUFFERSIZE = 1024;
 	char buffer[MAXBUFFERSIZE];
 	int bufferLoc = 0;
 	bool comment = false;//true if between "//" and end-of-line

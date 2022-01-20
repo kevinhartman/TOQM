@@ -17,7 +17,7 @@ public:
 		Environment & env = node.env;
 		
 		//Calculate remaining cost of scheduled gates that haven't finished
-		int busyCyclesRemaining[env.numPhysicalQubits];
+		auto busyCyclesRemaining = std::vector<int>(env.numPhysicalQubits);
 		for(int x = 0; x < env.numPhysicalQubits; x++) {
 			busyCyclesRemaining[x] = node.busyCycles(x);
 			if(busyCyclesRemaining[x] > cost) {

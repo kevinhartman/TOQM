@@ -46,7 +46,7 @@ public:
 		
 		unsigned int nodesSize = nodes.size();
 		
-		bool noMoreCX[node->env.numPhysicalQubits];
+		auto noMoreCX = std::vector<bool>(node->env.numPhysicalQubits);
 		for(int x = 0; x < node->env.numPhysicalQubits; x++) {
 			noMoreCX[x] = false;
 			auto sg = node->lastNonSwapGate[x];
