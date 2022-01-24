@@ -125,6 +125,8 @@ int setCriticality(const std::vector<GateNode*>& lastGatePerQubit, int numQubits
 // Put root gates into firstGates.
 // Calculate num logical qubits.
 // Calculate ideal cycles.
+// TODO: we don't need maxQubits. We can use a map intead of vector,
+// and remove maxQubits from `ToqmMapper::run`.
 void
 buildDependencyGraph(const std::vector<GateOp> & gates,
 					 std::size_t maxQubits,

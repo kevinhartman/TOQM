@@ -52,6 +52,7 @@ public:
 	
 	static void setVerbose(bool verbose);
 	
+	// TODO: remove maxQubits. It's used internally to prealloc arrays, but we can use maps instead.
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map) const;
 
