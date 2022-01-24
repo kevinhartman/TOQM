@@ -121,10 +121,17 @@ int setCriticality(const std::vector<GateNode*>& lastGatePerQubit, int numQubits
 	return maxCrit;
 }
 
-//build dependence graph, put root gates into firstGates:
+// Create DAG from topological ordering of gates.
+// Put root gates into firstGates.
+// Calculate num logical qubits.
+// Calculate ideal cycles.
 void
-buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, const Latency & lat,
-					 std::set<GateNode*> & firstGates, int & numQubits, Environment& env,
+buildDependencyGraph(const std::vector<GateOp> & gates,
+					 std::size_t maxQubits,
+					 const Latency & lat,
+					 std::set<GateNode*> & firstGates,
+					 int & numQubits,
+					 Environment& env,
 					 int & idealCycles) {
 	numQubits = 0;
 	
@@ -144,10 +151,10 @@ buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, c
 		v->name = gate.type;
 		v->criticality = 0;
 		v->optimisticLatency = lat.getLatency(v->name, (v->control >= 0 ? 2 : 1), -1, -1);
-		v->controlChild = 0;
-		v->targetChild = 0;
-		v->controlParent = 0;
-		v->targetParent = 0;
+		v->controlChild = nullptr;
+		v->targetChild = nullptr;
+		v->controlParent = nullptr;
+		v->targetParent = nullptr;
 		
 		if(v->control >= 0) {
 			if(!env.firstCXPerQubit[v->control]) {
@@ -165,6 +172,7 @@ buildDependencyGraph(const std::vector<GateOp> & gates, std::size_t maxQubits, c
 			numQubits = v->target + 1;
 		}
 		
+		// TODO: move to input validation of `gates` for `ToqmMapper::run`.
 		assert(v->control != v->target);
 		
 		//set parents, and adjust lastGatePerQubit
@@ -265,7 +273,11 @@ struct ToqmMapper::Impl {
 		}
 		
 		auto env = std::unique_ptr<Environment>(new Environment(*cost_func, *latency, node_mods));
+		
+		// Get most optimistic swap cost. Passing numQubits > 0 and target/control < 0
+		// indicates we want best case.
 		env->swapCost = latency->getLatency("swp", 2, -1, -1);
+		
 		env->filters = std::move(run_filters);
 		env->couplings = coupling_map.edges;
 		env->numPhysicalQubits = coupling_map.numPhysicalQubits;
