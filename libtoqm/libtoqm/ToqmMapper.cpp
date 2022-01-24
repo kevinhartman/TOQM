@@ -215,6 +215,7 @@ buildDependencyGraph(const std::vector<GateOp> & gates,
 
 //Calculate minimum distance between each pair of physical qubits
 //ToDo replace this with something more efficient?
+// ...this is numQubits^3 execution.
 void calcDistances(int * distances, int numQubits) {
 	bool done = false;
 	while(!done) {
@@ -260,8 +261,8 @@ struct ToqmMapper::Impl {
 	int initialSearchCycles;
 	int retainPopped;
 	InitMapping init_mapping;
-	const char * init_qal;
-	const char * init_laq;
+	std::vector<char> init_qal;
+	std::vector<char> init_laq;
 	
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map) const {
@@ -290,19 +291,25 @@ struct ToqmMapper::Impl {
 		
 		assert(env->numPhysicalQubits >= env->numLogicalQubits);
 		
-		//Calculate distances between physical qubits in coupling map (min 1, max numPhysicalQubits-1)
+		// Calculate distances between physical qubits in coupling map (min 1, max numPhysicalQubits-1)
+		// First, initialize all pairs to max.
 		env->couplingDistances = new int[env->numPhysicalQubits * env->numPhysicalQubits];
 		for(int x = 0; x < env->numPhysicalQubits * env->numPhysicalQubits; x++) {
 			env->couplingDistances[x] = env->numPhysicalQubits - 1;
 		}
+		
+		// Then, initialize adjacent pairs to min.
 		for(auto iter = env->couplings.begin(); iter != env->couplings.end(); iter++) {
 			int x = (*iter).first;
 			int y = (*iter).second;
 			env->couplingDistances[x * env->numPhysicalQubits + y] = 1;
 			env->couplingDistances[y * env->numPhysicalQubits + x] = 1;
 		}
+		
+		// Then, calculate min distances between all pairs.
 		calcDistances(env->couplingDistances, env->numPhysicalQubits);
 		
+		// If initial search cycles is not user-specified, set it to "diameter".
 		int initialSearchCycles = this->initialSearchCycles;
 		if(initialSearchCycles < 0) {
 			int diameter = 0;
@@ -316,7 +323,7 @@ struct ToqmMapper::Impl {
 			initialSearchCycles = diameter;
 		}
 		
-		//Prepare list of gates corresponding to possible swaps
+		// For each physical coupling, add a swap gate to `possibleSwaps`.
 		//ToDo: make it so this won't cause redundancies when given directed coupling map
 		//might need to adjust parts of code that infer its size from coupling's size
 		env->possibleSwaps.resize(env->couplings.size());
@@ -340,6 +347,8 @@ struct ToqmMapper::Impl {
 		// Note: the lifetimes of all Node instances must not exceed the lifetime
 		//       of env and hence, this method.
 		auto root = std::shared_ptr<Node>(new Node(*env));
+		
+		// TODO: is this right? => Clear mapping for any physical qubits that aren't used by logical qubits
 		for(int x = env->numLogicalQubits; x < env->numPhysicalQubits; x++) {
 			root->laq[x] = -1;
 			root->qal[x] = -1;
@@ -362,6 +371,8 @@ struct ToqmMapper::Impl {
 		root->parent = nullptr;
 		root->numUnscheduledGates = env->numGates;
 		root->cycle = -1;
+		
+		// Setting root-cycle < -1 indicates search cycles.
 		if(initialSearchCycles) {
 			//std::cerr << "//Note: making attempt to find better initial mapping.\n";
 			root->cycle -= initialSearchCycles;
@@ -603,7 +614,7 @@ ToqmMapper::ToqmMapper(QueueFactory node_queue,
 					   std::vector<std::unique_ptr<Filter>> filters)
 		: impl(new Impl{std::move(node_queue), std::move(expander), std::move(cost_func), std::move(latency),
 						std::move(node_mods), std::move(filters), 0, 0, None,
-						nullptr, nullptr}) {}
+						{}, {}}) {}
 
 ToqmMapper::~ToqmMapper() = default;
 
@@ -615,22 +626,22 @@ void ToqmMapper::setRetainPopped(int retainPopped) {
 	this->impl->retainPopped = retainPopped;
 }
 
-void ToqmMapper::setInitialMappingQal(const char * init_qal) {
+void ToqmMapper::setInitialMappingQal(const std::vector<char>& init_qal) {
 	this->impl->init_mapping = QAL;
 	this->impl->init_qal = init_qal;
-	this->impl->init_laq = nullptr;
+	this->impl->init_laq.clear();
 }
 
-void ToqmMapper::setInitialMappingLaq(const char * init_laq) {
+void ToqmMapper::setInitialMappingLaq(const std::vector<char>& init_laq) {
 	this->impl->init_mapping = LAQ;
 	this->impl->init_laq = init_laq;
-	this->impl->init_qal = nullptr;
+	this->impl->init_qal.clear();
 }
 
 void ToqmMapper::clearInitialMapping() {
 	this->impl->init_mapping = None;
-	this->impl->init_laq = nullptr;
-	this->impl->init_qal = nullptr;
+	this->impl->init_laq.clear();
+	this->impl->init_qal.clear();
 }
 
 void ToqmMapper::setVerbose(bool verbose) {

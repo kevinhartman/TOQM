@@ -228,8 +228,8 @@ int main(int argc, char ** argv) {
 	int initialSearchCycles = 0;
 	
 	//variables for user-specified initial mapping:
-	char init_qal[toqm::MAX_QUBITS];
-	char init_laq[toqm::MAX_QUBITS];
+	std::vector<char> init_qal(toqm::MAX_QUBITS);
+	std::vector<char> init_laq(toqm::MAX_QUBITS);
 	int use_specified_init_mapping = 0;
 	
 	//Parse command-line arguments:
