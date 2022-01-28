@@ -60,17 +60,27 @@ public:
 	
 	/**
 	 * Set the number of cycles to spend up front searching for an initial mapping.
-	 * If `-1`, will use longest path between any two nodes without going through
-	 * any given node more than once (this is a complete search and is the max
-	 * value that can have an effect).
-	 * @param initial_search_cycles The number of cycles.
+	 * @param initial_search_cycles The number of cycles. If `-1`, uses the
+	 * longest path between any two nodes without going through any given node more
+	 * than once (this is a complete search and is the max value that can have an
+	 * effect).
 	 */
 	void setInitialSearchCycles(int initial_search_cycles);
 	
 	void setRetainPopped(int retain_popped);
 	
+	/**
+	 * Sets the initial mapping from a lookup table of physical to
+	 * logical qubits. I.e. `logical = init_qal[physical]`.
+	 * @param init_qal
+	 */
 	void setInitialMappingQal(const std::vector<char>& init_qal);
 	
+	/**
+	 * Sets the initial mapping from a lookup table of logical to
+	 * physical qubits. I.e. `physical = init_laq[logical]`.
+	 * @param init_qal
+	 */
 	void setInitialMappingLaq(const std::vector<char>& init_laq);
 	
 	/**

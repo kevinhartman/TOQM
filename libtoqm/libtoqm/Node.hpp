@@ -35,8 +35,8 @@ public:
 	
 	//int debugID = GLOBALCOUNTER++;
 	
-	char qal[MAX_QUBITS]{};//qubit mapping
-	char laq[MAX_QUBITS]{};//qubit mapping (inverted)
+	char qal[MAX_QUBITS]{};//qubit mapping, physical to logical.
+	char laq[MAX_QUBITS]{};//qubit mapping (inverted), logical to physical.
 	
 	ScheduledGate* lastNonSwapGate[MAX_QUBITS]{};//last scheduled non-swap gate per LOGICAL qubit
 	ScheduledGate* lastGate[MAX_QUBITS]{};//last scheduled gate per PHYSICAL qubit

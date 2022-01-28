@@ -15,7 +15,7 @@ struct CouplingMap {
 
 struct GateOp {
 	std::string type;
-	int target;
+	int target; // set just target for 1-qubit gate
 	int control;
 };
 
