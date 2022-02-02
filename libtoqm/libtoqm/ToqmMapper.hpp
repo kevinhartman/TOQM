@@ -25,15 +25,13 @@ class NodeMod;
 
 class Filter;
 
-using QueueFactory = std::function<std::unique_ptr<Queue>()>;
-
 class ToqmMapper {
 public:
 	/**
 	 * Construct a reusable TOQM mapper object that performs the TOQM algorithm
 	 * using the specified configuration.
-	 * @param node_queue A factory function that produces Queue instances for
-	 * each run of the mapper.
+	 * @param node_queue A template `Queue` instance that will be cloned and used
+	 * for each run of the mapper.
 	 * @param expander The `Expander` implementation used to determine each
 	 * node's children (the next possible circuit states given a current state).
 	 * @param cost_func The `CostFunc` implementation used to determine the
@@ -45,7 +43,7 @@ public:
 	 * redundant or otherwise uninteresting nodes from the search space.
 	 */
 	explicit ToqmMapper(
-			QueueFactory node_queue,
+			const Queue& node_queue,
 			std::unique_ptr<Expander> expander,
 			std::unique_ptr<CostFunc> cost_func,
 			std::unique_ptr<Latency> latency,

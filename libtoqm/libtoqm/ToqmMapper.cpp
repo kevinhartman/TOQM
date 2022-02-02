@@ -252,7 +252,7 @@ enum InitMapping {
 };
 
 struct ToqmMapper::Impl {
-	QueueFactory nodes_queue;
+	std::unique_ptr<Queue> nodes_queue;
 	std::unique_ptr<Expander> expander;
 	std::unique_ptr<CostFunc> cost_func;
 	std::unique_ptr<Latency> latency;
@@ -266,8 +266,6 @@ struct ToqmMapper::Impl {
 	
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map) const {
-		auto nodes = nodes_queue();
-		
 		// create fresh deep copy of filters for run
 		std::vector<std::unique_ptr<Filter>> run_filters;
 		run_filters.reserve(filters.size());
@@ -380,6 +378,8 @@ struct ToqmMapper::Impl {
 		root->readyGates = firstGates;
 		root->scheduled = std::shared_ptr<ScheduledGateStack>(new ScheduledGateStack());
 		root->cost = cost_func->getCost(*root);
+		
+		auto nodes = nodes_queue->clone();
 		nodes->push(root); // TODO: should Queue own all nodes, only?
 
 //    // TODO: is this needed? why delete filters that the user didn't select?
@@ -606,13 +606,13 @@ struct ToqmMapper::Impl {
 	}
 };
 
-ToqmMapper::ToqmMapper(QueueFactory node_queue,
+ToqmMapper::ToqmMapper(const Queue& node_queue,
 					   std::unique_ptr<Expander> expander,
 					   std::unique_ptr<CostFunc> cost_func,
 					   std::unique_ptr<Latency> latency,
 					   std::vector<std::unique_ptr<NodeMod>> node_mods,
 					   std::vector<std::unique_ptr<Filter>> filters)
-		: impl(new Impl{std::move(node_queue), std::move(expander), std::move(cost_func), std::move(latency),
+		: impl(new Impl{node_queue.clone(), std::move(expander), std::move(cost_func), std::move(latency),
 						std::move(node_mods), std::move(filters), 0, 0, None,
 						{}, {}}) {}
 

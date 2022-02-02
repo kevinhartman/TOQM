@@ -212,7 +212,7 @@ int main(int argc, char ** argv) {
 	char * qasmFileName = NULL;
 	char * couplingMapFileName = NULL;
 	
-	FactoryFunc<toqm::Queue> nodes;
+	std::unique_ptr<toqm::Queue> nodes;
 	std::unique_ptr<toqm::Expander> ex;
 	std::unique_ptr<toqm::CostFunc> cf;
 	std::unique_ptr<toqm::Latency> lat;
@@ -274,7 +274,7 @@ int main(int argc, char ** argv) {
 			if(!ex) ex = expanders[0].fromStdin()();
 			if(!cf) cf = costFunctions[0].fromStdin()();
 			if(!lat) lat = latencies[0].fromStdin()();
-			if(!nodes) nodes = queues[0].fromStdin();
+			if(!nodes) nodes = queues[0].fromStdin()();
 		} else if(!caseInsensitiveCompare(argv[iter], "-expander")) {
 			char * choiceStr = argv[++iter];
 			bool found = false;
@@ -343,7 +343,7 @@ int main(int argc, char ** argv) {
 			for(int x = 0; x < NUMQUEUES; x++) {
 				if(!caseInsensitiveCompare(queues[x].name, choiceStr)) {
 					found = true;
-					nodes = queues[x].fromArg(argv + (iter + 1), iter);
+					nodes = queues[x].fromArg(argv + (iter + 1), iter)();
 					break;
 				}
 			}
@@ -406,7 +406,7 @@ int main(int argc, char ** argv) {
 		}
 		std::cin >> choice;
 		assert(choice >= 0 && choice < NUMQUEUES);
-		nodes = queues[choice].fromStdin();
+		nodes = queues[choice].fromStdin()();
 	}
 	
 	if(userChoices) {
@@ -469,7 +469,7 @@ int main(int argc, char ** argv) {
 	
 	toqm::ToqmMapper::setVerbose(false);
 	auto mapper = std::unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(
-			nodes,
+			*nodes,
 			move(ex),
 			move(cf),
 			move(lat),
