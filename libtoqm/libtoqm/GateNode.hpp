@@ -8,6 +8,7 @@ namespace toqm {
 
 class GateNode { //part of a DAG of nodes
 public:
+	int uid {}; // user-provided ID for tracking
 	std::string name{};
 	int control{};//control qubit, or -1
 	int target{};//target qubit

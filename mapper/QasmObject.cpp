@@ -300,6 +300,7 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 	auto & impl = qasmObject->impl;
 	
 	std::vector<toqm::GateOp> & gates = impl->gate_ops;
+	int gate_uid = 0; // uid assigned to each new gate for tracking
 	
 	char * token = 0;
 	bool b = false;
@@ -447,15 +448,15 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 					assert(!strcmp(token, ";"));
 					
 					//Push this 2-qubit gate onto gate list
-					gates.push_back({gateName, qubit2FlatOffset, qubit1FlatOffset});
+					gates.emplace_back(gate_uid++, gateName, qubit1FlatOffset, qubit2FlatOffset);
 					
 				} else {
 					//Push this 1-qubit gate onto gate list
-					gates.push_back({gateName, qubit1FlatOffset, -1});
+					gates.emplace_back(gate_uid++, gateName, qubit1FlatOffset);
 				}
 			} else {
 				//Push this 0-qubit gate onto gate list
-				gates.push_back({gateName, -1, -1});
+				gates.emplace_back(gate_uid++, gateName);
 			}
 		}
 	}

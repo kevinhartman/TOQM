@@ -14,9 +14,24 @@ struct CouplingMap {
 };
 
 struct GateOp {
+	/**
+	 * Construct a 0-qubit gate.
+	 */
+	GateOp(int uid, std::string type) : uid(uid), type(std::move(type)) {}
+	
+	/**
+	 * Construct a 1-qubit gate.
+	 */
+	GateOp(int uid, std::string type, int target) : uid(uid), type(std::move(type)), target(target) {}
+	
+	/**
+	 * Construct a 2-qubit gate.
+	 */
+	GateOp(int uid, std::string type, int control, int target) : uid(uid), type(std::move(type)), control(control), target(target) {}
+	int uid;
 	std::string type;
-	int target; // set just target for 1-qubit gate
-	int control;
+	int control = -1;
+	int target = -1;
 };
 
 struct ScheduledGateOp {

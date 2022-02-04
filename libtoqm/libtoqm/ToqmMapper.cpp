@@ -148,6 +148,7 @@ buildDependencyGraph(const std::vector<GateOp> & gates,
 		const auto v = v_shared.get();
 		env.managedGateNodes.push_back(std::move(v_shared));
 		
+		v->uid = gate.uid;
 		v->control = gate.control;
 		v->target = gate.target;
 		v->name = gate.type;
@@ -332,6 +333,7 @@ struct ToqmMapper::Impl {
 			auto g = g_shared.get();
 			env->managedGateNodes.push_back(std::move(g_shared));
 			
+			g->uid = -1; // generated swap has no user-provided ID
 			g->control = (*iter).first;
 			g->target = (*iter).second;
 			g->name = "swp";
@@ -551,29 +553,32 @@ struct ToqmMapper::Impl {
 			sg = sg->next;
 		}
 		
-		// Create copy of scheduled_final gates for result
+		// Create a vector from the scheduled gates stack for the result
 		auto & gates = finalNode->scheduled;
-		std::vector<ScheduledGateOp> scheduled_final(gates->size);
-		auto insertAt = gates->size - 1;
-		while(insertAt >= 0) {
+		std::vector<ScheduledGateOp> scheduled_final {};
+		scheduled_final.reserve(gates->size);
+		
+		int gate_count = gates->size;
+		for (int i = 0; i < gate_count; i++) {
 			assert(gates->size > 0);
 			
 			auto & sg = gates->value;
 			auto & g = gates->value->gate;
-			scheduled_final.at(insertAt--) = {
-					{
-						g->name,
-						g->target,
-						g->control,
-					},
+			
+			scheduled_final.push_back(ScheduledGateOp{
+					GateOp(g->uid, g->name, g->control, g->target),
 					sg->physicalTarget,
 					sg->physicalControl,
 					sg->cycle,
 					sg->latency
-			};
+			});
 			
 			gates = gates->next;
 		}
+		
+		// Reverse the stack so gates are in topological order
+		// TODO: make this more efficient by creating in reverse order to begin with
+		std::reverse(scheduled_final.begin(), scheduled_final.end());
 		
 		// Create copy of laq for result
 		std::vector<char> laq_final(MAX_QUBITS);
