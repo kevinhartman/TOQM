@@ -43,7 +43,7 @@ public:
 	 * redundant or otherwise uninteresting nodes from the search space.
 	 */
 	explicit ToqmMapper(
-			const Queue& node_queue,
+			const Queue & node_queue,
 			std::unique_ptr<Expander> expander,
 			std::unique_ptr<CostFunc> cost_func,
 			std::unique_ptr<Latency> latency,
@@ -56,35 +56,7 @@ public:
 	 */
 	~ToqmMapper();
 	
-	/**
-	 * Set the number of cycles to spend up front searching for an initial mapping.
-	 * @param initial_search_cycles The number of cycles. If `-1`, uses the
-	 * longest path between any two nodes without going through any given node more
-	 * than once (this is a complete search and is the max value that can have an
-	 * effect).
-	 */
-	void setInitialSearchCycles(int initial_search_cycles);
-	
 	void setRetainPopped(int retain_popped);
-	
-	/**
-	 * Sets the initial mapping from a lookup table of physical to
-	 * logical qubits. I.e. `logical = init_qal[physical]`.
-	 * @param init_qal
-	 */
-	void setInitialMappingQal(const std::vector<char>& init_qal);
-	
-	/**
-	 * Sets the initial mapping from a lookup table of logical to
-	 * physical qubits. I.e. `physical = init_laq[logical]`.
-	 * @param init_qal
-	 */
-	void setInitialMappingLaq(const std::vector<char>& init_laq);
-	
-	/**
-	 * Clear any initial mappings that were previously set.
-	 */
-	void clearInitialMapping();
 	
 	/**
 	 * Set verbose output mode (currently writes to stderr).
@@ -96,9 +68,12 @@ public:
 	
 	/**
 	 * Run the TOQM algorithm.
+	 * The initial layout is determined automatically using a cycle limit
+	 * equal to the diameter of the couping map, and is available in the
+	 * result.
 	 * @param gates The topologically ordered gates that define the circuit.
 	 * @param num_qubits
-	 * @param coupling_map
+	 * @param coupling_map The coupling map describing the target hardware.
 	 * @return The result object, which contains the transformed circuit (with inserted SWAPS),
 	 * the initial mapping (either calculated or the one the user provided), and various
 	 * statistics describing the run.
@@ -107,6 +82,35 @@ public:
 	 */
 	std::unique_ptr<ToqmResult>
 	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map) const;
+	
+	/**
+	 * Run the TOQM algorithm.
+	 * The initial layout is determined automatically using the specified cycle limit,
+	 * and is available in the result.
+	 * @param gates
+	 * @param num_qubits
+	 * @param coupling_map
+	 * @param initial_search_cycles The number of cycles. If `-1`, uses the
+	 * longest path between any two nodes without going through any given node more
+	 * than once (this is a complete search and is the max value that can have an
+	 * effect).
+	 * @return
+	 */
+	std::unique_ptr<ToqmResult>
+	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles) const;
+	
+	/**
+	 * Run the TOQM algorithm using the specified initial layout.
+	 * @param gates
+	 * @param num_qubits
+	 * @param coupling_map
+	 * @param initial_search_cycles If non-zero, the initial layout is determined automatically
+	 * with `init_qal` as a starting point, using up to this many cycles.
+	 * @param init_qal
+	 * @return
+	 */
+	std::unique_ptr<ToqmResult>
+	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<char> & init_qal) const;
 
 private:
 	class Impl;

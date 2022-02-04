@@ -477,12 +477,22 @@ int main(int argc, char ** argv) {
 			move(filters)));
 	
 	mapper->setRetainPopped(retainPopped);
-	mapper->setInitialSearchCycles(initialSearchCycles);
 	
-	if(use_specified_init_mapping == 1) {
-		mapper->setInitialMappingQal(init_qal);
-	} else if(use_specified_init_mapping == 2) {
-		mapper->setInitialMappingLaq(init_laq);
+	if (use_specified_init_mapping == 0) {
+		// No initial mapping. An empty mapping indicates this to libtoqm.
+		init_qal.clear();
+	} else if (use_specified_init_mapping == 2) {
+		// Convert LAQ to QAL.
+		assert(init_laq.size() - 1 <= std::numeric_limits<char>::max());
+		for (char i = 0; i < init_laq.size(); i++) {
+			if (init_laq[i] >= 0) {
+				init_qal[init_laq[i]] = i;
+			}
+		}
+		
+		for(int i = init_laq.size(); i < toqm::MAX_QUBITS; i++) {
+			init_qal[i] = -1;
+		}
 	}
 	
 	auto qasmFile = std::ifstream(qasmFileName);
@@ -492,7 +502,7 @@ int main(int argc, char ** argv) {
 	auto couplingMap = parseCouplingMap(couplingMapFile);
 	
 	// invoke TOQM algo
-	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap);
+	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap, initialSearchCycles, init_qal);
 	
 	// write new qasm to std::cout
 	qasm->toQasm2(std::cout, *result);

@@ -246,12 +246,6 @@ void calcDistances(int * distances, int numQubits) {
 
 }
 
-enum InitMapping {
-	None,
-	QAL,
-	LAQ
-};
-
 struct ToqmMapper::Impl {
 	std::unique_ptr<Queue> nodes_queue;
 	std::unique_ptr<Expander> expander;
@@ -259,14 +253,10 @@ struct ToqmMapper::Impl {
 	std::unique_ptr<Latency> latency;
 	std::vector<std::unique_ptr<NodeMod>> node_mods;
 	std::vector<std::unique_ptr<Filter>> filters;
-	int initialSearchCycles;
 	int retainPopped;
-	InitMapping init_mapping;
-	std::vector<char> init_qal;
-	std::vector<char> init_laq;
 	
 	std::unique_ptr<ToqmResult>
-	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map) const {
+	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map, int initialSearchCycles, std::vector<char> init_qal) const {
 		// create fresh deep copy of filters for run
 		std::vector<std::unique_ptr<Filter>> run_filters;
 		run_filters.reserve(filters.size());
@@ -309,7 +299,6 @@ struct ToqmMapper::Impl {
 		calcDistances(env->couplingDistances, env->numPhysicalQubits);
 		
 		// If initial search cycles is not user-specified, set it to "diameter".
-		int initialSearchCycles = this->initialSearchCycles;
 		if(initialSearchCycles < 0) {
 			int diameter = 0;
 			for(int x = 0; x < env->numPhysicalQubits - 1; x++) {
@@ -353,21 +342,17 @@ struct ToqmMapper::Impl {
 			root->laq[x] = -1;
 			root->qal[x] = -1;
 		}
-		if(init_mapping == QAL) {
+		
+		// Init root with initial layout
+		if (!init_qal.empty()) {
 			for(int x = 0; x < env->numPhysicalQubits; x++) {
 				root->qal[x] = init_qal[x];
 				if(init_qal[x] >= 0) {
 					root->laq[(int) init_qal[x]] = x;
 				}
 			}
-		} else if(init_mapping == LAQ) {
-			for(int x = 0; x < env->numPhysicalQubits; x++) {
-				root->laq[x] = init_laq[x];
-				if(init_laq[x] >= 0) {
-					root->qal[(int) init_laq[x]] = x;
-				}
-			}
 		}
+		
 		root->parent = nullptr;
 		root->numUnscheduledGates = env->numGates;
 		root->cycle = -1;
@@ -618,44 +603,34 @@ ToqmMapper::ToqmMapper(const Queue& node_queue,
 					   std::vector<std::unique_ptr<NodeMod>> node_mods,
 					   std::vector<std::unique_ptr<Filter>> filters)
 		: impl(new Impl{node_queue.clone(), std::move(expander), std::move(cost_func), std::move(latency),
-						std::move(node_mods), std::move(filters), 0, 0, None,
-						{}, {}}) {}
+						std::move(node_mods), std::move(filters), 0}) {}
 
 ToqmMapper::~ToqmMapper() = default;
 
-void ToqmMapper::setInitialSearchCycles(int initial_search_cycles) {
-	this->impl->initialSearchCycles = initial_search_cycles;
-}
-
 void ToqmMapper::setRetainPopped(int retainPopped) {
 	this->impl->retainPopped = retainPopped;
-}
-
-void ToqmMapper::setInitialMappingQal(const std::vector<char>& init_qal) {
-	this->impl->init_mapping = QAL;
-	this->impl->init_qal = init_qal;
-	this->impl->init_laq.clear();
-}
-
-void ToqmMapper::setInitialMappingLaq(const std::vector<char>& init_laq) {
-	this->impl->init_mapping = LAQ;
-	this->impl->init_laq = init_laq;
-	this->impl->init_qal.clear();
-}
-
-void ToqmMapper::clearInitialMapping() {
-	this->impl->init_mapping = None;
-	this->impl->init_laq.clear();
-	this->impl->init_qal.clear();
 }
 
 void ToqmMapper::setVerbose(bool verbose) {
 	_verbose = verbose;
 }
 
-std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits,
+std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits,
 											const CouplingMap & coupling_map) const {
-	return impl->run(gate_ops, num_qubits, coupling_map);
+	// -1 initial search cycles indicates we should `diameter` cycles
+	// to do a full search for the best initial layout.
+	return impl->run(gates, num_qubits, coupling_map, -1, {});
 }
+
+std::unique_ptr<ToqmResult>
+ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles) const {
+	return impl->run(gates, num_qubits, coupling_map, initial_search_cycles, {});
+}
+
+std::unique_ptr<ToqmResult>
+ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<char> & init_qal) const {
+	return impl->run(gates, num_qubits, coupling_map, initial_search_cycles, init_qal);
+}
+
 
 }
