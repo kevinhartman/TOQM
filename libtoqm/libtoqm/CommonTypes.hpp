@@ -47,9 +47,9 @@ struct ToqmResult {
 	int remainingInQueue;
 	int numPhysicalQubits;
 	int numLogicalQubits;
-	std::vector<char> laq;
-	std::vector<char> inferredQal;
-	std::vector<char> inferredLaq;
+	std::vector<int> laq;
+	std::vector<int> inferredQal;
+	std::vector<int> inferredLaq;
 	int idealCycles;
 	int numPopped;
 	std::string filterStats;

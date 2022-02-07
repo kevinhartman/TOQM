@@ -483,8 +483,8 @@ struct ToqmMapper::Impl {
 		
 		//Figure out what the initial mapping must have been
 		auto sg = finalNode->scheduled;
-		std::vector<char> inferredQal(env->numPhysicalQubits);
-		std::vector<char> inferredLaq(env->numPhysicalQubits);
+		std::vector<int> inferredQal(env->numPhysicalQubits);
+		std::vector<int> inferredLaq(env->numPhysicalQubits);
 		
 		for(int x = 0; x < env->numPhysicalQubits; x++) {
 			inferredQal[x] = finalNode->qal[x];
@@ -508,12 +508,12 @@ struct ToqmMapper::Impl {
 					
 					if(inferredQal[sg->value->physicalControl] >= 0 &&
 					   inferredQal[sg->value->physicalTarget] >= 0) {
-						std::swap(inferredLaq[(int) inferredQal[sg->value->physicalControl]],
-								  inferredLaq[(int) inferredQal[sg->value->physicalTarget]]);
+						std::swap(inferredLaq[inferredQal[sg->value->physicalControl]],
+								  inferredLaq[inferredQal[sg->value->physicalTarget]]);
 					} else if(inferredQal[sg->value->physicalControl] >= 0) {
-						inferredLaq[(int) inferredQal[sg->value->physicalControl]] = sg->value->physicalTarget;
+						inferredLaq[inferredQal[sg->value->physicalControl]] = sg->value->physicalTarget;
 					} else if(inferredQal[sg->value->physicalTarget] >= 0) {
-						inferredLaq[(int) inferredQal[sg->value->physicalTarget]] = sg->value->physicalControl;
+						inferredLaq[inferredQal[sg->value->physicalTarget]] = sg->value->physicalControl;
 					}
 					
 					std::swap(inferredQal[sg->value->physicalTarget], inferredQal[sg->value->physicalControl]);
@@ -566,7 +566,7 @@ struct ToqmMapper::Impl {
 		std::reverse(scheduled_final.begin(), scheduled_final.end());
 		
 		// Create copy of laq for result
-		std::vector<char> laq_final(MAX_QUBITS);
+		std::vector<int> laq_final(MAX_QUBITS);
 		for (auto i = 0; i < MAX_QUBITS; i++) {
 			laq_final[i] = finalNode->laq[i];
 		}
@@ -628,8 +628,17 @@ ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const
 }
 
 std::unique_ptr<ToqmResult>
-ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<char> & init_qal) const {
-	return impl->run(gates, num_qubits, coupling_map, initial_search_cycles, init_qal);
+ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<int> & init_qal) const {
+	// TODO: port entire codebase to use std::vector<size_t> for QAL/LAQ and remove this.
+	// 	This is only here so the ToqmMapper interface can be ideal to start.
+	std::vector<char> init_qal_c {};
+	init_qal_c.reserve(init_qal.size());
+	for (auto x : init_qal) {
+		assert(x <= std::numeric_limits<char>::max());
+		init_qal_c.push_back((char)x);
+	}
+	
+	return impl->run(gates, num_qubits, coupling_map, initial_search_cycles, std::move(init_qal_c));
 }
 
 

@@ -110,7 +110,7 @@ public:
 	 * @return
 	 */
 	std::unique_ptr<ToqmResult>
-	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<char> & init_qal) const;
+	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<int> & init_qal) const;
 
 private:
 	class Impl;
