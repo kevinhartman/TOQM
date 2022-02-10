@@ -1,5 +1,6 @@
 #include "ToqmMapper.hpp"
 
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <stack>
