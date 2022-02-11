@@ -31,6 +31,4 @@ private:
 	std::unique_ptr<Impl> impl;
 };
 
-constexpr auto parseQasm2 = QasmObject::fromQasm2;
-
 #endif

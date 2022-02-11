@@ -1,8 +1,6 @@
 add_executable(mapper
-        CouplingMap.hpp
         MapperUtils.h
         QasmObject.hpp
-        CouplingMap.cpp
         MapperUtils.cpp
         QasmObject.cpp
         main.cpp)

@@ -1,6 +1,6 @@
 #include "MapperUtils.h"
 
-#include <fstream>
+#include <istream>
 #include <cassert>
 
 namespace {
@@ -96,4 +96,22 @@ std::vector<toqm::LatencyDescription> MapperUtils::parseLatencyTable(std::istrea
 	}
 	
 	return result;
+}
+
+toqm::CouplingMap MapperUtils::parseCouplingMap(std::istream & in) {
+	auto map = toqm::CouplingMap{};
+	
+	unsigned int numEdges;
+	
+	in >> map.numPhysicalQubits;
+	in >> numEdges;
+	for(unsigned int x = 0; x < numEdges; x++) {
+		int a, b;
+		in >> a;
+		in >> b;
+		std::pair<int, int> edge = std::make_pair(a, b);
+		map.edges.insert(edge);
+	}
+	
+	return map;
 }

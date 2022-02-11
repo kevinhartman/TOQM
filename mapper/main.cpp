@@ -1,5 +1,4 @@
 #include "QasmObject.hpp"
-#include "CouplingMap.hpp"
 #include "MapperUtils.h"
 
 #include <libtoqm/ToqmMapper.hpp>
@@ -504,8 +503,8 @@ int main(int argc, char ** argv) {
 	auto qasmFile = std::ifstream(qasmFileName);
 	auto couplingMapFile = std::ifstream(couplingMapFileName);
 	
-	auto qasm = parseQasm2(qasmFile);
-	auto couplingMap = parseCouplingMap(couplingMapFile);
+	auto qasm = MapperUtils::parseQasm2(qasmFile);
+	auto couplingMap = MapperUtils::parseCouplingMap(couplingMapFile);
 	
 	// invoke TOQM algo
 	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap, initialSearchCycles, init_qal);
