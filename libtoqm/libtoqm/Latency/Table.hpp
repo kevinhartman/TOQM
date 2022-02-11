@@ -15,46 +15,52 @@ namespace toqm {
 
 /**
  * A Latency class which uses a latency table.
- * It takes one argument: the path for the latency table text file.
- * The latency table consists of a one or more tuples.
- * Each tuple consists of five elements:
-	the number of qubits,
-	the gate name,
-	the physical target qubit,
-	the physical control qubit,
-	and the latency.
- * Where appropriate, these elements may be replaced by dashes.
- * For example, consider this latency table:
-	2	cx	1	0	3
-	2	cx	0	1	3
-	2	cx	0	2	3
-	2	cx	2	3	4
-	2	cx	-	-	2
-	2	cy	-	-	12
-	2	swp	-	-	6
-	2	-	-	-	2
-	1	-	-	-	1
+ * It takes one argument: a list of latency descriptions
+ * that comprise the table, where each description includes
+ * the gate to which the latency applies, and the latency value.
+ *
+ * Consider the follow latency table where latencies are defined
+ * as LatencyDescription(numQubits, type, control, target, latency):
+ *
+ * [
+ *	LatencyDescription(2,  "cx",  1,  0,  3)
+ *	LatencyDescription(2,  "cx",  0,  1,  3)
+ *	LatencyDescription(2,  "cx",  0,  2,  3)
+ *	LatencyDescription(2,  "cx",  2,  3,  4)
+ *	LatencyDescription(2,  "cx", -1, -1,  2)
+ *	LatencyDescription(2,  "cy", -1, -1, 12)
+ *	LatencyDescription(2, "swp", -1, -1,  6)
+ *	LatencyDescription(2,    "", -1, -1,  2)
+ *	LatencyDescription(1,    "", -1, -1,  1)
+ * ]
+ *
  * In this example, the cx gate has a default latency of 2 cycles,
-	but for certain physical qubits cx instead takes 3 or 4 cycles.
-	The cy gate always takes 12 cycles, and the swp gate always takes 6 cycles.
-	All other 2-qubit gates take 2 cycles, and all 1-qubit gates take 1 cycle.
+ * but for certain physical qubits cx instead takes 3 or 4 cycles.
+ * The cy gate always takes 12 cycles, and the swp gate always takes 6 cycles.
+ * All other 2-qubit gates take 2 cycles, and all 1-qubit gates take 1 cycle.
  * If your latency table has an entry with physical qubits for some gate G, 
-	then it should also have a default entry for G (i.e. an entry without physical qubits).
-	Otherwise our current heuristic functions may exhibit strange behavior.
+ * then it should also have a default entry for G (i.e. an entry without physical qubits).
+ * Otherwise our current heuristic functions may exhibit strange behavior.
  */
-
 class Table : public Latency {
 private:
-	struct key_hash : public std::unary_function<GateOp, std::size_t> {
-		std::size_t operator()(const GateOp & k) const {
-			return std::hash<std::string>{}(k.type) ^ k.numQubits() ^ k.target ^ k.control;
+	struct LatencyTableKey {
+		std::string type;
+		int numQubits;
+		int target;
+		int control;
+	};
+	
+	struct key_hash : public std::unary_function<LatencyTableKey, std::size_t> {
+		std::size_t operator()(const LatencyTableKey & k) const {
+			return std::hash<std::string>{}(k.type) ^ k.numQubits ^ k.target ^ k.control;
 		}
 	};
 	
-	struct key_equal : public std::binary_function<GateOp, GateOp, bool> {
-		bool operator()(const GateOp & v0, const GateOp & v1) const {
+	struct key_equal : public std::binary_function<LatencyTableKey, LatencyTableKey, bool> {
+		bool operator()(const LatencyTableKey & v0, const LatencyTableKey & v1) const {
 			return (v0.type == v1.type &&
-					v0.numQubits() == v1.numQubits() &&
+					v0.numQubits == v1.numQubits &&
 					v0.target == v1.target &&
 					v0.control == v1.control);
 		}
@@ -76,7 +82,7 @@ private:
 	};
 	
 	//map using gate's name, # bits, physical target, and physical control as key(s).
-	std::unordered_map<GateOp, int, key_hash, key_equal> latencies;
+	std::unordered_map<LatencyTableKey, int, key_hash, key_equal> latencies;
 	
 	//best-case latency map when we haven't yet decided on physical qubits
 	std::unordered_map<OptimisticLatencyTableKey, int, key_hash2, key_equal2> optimisticLatencies;
@@ -84,27 +90,27 @@ private:
 	//Parse the latency table file:
 	void buildTable(const std::vector<LatencyDescription> & entries) {
 		char * token;
-		for (const auto & kv : entries) {
-			auto & k = kv.gate;
-			auto & v = kv.latency;
+		for (const auto & e : entries) {
 			
 			//Don't allow entries where physical qubits are only partially specified:
-			assert(k.numQubits() < 2 || (k.target != -1 && k.control != -1));
+			assert(e.numQubits < 2 || (e.target != -1 && e.control != -1));
 			
 			//Don't allow duplicate entries
-			auto search = latencies.find(k);
+			auto latenciesKey = LatencyTableKey {e.type, e.numQubits, e.target, e.control};
+			auto search = latencies.find(latenciesKey);
 			assert(search == latencies.end());
 			
-			latencies.emplace(k, v);
+			latencies.emplace(latenciesKey, e.latency);
 			
 			//record best-case latency for this gate regardless of physical qubits
-			if(!k.type.empty()) {
-				auto search = optimisticLatencies.find(std::make_tuple(k.type, k.numQubits()));
+			if(!e.type.empty()) {
+				auto optimisticLatenciesKey = std::make_tuple(e.type, e.numQubits);
+				auto search = optimisticLatencies.find(optimisticLatenciesKey);
 				if(search == optimisticLatencies.end()) {
-					optimisticLatencies.emplace(std::make_tuple(k.type, k.numQubits()), v);
+					optimisticLatencies.emplace(optimisticLatenciesKey, e.latency);
 				} else {
-					if(search->second > v) {
-						search->second = v;
+					if(search->second > e.latency) {
+						search->second = e.latency;
 					}
 				}
 			}
@@ -126,19 +132,19 @@ public:
 		}
 		
 		//Try to find perfectly matching latency:
-		auto search = latencies.find(GateOp {numQubits, gateName, control, target });
+		auto search = latencies.find(LatencyTableKey {gateName, numQubits, target, control});
 		if(search != latencies.end()) {
 			return search->second;
 		}
 		
 		//Try to find matching latency without physical qubits specified
-		search = latencies.find(GateOp {numQubits , gateName, -1, -1 });
+		search = latencies.find(LatencyTableKey {gateName, numQubits, -1, -1 });
 		if(search != latencies.end()) {
 			return search->second;
 		}
 		
 		//Try to find matching latency without physical qubits or gate name specified
-		search = latencies.find(GateOp {numQubits, "", -1, -1 });
+		search = latencies.find(LatencyTableKey {"", numQubits, -1, -1 });
 		if(search != latencies.end()) {
 			return search->second;
 		}

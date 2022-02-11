@@ -92,7 +92,7 @@ std::vector<toqm::LatencyDescription> MapperUtils::parseLatencyTable(std::istrea
 			latencyVal = atoi(latency);
 		}
 		
-		result.push_back(toqm::LatencyDescription {toqm::GateOp(-1, gateName, controlVal, targetVal), latencyVal});
+		result.emplace_back(numBits, gateName, controlVal, targetVal, latencyVal);
 	}
 	
 	return result;

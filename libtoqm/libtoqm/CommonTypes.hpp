@@ -33,10 +33,6 @@ struct GateOp {
 	std::string type;
 	int control = -1;
 	int target = -1;
-	
-	int numQubits() const {
-		return (control >= 0 ? 1 : 0) + (target >= 0 ? 1 : 0);
-	}
 };
 
 struct ScheduledGateOp {
@@ -61,8 +57,28 @@ struct ToqmResult {
 };
 
 struct LatencyDescription {
-	GateOp gate;
+	/**
+	 * Construct an optimistic latency for all gates with the specified number of qubits.
+	 */
+	LatencyDescription(int numQubits, int latency) : numQubits(numQubits), latency(latency) {}
+	
+	/**
+	 * Construct an optimistic latency for all gates with the specified number of qubits
+	 * with the same specified type name.
+	 */
+	LatencyDescription(int numQubits, std::string type, int latency) : numQubits(numQubits), type(std::move(type)), latency(latency) {}
+	
+	/**
+	 * Construct a specific latency for a gate between the two specified Qubits.
+	 */
+	LatencyDescription(int numQubits, std::string type, int control, int target, int latency) : numQubits(numQubits), type(std::move(type)), control(control), target(target), latency(latency) {}
+	
+	int numQubits;
 	int latency;
+	
+	std::string type = "";
+	int control = -1;
+	int target = -1;
 };
 
 }
