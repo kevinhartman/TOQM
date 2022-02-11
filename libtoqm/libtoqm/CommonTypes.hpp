@@ -28,18 +28,23 @@ struct GateOp {
 	 * Construct a 2-qubit gate.
 	 */
 	GateOp(int uid, std::string type, int control, int target) : uid(uid), type(std::move(type)), control(control), target(target) {}
+	
 	int uid;
 	std::string type;
 	int control = -1;
 	int target = -1;
+	
+	int numQubits() const {
+		return (control >= 0 ? 1 : 0) + (target >= 0 ? 1 : 0);
+	}
 };
 
 struct ScheduledGateOp {
 	GateOp gateOp;
-	int physicalTarget;
-	int physicalControl;
-	int cycle; //cycle when this gate started
-	int latency;
+	int physicalTarget{};
+	int physicalControl{};
+	int cycle{}; //cycle when this gate started
+	int latency{};
 };
 
 struct ToqmResult {
@@ -53,6 +58,11 @@ struct ToqmResult {
 	int idealCycles;
 	int numPopped;
 	std::string filterStats;
+};
+
+struct LatencyDescription {
+	GateOp gate;
+	int latency;
 };
 
 }

@@ -1,5 +1,6 @@
 #include "QasmObject.hpp"
 #include "CouplingMap.hpp"
+#include "MapperUtils.h"
 
 #include <libtoqm/ToqmMapper.hpp>
 #include <libtoqm/Node.hpp>
@@ -21,6 +22,7 @@
 
 #include <cassert>
 #include <iostream>
+#include <fstream>
 #include <memory>
 #include <vector>
 #include <functional>
@@ -130,7 +132,9 @@ UserOption<toqm::Latency> latencies[NUMLATENCIES] = {
 					
 					return [=]() {
 						std::ifstream infile(filename);
-						return std::unique_ptr<toqm::Latency>(new toqm::Table(infile));
+						return std::unique_ptr<toqm::Latency>(
+							new toqm::Table(MapperUtils::parseLatencyTable(infile))
+						);
 					};
 				},
 				[](char ** argv, int & iter) {
@@ -139,7 +143,9 @@ UserOption<toqm::Latency> latencies[NUMLATENCIES] = {
 					
 					return [=]() {
 						std::ifstream infile(filename);
-						return std::unique_ptr<toqm::Latency>(new toqm::Table(infile));
+						return std::unique_ptr<toqm::Latency>(
+							new toqm::Table(MapperUtils::parseLatencyTable(infile))
+						);
 					};
 				}
 		}
