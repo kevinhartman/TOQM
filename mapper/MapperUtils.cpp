@@ -73,10 +73,6 @@ std::vector<toqm::LatencyDescription> MapperUtils::parseLatencyTable(std::istrea
 		char * control = latencyGetToken(in);
 		char * latency = latencyGetToken(in);
 		
-		if(gateName == "-") {
-			gateName = "";
-		}
-		
 		int targetVal = -1;
 		if(strcmp(target, "-") != 0) {
 			targetVal = atoi(target);
@@ -92,7 +88,28 @@ std::vector<toqm::LatencyDescription> MapperUtils::parseLatencyTable(std::istrea
 			latencyVal = atoi(latency);
 		}
 		
-		result.emplace_back(numBits, gateName, controlVal, targetVal, latencyVal);
+		if (controlVal >= 0 || targetVal >=0) {
+			// real gate latency
+			assert(gateName != "-");
+			assert(targetVal != -1);
+			
+			if (controlVal >= 0) {
+				result.emplace_back(gateName, controlVal, targetVal, latencyVal);
+			} else {
+				result.emplace_back(gateName, targetVal, latencyVal);
+			}
+		} else {
+			// optimistic latency
+			assert(numBits > 0);
+			
+			if (gateName != "-") {
+				// for gates named gateName
+				result.emplace_back(numBits, gateName, latencyVal);
+			} else {
+				// for all gates, irrespective of name
+				result.emplace_back(numBits, latencyVal);
+			}
+		}
 	}
 	
 	return result;

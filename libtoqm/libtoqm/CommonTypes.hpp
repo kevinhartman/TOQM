@@ -58,20 +58,25 @@ struct ToqmResult {
 
 struct LatencyDescription {
 	/**
-	 * Construct an optimistic latency for all gates with the specified number of qubits.
+	 * Construct an optimistic latency description for all gates with the specified number of qubits.
 	 */
 	LatencyDescription(int numQubits, int latency) : numQubits(numQubits), latency(latency) {}
 	
 	/**
-	 * Construct an optimistic latency for all gates with the specified number of qubits
+	 * Construct an optimistic latency description for all gates with the specified number of qubits
 	 * with the same specified type name.
 	 */
 	LatencyDescription(int numQubits, std::string type, int latency) : numQubits(numQubits), type(std::move(type)), latency(latency) {}
 	
 	/**
-	 * Construct a specific latency for a gate between the two specified Qubits.
+	 * Construct a latency description for a 1-qubit gate.
 	 */
-	LatencyDescription(int numQubits, std::string type, int control, int target, int latency) : numQubits(numQubits), type(std::move(type)), control(control), target(target), latency(latency) {}
+	LatencyDescription(std::string type, int target, int latency) : numQubits(1), type(std::move(type)), target(target), latency(latency) {}
+	
+	/**
+	 * Construct a latency description for a 2-qubit gate.
+	 */
+	LatencyDescription(std::string type, int control, int target, int latency) : numQubits(2), type(std::move(type)), control(control), target(target), latency(latency) {}
 	
 	int numQubits;
 	int latency;
