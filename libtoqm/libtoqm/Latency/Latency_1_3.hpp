@@ -9,7 +9,7 @@ namespace toqm {
 class Latency_1_3 : public Latency {
 public:
 	int getLatency(std::string gateName, int numQubits, int target, int control) const override {
-		if(!gateName.compare("swp") || !gateName.compare("SWP")) {
+		if(!gateName.compare("swap") || !gateName.compare("SWAP")) {
 			return 3;
 		} else {
 			return 1;

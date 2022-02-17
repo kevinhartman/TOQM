@@ -269,7 +269,7 @@ struct ToqmMapper::Impl {
 		
 		// Get most optimistic swap cost. Passing numQubits > 0 and target/control < 0
 		// indicates we want best case.
-		env->swapCost = latency->getLatency("swp", 2, -1, -1);
+		env->swapCost = latency->getLatency("swap", 2, -1, -1);
 		
 		env->filters = std::move(run_filters);
 		env->couplings = coupling_map.edges;
@@ -326,8 +326,8 @@ struct ToqmMapper::Impl {
 			g->uid = -1; // generated swap has no user-provided ID
 			g->control = (*iter).first;
 			g->target = (*iter).second;
-			g->name = "swp";
-			g->optimisticLatency = latency->getLatency("swp", 2, g->target, g->control);
+			g->name = "swap";
+			g->optimisticLatency = latency->getLatency("swap", 2, g->target, g->control);
 			env->possibleSwaps[x] = g;
 			x++;
 			iter++;
@@ -505,7 +505,7 @@ struct ToqmMapper::Impl {
 		*/
 		while(sg->size > 0) {
 			if(sg->value->gate->control >= 0) {
-				if((!sg->value->gate->name.compare("swp")) || (!sg->value->gate->name.compare("SWP"))) {
+				if((!sg->value->gate->name.compare("swap")) || (!sg->value->gate->name.compare("SWAP"))) {
 					
 					if(inferredQal[sg->value->physicalControl] >= 0 &&
 					   inferredQal[sg->value->physicalTarget] >= 0) {

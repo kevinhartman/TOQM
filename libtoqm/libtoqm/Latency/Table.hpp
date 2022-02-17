@@ -29,7 +29,7 @@ namespace toqm {
  *	LatencyDescription(2,  "cx",  2,  3,  4)
  *	LatencyDescription(2,  "cx", -1, -1,  2)
  *	LatencyDescription(2,  "cy", -1, -1, 12)
- *	LatencyDescription(2, "swp", -1, -1,  6)
+ *	LatencyDescription(2,"swap", -1, -1,  6)
  *	LatencyDescription(2,    "", -1, -1,  2)
  *	LatencyDescription(1,    "", -1, -1,  1)
  * ]

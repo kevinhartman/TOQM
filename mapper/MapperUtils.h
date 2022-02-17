@@ -28,7 +28,7 @@ public:
 		2	cx	2	3	4
 		2	cx	-	-	2
 		2	cy	-	-	12
-		2	swp	-	-	6
+		2	swap-	-	6
 		2	-	-	-	2
 		1	-	-	-	1
 	 * In this example, the cx gate has a default latency of 2 cycles,

@@ -29,8 +29,8 @@ Node::~Node() = default;
 //the timeOffset can be used if we want to schedule a gate to start X cycles in the future
 //this function adjusts qubit map when scheduling a swap
 bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
-	bool isSwap = !gate->name.compare("swp");
-	isSwap = isSwap || !gate->name.compare("swp");
+	bool isSwap = !gate->name.compare("swap");
+	isSwap = isSwap || !gate->name.compare("swap");
 	
 	int physicalControl = gate->control;
 	int physicalTarget = gate->target;

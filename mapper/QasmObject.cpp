@@ -273,7 +273,7 @@ int printNode(std::ostream & stream, const std::vector<toqm::ScheduledGateOp>& g
 		stream << "q[" << target << "]";
 		stream << ";";
 		stream << " //cycle: " << sg.cycle;
-		if(sg.gateOp.type.compare("swp") && sg.gateOp.type.compare("SWP")) {
+		if(sg.gateOp.type.compare("swap") && sg.gateOp.type.compare("SWAP")) {
 			int target = sg.gateOp.target;
 			int control = sg.gateOp.control;
 			stream << " //" << sg.gateOp.type << " ";
