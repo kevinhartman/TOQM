@@ -2,6 +2,7 @@
 
 #include <istream>
 #include <cassert>
+#include <cstring>
 
 namespace {
 
