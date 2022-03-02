@@ -1,3 +1,5 @@
 objs
 mapper.exe
 deleteme*
+cmake-*
+.idea
