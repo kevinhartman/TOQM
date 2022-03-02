@@ -1,23 +1,6 @@
-#include "QasmObject.hpp"
 #include "MapperUtils.h"
 
-#include <libtoqm/ToqmMapper.hpp>
-#include <libtoqm/Node.hpp>
-#include <libtoqm/CostFunc/CXFrontier.hpp>
-#include <libtoqm/CostFunc/CXFull.hpp>
-#include <libtoqm/CostFunc/SimpleCost.hpp>
-#include <libtoqm/Expander/DefaultExpander.hpp>
-#include <libtoqm/Expander/GreedyTopK.hpp>
-#include <libtoqm/Expander/NoSwaps.hpp>
-#include <libtoqm/Filter/HashFilter.hpp>
-#include <libtoqm/Filter/HashFilter2.hpp>
-#include <libtoqm/Latency/Latency_1.hpp>
-#include <libtoqm/Latency/Latency_1_2_6.hpp>
-#include <libtoqm/Latency/Latency_1_3.hpp>
-#include <libtoqm/Latency/Table.hpp>
-#include <libtoqm/NodeMod/GreedyMapper.hpp>
-#include <libtoqm/Queue/DefaultQueue.hpp>
-#include <libtoqm/Queue/TrimSlowNodes.hpp>
+#include <libtoqm/libtoqm.hpp>
 
 #include <cassert>
 #include <iostream>

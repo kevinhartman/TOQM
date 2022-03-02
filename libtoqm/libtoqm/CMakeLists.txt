@@ -2,6 +2,7 @@
 # show up in IDEs unless they are listed in add_library.
 
 set(HEADER_LIST
+        "libtoqm.hpp"
         "CommonTypes.hpp"
         "CostFunc.hpp"
         "CostFunc/CXFrontier.hpp"
