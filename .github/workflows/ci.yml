@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build and test
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: vcpkg install catch2
+      - run: |
+          mkdir build && cd build
+          cmake -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+          make all
+          make test
