@@ -40,5 +40,6 @@ add_subdirectory(mapper)
 # Testing only available if this is the main app
 # Emergency override MODERN_CMAKE_BUILD_TESTING provided as well
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME OR MODERN_CMAKE_BUILD_TESTING)
+    enable_testing()
     add_subdirectory(test)
 endif()

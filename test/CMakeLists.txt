@@ -3,10 +3,10 @@ find_package(Catch2 REQUIRED)
 include(CTest)
 include(Catch)
 
-add_executable(test main.cpp)
+add_executable(toqm-test main.cpp)
 
-target_include_directories(test PRIVATE ${CMAKE_SOURCE_DIR}/libtoqm)
+target_include_directories(toqm-test PRIVATE ${CMAKE_SOURCE_DIR}/libtoqm)
 
-target_link_libraries(test PUBLIC toqm Catch2::Catch2)
+target_link_libraries(toqm-test PUBLIC toqm Catch2::Catch2)
 
-catch_discover_tests(test)
+catch_discover_tests(toqm-test)
