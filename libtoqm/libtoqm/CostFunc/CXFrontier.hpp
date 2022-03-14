@@ -53,11 +53,11 @@ public:
 					temp = sg->gate->controlChild;
 				}
 				
-				while(temp && temp->control < 0) {
+				while(temp && temp->control < 0) { // keha: add optimistic latency of all contiguous single qubit gates
 					pathLength[actualQubit] += temp->optimisticLatency;
 					temp = temp->targetChild;
 				}
-				next2BitGate[actualQubit] = temp;
+				next2BitGate[actualQubit] = temp; // keha: after loop, we must be at next 2q gate, or end of the line
 			}
 		}
 		
@@ -79,7 +79,7 @@ public:
 						pathLength[physicalTarget] = 1;//since we won't schedule any more gates this cycle
 					}
 					GateNode * temp = g;
-					while(temp && temp->control < 0) {
+					while(temp && temp->control < 0) { // keha: add optimistic latency of all contiguous single qubit gates
 						pathLength[physicalTarget] += temp->optimisticLatency;
 						temp = temp->targetChild;
 					}

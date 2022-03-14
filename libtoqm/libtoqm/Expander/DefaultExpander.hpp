@@ -237,7 +237,7 @@ public:
 				if(x & (1LL << y)) {
 					if(node->cycle >= -1) {
 						good = good && child->scheduleGate(possibleGates[y]);
-					} else {
+					} else {//keha: should we assert that this is a swap gate?
 						good = good && child->swapQubits(possibleGates[y]->target, possibleGates[y]->control);
 					}
 				}
