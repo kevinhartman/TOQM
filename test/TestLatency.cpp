@@ -63,14 +63,9 @@ TEST_CASE("Latency table can be configured to behave like simple latencies.", "[
 	simple_mapper.Latency = std::move(simple);
 	auto simple_result = simple_mapper.build()->run(gates, 7, coupling_map);
 
-	//printNode(std::cout, simple_result->scheduledGates);
-	//std::cout << std::endl;
-
 	MapperBuilder table_mapper{};
 	table_mapper.Latency = std::move(table);
 	auto table_result = table_mapper.build()->run(gates, 7, coupling_map);
-
-	//printNode(std::cout, table_result->scheduledGates);
 
 	REQUIRE(std::equal(simple_result->scheduledGates.begin(), simple_result->scheduledGates.end(), table_result->scheduledGates.begin()));
 }
@@ -94,7 +89,6 @@ TEST_CASE("Test 0-latency instructions work as expected.", "[latency]") {
 
 	latencies.emplace_back(1, "rz", 0);
 	latencies.emplace_back(2, "cx", 2);
-	//latencies.emplace_back("cx", 1, 0, 1);
 	latencies.emplace_back(2, "swap", 6);
 
 	auto table = std::unique_ptr<toqm::Latency>(new toqm::Table(latencies));
@@ -135,7 +129,6 @@ TEST_CASE("Test 0-latency instructions at start of circuit.", "[latency]") {
 
 	latencies.emplace_back(1, "rz", 0);
 	latencies.emplace_back(2, "cx", 2);
-	//latencies.emplace_back("cx", 1, 0, 1);
 	latencies.emplace_back(2, "swap", 6);
 
 	auto table = std::unique_ptr<toqm::Latency>(new toqm::Table(latencies));
@@ -145,7 +138,7 @@ TEST_CASE("Test 0-latency instructions at start of circuit.", "[latency]") {
 
 	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map, 0);
 
-	printNode(std::cout, result->scheduledGates);
+	std::cout << result->scheduledGates;
 
 	// Require order is the same, since this is the only valid ordering for this circuit.
 	REQUIRE(result->scheduledGates[0].gateOp.uid == 0);
@@ -153,7 +146,7 @@ TEST_CASE("Test 0-latency instructions at start of circuit.", "[latency]") {
 	REQUIRE(result->scheduledGates[2].gateOp.uid == 2);
 	REQUIRE(result->scheduledGates[3].gateOp.uid == 3);
 
-	// Require 0-duration RZ happens in the same cycle as first CX.
+	// Require first CX (non-zero duration) happens in the 0th cycle after RZs.
 	REQUIRE(result->scheduledGates[0].cycle == 0);
 	REQUIRE(result->scheduledGates[1].cycle == 0);
 	REQUIRE(result->scheduledGates[2].cycle == 0);
