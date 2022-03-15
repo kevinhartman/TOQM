@@ -81,6 +81,9 @@ public:
 	
 	//prepares a new child node (without scheduling any more gates)
 	static std::unique_ptr<Node> prepChild(const std::shared_ptr<Node>& parent);
+
+private:
+	void scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset);
 };
 
 }

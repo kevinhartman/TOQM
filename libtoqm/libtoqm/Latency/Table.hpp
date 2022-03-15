@@ -93,7 +93,10 @@ private:
 		for (const auto & e : entries) {
 			
 			//Don't allow entries where physical qubits are only partially specified:
-			assert(e.numQubits < 2 || (e.target != -1 && e.control != -1));
+			assert(e.numQubits < 2 || (e.target != -1 && e.control != -1) || e.target == e.control);
+
+			// keha: 0-latency swaps are not supported.
+			assert(!(e.type == "swap" || e.type == "SWAP") || e.latency > 0);
 			
 			//Don't allow duplicate entries
 			auto latenciesKey = LatencyTableKey {e.type, e.numQubits, e.target, e.control};
