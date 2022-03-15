@@ -269,7 +269,7 @@ int main(int argc, char ** argv) {
 			for(int x = 0; x < NUMEXPANDERS; x++) {
 				if(!caseInsensitiveCompare(expanders[x].name, choiceStr)) {
 					found = true;
-					ex = expanders->fromArg(argv + (iter + 1), iter)();
+					ex = expanders[x].fromArg(argv + (iter + 1), iter)();
 					break;
 				}
 			}
