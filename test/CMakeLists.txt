@@ -3,7 +3,12 @@ find_package(Catch2 REQUIRED)
 include(CTest)
 include(Catch)
 
-add_executable(toqm-test main.cpp)
+add_executable(toqm-test
+        TestLatency.cpp
+        main.cpp
+        util/ComparisonHelpers.cpp
+        util/MapperBuilder.cpp
+        util/PrinterHelpers.cpp)
 
 target_include_directories(toqm-test PRIVATE ${CMAKE_SOURCE_DIR}/libtoqm)
 

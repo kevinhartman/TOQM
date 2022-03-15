@@ -11,11 +11,12 @@
 
 namespace toqm {
 
+namespace {
 //return true iff inserting swap g in node's child would make a useless swap cycle
-bool isCyclic(const Node& node, const GateNode * g) {
+bool isCyclic(const Node & node, const GateNode * g) {
 	int target = g->target;
 	int control = g->control;
-	
+
 	if(node.lastGate[target] && node.lastGate[control]) {
 		auto schdule = node.scheduled;
 		while(schdule->size > 0) {
@@ -34,6 +35,7 @@ bool isCyclic(const Node& node, const GateNode * g) {
 		}
 	}
 	return false;
+}
 }
 
 class DefaultExpander : public Expander {
