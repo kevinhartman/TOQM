@@ -4,10 +4,12 @@
 #include "GateNode.hpp"
 #include "LinkedStack.hpp"
 #include "ScheduledGate.hpp"
-#include <set>
+
 #include <cassert>
 #include <iostream>
 #include <memory>
+#include <set>
+#include <tuple>
 
 namespace toqm {
 
@@ -20,6 +22,14 @@ const int MAX_QUBITS = 20;
 //extern int GLOBALCOUNTER;
 
 using ScheduledGateStack = LinkedStack<std::shared_ptr<ScheduledGate>>;
+
+struct SortByGateNode
+{
+	bool operator ()(const GateNode* lhs, const GateNode* rhs) const
+	{
+		return std::tie(lhs->uid, lhs) < std::tie(rhs->uid, rhs);
+	}
+};
 
 class Node {
 public:
@@ -49,8 +59,8 @@ public:
 		if(cycles < 0) return 0;
 		return cycles;
 	}
-	
-	std::set<GateNode*> readyGates;//set of gates in DAG whose parents have already been scheduled
+
+	std::set<GateNode*, SortByGateNode> readyGates;//set of gates in DAG whose parents have already been scheduled
 	
 	std::shared_ptr<ScheduledGateStack> scheduled{};//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
 	

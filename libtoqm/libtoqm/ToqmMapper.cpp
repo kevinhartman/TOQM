@@ -132,7 +132,7 @@ void
 buildDependencyGraph(const std::vector<GateOp> & gates,
 					 std::size_t maxQubits,
 					 const Latency & lat,
-					 std::set<GateNode*> & firstGates,
+					 std::set<GateNode*, SortByGateNode> & firstGates,
 					 int & numQubits,
 					 Environment& env,
 					 int & idealCycles) {
@@ -275,7 +275,7 @@ struct ToqmMapper::Impl {
 		env->couplings = coupling_map.edges;
 		env->numPhysicalQubits = coupling_map.numPhysicalQubits;
 		
-		std::set<GateNode*> firstGates;
+		std::set<GateNode*, SortByGateNode> firstGates;
 		int idealCycles = -1;
 		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
