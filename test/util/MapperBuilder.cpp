@@ -26,8 +26,6 @@ MapperBuilder MapperBuilder::forLargeCircuits() {
 	MapperBuilder builder {};
 	builder.Queue = std::unique_ptr<toqm::Queue>(new TrimSlowNodes(2000, 1000));
 	builder.Expander = std::unique_ptr<toqm::Expander>(new GreedyTopK(10));
-	builder.Filter1 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter);
-	builder.Filter2 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter2);
 	builder.NodeMod = std::unique_ptr<toqm::NodeMod>(new toqm::GreedyMapper());
 	builder.RetainPopped = 1;
 
