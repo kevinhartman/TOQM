@@ -32,30 +32,30 @@ t q[13]; //cycle: 1 //t q[2]
 t q[9]; //cycle: 1 //t q[1]
 cx q[6],q[1]; //cycle: 3 //cx q[4],q[10]
 cx q[4],q[3]; //cycle: 3 //cx q[7],q[13]
-swp q[5],q[6]; //cycle: 5
+swap q[5],q[6]; //cycle: 5
 tdg q[1]; //cycle: 5 //tdg q[10]
 tdg q[3]; //cycle: 5 //tdg q[13]
-swp q[2],q[3]; //cycle: 10
+swap q[2],q[3]; //cycle: 10
 cx q[0],q[5]; //cycle: 11 //cx q[14],q[4]
 cx q[0],q[1]; //cycle: 13 //cx q[14],q[10]
 t q[5]; //cycle: 13 //t q[4]
 tdg q[0]; //cycle: 15 //tdg q[14]
 tdg q[1]; //cycle: 15 //tdg q[10]
-swp q[0],q[5]; //cycle: 16
+swap q[0],q[5]; //cycle: 16
 cx q[3],q[4]; //cycle: 16 //cx q[9],q[7]
 cx q[3],q[2]; //cycle: 18 //cx q[9],q[13]
 t q[4]; //cycle: 18 //t q[7]
 tdg q[3]; //cycle: 20 //tdg q[9]
 tdg q[2]; //cycle: 20 //tdg q[13]
-swp q[2],q[3]; //cycle: 22
+swap q[2],q[3]; //cycle: 22
 cx q[0],q[1]; //cycle: 22 //cx q[4],q[10]
 cx q[5],q[0]; //cycle: 24 //cx q[14],q[4]
-swp q[1],q[6]; //cycle: 25
+swap q[1],q[6]; //cycle: 25
 h q[0]; //cycle: 26 //h q[4]
 h q[0]; //cycle: 27 //h q[4]
 cx q[4],q[3]; //cycle: 28 //cx q[7],q[13]
 t q[0]; //cycle: 28 //t q[4]
-swp q[3],q[4]; //cycle: 30
+swap q[3],q[4]; //cycle: 30
 cx q[6],q[5]; //cycle: 31 //cx q[10],q[14]
 t q[6]; //cycle: 33 //t q[10]
 t q[5]; //cycle: 33 //t q[14]
@@ -70,7 +70,7 @@ h q[3]; //cycle: 39 //h q[7]
 t q[3]; //cycle: 40 //t q[7]
 cx q[6],q[1]; //cycle: 40 //cx q[10],q[15]
 t q[7]; //cycle: 40 //t q[6]
-swp q[2],q[3]; //cycle: 41
+swap q[2],q[3]; //cycle: 41
 tdg q[6]; //cycle: 42 //tdg q[10]
 tdg q[1]; //cycle: 42 //tdg q[15]
 cx q[7],q[1]; //cycle: 43 //cx q[6],q[15]
@@ -86,7 +86,7 @@ t q[7]; //cycle: 49 //t q[6]
 h q[4]; //cycle: 49 //h q[13]
 t q[1]; //cycle: 50 //t q[15]
 t q[4]; //cycle: 50 //t q[13]
-swp q[1],q[6]; //cycle: 51
+swap q[1],q[6]; //cycle: 51
 cx q[6],q[10]; //cycle: 57 //cx q[15],q[11]
 cx q[5],q[6]; //cycle: 59 //cx q[14],q[15]
 tdg q[10]; //cycle: 59 //tdg q[11]
@@ -114,7 +114,7 @@ cx q[7],q[6]; //cycle: 79 //cx q[6],q[15]
 cx q[1],q[7]; //cycle: 81 //cx q[10],q[6]
 cx q[6],q[1]; //cycle: 83 //cx q[15],q[10]
 h q[7]; //cycle: 83 //h q[6]
-swp q[4],q[8]; //cycle: 84
+swap q[4],q[8]; //cycle: 84
 h q[7]; //cycle: 84 //h q[6]
 h q[6]; //cycle: 85 //h q[15]
 t q[7]; //cycle: 85 //t q[6]
@@ -151,17 +151,17 @@ t q[10]; //cycle: 116 //t q[11]
 t q[5]; //cycle: 116 //t q[14]
 t q[11]; //cycle: 116 //t q[5]
 cx q[10],q[6]; //cycle: 117 //cx q[11],q[15]
-swp q[6],q[7]; //cycle: 119
+swap q[6],q[7]; //cycle: 119
 cx q[6],q[10]; //cycle: 125 //cx q[6],q[11]
 cx q[7],q[6]; //cycle: 127 //cx q[15],q[6]
 tdg q[10]; //cycle: 127 //tdg q[11]
 t q[6]; //cycle: 129 //t q[6]
-swp q[6],q[10]; //cycle: 130
+swap q[6],q[10]; //cycle: 130
 cx q[7],q[6]; //cycle: 136 //cx q[15],q[11]
 tdg q[7]; //cycle: 138 //tdg q[15]
 tdg q[6]; //cycle: 138 //tdg q[11]
 cx q[10],q[6]; //cycle: 139 //cx q[6],q[11]
-swp q[6],q[7]; //cycle: 141
+swap q[6],q[7]; //cycle: 141
 cx q[6],q[10]; //cycle: 147 //cx q[15],q[6]
 cx q[7],q[6]; //cycle: 149 //cx q[11],q[15]
 h q[10]; //cycle: 149 //h q[6]
@@ -187,7 +187,7 @@ t q[8]; //cycle: 167 //t q[13]
 h q[12]; //cycle: 167 //h q[12]
 t q[7]; //cycle: 167 //t q[11]
 t q[12]; //cycle: 168 //t q[12]
-swp q[11],q[12]; //cycle: 169
+swap q[11],q[12]; //cycle: 169
 cx q[11],q[5]; //cycle: 175 //cx q[12],q[14]
 cx q[6],q[11]; //cycle: 177 //cx q[15],q[12]
 tdg q[5]; //cycle: 177 //tdg q[14]
@@ -200,7 +200,7 @@ cx q[6],q[11]; //cycle: 184 //cx q[15],q[12]
 cx q[5],q[6]; //cycle: 186 //cx q[14],q[15]
 h q[11]; //cycle: 186 //h q[12]
 t q[11]; //cycle: 187 //t q[12]
-swp q[11],q[12]; //cycle: 188
+swap q[11],q[12]; //cycle: 188
 t q[6]; //cycle: 188 //t q[15]
 t q[5]; //cycle: 188 //t q[14]
 cx q[5],q[6]; //cycle: 189 //cx q[14],q[15]
@@ -221,19 +221,19 @@ cx q[8],q[3]; //cycle: 209 //cx q[13],q[9]
 t q[7]; //cycle: 209 //t q[11]
 t q[12]; //cycle: 209 //t q[12]
 cx q[12],q[7]; //cycle: 210 //cx q[12],q[11]
-swp q[2],q[3]; //cycle: 211
+swap q[2],q[3]; //cycle: 211
 cx q[3],q[8]; //cycle: 217 //cx q[7],q[13]
 cx q[2],q[3]; //cycle: 219 //cx q[9],q[7]
 tdg q[8]; //cycle: 219 //tdg q[13]
-swp q[2],q[7]; //cycle: 221
+swap q[2],q[7]; //cycle: 221
 t q[3]; //cycle: 221 //t q[7]
 cx q[7],q[8]; //cycle: 227 //cx q[9],q[13]
 tdg q[7]; //cycle: 229 //tdg q[9]
 tdg q[8]; //cycle: 229 //tdg q[13]
 cx q[3],q[8]; //cycle: 230 //cx q[7],q[13]
-swp q[2],q[7]; //cycle: 231
+swap q[2],q[7]; //cycle: 231
 cx q[2],q[3]; //cycle: 237 //cx q[9],q[7]
-swp q[7],q[8]; //cycle: 238
+swap q[7],q[8]; //cycle: 238
 h q[3]; //cycle: 239 //h q[7]
 t q[3]; //cycle: 240 //t q[7]
 cx q[7],q[2]; //cycle: 244 //cx q[13],q[9]
@@ -256,7 +256,7 @@ h q[12]; //cycle: 261 //h q[12]
 t q[8]; //cycle: 261 //t q[11]
 t q[7]; //cycle: 261 //t q[13]
 t q[12]; //cycle: 262 //t q[12]
-swp q[11],q[12]; //cycle: 263
+swap q[11],q[12]; //cycle: 263
 cx q[11],q[5]; //cycle: 269 //cx q[12],q[14]
 cx q[6],q[11]; //cycle: 271 //cx q[15],q[12]
 tdg q[5]; //cycle: 271 //tdg q[14]
@@ -269,7 +269,7 @@ cx q[6],q[11]; //cycle: 278 //cx q[15],q[12]
 cx q[5],q[6]; //cycle: 280 //cx q[14],q[15]
 h q[11]; //cycle: 280 //h q[12]
 t q[11]; //cycle: 281 //t q[12]
-swp q[11],q[12]; //cycle: 282
+swap q[11],q[12]; //cycle: 282
 t q[6]; //cycle: 282 //t q[15]
 t q[5]; //cycle: 282 //t q[14]
 cx q[5],q[6]; //cycle: 283 //cx q[14],q[15]
@@ -289,7 +289,7 @@ t q[7]; //cycle: 302 //t q[13]
 cx q[7],q[2]; //cycle: 303 //cx q[13],q[9]
 t q[8]; //cycle: 303 //t q[11]
 t q[12]; //cycle: 303 //t q[12]
-swp q[6],q[10]; //cycle: 304
+swap q[6],q[10]; //cycle: 304
 cx q[12],q[8]; //cycle: 304 //cx q[12],q[11]
 cx q[6],q[7]; //cycle: 310 //cx q[6],q[13]
 cx q[2],q[6]; //cycle: 312 //cx q[9],q[6]
@@ -323,7 +323,7 @@ h q[12]; //cycle: 338 //h q[12]
 t q[8]; //cycle: 338 //t q[11]
 t q[7]; //cycle: 338 //t q[13]
 t q[12]; //cycle: 339 //t q[12]
-swp q[11],q[12]; //cycle: 340
+swap q[11],q[12]; //cycle: 340
 cx q[11],q[5]; //cycle: 346 //cx q[12],q[14]
 cx q[10],q[11]; //cycle: 348 //cx q[15],q[12]
 tdg q[5]; //cycle: 348 //tdg q[14]
@@ -336,7 +336,7 @@ cx q[10],q[11]; //cycle: 355 //cx q[15],q[12]
 cx q[5],q[10]; //cycle: 357 //cx q[14],q[15]
 h q[11]; //cycle: 357 //h q[12]
 t q[11]; //cycle: 358 //t q[12]
-swp q[11],q[12]; //cycle: 359
+swap q[11],q[12]; //cycle: 359
 t q[10]; //cycle: 359 //t q[15]
 t q[5]; //cycle: 359 //t q[14]
 cx q[5],q[10]; //cycle: 360 //cx q[14],q[15]
@@ -389,7 +389,7 @@ h q[12]; //cycle: 410 //h q[12]
 t q[8]; //cycle: 410 //t q[11]
 t q[7]; //cycle: 410 //t q[13]
 t q[12]; //cycle: 411 //t q[12]
-swp q[11],q[12]; //cycle: 412
+swap q[11],q[12]; //cycle: 412
 cx q[11],q[5]; //cycle: 418 //cx q[12],q[14]
 cx q[10],q[11]; //cycle: 420 //cx q[15],q[12]
 tdg q[5]; //cycle: 420 //tdg q[14]
@@ -402,8 +402,8 @@ cx q[10],q[11]; //cycle: 427 //cx q[15],q[12]
 cx q[5],q[10]; //cycle: 429 //cx q[14],q[15]
 h q[11]; //cycle: 429 //h q[12]
 t q[11]; //cycle: 430 //t q[12]
-swp q[2],q[6]; //cycle: 431
-swp q[11],q[12]; //cycle: 431
+swap q[2],q[6]; //cycle: 431
+swap q[11],q[12]; //cycle: 431
 t q[5]; //cycle: 431 //t q[14]
 t q[10]; //cycle: 431 //t q[15]
 cx q[12],q[8]; //cycle: 437 //cx q[12],q[11]
@@ -439,20 +439,20 @@ t q[6]; //cycle: 452 //t q[9]
 t q[11]; //cycle: 452 //t q[5]
 t q[5]; //cycle: 453 //t q[14]
 cx q[12],q[8]; //cycle: 453 //cx q[12],q[11]
-swp q[5],q[11]; //cycle: 454
-swp q[6],q[10]; //cycle: 454
+swap q[5],q[11]; //cycle: 454
+swap q[6],q[10]; //cycle: 454
 cx q[11],q[12]; //cycle: 460 //cx q[14],q[12]
 cx q[7],q[6]; //cycle: 460 //cx q[13],q[15]
 tdg q[12]; //cycle: 462 //tdg q[12]
-swp q[8],q[12]; //cycle: 463
+swap q[8],q[12]; //cycle: 463
 cx q[12],q[11]; //cycle: 469 //cx q[11],q[14]
 cx q[12],q[8]; //cycle: 471 //cx q[11],q[12]
 t q[11]; //cycle: 471 //t q[14]
 tdg q[12]; //cycle: 473 //tdg q[11]
 tdg q[8]; //cycle: 473 //tdg q[12]
-swp q[8],q[12]; //cycle: 474
+swap q[8],q[12]; //cycle: 474
 cx q[11],q[12]; //cycle: 480 //cx q[14],q[12]
-swp q[8],q[12]; //cycle: 482
+swap q[8],q[12]; //cycle: 482
 cx q[12],q[11]; //cycle: 488 //cx q[11],q[14]
 cx q[8],q[12]; //cycle: 490 //cx q[12],q[11]
 h q[11]; //cycle: 490 //h q[14]
@@ -463,19 +463,19 @@ t q[11]; //cycle: 492 //t q[14]
 t q[8]; //cycle: 493 //t q[12]
 cx q[8],q[7]; //cycle: 494 //cx q[12],q[13]
 tdg q[7]; //cycle: 496 //tdg q[13]
-swp q[6],q[7]; //cycle: 497
+swap q[6],q[7]; //cycle: 497
 cx q[7],q[8]; //cycle: 503 //cx q[15],q[12]
 cx q[7],q[6]; //cycle: 505 //cx q[15],q[13]
 t q[8]; //cycle: 505 //t q[12]
 tdg q[7]; //cycle: 507 //tdg q[15]
 tdg q[6]; //cycle: 507 //tdg q[13]
-swp q[7],q[8]; //cycle: 508
+swap q[7],q[8]; //cycle: 508
 cx q[7],q[6]; //cycle: 514 //cx q[12],q[13]
 cx q[8],q[7]; //cycle: 516 //cx q[15],q[12]
 h q[7]; //cycle: 518 //h q[12]
 t q[7]; //cycle: 519 //t q[12]
 cx q[7],q[12]; //cycle: 520 //cx q[12],q[11]
-swp q[6],q[7]; //cycle: 522
+swap q[6],q[7]; //cycle: 522
 cx q[7],q[8]; //cycle: 528 //cx q[13],q[15]
 cx q[11],q[6]; //cycle: 528 //cx q[14],q[12]
 cx q[12],q[11]; //cycle: 530 //cx q[11],q[14]
@@ -484,17 +484,17 @@ t q[8]; //cycle: 530 //t q[15]
 t q[7]; //cycle: 530 //t q[13]
 cx q[7],q[8]; //cycle: 531 //cx q[13],q[15]
 t q[11]; //cycle: 532 //t q[14]
-swp q[6],q[11]; //cycle: 533
+swap q[6],q[11]; //cycle: 533
 cx q[12],q[11]; //cycle: 539 //cx q[11],q[12]
 tdg q[12]; //cycle: 541 //tdg q[11]
 tdg q[11]; //cycle: 541 //tdg q[12]
 cx q[6],q[11]; //cycle: 542 //cx q[14],q[12]
-swp q[7],q[12]; //cycle: 543
+swap q[7],q[12]; //cycle: 543
 cx q[7],q[6]; //cycle: 549 //cx q[11],q[14]
 h q[6]; //cycle: 551 //h q[14]
 t q[6]; //cycle: 552 //t q[14]
 cx q[6],q[10]; //cycle: 553 //cx q[14],q[9]
-swp q[7],q[12]; //cycle: 555
+swap q[7],q[12]; //cycle: 555
 cx q[5],q[6]; //cycle: 555 //cx q[5],q[14]
 cx q[10],q[5]; //cycle: 557 //cx q[9],q[5]
 tdg q[6]; //cycle: 557 //tdg q[14]
@@ -508,7 +508,7 @@ t q[12]; //cycle: 563 //t q[11]
 t q[11]; //cycle: 563 //t q[12]
 cx q[10],q[5]; //cycle: 564 //cx q[9],q[5]
 cx q[11],q[12]; //cycle: 564 //cx q[12],q[11]
-swp q[7],q[8]; //cycle: 566
+swap q[7],q[8]; //cycle: 566
 cx q[6],q[10]; //cycle: 566 //cx q[14],q[9]
 h q[5]; //cycle: 566 //h q[5]
 h q[5]; //cycle: 567 //h q[5]
@@ -517,16 +517,16 @@ h q[6]; //cycle: 568 //h q[14]
 t q[10]; //cycle: 568 //t q[9]
 t q[6]; //cycle: 569 //t q[14]
 cx q[6],q[11]; //cycle: 570 //cx q[14],q[12]
-swp q[6],q[7]; //cycle: 572
+swap q[6],q[7]; //cycle: 572
 tdg q[11]; //cycle: 572 //tdg q[12]
 cx q[12],q[7]; //cycle: 578 //cx q[11],q[14]
 cx q[12],q[11]; //cycle: 580 //cx q[11],q[12]
 t q[7]; //cycle: 580 //t q[14]
-swp q[6],q[7]; //cycle: 581
+swap q[6],q[7]; //cycle: 581
 tdg q[12]; //cycle: 582 //tdg q[11]
 tdg q[11]; //cycle: 582 //tdg q[12]
 cx q[6],q[11]; //cycle: 587 //cx q[14],q[12]
-swp q[11],q[12]; //cycle: 589
+swap q[11],q[12]; //cycle: 589
 cx q[11],q[6]; //cycle: 595 //cx q[11],q[14]
 cx q[12],q[11]; //cycle: 597 //cx q[12],q[11]
 h q[6]; //cycle: 597 //h q[14]
@@ -550,12 +550,12 @@ t q[12]; //cycle: 613 //t q[12]
 t q[8]; //cycle: 614 //t q[13]
 cx q[12],q[11]; //cycle: 614 //cx q[12],q[11]
 t q[7]; //cycle: 614 //t q[15]
-swp q[6],q[7]; //cycle: 615
+swap q[6],q[7]; //cycle: 615
 cx q[7],q[12]; //cycle: 621 //cx q[14],q[12]
 cx q[10],q[6]; //cycle: 621 //cx q[9],q[15]
-swp q[0],q[5]; //cycle: 622
+swap q[0],q[5]; //cycle: 622
 tdg q[12]; //cycle: 623 //tdg q[12]
-swp q[11],q[12]; //cycle: 624
+swap q[11],q[12]; //cycle: 624
 cx q[5],q[10]; //cycle: 628 //cx q[4],q[9]
 tdg q[10]; //cycle: 630 //tdg q[9]
 cx q[12],q[7]; //cycle: 630 //cx q[11],q[14]
@@ -568,7 +568,7 @@ tdg q[6]; //cycle: 634 //tdg q[15]
 tdg q[10]; //cycle: 634 //tdg q[9]
 tdg q[12]; //cycle: 634 //tdg q[11]
 tdg q[11]; //cycle: 634 //tdg q[12]
-swp q[7],q[12]; //cycle: 635
+swap q[7],q[12]; //cycle: 635
 cx q[5],q[10]; //cycle: 635 //cx q[4],q[9]
 cx q[6],q[5]; //cycle: 637 //cx q[15],q[4]
 cx q[10],q[6]; //cycle: 639 //cx q[9],q[15]
@@ -579,8 +579,8 @@ t q[5]; //cycle: 641 //t q[4]
 t q[6]; //cycle: 641 //t q[15]
 cx q[12],q[11]; //cycle: 641 //cx q[14],q[12]
 cx q[7],q[12]; //cycle: 643 //cx q[11],q[14]
-swp q[10],q[11]; //cycle: 644
-swp q[1],q[7]; //cycle: 645
+swap q[10],q[11]; //cycle: 644
+swap q[1],q[7]; //cycle: 645
 h q[12]; //cycle: 645 //h q[14]
 t q[12]; //cycle: 646 //t q[14]
 cx q[11],q[12]; //cycle: 650 //cx q[9],q[14]
@@ -592,7 +592,7 @@ cx q[12],q[11]; //cycle: 656 //cx q[14],q[9]
 t q[16]; //cycle: 656 //t q[3]
 tdg q[12]; //cycle: 658 //tdg q[14]
 tdg q[11]; //cycle: 658 //tdg q[9]
-swp q[6],q[10]; //cycle: 659
+swap q[6],q[10]; //cycle: 659
 cx q[16],q[11]; //cycle: 659 //cx q[3],q[9]
 cx q[12],q[16]; //cycle: 661 //cx q[14],q[3]
 cx q[11],q[12]; //cycle: 663 //cx q[9],q[14]
@@ -602,8 +602,8 @@ t q[12]; //cycle: 665 //t q[14]
 t q[16]; //cycle: 665 //t q[3]
 t q[11]; //cycle: 665 //t q[9]
 cx q[6],q[1]; //cycle: 665 //cx q[12],q[11]
-swp q[7],q[8]; //cycle: 666
-swp q[12],q[16]; //cycle: 666
+swap q[7],q[8]; //cycle: 666
+swap q[12],q[16]; //cycle: 666
 t q[1]; //cycle: 667 //t q[11]
 t q[6]; //cycle: 667 //t q[12]
 cx q[12],q[8]; //cycle: 672 //cx q[3],q[10]
@@ -621,11 +621,11 @@ h q[12]; //cycle: 684 //h q[3]
 t q[7]; //cycle: 685 //t q[13]
 t q[12]; //cycle: 685 //t q[3]
 t q[8]; //cycle: 685 //t q[10]
-swp q[8],q[12]; //cycle: 686
+swap q[8],q[12]; //cycle: 686
 cx q[1],q[7]; //cycle: 686 //cx q[11],q[13]
-swp q[5],q[6]; //cycle: 687
+swap q[5],q[6]; //cycle: 687
 cx q[6],q[1]; //cycle: 693 //cx q[4],q[11]
-swp q[11],q[12]; //cycle: 695
+swap q[11],q[12]; //cycle: 695
 cx q[7],q[6]; //cycle: 695 //cx q[13],q[4]
 tdg q[1]; //cycle: 695 //tdg q[11]
 cx q[7],q[1]; //cycle: 697 //cx q[13],q[11]
@@ -641,7 +641,7 @@ h q[6]; //cycle: 705 //h q[4]
 t q[6]; //cycle: 706 //t q[4]
 t q[7]; //cycle: 706 //t q[13]
 t q[1]; //cycle: 706 //t q[11]
-swp q[5],q[6]; //cycle: 707
+swap q[5],q[6]; //cycle: 707
 cx q[12],q[7]; //cycle: 707 //cx q[9],q[13]
 cx q[13],q[12]; //cycle: 709 //cx q[2],q[9]
 cx q[7],q[13]; //cycle: 711 //cx q[13],q[2]
@@ -649,10 +649,10 @@ tdg q[12]; //cycle: 711 //tdg q[9]
 cx q[7],q[12]; //cycle: 713 //cx q[13],q[9]
 t q[13]; //cycle: 713 //t q[2]
 cx q[1],q[6]; //cycle: 713 //cx q[11],q[12]
-swp q[0],q[5]; //cycle: 714
+swap q[0],q[5]; //cycle: 714
 tdg q[7]; //cycle: 715 //tdg q[13]
 tdg q[12]; //cycle: 715 //tdg q[9]
-swp q[7],q[8]; //cycle: 716
+swap q[7],q[8]; //cycle: 716
 cx q[13],q[12]; //cycle: 716 //cx q[2],q[9]
 cx q[5],q[10]; //cycle: 720 //cx q[5],q[15]
 cx q[8],q[13]; //cycle: 722 //cx q[13],q[2]
@@ -695,13 +695,13 @@ cx q[1],q[6]; //cycle: 733 //cx q[11],q[12]
 h q[7]; //cycle: 733 //h q[3]
 t q[10]; //cycle: 734 //t q[15]
 h q[7]; //cycle: 734 //h q[3]
-swp q[11],q[16]; //cycle: 735
+swap q[11],q[16]; //cycle: 735
 t q[1]; //cycle: 735 //t q[11]
 t q[6]; //cycle: 735 //t q[12]
 tdg q[8]; //cycle: 735 //tdg q[13]
 tdg q[4]; //cycle: 735 //tdg q[8]
 t q[7]; //cycle: 735 //t q[3]
-swp q[1],q[6]; //cycle: 736
+swap q[1],q[6]; //cycle: 736
 cx q[9],q[4]; //cycle: 736 //cx q[1],q[8]
 cx q[8],q[9]; //cycle: 738 //cx q[13],q[1]
 cx q[4],q[8]; //cycle: 740 //cx q[8],q[13]
@@ -719,7 +719,7 @@ t q[10]; //cycle: 748 //t q[15]
 tdg q[6]; //cycle: 750 //tdg q[11]
 tdg q[11]; //cycle: 750 //tdg q[14]
 cx q[10],q[11]; //cycle: 751 //cx q[15],q[14]
-swp q[7],q[8]; //cycle: 752
+swap q[7],q[8]; //cycle: 752
 cx q[6],q[10]; //cycle: 753 //cx q[11],q[15]
 cx q[11],q[6]; //cycle: 755 //cx q[14],q[11]
 h q[10]; //cycle: 755 //h q[15]
@@ -729,7 +729,7 @@ t q[6]; //cycle: 757 //t q[11]
 t q[10]; //cycle: 757 //t q[15]
 t q[11]; //cycle: 758 //t q[14]
 cx q[1],q[7]; //cycle: 758 //cx q[12],q[13]
-swp q[6],q[11]; //cycle: 759
+swap q[6],q[11]; //cycle: 759
 cx q[6],q[1]; //cycle: 765 //cx q[14],q[12]
 cx q[7],q[6]; //cycle: 767 //cx q[13],q[14]
 tdg q[1]; //cycle: 767 //tdg q[12]
@@ -761,7 +761,7 @@ t q[10]; //cycle: 792 //t q[15]
 t q[11]; //cycle: 793 //t q[11]
 t q[6]; //cycle: 793 //t q[14]
 cx q[6],q[11]; //cycle: 794 //cx q[14],q[11]
-swp q[11],q[16]; //cycle: 796
+swap q[11],q[16]; //cycle: 796
 cx q[10],q[11]; //cycle: 802 //cx q[15],q[10]
 cx q[5],q[10]; //cycle: 804 //cx q[5],q[15]
 cx q[11],q[5]; //cycle: 806 //cx q[10],q[5]
@@ -780,7 +780,7 @@ t q[11]; //cycle: 817 //t q[10]
 t q[5]; //cycle: 817 //t q[5]
 t q[10]; //cycle: 818 //t q[15]
 cx q[10],q[6]; //cycle: 819 //cx q[15],q[14]
-swp q[11],q[16]; //cycle: 820
+swap q[11],q[16]; //cycle: 820
 tdg q[6]; //cycle: 821 //tdg q[14]
 cx q[11],q[10]; //cycle: 826 //cx q[11],q[15]
 cx q[11],q[6]; //cycle: 828 //cx q[11],q[14]
@@ -821,7 +821,7 @@ tdg q[11]; //cycle: 860 //tdg q[11]
 tdg q[6]; //cycle: 860 //tdg q[14]
 cx q[10],q[6]; //cycle: 861 //cx q[15],q[14]
 cx q[11],q[10]; //cycle: 863 //cx q[11],q[15]
-swp q[15],q[16]; //cycle: 864
+swap q[15],q[16]; //cycle: 864
 cx q[6],q[11]; //cycle: 865 //cx q[14],q[11]
 h q[10]; //cycle: 865 //h q[15]
 t q[10]; //cycle: 866 //t q[15]
@@ -829,22 +829,22 @@ t q[11]; //cycle: 867 //t q[11]
 t q[6]; //cycle: 867 //t q[14]
 cx q[6],q[11]; //cycle: 868 //cx q[14],q[11]
 cx q[10],q[15]; //cycle: 870 //cx q[15],q[10]
-swp q[0],q[5]; //cycle: 871
+swap q[0],q[5]; //cycle: 871
 cx q[5],q[10]; //cycle: 877 //cx q[4],q[15]
 tdg q[10]; //cycle: 879 //tdg q[15]
-swp q[10],q[15]; //cycle: 880
+swap q[10],q[15]; //cycle: 880
 cx q[10],q[5]; //cycle: 886 //cx q[10],q[4]
 cx q[10],q[15]; //cycle: 888 //cx q[10],q[15]
 t q[5]; //cycle: 888 //t q[4]
 tdg q[10]; //cycle: 890 //tdg q[10]
 tdg q[15]; //cycle: 890 //tdg q[15]
-swp q[5],q[10]; //cycle: 891
+swap q[5],q[10]; //cycle: 891
 cx q[10],q[15]; //cycle: 897 //cx q[4],q[15]
 cx q[5],q[10]; //cycle: 899 //cx q[10],q[4]
 h q[10]; //cycle: 901 //h q[4]
 h q[10]; //cycle: 902 //h q[4]
 t q[10]; //cycle: 903 //t q[4]
-swp q[10],q[15]; //cycle: 904
+swap q[10],q[15]; //cycle: 904
 cx q[10],q[5]; //cycle: 910 //cx q[15],q[10]
 t q[5]; //cycle: 912 //t q[10]
 h q[10]; //cycle: 912 //h q[15]
@@ -899,15 +899,15 @@ t q[6]; //cycle: 957 //t q[14]
 cx q[6],q[11]; //cycle: 958 //cx q[14],q[11]
 cx q[15],q[10]; //cycle: 959 //cx q[4],q[15]
 tdg q[10]; //cycle: 961 //tdg q[15]
-swp q[5],q[10]; //cycle: 962
+swap q[5],q[10]; //cycle: 962
 cx q[10],q[15]; //cycle: 968 //cx q[10],q[4]
 cx q[10],q[5]; //cycle: 970 //cx q[10],q[15]
 t q[15]; //cycle: 970 //t q[4]
 tdg q[10]; //cycle: 972 //tdg q[10]
 tdg q[5]; //cycle: 972 //tdg q[15]
-swp q[5],q[10]; //cycle: 973
+swap q[5],q[10]; //cycle: 973
 cx q[15],q[10]; //cycle: 979 //cx q[4],q[15]
-swp q[5],q[10]; //cycle: 981
+swap q[5],q[10]; //cycle: 981
 cx q[10],q[15]; //cycle: 987 //cx q[10],q[4]
 cx q[5],q[10]; //cycle: 989 //cx q[15],q[10]
 h q[15]; //cycle: 989 //h q[4]
@@ -955,11 +955,11 @@ tdg q[6]; //cycle: 1025 //tdg q[14]
 tdg q[7]; //cycle: 1026 //tdg q[13]
 cx q[11],q[6]; //cycle: 1027 //cx q[11],q[14]
 t q[5]; //cycle: 1027 //t q[15]
-swp q[7],q[12]; //cycle: 1028
+swap q[7],q[12]; //cycle: 1028
 tdg q[11]; //cycle: 1029 //tdg q[11]
 tdg q[6]; //cycle: 1029 //tdg q[14]
 cx q[5],q[6]; //cycle: 1030 //cx q[15],q[14]
-swp q[6],q[10]; //cycle: 1032
+swap q[6],q[10]; //cycle: 1032
 cx q[11],q[5]; //cycle: 1032 //cx q[11],q[15]
 h q[5]; //cycle: 1034 //h q[15]
 cx q[7],q[2]; //cycle: 1034 //cx q[9],q[6]
@@ -970,7 +970,7 @@ cx q[10],q[11]; //cycle: 1038 //cx q[14],q[11]
 cx q[6],q[1]; //cycle: 1038 //cx q[10],q[12]
 tdg q[7]; //cycle: 1038 //tdg q[9]
 tdg q[12]; //cycle: 1038 //tdg q[13]
-swp q[7],q[13]; //cycle: 1039
+swap q[7],q[13]; //cycle: 1039
 t q[11]; //cycle: 1040 //t q[11]
 t q[10]; //cycle: 1040 //t q[14]
 cx q[10],q[5]; //cycle: 1041 //cx q[14],q[15]
@@ -979,7 +979,7 @@ cx q[1],q[7]; //cycle: 1047 //cx q[12],q[2]
 tdg q[6]; //cycle: 1047 //tdg q[10]
 cx q[1],q[6]; //cycle: 1049 //cx q[12],q[10]
 t q[7]; //cycle: 1049 //t q[2]
-swp q[2],q[7]; //cycle: 1050
+swap q[2],q[7]; //cycle: 1050
 tdg q[1]; //cycle: 1051 //tdg q[12]
 tdg q[6]; //cycle: 1051 //tdg q[10]
 cx q[2],q[6]; //cycle: 1056 //cx q[2],q[10]
@@ -1000,21 +1000,21 @@ t q[7]; //cycle: 1062 //t q[6]
 t q[2]; //cycle: 1062 //t q[2]
 t q[12]; //cycle: 1063 //t q[13]
 cx q[6],q[11]; //cycle: 1063 //cx q[10],q[11]
-swp q[7],q[12]; //cycle: 1064
+swap q[7],q[12]; //cycle: 1064
 cx q[7],q[6]; //cycle: 1070 //cx q[13],q[10]
-swp q[11],q[12]; //cycle: 1071
+swap q[11],q[12]; //cycle: 1071
 tdg q[6]; //cycle: 1072 //tdg q[10]
-swp q[3],q[4]; //cycle: 1073
+swap q[3],q[4]; //cycle: 1073
 cx q[12],q[7]; //cycle: 1077 //cx q[11],q[13]
-swp q[11],q[12]; //cycle: 1079
+swap q[11],q[12]; //cycle: 1079
 t q[7]; //cycle: 1079 //t q[13]
-swp q[2],q[3]; //cycle: 1082
+swap q[2],q[3]; //cycle: 1082
 cx q[11],q[6]; //cycle: 1085 //cx q[11],q[10]
 tdg q[11]; //cycle: 1087 //tdg q[11]
 tdg q[6]; //cycle: 1087 //tdg q[10]
 cx q[7],q[6]; //cycle: 1088 //cx q[13],q[10]
 cx q[2],q[1]; //cycle: 1088 //cx q[8],q[12]
-swp q[7],q[12]; //cycle: 1090
+swap q[7],q[12]; //cycle: 1090
 cx q[11],q[12]; //cycle: 1096 //cx q[11],q[13]
 cx q[6],q[11]; //cycle: 1098 //cx q[10],q[11]
 h q[12]; //cycle: 1098 //h q[13]
@@ -1039,7 +1039,7 @@ h q[2]; //cycle: 1115 //h q[8]
 t q[1]; //cycle: 1115 //t q[12]
 t q[6]; //cycle: 1115 //t q[10]
 t q[2]; //cycle: 1116 //t q[8]
-swp q[2],q[6]; //cycle: 1117
+swap q[2],q[6]; //cycle: 1117
 cx q[6],q[10]; //cycle: 1123 //cx q[8],q[14]
 cx q[5],q[6]; //cycle: 1125 //cx q[15],q[8]
 tdg q[10]; //cycle: 1125 //tdg q[14]
@@ -1065,11 +1065,11 @@ tdg q[1]; //cycle: 1144 //tdg q[12]
 tdg q[6]; //cycle: 1144 //tdg q[8]
 cx q[2],q[6]; //cycle: 1145 //cx q[10],q[8]
 cx q[1],q[2]; //cycle: 1147 //cx q[12],q[10]
-swp q[6],q[11]; //cycle: 1148
+swap q[6],q[11]; //cycle: 1148
 h q[2]; //cycle: 1149 //h q[10]
 t q[2]; //cycle: 1150 //t q[10]
 cx q[2],q[6]; //cycle: 1154 //cx q[10],q[11]
-swp q[7],q[12]; //cycle: 1155
+swap q[7],q[12]; //cycle: 1155
 cx q[7],q[2]; //cycle: 1161 //cx q[13],q[10]
 cx q[6],q[7]; //cycle: 1163 //cx q[11],q[13]
 tdg q[2]; //cycle: 1163 //tdg q[10]
@@ -1094,7 +1094,7 @@ t q[12]; //cycle: 1180 //t q[6]
 tdg q[13]; //cycle: 1182 //tdg q[9]
 tdg q[7]; //cycle: 1182 //tdg q[13]
 cx q[12],q[7]; //cycle: 1183 //cx q[6],q[13]
-swp q[1],q[6]; //cycle: 1184
+swap q[1],q[6]; //cycle: 1184
 cx q[13],q[12]; //cycle: 1185 //cx q[9],q[6]
 cx q[7],q[13]; //cycle: 1187 //cx q[13],q[9]
 h q[12]; //cycle: 1187 //h q[6]
@@ -1123,17 +1123,17 @@ h q[2]; //cycle: 1204 //h q[10]
 t q[1]; //cycle: 1204 //t q[11]
 t q[7]; //cycle: 1204 //t q[13]
 t q[2]; //cycle: 1205 //t q[10]
-swp q[2],q[6]; //cycle: 1206
+swap q[2],q[6]; //cycle: 1206
 cx q[6],q[11]; //cycle: 1212 //cx q[10],q[8]
 cx q[2],q[6]; //cycle: 1214 //cx q[12],q[10]
 tdg q[11]; //cycle: 1214 //tdg q[8]
 t q[6]; //cycle: 1216 //t q[10]
-swp q[6],q[11]; //cycle: 1217
+swap q[6],q[11]; //cycle: 1217
 cx q[2],q[6]; //cycle: 1223 //cx q[12],q[8]
 tdg q[2]; //cycle: 1225 //tdg q[12]
 tdg q[6]; //cycle: 1225 //tdg q[8]
 cx q[11],q[6]; //cycle: 1226 //cx q[10],q[8]
-swp q[2],q[6]; //cycle: 1228
+swap q[2],q[6]; //cycle: 1228
 cx q[6],q[11]; //cycle: 1234 //cx q[12],q[10]
 cx q[2],q[6]; //cycle: 1236 //cx q[8],q[12]
 h q[11]; //cycle: 1236 //h q[10]
@@ -1142,7 +1142,7 @@ h q[2]; //cycle: 1238 //h q[8]
 t q[6]; //cycle: 1238 //t q[12]
 t q[11]; //cycle: 1238 //t q[10]
 t q[2]; //cycle: 1239 //t q[8]
-swp q[2],q[6]; //cycle: 1240
+swap q[2],q[6]; //cycle: 1240
 cx q[6],q[10]; //cycle: 1246 //cx q[8],q[14]
 cx q[5],q[6]; //cycle: 1248 //cx q[15],q[8]
 tdg q[10]; //cycle: 1248 //tdg q[14]
@@ -1161,13 +1161,13 @@ cx q[6],q[2]; //cycle: 1259 //cx q[8],q[12]
 cx q[10],q[5]; //cycle: 1260 //cx q[14],q[15]
 cx q[11],q[6]; //cycle: 1261 //cx q[10],q[8]
 tdg q[6]; //cycle: 1263 //tdg q[8]
-swp q[2],q[6]; //cycle: 1264
+swap q[2],q[6]; //cycle: 1264
 cx q[6],q[11]; //cycle: 1270 //cx q[12],q[10]
 cx q[6],q[2]; //cycle: 1272 //cx q[12],q[8]
 t q[11]; //cycle: 1272 //t q[10]
 tdg q[6]; //cycle: 1274 //tdg q[12]
 tdg q[2]; //cycle: 1274 //tdg q[8]
-swp q[6],q[11]; //cycle: 1275
+swap q[6],q[11]; //cycle: 1275
 cx q[6],q[2]; //cycle: 1281 //cx q[10],q[8]
 cx q[11],q[6]; //cycle: 1283 //cx q[12],q[10]
 h q[6]; //cycle: 1285 //h q[10]
@@ -1181,20 +1181,20 @@ t q[7]; //cycle: 1293 //t q[13]
 tdg q[1]; //cycle: 1295 //tdg q[11]
 tdg q[6]; //cycle: 1295 //tdg q[10]
 cx q[7],q[6]; //cycle: 1296 //cx q[13],q[10]
-swp q[6],q[11]; //cycle: 1298
+swap q[6],q[11]; //cycle: 1298
 cx q[1],q[7]; //cycle: 1298 //cx q[11],q[13]
 h q[7]; //cycle: 1300 //h q[13]
 t q[7]; //cycle: 1301 //t q[13]
 cx q[7],q[13]; //cycle: 1302 //cx q[13],q[9]
-swp q[0],q[1]; //cycle: 1303
+swap q[0],q[1]; //cycle: 1303
 cx q[2],q[6]; //cycle: 1304 //cx q[8],q[12]
 t q[6]; //cycle: 1306 //t q[12]
 t q[2]; //cycle: 1306 //t q[8]
 cx q[2],q[6]; //cycle: 1307 //cx q[8],q[12]
 cx q[1],q[7]; //cycle: 1309 //cx q[5],q[13]
-swp q[0],q[5]; //cycle: 1310
+swap q[0],q[5]; //cycle: 1310
 tdg q[7]; //cycle: 1311 //tdg q[13]
-swp q[7],q[13]; //cycle: 1312
+swap q[7],q[13]; //cycle: 1312
 cx q[11],q[5]; //cycle: 1316 //cx q[10],q[11]
 cx q[7],q[1]; //cycle: 1318 //cx q[9],q[5]
 t q[5]; //cycle: 1318 //t q[11]
@@ -1204,34 +1204,34 @@ cx q[7],q[13]; //cycle: 1320 //cx q[9],q[13]
 t q[1]; //cycle: 1320 //t q[5]
 tdg q[7]; //cycle: 1322 //tdg q[9]
 tdg q[13]; //cycle: 1322 //tdg q[13]
-swp q[7],q[13]; //cycle: 1323
+swap q[7],q[13]; //cycle: 1323
 cx q[1],q[7]; //cycle: 1329 //cx q[5],q[13]
-swp q[7],q[13]; //cycle: 1331
+swap q[7],q[13]; //cycle: 1331
 cx q[7],q[1]; //cycle: 1337 //cx q[9],q[5]
 cx q[13],q[7]; //cycle: 1339 //cx q[13],q[9]
 h q[1]; //cycle: 1339 //h q[5]
-swp q[11],q[12]; //cycle: 1340
+swap q[11],q[12]; //cycle: 1340
 h q[1]; //cycle: 1340 //h q[5]
 h q[13]; //cycle: 1341 //h q[13]
 t q[7]; //cycle: 1341 //t q[9]
 t q[1]; //cycle: 1341 //t q[5]
 t q[13]; //cycle: 1342 //t q[13]
 cx q[13],q[12]; //cycle: 1346 //cx q[13],q[10]
-swp q[5],q[6]; //cycle: 1348
-swp q[7],q[13]; //cycle: 1348
+swap q[5],q[6]; //cycle: 1348
+swap q[7],q[13]; //cycle: 1348
 tdg q[12]; //cycle: 1348 //tdg q[10]
 cx q[6],q[7]; //cycle: 1354 //cx q[11],q[13]
-swp q[6],q[11]; //cycle: 1356
+swap q[6],q[11]; //cycle: 1356
 t q[7]; //cycle: 1356 //t q[13]
 cx q[11],q[12]; //cycle: 1362 //cx q[11],q[10]
 tdg q[11]; //cycle: 1364 //tdg q[11]
 tdg q[12]; //cycle: 1364 //tdg q[10]
 cx q[7],q[12]; //cycle: 1365 //cx q[13],q[10]
-swp q[11],q[12]; //cycle: 1367
+swap q[11],q[12]; //cycle: 1367
 cx q[12],q[7]; //cycle: 1373 //cx q[11],q[13]
 cx q[11],q[12]; //cycle: 1375 //cx q[10],q[11]
 h q[7]; //cycle: 1375 //h q[13]
-swp q[2],q[6]; //cycle: 1376
+swap q[2],q[6]; //cycle: 1376
 h q[7]; //cycle: 1376 //h q[13]
 h q[11]; //cycle: 1377 //h q[10]
 t q[12]; //cycle: 1377 //t q[11]
@@ -1254,7 +1254,7 @@ t q[5]; //cycle: 1395 //t q[12]
 t q[11]; //cycle: 1395 //t q[10]
 t q[6]; //cycle: 1396 //t q[8]
 cx q[6],q[10]; //cycle: 1397 //cx q[8],q[14]
-swp q[0],q[5]; //cycle: 1398
+swap q[0],q[5]; //cycle: 1398
 tdg q[10]; //cycle: 1399 //tdg q[14]
 cx q[5],q[6]; //cycle: 1404 //cx q[15],q[8]
 cx q[5],q[10]; //cycle: 1406 //cx q[15],q[14]
@@ -1269,7 +1269,7 @@ t q[6]; //cycle: 1414 //t q[8]
 t q[5]; //cycle: 1415 //t q[15]
 t q[10]; //cycle: 1415 //t q[14]
 cx q[10],q[5]; //cycle: 1416 //cx q[14],q[15]
-swp q[0],q[5]; //cycle: 1418
+swap q[0],q[5]; //cycle: 1418
 cx q[6],q[5]; //cycle: 1424 //cx q[8],q[12]
 cx q[11],q[6]; //cycle: 1426 //cx q[10],q[8]
 cx q[5],q[11]; //cycle: 1428 //cx q[12],q[10]
@@ -1287,26 +1287,26 @@ cx q[11],q[12]; //cycle: 1439 //cx q[10],q[11]
 t q[5]; //cycle: 1439 //t q[12]
 t q[6]; //cycle: 1439 //t q[8]
 cx q[6],q[5]; //cycle: 1440 //cx q[8],q[12]
-swp q[7],q[12]; //cycle: 1441
+swap q[7],q[12]; //cycle: 1441
 cx q[12],q[11]; //cycle: 1447 //cx q[13],q[10]
 cx q[7],q[12]; //cycle: 1449 //cx q[11],q[13]
 tdg q[11]; //cycle: 1449 //tdg q[10]
-swp q[6],q[7]; //cycle: 1451
+swap q[6],q[7]; //cycle: 1451
 t q[12]; //cycle: 1451 //t q[13]
 cx q[6],q[11]; //cycle: 1457 //cx q[11],q[10]
 tdg q[6]; //cycle: 1459 //tdg q[11]
 tdg q[11]; //cycle: 1459 //tdg q[10]
 cx q[12],q[11]; //cycle: 1460 //cx q[13],q[10]
-swp q[6],q[7]; //cycle: 1461
+swap q[6],q[7]; //cycle: 1461
 cx q[7],q[12]; //cycle: 1467 //cx q[11],q[13]
 h q[12]; //cycle: 1469 //h q[13]
 t q[12]; //cycle: 1470 //t q[13]
 cx q[12],q[13]; //cycle: 1471 //cx q[13],q[9]
-swp q[1],q[7]; //cycle: 1472
+swap q[1],q[7]; //cycle: 1472
 cx q[7],q[12]; //cycle: 1478 //cx q[5],q[13]
 cx q[13],q[7]; //cycle: 1480 //cx q[9],q[5]
 tdg q[12]; //cycle: 1480 //tdg q[13]
-swp q[6],q[11]; //cycle: 1482
+swap q[6],q[11]; //cycle: 1482
 cx q[13],q[12]; //cycle: 1482 //cx q[9],q[13]
 t q[7]; //cycle: 1482 //t q[5]
 tdg q[13]; //cycle: 1484 //tdg q[9]
@@ -1324,7 +1324,7 @@ cx q[6],q[1]; //cycle: 1491 //cx q[10],q[11]
 t q[13]; //cycle: 1491 //t q[9]
 t q[7]; //cycle: 1491 //t q[5]
 t q[12]; //cycle: 1492 //t q[13]
-swp q[7],q[12]; //cycle: 1493
+swap q[7],q[12]; //cycle: 1493
 cx q[7],q[6]; //cycle: 1499 //cx q[13],q[10]
 cx q[1],q[7]; //cycle: 1501 //cx q[11],q[13]
 tdg q[6]; //cycle: 1501 //tdg q[10]
@@ -1358,7 +1358,7 @@ t q[5]; //cycle: 1527 //t q[12]
 t q[6]; //cycle: 1527 //t q[10]
 t q[11]; //cycle: 1528 //t q[8]
 cx q[11],q[10]; //cycle: 1529 //cx q[8],q[14]
-swp q[0],q[5]; //cycle: 1530
+swap q[0],q[5]; //cycle: 1530
 tdg q[10]; //cycle: 1531 //tdg q[14]
 cx q[5],q[11]; //cycle: 1536 //cx q[15],q[8]
 cx q[5],q[10]; //cycle: 1538 //cx q[15],q[14]
@@ -1372,7 +1372,7 @@ h q[11]; //cycle: 1545 //h q[8]
 t q[11]; //cycle: 1546 //t q[8]
 t q[5]; //cycle: 1547 //t q[15]
 t q[10]; //cycle: 1547 //t q[14]
-swp q[0],q[5]; //cycle: 1548
+swap q[0],q[5]; //cycle: 1548
 cx q[11],q[5]; //cycle: 1554 //cx q[8],q[12]
 cx q[6],q[11]; //cycle: 1556 //cx q[10],q[8]
 cx q[5],q[6]; //cycle: 1558 //cx q[12],q[10]
@@ -1389,7 +1389,7 @@ t q[6]; //cycle: 1568 //t q[10]
 cx q[6],q[1]; //cycle: 1569 //cx q[10],q[11]
 t q[11]; //cycle: 1569 //t q[8]
 t q[5]; //cycle: 1569 //t q[12]
-swp q[5],q[11]; //cycle: 1570
+swap q[5],q[11]; //cycle: 1570
 cx q[7],q[6]; //cycle: 1571 //cx q[13],q[10]
 cx q[1],q[7]; //cycle: 1573 //cx q[11],q[13]
 tdg q[6]; //cycle: 1573 //tdg q[10]
@@ -1399,12 +1399,12 @@ cx q[5],q[0]; //cycle: 1576 //cx q[8],q[15]
 tdg q[1]; //cycle: 1577 //tdg q[11]
 tdg q[6]; //cycle: 1577 //tdg q[10]
 cx q[7],q[6]; //cycle: 1578 //cx q[13],q[10]
-swp q[5],q[6]; //cycle: 1580
+swap q[5],q[6]; //cycle: 1580
 cx q[1],q[7]; //cycle: 1580 //cx q[11],q[13]
 h q[7]; //cycle: 1582 //h q[13]
 t q[7]; //cycle: 1583 //t q[13]
-swp q[0],q[1]; //cycle: 1584
-swp q[7],q[8]; //cycle: 1584
+swap q[0],q[1]; //cycle: 1584
+swap q[7],q[8]; //cycle: 1584
 cx q[5],q[0]; //cycle: 1590 //cx q[10],q[11]
 cx q[7],q[6]; //cycle: 1590 //cx q[3],q[8]
 t q[5]; //cycle: 1592 //t q[10]
@@ -1424,16 +1424,16 @@ t q[6]; //cycle: 1603 //t q[8]
 t q[1]; //cycle: 1603 //t q[15]
 t q[7]; //cycle: 1603 //t q[3]
 cx q[10],q[6]; //cycle: 1604 //cx q[14],q[8]
-swp q[11],q[12]; //cycle: 1605
-swp q[1],q[7]; //cycle: 1607
+swap q[11],q[12]; //cycle: 1605
+swap q[1],q[7]; //cycle: 1607
 cx q[11],q[10]; //cycle: 1611 //cx q[5],q[14]
 cx q[6],q[11]; //cycle: 1613 //cx q[8],q[5]
 tdg q[10]; //cycle: 1613 //tdg q[14]
 cx q[12],q[7]; //cycle: 1613 //cx q[12],q[15]
-swp q[7],q[8]; //cycle: 1615
+swap q[7],q[8]; //cycle: 1615
 cx q[6],q[10]; //cycle: 1615 //cx q[8],q[14]
 t q[11]; //cycle: 1615 //t q[5]
-swp q[0],q[1]; //cycle: 1616
+swap q[0],q[1]; //cycle: 1616
 tdg q[6]; //cycle: 1617 //tdg q[8]
 tdg q[10]; //cycle: 1617 //tdg q[14]
 cx q[11],q[10]; //cycle: 1618 //cx q[5],q[14]
@@ -1446,7 +1446,7 @@ h q[10]; //cycle: 1624 //h q[14]
 t q[6]; //cycle: 1624 //t q[8]
 t q[11]; //cycle: 1624 //t q[5]
 t q[10]; //cycle: 1625 //t q[14]
-swp q[6],q[10]; //cycle: 1626
+swap q[6],q[10]; //cycle: 1626
 cx q[6],q[7]; //cycle: 1632 //cx q[14],q[13]
 cx q[1],q[6]; //cycle: 1634 //cx q[11],q[14]
 tdg q[7]; //cycle: 1634 //tdg q[13]
@@ -1559,18 +1559,18 @@ cx q[6],q[10]; //cycle: 1735 //cx q[14],q[8]
 t q[1]; //cycle: 1735 //t q[11]
 t q[7]; //cycle: 1735 //t q[13]
 cx q[7],q[1]; //cycle: 1736 //cx q[13],q[11]
-swp q[10],q[15]; //cycle: 1737
+swap q[10],q[15]; //cycle: 1737
 cx q[10],q[6]; //cycle: 1743 //cx q[4],q[14]
 cx q[15],q[10]; //cycle: 1745 //cx q[8],q[4]
 tdg q[6]; //cycle: 1745 //tdg q[14]
 t q[10]; //cycle: 1747 //t q[4]
-swp q[10],q[15]; //cycle: 1748
+swap q[10],q[15]; //cycle: 1748
 cx q[10],q[6]; //cycle: 1754 //cx q[8],q[14]
 tdg q[10]; //cycle: 1756 //tdg q[8]
 tdg q[6]; //cycle: 1756 //tdg q[14]
-swp q[6],q[10]; //cycle: 1757
+swap q[6],q[10]; //cycle: 1757
 cx q[15],q[10]; //cycle: 1763 //cx q[4],q[14]
-swp q[6],q[10]; //cycle: 1765
+swap q[6],q[10]; //cycle: 1765
 cx q[10],q[15]; //cycle: 1771 //cx q[8],q[4]
 cx q[6],q[10]; //cycle: 1773 //cx q[14],q[8]
 h q[15]; //cycle: 1773 //h q[4]
@@ -1627,31 +1627,31 @@ cx q[6],q[10]; //cycle: 1820 //cx q[14],q[8]
 t q[1]; //cycle: 1820 //t q[11]
 t q[7]; //cycle: 1820 //t q[13]
 cx q[7],q[1]; //cycle: 1821 //cx q[13],q[11]
-swp q[10],q[15]; //cycle: 1822
+swap q[10],q[15]; //cycle: 1822
 cx q[10],q[6]; //cycle: 1828 //cx q[4],q[14]
 cx q[15],q[10]; //cycle: 1830 //cx q[8],q[4]
 tdg q[6]; //cycle: 1830 //tdg q[14]
 t q[10]; //cycle: 1832 //t q[4]
-swp q[6],q[10]; //cycle: 1833
+swap q[6],q[10]; //cycle: 1833
 cx q[15],q[10]; //cycle: 1839 //cx q[8],q[14]
 tdg q[15]; //cycle: 1841 //tdg q[8]
 tdg q[10]; //cycle: 1841 //tdg q[14]
 cx q[6],q[10]; //cycle: 1842 //cx q[4],q[14]
-swp q[10],q[15]; //cycle: 1844
+swap q[10],q[15]; //cycle: 1844
 cx q[10],q[6]; //cycle: 1850 //cx q[8],q[4]
 cx q[15],q[10]; //cycle: 1852 //cx q[14],q[8]
 h q[6]; //cycle: 1852 //h q[4]
 h q[6]; //cycle: 1853 //h q[4]
-swp q[7],q[12]; //cycle: 1854
+swap q[7],q[12]; //cycle: 1854
 h q[15]; //cycle: 1854 //h q[14]
 t q[10]; //cycle: 1854 //t q[8]
 t q[6]; //cycle: 1854 //t q[4]
 t q[15]; //cycle: 1855 //t q[14]
-swp q[15],q[16]; //cycle: 1856
+swap q[15],q[16]; //cycle: 1856
 cx q[16],q[12]; //cycle: 1862 //cx q[14],q[13]
-swp q[1],q[6]; //cycle: 1863
+swap q[1],q[6]; //cycle: 1863
 tdg q[12]; //cycle: 1864 //tdg q[13]
-swp q[6],q[11]; //cycle: 1869
+swap q[6],q[11]; //cycle: 1869
 cx q[11],q[16]; //cycle: 1875 //cx q[11],q[14]
 cx q[11],q[12]; //cycle: 1877 //cx q[11],q[13]
 t q[16]; //cycle: 1877 //t q[14]
@@ -1681,8 +1681,8 @@ t q[12]; //cycle: 1900 //t q[13]
 cx q[12],q[11]; //cycle: 1901 //cx q[13],q[11]
 t q[8]; //cycle: 1901 //t q[15]
 t q[7]; //cycle: 1901 //t q[12]
-swp q[5],q[6]; //cycle: 1902
-swp q[7],q[8]; //cycle: 1902
+swap q[5],q[6]; //cycle: 1902
+swap q[7],q[8]; //cycle: 1902
 cx q[16],q[12]; //cycle: 1903 //cx q[14],q[13]
 cx q[11],q[16]; //cycle: 1905 //cx q[11],q[14]
 tdg q[12]; //cycle: 1905 //tdg q[13]
@@ -1695,32 +1695,32 @@ cx q[16],q[12]; //cycle: 1910 //cx q[14],q[13]
 cx q[5],q[6]; //cycle: 1910 //cx q[5],q[10]
 cx q[11],q[16]; //cycle: 1912 //cx q[11],q[14]
 tdg q[6]; //cycle: 1912 //tdg q[10]
-swp q[6],q[7]; //cycle: 1913
+swap q[6],q[7]; //cycle: 1913
 cx q[12],q[11]; //cycle: 1914 //cx q[13],q[11]
 h q[16]; //cycle: 1914 //h q[14]
 t q[16]; //cycle: 1915 //t q[14]
 t q[11]; //cycle: 1916 //t q[11]
 t q[12]; //cycle: 1916 //t q[13]
 cx q[8],q[12]; //cycle: 1917 //cx q[12],q[13]
-swp q[12],q[13]; //cycle: 1919
+swap q[12],q[13]; //cycle: 1919
 cx q[6],q[5]; //cycle: 1919 //cx q[15],q[5]
 cx q[6],q[7]; //cycle: 1921 //cx q[15],q[10]
 t q[5]; //cycle: 1921 //t q[5]
 tdg q[6]; //cycle: 1923 //tdg q[15]
 tdg q[7]; //cycle: 1923 //tdg q[10]
-swp q[5],q[6]; //cycle: 1924
+swap q[5],q[6]; //cycle: 1924
 cx q[16],q[12]; //cycle: 1925 //cx q[14],q[9]
-swp q[11],q[12]; //cycle: 1930
+swap q[11],q[12]; //cycle: 1930
 cx q[6],q[7]; //cycle: 1930 //cx q[5],q[10]
 cx q[5],q[6]; //cycle: 1932 //cx q[15],q[5]
 h q[6]; //cycle: 1934 //h q[5]
-swp q[4],q[8]; //cycle: 1935
+swap q[4],q[8]; //cycle: 1935
 h q[6]; //cycle: 1935 //h q[5]
 t q[6]; //cycle: 1936 //t q[5]
-swp q[5],q[6]; //cycle: 1937
+swap q[5],q[6]; //cycle: 1937
 cx q[8],q[12]; //cycle: 1941 //cx q[7],q[11]
 cx q[7],q[6]; //cycle: 1943 //cx q[10],q[15]
-swp q[11],q[12]; //cycle: 1945
+swap q[11],q[12]; //cycle: 1945
 t q[7]; //cycle: 1945 //t q[10]
 t q[6]; //cycle: 1945 //t q[15]
 cx q[6],q[10]; //cycle: 1946 //cx q[15],q[8]
@@ -1740,7 +1740,7 @@ h q[6]; //cycle: 1961 //h q[15]
 t q[10]; //cycle: 1961 //t q[8]
 t q[5]; //cycle: 1961 //t q[5]
 t q[6]; //cycle: 1962 //t q[15]
-swp q[6],q[11]; //cycle: 1963
+swap q[6],q[11]; //cycle: 1963
 cx q[11],q[16]; //cycle: 1969 //cx q[15],q[14]
 cx q[12],q[11]; //cycle: 1971 //cx q[9],q[15]
 tdg q[16]; //cycle: 1971 //tdg q[14]
@@ -1753,12 +1753,12 @@ cx q[12],q[11]; //cycle: 1978 //cx q[9],q[15]
 cx q[16],q[12]; //cycle: 1980 //cx q[14],q[9]
 h q[11]; //cycle: 1980 //h q[15]
 h q[11]; //cycle: 1981 //h q[15]
-swp q[4],q[8]; //cycle: 1982
+swap q[4],q[8]; //cycle: 1982
 h q[16]; //cycle: 1982 //h q[14]
 t q[12]; //cycle: 1982 //t q[9]
 t q[11]; //cycle: 1982 //t q[15]
 t q[16]; //cycle: 1983 //t q[14]
-swp q[12],q[16]; //cycle: 1984
+swap q[12],q[16]; //cycle: 1984
 cx q[12],q[8]; //cycle: 1990 //cx q[14],q[12]
 cx q[13],q[12]; //cycle: 1992 //cx q[13],q[14]
 tdg q[8]; //cycle: 1992 //tdg q[12]
@@ -1853,7 +1853,7 @@ t q[11]; //cycle: 2077 //t q[15]
 cx q[11],q[10]; //cycle: 2078 //cx q[15],q[8]
 t q[16]; //cycle: 2078 //t q[9]
 t q[12]; //cycle: 2078 //t q[14]
-swp q[1],q[6]; //cycle: 2079
+swap q[1],q[6]; //cycle: 2079
 cx q[12],q[16]; //cycle: 2079 //cx q[14],q[9]
 cx q[6],q[11]; //cycle: 2085 //cx q[4],q[15]
 cx q[10],q[6]; //cycle: 2087 //cx q[8],q[4]
@@ -1928,7 +1928,7 @@ tdg q[10]; //cycle: 2151 //tdg q[8]
 tdg q[11]; //cycle: 2151 //tdg q[15]
 cx q[6],q[11]; //cycle: 2152 //cx q[4],q[15]
 cx q[10],q[6]; //cycle: 2154 //cx q[8],q[4]
-swp q[7],q[13]; //cycle: 2155
+swap q[7],q[13]; //cycle: 2155
 cx q[11],q[10]; //cycle: 2156 //cx q[15],q[8]
 h q[6]; //cycle: 2156 //h q[4]
 h q[6]; //cycle: 2157 //h q[4]
@@ -1983,7 +1983,7 @@ t q[11]; //cycle: 2202 //t q[15]
 cx q[11],q[10]; //cycle: 2203 //cx q[15],q[8]
 t q[16]; //cycle: 2203 //t q[9]
 t q[12]; //cycle: 2203 //t q[14]
-swp q[0],q[5]; //cycle: 2204
+swap q[0],q[5]; //cycle: 2204
 cx q[12],q[16]; //cycle: 2204 //cx q[14],q[9]
 cx q[5],q[11]; //cycle: 2210 //cx q[3],q[15]
 cx q[10],q[5]; //cycle: 2212 //cx q[8],q[3]
@@ -2112,9 +2112,9 @@ t q[11]; //cycle: 2327 //t q[15]
 cx q[11],q[10]; //cycle: 2328 //cx q[15],q[8]
 t q[16]; //cycle: 2328 //t q[9]
 t q[12]; //cycle: 2328 //t q[14]
-swp q[2],q[3]; //cycle: 2329
+swap q[2],q[3]; //cycle: 2329
 cx q[12],q[16]; //cycle: 2329 //cx q[14],q[9]
-swp q[2],q[6]; //cycle: 2335
+swap q[2],q[6]; //cycle: 2335
 cx q[6],q[11]; //cycle: 2341 //cx q[2],q[15]
 cx q[10],q[6]; //cycle: 2343 //cx q[8],q[2]
 tdg q[11]; //cycle: 2343 //tdg q[15]
@@ -2222,7 +2222,7 @@ cx q[12],q[8]; //cycle: 2438 //cx q[14],q[12]
 cx q[7],q[12]; //cycle: 2440 //cx q[13],q[14]
 cx q[8],q[7]; //cycle: 2442 //cx q[12],q[13]
 h q[12]; //cycle: 2442 //h q[14]
-swp q[6],q[10]; //cycle: 2443
+swap q[6],q[10]; //cycle: 2443
 t q[12]; //cycle: 2443 //t q[14]
 t q[8]; //cycle: 2444 //t q[12]
 cx q[12],q[16]; //cycle: 2444 //cx q[14],q[9]
@@ -2231,7 +2231,7 @@ cx q[11],q[12]; //cycle: 2446 //cx q[15],q[14]
 cx q[16],q[11]; //cycle: 2448 //cx q[9],q[15]
 tdg q[12]; //cycle: 2448 //tdg q[14]
 cx q[7],q[6]; //cycle: 2449 //cx q[13],q[8]
-swp q[2],q[3]; //cycle: 2450
+swap q[2],q[3]; //cycle: 2450
 cx q[16],q[12]; //cycle: 2450 //cx q[9],q[14]
 t q[11]; //cycle: 2450 //t q[15]
 tdg q[16]; //cycle: 2452 //tdg q[9]
@@ -2249,7 +2249,7 @@ t q[12]; //cycle: 2459 //t q[14]
 cx q[12],q[11]; //cycle: 2460 //cx q[14],q[15]
 cx q[6],q[7]; //cycle: 2460 //cx q[8],q[13]
 t q[2]; //cycle: 2460 //t q[6]
-swp q[12],q[16]; //cycle: 2462
+swap q[12],q[16]; //cycle: 2462
 tdg q[6]; //cycle: 2462 //tdg q[8]
 tdg q[7]; //cycle: 2462 //tdg q[13]
 cx q[2],q[7]; //cycle: 2463 //cx q[6],q[13]
@@ -2273,21 +2273,21 @@ cx q[7],q[12]; //cycle: 2478 //cx q[13],q[9]
 cx q[13],q[7]; //cycle: 2480 //cx q[10],q[13]
 cx q[12],q[13]; //cycle: 2482 //cx q[9],q[10]
 h q[7]; //cycle: 2482 //h q[13]
-swp q[4],q[8]; //cycle: 2483
+swap q[4],q[8]; //cycle: 2483
 h q[7]; //cycle: 2483 //h q[13]
 h q[12]; //cycle: 2484 //h q[9]
 t q[13]; //cycle: 2484 //t q[10]
 t q[7]; //cycle: 2484 //t q[13]
 t q[12]; //cycle: 2485 //t q[9]
-swp q[3],q[4]; //cycle: 2489
+swap q[3],q[4]; //cycle: 2489
 cx q[12],q[8]; //cycle: 2489 //cx q[9],q[7]
-swp q[1],q[7]; //cycle: 2490
+swap q[1],q[7]; //cycle: 2490
 tdg q[8]; //cycle: 2491 //tdg q[7]
 cx q[7],q[12]; //cycle: 2496 //cx q[11],q[9]
-swp q[2],q[3]; //cycle: 2497
+swap q[2],q[3]; //cycle: 2497
 cx q[7],q[8]; //cycle: 2498 //cx q[11],q[7]
 t q[12]; //cycle: 2498 //t q[9]
-swp q[0],q[1]; //cycle: 2499
+swap q[0],q[1]; //cycle: 2499
 tdg q[7]; //cycle: 2500 //tdg q[11]
 tdg q[8]; //cycle: 2500 //tdg q[7]
 cx q[12],q[8]; //cycle: 2501 //cx q[9],q[7]
@@ -2300,7 +2300,7 @@ h q[8]; //cycle: 2507 //h q[7]
 t q[7]; //cycle: 2507 //t q[11]
 t q[12]; //cycle: 2507 //t q[9]
 t q[8]; //cycle: 2508 //t q[7]
-swp q[7],q[8]; //cycle: 2509
+swap q[7],q[8]; //cycle: 2509
 cx q[7],q[1]; //cycle: 2515 //cx q[7],q[5]
 cx q[2],q[7]; //cycle: 2517 //cx q[12],q[7]
 tdg q[1]; //cycle: 2517 //tdg q[5]
@@ -2316,21 +2316,21 @@ h q[7]; //cycle: 2527 //h q[7]
 h q[1]; //cycle: 2528 //h q[5]
 t q[2]; //cycle: 2528 //t q[12]
 t q[7]; //cycle: 2528 //t q[7]
-swp q[12],q[16]; //cycle: 2529
+swap q[12],q[16]; //cycle: 2529
 t q[1]; //cycle: 2529 //t q[5]
-swp q[1],q[7]; //cycle: 2530
+swap q[1],q[7]; //cycle: 2530
 cx q[7],q[12]; //cycle: 2536 //cx q[5],q[14]
-swp q[6],q[7]; //cycle: 2538
+swap q[6],q[7]; //cycle: 2538
 tdg q[12]; //cycle: 2538 //tdg q[14]
 cx q[11],q[6]; //cycle: 2544 //cx q[15],q[5]
 cx q[11],q[12]; //cycle: 2546 //cx q[15],q[14]
 t q[6]; //cycle: 2546 //t q[5]
 tdg q[11]; //cycle: 2548 //tdg q[15]
 tdg q[12]; //cycle: 2548 //tdg q[14]
-swp q[7],q[12]; //cycle: 2549
+swap q[7],q[12]; //cycle: 2549
 cx q[6],q[7]; //cycle: 2555 //cx q[5],q[14]
 cx q[11],q[6]; //cycle: 2557 //cx q[15],q[5]
-swp q[11],q[12]; //cycle: 2559
+swap q[11],q[12]; //cycle: 2559
 h q[6]; //cycle: 2559 //h q[5]
 t q[6]; //cycle: 2560 //t q[5]
 cx q[6],q[2]; //cycle: 2561 //cx q[5],q[12]
@@ -2347,7 +2347,7 @@ tdg q[2]; //cycle: 2569 //tdg q[12]
 tdg q[6]; //cycle: 2569 //tdg q[5]
 cx q[1],q[6]; //cycle: 2570 //cx q[7],q[5]
 cx q[2],q[1]; //cycle: 2572 //cx q[12],q[7]
-swp q[7],q[8]; //cycle: 2573
+swap q[7],q[8]; //cycle: 2573
 cx q[6],q[2]; //cycle: 2574 //cx q[5],q[12]
 h q[1]; //cycle: 2574 //h q[7]
 t q[1]; //cycle: 2575 //t q[7]
@@ -2355,28 +2355,28 @@ t q[2]; //cycle: 2576 //t q[12]
 t q[6]; //cycle: 2576 //t q[5]
 cx q[6],q[2]; //cycle: 2577 //cx q[5],q[12]
 cx q[1],q[7]; //cycle: 2579 //cx q[7],q[11]
-swp q[11],q[16]; //cycle: 2580
-swp q[1],q[6]; //cycle: 2581
+swap q[11],q[16]; //cycle: 2580
+swap q[1],q[6]; //cycle: 2581
 cx q[11],q[6]; //cycle: 2587 //cx q[9],q[7]
-swp q[11],q[12]; //cycle: 2589
+swap q[11],q[12]; //cycle: 2589
 tdg q[6]; //cycle: 2589 //tdg q[7]
 cx q[7],q[12]; //cycle: 2595 //cx q[11],q[9]
 cx q[7],q[6]; //cycle: 2597 //cx q[11],q[7]
 t q[12]; //cycle: 2597 //t q[9]
 tdg q[7]; //cycle: 2599 //tdg q[11]
 tdg q[6]; //cycle: 2599 //tdg q[7]
-swp q[7],q[12]; //cycle: 2600
+swap q[7],q[12]; //cycle: 2600
 cx q[7],q[6]; //cycle: 2606 //cx q[9],q[7]
 cx q[12],q[7]; //cycle: 2608 //cx q[11],q[9]
 h q[7]; //cycle: 2610 //h q[9]
 t q[7]; //cycle: 2611 //t q[9]
 cx q[7],q[13]; //cycle: 2612 //cx q[9],q[10]
-swp q[0],q[1]; //cycle: 2614
-swp q[6],q[7]; //cycle: 2614
-swp q[11],q[12]; //cycle: 2614
+swap q[0],q[1]; //cycle: 2614
+swap q[6],q[7]; //cycle: 2614
+swap q[11],q[12]; //cycle: 2614
 cx q[1],q[6]; //cycle: 2620 //cx q[13],q[9]
-swp q[7],q[13]; //cycle: 2621
-swp q[11],q[12]; //cycle: 2621
+swap q[7],q[13]; //cycle: 2621
+swap q[11],q[12]; //cycle: 2621
 tdg q[6]; //cycle: 2622 //tdg q[9]
 cx q[13],q[12]; //cycle: 2627 //cx q[7],q[11]
 cx q[7],q[1]; //cycle: 2627 //cx q[10],q[13]
@@ -2389,16 +2389,16 @@ tdg q[7]; //cycle: 2631 //tdg q[10]
 tdg q[6]; //cycle: 2631 //tdg q[9]
 cx q[1],q[6]; //cycle: 2632 //cx q[13],q[9]
 cx q[7],q[1]; //cycle: 2634 //cx q[10],q[13]
-swp q[12],q[16]; //cycle: 2636
+swap q[12],q[16]; //cycle: 2636
 cx q[6],q[7]; //cycle: 2636 //cx q[9],q[10]
 h q[1]; //cycle: 2636 //h q[13]
 t q[1]; //cycle: 2637 //t q[13]
 t q[7]; //cycle: 2638 //t q[10]
 t q[6]; //cycle: 2638 //t q[9]
 cx q[6],q[7]; //cycle: 2639 //cx q[9],q[10]
-swp q[1],q[7]; //cycle: 2641
+swap q[1],q[7]; //cycle: 2641
 cx q[7],q[12]; //cycle: 2647 //cx q[13],q[8]
-swp q[3],q[8]; //cycle: 2648
+swap q[3],q[8]; //cycle: 2648
 cx q[8],q[7]; //cycle: 2654 //cx q[6],q[13]
 cx q[12],q[8]; //cycle: 2656 //cx q[8],q[6]
 tdg q[7]; //cycle: 2656 //tdg q[13]
@@ -2430,9 +2430,9 @@ h q[6]; //cycle: 2682 //h q[9]
 t q[1]; //cycle: 2682 //t q[10]
 t q[7]; //cycle: 2682 //t q[13]
 t q[6]; //cycle: 2683 //t q[9]
-swp q[6],q[7]; //cycle: 2684
+swap q[6],q[7]; //cycle: 2684
 cx q[7],q[13]; //cycle: 2690 //cx q[9],q[7]
-swp q[12],q[16]; //cycle: 2691
+swap q[12],q[16]; //cycle: 2691
 tdg q[13]; //cycle: 2692 //tdg q[7]
 cx q[12],q[7]; //cycle: 2697 //cx q[11],q[9]
 cx q[12],q[13]; //cycle: 2699 //cx q[11],q[7]
@@ -2448,8 +2448,8 @@ h q[13]; //cycle: 2708 //h q[7]
 t q[12]; //cycle: 2708 //t q[11]
 t q[7]; //cycle: 2708 //t q[9]
 t q[13]; //cycle: 2709 //t q[7]
-swp q[0],q[1]; //cycle: 2710
-swp q[7],q[13]; //cycle: 2710
+swap q[0],q[1]; //cycle: 2710
+swap q[7],q[13]; //cycle: 2710
 cx q[7],q[1]; //cycle: 2716 //cx q[7],q[5]
 cx q[2],q[7]; //cycle: 2718 //cx q[12],q[7]
 tdg q[1]; //cycle: 2718 //tdg q[5]
@@ -2465,10 +2465,10 @@ h q[7]; //cycle: 2728 //h q[7]
 h q[1]; //cycle: 2729 //h q[5]
 t q[2]; //cycle: 2729 //t q[12]
 t q[7]; //cycle: 2729 //t q[7]
-swp q[2],q[3]; //cycle: 2730
+swap q[2],q[3]; //cycle: 2730
 t q[1]; //cycle: 2730 //t q[5]
 cx q[1],q[2]; //cycle: 2736 //cx q[5],q[14]
-swp q[6],q[11]; //cycle: 2737
+swap q[6],q[11]; //cycle: 2737
 tdg q[2]; //cycle: 2738 //tdg q[14]
 cx q[6],q[1]; //cycle: 2743 //cx q[15],q[5]
 cx q[6],q[2]; //cycle: 2745 //cx q[15],q[14]
@@ -2477,7 +2477,7 @@ tdg q[6]; //cycle: 2747 //tdg q[15]
 tdg q[2]; //cycle: 2747 //tdg q[14]
 cx q[1],q[2]; //cycle: 2748 //cx q[5],q[14]
 cx q[6],q[1]; //cycle: 2750 //cx q[15],q[5]
-swp q[2],q[3]; //cycle: 2751
+swap q[2],q[3]; //cycle: 2751
 h q[1]; //cycle: 2752 //h q[5]
 t q[1]; //cycle: 2753 //t q[5]
 cx q[1],q[2]; //cycle: 2757 //cx q[5],q[12]
@@ -2500,7 +2500,7 @@ t q[1]; //cycle: 2773 //t q[5]
 cx q[13],q[7]; //cycle: 2774 //cx q[9],q[7]
 cx q[12],q[13]; //cycle: 2776 //cx q[11],q[9]
 tdg q[7]; //cycle: 2776 //tdg q[7]
-swp q[2],q[3]; //cycle: 2777
+swap q[2],q[3]; //cycle: 2777
 cx q[12],q[7]; //cycle: 2778 //cx q[11],q[7]
 t q[13]; //cycle: 2778 //t q[9]
 tdg q[12]; //cycle: 2780 //tdg q[11]
@@ -2518,10 +2518,10 @@ cx q[2],q[6]; //cycle: 2786 //cx q[14],q[15]
 t q[12]; //cycle: 2787 //t q[11]
 t q[7]; //cycle: 2787 //t q[7]
 cx q[7],q[12]; //cycle: 2788 //cx q[7],q[11]
-swp q[0],q[1]; //cycle: 2790
-swp q[7],q[13]; //cycle: 2790
+swap q[0],q[1]; //cycle: 2790
+swap q[7],q[13]; //cycle: 2790
 cx q[7],q[1]; //cycle: 2796 //cx q[9],q[10]
-swp q[6],q[11]; //cycle: 2797
+swap q[6],q[11]; //cycle: 2797
 cx q[6],q[7]; //cycle: 2803 //cx q[13],q[9]
 cx q[1],q[6]; //cycle: 2805 //cx q[10],q[13]
 tdg q[7]; //cycle: 2805 //tdg q[9]
@@ -2531,7 +2531,7 @@ tdg q[1]; //cycle: 2809 //tdg q[10]
 tdg q[7]; //cycle: 2809 //tdg q[9]
 cx q[6],q[7]; //cycle: 2810 //cx q[13],q[9]
 cx q[1],q[6]; //cycle: 2812 //cx q[10],q[13]
-swp q[11],q[16]; //cycle: 2813
+swap q[11],q[16]; //cycle: 2813
 cx q[7],q[1]; //cycle: 2814 //cx q[9],q[10]
 h q[6]; //cycle: 2814 //h q[13]
 t q[6]; //cycle: 2815 //t q[13]
@@ -2539,10 +2539,10 @@ t q[1]; //cycle: 2816 //t q[10]
 t q[7]; //cycle: 2816 //t q[9]
 cx q[7],q[1]; //cycle: 2817 //cx q[9],q[10]
 cx q[6],q[11]; //cycle: 2819 //cx q[13],q[8]
-swp q[4],q[8]; //cycle: 2820
-swp q[6],q[7]; //cycle: 2821
+swap q[4],q[8]; //cycle: 2820
+swap q[6],q[7]; //cycle: 2821
 cx q[8],q[7]; //cycle: 2827 //cx q[4],q[13]
-swp q[11],q[12]; //cycle: 2828
+swap q[11],q[12]; //cycle: 2828
 tdg q[7]; //cycle: 2829 //tdg q[13]
 cx q[12],q[8]; //cycle: 2834 //cx q[8],q[4]
 cx q[12],q[7]; //cycle: 2836 //cx q[8],q[13]
@@ -2574,9 +2574,9 @@ t q[1]; //cycle: 2860 //t q[10]
 t q[7]; //cycle: 2860 //t q[13]
 h q[6]; //cycle: 2860 //h q[9]
 t q[6]; //cycle: 2861 //t q[9]
-swp q[6],q[7]; //cycle: 2862
+swap q[6],q[7]; //cycle: 2862
 cx q[7],q[13]; //cycle: 2868 //cx q[9],q[7]
-swp q[11],q[12]; //cycle: 2869
+swap q[11],q[12]; //cycle: 2869
 tdg q[13]; //cycle: 2870 //tdg q[7]
 cx q[12],q[7]; //cycle: 2875 //cx q[11],q[9]
 cx q[12],q[13]; //cycle: 2877 //cx q[11],q[7]
@@ -2592,7 +2592,7 @@ h q[13]; //cycle: 2886 //h q[7]
 t q[12]; //cycle: 2886 //t q[11]
 t q[7]; //cycle: 2886 //t q[9]
 t q[13]; //cycle: 2887 //t q[7]
-swp q[8],q[13]; //cycle: 2888
+swap q[8],q[13]; //cycle: 2888
 cx q[8],q[4]; //cycle: 2894 //cx q[7],q[6]
 cx q[3],q[8]; //cycle: 2896 //cx q[12],q[7]
 tdg q[4]; //cycle: 2896 //tdg q[6]
@@ -2609,13 +2609,13 @@ h q[4]; //cycle: 2907 //h q[6]
 t q[3]; //cycle: 2907 //t q[12]
 t q[8]; //cycle: 2907 //t q[7]
 t q[4]; //cycle: 2908 //t q[6]
-swp q[3],q[4]; //cycle: 2909
+swap q[3],q[4]; //cycle: 2909
 cx q[3],q[2]; //cycle: 2915 //cx q[6],q[14]
-swp q[12],q[16]; //cycle: 2916
-swp q[3],q[8]; //cycle: 2917
+swap q[12],q[16]; //cycle: 2916
+swap q[3],q[8]; //cycle: 2917
 tdg q[2]; //cycle: 2917 //tdg q[14]
 cx q[12],q[8]; //cycle: 2923 //cx q[15],q[6]
-swp q[2],q[7]; //cycle: 2924
+swap q[2],q[7]; //cycle: 2924
 t q[8]; //cycle: 2925 //t q[6]
 cx q[12],q[7]; //cycle: 2930 //cx q[15],q[14]
 tdg q[12]; //cycle: 2932 //tdg q[15]
@@ -2638,16 +2638,16 @@ tdg q[4]; //cycle: 2947 //tdg q[12]
 tdg q[8]; //cycle: 2947 //tdg q[6]
 cx q[3],q[8]; //cycle: 2948 //cx q[7],q[6]
 cx q[4],q[3]; //cycle: 2950 //cx q[12],q[7]
-swp q[12],q[16]; //cycle: 2952
+swap q[12],q[16]; //cycle: 2952
 cx q[8],q[4]; //cycle: 2952 //cx q[6],q[12]
 h q[3]; //cycle: 2952 //h q[7]
 t q[3]; //cycle: 2953 //t q[7]
 t q[4]; //cycle: 2954 //t q[12]
 t q[8]; //cycle: 2954 //t q[6]
 cx q[8],q[4]; //cycle: 2955 //cx q[6],q[12]
-swp q[3],q[8]; //cycle: 2957
+swap q[3],q[8]; //cycle: 2957
 cx q[8],q[12]; //cycle: 2963 //cx q[7],q[11]
-swp q[2],q[7]; //cycle: 2964
+swap q[2],q[7]; //cycle: 2964
 cx q[7],q[8]; //cycle: 2970 //cx q[9],q[7]
 cx q[12],q[7]; //cycle: 2972 //cx q[11],q[9]
 tdg q[8]; //cycle: 2972 //tdg q[7]
@@ -2680,9 +2680,9 @@ cx q[6],q[11]; //cycle: 2998 //cx q[13],q[8]
 t q[1]; //cycle: 2998 //t q[10]
 t q[7]; //cycle: 2998 //t q[9]
 cx q[7],q[1]; //cycle: 2999 //cx q[9],q[10]
-swp q[6],q[7]; //cycle: 3001
+swap q[6],q[7]; //cycle: 3001
 cx q[13],q[7]; //cycle: 3007 //cx q[4],q[13]
-swp q[11],q[12]; //cycle: 3008
+swap q[11],q[12]; //cycle: 3008
 tdg q[7]; //cycle: 3009 //tdg q[13]
 cx q[12],q[13]; //cycle: 3014 //cx q[8],q[4]
 cx q[12],q[7]; //cycle: 3016 //cx q[8],q[13]
@@ -2714,9 +2714,9 @@ h q[6]; //cycle: 3040 //h q[9]
 t q[1]; //cycle: 3040 //t q[10]
 t q[7]; //cycle: 3040 //t q[13]
 t q[6]; //cycle: 3041 //t q[9]
-swp q[6],q[7]; //cycle: 3042
+swap q[6],q[7]; //cycle: 3042
 cx q[7],q[8]; //cycle: 3048 //cx q[9],q[7]
-swp q[11],q[12]; //cycle: 3049
+swap q[11],q[12]; //cycle: 3049
 tdg q[8]; //cycle: 3050 //tdg q[7]
 cx q[12],q[7]; //cycle: 3055 //cx q[11],q[9]
 cx q[12],q[8]; //cycle: 3057 //cx q[11],q[7]
@@ -2749,11 +2749,11 @@ t q[4]; //cycle: 3081 //t q[12]
 t q[8]; //cycle: 3081 //t q[7]
 t q[3]; //cycle: 3082 //t q[6]
 cx q[3],q[2]; //cycle: 3083 //cx q[6],q[14]
-swp q[3],q[8]; //cycle: 3085
-swp q[12],q[16]; //cycle: 3085
+swap q[3],q[8]; //cycle: 3085
+swap q[12],q[16]; //cycle: 3085
 tdg q[2]; //cycle: 3085 //tdg q[14]
 cx q[12],q[8]; //cycle: 3091 //cx q[15],q[6]
-swp q[2],q[7]; //cycle: 3092
+swap q[2],q[7]; //cycle: 3092
 t q[8]; //cycle: 3093 //t q[6]
 cx q[12],q[7]; //cycle: 3098 //cx q[15],q[14]
 tdg q[12]; //cycle: 3100 //tdg q[15]
@@ -2766,7 +2766,7 @@ t q[8]; //cycle: 3106 //t q[6]
 t q[12]; //cycle: 3107 //t q[15]
 cx q[8],q[4]; //cycle: 3107 //cx q[6],q[12]
 t q[7]; //cycle: 3107 //t q[14]
-swp q[6],q[7]; //cycle: 3108
+swap q[6],q[7]; //cycle: 3108
 cx q[3],q[8]; //cycle: 3109 //cx q[7],q[6]
 cx q[4],q[3]; //cycle: 3111 //cx q[12],q[7]
 tdg q[8]; //cycle: 3111 //tdg q[6]
@@ -2784,16 +2784,16 @@ cx q[8],q[4]; //cycle: 3120 //cx q[6],q[12]
 h q[3]; //cycle: 3120 //h q[7]
 cx q[6],q[11]; //cycle: 3120 //cx q[14],q[8]
 t q[10]; //cycle: 3120 //t q[2]
-swp q[1],q[7]; //cycle: 3121
+swap q[1],q[7]; //cycle: 3121
 t q[3]; //cycle: 3121 //t q[7]
-swp q[12],q[16]; //cycle: 3122
+swap q[12],q[16]; //cycle: 3122
 h q[8]; //cycle: 3122 //h q[6]
 t q[4]; //cycle: 3122 //t q[12]
 tdg q[6]; //cycle: 3122 //tdg q[14]
 tdg q[11]; //cycle: 3122 //tdg q[8]
 t q[8]; //cycle: 3123 //t q[6]
 cx q[10],q[11]; //cycle: 3123 //cx q[2],q[8]
-swp q[3],q[8]; //cycle: 3124
+swap q[3],q[8]; //cycle: 3124
 cx q[6],q[10]; //cycle: 3125 //cx q[14],q[2]
 cx q[11],q[6]; //cycle: 3127 //cx q[8],q[14]
 h q[10]; //cycle: 3127 //h q[2]
@@ -2802,9 +2802,9 @@ t q[11]; //cycle: 3129 //t q[8]
 t q[6]; //cycle: 3129 //t q[14]
 cx q[6],q[11]; //cycle: 3130 //cx q[14],q[8]
 cx q[8],q[12]; //cycle: 3130 //cx q[7],q[11]
-swp q[2],q[7]; //cycle: 3131
+swap q[2],q[7]; //cycle: 3131
 cx q[7],q[8]; //cycle: 3137 //cx q[9],q[7]
-swp q[2],q[6]; //cycle: 3139
+swap q[2],q[6]; //cycle: 3139
 cx q[12],q[7]; //cycle: 3139 //cx q[11],q[9]
 tdg q[8]; //cycle: 3139 //tdg q[7]
 cx q[12],q[8]; //cycle: 3141 //cx q[11],q[7]
@@ -2814,9 +2814,9 @@ tdg q[8]; //cycle: 3143 //tdg q[7]
 cx q[7],q[8]; //cycle: 3144 //cx q[9],q[7]
 cx q[3],q[2]; //cycle: 3145 //cx q[6],q[14]
 cx q[12],q[7]; //cycle: 3146 //cx q[11],q[9]
-swp q[3],q[8]; //cycle: 3147
+swap q[3],q[8]; //cycle: 3147
 tdg q[2]; //cycle: 3147 //tdg q[14]
-swp q[11],q[12]; //cycle: 3148
+swap q[11],q[12]; //cycle: 3148
 h q[7]; //cycle: 3148 //h q[9]
 t q[7]; //cycle: 3149 //t q[9]
 cx q[7],q[6]; //cycle: 3150 //cx q[9],q[10]
@@ -2824,7 +2824,7 @@ cx q[1],q[7]; //cycle: 3152 //cx q[13],q[9]
 cx q[12],q[8]; //cycle: 3154 //cx q[8],q[6]
 cx q[6],q[1]; //cycle: 3154 //cx q[10],q[13]
 tdg q[7]; //cycle: 3154 //tdg q[9]
-swp q[2],q[7]; //cycle: 3155
+swap q[2],q[7]; //cycle: 3155
 t q[8]; //cycle: 3156 //t q[6]
 t q[1]; //cycle: 3156 //t q[13]
 cx q[12],q[7]; //cycle: 3161 //cx q[8],q[14]
@@ -2841,7 +2841,7 @@ cx q[7],q[12]; //cycle: 3168 //cx q[14],q[8]
 h q[8]; //cycle: 3168 //h q[6]
 cx q[2],q[6]; //cycle: 3168 //cx q[9],q[10]
 h q[1]; //cycle: 3168 //h q[13]
-swp q[3],q[4]; //cycle: 3169
+swap q[3],q[4]; //cycle: 3169
 t q[1]; //cycle: 3169 //t q[13]
 h q[8]; //cycle: 3169 //h q[6]
 h q[7]; //cycle: 3170 //h q[14]
@@ -2849,15 +2849,15 @@ t q[6]; //cycle: 3170 //t q[10]
 t q[2]; //cycle: 3170 //t q[9]
 t q[12]; //cycle: 3170 //t q[8]
 t q[8]; //cycle: 3170 //t q[6]
-swp q[2],q[6]; //cycle: 3171
+swap q[2],q[6]; //cycle: 3171
 t q[7]; //cycle: 3171 //t q[14]
-swp q[1],q[7]; //cycle: 3172
-swp q[12],q[16]; //cycle: 3172
+swap q[1],q[7]; //cycle: 3172
+swap q[12],q[16]; //cycle: 3172
 cx q[3],q[2]; //cycle: 3177 //cx q[12],q[10]
 cx q[7],q[12]; //cycle: 3178 //cx q[13],q[15]
-swp q[1],q[2]; //cycle: 3179
-swp q[4],q[8]; //cycle: 3181
-swp q[11],q[12]; //cycle: 3181
+swap q[1],q[2]; //cycle: 3179
+swap q[4],q[8]; //cycle: 3181
+swap q[11],q[12]; //cycle: 3181
 cx q[2],q[3]; //cycle: 3185 //cx q[14],q[12]
 cx q[1],q[2]; //cycle: 3187 //cx q[10],q[14]
 tdg q[3]; //cycle: 3187 //tdg q[12]
@@ -2865,15 +2865,15 @@ cx q[8],q[12]; //cycle: 3187 //cx q[7],q[11]
 t q[8]; //cycle: 3189 //t q[7]
 t q[2]; //cycle: 3189 //t q[14]
 t q[12]; //cycle: 3189 //t q[11]
-swp q[2],q[3]; //cycle: 3190
-swp q[6],q[7]; //cycle: 3196
-swp q[11],q[12]; //cycle: 3196
+swap q[2],q[3]; //cycle: 3190
+swap q[6],q[7]; //cycle: 3196
+swap q[11],q[12]; //cycle: 3196
 cx q[1],q[2]; //cycle: 3196 //cx q[10],q[12]
 tdg q[1]; //cycle: 3198 //tdg q[10]
 tdg q[2]; //cycle: 3198 //tdg q[12]
 cx q[3],q[2]; //cycle: 3199 //cx q[14],q[12]
-swp q[1],q[2]; //cycle: 3201
-swp q[6],q[11]; //cycle: 3203
+swap q[1],q[2]; //cycle: 3201
+swap q[6],q[11]; //cycle: 3203
 cx q[2],q[3]; //cycle: 3207 //cx q[10],q[14]
 cx q[1],q[2]; //cycle: 3209 //cx q[12],q[10]
 h q[3]; //cycle: 3209 //h q[14]
@@ -2894,24 +2894,24 @@ cx q[1],q[7]; //cycle: 3220 //cx q[12],q[9]
 cx q[6],q[1]; //cycle: 3222 //cx q[11],q[12]
 cx q[7],q[6]; //cycle: 3224 //cx q[9],q[11]
 h q[1]; //cycle: 3224 //h q[12]
-swp q[11],q[12]; //cycle: 3225
+swap q[11],q[12]; //cycle: 3225
 h q[1]; //cycle: 3225 //h q[12]
 h q[7]; //cycle: 3226 //h q[9]
 t q[6]; //cycle: 3226 //t q[11]
 t q[1]; //cycle: 3226 //t q[12]
 t q[7]; //cycle: 3227 //t q[9]
 cx q[7],q[12]; //cycle: 3231 //cx q[9],q[13]
-swp q[6],q[7]; //cycle: 3233
+swap q[6],q[7]; //cycle: 3233
 tdg q[12]; //cycle: 3233 //tdg q[13]
 cx q[11],q[6]; //cycle: 3239 //cx q[15],q[9]
 cx q[11],q[12]; //cycle: 3241 //cx q[15],q[13]
 t q[6]; //cycle: 3241 //t q[9]
 tdg q[11]; //cycle: 3243 //tdg q[15]
 tdg q[12]; //cycle: 3243 //tdg q[13]
-swp q[7],q[12]; //cycle: 3244
+swap q[7],q[12]; //cycle: 3244
 cx q[6],q[7]; //cycle: 3250 //cx q[9],q[13]
 cx q[11],q[6]; //cycle: 3252 //cx q[15],q[9]
-swp q[7],q[12]; //cycle: 3253
+swap q[7],q[12]; //cycle: 3253
 h q[6]; //cycle: 3254 //h q[9]
 t q[6]; //cycle: 3255 //t q[9]
 cx q[12],q[11]; //cycle: 3259 //cx q[13],q[15]
@@ -2935,28 +2935,28 @@ cx q[1],q[2]; //cycle: 3274 //cx q[12],q[10]
 t q[7]; //cycle: 3274 //t q[11]
 t q[6]; //cycle: 3274 //t q[9]
 cx q[6],q[7]; //cycle: 3275 //cx q[9],q[11]
-swp q[2],q[3]; //cycle: 3276
+swap q[2],q[3]; //cycle: 3276
 cx q[2],q[1]; //cycle: 3282 //cx q[14],q[12]
 cx q[3],q[2]; //cycle: 3284 //cx q[10],q[14]
 tdg q[1]; //cycle: 3284 //tdg q[12]
 t q[2]; //cycle: 3286 //t q[14]
-swp q[1],q[2]; //cycle: 3287
+swap q[1],q[2]; //cycle: 3287
 cx q[3],q[2]; //cycle: 3293 //cx q[10],q[12]
 tdg q[3]; //cycle: 3295 //tdg q[10]
 tdg q[2]; //cycle: 3295 //tdg q[12]
 cx q[1],q[2]; //cycle: 3296 //cx q[14],q[12]
-swp q[2],q[3]; //cycle: 3298
+swap q[2],q[3]; //cycle: 3298
 cx q[2],q[1]; //cycle: 3304 //cx q[10],q[14]
-swp q[12],q[16]; //cycle: 3306
+swap q[12],q[16]; //cycle: 3306
 cx q[3],q[2]; //cycle: 3306 //cx q[12],q[10]
 h q[1]; //cycle: 3306 //h q[14]
 t q[1]; //cycle: 3307 //t q[14]
-swp q[1],q[7]; //cycle: 3308
+swap q[1],q[7]; //cycle: 3308
 t q[2]; //cycle: 3308 //t q[10]
 t q[3]; //cycle: 3308 //t q[12]
 cx q[3],q[2]; //cycle: 3309 //cx q[12],q[10]
 cx q[7],q[12]; //cycle: 3314 //cx q[14],q[8]
-swp q[4],q[8]; //cycle: 3315
+swap q[4],q[8]; //cycle: 3315
 cx q[8],q[7]; //cycle: 3321 //cx q[6],q[14]
 cx q[12],q[8]; //cycle: 3323 //cx q[8],q[6]
 tdg q[7]; //cycle: 3323 //tdg q[14]
@@ -2968,24 +2968,24 @@ cx q[8],q[7]; //cycle: 3328 //cx q[6],q[14]
 cx q[12],q[8]; //cycle: 3330 //cx q[8],q[6]
 cx q[7],q[12]; //cycle: 3332 //cx q[14],q[8]
 h q[8]; //cycle: 3332 //h q[6]
-swp q[2],q[3]; //cycle: 3333
+swap q[2],q[3]; //cycle: 3333
 h q[8]; //cycle: 3333 //h q[6]
 t q[12]; //cycle: 3334 //t q[8]
 h q[7]; //cycle: 3334 //h q[14]
 t q[8]; //cycle: 3334 //t q[6]
 t q[7]; //cycle: 3335 //t q[14]
 cx q[7],q[2]; //cycle: 3339 //cx q[14],q[12]
-swp q[7],q[8]; //cycle: 3341
+swap q[7],q[8]; //cycle: 3341
 tdg q[2]; //cycle: 3341 //tdg q[12]
 cx q[3],q[8]; //cycle: 3347 //cx q[10],q[14]
 cx q[3],q[2]; //cycle: 3349 //cx q[10],q[12]
 t q[8]; //cycle: 3349 //t q[14]
 tdg q[3]; //cycle: 3351 //tdg q[10]
 tdg q[2]; //cycle: 3351 //tdg q[12]
-swp q[2],q[7]; //cycle: 3352
+swap q[2],q[7]; //cycle: 3352
 cx q[8],q[7]; //cycle: 3358 //cx q[14],q[12]
 cx q[3],q[8]; //cycle: 3360 //cx q[10],q[14]
-swp q[2],q[3]; //cycle: 3362
+swap q[2],q[3]; //cycle: 3362
 h q[8]; //cycle: 3362 //h q[14]
 h q[8]; //cycle: 3363 //h q[14]
 t q[8]; //cycle: 3364 //t q[14]
@@ -3004,7 +3004,7 @@ cx q[7],q[6]; //cycle: 3379 //cx q[12],q[9]
 cx q[1],q[7]; //cycle: 3381 //cx q[11],q[12]
 cx q[6],q[1]; //cycle: 3383 //cx q[9],q[11]
 h q[7]; //cycle: 3383 //h q[12]
-swp q[11],q[16]; //cycle: 3384
+swap q[11],q[16]; //cycle: 3384
 h q[7]; //cycle: 3384 //h q[12]
 h q[6]; //cycle: 3385 //h q[9]
 t q[1]; //cycle: 3385 //t q[11]
@@ -3012,22 +3012,22 @@ t q[7]; //cycle: 3385 //t q[12]
 t q[6]; //cycle: 3386 //t q[9]
 cx q[6],q[11]; //cycle: 3390 //cx q[9],q[13]
 tdg q[11]; //cycle: 3392 //tdg q[13]
-swp q[11],q[16]; //cycle: 3393
+swap q[11],q[16]; //cycle: 3393
 cx q[11],q[6]; //cycle: 3399 //cx q[15],q[9]
 cx q[11],q[16]; //cycle: 3401 //cx q[15],q[13]
 t q[6]; //cycle: 3401 //t q[9]
 tdg q[11]; //cycle: 3403 //tdg q[15]
 tdg q[16]; //cycle: 3403 //tdg q[13]
-swp q[6],q[11]; //cycle: 3404
+swap q[6],q[11]; //cycle: 3404
 cx q[11],q[16]; //cycle: 3410 //cx q[9],q[13]
 cx q[6],q[11]; //cycle: 3412 //cx q[15],q[9]
-swp q[1],q[6]; //cycle: 3414
+swap q[1],q[6]; //cycle: 3414
 h q[11]; //cycle: 3414 //h q[9]
 t q[11]; //cycle: 3415 //t q[9]
 cx q[11],q[6]; //cycle: 3420 //cx q[9],q[11]
-swp q[7],q[12]; //cycle: 3421
-swp q[11],q[16]; //cycle: 3422
-swp q[6],q[11]; //cycle: 3428
+swap q[7],q[12]; //cycle: 3421
+swap q[11],q[16]; //cycle: 3422
+swap q[6],q[11]; //cycle: 3428
 cx q[12],q[16]; //cycle: 3428 //cx q[12],q[9]
 tdg q[16]; //cycle: 3430 //tdg q[9]
 cx q[6],q[1]; //cycle: 3434 //cx q[13],q[15]
@@ -3041,7 +3041,7 @@ tdg q[11]; //cycle: 3438 //tdg q[11]
 tdg q[16]; //cycle: 3438 //tdg q[9]
 cx q[12],q[16]; //cycle: 3439 //cx q[12],q[9]
 cx q[11],q[12]; //cycle: 3441 //cx q[11],q[12]
-swp q[2],q[7]; //cycle: 3442
+swap q[2],q[7]; //cycle: 3442
 cx q[16],q[11]; //cycle: 3443 //cx q[9],q[11]
 h q[12]; //cycle: 3443 //h q[12]
 t q[12]; //cycle: 3444 //t q[12]
@@ -3058,7 +3058,7 @@ tdg q[7]; //cycle: 3456 //tdg q[10]
 tdg q[12]; //cycle: 3456 //tdg q[12]
 cx q[8],q[12]; //cycle: 3457 //cx q[14],q[12]
 cx q[7],q[8]; //cycle: 3459 //cx q[10],q[14]
-swp q[2],q[3]; //cycle: 3460
+swap q[2],q[3]; //cycle: 3460
 cx q[12],q[7]; //cycle: 3461 //cx q[12],q[10]
 h q[8]; //cycle: 3461 //h q[14]
 t q[8]; //cycle: 3462 //t q[14]
@@ -3066,10 +3066,10 @@ t q[7]; //cycle: 3463 //t q[10]
 t q[12]; //cycle: 3463 //t q[12]
 cx q[12],q[7]; //cycle: 3464 //cx q[12],q[10]
 cx q[8],q[3]; //cycle: 3466 //cx q[14],q[8]
-swp q[0],q[1]; //cycle: 3468
-swp q[7],q[8]; //cycle: 3468
+swap q[0],q[1]; //cycle: 3468
+swap q[7],q[8]; //cycle: 3468
 cx q[1],q[7]; //cycle: 3474 //cx q[5],q[14]
-swp q[2],q[3]; //cycle: 3475
+swap q[2],q[3]; //cycle: 3475
 tdg q[7]; //cycle: 3476 //tdg q[14]
 cx q[2],q[1]; //cycle: 3481 //cx q[8],q[5]
 cx q[2],q[7]; //cycle: 3483 //cx q[8],q[14]
@@ -3117,9 +3117,9 @@ h q[16]; //cycle: 3522 //h q[9]
 t q[11]; //cycle: 3522 //t q[11]
 t q[12]; //cycle: 3522 //t q[12]
 t q[16]; //cycle: 3523 //t q[9]
-swp q[11],q[16]; //cycle: 3524
+swap q[11],q[16]; //cycle: 3524
 cx q[11],q[6]; //cycle: 3530 //cx q[9],q[13]
-swp q[0],q[5]; //cycle: 3531
+swap q[0],q[5]; //cycle: 3531
 tdg q[6]; //cycle: 3532 //tdg q[13]
 cx q[5],q[11]; //cycle: 3537 //cx q[15],q[9]
 cx q[5],q[6]; //cycle: 3539 //cx q[15],q[13]
@@ -3242,7 +3242,7 @@ cx q[12],q[11]; //cycle: 3647 //cx q[12],q[9]
 cx q[16],q[12]; //cycle: 3649 //cx q[11],q[12]
 cx q[11],q[16]; //cycle: 3651 //cx q[9],q[11]
 h q[12]; //cycle: 3651 //h q[12]
-swp q[2],q[6]; //cycle: 3652
+swap q[2],q[6]; //cycle: 3652
 t q[12]; //cycle: 3652 //t q[12]
 t q[16]; //cycle: 3653 //t q[11]
 t q[11]; //cycle: 3653 //t q[9]
@@ -3262,7 +3262,7 @@ t q[7]; //cycle: 3667 //t q[14]
 cx q[7],q[6]; //cycle: 3668 //cx q[14],q[8]
 t q[8]; //cycle: 3668 //t q[10]
 t q[12]; //cycle: 3668 //t q[12]
-swp q[2],q[3]; //cycle: 3669
+swap q[2],q[3]; //cycle: 3669
 cx q[12],q[8]; //cycle: 3669 //cx q[12],q[10]
 cx q[2],q[7]; //cycle: 3675 //cx q[6],q[14]
 cx q[6],q[2]; //cycle: 3677 //cx q[8],q[6]
@@ -3296,13 +3296,13 @@ h q[12]; //cycle: 3703 //h q[12]
 t q[8]; //cycle: 3703 //t q[10]
 t q[7]; //cycle: 3703 //t q[14]
 t q[12]; //cycle: 3704 //t q[12]
-swp q[8],q[12]; //cycle: 3705
+swap q[8],q[12]; //cycle: 3705
 cx q[8],q[3]; //cycle: 3711 //cx q[12],q[13]
-swp q[5],q[6]; //cycle: 3712
-swp q[7],q[8]; //cycle: 3713
+swap q[5],q[6]; //cycle: 3712
+swap q[7],q[8]; //cycle: 3713
 tdg q[3]; //cycle: 3713 //tdg q[13]
 cx q[6],q[7]; //cycle: 3719 //cx q[15],q[12]
-swp q[2],q[3]; //cycle: 3720
+swap q[2],q[3]; //cycle: 3720
 t q[7]; //cycle: 3721 //t q[12]
 cx q[6],q[2]; //cycle: 3726 //cx q[15],q[13]
 tdg q[6]; //cycle: 3728 //tdg q[15]
@@ -3331,10 +3331,10 @@ t q[8]; //cycle: 3749 //t q[14]
 t q[12]; //cycle: 3750 //t q[10]
 t q[7]; //cycle: 3750 //t q[12]
 cx q[7],q[12]; //cycle: 3751 //cx q[12],q[10]
-swp q[5],q[6]; //cycle: 3752
-swp q[7],q[8]; //cycle: 3753
+swap q[5],q[6]; //cycle: 3752
+swap q[7],q[8]; //cycle: 3753
 cx q[7],q[6]; //cycle: 3759 //cx q[14],q[8]
-swp q[2],q[3]; //cycle: 3760
+swap q[2],q[3]; //cycle: 3760
 cx q[2],q[7]; //cycle: 3766 //cx q[6],q[14]
 cx q[6],q[2]; //cycle: 3768 //cx q[8],q[6]
 tdg q[7]; //cycle: 3768 //tdg q[14]
@@ -3344,7 +3344,7 @@ tdg q[6]; //cycle: 3772 //tdg q[8]
 tdg q[7]; //cycle: 3772 //tdg q[14]
 cx q[2],q[7]; //cycle: 3773 //cx q[6],q[14]
 cx q[6],q[2]; //cycle: 3775 //cx q[8],q[6]
-swp q[11],q[16]; //cycle: 3776
+swap q[11],q[16]; //cycle: 3776
 cx q[7],q[6]; //cycle: 3777 //cx q[14],q[8]
 h q[2]; //cycle: 3777 //h q[6]
 h q[2]; //cycle: 3778 //h q[6]
@@ -3369,11 +3369,11 @@ t q[12]; //cycle: 3794 //t q[10]
 t q[7]; //cycle: 3794 //t q[14]
 t q[8]; //cycle: 3795 //t q[12]
 cx q[8],q[3]; //cycle: 3796 //cx q[12],q[13]
-swp q[5],q[6]; //cycle: 3798
-swp q[7],q[8]; //cycle: 3798
+swap q[5],q[6]; //cycle: 3798
+swap q[7],q[8]; //cycle: 3798
 tdg q[3]; //cycle: 3798 //tdg q[13]
 cx q[6],q[7]; //cycle: 3804 //cx q[15],q[12]
-swp q[2],q[3]; //cycle: 3805
+swap q[2],q[3]; //cycle: 3805
 t q[7]; //cycle: 3806 //t q[12]
 cx q[6],q[2]; //cycle: 3811 //cx q[15],q[13]
 tdg q[6]; //cycle: 3813 //tdg q[15]
@@ -3396,14 +3396,14 @@ tdg q[12]; //cycle: 3828 //tdg q[10]
 tdg q[7]; //cycle: 3828 //tdg q[12]
 cx q[8],q[7]; //cycle: 3829 //cx q[14],q[12]
 cx q[12],q[8]; //cycle: 3831 //cx q[10],q[14]
-swp q[5],q[6]; //cycle: 3833
+swap q[5],q[6]; //cycle: 3833
 cx q[7],q[12]; //cycle: 3833 //cx q[12],q[10]
 h q[8]; //cycle: 3833 //h q[14]
 t q[8]; //cycle: 3834 //t q[14]
 t q[12]; //cycle: 3835 //t q[10]
 t q[7]; //cycle: 3835 //t q[12]
 cx q[7],q[12]; //cycle: 3836 //cx q[12],q[10]
-swp q[7],q[8]; //cycle: 3838
+swap q[7],q[8]; //cycle: 3838
 cx q[7],q[6]; //cycle: 3844 //cx q[14],q[8]
 cx q[1],q[7]; //cycle: 3846 //cx q[5],q[14]
 cx q[6],q[1]; //cycle: 3848 //cx q[8],q[5]
@@ -3432,18 +3432,18 @@ cx q[7],q[8]; //cycle: 3868 //cx q[14],q[12]
 cx q[12],q[7]; //cycle: 3870 //cx q[10],q[14]
 cx q[8],q[12]; //cycle: 3872 //cx q[12],q[10]
 h q[7]; //cycle: 3872 //h q[14]
-swp q[2],q[3]; //cycle: 3873
+swap q[2],q[3]; //cycle: 3873
 h q[7]; //cycle: 3873 //h q[14]
 h q[8]; //cycle: 3874 //h q[12]
 t q[12]; //cycle: 3874 //t q[10]
 t q[7]; //cycle: 3874 //t q[14]
 t q[8]; //cycle: 3875 //t q[12]
 cx q[8],q[3]; //cycle: 3879 //cx q[12],q[13]
-swp q[5],q[6]; //cycle: 3880
-swp q[7],q[8]; //cycle: 3881
+swap q[5],q[6]; //cycle: 3880
+swap q[7],q[8]; //cycle: 3881
 tdg q[3]; //cycle: 3881 //tdg q[13]
 cx q[6],q[7]; //cycle: 3887 //cx q[15],q[12]
-swp q[2],q[3]; //cycle: 3888
+swap q[2],q[3]; //cycle: 3888
 t q[7]; //cycle: 3889 //t q[12]
 cx q[6],q[2]; //cycle: 3894 //cx q[15],q[13]
 tdg q[6]; //cycle: 3896 //tdg q[15]
@@ -3468,12 +3468,12 @@ cx q[8],q[7]; //cycle: 3912 //cx q[14],q[12]
 cx q[12],q[8]; //cycle: 3914 //cx q[10],q[14]
 cx q[7],q[12]; //cycle: 3916 //cx q[12],q[10]
 h q[8]; //cycle: 3916 //h q[14]
-swp q[5],q[6]; //cycle: 3917
+swap q[5],q[6]; //cycle: 3917
 t q[8]; //cycle: 3917 //t q[14]
 t q[12]; //cycle: 3918 //t q[10]
 t q[7]; //cycle: 3918 //t q[12]
 cx q[7],q[12]; //cycle: 3919 //cx q[12],q[10]
-swp q[7],q[8]; //cycle: 3921
+swap q[7],q[8]; //cycle: 3921
 cx q[7],q[6]; //cycle: 3927 //cx q[14],q[8]
 cx q[1],q[7]; //cycle: 3929 //cx q[5],q[14]
 cx q[6],q[1]; //cycle: 3931 //cx q[8],q[5]
@@ -3501,18 +3501,18 @@ cx q[7],q[8]; //cycle: 3951 //cx q[14],q[12]
 cx q[12],q[7]; //cycle: 3953 //cx q[10],q[14]
 cx q[8],q[12]; //cycle: 3955 //cx q[12],q[10]
 h q[7]; //cycle: 3955 //h q[14]
-swp q[2],q[3]; //cycle: 3956
+swap q[2],q[3]; //cycle: 3956
 h q[7]; //cycle: 3956 //h q[14]
 h q[8]; //cycle: 3957 //h q[12]
 t q[12]; //cycle: 3957 //t q[10]
 t q[7]; //cycle: 3957 //t q[14]
 t q[8]; //cycle: 3958 //t q[12]
 cx q[8],q[3]; //cycle: 3962 //cx q[12],q[13]
-swp q[5],q[6]; //cycle: 3963
-swp q[7],q[8]; //cycle: 3964
+swap q[5],q[6]; //cycle: 3963
+swap q[7],q[8]; //cycle: 3964
 tdg q[3]; //cycle: 3964 //tdg q[13]
 cx q[6],q[7]; //cycle: 3970 //cx q[15],q[12]
-swp q[2],q[3]; //cycle: 3971
+swap q[2],q[3]; //cycle: 3971
 t q[7]; //cycle: 3972 //t q[12]
 cx q[6],q[2]; //cycle: 3977 //cx q[15],q[13]
 tdg q[6]; //cycle: 3979 //tdg q[15]
@@ -3535,14 +3535,14 @@ tdg q[12]; //cycle: 3994 //tdg q[10]
 tdg q[7]; //cycle: 3994 //tdg q[12]
 cx q[8],q[7]; //cycle: 3995 //cx q[14],q[12]
 cx q[12],q[8]; //cycle: 3997 //cx q[10],q[14]
-swp q[5],q[11]; //cycle: 3998
+swap q[5],q[11]; //cycle: 3998
 cx q[7],q[12]; //cycle: 3999 //cx q[12],q[10]
 h q[8]; //cycle: 3999 //h q[14]
 t q[8]; //cycle: 4000 //t q[14]
 t q[12]; //cycle: 4001 //t q[10]
 t q[7]; //cycle: 4001 //t q[12]
 cx q[7],q[12]; //cycle: 4002 //cx q[12],q[10]
-swp q[11],q[12]; //cycle: 4004
+swap q[11],q[12]; //cycle: 4004
 cx q[8],q[12]; //cycle: 4010 //cx q[14],q[8]
 cx q[13],q[8]; //cycle: 4012 //cx q[4],q[14]
 cx q[12],q[13]; //cycle: 4014 //cx q[8],q[4]
@@ -3561,7 +3561,7 @@ t q[13]; //cycle: 4025 //t q[4]
 h q[8]; //cycle: 4025 //h q[14]
 t q[8]; //cycle: 4026 //t q[14]
 cx q[8],q[7]; //cycle: 4027 //cx q[14],q[12]
-swp q[11],q[12]; //cycle: 4028
+swap q[11],q[12]; //cycle: 4028
 tdg q[7]; //cycle: 4029 //tdg q[12]
 cx q[12],q[8]; //cycle: 4034 //cx q[10],q[14]
 cx q[12],q[7]; //cycle: 4036 //cx q[10],q[12]
@@ -3608,7 +3608,7 @@ t q[8]; //cycle: 4074 //t q[14]
 t q[12]; //cycle: 4075 //t q[10]
 t q[7]; //cycle: 4075 //t q[12]
 cx q[7],q[12]; //cycle: 4076 //cx q[12],q[10]
-swp q[11],q[12]; //cycle: 4078
+swap q[11],q[12]; //cycle: 4078
 cx q[8],q[12]; //cycle: 4084 //cx q[14],q[8]
 cx q[13],q[8]; //cycle: 4086 //cx q[4],q[14]
 cx q[12],q[13]; //cycle: 4088 //cx q[8],q[4]
@@ -3626,7 +3626,7 @@ h q[8]; //cycle: 4099 //h q[14]
 t q[12]; //cycle: 4099 //t q[8]
 t q[8]; //cycle: 4100 //t q[14]
 cx q[8],q[7]; //cycle: 4101 //cx q[14],q[12]
-swp q[11],q[12]; //cycle: 4102
+swap q[11],q[12]; //cycle: 4102
 tdg q[7]; //cycle: 4103 //tdg q[12]
 cx q[12],q[8]; //cycle: 4108 //cx q[10],q[14]
 cx q[12],q[7]; //cycle: 4110 //cx q[10],q[12]
@@ -3659,7 +3659,7 @@ t q[6]; //cycle: 4134 //t q[15]
 t q[2]; //cycle: 4134 //t q[13]
 cx q[6],q[11]; //cycle: 4135 //cx q[15],q[8]
 cx q[8],q[7]; //cycle: 4136 //cx q[14],q[12]
-swp q[0],q[5]; //cycle: 4137
+swap q[0],q[5]; //cycle: 4137
 cx q[12],q[8]; //cycle: 4138 //cx q[10],q[14]
 tdg q[7]; //cycle: 4138 //tdg q[12]
 cx q[12],q[7]; //cycle: 4140 //cx q[10],q[12]
@@ -3680,7 +3680,7 @@ t q[7]; //cycle: 4149 //t q[12]
 tdg q[11]; //cycle: 4149 //tdg q[8]
 tdg q[6]; //cycle: 4149 //tdg q[15]
 t q[12]; //cycle: 4149 //t q[10]
-swp q[7],q[12]; //cycle: 4150
+swap q[7],q[12]; //cycle: 4150
 cx q[5],q[6]; //cycle: 4150 //cx q[3],q[15]
 cx q[11],q[5]; //cycle: 4152 //cx q[8],q[3]
 cx q[6],q[11]; //cycle: 4154 //cx q[15],q[8]
@@ -3691,9 +3691,9 @@ t q[5]; //cycle: 4156 //t q[3]
 cx q[16],q[12]; //cycle: 4156 //cx q[9],q[12]
 h q[6]; //cycle: 4156 //h q[15]
 cx q[2],q[7]; //cycle: 4156 //cx q[13],q[10]
-swp q[8],q[9]; //cycle: 4157
+swap q[8],q[9]; //cycle: 4157
 t q[6]; //cycle: 4157 //t q[15]
-swp q[12],q[16]; //cycle: 4158
+swap q[12],q[16]; //cycle: 4158
 cx q[6],q[2]; //cycle: 4158 //cx q[15],q[13]
 cx q[7],q[6]; //cycle: 4160 //cx q[10],q[15]
 tdg q[2]; //cycle: 4160 //tdg q[13]
@@ -3704,7 +3704,7 @@ tdg q[7]; //cycle: 4164 //tdg q[10]
 tdg q[2]; //cycle: 4164 //tdg q[13]
 cx q[6],q[2]; //cycle: 4165 //cx q[15],q[13]
 tdg q[12]; //cycle: 4166 //tdg q[9]
-swp q[12],q[16]; //cycle: 4167
+swap q[12],q[16]; //cycle: 4167
 cx q[7],q[6]; //cycle: 4167 //cx q[10],q[15]
 cx q[2],q[7]; //cycle: 4169 //cx q[13],q[10]
 h q[6]; //cycle: 4169 //h q[15]
@@ -3718,15 +3718,15 @@ cx q[12],q[16]; //cycle: 4175 //cx q[12],q[9]
 t q[8]; //cycle: 4175 //t q[1]
 tdg q[12]; //cycle: 4177 //tdg q[12]
 tdg q[16]; //cycle: 4177 //tdg q[9]
-swp q[8],q[12]; //cycle: 4178
+swap q[8],q[12]; //cycle: 4178
 cx q[12],q[16]; //cycle: 4184 //cx q[1],q[9]
 cx q[8],q[12]; //cycle: 4186 //cx q[12],q[1]
-swp q[2],q[7]; //cycle: 4187
+swap q[2],q[7]; //cycle: 4187
 h q[12]; //cycle: 4188 //h q[1]
 t q[12]; //cycle: 4189 //t q[1]
-swp q[8],q[12]; //cycle: 4190
+swap q[8],q[12]; //cycle: 4190
 cx q[16],q[12]; //cycle: 4196 //cx q[9],q[12]
-swp q[8],q[9]; //cycle: 4197
+swap q[8],q[9]; //cycle: 4197
 t q[16]; //cycle: 4198 //t q[9]
 t q[12]; //cycle: 4198 //t q[12]
 cx q[12],q[8]; //cycle: 4203 //cx q[12],q[14]
@@ -3739,22 +3739,22 @@ tdg q[8]; //cycle: 4211 //tdg q[14]
 tdg q[12]; //cycle: 4211 //tdg q[12]
 cx q[7],q[12]; //cycle: 4212 //cx q[13],q[12]
 cx q[8],q[7]; //cycle: 4214 //cx q[14],q[13]
-swp q[12],q[16]; //cycle: 4215
+swap q[12],q[16]; //cycle: 4215
 h q[7]; //cycle: 4216 //h q[13]
 t q[7]; //cycle: 4217 //t q[13]
-swp q[4],q[8]; //cycle: 4218
+swap q[4],q[8]; //cycle: 4218
 cx q[7],q[2]; //cycle: 4218 //cx q[13],q[10]
 cx q[6],q[7]; //cycle: 4220 //cx q[15],q[13]
-swp q[12],q[16]; //cycle: 4221
+swap q[12],q[16]; //cycle: 4221
 cx q[2],q[6]; //cycle: 4222 //cx q[10],q[15]
 tdg q[7]; //cycle: 4222 //tdg q[13]
 cx q[2],q[7]; //cycle: 4224 //cx q[10],q[13]
 t q[6]; //cycle: 4224 //t q[15]
 tdg q[2]; //cycle: 4226 //tdg q[10]
 tdg q[7]; //cycle: 4226 //tdg q[13]
-swp q[4],q[8]; //cycle: 4227
+swap q[4],q[8]; //cycle: 4227
 cx q[6],q[7]; //cycle: 4227 //cx q[15],q[13]
-swp q[12],q[16]; //cycle: 4229
+swap q[12],q[16]; //cycle: 4229
 cx q[2],q[6]; //cycle: 4229 //cx q[10],q[15]
 cx q[7],q[2]; //cycle: 4231 //cx q[13],q[10]
 h q[6]; //cycle: 4231 //h q[15]
@@ -3763,14 +3763,14 @@ cx q[6],q[11]; //cycle: 4233 //cx q[15],q[8]
 t q[2]; //cycle: 4233 //t q[10]
 t q[7]; //cycle: 4233 //t q[13]
 cx q[7],q[2]; //cycle: 4234 //cx q[13],q[10]
-swp q[4],q[8]; //cycle: 4235
-swp q[12],q[16]; //cycle: 4235
+swap q[4],q[8]; //cycle: 4235
+swap q[12],q[16]; //cycle: 4235
 cx q[5],q[6]; //cycle: 4235 //cx q[3],q[15]
 cx q[11],q[5]; //cycle: 4237 //cx q[8],q[3]
 tdg q[6]; //cycle: 4237 //tdg q[15]
 cx q[11],q[6]; //cycle: 4239 //cx q[8],q[15]
 t q[5]; //cycle: 4239 //t q[3]
-swp q[12],q[16]; //cycle: 4241
+swap q[12],q[16]; //cycle: 4241
 tdg q[11]; //cycle: 4241 //tdg q[8]
 tdg q[6]; //cycle: 4241 //tdg q[15]
 cx q[5],q[6]; //cycle: 4242 //cx q[3],q[15]
@@ -3781,8 +3781,8 @@ cx q[8],q[12]; //cycle: 4247 //cx q[7],q[9]
 t q[5]; //cycle: 4247 //t q[3]
 h q[6]; //cycle: 4248 //h q[15]
 t q[11]; //cycle: 4248 //t q[8]
-swp q[4],q[8]; //cycle: 4249
-swp q[12],q[16]; //cycle: 4249
+swap q[4],q[8]; //cycle: 4249
+swap q[12],q[16]; //cycle: 4249
 t q[6]; //cycle: 4249 //t q[15]
 cx q[6],q[7]; //cycle: 4250 //cx q[15],q[13]
 cx q[2],q[6]; //cycle: 4252 //cx q[10],q[15]
@@ -3837,14 +3837,14 @@ tdg q[12]; //cycle: 4287 //tdg q[12]
 tdg q[11]; //cycle: 4287 //tdg q[8]
 cx q[17],q[11]; //cycle: 4288 //cx q[0],q[8]
 cx q[2],q[6]; //cycle: 4289 //cx q[10],q[15]
-swp q[7],q[8]; //cycle: 4290
+swap q[7],q[8]; //cycle: 4290
 cx q[12],q[17]; //cycle: 4290 //cx q[12],q[0]
-swp q[2],q[3]; //cycle: 4291
+swap q[2],q[3]; //cycle: 4291
 h q[6]; //cycle: 4291 //h q[15]
 cx q[11],q[12]; //cycle: 4292 //cx q[8],q[12]
 h q[17]; //cycle: 4292 //h q[0]
 t q[6]; //cycle: 4292 //t q[15]
-swp q[0],q[5]; //cycle: 4293
+swap q[0],q[5]; //cycle: 4293
 x q[11]; //cycle: 4294 //x q[8]
 t q[12]; //cycle: 4294 //t q[12]
 t q[11]; //cycle: 4295 //t q[8]
@@ -3854,11 +3854,11 @@ cx q[8],q[3]; //cycle: 4297 //cx q[13],q[10]
 cx q[5],q[11]; //cycle: 4299 //cx q[11],q[8]
 t q[3]; //cycle: 4299 //t q[10]
 t q[8]; //cycle: 4299 //t q[13]
-swp q[2],q[6]; //cycle: 4300
-swp q[0],q[1]; //cycle: 4302
+swap q[2],q[6]; //cycle: 4300
+swap q[0],q[1]; //cycle: 4302
 cx q[6],q[5]; //cycle: 4306 //cx q[6],q[11]
-swp q[1],q[7]; //cycle: 4308
-swp q[2],q[3]; //cycle: 4308
+swap q[1],q[7]; //cycle: 4308
+swap q[2],q[3]; //cycle: 4308
 cx q[11],q[6]; //cycle: 4308 //cx q[8],q[6]
 tdg q[5]; //cycle: 4308 //tdg q[11]
 cx q[11],q[5]; //cycle: 4310 //cx q[8],q[11]
@@ -3867,19 +3867,19 @@ tdg q[11]; //cycle: 4312 //tdg q[8]
 tdg q[5]; //cycle: 4312 //tdg q[11]
 cx q[6],q[5]; //cycle: 4313 //cx q[6],q[11]
 cx q[7],q[8]; //cycle: 4314 //cx q[3],q[13]
-swp q[0],q[1]; //cycle: 4315
+swap q[0],q[1]; //cycle: 4315
 cx q[11],q[6]; //cycle: 4315 //cx q[8],q[6]
 cx q[5],q[11]; //cycle: 4317 //cx q[11],q[8]
 h q[6]; //cycle: 4317 //h q[6]
-swp q[4],q[8]; //cycle: 4318
+swap q[4],q[8]; //cycle: 4318
 h q[6]; //cycle: 4318 //h q[6]
 h q[5]; //cycle: 4319 //h q[11]
 t q[11]; //cycle: 4319 //t q[8]
 t q[6]; //cycle: 4319 //t q[6]
 t q[5]; //cycle: 4320 //t q[11]
 cx q[1],q[2]; //cycle: 4321 //cx q[5],q[10]
-swp q[5],q[11]; //cycle: 4324
-swp q[8],q[12]; //cycle: 4324
+swap q[5],q[11]; //cycle: 4324
+swap q[8],q[12]; //cycle: 4324
 cx q[11],q[12]; //cycle: 4330 //cx q[11],q[7]
 cx q[16],q[11]; //cycle: 4332 //cx q[9],q[11]
 tdg q[12]; //cycle: 4332 //tdg q[7]
@@ -3896,7 +3896,7 @@ h q[12]; //cycle: 4343 //h q[7]
 t q[16]; //cycle: 4343 //t q[9]
 t q[11]; //cycle: 4343 //t q[11]
 t q[12]; //cycle: 4344 //t q[7]
-swp q[7],q[12]; //cycle: 4345
+swap q[7],q[12]; //cycle: 4345
 cx q[7],q[1]; //cycle: 4351 //cx q[7],q[5]
 cx q[2],q[7]; //cycle: 4353 //cx q[10],q[7]
 tdg q[1]; //cycle: 4353 //tdg q[5]
@@ -3913,7 +3913,7 @@ h q[1]; //cycle: 4364 //h q[5]
 t q[2]; //cycle: 4364 //t q[10]
 t q[7]; //cycle: 4364 //t q[7]
 t q[1]; //cycle: 4365 //t q[5]
-swp q[1],q[7]; //cycle: 4366
+swap q[1],q[7]; //cycle: 4366
 cx q[7],q[13]; //cycle: 4372 //cx q[5],q[4]
 cx q[8],q[7]; //cycle: 4374 //cx q[12],q[5]
 tdg q[13]; //cycle: 4374 //tdg q[4]
@@ -3931,7 +3931,7 @@ t q[8]; //cycle: 4385 //t q[12]
 t q[7]; //cycle: 4385 //t q[5]
 t q[13]; //cycle: 4386 //t q[4]
 cx q[13],q[12]; //cycle: 4387 //cx q[4],q[3]
-swp q[4],q[8]; //cycle: 4388
+swap q[4],q[8]; //cycle: 4388
 tdg q[12]; //cycle: 4389 //tdg q[3]
 cx q[8],q[13]; //cycle: 4394 //cx q[13],q[4]
 cx q[8],q[12]; //cycle: 4396 //cx q[13],q[3]
@@ -3943,14 +3943,14 @@ cx q[8],q[13]; //cycle: 4401 //cx q[13],q[4]
 cx q[12],q[8]; //cycle: 4403 //cx q[3],q[13]
 h q[13]; //cycle: 4403 //h q[4]
 h q[13]; //cycle: 4404 //h q[4]
-swp q[0],q[1]; //cycle: 4405
+swap q[0],q[1]; //cycle: 4405
 h q[12]; //cycle: 4405 //h q[3]
 t q[8]; //cycle: 4405 //t q[13]
 t q[13]; //cycle: 4405 //t q[4]
 t q[12]; //cycle: 4406 //t q[3]
-swp q[7],q[12]; //cycle: 4407
+swap q[7],q[12]; //cycle: 4407
 cx q[7],q[1]; //cycle: 4413 //cx q[3],q[14]
-swp q[2],q[3]; //cycle: 4414
+swap q[2],q[3]; //cycle: 4414
 tdg q[1]; //cycle: 4415 //tdg q[14]
 cx q[2],q[7]; //cycle: 4420 //cx q[15],q[3]
 cx q[2],q[1]; //cycle: 4422 //cx q[15],q[14]
@@ -3981,7 +3981,7 @@ t q[13]; //cycle: 4445 //t q[4]
 t q[8]; //cycle: 4446 //t q[13]
 t q[7]; //cycle: 4446 //t q[3]
 cx q[7],q[8]; //cycle: 4447 //cx q[3],q[13]
-swp q[4],q[8]; //cycle: 4449
+swap q[4],q[8]; //cycle: 4449
 cx q[13],q[8]; //cycle: 4455 //cx q[4],q[12]
 cx q[12],q[13]; //cycle: 4457 //cx q[5],q[4]
 cx q[8],q[12]; //cycle: 4459 //cx q[12],q[5]
@@ -3998,12 +3998,12 @@ t q[12]; //cycle: 4469 //t q[5]
 t q[8]; //cycle: 4470 //t q[12]
 t q[13]; //cycle: 4470 //t q[4]
 cx q[13],q[8]; //cycle: 4471 //cx q[4],q[12]
-swp q[8],q[12]; //cycle: 4473
+swap q[8],q[12]; //cycle: 4473
 cx q[8],q[3]; //cycle: 4479 //cx q[5],q[10]
-swp q[0],q[1]; //cycle: 4480
-swp q[7],q[8]; //cycle: 4481
+swap q[0],q[1]; //cycle: 4480
+swap q[7],q[8]; //cycle: 4481
 cx q[1],q[7]; //cycle: 4487 //cx q[7],q[5]
-swp q[2],q[3]; //cycle: 4488
+swap q[2],q[3]; //cycle: 4488
 tdg q[7]; //cycle: 4489 //tdg q[5]
 cx q[2],q[1]; //cycle: 4494 //cx q[10],q[7]
 cx q[2],q[7]; //cycle: 4496 //cx q[10],q[5]
@@ -4012,38 +4012,38 @@ tdg q[2]; //cycle: 4498 //tdg q[10]
 tdg q[7]; //cycle: 4498 //tdg q[5]
 cx q[1],q[7]; //cycle: 4499 //cx q[7],q[5]
 cx q[2],q[1]; //cycle: 4501 //cx q[10],q[7]
-swp q[11],q[16]; //cycle: 4503
+swap q[11],q[16]; //cycle: 4503
 cx q[7],q[2]; //cycle: 4503 //cx q[5],q[10]
 h q[1]; //cycle: 4503 //h q[7]
 t q[1]; //cycle: 4504 //t q[7]
-swp q[1],q[6]; //cycle: 4505
+swap q[1],q[6]; //cycle: 4505
 t q[2]; //cycle: 4505 //t q[10]
 t q[7]; //cycle: 4505 //t q[5]
 cx q[7],q[2]; //cycle: 4506 //cx q[5],q[10]
 cx q[6],q[11]; //cycle: 4511 //cx q[7],q[9]
-swp q[11],q[16]; //cycle: 4513
+swap q[11],q[16]; //cycle: 4513
 cx q[11],q[6]; //cycle: 4519 //cx q[11],q[7]
 cx q[16],q[11]; //cycle: 4521 //cx q[9],q[11]
 tdg q[6]; //cycle: 4521 //tdg q[7]
 t q[11]; //cycle: 4523 //t q[11]
-swp q[6],q[11]; //cycle: 4524
+swap q[6],q[11]; //cycle: 4524
 cx q[16],q[11]; //cycle: 4530 //cx q[9],q[7]
 tdg q[16]; //cycle: 4532 //tdg q[9]
 tdg q[11]; //cycle: 4532 //tdg q[7]
 cx q[6],q[11]; //cycle: 4533 //cx q[11],q[7]
-swp q[6],q[11]; //cycle: 4535
+swap q[6],q[11]; //cycle: 4535
 cx q[16],q[11]; //cycle: 4541 //cx q[9],q[11]
 h q[11]; //cycle: 4543 //h q[11]
 t q[11]; //cycle: 4544 //t q[11]
 cx q[11],q[5]; //cycle: 4545 //cx q[11],q[8]
-swp q[1],q[6]; //cycle: 4546
-swp q[1],q[7]; //cycle: 4552
+swap q[1],q[6]; //cycle: 4546
+swap q[1],q[7]; //cycle: 4552
 cx q[6],q[11]; //cycle: 4552 //cx q[6],q[11]
 cx q[5],q[6]; //cycle: 4554 //cx q[8],q[6]
 tdg q[11]; //cycle: 4554 //tdg q[11]
 cx q[5],q[11]; //cycle: 4556 //cx q[8],q[11]
 t q[6]; //cycle: 4556 //t q[6]
-swp q[7],q[12]; //cycle: 4558
+swap q[7],q[12]; //cycle: 4558
 tdg q[5]; //cycle: 4558 //tdg q[8]
 tdg q[11]; //cycle: 4558 //tdg q[11]
 cx q[6],q[11]; //cycle: 4559 //cx q[6],q[11]
@@ -4074,7 +4074,7 @@ t q[16]; //cycle: 4582 //t q[9]
 t q[11]; //cycle: 4582 //t q[11]
 h q[12]; //cycle: 4582 //h q[7]
 t q[12]; //cycle: 4583 //t q[7]
-swp q[7],q[12]; //cycle: 4584
+swap q[7],q[12]; //cycle: 4584
 cx q[7],q[1]; //cycle: 4590 //cx q[7],q[5]
 cx q[2],q[7]; //cycle: 4592 //cx q[10],q[7]
 tdg q[1]; //cycle: 4592 //tdg q[5]
@@ -4091,7 +4091,7 @@ t q[2]; //cycle: 4603 //t q[10]
 t q[7]; //cycle: 4603 //t q[7]
 h q[1]; //cycle: 4603 //h q[5]
 t q[1]; //cycle: 4604 //t q[5]
-swp q[1],q[7]; //cycle: 4605
+swap q[1],q[7]; //cycle: 4605
 cx q[7],q[13]; //cycle: 4611 //cx q[5],q[4]
 cx q[12],q[7]; //cycle: 4613 //cx q[12],q[5]
 tdg q[13]; //cycle: 4613 //tdg q[4]
@@ -4110,27 +4110,27 @@ h q[13]; //cycle: 4624 //h q[4]
 t q[13]; //cycle: 4625 //t q[4]
 cx q[13],q[8]; //cycle: 4626 //cx q[4],q[3]
 tdg q[8]; //cycle: 4628 //tdg q[3]
-swp q[4],q[8]; //cycle: 4629
+swap q[4],q[8]; //cycle: 4629
 cx q[8],q[13]; //cycle: 4635 //cx q[13],q[4]
 cx q[8],q[4]; //cycle: 4637 //cx q[13],q[3]
 t q[13]; //cycle: 4637 //t q[4]
 tdg q[8]; //cycle: 4639 //tdg q[13]
 tdg q[4]; //cycle: 4639 //tdg q[3]
-swp q[8],q[13]; //cycle: 4640
+swap q[8],q[13]; //cycle: 4640
 cx q[8],q[4]; //cycle: 4646 //cx q[4],q[3]
 cx q[13],q[8]; //cycle: 4648 //cx q[13],q[4]
 h q[8]; //cycle: 4650 //h q[4]
 h q[8]; //cycle: 4651 //h q[4]
 t q[8]; //cycle: 4652 //t q[4]
-swp q[4],q[8]; //cycle: 4653
+swap q[4],q[8]; //cycle: 4653
 cx q[8],q[13]; //cycle: 4659 //cx q[3],q[13]
 h q[8]; //cycle: 4661 //h q[3]
 t q[13]; //cycle: 4661 //t q[13]
 t q[8]; //cycle: 4662 //t q[3]
-swp q[0],q[1]; //cycle: 4663
-swp q[7],q[8]; //cycle: 4663
+swap q[0],q[1]; //cycle: 4663
+swap q[7],q[8]; //cycle: 4663
 cx q[7],q[1]; //cycle: 4669 //cx q[3],q[14]
-swp q[2],q[3]; //cycle: 4670
+swap q[2],q[3]; //cycle: 4670
 tdg q[1]; //cycle: 4671 //tdg q[14]
 cx q[2],q[7]; //cycle: 4676 //cx q[15],q[3]
 cx q[2],q[1]; //cycle: 4678 //cx q[15],q[14]
@@ -4142,17 +4142,17 @@ cx q[2],q[7]; //cycle: 4683 //cx q[15],q[3]
 cx q[1],q[2]; //cycle: 4685 //cx q[14],q[15]
 h q[7]; //cycle: 4685 //h q[3]
 t q[7]; //cycle: 4686 //t q[3]
-swp q[11],q[16]; //cycle: 4687
+swap q[11],q[16]; //cycle: 4687
 cx q[7],q[13]; //cycle: 4687 //cx q[3],q[13]
 t q[2]; //cycle: 4687 //t q[15]
 t q[1]; //cycle: 4687 //t q[14]
-swp q[4],q[8]; //cycle: 4688
+swap q[4],q[8]; //cycle: 4688
 cx q[8],q[7]; //cycle: 4694 //cx q[4],q[3]
 cx q[13],q[8]; //cycle: 4696 //cx q[13],q[4]
 tdg q[7]; //cycle: 4696 //tdg q[3]
 cx q[13],q[7]; //cycle: 4698 //cx q[13],q[3]
 t q[8]; //cycle: 4698 //t q[4]
-swp q[5],q[6]; //cycle: 4700
+swap q[5],q[6]; //cycle: 4700
 tdg q[13]; //cycle: 4700 //tdg q[13]
 tdg q[7]; //cycle: 4700 //tdg q[3]
 cx q[8],q[7]; //cycle: 4701 //cx q[4],q[3]
@@ -4170,7 +4170,7 @@ cx q[7],q[2]; //cycle: 4709 //cx q[3],q[15]
 tdg q[8]; //cycle: 4711 //tdg q[4]
 cx q[6],q[7]; //cycle: 4711 //cx q[8],q[3]
 tdg q[2]; //cycle: 4711 //tdg q[15]
-swp q[8],q[12]; //cycle: 4712
+swap q[8],q[12]; //cycle: 4712
 cx q[6],q[2]; //cycle: 4713 //cx q[8],q[15]
 t q[7]; //cycle: 4713 //t q[3]
 tdg q[6]; //cycle: 4715 //tdg q[8]
@@ -4188,18 +4188,18 @@ tdg q[12]; //cycle: 4722 //tdg q[4]
 h q[2]; //cycle: 4722 //h q[15]
 t q[6]; //cycle: 4722 //t q[8]
 t q[7]; //cycle: 4722 //t q[3]
-swp q[4],q[8]; //cycle: 4723
+swap q[4],q[8]; //cycle: 4723
 t q[2]; //cycle: 4723 //t q[15]
 cx q[8],q[12]; //cycle: 4729 //cx q[5],q[4]
 cx q[4],q[8]; //cycle: 4731 //cx q[12],q[5]
 h q[8]; //cycle: 4733 //h q[5]
 t q[8]; //cycle: 4734 //t q[5]
 cx q[8],q[3]; //cycle: 4735 //cx q[5],q[10]
-swp q[0],q[1]; //cycle: 4737
-swp q[7],q[8]; //cycle: 4737
-swp q[8],q[12]; //cycle: 4743
+swap q[0],q[1]; //cycle: 4737
+swap q[7],q[8]; //cycle: 4737
+swap q[8],q[12]; //cycle: 4743
 cx q[1],q[7]; //cycle: 4743 //cx q[7],q[5]
-swp q[2],q[3]; //cycle: 4744
+swap q[2],q[3]; //cycle: 4744
 tdg q[7]; //cycle: 4745 //tdg q[5]
 cx q[8],q[4]; //cycle: 4749 //cx q[4],q[12]
 cx q[2],q[1]; //cycle: 4750 //cx q[10],q[7]
@@ -4211,20 +4211,20 @@ t q[8]; //cycle: 4752 //t q[4]
 tdg q[2]; //cycle: 4754 //tdg q[10]
 tdg q[7]; //cycle: 4754 //tdg q[5]
 cx q[1],q[7]; //cycle: 4755 //cx q[7],q[5]
-swp q[8],q[13]; //cycle: 4757
+swap q[8],q[13]; //cycle: 4757
 cx q[2],q[1]; //cycle: 4757 //cx q[10],q[7]
-swp q[6],q[11]; //cycle: 4758
+swap q[6],q[11]; //cycle: 4758
 cx q[7],q[2]; //cycle: 4759 //cx q[5],q[10]
 h q[1]; //cycle: 4759 //h q[7]
-swp q[12],q[16]; //cycle: 4760
+swap q[12],q[16]; //cycle: 4760
 t q[1]; //cycle: 4760 //t q[7]
 t q[2]; //cycle: 4761 //t q[10]
 h q[7]; //cycle: 4761 //h q[5]
-swp q[2],q[3]; //cycle: 4762
+swap q[2],q[3]; //cycle: 4762
 t q[7]; //cycle: 4762 //t q[5]
 cx q[4],q[8]; //cycle: 4763 //cx q[12],q[13]
 cx q[1],q[6]; //cycle: 4764 //cx q[7],q[9]
-swp q[7],q[12]; //cycle: 4766
+swap q[7],q[12]; //cycle: 4766
 cx q[7],q[1]; //cycle: 4772 //cx q[11],q[7]
 cx q[6],q[7]; //cycle: 4774 //cx q[9],q[11]
 tdg q[1]; //cycle: 4774 //tdg q[7]
@@ -4236,29 +4236,29 @@ cx q[7],q[1]; //cycle: 4779 //cx q[11],q[7]
 cx q[6],q[7]; //cycle: 4781 //cx q[9],q[11]
 cx q[1],q[6]; //cycle: 4783 //cx q[7],q[9]
 h q[7]; //cycle: 4783 //h q[11]
-swp q[0],q[5]; //cycle: 4784
+swap q[0],q[5]; //cycle: 4784
 t q[7]; //cycle: 4784 //t q[11]
-swp q[7],q[8]; //cycle: 4785
+swap q[7],q[8]; //cycle: 4785
 t q[6]; //cycle: 4785 //t q[9]
 h q[1]; //cycle: 4785 //h q[7]
 t q[1]; //cycle: 4786 //t q[7]
 cx q[5],q[6]; //cycle: 4790 //cx q[14],q[9]
 cx q[8],q[3]; //cycle: 4791 //cx q[11],q[10]
-swp q[2],q[6]; //cycle: 4792
+swap q[2],q[6]; //cycle: 4792
 cx q[6],q[5]; //cycle: 4798 //cx q[15],q[14]
 cx q[2],q[6]; //cycle: 4800 //cx q[9],q[15]
 tdg q[5]; //cycle: 4800 //tdg q[14]
 t q[6]; //cycle: 4802 //t q[15]
-swp q[5],q[6]; //cycle: 4803
+swap q[5],q[6]; //cycle: 4803
 cx q[2],q[6]; //cycle: 4809 //cx q[9],q[14]
 tdg q[2]; //cycle: 4811 //tdg q[9]
 tdg q[6]; //cycle: 4811 //tdg q[14]
 cx q[5],q[6]; //cycle: 4812 //cx q[15],q[14]
-swp q[2],q[6]; //cycle: 4814
+swap q[2],q[6]; //cycle: 4814
 cx q[6],q[5]; //cycle: 4820 //cx q[9],q[15]
 cx q[2],q[6]; //cycle: 4822 //cx q[14],q[9]
 h q[5]; //cycle: 4822 //h q[15]
-swp q[7],q[8]; //cycle: 4823
+swap q[7],q[8]; //cycle: 4823
 h q[5]; //cycle: 4823 //h q[15]
 h q[2]; //cycle: 4824 //h q[14]
 t q[6]; //cycle: 4824 //t q[9]
@@ -4267,13 +4267,13 @@ t q[2]; //cycle: 4825 //t q[14]
 cx q[2],q[7]; //cycle: 4829 //cx q[14],q[11]
 cx q[3],q[2]; //cycle: 4831 //cx q[10],q[14]
 tdg q[7]; //cycle: 4831 //tdg q[11]
-swp q[3],q[8]; //cycle: 4833
+swap q[3],q[8]; //cycle: 4833
 t q[2]; //cycle: 4833 //t q[14]
 cx q[8],q[7]; //cycle: 4839 //cx q[10],q[11]
 tdg q[8]; //cycle: 4841 //tdg q[10]
 tdg q[7]; //cycle: 4841 //tdg q[11]
 cx q[2],q[7]; //cycle: 4842 //cx q[14],q[11]
-swp q[7],q[8]; //cycle: 4844
+swap q[7],q[8]; //cycle: 4844
 cx q[7],q[2]; //cycle: 4850 //cx q[10],q[14]
 cx q[8],q[7]; //cycle: 4852 //cx q[11],q[10]
 h q[2]; //cycle: 4852 //h q[14]
@@ -4298,23 +4298,23 @@ cx q[8],q[7]; //cycle: 4869 //cx q[11],q[10]
 t q[3]; //cycle: 4869 //t q[13]
 t q[4]; //cycle: 4869 //t q[12]
 cx q[4],q[3]; //cycle: 4870 //cx q[12],q[13]
-swp q[2],q[7]; //cycle: 4871
+swap q[2],q[7]; //cycle: 4871
 cx q[7],q[8]; //cycle: 4877 //cx q[14],q[11]
 cx q[2],q[7]; //cycle: 4879 //cx q[10],q[14]
 tdg q[8]; //cycle: 4879 //tdg q[11]
-swp q[2],q[3]; //cycle: 4881
+swap q[2],q[3]; //cycle: 4881
 t q[7]; //cycle: 4881 //t q[14]
 cx q[3],q[8]; //cycle: 4887 //cx q[10],q[11]
 tdg q[3]; //cycle: 4889 //tdg q[10]
 tdg q[8]; //cycle: 4889 //tdg q[11]
 cx q[7],q[8]; //cycle: 4890 //cx q[14],q[11]
-swp q[2],q[3]; //cycle: 4891
+swap q[2],q[3]; //cycle: 4891
 cx q[2],q[7]; //cycle: 4897 //cx q[10],q[14]
 h q[7]; //cycle: 4899 //h q[14]
 t q[7]; //cycle: 4900 //t q[14]
 cx q[7],q[6]; //cycle: 4901 //cx q[14],q[9]
-swp q[5],q[6]; //cycle: 4903
-swp q[2],q[3]; //cycle: 4905
+swap q[5],q[6]; //cycle: 4903
+swap q[2],q[3]; //cycle: 4905
 cx q[6],q[7]; //cycle: 4909 //cx q[15],q[14]
 cx q[8],q[3]; //cycle: 4911 //cx q[11],q[10]
 cx q[5],q[6]; //cycle: 4911 //cx q[9],q[15]
@@ -4322,18 +4322,18 @@ tdg q[7]; //cycle: 4911 //tdg q[14]
 t q[6]; //cycle: 4913 //t q[15]
 t q[3]; //cycle: 4913 //t q[10]
 t q[8]; //cycle: 4913 //t q[11]
-swp q[6],q[7]; //cycle: 4914
+swap q[6],q[7]; //cycle: 4914
 cx q[8],q[3]; //cycle: 4914 //cx q[11],q[10]
 cx q[5],q[6]; //cycle: 4920 //cx q[9],q[14]
 tdg q[5]; //cycle: 4922 //tdg q[9]
 tdg q[6]; //cycle: 4922 //tdg q[14]
 cx q[7],q[6]; //cycle: 4923 //cx q[15],q[14]
-swp q[5],q[6]; //cycle: 4925
+swap q[5],q[6]; //cycle: 4925
 cx q[6],q[7]; //cycle: 4931 //cx q[9],q[15]
 cx q[5],q[6]; //cycle: 4933 //cx q[14],q[9]
 h q[7]; //cycle: 4933 //h q[15]
 t q[7]; //cycle: 4934 //t q[15]
-swp q[7],q[12]; //cycle: 4935
+swap q[7],q[12]; //cycle: 4935
 t q[6]; //cycle: 4935 //t q[9]
 t q[5]; //cycle: 4935 //t q[14]
 cx q[5],q[6]; //cycle: 4936 //cx q[14],q[9]
@@ -4353,7 +4353,7 @@ t q[16]; //cycle: 4955 //t q[3]
 h q[12]; //cycle: 4956 //h q[15]
 t q[11]; //cycle: 4956 //t q[8]
 t q[12]; //cycle: 4957 //t q[15]
-swp q[11],q[12]; //cycle: 4958
+swap q[11],q[12]; //cycle: 4958
 cx q[11],q[5]; //cycle: 4964 //cx q[15],q[14]
 cx q[6],q[11]; //cycle: 4966 //cx q[9],q[15]
 tdg q[5]; //cycle: 4966 //tdg q[14]
@@ -4366,14 +4366,14 @@ cx q[6],q[11]; //cycle: 4973 //cx q[9],q[15]
 cx q[5],q[6]; //cycle: 4975 //cx q[14],q[9]
 h q[11]; //cycle: 4975 //h q[15]
 h q[11]; //cycle: 4976 //h q[15]
-swp q[7],q[8]; //cycle: 4977
+swap q[7],q[8]; //cycle: 4977
 h q[5]; //cycle: 4977 //h q[14]
 t q[6]; //cycle: 4977 //t q[9]
 t q[11]; //cycle: 4977 //t q[15]
 t q[5]; //cycle: 4978 //t q[14]
-swp q[5],q[6]; //cycle: 4979
+swap q[5],q[6]; //cycle: 4979
 cx q[6],q[7]; //cycle: 4985 //cx q[14],q[11]
-swp q[2],q[3]; //cycle: 4986
+swap q[2],q[3]; //cycle: 4986
 tdg q[7]; //cycle: 4987 //tdg q[11]
 cx q[2],q[6]; //cycle: 4992 //cx q[10],q[14]
 cx q[2],q[7]; //cycle: 4994 //cx q[10],q[11]
@@ -4389,7 +4389,7 @@ h q[7]; //cycle: 5003 //h q[11]
 t q[2]; //cycle: 5003 //t q[10]
 t q[6]; //cycle: 5003 //t q[14]
 t q[7]; //cycle: 5004 //t q[11]
-swp q[7],q[8]; //cycle: 5005
+swap q[7],q[8]; //cycle: 5005
 cx q[8],q[4]; //cycle: 5011 //cx q[11],q[12]
 cx q[3],q[8]; //cycle: 5013 //cx q[13],q[11]
 tdg q[4]; //cycle: 5013 //tdg q[12]
@@ -4402,7 +4402,7 @@ cx q[3],q[8]; //cycle: 5020 //cx q[13],q[11]
 cx q[4],q[3]; //cycle: 5022 //cx q[12],q[13]
 h q[8]; //cycle: 5022 //h q[11]
 t q[8]; //cycle: 5023 //t q[11]
-swp q[7],q[8]; //cycle: 5024
+swap q[7],q[8]; //cycle: 5024
 t q[4]; //cycle: 5024 //t q[12]
 t q[3]; //cycle: 5024 //t q[13]
 cx q[7],q[2]; //cycle: 5030 //cx q[11],q[10]
@@ -4437,23 +4437,23 @@ t q[11]; //cycle: 5059 //t q[15]
 cx q[11],q[12]; //cycle: 5060 //cx q[15],q[8]
 t q[5]; //cycle: 5060 //t q[9]
 t q[6]; //cycle: 5060 //t q[14]
-swp q[5],q[6]; //cycle: 5061
-swp q[3],q[4]; //cycle: 5062
-swp q[8],q[12]; //cycle: 5062
+swap q[5],q[6]; //cycle: 5061
+swap q[3],q[4]; //cycle: 5062
+swap q[8],q[12]; //cycle: 5062
 cx q[12],q[11]; //cycle: 5068 //cx q[5],q[15]
-swp q[2],q[6]; //cycle: 5069
+swap q[2],q[6]; //cycle: 5069
 cx q[8],q[12]; //cycle: 5070 //cx q[8],q[5]
 tdg q[11]; //cycle: 5070 //tdg q[15]
 t q[12]; //cycle: 5072 //t q[5]
-swp q[11],q[12]; //cycle: 5073
+swap q[11],q[12]; //cycle: 5073
 cx q[3],q[2]; //cycle: 5075 //cx q[12],q[9]
 cx q[8],q[12]; //cycle: 5079 //cx q[8],q[15]
 tdg q[8]; //cycle: 5081 //tdg q[8]
 tdg q[12]; //cycle: 5081 //tdg q[15]
 cx q[11],q[12]; //cycle: 5082 //cx q[5],q[15]
-swp q[3],q[4]; //cycle: 5084
-swp q[8],q[12]; //cycle: 5084
-swp q[2],q[3]; //cycle: 5090
+swap q[3],q[4]; //cycle: 5084
+swap q[8],q[12]; //cycle: 5084
+swap q[2],q[3]; //cycle: 5090
 cx q[12],q[11]; //cycle: 5090 //cx q[8],q[5]
 cx q[8],q[12]; //cycle: 5092 //cx q[15],q[8]
 h q[11]; //cycle: 5092 //h q[5]
@@ -4471,18 +4471,18 @@ tdg q[3]; //cycle: 5102 //tdg q[9]
 tdg q[4]; //cycle: 5102 //tdg q[12]
 cx q[8],q[4]; //cycle: 5103 //cx q[15],q[12]
 cx q[3],q[8]; //cycle: 5105 //cx q[9],q[15]
-swp q[2],q[6]; //cycle: 5106
+swap q[2],q[6]; //cycle: 5106
 cx q[4],q[3]; //cycle: 5107 //cx q[12],q[9]
 h q[8]; //cycle: 5107 //h q[15]
 h q[8]; //cycle: 5108 //h q[15]
 h q[4]; //cycle: 5109 //h q[12]
 t q[3]; //cycle: 5109 //t q[9]
 t q[8]; //cycle: 5109 //t q[15]
-swp q[7],q[8]; //cycle: 5110
+swap q[7],q[8]; //cycle: 5110
 t q[4]; //cycle: 5110 //t q[12]
 cx q[6],q[5]; //cycle: 5112 //cx q[13],q[14]
 cx q[4],q[8]; //cycle: 5116 //cx q[12],q[11]
-swp q[2],q[3]; //cycle: 5117
+swap q[2],q[3]; //cycle: 5117
 tdg q[8]; //cycle: 5118 //tdg q[11]
 cx q[3],q[4]; //cycle: 5123 //cx q[10],q[12]
 cx q[3],q[8]; //cycle: 5125 //cx q[10],q[11]
@@ -4493,31 +4493,31 @@ cx q[4],q[8]; //cycle: 5128 //cx q[12],q[11]
 cx q[3],q[4]; //cycle: 5130 //cx q[10],q[12]
 cx q[8],q[3]; //cycle: 5132 //cx q[11],q[10]
 h q[4]; //cycle: 5132 //h q[12]
-swp q[6],q[7]; //cycle: 5133
+swap q[6],q[7]; //cycle: 5133
 h q[4]; //cycle: 5133 //h q[12]
 h q[8]; //cycle: 5134 //h q[11]
 t q[3]; //cycle: 5134 //t q[10]
 t q[4]; //cycle: 5134 //t q[12]
 t q[8]; //cycle: 5135 //t q[11]
 cx q[8],q[7]; //cycle: 5139 //cx q[11],q[13]
-swp q[5],q[11]; //cycle: 5140
-swp q[8],q[12]; //cycle: 5141
+swap q[5],q[11]; //cycle: 5140
+swap q[8],q[12]; //cycle: 5141
 tdg q[7]; //cycle: 5141 //tdg q[13]
 cx q[11],q[12]; //cycle: 5147 //cx q[14],q[11]
-swp q[6],q[11]; //cycle: 5149
+swap q[6],q[11]; //cycle: 5149
 t q[12]; //cycle: 5149 //t q[11]
 cx q[6],q[7]; //cycle: 5155 //cx q[14],q[13]
 tdg q[6]; //cycle: 5157 //tdg q[14]
 tdg q[7]; //cycle: 5157 //tdg q[13]
 cx q[12],q[7]; //cycle: 5158 //cx q[11],q[13]
-swp q[6],q[11]; //cycle: 5159
+swap q[6],q[11]; //cycle: 5159
 cx q[11],q[12]; //cycle: 5165 //cx q[14],q[11]
-swp q[3],q[8]; //cycle: 5166
+swap q[3],q[8]; //cycle: 5166
 h q[12]; //cycle: 5167 //h q[11]
 t q[12]; //cycle: 5168 //t q[11]
 cx q[12],q[8]; //cycle: 5172 //cx q[11],q[10]
-swp q[4],q[8]; //cycle: 5174
-swp q[7],q[12]; //cycle: 5174
+swap q[4],q[8]; //cycle: 5174
+swap q[7],q[12]; //cycle: 5174
 cx q[12],q[11]; //cycle: 5180 //cx q[13],q[14]
 cx q[8],q[7]; //cycle: 5180 //cx q[12],q[11]
 t q[11]; //cycle: 5182 //t q[14]
@@ -4526,12 +4526,12 @@ cx q[4],q[8]; //cycle: 5182 //cx q[10],q[12]
 tdg q[7]; //cycle: 5182 //tdg q[11]
 cx q[12],q[11]; //cycle: 5183 //cx q[13],q[14]
 t q[8]; //cycle: 5184 //t q[12]
-swp q[7],q[8]; //cycle: 5185
+swap q[7],q[8]; //cycle: 5185
 cx q[4],q[8]; //cycle: 5191 //cx q[10],q[11]
 tdg q[4]; //cycle: 5193 //tdg q[10]
 tdg q[8]; //cycle: 5193 //tdg q[11]
 cx q[7],q[8]; //cycle: 5194 //cx q[12],q[11]
-swp q[4],q[8]; //cycle: 5196
+swap q[4],q[8]; //cycle: 5196
 cx q[8],q[7]; //cycle: 5202 //cx q[10],q[12]
 cx q[4],q[8]; //cycle: 5204 //cx q[11],q[10]
 h q[7]; //cycle: 5204 //h q[12]
@@ -4555,19 +4555,19 @@ t q[6]; //cycle: 5220 //t q[15]
 t q[2]; //cycle: 5221 //t q[9]
 t q[7]; //cycle: 5221 //t q[12]
 cx q[7],q[2]; //cycle: 5222 //cx q[12],q[9]
-swp q[2],q[3]; //cycle: 5224
+swap q[2],q[3]; //cycle: 5224
 cx q[6],q[2]; //cycle: 5230 //cx q[15],q[8]
 cx q[5],q[6]; //cycle: 5232 //cx q[5],q[15]
 tdg q[6]; //cycle: 5234 //tdg q[15]
-swp q[2],q[6]; //cycle: 5235
+swap q[2],q[6]; //cycle: 5235
 cx q[6],q[5]; //cycle: 5241 //cx q[8],q[5]
 cx q[6],q[2]; //cycle: 5243 //cx q[8],q[15]
 t q[5]; //cycle: 5243 //t q[5]
 tdg q[6]; //cycle: 5245 //tdg q[8]
 tdg q[2]; //cycle: 5245 //tdg q[15]
-swp q[2],q[6]; //cycle: 5246
+swap q[2],q[6]; //cycle: 5246
 cx q[5],q[6]; //cycle: 5252 //cx q[5],q[15]
-swp q[2],q[6]; //cycle: 5254
+swap q[2],q[6]; //cycle: 5254
 cx q[6],q[5]; //cycle: 5260 //cx q[8],q[5]
 cx q[2],q[6]; //cycle: 5262 //cx q[15],q[8]
 h q[5]; //cycle: 5262 //h q[5]
@@ -4578,13 +4578,13 @@ t q[2]; //cycle: 5265 //t q[15]
 cx q[2],q[7]; //cycle: 5266 //cx q[15],q[12]
 cx q[3],q[2]; //cycle: 5268 //cx q[9],q[15]
 tdg q[7]; //cycle: 5268 //tdg q[12]
-swp q[3],q[8]; //cycle: 5270
+swap q[3],q[8]; //cycle: 5270
 t q[2]; //cycle: 5270 //t q[15]
 cx q[8],q[7]; //cycle: 5276 //cx q[9],q[12]
 tdg q[8]; //cycle: 5278 //tdg q[9]
 tdg q[7]; //cycle: 5278 //tdg q[12]
 cx q[2],q[7]; //cycle: 5279 //cx q[15],q[12]
-swp q[7],q[8]; //cycle: 5281
+swap q[7],q[8]; //cycle: 5281
 cx q[7],q[2]; //cycle: 5287 //cx q[9],q[15]
 cx q[8],q[7]; //cycle: 5289 //cx q[12],q[9]
 h q[2]; //cycle: 5289 //h q[15]
@@ -4609,21 +4609,21 @@ h q[4]; //cycle: 5306 //h q[11]
 t q[3]; //cycle: 5306 //t q[10]
 t q[8]; //cycle: 5306 //t q[12]
 t q[4]; //cycle: 5307 //t q[11]
-swp q[4],q[8]; //cycle: 5308
+swap q[4],q[8]; //cycle: 5308
 cx q[8],q[12]; //cycle: 5314 //cx q[11],q[13]
 tdg q[12]; //cycle: 5316 //tdg q[13]
-swp q[11],q[12]; //cycle: 5317
+swap q[11],q[12]; //cycle: 5317
 cx q[12],q[8]; //cycle: 5323 //cx q[14],q[11]
 cx q[12],q[11]; //cycle: 5325 //cx q[14],q[13]
 t q[8]; //cycle: 5325 //t q[11]
 tdg q[12]; //cycle: 5327 //tdg q[14]
 tdg q[11]; //cycle: 5327 //tdg q[13]
-swp q[8],q[12]; //cycle: 5328
+swap q[8],q[12]; //cycle: 5328
 cx q[12],q[11]; //cycle: 5334 //cx q[11],q[13]
 cx q[8],q[12]; //cycle: 5336 //cx q[14],q[11]
 h q[12]; //cycle: 5338 //h q[11]
 t q[12]; //cycle: 5339 //t q[11]
-swp q[8],q[12]; //cycle: 5340
+swap q[8],q[12]; //cycle: 5340
 cx q[11],q[12]; //cycle: 5346 //cx q[13],q[14]
 cx q[8],q[3]; //cycle: 5346 //cx q[11],q[10]
 cx q[4],q[8]; //cycle: 5348 //cx q[12],q[11]
@@ -4638,8 +4638,8 @@ tdg q[3]; //cycle: 5354 //tdg q[10]
 tdg q[8]; //cycle: 5354 //tdg q[11]
 cx q[4],q[8]; //cycle: 5355 //cx q[12],q[11]
 cx q[3],q[4]; //cycle: 5357 //cx q[10],q[12]
-swp q[7],q[8]; //cycle: 5358
-swp q[2],q[3]; //cycle: 5359
+swap q[7],q[8]; //cycle: 5358
+swap q[2],q[3]; //cycle: 5359
 h q[4]; //cycle: 5359 //h q[12]
 t q[4]; //cycle: 5360 //t q[12]
 cx q[4],q[8]; //cycle: 5364 //cx q[12],q[9]
@@ -4659,12 +4659,12 @@ cx q[8],q[3]; //cycle: 5375 //cx q[9],q[15]
 cx q[4],q[8]; //cycle: 5377 //cx q[12],q[9]
 h q[3]; //cycle: 5377 //h q[15]
 t q[3]; //cycle: 5378 //t q[15]
-swp q[2],q[3]; //cycle: 5379
+swap q[2],q[3]; //cycle: 5379
 t q[8]; //cycle: 5379 //t q[9]
 t q[4]; //cycle: 5379 //t q[12]
 cx q[4],q[8]; //cycle: 5380 //cx q[12],q[9]
 cx q[2],q[6]; //cycle: 5385 //cx q[15],q[8]
-swp q[7],q[13]; //cycle: 5386
+swap q[7],q[13]; //cycle: 5386
 cx q[7],q[2]; //cycle: 5392 //cx q[4],q[15]
 cx q[6],q[7]; //cycle: 5394 //cx q[8],q[4]
 tdg q[2]; //cycle: 5394 //tdg q[15]
@@ -4681,7 +4681,7 @@ h q[2]; //cycle: 5405 //h q[15]
 t q[6]; //cycle: 5405 //t q[8]
 t q[7]; //cycle: 5405 //t q[4]
 t q[2]; //cycle: 5406 //t q[15]
-swp q[2],q[3]; //cycle: 5407
+swap q[2],q[3]; //cycle: 5407
 cx q[3],q[4]; //cycle: 5413 //cx q[15],q[12]
 cx q[8],q[3]; //cycle: 5415 //cx q[9],q[15]
 tdg q[4]; //cycle: 5415 //tdg q[12]
@@ -4697,10 +4697,10 @@ h q[3]; //cycle: 5425 //h q[15]
 h q[4]; //cycle: 5426 //h q[12]
 t q[8]; //cycle: 5426 //t q[9]
 t q[3]; //cycle: 5426 //t q[15]
-swp q[8],q[13]; //cycle: 5427
+swap q[8],q[13]; //cycle: 5427
 t q[4]; //cycle: 5427 //t q[12]
 cx q[4],q[8]; //cycle: 5433 //cx q[12],q[11]
-swp q[2],q[3]; //cycle: 5434
+swap q[2],q[3]; //cycle: 5434
 tdg q[8]; //cycle: 5435 //tdg q[11]
 cx q[3],q[4]; //cycle: 5440 //cx q[10],q[12]
 cx q[3],q[8]; //cycle: 5442 //cx q[10],q[11]
@@ -4711,7 +4711,7 @@ cx q[4],q[8]; //cycle: 5445 //cx q[12],q[11]
 cx q[3],q[4]; //cycle: 5447 //cx q[10],q[12]
 cx q[8],q[3]; //cycle: 5449 //cx q[11],q[10]
 h q[4]; //cycle: 5449 //h q[12]
-swp q[11],q[12]; //cycle: 5450
+swap q[11],q[12]; //cycle: 5450
 h q[4]; //cycle: 5450 //h q[12]
 h q[8]; //cycle: 5451 //h q[11]
 t q[3]; //cycle: 5451 //t q[10]
@@ -4719,15 +4719,15 @@ t q[4]; //cycle: 5451 //t q[12]
 t q[8]; //cycle: 5452 //t q[11]
 cx q[8],q[12]; //cycle: 5456 //cx q[11],q[13]
 tdg q[12]; //cycle: 5458 //tdg q[13]
-swp q[11],q[12]; //cycle: 5459
+swap q[11],q[12]; //cycle: 5459
 cx q[12],q[8]; //cycle: 5465 //cx q[14],q[11]
 cx q[12],q[11]; //cycle: 5467 //cx q[14],q[13]
 t q[8]; //cycle: 5467 //t q[11]
 tdg q[12]; //cycle: 5469 //tdg q[14]
 tdg q[11]; //cycle: 5469 //tdg q[13]
-swp q[11],q[12]; //cycle: 5470
+swap q[11],q[12]; //cycle: 5470
 cx q[8],q[12]; //cycle: 5476 //cx q[11],q[13]
-swp q[11],q[12]; //cycle: 5478
+swap q[11],q[12]; //cycle: 5478
 cx q[12],q[8]; //cycle: 5484 //cx q[14],q[11]
 cx q[11],q[12]; //cycle: 5486 //cx q[13],q[14]
 h q[8]; //cycle: 5486 //h q[11]
@@ -4745,12 +4745,12 @@ tdg q[3]; //cycle: 5496 //tdg q[10]
 tdg q[8]; //cycle: 5496 //tdg q[11]
 cx q[4],q[8]; //cycle: 5497 //cx q[12],q[11]
 cx q[3],q[4]; //cycle: 5499 //cx q[10],q[12]
-swp q[8],q[13]; //cycle: 5500
+swap q[8],q[13]; //cycle: 5500
 h q[4]; //cycle: 5501 //h q[12]
 t q[4]; //cycle: 5502 //t q[12]
 cx q[4],q[8]; //cycle: 5506 //cx q[12],q[9]
-swp q[2],q[3]; //cycle: 5507
-swp q[7],q[13]; //cycle: 5512
+swap q[2],q[3]; //cycle: 5507
+swap q[7],q[13]; //cycle: 5512
 cx q[3],q[4]; //cycle: 5513 //cx q[15],q[12]
 cx q[8],q[3]; //cycle: 5515 //cx q[9],q[15]
 tdg q[4]; //cycle: 5515 //tdg q[12]
@@ -4764,7 +4764,7 @@ t q[2]; //cycle: 5520 //t q[10]
 t q[7]; //cycle: 5520 //t q[11]
 cx q[7],q[2]; //cycle: 5521 //cx q[11],q[10]
 cx q[8],q[3]; //cycle: 5522 //cx q[9],q[15]
-swp q[2],q[6]; //cycle: 5523
+swap q[2],q[6]; //cycle: 5523
 cx q[4],q[8]; //cycle: 5524 //cx q[12],q[9]
 h q[3]; //cycle: 5524 //h q[15]
 t q[3]; //cycle: 5525 //t q[15]
@@ -4772,9 +4772,9 @@ t q[8]; //cycle: 5526 //t q[9]
 t q[4]; //cycle: 5526 //t q[12]
 cx q[4],q[8]; //cycle: 5527 //cx q[12],q[9]
 cx q[3],q[2]; //cycle: 5529 //cx q[15],q[8]
-swp q[3],q[8]; //cycle: 5531
+swap q[3],q[8]; //cycle: 5531
 cx q[13],q[8]; //cycle: 5537 //cx q[4],q[15]
-swp q[2],q[7]; //cycle: 5538
+swap q[2],q[7]; //cycle: 5538
 tdg q[8]; //cycle: 5539 //tdg q[15]
 cx q[7],q[13]; //cycle: 5544 //cx q[8],q[4]
 cx q[7],q[8]; //cycle: 5546 //cx q[8],q[15]
@@ -4805,31 +4805,31 @@ h q[8]; //cycle: 5569 //h q[15]
 h q[4]; //cycle: 5570 //h q[12]
 t q[3]; //cycle: 5570 //t q[9]
 t q[8]; //cycle: 5570 //t q[15]
-swp q[2],q[3]; //cycle: 5571
+swap q[2],q[3]; //cycle: 5571
 t q[4]; //cycle: 5571 //t q[12]
 cx q[4],q[3]; //cycle: 5577 //cx q[12],q[11]
-swp q[4],q[8]; //cycle: 5579
-swp q[6],q[7]; //cycle: 5579
+swap q[4],q[8]; //cycle: 5579
+swap q[6],q[7]; //cycle: 5579
 tdg q[3]; //cycle: 5579 //tdg q[11]
 cx q[7],q[8]; //cycle: 5585 //cx q[10],q[12]
-swp q[2],q[7]; //cycle: 5587
+swap q[2],q[7]; //cycle: 5587
 t q[8]; //cycle: 5587 //t q[12]
 cx q[2],q[3]; //cycle: 5593 //cx q[10],q[11]
 tdg q[2]; //cycle: 5595 //tdg q[10]
 tdg q[3]; //cycle: 5595 //tdg q[11]
 cx q[8],q[3]; //cycle: 5596 //cx q[12],q[11]
-swp q[2],q[3]; //cycle: 5598
+swap q[2],q[3]; //cycle: 5598
 cx q[3],q[8]; //cycle: 5604 //cx q[10],q[12]
 cx q[2],q[3]; //cycle: 5606 //cx q[11],q[10]
 h q[8]; //cycle: 5606 //h q[12]
-swp q[6],q[11]; //cycle: 5607
+swap q[6],q[11]; //cycle: 5607
 h q[8]; //cycle: 5607 //h q[12]
 h q[2]; //cycle: 5608 //h q[11]
 t q[3]; //cycle: 5608 //t q[10]
 t q[8]; //cycle: 5608 //t q[12]
 t q[2]; //cycle: 5609 //t q[11]
 cx q[2],q[6]; //cycle: 5613 //cx q[11],q[13]
-swp q[7],q[12]; //cycle: 5614
+swap q[7],q[12]; //cycle: 5614
 tdg q[6]; //cycle: 5615 //tdg q[13]
 cx q[7],q[2]; //cycle: 5620 //cx q[14],q[11]
 cx q[7],q[6]; //cycle: 5622 //cx q[14],q[13]
@@ -4846,67 +4846,67 @@ x q[7]; //cycle: 5631 //x q[14]
 t q[6]; //cycle: 5631 //t q[13]
 t q[7]; //cycle: 5632 //t q[14]
 cx q[6],q[11]; //cycle: 5632 //cx q[13],q[8]
-swp q[2],q[7]; //cycle: 5633
+swap q[2],q[7]; //cycle: 5633
 cx q[1],q[6]; //cycle: 5634 //cx q[7],q[13]
 tdg q[6]; //cycle: 5636 //tdg q[13]
-swp q[6],q[11]; //cycle: 5637
+swap q[6],q[11]; //cycle: 5637
 cx q[8],q[7]; //cycle: 5639 //cx q[12],q[11]
 cx q[3],q[8]; //cycle: 5641 //cx q[10],q[12]
 tdg q[7]; //cycle: 5641 //tdg q[11]
-swp q[2],q[3]; //cycle: 5643
+swap q[2],q[3]; //cycle: 5643
 t q[8]; //cycle: 5643 //t q[12]
 cx q[6],q[1]; //cycle: 5643 //cx q[8],q[7]
 cx q[6],q[11]; //cycle: 5645 //cx q[8],q[13]
 t q[1]; //cycle: 5645 //t q[7]
 tdg q[6]; //cycle: 5647 //tdg q[8]
 tdg q[11]; //cycle: 5647 //tdg q[13]
-swp q[1],q[6]; //cycle: 5649
+swap q[1],q[6]; //cycle: 5649
 cx q[2],q[7]; //cycle: 5649 //cx q[10],q[11]
 tdg q[2]; //cycle: 5651 //tdg q[10]
 tdg q[7]; //cycle: 5651 //tdg q[11]
 cx q[8],q[7]; //cycle: 5652 //cx q[12],q[11]
-swp q[2],q[3]; //cycle: 5653
+swap q[2],q[3]; //cycle: 5653
 cx q[6],q[11]; //cycle: 5655 //cx q[7],q[13]
 cx q[1],q[6]; //cycle: 5657 //cx q[8],q[7]
 cx q[3],q[8]; //cycle: 5659 //cx q[10],q[12]
 h q[6]; //cycle: 5659 //h q[7]
 h q[6]; //cycle: 5660 //h q[7]
-swp q[2],q[3]; //cycle: 5661
+swap q[2],q[3]; //cycle: 5661
 t q[6]; //cycle: 5661 //t q[7]
 h q[8]; //cycle: 5661 //h q[12]
 t q[8]; //cycle: 5662 //t q[12]
 cx q[8],q[12]; //cycle: 5663 //cx q[12],q[9]
-swp q[6],q[11]; //cycle: 5665
+swap q[6],q[11]; //cycle: 5665
 cx q[4],q[8]; //cycle: 5665 //cx q[15],q[12]
 cx q[7],q[2]; //cycle: 5667 //cx q[11],q[10]
 tdg q[8]; //cycle: 5667 //tdg q[12]
-swp q[8],q[12]; //cycle: 5668
+swap q[8],q[12]; //cycle: 5668
 t q[7]; //cycle: 5669 //t q[11]
 t q[2]; //cycle: 5669 //t q[10]
 cx q[13],q[7]; //cycle: 5670 //cx q[4],q[11]
 cx q[6],q[1]; //cycle: 5671 //cx q[13],q[8]
 t q[1]; //cycle: 5673 //t q[8]
 h q[6]; //cycle: 5673 //h q[13]
-swp q[0],q[1]; //cycle: 5674
+swap q[0],q[1]; //cycle: 5674
 cx q[8],q[4]; //cycle: 5674 //cx q[9],q[15]
 t q[6]; //cycle: 5674 //t q[13]
 cx q[8],q[12]; //cycle: 5676 //cx q[9],q[12]
 t q[4]; //cycle: 5676 //t q[15]
-swp q[2],q[6]; //cycle: 5678
+swap q[2],q[6]; //cycle: 5678
 tdg q[8]; //cycle: 5678 //tdg q[9]
 tdg q[12]; //cycle: 5678 //tdg q[12]
-swp q[4],q[8]; //cycle: 5679
+swap q[4],q[8]; //cycle: 5679
 cx q[5],q[6]; //cycle: 5684 //cx q[5],q[10]
 cx q[8],q[12]; //cycle: 5685 //cx q[15],q[12]
 cx q[4],q[8]; //cycle: 5687 //cx q[9],q[15]
 h q[8]; //cycle: 5689 //h q[15]
 t q[8]; //cycle: 5690 //t q[15]
 cx q[3],q[8]; //cycle: 5691 //cx q[14],q[15]
-swp q[4],q[8]; //cycle: 5693
+swap q[4],q[8]; //cycle: 5693
 cx q[12],q[8]; //cycle: 5699 //cx q[12],q[9]
 t q[12]; //cycle: 5701 //t q[12]
 t q[8]; //cycle: 5701 //t q[9]
-swp q[7],q[8]; //cycle: 5702
+swap q[7],q[8]; //cycle: 5702
 cx q[16],q[12]; //cycle: 5702 //cx q[3],q[12]
 cx q[1],q[7]; //cycle: 5708 //cx q[6],q[9]
 cx q[2],q[1]; //cycle: 5710 //cx q[13],q[6]
@@ -4920,7 +4920,7 @@ cx q[2],q[1]; //cycle: 5717 //cx q[13],q[6]
 cx q[7],q[2]; //cycle: 5719 //cx q[9],q[13]
 cx q[1],q[7]; //cycle: 5721 //cx q[6],q[9]
 h q[2]; //cycle: 5721 //h q[13]
-swp q[0],q[5]; //cycle: 5722
+swap q[0],q[5]; //cycle: 5722
 h q[2]; //cycle: 5722 //h q[13]
 t q[7]; //cycle: 5723 //t q[9]
 t q[2]; //cycle: 5723 //t q[13]
@@ -4930,12 +4930,12 @@ cx q[1],q[0]; //cycle: 5728 //cx q[6],q[5]
 cx q[6],q[1]; //cycle: 5730 //cx q[10],q[6]
 tdg q[0]; //cycle: 5730 //tdg q[5]
 t q[1]; //cycle: 5732 //t q[6]
-swp q[0],q[1]; //cycle: 5733
+swap q[0],q[1]; //cycle: 5733
 cx q[6],q[1]; //cycle: 5739 //cx q[10],q[5]
 tdg q[6]; //cycle: 5741 //tdg q[10]
 tdg q[1]; //cycle: 5741 //tdg q[5]
 cx q[0],q[1]; //cycle: 5742 //cx q[6],q[5]
-swp q[1],q[6]; //cycle: 5744
+swap q[1],q[6]; //cycle: 5744
 cx q[1],q[0]; //cycle: 5750 //cx q[10],q[6]
 cx q[6],q[1]; //cycle: 5752 //cx q[5],q[10]
 h q[0]; //cycle: 5752 //h q[6]
@@ -4944,7 +4944,7 @@ h q[6]; //cycle: 5754 //h q[5]
 t q[1]; //cycle: 5754 //t q[10]
 t q[0]; //cycle: 5754 //t q[6]
 t q[6]; //cycle: 5755 //t q[5]
-swp q[6],q[7]; //cycle: 5756
+swap q[6],q[7]; //cycle: 5756
 cx q[7],q[13]; //cycle: 5762 //cx q[5],q[4]
 cx q[8],q[7]; //cycle: 5764 //cx q[11],q[5]
 tdg q[13]; //cycle: 5764 //tdg q[4]
@@ -4961,17 +4961,17 @@ h q[13]; //cycle: 5775 //h q[4]
 t q[8]; //cycle: 5775 //t q[11]
 t q[7]; //cycle: 5775 //t q[5]
 t q[13]; //cycle: 5776 //t q[4]
-swp q[12],q[13]; //cycle: 5777
+swap q[12],q[13]; //cycle: 5777
 cx q[12],q[16]; //cycle: 5783 //cx q[4],q[3]
 cx q[13],q[12]; //cycle: 5785 //cx q[12],q[4]
 tdg q[16]; //cycle: 5785 //tdg q[3]
 t q[12]; //cycle: 5787 //t q[4]
-swp q[12],q[16]; //cycle: 5788
+swap q[12],q[16]; //cycle: 5788
 cx q[13],q[12]; //cycle: 5794 //cx q[12],q[3]
 tdg q[13]; //cycle: 5796 //tdg q[12]
 tdg q[12]; //cycle: 5796 //tdg q[3]
 cx q[16],q[12]; //cycle: 5797 //cx q[4],q[3]
-swp q[12],q[13]; //cycle: 5799
+swap q[12],q[13]; //cycle: 5799
 cx q[12],q[16]; //cycle: 5805 //cx q[12],q[4]
 cx q[13],q[12]; //cycle: 5807 //cx q[3],q[12]
 h q[16]; //cycle: 5807 //h q[4]
@@ -4980,7 +4980,7 @@ h q[13]; //cycle: 5809 //h q[3]
 t q[12]; //cycle: 5809 //t q[12]
 t q[16]; //cycle: 5809 //t q[4]
 t q[13]; //cycle: 5810 //t q[3]
-swp q[8],q[13]; //cycle: 5811
+swap q[8],q[13]; //cycle: 5811
 cx q[8],q[3]; //cycle: 5817 //cx q[3],q[14]
 cx q[4],q[8]; //cycle: 5819 //cx q[15],q[3]
 tdg q[3]; //cycle: 5819 //tdg q[14]
@@ -4997,16 +4997,16 @@ t q[4]; //cycle: 5830 //t q[15]
 t q[3]; //cycle: 5830 //t q[14]
 cx q[8],q[12]; //cycle: 5830 //cx q[3],q[12]
 cx q[3],q[4]; //cycle: 5831 //cx q[14],q[15]
-swp q[12],q[16]; //cycle: 5832
+swap q[12],q[16]; //cycle: 5832
 cx q[12],q[8]; //cycle: 5838 //cx q[4],q[3]
 cx q[16],q[12]; //cycle: 5840 //cx q[12],q[4]
 tdg q[8]; //cycle: 5840 //tdg q[3]
 t q[12]; //cycle: 5842 //t q[4]
-swp q[12],q[16]; //cycle: 5843
+swap q[12],q[16]; //cycle: 5843
 cx q[12],q[8]; //cycle: 5849 //cx q[12],q[3]
 tdg q[12]; //cycle: 5851 //tdg q[12]
 tdg q[8]; //cycle: 5851 //tdg q[3]
-swp q[12],q[16]; //cycle: 5852
+swap q[12],q[16]; //cycle: 5852
 cx q[12],q[8]; //cycle: 5858 //cx q[4],q[3]
 cx q[16],q[12]; //cycle: 5860 //cx q[12],q[4]
 h q[12]; //cycle: 5862 //h q[4]
@@ -5028,8 +5028,8 @@ cx q[7],q[1]; //cycle: 5879 //cx q[5],q[10]
 t q[13]; //cycle: 5879 //t q[11]
 t q[12]; //cycle: 5879 //t q[4]
 cx q[12],q[13]; //cycle: 5880 //cx q[4],q[11]
-swp q[0],q[1]; //cycle: 5881
-swp q[12],q[16]; //cycle: 5883
+swap q[0],q[1]; //cycle: 5881
+swap q[12],q[16]; //cycle: 5883
 cx q[1],q[7]; //cycle: 5887 //cx q[6],q[5]
 cx q[8],q[12]; //cycle: 5889 //cx q[3],q[12]
 cx q[0],q[1]; //cycle: 5889 //cx q[10],q[6]
@@ -5037,12 +5037,12 @@ tdg q[7]; //cycle: 5889 //tdg q[5]
 t q[12]; //cycle: 5891 //t q[12]
 t q[8]; //cycle: 5891 //t q[3]
 t q[1]; //cycle: 5891 //t q[6]
-swp q[0],q[1]; //cycle: 5892
+swap q[0],q[1]; //cycle: 5892
 cx q[8],q[12]; //cycle: 5892 //cx q[3],q[12]
 cx q[1],q[7]; //cycle: 5898 //cx q[10],q[5]
 tdg q[1]; //cycle: 5900 //tdg q[10]
 tdg q[7]; //cycle: 5900 //tdg q[5]
-swp q[0],q[1]; //cycle: 5901
+swap q[0],q[1]; //cycle: 5901
 cx q[1],q[7]; //cycle: 5907 //cx q[6],q[5]
 cx q[0],q[1]; //cycle: 5909 //cx q[10],q[6]
 h q[1]; //cycle: 5911 //h q[6]
@@ -5057,10 +5057,10 @@ tdg q[6]; //cycle: 5921 //tdg q[9]
 tdg q[1]; //cycle: 5921 //tdg q[6]
 cx q[2],q[1]; //cycle: 5922 //cx q[13],q[6]
 cx q[6],q[2]; //cycle: 5924 //cx q[9],q[13]
-swp q[0],q[1]; //cycle: 5925
+swap q[0],q[1]; //cycle: 5925
 h q[2]; //cycle: 5926 //h q[13]
 t q[2]; //cycle: 5927 //t q[13]
-swp q[2],q[6]; //cycle: 5928
+swap q[2],q[6]; //cycle: 5928
 cx q[7],q[1]; //cycle: 5931 //cx q[5],q[10]
 t q[1]; //cycle: 5933 //t q[10]
 t q[7]; //cycle: 5933 //t q[5]
@@ -5069,7 +5069,7 @@ cx q[7],q[1]; //cycle: 5934 //cx q[5],q[10]
 cx q[11],q[6]; //cycle: 5936 //cx q[7],q[13]
 cx q[5],q[11]; //cycle: 5938 //cx q[8],q[7]
 tdg q[6]; //cycle: 5938 //tdg q[13]
-swp q[0],q[1]; //cycle: 5940
+swap q[0],q[1]; //cycle: 5940
 cx q[5],q[6]; //cycle: 5940 //cx q[8],q[13]
 t q[11]; //cycle: 5940 //t q[7]
 tdg q[5]; //cycle: 5942 //tdg q[8]
@@ -5106,12 +5106,12 @@ cx q[1],q[7]; //cycle: 5966 //cx q[6],q[5]
 cx q[0],q[1]; //cycle: 5968 //cx q[10],q[6]
 tdg q[7]; //cycle: 5968 //tdg q[5]
 t q[1]; //cycle: 5970 //t q[6]
-swp q[1],q[7]; //cycle: 5971
+swap q[1],q[7]; //cycle: 5971
 cx q[0],q[1]; //cycle: 5977 //cx q[10],q[5]
 tdg q[0]; //cycle: 5979 //tdg q[10]
 tdg q[1]; //cycle: 5979 //tdg q[5]
 cx q[7],q[1]; //cycle: 5980 //cx q[6],q[5]
-swp q[0],q[1]; //cycle: 5982
+swap q[0],q[1]; //cycle: 5982
 cx q[1],q[7]; //cycle: 5988 //cx q[10],q[6]
 cx q[0],q[1]; //cycle: 5990 //cx q[5],q[10]
 h q[7]; //cycle: 5990 //h q[6]
@@ -5120,20 +5120,20 @@ t q[1]; //cycle: 5992 //t q[10]
 t q[7]; //cycle: 5992 //t q[6]
 h q[0]; //cycle: 5992 //h q[5]
 t q[0]; //cycle: 5993 //t q[5]
-swp q[0],q[5]; //cycle: 5994
-swp q[11],q[16]; //cycle: 5994
+swap q[0],q[5]; //cycle: 5994
+swap q[11],q[16]; //cycle: 5994
 cx q[5],q[11]; //cycle: 6000 //cx q[5],q[4]
-swp q[7],q[13]; //cycle: 6001
-swp q[5],q[6]; //cycle: 6002
+swap q[7],q[13]; //cycle: 6001
+swap q[5],q[6]; //cycle: 6002
 tdg q[11]; //cycle: 6002 //tdg q[4]
 cx q[7],q[6]; //cycle: 6008 //cx q[11],q[5]
-swp q[7],q[12]; //cycle: 6010
+swap q[7],q[12]; //cycle: 6010
 t q[6]; //cycle: 6010 //t q[5]
 cx q[12],q[11]; //cycle: 6016 //cx q[11],q[4]
 tdg q[12]; //cycle: 6018 //tdg q[11]
 tdg q[11]; //cycle: 6018 //tdg q[4]
 cx q[6],q[11]; //cycle: 6019 //cx q[5],q[4]
-swp q[11],q[12]; //cycle: 6021
+swap q[11],q[12]; //cycle: 6021
 cx q[11],q[6]; //cycle: 6027 //cx q[11],q[5]
 cx q[12],q[11]; //cycle: 6029 //cx q[4],q[11]
 h q[6]; //cycle: 6029 //h q[5]
@@ -5190,23 +5190,23 @@ t q[7]; //cycle: 6076 //t q[12]
 t q[8]; //cycle: 6076 //t q[3]
 cx q[12],q[11]; //cycle: 6076 //cx q[4],q[11]
 cx q[8],q[7]; //cycle: 6077 //cx q[3],q[12]
-swp q[7],q[12]; //cycle: 6079
+swap q[7],q[12]; //cycle: 6079
 cx q[6],q[7]; //cycle: 6085 //cx q[5],q[4]
 cx q[11],q[6]; //cycle: 6087 //cx q[11],q[5]
 tdg q[7]; //cycle: 6087 //tdg q[4]
-swp q[11],q[12]; //cycle: 6089
+swap q[11],q[12]; //cycle: 6089
 t q[6]; //cycle: 6089 //t q[5]
 cx q[12],q[7]; //cycle: 6095 //cx q[11],q[4]
 tdg q[12]; //cycle: 6097 //tdg q[11]
 tdg q[7]; //cycle: 6097 //tdg q[4]
 cx q[6],q[7]; //cycle: 6098 //cx q[5],q[4]
-swp q[11],q[12]; //cycle: 6099
+swap q[11],q[12]; //cycle: 6099
 cx q[11],q[6]; //cycle: 6105 //cx q[11],q[5]
 h q[6]; //cycle: 6107 //h q[5]
 t q[6]; //cycle: 6108 //t q[5]
-swp q[11],q[12]; //cycle: 6109
+swap q[11],q[12]; //cycle: 6109
 cx q[6],q[1]; //cycle: 6109 //cx q[5],q[10]
-swp q[7],q[13]; //cycle: 6110
+swap q[7],q[13]; //cycle: 6110
 cx q[13],q[12]; //cycle: 6116 //cx q[4],q[11]
 cx q[7],q[6]; //cycle: 6116 //cx q[6],q[5]
 cx q[1],q[7]; //cycle: 6118 //cx q[10],q[6]
@@ -5227,7 +5227,7 @@ cx q[7],q[2]; //cycle: 6129 //cx q[6],q[9]
 t q[1]; //cycle: 6129 //t q[10]
 t q[6]; //cycle: 6129 //t q[5]
 cx q[6],q[1]; //cycle: 6130 //cx q[5],q[10]
-swp q[5],q[6]; //cycle: 6132
+swap q[5],q[6]; //cycle: 6132
 cx q[6],q[7]; //cycle: 6138 //cx q[13],q[6]
 cx q[2],q[6]; //cycle: 6140 //cx q[9],q[13]
 tdg q[7]; //cycle: 6140 //tdg q[6]
@@ -5237,7 +5237,7 @@ tdg q[2]; //cycle: 6144 //tdg q[9]
 tdg q[7]; //cycle: 6144 //tdg q[6]
 cx q[6],q[7]; //cycle: 6145 //cx q[13],q[6]
 cx q[2],q[6]; //cycle: 6147 //cx q[9],q[13]
-swp q[0],q[1]; //cycle: 6148
+swap q[0],q[1]; //cycle: 6148
 cx q[7],q[2]; //cycle: 6149 //cx q[6],q[9]
 h q[6]; //cycle: 6149 //h q[13]
 t q[6]; //cycle: 6150 //t q[13]
@@ -5245,7 +5245,7 @@ h q[7]; //cycle: 6151 //h q[6]
 t q[2]; //cycle: 6151 //t q[9]
 t q[7]; //cycle: 6152 //t q[6]
 cx q[6],q[1]; //cycle: 6154 //cx q[13],q[8]
-swp q[12],q[16]; //cycle: 6155
+swap q[12],q[16]; //cycle: 6155
 cx q[7],q[6]; //cycle: 6156 //cx q[6],q[13]
 cx q[1],q[7]; //cycle: 6158 //cx q[8],q[6]
 tdg q[6]; //cycle: 6158 //tdg q[13]
@@ -5261,7 +5261,7 @@ h q[7]; //cycle: 6168 //h q[6]
 t q[1]; //cycle: 6169 //t q[8]
 t q[7]; //cycle: 6169 //t q[6]
 h q[6]; //cycle: 6169 //h q[13]
-swp q[7],q[12]; //cycle: 6170
+swap q[7],q[12]; //cycle: 6170
 t q[6]; //cycle: 6170 //t q[13]
 cx q[7],q[2]; //cycle: 6176 //cx q[7],q[9]
 cx q[6],q[7]; //cycle: 6178 //cx q[13],q[7]
@@ -5279,10 +5279,10 @@ h q[6]; //cycle: 6190 //h q[13]
 t q[2]; //cycle: 6191 //t q[9]
 t q[6]; //cycle: 6191 //t q[13]
 h q[7]; //cycle: 6191 //h q[7]
-swp q[5],q[6]; //cycle: 6192
+swap q[5],q[6]; //cycle: 6192
 t q[7]; //cycle: 6192 //t q[7]
 cx q[7],q[6]; //cycle: 6198 //cx q[7],q[5]
-swp q[0],q[1]; //cycle: 6199
+swap q[0],q[1]; //cycle: 6199
 tdg q[6]; //cycle: 6200 //tdg q[5]
 cx q[1],q[7]; //cycle: 6205 //cx q[10],q[7]
 cx q[1],q[6]; //cycle: 6207 //cx q[10],q[5]
@@ -5298,9 +5298,9 @@ t q[1]; //cycle: 6216 //t q[10]
 t q[7]; //cycle: 6216 //t q[7]
 h q[6]; //cycle: 6216 //h q[5]
 t q[6]; //cycle: 6217 //t q[5]
-swp q[6],q[7]; //cycle: 6218
+swap q[6],q[7]; //cycle: 6218
 cx q[7],q[13]; //cycle: 6224 //cx q[5],q[4]
-swp q[12],q[16]; //cycle: 6225
+swap q[12],q[16]; //cycle: 6225
 tdg q[13]; //cycle: 6226 //tdg q[4]
 cx q[12],q[7]; //cycle: 6231 //cx q[11],q[5]
 cx q[12],q[13]; //cycle: 6233 //cx q[11],q[4]
@@ -5317,7 +5317,7 @@ t q[12]; //cycle: 6242 //t q[11]
 t q[7]; //cycle: 6242 //t q[5]
 t q[13]; //cycle: 6243 //t q[4]
 cx q[13],q[8]; //cycle: 6244 //cx q[4],q[3]
-swp q[11],q[12]; //cycle: 6245
+swap q[11],q[12]; //cycle: 6245
 tdg q[8]; //cycle: 6246 //tdg q[3]
 cx q[12],q[13]; //cycle: 6251 //cx q[12],q[4]
 cx q[12],q[8]; //cycle: 6253 //cx q[12],q[3]
@@ -5364,7 +5364,7 @@ t q[13]; //cycle: 6291 //t q[4]
 t q[12]; //cycle: 6292 //t q[12]
 t q[8]; //cycle: 6292 //t q[3]
 cx q[8],q[12]; //cycle: 6293 //cx q[3],q[12]
-swp q[11],q[12]; //cycle: 6295
+swap q[11],q[12]; //cycle: 6295
 cx q[13],q[12]; //cycle: 6301 //cx q[4],q[11]
 cx q[7],q[13]; //cycle: 6303 //cx q[5],q[4]
 cx q[12],q[7]; //cycle: 6305 //cx q[11],q[5]
@@ -5400,21 +5400,21 @@ t q[7]; //cycle: 6331 //t q[5]
 cx q[7],q[1]; //cycle: 6332 //cx q[5],q[10]
 cx q[5],q[6]; //cycle: 6333 //cx q[13],q[7]
 tdg q[6]; //cycle: 6335 //tdg q[7]
-swp q[2],q[6]; //cycle: 6336
+swap q[2],q[6]; //cycle: 6336
 cx q[6],q[5]; //cycle: 6342 //cx q[9],q[13]
 cx q[6],q[2]; //cycle: 6344 //cx q[9],q[7]
 t q[5]; //cycle: 6344 //t q[13]
 tdg q[6]; //cycle: 6346 //tdg q[9]
 tdg q[2]; //cycle: 6346 //tdg q[7]
-swp q[5],q[6]; //cycle: 6347
+swap q[5],q[6]; //cycle: 6347
 cx q[6],q[2]; //cycle: 6353 //cx q[13],q[7]
 cx q[5],q[6]; //cycle: 6355 //cx q[9],q[13]
-swp q[0],q[5]; //cycle: 6357
+swap q[0],q[5]; //cycle: 6357
 h q[6]; //cycle: 6357 //h q[13]
 t q[6]; //cycle: 6358 //t q[13]
-swp q[0],q[1]; //cycle: 6363
+swap q[0],q[1]; //cycle: 6363
 cx q[6],q[5]; //cycle: 6363 //cx q[13],q[8]
-swp q[11],q[16]; //cycle: 6364
+swap q[11],q[16]; //cycle: 6364
 cx q[2],q[1]; //cycle: 6369 //cx q[7],q[9]
 cx q[11],q[6]; //cycle: 6370 //cx q[6],q[13]
 t q[1]; //cycle: 6371 //t q[9]
@@ -5452,7 +5452,7 @@ t q[1]; //cycle: 6398 //t q[9]
 t q[6]; //cycle: 6398 //t q[13]
 t q[2]; //cycle: 6399 //t q[7]
 cx q[2],q[7]; //cycle: 6400 //cx q[7],q[5]
-swp q[0],q[1]; //cycle: 6401
+swap q[0],q[1]; //cycle: 6401
 tdg q[7]; //cycle: 6402 //tdg q[5]
 cx q[1],q[2]; //cycle: 6407 //cx q[10],q[7]
 cx q[1],q[7]; //cycle: 6409 //cx q[10],q[5]
@@ -5485,7 +5485,7 @@ t q[12]; //cycle: 6433 //t q[11]
 t q[7]; //cycle: 6433 //t q[5]
 t q[13]; //cycle: 6434 //t q[4]
 cx q[13],q[8]; //cycle: 6435 //cx q[4],q[3]
-swp q[12],q[16]; //cycle: 6436
+swap q[12],q[16]; //cycle: 6436
 tdg q[8]; //cycle: 6437 //tdg q[3]
 cx q[12],q[13]; //cycle: 6442 //cx q[12],q[4]
 cx q[12],q[8]; //cycle: 6444 //cx q[12],q[3]
@@ -5531,7 +5531,7 @@ h q[13]; //cycle: 6481 //h q[4]
 t q[13]; //cycle: 6482 //t q[4]
 t q[12]; //cycle: 6483 //t q[12]
 t q[8]; //cycle: 6483 //t q[3]
-swp q[12],q[16]; //cycle: 6484
+swap q[12],q[16]; //cycle: 6484
 cx q[13],q[12]; //cycle: 6490 //cx q[4],q[11]
 cx q[7],q[13]; //cycle: 6492 //cx q[5],q[4]
 cx q[12],q[7]; //cycle: 6494 //cx q[11],q[5]
@@ -5551,7 +5551,7 @@ t q[13]; //cycle: 6505 //t q[4]
 cx q[2],q[7]; //cycle: 6507 //cx q[7],q[5]
 cx q[1],q[2]; //cycle: 6509 //cx q[10],q[7]
 tdg q[7]; //cycle: 6509 //tdg q[5]
-swp q[12],q[16]; //cycle: 6510
+swap q[12],q[16]; //cycle: 6510
 cx q[1],q[7]; //cycle: 6511 //cx q[10],q[5]
 t q[2]; //cycle: 6511 //t q[7]
 tdg q[1]; //cycle: 6513 //tdg q[10]
@@ -5564,14 +5564,14 @@ h q[2]; //cycle: 6518 //h q[7]
 t q[2]; //cycle: 6519 //t q[7]
 t q[1]; //cycle: 6520 //t q[10]
 t q[7]; //cycle: 6520 //t q[5]
-swp q[0],q[1]; //cycle: 6521
-swp q[7],q[12]; //cycle: 6521
+swap q[0],q[1]; //cycle: 6521
+swap q[7],q[12]; //cycle: 6521
 cx q[2],q[1]; //cycle: 6527 //cx q[7],q[9]
 cx q[12],q[16]; //cycle: 6527 //cx q[5],q[11]
 cx q[6],q[2]; //cycle: 6529 //cx q[13],q[7]
 cx q[1],q[6]; //cycle: 6531 //cx q[9],q[13]
 tdg q[2]; //cycle: 6531 //tdg q[7]
-swp q[0],q[5]; //cycle: 6533
+swap q[0],q[5]; //cycle: 6533
 cx q[1],q[2]; //cycle: 6533 //cx q[9],q[7]
 t q[6]; //cycle: 6533 //t q[13]
 tdg q[1]; //cycle: 6535 //tdg q[9]
@@ -5588,26 +5588,26 @@ t q[2]; //cycle: 6543 //t q[7]
 cx q[1],q[0]; //cycle: 6543 //cx q[9],q[8]
 cx q[2],q[1]; //cycle: 6545 //cx q[7],q[9]
 tdg q[1]; //cycle: 6547 //tdg q[9]
-swp q[0],q[1]; //cycle: 6548
-swp q[6],q[7]; //cycle: 6552
+swap q[0],q[1]; //cycle: 6548
+swap q[6],q[7]; //cycle: 6552
 cx q[1],q[2]; //cycle: 6554 //cx q[8],q[7]
 cx q[1],q[0]; //cycle: 6556 //cx q[8],q[9]
 t q[2]; //cycle: 6556 //t q[7]
 tdg q[1]; //cycle: 6558 //tdg q[8]
 tdg q[0]; //cycle: 6558 //tdg q[9]
 cx q[8],q[7]; //cycle: 6558 //cx q[3],q[13]
-swp q[1],q[2]; //cycle: 6559
+swap q[1],q[2]; //cycle: 6559
 cx q[1],q[0]; //cycle: 6565 //cx q[7],q[9]
 cx q[2],q[1]; //cycle: 6567 //cx q[8],q[7]
 h q[1]; //cycle: 6569 //h q[7]
 h q[1]; //cycle: 6570 //h q[7]
 t q[1]; //cycle: 6571 //t q[7]
-swp q[0],q[1]; //cycle: 6572
+swap q[0],q[1]; //cycle: 6572
 cx q[1],q[2]; //cycle: 6578 //cx q[9],q[8]
 t q[2]; //cycle: 6580 //t q[8]
 h q[1]; //cycle: 6580 //h q[9]
 t q[1]; //cycle: 6581 //t q[9]
-swp q[1],q[6]; //cycle: 6582
+swap q[1],q[6]; //cycle: 6582
 cx q[6],q[11]; //cycle: 6588 //cx q[9],q[6]
 cx q[5],q[6]; //cycle: 6590 //cx q[10],q[9]
 tdg q[11]; //cycle: 6590 //tdg q[6]
@@ -5641,7 +5641,7 @@ t q[11]; //cycle: 6616 //t q[6]
 h q[12]; //cycle: 6616 //h q[5]
 t q[12]; //cycle: 6617 //t q[5]
 cx q[12],q[13]; //cycle: 6618 //cx q[5],q[4]
-swp q[1],q[7]; //cycle: 6619
+swap q[1],q[7]; //cycle: 6619
 tdg q[13]; //cycle: 6620 //tdg q[4]
 cx q[7],q[12]; //cycle: 6625 //cx q[12],q[5]
 cx q[7],q[13]; //cycle: 6627 //cx q[12],q[4]
@@ -5658,7 +5658,7 @@ t q[12]; //cycle: 6636 //t q[5]
 h q[13]; //cycle: 6636 //h q[4]
 t q[13]; //cycle: 6637 //t q[4]
 cx q[13],q[8]; //cycle: 6638 //cx q[4],q[3]
-swp q[1],q[7]; //cycle: 6639
+swap q[1],q[7]; //cycle: 6639
 tdg q[8]; //cycle: 6640 //tdg q[3]
 cx q[7],q[13]; //cycle: 6645 //cx q[13],q[4]
 cx q[7],q[8]; //cycle: 6647 //cx q[13],q[3]
@@ -5705,7 +5705,7 @@ t q[13]; //cycle: 6685 //t q[4]
 t q[7]; //cycle: 6686 //t q[13]
 t q[8]; //cycle: 6686 //t q[3]
 cx q[8],q[7]; //cycle: 6687 //cx q[3],q[13]
-swp q[1],q[7]; //cycle: 6689
+swap q[1],q[7]; //cycle: 6689
 cx q[13],q[7]; //cycle: 6695 //cx q[4],q[12]
 cx q[12],q[13]; //cycle: 6697 //cx q[5],q[4]
 cx q[7],q[12]; //cycle: 6699 //cx q[12],q[5]
@@ -5754,7 +5754,7 @@ t q[6]; //cycle: 6739 //t q[9]
 cx q[6],q[2]; //cycle: 6740 //cx q[9],q[8]
 t q[5]; //cycle: 6740 //t q[10]
 t q[11]; //cycle: 6740 //t q[6]
-swp q[0],q[1]; //cycle: 6741
+swap q[0],q[1]; //cycle: 6741
 cx q[11],q[5]; //cycle: 6741 //cx q[6],q[10]
 cx q[1],q[6]; //cycle: 6747 //cx q[7],q[9]
 cx q[2],q[1]; //cycle: 6749 //cx q[8],q[7]
@@ -5820,47 +5820,47 @@ t q[7]; //cycle: 6805 //t q[12]
 t q[12]; //cycle: 6805 //t q[5]
 t q[13]; //cycle: 6806 //t q[4]
 cx q[13],q[8]; //cycle: 6807 //cx q[4],q[3]
-swp q[0],q[1]; //cycle: 6808
-swp q[7],q[13]; //cycle: 6809
+swap q[0],q[1]; //cycle: 6808
+swap q[7],q[13]; //cycle: 6809
 tdg q[8]; //cycle: 6809 //tdg q[3]
 cx q[1],q[7]; //cycle: 6815 //cx q[13],q[4]
 t q[7]; //cycle: 6817 //t q[4]
-swp q[7],q[8]; //cycle: 6818
+swap q[7],q[8]; //cycle: 6818
 cx q[1],q[7]; //cycle: 6824 //cx q[13],q[3]
 tdg q[1]; //cycle: 6826 //tdg q[13]
 tdg q[7]; //cycle: 6826 //tdg q[3]
 cx q[8],q[7]; //cycle: 6827 //cx q[4],q[3]
-swp q[1],q[7]; //cycle: 6829
+swap q[1],q[7]; //cycle: 6829
 cx q[7],q[8]; //cycle: 6835 //cx q[13],q[4]
 cx q[1],q[7]; //cycle: 6837 //cx q[3],q[13]
 h q[8]; //cycle: 6837 //h q[4]
-swp q[2],q[3]; //cycle: 6838
+swap q[2],q[3]; //cycle: 6838
 h q[8]; //cycle: 6838 //h q[4]
 h q[1]; //cycle: 6839 //h q[3]
 t q[7]; //cycle: 6839 //t q[13]
 t q[8]; //cycle: 6839 //t q[4]
 t q[1]; //cycle: 6840 //t q[3]
 cx q[1],q[2]; //cycle: 6844 //cx q[3],q[14]
-swp q[1],q[7]; //cycle: 6846
-swp q[4],q[8]; //cycle: 6846
+swap q[1],q[7]; //cycle: 6846
+swap q[4],q[8]; //cycle: 6846
 tdg q[2]; //cycle: 6846 //tdg q[14]
 cx q[8],q[7]; //cycle: 6852 //cx q[15],q[3]
-swp q[3],q[8]; //cycle: 6854
+swap q[3],q[8]; //cycle: 6854
 t q[7]; //cycle: 6854 //t q[3]
 cx q[3],q[2]; //cycle: 6860 //cx q[15],q[14]
 tdg q[3]; //cycle: 6862 //tdg q[15]
 tdg q[2]; //cycle: 6862 //tdg q[14]
 cx q[7],q[2]; //cycle: 6863 //cx q[3],q[14]
-swp q[3],q[8]; //cycle: 6864
+swap q[3],q[8]; //cycle: 6864
 cx q[8],q[7]; //cycle: 6870 //cx q[15],q[3]
 h q[7]; //cycle: 6872 //h q[3]
 t q[7]; //cycle: 6873 //t q[3]
 cx q[7],q[1]; //cycle: 6874 //cx q[3],q[13]
-swp q[4],q[8]; //cycle: 6875
+swap q[4],q[8]; //cycle: 6875
 cx q[8],q[7]; //cycle: 6881 //cx q[4],q[3]
-swp q[2],q[3]; //cycle: 6882
+swap q[2],q[3]; //cycle: 6882
 tdg q[7]; //cycle: 6883 //tdg q[3]
-swp q[1],q[7]; //cycle: 6884
+swap q[1],q[7]; //cycle: 6884
 cx q[3],q[4]; //cycle: 6888 //cx q[14],q[15]
 cx q[7],q[8]; //cycle: 6890 //cx q[13],q[4]
 t q[4]; //cycle: 6890 //t q[15]
@@ -5870,7 +5870,7 @@ cx q[7],q[1]; //cycle: 6892 //cx q[13],q[3]
 t q[8]; //cycle: 6892 //t q[4]
 tdg q[7]; //cycle: 6894 //tdg q[13]
 tdg q[1]; //cycle: 6894 //tdg q[3]
-swp q[7],q[8]; //cycle: 6895
+swap q[7],q[8]; //cycle: 6895
 cx q[7],q[1]; //cycle: 6901 //cx q[4],q[3]
 cx q[8],q[7]; //cycle: 6903 //cx q[13],q[4]
 h q[7]; //cycle: 6905 //h q[4]
@@ -5913,7 +5913,7 @@ cx q[5],q[6]; //cycle: 6941 //cx q[10],q[9]
 tdg q[11]; //cycle: 6941 //tdg q[6]
 cx q[5],q[11]; //cycle: 6943 //cx q[10],q[6]
 t q[6]; //cycle: 6943 //t q[9]
-swp q[7],q[8]; //cycle: 6944
+swap q[7],q[8]; //cycle: 6944
 tdg q[5]; //cycle: 6945 //tdg q[10]
 tdg q[11]; //cycle: 6945 //tdg q[6]
 cx q[6],q[11]; //cycle: 6946 //cx q[9],q[6]
@@ -5932,26 +5932,26 @@ cx q[0],q[5]; //cycle: 6953 //cx q[7],q[10]
 cx q[1],q[7]; //cycle: 6953 //cx q[3],q[13]
 cx q[11],q[6]; //cycle: 6954 //cx q[6],q[9]
 tdg q[6]; //cycle: 6956 //tdg q[9]
-swp q[2],q[6]; //cycle: 6957
+swap q[2],q[6]; //cycle: 6957
 cx q[6],q[11]; //cycle: 6963 //cx q[8],q[6]
 cx q[6],q[2]; //cycle: 6965 //cx q[8],q[9]
 t q[11]; //cycle: 6965 //t q[6]
 tdg q[6]; //cycle: 6967 //tdg q[8]
 tdg q[2]; //cycle: 6967 //tdg q[9]
-swp q[2],q[6]; //cycle: 6968
+swap q[2],q[6]; //cycle: 6968
 cx q[11],q[6]; //cycle: 6974 //cx q[6],q[9]
-swp q[2],q[6]; //cycle: 6976
+swap q[2],q[6]; //cycle: 6976
 cx q[6],q[11]; //cycle: 6982 //cx q[8],q[6]
 cx q[2],q[6]; //cycle: 6984 //cx q[9],q[8]
 h q[11]; //cycle: 6984 //h q[6]
-swp q[0],q[1]; //cycle: 6985
+swap q[0],q[1]; //cycle: 6985
 h q[11]; //cycle: 6985 //h q[6]
 t q[6]; //cycle: 6986 //t q[8]
 t q[11]; //cycle: 6986 //t q[6]
 h q[2]; //cycle: 6986 //h q[9]
 t q[2]; //cycle: 6987 //t q[9]
 cx q[2],q[1]; //cycle: 6991 //cx q[9],q[7]
-swp q[5],q[6]; //cycle: 6992
+swap q[5],q[6]; //cycle: 6992
 tdg q[1]; //cycle: 6993 //tdg q[7]
 cx q[6],q[2]; //cycle: 6998 //cx q[10],q[9]
 cx q[6],q[1]; //cycle: 7000 //cx q[10],q[7]
@@ -5962,24 +5962,24 @@ cx q[2],q[1]; //cycle: 7003 //cx q[9],q[7]
 cx q[6],q[2]; //cycle: 7005 //cx q[10],q[9]
 cx q[1],q[6]; //cycle: 7007 //cx q[7],q[10]
 h q[2]; //cycle: 7007 //h q[9]
-swp q[7],q[12]; //cycle: 7008
+swap q[7],q[12]; //cycle: 7008
 h q[2]; //cycle: 7008 //h q[9]
 t q[6]; //cycle: 7009 //t q[10]
 t q[2]; //cycle: 7009 //t q[9]
 h q[1]; //cycle: 7009 //h q[7]
 t q[1]; //cycle: 7010 //t q[7]
 cx q[1],q[7]; //cycle: 7014 //cx q[7],q[5]
-swp q[11],q[16]; //cycle: 7015
-swp q[1],q[6]; //cycle: 7016
+swap q[11],q[16]; //cycle: 7015
+swap q[1],q[6]; //cycle: 7016
 tdg q[7]; //cycle: 7016 //tdg q[5]
 cx q[11],q[6]; //cycle: 7022 //cx q[11],q[7]
-swp q[11],q[12]; //cycle: 7024
+swap q[11],q[12]; //cycle: 7024
 t q[6]; //cycle: 7024 //t q[7]
 cx q[12],q[7]; //cycle: 7030 //cx q[11],q[5]
 tdg q[12]; //cycle: 7032 //tdg q[11]
 tdg q[7]; //cycle: 7032 //tdg q[5]
 cx q[6],q[7]; //cycle: 7033 //cx q[7],q[5]
-swp q[6],q[11]; //cycle: 7035
+swap q[6],q[11]; //cycle: 7035
 cx q[12],q[11]; //cycle: 7041 //cx q[11],q[7]
 cx q[7],q[12]; //cycle: 7043 //cx q[5],q[11]
 h q[11]; //cycle: 7043 //h q[7]
@@ -5999,13 +5999,13 @@ cx q[7],q[8]; //cycle: 7054 //cx q[5],q[4]
 cx q[13],q[7]; //cycle: 7056 //cx q[12],q[5]
 cx q[8],q[13]; //cycle: 7058 //cx q[4],q[12]
 h q[7]; //cycle: 7058 //h q[5]
-swp q[0],q[1]; //cycle: 7059
+swap q[0],q[1]; //cycle: 7059
 h q[7]; //cycle: 7059 //h q[5]
 t q[13]; //cycle: 7060 //t q[12]
 t q[7]; //cycle: 7060 //t q[5]
 h q[8]; //cycle: 7060 //h q[4]
 t q[8]; //cycle: 7061 //t q[4]
-swp q[7],q[8]; //cycle: 7062
+swap q[7],q[8]; //cycle: 7062
 cx q[7],q[1]; //cycle: 7068 //cx q[4],q[3]
 cx q[6],q[7]; //cycle: 7070 //cx q[13],q[4]
 tdg q[1]; //cycle: 7070 //tdg q[3]
@@ -6017,29 +6017,29 @@ cx q[7],q[1]; //cycle: 7075 //cx q[4],q[3]
 cx q[6],q[7]; //cycle: 7077 //cx q[13],q[4]
 cx q[1],q[6]; //cycle: 7079 //cx q[3],q[13]
 h q[7]; //cycle: 7079 //h q[4]
-swp q[2],q[3]; //cycle: 7080
+swap q[2],q[3]; //cycle: 7080
 h q[7]; //cycle: 7080 //h q[4]
 h q[1]; //cycle: 7081 //h q[3]
 t q[6]; //cycle: 7081 //t q[13]
 t q[7]; //cycle: 7081 //t q[4]
 t q[1]; //cycle: 7082 //t q[3]
 cx q[1],q[2]; //cycle: 7086 //cx q[3],q[14]
-swp q[1],q[7]; //cycle: 7088
-swp q[4],q[8]; //cycle: 7088
+swap q[1],q[7]; //cycle: 7088
+swap q[4],q[8]; //cycle: 7088
 tdg q[2]; //cycle: 7088 //tdg q[14]
 cx q[8],q[7]; //cycle: 7094 //cx q[15],q[3]
-swp q[3],q[8]; //cycle: 7096
+swap q[3],q[8]; //cycle: 7096
 t q[7]; //cycle: 7096 //t q[3]
 cx q[3],q[2]; //cycle: 7102 //cx q[15],q[14]
 tdg q[3]; //cycle: 7104 //tdg q[15]
 tdg q[2]; //cycle: 7104 //tdg q[14]
 cx q[7],q[2]; //cycle: 7105 //cx q[3],q[14]
-swp q[3],q[8]; //cycle: 7106
+swap q[3],q[8]; //cycle: 7106
 cx q[8],q[7]; //cycle: 7112 //cx q[15],q[3]
 h q[7]; //cycle: 7114 //h q[3]
 t q[7]; //cycle: 7115 //t q[3]
 cx q[7],q[6]; //cycle: 7116 //cx q[3],q[13]
-swp q[2],q[3]; //cycle: 7118
+swap q[2],q[3]; //cycle: 7118
 cx q[1],q[7]; //cycle: 7118 //cx q[4],q[3]
 cx q[6],q[1]; //cycle: 7120 //cx q[13],q[4]
 tdg q[7]; //cycle: 7120 //tdg q[3]
@@ -6059,9 +6059,9 @@ t q[1]; //cycle: 7130 //t q[4]
 t q[6]; //cycle: 7131 //t q[13]
 t q[7]; //cycle: 7131 //t q[3]
 cx q[7],q[6]; //cycle: 7132 //cx q[3],q[13]
-swp q[1],q[7]; //cycle: 7134
+swap q[1],q[7]; //cycle: 7134
 cx q[7],q[13]; //cycle: 7140 //cx q[4],q[12]
-swp q[4],q[8]; //cycle: 7141
+swap q[4],q[8]; //cycle: 7141
 cx q[8],q[7]; //cycle: 7147 //cx q[5],q[4]
 cx q[13],q[8]; //cycle: 7149 //cx q[12],q[5]
 tdg q[7]; //cycle: 7149 //tdg q[4]
@@ -6078,34 +6078,34 @@ cx q[8],q[12]; //cycle: 7160 //cx q[5],q[11]
 t q[13]; //cycle: 7160 //t q[12]
 t q[7]; //cycle: 7160 //t q[4]
 cx q[7],q[13]; //cycle: 7161 //cx q[4],q[12]
-swp q[11],q[12]; //cycle: 7162
+swap q[11],q[12]; //cycle: 7162
 cx q[12],q[8]; //cycle: 7168 //cx q[7],q[5]
 cx q[11],q[12]; //cycle: 7170 //cx q[11],q[7]
 tdg q[8]; //cycle: 7170 //tdg q[5]
 t q[12]; //cycle: 7172 //t q[7]
-swp q[8],q[12]; //cycle: 7173
+swap q[8],q[12]; //cycle: 7173
 cx q[11],q[12]; //cycle: 7179 //cx q[11],q[5]
 tdg q[11]; //cycle: 7181 //tdg q[11]
 tdg q[12]; //cycle: 7181 //tdg q[5]
 cx q[8],q[12]; //cycle: 7182 //cx q[7],q[5]
-swp q[8],q[12]; //cycle: 7184
+swap q[8],q[12]; //cycle: 7184
 cx q[11],q[12]; //cycle: 7190 //cx q[11],q[7]
-swp q[0],q[1]; //cycle: 7191
+swap q[0],q[1]; //cycle: 7191
 h q[12]; //cycle: 7192 //h q[7]
 t q[12]; //cycle: 7193 //t q[7]
-swp q[7],q[12]; //cycle: 7194
+swap q[7],q[12]; //cycle: 7194
 cx q[7],q[1]; //cycle: 7200 //cx q[7],q[10]
 cx q[2],q[7]; //cycle: 7202 //cx q[9],q[7]
 cx q[1],q[2]; //cycle: 7204 //cx q[10],q[9]
 tdg q[7]; //cycle: 7204 //tdg q[7]
 cx q[1],q[7]; //cycle: 7206 //cx q[10],q[7]
 t q[2]; //cycle: 7206 //t q[9]
-swp q[11],q[12]; //cycle: 7207
+swap q[11],q[12]; //cycle: 7207
 tdg q[1]; //cycle: 7208 //tdg q[10]
 tdg q[7]; //cycle: 7208 //tdg q[7]
 cx q[2],q[7]; //cycle: 7209 //cx q[9],q[7]
 cx q[1],q[2]; //cycle: 7211 //cx q[10],q[9]
-swp q[5],q[6]; //cycle: 7212
+swap q[5],q[6]; //cycle: 7212
 cx q[8],q[12]; //cycle: 7213 //cx q[5],q[11]
 cx q[7],q[1]; //cycle: 7213 //cx q[7],q[10]
 h q[2]; //cycle: 7213 //h q[9]
@@ -6117,21 +6117,21 @@ t q[8]; //cycle: 7215 //t q[5]
 cx q[7],q[1]; //cycle: 7216 //cx q[7],q[10]
 cx q[8],q[12]; //cycle: 7216 //cx q[5],q[11]
 cx q[2],q[6]; //cycle: 7218 //cx q[9],q[8]
-swp q[2],q[7]; //cycle: 7220
-swp q[12],q[16]; //cycle: 7220
+swap q[2],q[7]; //cycle: 7220
+swap q[12],q[16]; //cycle: 7220
 cx q[12],q[7]; //cycle: 7226 //cx q[6],q[9]
-swp q[11],q[12]; //cycle: 7228
+swap q[11],q[12]; //cycle: 7228
 tdg q[7]; //cycle: 7228 //tdg q[9]
 cx q[6],q[11]; //cycle: 7234 //cx q[8],q[6]
 cx q[6],q[7]; //cycle: 7236 //cx q[8],q[9]
 t q[11]; //cycle: 7236 //t q[6]
-swp q[11],q[12]; //cycle: 7237
+swap q[11],q[12]; //cycle: 7237
 tdg q[6]; //cycle: 7238 //tdg q[8]
 tdg q[7]; //cycle: 7238 //tdg q[9]
 cx q[12],q[7]; //cycle: 7243 //cx q[6],q[9]
-swp q[11],q[12]; //cycle: 7245
+swap q[11],q[12]; //cycle: 7245
 cx q[6],q[11]; //cycle: 7251 //cx q[8],q[6]
-swp q[12],q[13]; //cycle: 7252
+swap q[12],q[13]; //cycle: 7252
 cx q[7],q[6]; //cycle: 7253 //cx q[9],q[8]
 h q[11]; //cycle: 7253 //h q[6]
 t q[11]; //cycle: 7254 //t q[6]
@@ -6149,18 +6149,18 @@ cx q[7],q[2]; //cycle: 7264 //cx q[9],q[7]
 cx q[1],q[7]; //cycle: 7266 //cx q[10],q[9]
 cx q[2],q[1]; //cycle: 7268 //cx q[7],q[10]
 h q[7]; //cycle: 7268 //h q[9]
-swp q[3],q[8]; //cycle: 7269
+swap q[3],q[8]; //cycle: 7269
 h q[7]; //cycle: 7269 //h q[9]
 h q[2]; //cycle: 7270 //h q[7]
 t q[1]; //cycle: 7270 //t q[10]
 t q[7]; //cycle: 7270 //t q[9]
 t q[2]; //cycle: 7271 //t q[7]
 cx q[2],q[3]; //cycle: 7275 //cx q[7],q[5]
-swp q[2],q[7]; //cycle: 7277
-swp q[12],q[16]; //cycle: 7277
+swap q[2],q[7]; //cycle: 7277
+swap q[12],q[16]; //cycle: 7277
 tdg q[3]; //cycle: 7277 //tdg q[5]
 cx q[12],q[7]; //cycle: 7283 //cx q[11],q[7]
-swp q[3],q[8]; //cycle: 7284
+swap q[3],q[8]; //cycle: 7284
 t q[7]; //cycle: 7285 //t q[7]
 cx q[12],q[8]; //cycle: 7290 //cx q[11],q[5]
 tdg q[12]; //cycle: 7292 //tdg q[11]
@@ -6175,7 +6175,7 @@ t q[12]; //cycle: 7299 //t q[11]
 t q[7]; //cycle: 7299 //t q[7]
 t q[8]; //cycle: 7300 //t q[5]
 cx q[8],q[13]; //cycle: 7301 //cx q[5],q[4]
-swp q[12],q[16]; //cycle: 7302
+swap q[12],q[16]; //cycle: 7302
 tdg q[13]; //cycle: 7303 //tdg q[4]
 cx q[12],q[8]; //cycle: 7308 //cx q[12],q[5]
 cx q[12],q[13]; //cycle: 7310 //cx q[12],q[4]
@@ -6187,14 +6187,14 @@ cx q[12],q[8]; //cycle: 7315 //cx q[12],q[5]
 cx q[13],q[12]; //cycle: 7317 //cx q[4],q[12]
 h q[8]; //cycle: 7317 //h q[5]
 h q[8]; //cycle: 7318 //h q[5]
-swp q[0],q[1]; //cycle: 7319
+swap q[0],q[1]; //cycle: 7319
 h q[13]; //cycle: 7319 //h q[4]
 t q[12]; //cycle: 7319 //t q[12]
 t q[8]; //cycle: 7319 //t q[5]
 t q[13]; //cycle: 7320 //t q[4]
-swp q[7],q[13]; //cycle: 7321
+swap q[7],q[13]; //cycle: 7321
 cx q[7],q[1]; //cycle: 7327 //cx q[4],q[3]
-swp q[5],q[6]; //cycle: 7328
+swap q[5],q[6]; //cycle: 7328
 tdg q[1]; //cycle: 7329 //tdg q[3]
 cx q[6],q[7]; //cycle: 7334 //cx q[13],q[4]
 cx q[6],q[1]; //cycle: 7336 //cx q[13],q[3]
@@ -6205,27 +6205,27 @@ cx q[7],q[1]; //cycle: 7339 //cx q[4],q[3]
 cx q[6],q[7]; //cycle: 7341 //cx q[13],q[4]
 cx q[1],q[6]; //cycle: 7343 //cx q[3],q[13]
 h q[7]; //cycle: 7343 //h q[4]
-swp q[2],q[3]; //cycle: 7344
+swap q[2],q[3]; //cycle: 7344
 h q[7]; //cycle: 7344 //h q[4]
 h q[1]; //cycle: 7345 //h q[3]
 t q[6]; //cycle: 7345 //t q[13]
 t q[7]; //cycle: 7345 //t q[4]
 t q[1]; //cycle: 7346 //t q[3]
 cx q[1],q[2]; //cycle: 7350 //cx q[3],q[14]
-swp q[1],q[7]; //cycle: 7352
-swp q[4],q[8]; //cycle: 7352
+swap q[1],q[7]; //cycle: 7352
+swap q[4],q[8]; //cycle: 7352
 tdg q[2]; //cycle: 7352 //tdg q[14]
 cx q[8],q[7]; //cycle: 7358 //cx q[15],q[3]
-swp q[3],q[8]; //cycle: 7360
+swap q[3],q[8]; //cycle: 7360
 t q[7]; //cycle: 7360 //t q[3]
 cx q[3],q[2]; //cycle: 7366 //cx q[15],q[14]
 tdg q[3]; //cycle: 7368 //tdg q[15]
 tdg q[2]; //cycle: 7368 //tdg q[14]
 cx q[7],q[2]; //cycle: 7369 //cx q[3],q[14]
-swp q[3],q[8]; //cycle: 7370
+swap q[3],q[8]; //cycle: 7370
 cx q[8],q[7]; //cycle: 7376 //cx q[15],q[3]
 h q[7]; //cycle: 7378 //h q[3]
-swp q[2],q[3]; //cycle: 7379
+swap q[2],q[3]; //cycle: 7379
 t q[7]; //cycle: 7379 //t q[3]
 cx q[7],q[6]; //cycle: 7380 //cx q[3],q[13]
 cx q[1],q[7]; //cycle: 7382 //cx q[4],q[3]
@@ -6240,15 +6240,15 @@ tdg q[6]; //cycle: 7388 //tdg q[13]
 tdg q[7]; //cycle: 7388 //tdg q[3]
 cx q[1],q[7]; //cycle: 7389 //cx q[4],q[3]
 cx q[6],q[1]; //cycle: 7391 //cx q[13],q[4]
-swp q[5],q[11]; //cycle: 7392
-swp q[7],q[12]; //cycle: 7392
+swap q[5],q[11]; //cycle: 7392
+swap q[7],q[12]; //cycle: 7392
 h q[1]; //cycle: 7393 //h q[4]
 t q[1]; //cycle: 7394 //t q[4]
-swp q[6],q[11]; //cycle: 7398
+swap q[6],q[11]; //cycle: 7398
 cx q[1],q[7]; //cycle: 7398 //cx q[4],q[12]
-swp q[1],q[2]; //cycle: 7400
-swp q[3],q[4]; //cycle: 7400
-swp q[7],q[8]; //cycle: 7400
+swap q[1],q[2]; //cycle: 7400
+swap q[3],q[4]; //cycle: 7400
+swap q[7],q[8]; //cycle: 7400
 cx q[12],q[11]; //cycle: 7404 //cx q[3],q[13]
 t q[12]; //cycle: 7406 //t q[3]
 cx q[3],q[2]; //cycle: 7406 //cx q[5],q[4]
@@ -6256,23 +6256,23 @@ cx q[7],q[6]; //cycle: 7406 //cx q[15],q[8]
 t q[11]; //cycle: 7406 //t q[13]
 cx q[8],q[3]; //cycle: 7408 //cx q[12],q[5]
 tdg q[2]; //cycle: 7408 //tdg q[4]
-swp q[7],q[8]; //cycle: 7410
+swap q[7],q[8]; //cycle: 7410
 t q[3]; //cycle: 7410 //t q[5]
-swp q[11],q[12]; //cycle: 7413
+swap q[11],q[12]; //cycle: 7413
 cx q[7],q[2]; //cycle: 7416 //cx q[12],q[4]
 tdg q[7]; //cycle: 7418 //tdg q[12]
 tdg q[2]; //cycle: 7418 //tdg q[4]
 cx q[3],q[2]; //cycle: 7419 //cx q[5],q[4]
-swp q[3],q[8]; //cycle: 7421
+swap q[3],q[8]; //cycle: 7421
 cx q[7],q[8]; //cycle: 7427 //cx q[12],q[5]
-swp q[12],q[16]; //cycle: 7428
+swap q[12],q[16]; //cycle: 7428
 cx q[2],q[7]; //cycle: 7429 //cx q[4],q[12]
 h q[8]; //cycle: 7429 //h q[5]
 t q[8]; //cycle: 7430 //t q[5]
 t q[2]; //cycle: 7431 //t q[4]
 t q[7]; //cycle: 7431 //t q[12]
 cx q[8],q[12]; //cycle: 7434 //cx q[5],q[11]
-swp q[6],q[7]; //cycle: 7436
+swap q[6],q[7]; //cycle: 7436
 cx q[13],q[8]; //cycle: 7436 //cx q[7],q[5]
 cx q[12],q[13]; //cycle: 7438 //cx q[11],q[7]
 tdg q[8]; //cycle: 7438 //tdg q[5]
@@ -6283,22 +6283,22 @@ tdg q[8]; //cycle: 7442 //tdg q[5]
 cx q[5],q[6]; //cycle: 7442 //cx q[6],q[12]
 cx q[13],q[8]; //cycle: 7443 //cx q[7],q[5]
 cx q[12],q[13]; //cycle: 7445 //cx q[11],q[7]
-swp q[0],q[1]; //cycle: 7446
+swap q[0],q[1]; //cycle: 7446
 cx q[8],q[12]; //cycle: 7447 //cx q[5],q[11]
 h q[13]; //cycle: 7447 //h q[7]
 t q[13]; //cycle: 7448 //t q[7]
-swp q[7],q[13]; //cycle: 7449
+swap q[7],q[13]; //cycle: 7449
 h q[8]; //cycle: 7449 //h q[5]
 t q[12]; //cycle: 7449 //t q[11]
-swp q[12],q[16]; //cycle: 7450
+swap q[12],q[16]; //cycle: 7450
 t q[8]; //cycle: 7450 //t q[5]
 cx q[8],q[3]; //cycle: 7451 //cx q[5],q[15]
 tdg q[3]; //cycle: 7453 //tdg q[15]
 cx q[7],q[1]; //cycle: 7455 //cx q[7],q[10]
 cx q[13],q[8]; //cycle: 7455 //cx q[8],q[5]
-swp q[0],q[1]; //cycle: 7457
+swap q[0],q[1]; //cycle: 7457
 t q[8]; //cycle: 7457 //t q[5]
-swp q[3],q[8]; //cycle: 7459
+swap q[3],q[8]; //cycle: 7459
 cx q[1],q[7]; //cycle: 7463 //cx q[9],q[7]
 cx q[0],q[1]; //cycle: 7465 //cx q[10],q[9]
 tdg q[7]; //cycle: 7465 //tdg q[7]
@@ -6306,19 +6306,19 @@ cx q[13],q[8]; //cycle: 7465 //cx q[8],q[15]
 t q[1]; //cycle: 7467 //t q[9]
 tdg q[13]; //cycle: 7467 //tdg q[8]
 tdg q[8]; //cycle: 7467 //tdg q[15]
-swp q[1],q[7]; //cycle: 7468
+swap q[1],q[7]; //cycle: 7468
 cx q[3],q[8]; //cycle: 7468 //cx q[5],q[15]
-swp q[3],q[8]; //cycle: 7470
+swap q[3],q[8]; //cycle: 7470
 cx q[0],q[1]; //cycle: 7474 //cx q[10],q[7]
 tdg q[0]; //cycle: 7476 //tdg q[10]
 tdg q[1]; //cycle: 7476 //tdg q[7]
 cx q[13],q[8]; //cycle: 7476 //cx q[8],q[5]
 cx q[7],q[1]; //cycle: 7477 //cx q[9],q[7]
 h q[8]; //cycle: 7478 //h q[5]
-swp q[0],q[1]; //cycle: 7479
+swap q[0],q[1]; //cycle: 7479
 h q[8]; //cycle: 7479 //h q[5]
 t q[8]; //cycle: 7480 //t q[5]
-swp q[8],q[13]; //cycle: 7481
+swap q[8],q[13]; //cycle: 7481
 cx q[1],q[7]; //cycle: 7485 //cx q[10],q[9]
 cx q[0],q[1]; //cycle: 7487 //cx q[7],q[10]
 h q[7]; //cycle: 7487 //h q[9]
@@ -6330,9 +6330,9 @@ t q[1]; //cycle: 7489 //t q[10]
 t q[0]; //cycle: 7489 //t q[7]
 t q[3]; //cycle: 7490 //t q[15]
 cx q[1],q[7]; //cycle: 7490 //cx q[10],q[9]
-swp q[2],q[3]; //cycle: 7491
-swp q[4],q[8]; //cycle: 7491
-swp q[11],q[16]; //cycle: 7492
+swap q[2],q[3]; //cycle: 7491
+swap q[4],q[8]; //cycle: 7491
+swap q[11],q[16]; //cycle: 7492
 cx q[2],q[1]; //cycle: 7497 //cx q[15],q[10]
 cx q[12],q[8]; //cycle: 7497 //cx q[13],q[14]
 cx q[7],q[2]; //cycle: 7499 //cx q[9],q[15]
@@ -6342,7 +6342,7 @@ t q[2]; //cycle: 7501 //t q[15]
 tdg q[7]; //cycle: 7503 //tdg q[9]
 tdg q[1]; //cycle: 7503 //tdg q[10]
 cx q[2],q[1]; //cycle: 7504 //cx q[15],q[10]
-swp q[0],q[5]; //cycle: 7505
+swap q[0],q[5]; //cycle: 7505
 cx q[7],q[2]; //cycle: 7506 //cx q[9],q[15]
 cx q[1],q[7]; //cycle: 7508 //cx q[10],q[9]
 h q[2]; //cycle: 7508 //h q[15]
@@ -6352,7 +6352,7 @@ t q[7]; //cycle: 7510 //t q[9]
 t q[2]; //cycle: 7510 //t q[15]
 t q[1]; //cycle: 7511 //t q[10]
 cx q[5],q[11]; //cycle: 7511 //cx q[7],q[11]
-swp q[1],q[6]; //cycle: 7512
+swap q[1],q[6]; //cycle: 7512
 cx q[6],q[5]; //cycle: 7518 //cx q[10],q[7]
 cx q[11],q[6]; //cycle: 7520 //cx q[11],q[10]
 tdg q[5]; //cycle: 7520 //tdg q[7]
@@ -6370,16 +6370,16 @@ t q[11]; //cycle: 7531 //t q[11]
 t q[6]; //cycle: 7531 //t q[10]
 t q[5]; //cycle: 7532 //t q[7]
 cx q[5],q[0]; //cycle: 7533 //cx q[7],q[6]
-swp q[5],q[6]; //cycle: 7535
+swap q[5],q[6]; //cycle: 7535
 tdg q[0]; //cycle: 7535 //tdg q[6]
 cx q[1],q[6]; //cycle: 7541 //cx q[12],q[7]
 cx q[1],q[0]; //cycle: 7543 //cx q[12],q[6]
 t q[6]; //cycle: 7543 //t q[7]
-swp q[5],q[6]; //cycle: 7544
+swap q[5],q[6]; //cycle: 7544
 tdg q[1]; //cycle: 7545 //tdg q[12]
 tdg q[0]; //cycle: 7545 //tdg q[6]
 cx q[5],q[0]; //cycle: 7550 //cx q[7],q[6]
-swp q[0],q[1]; //cycle: 7552
+swap q[0],q[1]; //cycle: 7552
 cx q[0],q[5]; //cycle: 7558 //cx q[12],q[7]
 cx q[1],q[0]; //cycle: 7560 //cx q[6],q[12]
 h q[5]; //cycle: 7560 //h q[7]
@@ -6388,7 +6388,7 @@ h q[1]; //cycle: 7562 //h q[6]
 t q[0]; //cycle: 7562 //t q[12]
 t q[5]; //cycle: 7562 //t q[7]
 t q[1]; //cycle: 7563 //t q[6]
-swp q[1],q[7]; //cycle: 7564
+swap q[1],q[7]; //cycle: 7564
 cx q[7],q[12]; //cycle: 7570 //cx q[6],q[13]
 cx q[8],q[7]; //cycle: 7572 //cx q[14],q[6]
 tdg q[12]; //cycle: 7572 //tdg q[13]
@@ -6398,7 +6398,7 @@ tdg q[8]; //cycle: 7576 //tdg q[14]
 tdg q[12]; //cycle: 7576 //tdg q[13]
 cx q[7],q[12]; //cycle: 7577 //cx q[6],q[13]
 cx q[8],q[7]; //cycle: 7579 //cx q[14],q[6]
-swp q[0],q[1]; //cycle: 7580
+swap q[0],q[1]; //cycle: 7580
 cx q[12],q[8]; //cycle: 7581 //cx q[13],q[14]
 h q[7]; //cycle: 7581 //h q[6]
 t q[7]; //cycle: 7582 //t q[6]
@@ -6406,7 +6406,7 @@ t q[8]; //cycle: 7583 //t q[14]
 t q[12]; //cycle: 7583 //t q[13]
 cx q[12],q[8]; //cycle: 7584 //cx q[13],q[14]
 cx q[7],q[1]; //cycle: 7586 //cx q[6],q[12]
-swp q[5],q[6]; //cycle: 7587
+swap q[5],q[6]; //cycle: 7587
 cx q[6],q[7]; //cycle: 7593 //cx q[7],q[6]
 cx q[1],q[6]; //cycle: 7595 //cx q[12],q[7]
 tdg q[7]; //cycle: 7595 //tdg q[6]
@@ -6439,9 +6439,9 @@ t q[11]; //cycle: 7621 //t q[11]
 t q[6]; //cycle: 7621 //t q[7]
 cx q[5],q[0]; //cycle: 7621 //cx q[10],q[9]
 cx q[6],q[11]; //cycle: 7622 //cx q[7],q[11]
-swp q[5],q[6]; //cycle: 7624
+swap q[5],q[6]; //cycle: 7624
 cx q[2],q[6]; //cycle: 7630 //cx q[15],q[10]
-swp q[0],q[1]; //cycle: 7631
+swap q[0],q[1]; //cycle: 7631
 tdg q[6]; //cycle: 7632 //tdg q[10]
 cx q[1],q[2]; //cycle: 7637 //cx q[9],q[15]
 cx q[1],q[6]; //cycle: 7639 //cx q[9],q[10]
@@ -6450,7 +6450,7 @@ tdg q[1]; //cycle: 7641 //tdg q[9]
 tdg q[6]; //cycle: 7641 //tdg q[10]
 cx q[2],q[6]; //cycle: 7642 //cx q[15],q[10]
 cx q[1],q[2]; //cycle: 7644 //cx q[9],q[15]
-swp q[3],q[4]; //cycle: 7645
+swap q[3],q[4]; //cycle: 7645
 cx q[6],q[1]; //cycle: 7646 //cx q[10],q[9]
 h q[2]; //cycle: 7646 //h q[15]
 t q[2]; //cycle: 7647 //t q[15]
@@ -6458,9 +6458,9 @@ t q[1]; //cycle: 7648 //t q[9]
 t q[6]; //cycle: 7648 //t q[10]
 cx q[6],q[1]; //cycle: 7649 //cx q[10],q[9]
 cx q[2],q[3]; //cycle: 7651 //cx q[15],q[8]
-swp q[2],q[7]; //cycle: 7653
+swap q[2],q[7]; //cycle: 7653
 cx q[13],q[7]; //cycle: 7659 //cx q[5],q[15]
-swp q[3],q[8]; //cycle: 7660
+swap q[3],q[8]; //cycle: 7660
 tdg q[7]; //cycle: 7661 //tdg q[15]
 cx q[8],q[13]; //cycle: 7666 //cx q[8],q[5]
 cx q[8],q[7]; //cycle: 7668 //cx q[8],q[15]
@@ -6507,9 +6507,9 @@ h q[5]; //cycle: 7707 //h q[7]
 t q[11]; //cycle: 7707 //t q[11]
 t q[6]; //cycle: 7707 //t q[10]
 t q[5]; //cycle: 7708 //t q[7]
-swp q[5],q[6]; //cycle: 7709
+swap q[5],q[6]; //cycle: 7709
 cx q[6],q[2]; //cycle: 7715 //cx q[7],q[6]
-swp q[0],q[1]; //cycle: 7716
+swap q[0],q[1]; //cycle: 7716
 tdg q[2]; //cycle: 7717 //tdg q[6]
 cx q[1],q[6]; //cycle: 7722 //cx q[12],q[7]
 cx q[1],q[2]; //cycle: 7724 //cx q[12],q[6]
@@ -6525,9 +6525,9 @@ h q[2]; //cycle: 7733 //h q[6]
 t q[1]; //cycle: 7733 //t q[12]
 t q[6]; //cycle: 7733 //t q[7]
 t q[2]; //cycle: 7734 //t q[6]
-swp q[2],q[7]; //cycle: 7735
+swap q[2],q[7]; //cycle: 7735
 cx q[7],q[12]; //cycle: 7741 //cx q[6],q[13]
-swp q[3],q[8]; //cycle: 7742
+swap q[3],q[8]; //cycle: 7742
 tdg q[12]; //cycle: 7743 //tdg q[13]
 cx q[8],q[7]; //cycle: 7748 //cx q[14],q[6]
 cx q[8],q[12]; //cycle: 7750 //cx q[14],q[13]
@@ -6539,7 +6539,7 @@ cx q[8],q[7]; //cycle: 7755 //cx q[14],q[6]
 cx q[12],q[8]; //cycle: 7757 //cx q[13],q[14]
 h q[7]; //cycle: 7757 //h q[6]
 t q[7]; //cycle: 7758 //t q[6]
-swp q[2],q[3]; //cycle: 7759
+swap q[2],q[3]; //cycle: 7759
 t q[12]; //cycle: 7759 //t q[13]
 t q[8]; //cycle: 7759 //t q[14]
 cx q[7],q[1]; //cycle: 7759 //cx q[6],q[12]
@@ -6592,13 +6592,13 @@ t q[11]; //cycle: 7790 //t q[11]
 t q[2]; //cycle: 7790 //t q[8]
 t q[7]; //cycle: 7790 //t q[6]
 h q[1]; //cycle: 7790 //h q[12]
-swp q[2],q[3]; //cycle: 7791
-swp q[5],q[6]; //cycle: 7791
+swap q[2],q[3]; //cycle: 7791
+swap q[5],q[6]; //cycle: 7791
 t q[1]; //cycle: 7791 //t q[12]
-swp q[4],q[8]; //cycle: 7797
+swap q[4],q[8]; //cycle: 7797
 cx q[2],q[6]; //cycle: 7797 //cx q[15],q[10]
-swp q[0],q[1]; //cycle: 7798
-swp q[11],q[12]; //cycle: 7798
+swap q[0],q[1]; //cycle: 7798
+swap q[11],q[12]; //cycle: 7798
 tdg q[6]; //cycle: 7799 //tdg q[10]
 cx q[8],q[12]; //cycle: 7804 //cx q[4],q[11]
 cx q[1],q[2]; //cycle: 7804 //cx q[9],q[15]
@@ -6610,26 +6610,26 @@ cx q[2],q[6]; //cycle: 7809 //cx q[15],q[10]
 cx q[1],q[2]; //cycle: 7811 //cx q[9],q[15]
 cx q[6],q[1]; //cycle: 7813 //cx q[10],q[9]
 h q[2]; //cycle: 7813 //h q[15]
-swp q[0],q[5]; //cycle: 7814
-swp q[7],q[13]; //cycle: 7814
+swap q[0],q[5]; //cycle: 7814
+swap q[7],q[13]; //cycle: 7814
 t q[2]; //cycle: 7814 //t q[15]
-swp q[3],q[4]; //cycle: 7815
+swap q[3],q[4]; //cycle: 7815
 t q[6]; //cycle: 7815 //t q[10]
 t q[1]; //cycle: 7815 //t q[9]
 cx q[7],q[6]; //cycle: 7820 //cx q[5],q[10]
 cx q[0],q[1]; //cycle: 7820 //cx q[7],q[9]
 cx q[3],q[2]; //cycle: 7821 //cx q[14],q[15]
 cx q[5],q[0]; //cycle: 7822 //cx q[12],q[7]
-swp q[5],q[6]; //cycle: 7824
+swap q[5],q[6]; //cycle: 7824
 tdg q[0]; //cycle: 7824 //tdg q[7]
 cx q[1],q[6]; //cycle: 7830 //cx q[9],q[12]
 cx q[1],q[0]; //cycle: 7832 //cx q[9],q[7]
 t q[6]; //cycle: 7832 //t q[12]
-swp q[5],q[6]; //cycle: 7833
+swap q[5],q[6]; //cycle: 7833
 tdg q[1]; //cycle: 7834 //tdg q[9]
 tdg q[0]; //cycle: 7834 //tdg q[7]
 cx q[5],q[0]; //cycle: 7839 //cx q[12],q[7]
-swp q[0],q[1]; //cycle: 7841
+swap q[0],q[1]; //cycle: 7841
 cx q[0],q[5]; //cycle: 7847 //cx q[9],q[12]
 cx q[1],q[0]; //cycle: 7849 //cx q[7],q[9]
 h q[5]; //cycle: 7849 //h q[12]
@@ -6670,7 +6670,7 @@ h q[8]; //cycle: 7881 //h q[4]
 t q[12]; //cycle: 7881 //t q[11]
 t q[7]; //cycle: 7881 //t q[5]
 t q[8]; //cycle: 7882 //t q[4]
-swp q[8],q[12]; //cycle: 7883
+swap q[8],q[12]; //cycle: 7883
 cx q[12],q[16]; //cycle: 7889 //cx q[4],q[3]
 cx q[11],q[12]; //cycle: 7891 //cx q[13],q[4]
 tdg q[16]; //cycle: 7891 //tdg q[3]
@@ -6683,14 +6683,14 @@ cx q[11],q[12]; //cycle: 7898 //cx q[13],q[4]
 cx q[16],q[11]; //cycle: 7900 //cx q[3],q[13]
 h q[12]; //cycle: 7900 //h q[4]
 h q[12]; //cycle: 7901 //h q[4]
-swp q[3],q[8]; //cycle: 7902
+swap q[3],q[8]; //cycle: 7902
 h q[16]; //cycle: 7902 //h q[3]
 t q[11]; //cycle: 7902 //t q[13]
 t q[12]; //cycle: 7902 //t q[4]
 t q[16]; //cycle: 7903 //t q[3]
-swp q[12],q[16]; //cycle: 7904
+swap q[12],q[16]; //cycle: 7904
 cx q[12],q[8]; //cycle: 7910 //cx q[3],q[14]
-swp q[2],q[7]; //cycle: 7911
+swap q[2],q[7]; //cycle: 7911
 tdg q[8]; //cycle: 7912 //tdg q[14]
 cx q[7],q[12]; //cycle: 7917 //cx q[15],q[3]
 cx q[7],q[8]; //cycle: 7919 //cx q[15],q[14]
@@ -6717,14 +6717,14 @@ cx q[16],q[12]; //cycle: 7937 //cx q[4],q[3]
 cx q[11],q[16]; //cycle: 7939 //cx q[13],q[4]
 cx q[12],q[11]; //cycle: 7941 //cx q[3],q[13]
 h q[16]; //cycle: 7941 //h q[4]
-swp q[3],q[8]; //cycle: 7942
+swap q[3],q[8]; //cycle: 7942
 t q[16]; //cycle: 7942 //t q[4]
 t q[11]; //cycle: 7943 //t q[13]
 t q[12]; //cycle: 7943 //t q[3]
 cx q[12],q[11]; //cycle: 7944 //cx q[3],q[13]
-swp q[12],q[16]; //cycle: 7946
+swap q[12],q[16]; //cycle: 7946
 cx q[12],q[8]; //cycle: 7952 //cx q[4],q[11]
-swp q[2],q[7]; //cycle: 7953
+swap q[2],q[7]; //cycle: 7953
 cx q[7],q[12]; //cycle: 7959 //cx q[5],q[4]
 cx q[8],q[7]; //cycle: 7961 //cx q[11],q[5]
 tdg q[12]; //cycle: 7961 //tdg q[4]
@@ -6757,29 +6757,29 @@ cx q[1],q[0]; //cycle: 7987 //cx q[7],q[9]
 t q[6]; //cycle: 7987 //t q[10]
 t q[7]; //cycle: 7987 //t q[5]
 cx q[7],q[6]; //cycle: 7988 //cx q[5],q[10]
-swp q[0],q[5]; //cycle: 7989
+swap q[0],q[5]; //cycle: 7989
 cx q[0],q[1]; //cycle: 7995 //cx q[12],q[7]
 cx q[5],q[0]; //cycle: 7997 //cx q[9],q[12]
 tdg q[1]; //cycle: 7997 //tdg q[7]
-swp q[5],q[6]; //cycle: 7999
+swap q[5],q[6]; //cycle: 7999
 t q[0]; //cycle: 7999 //t q[12]
 cx q[6],q[1]; //cycle: 8005 //cx q[9],q[7]
 tdg q[6]; //cycle: 8007 //tdg q[9]
 tdg q[1]; //cycle: 8007 //tdg q[7]
 cx q[0],q[1]; //cycle: 8008 //cx q[12],q[7]
-swp q[0],q[1]; //cycle: 8010
+swap q[0],q[1]; //cycle: 8010
 cx q[6],q[1]; //cycle: 8016 //cx q[9],q[12]
-swp q[4],q[8]; //cycle: 8018
+swap q[4],q[8]; //cycle: 8018
 h q[1]; //cycle: 8018 //h q[12]
 t q[1]; //cycle: 8019 //t q[12]
-swp q[1],q[7]; //cycle: 8020
-swp q[0],q[5]; //cycle: 8026
-swp q[1],q[6]; //cycle: 8026
+swap q[1],q[7]; //cycle: 8020
+swap q[0],q[5]; //cycle: 8026
+swap q[1],q[6]; //cycle: 8026
 cx q[7],q[8]; //cycle: 8026 //cx q[12],q[8]
 cx q[13],q[7]; //cycle: 8028 //cx q[6],q[12]
 cx q[8],q[13]; //cycle: 8030 //cx q[8],q[6]
 tdg q[7]; //cycle: 8030 //tdg q[12]
-swp q[5],q[6]; //cycle: 8032
+swap q[5],q[6]; //cycle: 8032
 cx q[8],q[7]; //cycle: 8032 //cx q[8],q[12]
 t q[13]; //cycle: 8032 //t q[6]
 tdg q[8]; //cycle: 8034 //tdg q[8]
@@ -6814,31 +6814,31 @@ t q[7]; //cycle: 8056 //t q[12]
 h q[6]; //cycle: 8056 //h q[7]
 t q[6]; //cycle: 8057 //t q[7]
 cx q[6],q[5]; //cycle: 8058 //cx q[7],q[5]
-swp q[1],q[6]; //cycle: 8060
+swap q[1],q[6]; //cycle: 8060
 tdg q[5]; //cycle: 8060 //tdg q[5]
 cx q[0],q[1]; //cycle: 8066 //cx q[10],q[7]
 t q[1]; //cycle: 8068 //t q[7]
 cx q[0],q[5]; //cycle: 8068 //cx q[10],q[5]
 tdg q[0]; //cycle: 8070 //tdg q[10]
 tdg q[5]; //cycle: 8070 //tdg q[5]
-swp q[5],q[6]; //cycle: 8071
+swap q[5],q[6]; //cycle: 8071
 cx q[1],q[6]; //cycle: 8077 //cx q[7],q[5]
 cx q[0],q[1]; //cycle: 8079 //cx q[10],q[7]
-swp q[0],q[5]; //cycle: 8081
+swap q[0],q[5]; //cycle: 8081
 h q[1]; //cycle: 8081 //h q[7]
 h q[1]; //cycle: 8082 //h q[7]
 t q[1]; //cycle: 8083 //t q[7]
 cx q[6],q[5]; //cycle: 8087 //cx q[5],q[10]
-swp q[11],q[12]; //cycle: 8088
+swap q[11],q[12]; //cycle: 8088
 h q[6]; //cycle: 8089 //h q[5]
 t q[5]; //cycle: 8089 //t q[10]
 t q[6]; //cycle: 8090 //t q[5]
 cx q[6],q[11]; //cycle: 8094 //cx q[5],q[4]
-swp q[4],q[8]; //cycle: 8095
-swp q[6],q[7]; //cycle: 8096
+swap q[4],q[8]; //cycle: 8095
+swap q[6],q[7]; //cycle: 8096
 tdg q[11]; //cycle: 8096 //tdg q[4]
 cx q[8],q[7]; //cycle: 8102 //cx q[11],q[5]
-swp q[11],q[12]; //cycle: 8103
+swap q[11],q[12]; //cycle: 8103
 t q[7]; //cycle: 8104 //t q[5]
 cx q[8],q[12]; //cycle: 8109 //cx q[11],q[4]
 tdg q[8]; //cycle: 8111 //tdg q[11]
@@ -6864,14 +6864,14 @@ cx q[11],q[12]; //cycle: 8129 //cx q[13],q[4]
 cx q[16],q[11]; //cycle: 8131 //cx q[3],q[13]
 h q[12]; //cycle: 8131 //h q[4]
 h q[12]; //cycle: 8132 //h q[4]
-swp q[3],q[8]; //cycle: 8133
+swap q[3],q[8]; //cycle: 8133
 h q[16]; //cycle: 8133 //h q[3]
 t q[11]; //cycle: 8133 //t q[13]
 t q[12]; //cycle: 8133 //t q[4]
 t q[16]; //cycle: 8134 //t q[3]
-swp q[12],q[16]; //cycle: 8135
+swap q[12],q[16]; //cycle: 8135
 cx q[12],q[8]; //cycle: 8141 //cx q[3],q[14]
-swp q[2],q[7]; //cycle: 8142
+swap q[2],q[7]; //cycle: 8142
 tdg q[8]; //cycle: 8143 //tdg q[14]
 cx q[7],q[12]; //cycle: 8148 //cx q[15],q[3]
 cx q[7],q[8]; //cycle: 8150 //cx q[15],q[14]
@@ -6892,7 +6892,7 @@ cx q[13],q[8]; //cycle: 8162 //cx q[6],q[14]
 cx q[11],q[16]; //cycle: 8163 //cx q[13],q[4]
 tdg q[12]; //cycle: 8163 //tdg q[3]
 tdg q[8]; //cycle: 8164 //tdg q[14]
-swp q[4],q[8]; //cycle: 8165
+swap q[4],q[8]; //cycle: 8165
 cx q[11],q[12]; //cycle: 8165 //cx q[13],q[3]
 t q[16]; //cycle: 8165 //t q[4]
 tdg q[11]; //cycle: 8167 //tdg q[13]
@@ -6907,14 +6907,14 @@ cx q[8],q[4]; //cycle: 8173 //cx q[8],q[14]
 t q[13]; //cycle: 8173 //t q[6]
 t q[12]; //cycle: 8174 //t q[3]
 t q[11]; //cycle: 8174 //t q[13]
-swp q[6],q[7]; //cycle: 8175
+swap q[6],q[7]; //cycle: 8175
 tdg q[8]; //cycle: 8175 //tdg q[8]
 tdg q[4]; //cycle: 8175 //tdg q[14]
-swp q[3],q[8]; //cycle: 8176
-swp q[12],q[16]; //cycle: 8176
+swap q[3],q[8]; //cycle: 8176
+swap q[12],q[16]; //cycle: 8176
 cx q[11],q[6]; //cycle: 8181 //cx q[13],q[15]
 cx q[12],q[8]; //cycle: 8182 //cx q[4],q[11]
-swp q[2],q[7]; //cycle: 8183
+swap q[2],q[7]; //cycle: 8183
 cx q[7],q[12]; //cycle: 8189 //cx q[5],q[4]
 cx q[8],q[7]; //cycle: 8191 //cx q[11],q[5]
 tdg q[12]; //cycle: 8191 //tdg q[4]
@@ -6924,19 +6924,19 @@ tdg q[8]; //cycle: 8195 //tdg q[11]
 tdg q[12]; //cycle: 8195 //tdg q[4]
 cx q[7],q[12]; //cycle: 8196 //cx q[5],q[4]
 cx q[8],q[7]; //cycle: 8198 //cx q[11],q[5]
-swp q[5],q[6]; //cycle: 8199
+swap q[5],q[6]; //cycle: 8199
 cx q[12],q[8]; //cycle: 8200 //cx q[4],q[11]
 h q[7]; //cycle: 8200 //h q[5]
 t q[7]; //cycle: 8201 //t q[5]
 t q[8]; //cycle: 8202 //t q[11]
 t q[12]; //cycle: 8202 //t q[4]
-swp q[4],q[8]; //cycle: 8203
+swap q[4],q[8]; //cycle: 8203
 cx q[7],q[6]; //cycle: 8205 //cx q[5],q[10]
 cx q[1],q[7]; //cycle: 8207 //cx q[7],q[5]
 cx q[6],q[1]; //cycle: 8209 //cx q[10],q[7]
 tdg q[7]; //cycle: 8209 //tdg q[5]
 cx q[13],q[8]; //cycle: 8209 //cx q[6],q[14]
-swp q[3],q[8]; //cycle: 8211
+swap q[3],q[8]; //cycle: 8211
 cx q[6],q[7]; //cycle: 8211 //cx q[10],q[5]
 t q[1]; //cycle: 8211 //t q[7]
 tdg q[6]; //cycle: 8213 //tdg q[10]
@@ -6959,17 +6959,17 @@ t q[13]; //cycle: 8221 //t q[6]
 cx q[2],q[1]; //cycle: 8222 //cx q[12],q[7]
 t q[3]; //cycle: 8222 //t q[14]
 tdg q[1]; //cycle: 8224 //tdg q[7]
-swp q[0],q[1]; //cycle: 8225
+swap q[0],q[1]; //cycle: 8225
 cx q[1],q[2]; //cycle: 8231 //cx q[9],q[12]
-swp q[4],q[8]; //cycle: 8232
+swap q[4],q[8]; //cycle: 8232
 cx q[1],q[0]; //cycle: 8233 //cx q[9],q[7]
 t q[2]; //cycle: 8233 //t q[12]
 tdg q[1]; //cycle: 8235 //tdg q[9]
 tdg q[0]; //cycle: 8235 //tdg q[7]
-swp q[0],q[1]; //cycle: 8236
+swap q[0],q[1]; //cycle: 8236
 cx q[7],q[8]; //cycle: 8238 //cx q[5],q[11]
 cx q[2],q[1]; //cycle: 8242 //cx q[12],q[7]
-swp q[0],q[1]; //cycle: 8244
+swap q[0],q[1]; //cycle: 8244
 cx q[1],q[2]; //cycle: 8250 //cx q[9],q[12]
 cx q[0],q[1]; //cycle: 8252 //cx q[7],q[9]
 h q[2]; //cycle: 8252 //h q[12]
@@ -6979,21 +6979,21 @@ t q[0]; //cycle: 8254 //t q[7]
 cx q[2],q[1]; //cycle: 8255 //cx q[12],q[9]
 cx q[3],q[2]; //cycle: 8257 //cx q[14],q[12]
 tdg q[2]; //cycle: 8259 //tdg q[12]
-swp q[0],q[5]; //cycle: 8260
-swp q[1],q[2]; //cycle: 8260
+swap q[0],q[5]; //cycle: 8260
+swap q[1],q[2]; //cycle: 8260
 cx q[2],q[3]; //cycle: 8266 //cx q[9],q[14]
 cx q[5],q[6]; //cycle: 8266 //cx q[7],q[10]
 cx q[2],q[1]; //cycle: 8268 //cx q[9],q[12]
 t q[3]; //cycle: 8268 //t q[14]
 tdg q[2]; //cycle: 8270 //tdg q[9]
 tdg q[1]; //cycle: 8270 //tdg q[12]
-swp q[1],q[2]; //cycle: 8271
+swap q[1],q[2]; //cycle: 8271
 cx q[3],q[2]; //cycle: 8277 //cx q[14],q[12]
-swp q[1],q[2]; //cycle: 8279
+swap q[1],q[2]; //cycle: 8279
 cx q[2],q[3]; //cycle: 8285 //cx q[9],q[14]
 cx q[1],q[2]; //cycle: 8287 //cx q[12],q[9]
 h q[3]; //cycle: 8287 //h q[14]
-swp q[0],q[5]; //cycle: 8288
+swap q[0],q[5]; //cycle: 8288
 h q[3]; //cycle: 8288 //h q[14]
 h q[1]; //cycle: 8289 //h q[12]
 t q[2]; //cycle: 8289 //t q[9]
@@ -7002,34 +7002,34 @@ t q[1]; //cycle: 8290 //t q[12]
 cx q[1],q[0]; //cycle: 8294 //cx q[12],q[7]
 cx q[6],q[1]; //cycle: 8296 //cx q[10],q[12]
 tdg q[0]; //cycle: 8296 //tdg q[7]
-swp q[5],q[6]; //cycle: 8298
+swap q[5],q[6]; //cycle: 8298
 t q[1]; //cycle: 8298 //t q[12]
 cx q[5],q[0]; //cycle: 8304 //cx q[10],q[7]
 tdg q[5]; //cycle: 8306 //tdg q[10]
 tdg q[0]; //cycle: 8306 //tdg q[7]
 cx q[1],q[0]; //cycle: 8307 //cx q[12],q[7]
-swp q[0],q[5]; //cycle: 8309
+swap q[0],q[5]; //cycle: 8309
 cx q[0],q[1]; //cycle: 8315 //cx q[10],q[12]
 cx q[5],q[0]; //cycle: 8317 //cx q[7],q[10]
 h q[1]; //cycle: 8317 //h q[12]
-swp q[6],q[7]; //cycle: 8318
+swap q[6],q[7]; //cycle: 8318
 h q[1]; //cycle: 8318 //h q[12]
 h q[5]; //cycle: 8319 //h q[7]
 t q[0]; //cycle: 8319 //t q[10]
 t q[1]; //cycle: 8319 //t q[12]
 t q[5]; //cycle: 8320 //t q[7]
 cx q[5],q[6]; //cycle: 8324 //cx q[7],q[5]
-swp q[8],q[12]; //cycle: 8325
-swp q[5],q[11]; //cycle: 8326
+swap q[8],q[12]; //cycle: 8325
+swap q[5],q[11]; //cycle: 8326
 tdg q[6]; //cycle: 8326 //tdg q[5]
 cx q[12],q[11]; //cycle: 8332 //cx q[11],q[7]
-swp q[7],q[12]; //cycle: 8334
+swap q[7],q[12]; //cycle: 8334
 t q[11]; //cycle: 8334 //t q[7]
 cx q[7],q[6]; //cycle: 8340 //cx q[11],q[5]
 tdg q[7]; //cycle: 8342 //tdg q[11]
 tdg q[6]; //cycle: 8342 //tdg q[5]
 cx q[11],q[6]; //cycle: 8343 //cx q[7],q[5]
-swp q[11],q[12]; //cycle: 8345
+swap q[11],q[12]; //cycle: 8345
 cx q[7],q[12]; //cycle: 8351 //cx q[11],q[7]
 cx q[6],q[7]; //cycle: 8353 //cx q[5],q[11]
 h q[12]; //cycle: 8353 //h q[7]
@@ -7054,24 +7054,24 @@ cx q[6],q[7]; //cycle: 8370 //cx q[5],q[11]
 t q[11]; //cycle: 8370 //t q[15]
 t q[5]; //cycle: 8370 //t q[13]
 cx q[5],q[11]; //cycle: 8371 //cx q[13],q[15]
-swp q[7],q[12]; //cycle: 8372
+swap q[7],q[12]; //cycle: 8372
 cx q[7],q[6]; //cycle: 8378 //cx q[7],q[5]
 cx q[12],q[7]; //cycle: 8380 //cx q[11],q[7]
 tdg q[6]; //cycle: 8380 //tdg q[5]
-swp q[11],q[12]; //cycle: 8382
+swap q[11],q[12]; //cycle: 8382
 t q[7]; //cycle: 8382 //t q[7]
 cx q[11],q[6]; //cycle: 8388 //cx q[11],q[5]
 tdg q[11]; //cycle: 8390 //tdg q[11]
 tdg q[6]; //cycle: 8390 //tdg q[5]
 cx q[7],q[6]; //cycle: 8391 //cx q[7],q[5]
-swp q[11],q[12]; //cycle: 8392
+swap q[11],q[12]; //cycle: 8392
 cx q[12],q[7]; //cycle: 8398 //cx q[11],q[7]
-swp q[0],q[1]; //cycle: 8399
+swap q[0],q[1]; //cycle: 8399
 h q[7]; //cycle: 8400 //h q[7]
 t q[7]; //cycle: 8401 //t q[7]
 cx q[7],q[1]; //cycle: 8405 //cx q[7],q[10]
-swp q[0],q[1]; //cycle: 8407
-swp q[6],q[7]; //cycle: 8407
+swap q[0],q[1]; //cycle: 8407
+swap q[6],q[7]; //cycle: 8407
 cx q[7],q[12]; //cycle: 8413 //cx q[5],q[11]
 cx q[1],q[6]; //cycle: 8413 //cx q[12],q[7]
 cx q[0],q[1]; //cycle: 8415 //cx q[10],q[12]
@@ -7079,19 +7079,19 @@ tdg q[6]; //cycle: 8415 //tdg q[7]
 t q[12]; //cycle: 8415 //t q[11]
 t q[7]; //cycle: 8415 //t q[5]
 cx q[7],q[12]; //cycle: 8416 //cx q[5],q[11]
-swp q[0],q[5]; //cycle: 8417
+swap q[0],q[5]; //cycle: 8417
 t q[1]; //cycle: 8417 //t q[12]
 cx q[5],q[6]; //cycle: 8423 //cx q[10],q[7]
 tdg q[5]; //cycle: 8425 //tdg q[10]
 tdg q[6]; //cycle: 8425 //tdg q[7]
 cx q[1],q[6]; //cycle: 8426 //cx q[12],q[7]
-swp q[0],q[5]; //cycle: 8427
+swap q[0],q[5]; //cycle: 8427
 cx q[0],q[1]; //cycle: 8433 //cx q[10],q[12]
 h q[1]; //cycle: 8435 //h q[12]
 t q[1]; //cycle: 8436 //t q[12]
 cx q[1],q[2]; //cycle: 8437 //cx q[12],q[9]
-swp q[5],q[6]; //cycle: 8438
-swp q[2],q[3]; //cycle: 8439
+swap q[5],q[6]; //cycle: 8438
+swap q[2],q[3]; //cycle: 8439
 cx q[5],q[0]; //cycle: 8444 //cx q[7],q[10]
 cx q[2],q[1]; //cycle: 8445 //cx q[14],q[12]
 t q[0]; //cycle: 8446 //t q[10]
@@ -7100,23 +7100,23 @@ cx q[3],q[2]; //cycle: 8447 //cx q[9],q[14]
 tdg q[1]; //cycle: 8447 //tdg q[12]
 cx q[5],q[0]; //cycle: 8447 //cx q[7],q[10]
 t q[2]; //cycle: 8449 //t q[14]
-swp q[1],q[2]; //cycle: 8450
+swap q[1],q[2]; //cycle: 8450
 cx q[3],q[2]; //cycle: 8456 //cx q[9],q[12]
 tdg q[3]; //cycle: 8458 //tdg q[9]
 tdg q[2]; //cycle: 8458 //tdg q[12]
 cx q[1],q[2]; //cycle: 8459 //cx q[14],q[12]
-swp q[1],q[2]; //cycle: 8461
+swap q[1],q[2]; //cycle: 8461
 cx q[3],q[2]; //cycle: 8467 //cx q[9],q[14]
-swp q[3],q[4]; //cycle: 8469
+swap q[3],q[4]; //cycle: 8469
 h q[2]; //cycle: 8469 //h q[14]
-swp q[1],q[7]; //cycle: 8470
+swap q[1],q[7]; //cycle: 8470
 t q[2]; //cycle: 8470 //t q[14]
 cx q[2],q[3]; //cycle: 8475 //cx q[14],q[8]
-swp q[7],q[13]; //cycle: 8476
-swp q[8],q[13]; //cycle: 8482
+swap q[7],q[13]; //cycle: 8476
+swap q[8],q[13]; //cycle: 8482
 cx q[7],q[2]; //cycle: 8482 //cx q[6],q[14]
 tdg q[2]; //cycle: 8484 //tdg q[14]
-swp q[2],q[3]; //cycle: 8485
+swap q[2],q[3]; //cycle: 8485
 cx q[8],q[4]; //cycle: 8488 //cx q[12],q[9]
 t q[4]; //cycle: 8490 //t q[9]
 t q[8]; //cycle: 8490 //t q[12]
@@ -7124,11 +7124,11 @@ cx q[2],q[7]; //cycle: 8491 //cx q[8],q[6]
 cx q[8],q[4]; //cycle: 8491 //cx q[12],q[9]
 cx q[2],q[3]; //cycle: 8493 //cx q[8],q[14]
 t q[7]; //cycle: 8493 //t q[6]
-swp q[7],q[8]; //cycle: 8494
+swap q[7],q[8]; //cycle: 8494
 tdg q[2]; //cycle: 8495 //tdg q[8]
 tdg q[3]; //cycle: 8495 //tdg q[14]
 cx q[8],q[3]; //cycle: 8500 //cx q[6],q[14]
-swp q[7],q[8]; //cycle: 8502
+swap q[7],q[8]; //cycle: 8502
 cx q[2],q[7]; //cycle: 8508 //cx q[8],q[6]
 cx q[3],q[2]; //cycle: 8510 //cx q[14],q[8]
 h q[7]; //cycle: 8510 //h q[6]
@@ -7152,11 +7152,11 @@ h q[3]; //cycle: 8526 //h q[14]
 t q[4]; //cycle: 8527 //t q[9]
 t q[3]; //cycle: 8527 //t q[14]
 h q[8]; //cycle: 8527 //h q[12]
-swp q[5],q[6]; //cycle: 8528
+swap q[5],q[6]; //cycle: 8528
 t q[8]; //cycle: 8528 //t q[12]
-swp q[7],q[8]; //cycle: 8529
+swap q[7],q[8]; //cycle: 8529
 cx q[7],q[6]; //cycle: 8535 //cx q[12],q[7]
-swp q[0],q[1]; //cycle: 8536
+swap q[0],q[1]; //cycle: 8536
 tdg q[6]; //cycle: 8537 //tdg q[7]
 cx q[1],q[7]; //cycle: 8542 //cx q[10],q[12]
 cx q[1],q[6]; //cycle: 8544 //cx q[10],q[7]
@@ -7171,10 +7171,10 @@ h q[7]; //cycle: 8552 //h q[12]
 t q[1]; //cycle: 8553 //t q[10]
 t q[7]; //cycle: 8553 //t q[12]
 h q[6]; //cycle: 8553 //h q[7]
-swp q[0],q[1]; //cycle: 8554
+swap q[0],q[1]; //cycle: 8554
 t q[6]; //cycle: 8554 //t q[7]
 cx q[6],q[1]; //cycle: 8560 //cx q[7],q[5]
-swp q[7],q[12]; //cycle: 8561
+swap q[7],q[12]; //cycle: 8561
 tdg q[1]; //cycle: 8562 //tdg q[5]
 cx q[7],q[6]; //cycle: 8567 //cx q[11],q[7]
 cx q[7],q[1]; //cycle: 8569 //cx q[11],q[5]
@@ -7190,7 +7190,7 @@ h q[1]; //cycle: 8578 //h q[5]
 t q[7]; //cycle: 8578 //t q[11]
 t q[6]; //cycle: 8578 //t q[7]
 t q[1]; //cycle: 8579 //t q[5]
-swp q[1],q[6]; //cycle: 8580
+swap q[1],q[6]; //cycle: 8580
 cx q[6],q[5]; //cycle: 8586 //cx q[5],q[13]
 cx q[11],q[6]; //cycle: 8588 //cx q[15],q[5]
 tdg q[5]; //cycle: 8588 //tdg q[13]
@@ -7218,14 +7218,14 @@ cx q[1],q[6]; //cycle: 8608 //cx q[7],q[5]
 cx q[7],q[1]; //cycle: 8610 //cx q[11],q[7]
 h q[1]; //cycle: 8612 //h q[7]
 cx q[6],q[7]; //cycle: 8612 //cx q[5],q[11]
-swp q[0],q[5]; //cycle: 8613
+swap q[0],q[5]; //cycle: 8613
 t q[1]; //cycle: 8613 //t q[7]
 t q[6]; //cycle: 8614 //t q[5]
 t q[7]; //cycle: 8614 //t q[11]
-swp q[1],q[6]; //cycle: 8615
+swap q[1],q[6]; //cycle: 8615
 cx q[13],q[7]; //cycle: 8615 //cx q[4],q[11]
 cx q[6],q[5]; //cycle: 8621 //cx q[7],q[10]
-swp q[11],q[12]; //cycle: 8622
+swap q[11],q[12]; //cycle: 8622
 cx q[11],q[6]; //cycle: 8628 //cx q[12],q[7]
 cx q[5],q[11]; //cycle: 8630 //cx q[10],q[12]
 tdg q[6]; //cycle: 8630 //tdg q[7]
@@ -7238,41 +7238,41 @@ cx q[5],q[11]; //cycle: 8637 //cx q[10],q[12]
 cx q[6],q[5]; //cycle: 8639 //cx q[7],q[10]
 h q[11]; //cycle: 8639 //h q[12]
 t q[11]; //cycle: 8640 //t q[12]
-swp q[4],q[8]; //cycle: 8641
-swp q[11],q[12]; //cycle: 8641
+swap q[4],q[8]; //cycle: 8641
+swap q[11],q[12]; //cycle: 8641
 t q[6]; //cycle: 8641 //t q[7]
 t q[5]; //cycle: 8641 //t q[10]
 cx q[12],q[8]; //cycle: 8647 //cx q[12],q[9]
-swp q[0],q[1]; //cycle: 8649
-swp q[3],q[8]; //cycle: 8649
-swp q[5],q[6]; //cycle: 8649
-swp q[0],q[5]; //cycle: 8655
-swp q[1],q[6]; //cycle: 8655
+swap q[0],q[1]; //cycle: 8649
+swap q[3],q[8]; //cycle: 8649
+swap q[5],q[6]; //cycle: 8649
+swap q[0],q[5]; //cycle: 8655
+swap q[1],q[6]; //cycle: 8655
 cx q[8],q[12]; //cycle: 8655 //cx q[14],q[12]
 cx q[3],q[8]; //cycle: 8657 //cx q[9],q[14]
 tdg q[12]; //cycle: 8657 //tdg q[12]
 t q[8]; //cycle: 8659 //t q[14]
-swp q[8],q[12]; //cycle: 8660
-swp q[1],q[6]; //cycle: 8663
+swap q[8],q[12]; //cycle: 8660
+swap q[1],q[6]; //cycle: 8663
 cx q[3],q[8]; //cycle: 8666 //cx q[9],q[12]
 tdg q[3]; //cycle: 8668 //tdg q[9]
 tdg q[8]; //cycle: 8668 //tdg q[12]
 cx q[12],q[8]; //cycle: 8669 //cx q[14],q[12]
 cx q[5],q[6]; //cycle: 8669 //cx q[5],q[10]
-swp q[3],q[8]; //cycle: 8671
+swap q[3],q[8]; //cycle: 8671
 cx q[8],q[12]; //cycle: 8677 //cx q[9],q[14]
-swp q[2],q[7]; //cycle: 8678
+swap q[2],q[7]; //cycle: 8678
 cx q[3],q[8]; //cycle: 8679 //cx q[12],q[9]
 h q[12]; //cycle: 8679 //h q[14]
 t q[12]; //cycle: 8680 //t q[14]
-swp q[0],q[1]; //cycle: 8681
+swap q[0],q[1]; //cycle: 8681
 t q[8]; //cycle: 8681 //t q[9]
 t q[3]; //cycle: 8681 //t q[12]
 cx q[12],q[7]; //cycle: 8684 //cx q[14],q[8]
-swp q[4],q[8]; //cycle: 8685
-swp q[1],q[2]; //cycle: 8687
+swap q[4],q[8]; //cycle: 8685
+swap q[1],q[2]; //cycle: 8687
 cx q[8],q[12]; //cycle: 8691 //cx q[6],q[14]
-swp q[2],q[3]; //cycle: 8693
+swap q[2],q[3]; //cycle: 8693
 cx q[7],q[8]; //cycle: 8693 //cx q[8],q[6]
 tdg q[12]; //cycle: 8693 //tdg q[14]
 cx q[7],q[12]; //cycle: 8695 //cx q[8],q[14]
@@ -7280,8 +7280,8 @@ t q[8]; //cycle: 8695 //t q[6]
 tdg q[7]; //cycle: 8697 //tdg q[8]
 tdg q[12]; //cycle: 8697 //tdg q[14]
 cx q[8],q[12]; //cycle: 8698 //cx q[6],q[14]
-swp q[2],q[6]; //cycle: 8699
-swp q[11],q[16]; //cycle: 8699
+swap q[2],q[6]; //cycle: 8699
+swap q[11],q[16]; //cycle: 8699
 cx q[3],q[4]; //cycle: 8699 //cx q[7],q[9]
 cx q[7],q[8]; //cycle: 8700 //cx q[8],q[6]
 cx q[12],q[7]; //cycle: 8702 //cx q[14],q[8]
@@ -7292,7 +7292,7 @@ t q[7]; //cycle: 8704 //t q[8]
 t q[8]; //cycle: 8704 //t q[6]
 t q[12]; //cycle: 8705 //t q[14]
 cx q[11],q[6]; //cycle: 8705 //cx q[3],q[12]
-swp q[8],q[12]; //cycle: 8706
+swap q[8],q[12]; //cycle: 8706
 cx q[8],q[3]; //cycle: 8712 //cx q[14],q[7]
 cx q[4],q[8]; //cycle: 8714 //cx q[9],q[14]
 tdg q[3]; //cycle: 8714 //tdg q[7]
@@ -7308,24 +7308,24 @@ h q[8]; //cycle: 8724 //h q[14]
 h q[3]; //cycle: 8725 //h q[7]
 t q[4]; //cycle: 8725 //t q[9]
 t q[8]; //cycle: 8725 //t q[14]
-swp q[5],q[6]; //cycle: 8726
+swap q[5],q[6]; //cycle: 8726
 t q[3]; //cycle: 8726 //t q[7]
-swp q[2],q[3]; //cycle: 8727
+swap q[2],q[3]; //cycle: 8727
 cx q[2],q[6]; //cycle: 8733 //cx q[7],q[5]
 cx q[3],q[2]; //cycle: 8735 //cx q[10],q[7]
 tdg q[6]; //cycle: 8735 //tdg q[5]
 t q[2]; //cycle: 8737 //t q[7]
-swp q[2],q[3]; //cycle: 8738
+swap q[2],q[3]; //cycle: 8738
 cx q[2],q[6]; //cycle: 8744 //cx q[10],q[5]
 tdg q[2]; //cycle: 8746 //tdg q[10]
 tdg q[6]; //cycle: 8746 //tdg q[5]
-swp q[2],q[6]; //cycle: 8747
+swap q[2],q[6]; //cycle: 8747
 cx q[3],q[2]; //cycle: 8753 //cx q[7],q[5]
-swp q[2],q[6]; //cycle: 8755
+swap q[2],q[6]; //cycle: 8755
 cx q[2],q[3]; //cycle: 8761 //cx q[10],q[7]
 cx q[6],q[2]; //cycle: 8763 //cx q[5],q[10]
 h q[3]; //cycle: 8763 //h q[7]
-swp q[7],q[13]; //cycle: 8764
+swap q[7],q[13]; //cycle: 8764
 h q[3]; //cycle: 8764 //h q[7]
 h q[6]; //cycle: 8765 //h q[5]
 t q[2]; //cycle: 8765 //t q[10]
@@ -7347,7 +7347,7 @@ h q[7]; //cycle: 8783 //h q[4]
 t q[1]; //cycle: 8783 //t q[11]
 t q[6]; //cycle: 8783 //t q[5]
 t q[7]; //cycle: 8784 //t q[4]
-swp q[6],q[7]; //cycle: 8785
+swap q[6],q[7]; //cycle: 8785
 cx q[6],q[11]; //cycle: 8791 //cx q[4],q[3]
 cx q[5],q[6]; //cycle: 8793 //cx q[12],q[4]
 tdg q[11]; //cycle: 8793 //tdg q[3]
@@ -7363,20 +7363,20 @@ h q[6]; //cycle: 8803 //h q[4]
 h q[11]; //cycle: 8804 //h q[3]
 t q[5]; //cycle: 8804 //t q[12]
 t q[6]; //cycle: 8804 //t q[4]
-swp q[0],q[5]; //cycle: 8805
+swap q[0],q[5]; //cycle: 8805
 t q[11]; //cycle: 8805 //t q[3]
 cx q[11],q[5]; //cycle: 8811 //cx q[3],q[13]
 cx q[16],q[11]; //cycle: 8813 //cx q[15],q[3]
 tdg q[5]; //cycle: 8813 //tdg q[13]
 t q[11]; //cycle: 8815 //t q[3]
-swp q[11],q[16]; //cycle: 8816
+swap q[11],q[16]; //cycle: 8816
 cx q[11],q[5]; //cycle: 8822 //cx q[15],q[13]
 tdg q[11]; //cycle: 8824 //tdg q[15]
 tdg q[5]; //cycle: 8824 //tdg q[13]
-swp q[11],q[16]; //cycle: 8825
+swap q[11],q[16]; //cycle: 8825
 cx q[11],q[5]; //cycle: 8831 //cx q[3],q[13]
 cx q[16],q[11]; //cycle: 8833 //cx q[15],q[3]
-swp q[0],q[5]; //cycle: 8834
+swap q[0],q[5]; //cycle: 8834
 h q[11]; //cycle: 8835 //h q[3]
 t q[11]; //cycle: 8836 //t q[3]
 cx q[11],q[5]; //cycle: 8840 //cx q[3],q[12]
@@ -7397,10 +7397,10 @@ t q[5]; //cycle: 8855 //t q[12]
 t q[11]; //cycle: 8855 //t q[3]
 cx q[11],q[5]; //cycle: 8856 //cx q[3],q[12]
 cx q[7],q[6]; //cycle: 8857 //cx q[5],q[4]
-swp q[11],q[16]; //cycle: 8859
+swap q[11],q[16]; //cycle: 8859
 cx q[1],q[7]; //cycle: 8859 //cx q[11],q[5]
 tdg q[6]; //cycle: 8859 //tdg q[4]
-swp q[0],q[5]; //cycle: 8861
+swap q[0],q[5]; //cycle: 8861
 cx q[1],q[6]; //cycle: 8861 //cx q[11],q[4]
 t q[7]; //cycle: 8861 //t q[5]
 tdg q[1]; //cycle: 8863 //tdg q[11]
@@ -7418,19 +7418,19 @@ t q[1]; //cycle: 8870 //t q[11]
 t q[6]; //cycle: 8870 //t q[4]
 cx q[5],q[11]; //cycle: 8870 //cx q[13],q[15]
 cx q[6],q[1]; //cycle: 8871 //cx q[4],q[11]
-swp q[7],q[8]; //cycle: 8872
+swap q[7],q[8]; //cycle: 8872
 cx q[3],q[8]; //cycle: 8878 //cx q[7],q[5]
 cx q[2],q[3]; //cycle: 8880 //cx q[10],q[7]
 tdg q[8]; //cycle: 8880 //tdg q[5]
-swp q[2],q[7]; //cycle: 8882
+swap q[2],q[7]; //cycle: 8882
 t q[3]; //cycle: 8882 //t q[7]
 cx q[7],q[8]; //cycle: 8888 //cx q[10],q[5]
 tdg q[7]; //cycle: 8890 //tdg q[10]
 tdg q[8]; //cycle: 8890 //tdg q[5]
 cx q[3],q[8]; //cycle: 8891 //cx q[7],q[5]
-swp q[2],q[7]; //cycle: 8892
+swap q[2],q[7]; //cycle: 8892
 cx q[2],q[3]; //cycle: 8898 //cx q[10],q[7]
-swp q[7],q[8]; //cycle: 8899
+swap q[7],q[8]; //cycle: 8899
 h q[3]; //cycle: 8900 //h q[7]
 t q[3]; //cycle: 8901 //t q[7]
 cx q[3],q[4]; //cycle: 8902 //cx q[7],q[9]
@@ -7465,8 +7465,8 @@ cx q[12],q[8]; //cycle: 8927 //cx q[6],q[14]
 cx q[13],q[12]; //cycle: 8929 //cx q[8],q[6]
 cx q[8],q[13]; //cycle: 8931 //cx q[14],q[8]
 h q[12]; //cycle: 8931 //h q[6]
-swp q[0],q[5]; //cycle: 8932
-swp q[2],q[7]; //cycle: 8932
+swap q[0],q[5]; //cycle: 8932
+swap q[2],q[7]; //cycle: 8932
 t q[12]; //cycle: 8932 //t q[6]
 x q[13]; //cycle: 8933 //x q[8]
 h q[8]; //cycle: 8933 //h q[14]
@@ -7489,16 +7489,16 @@ h q[3]; //cycle: 8948 //h q[7]
 t q[4]; //cycle: 8948 //t q[9]
 t q[3]; //cycle: 8949 //t q[7]
 cx q[3],q[2]; //cycle: 8950 //cx q[7],q[5]
-swp q[7],q[8]; //cycle: 8951
+swap q[7],q[8]; //cycle: 8951
 tdg q[2]; //cycle: 8952 //tdg q[5]
 cx q[8],q[3]; //cycle: 8957 //cx q[10],q[7]
-swp q[7],q[8]; //cycle: 8959
+swap q[7],q[8]; //cycle: 8959
 t q[3]; //cycle: 8959 //t q[7]
 cx q[7],q[2]; //cycle: 8965 //cx q[10],q[5]
 tdg q[7]; //cycle: 8967 //tdg q[10]
 tdg q[2]; //cycle: 8967 //tdg q[5]
 cx q[3],q[2]; //cycle: 8968 //cx q[7],q[5]
-swp q[3],q[8]; //cycle: 8970
+swap q[3],q[8]; //cycle: 8970
 cx q[7],q[8]; //cycle: 8976 //cx q[10],q[7]
 cx q[2],q[7]; //cycle: 8978 //cx q[5],q[10]
 h q[8]; //cycle: 8978 //h q[7]
@@ -7518,7 +7518,7 @@ cx q[2],q[6]; //cycle: 8989 //cx q[5],q[4]
 cx q[1],q[2]; //cycle: 8991 //cx q[11],q[5]
 cx q[6],q[1]; //cycle: 8993 //cx q[4],q[11]
 h q[2]; //cycle: 8993 //h q[5]
-swp q[11],q[16]; //cycle: 8994
+swap q[11],q[16]; //cycle: 8994
 h q[2]; //cycle: 8994 //h q[5]
 h q[6]; //cycle: 8995 //h q[4]
 t q[1]; //cycle: 8995 //t q[11]
@@ -7539,20 +7539,20 @@ h q[6]; //cycle: 9012 //h q[4]
 h q[11]; //cycle: 9013 //h q[3]
 t q[5]; //cycle: 9013 //t q[12]
 t q[6]; //cycle: 9013 //t q[4]
-swp q[0],q[5]; //cycle: 9014
+swap q[0],q[5]; //cycle: 9014
 t q[11]; //cycle: 9014 //t q[3]
 cx q[11],q[5]; //cycle: 9020 //cx q[3],q[13]
 cx q[16],q[11]; //cycle: 9022 //cx q[15],q[3]
 tdg q[5]; //cycle: 9022 //tdg q[13]
 t q[11]; //cycle: 9024 //t q[3]
-swp q[5],q[11]; //cycle: 9025
+swap q[5],q[11]; //cycle: 9025
 cx q[16],q[11]; //cycle: 9031 //cx q[15],q[13]
 tdg q[16]; //cycle: 9033 //tdg q[15]
 tdg q[11]; //cycle: 9033 //tdg q[13]
 cx q[5],q[11]; //cycle: 9034 //cx q[3],q[13]
-swp q[5],q[11]; //cycle: 9036
+swap q[5],q[11]; //cycle: 9036
 cx q[16],q[11]; //cycle: 9042 //cx q[15],q[3]
-swp q[0],q[5]; //cycle: 9043
+swap q[0],q[5]; //cycle: 9043
 h q[11]; //cycle: 9044 //h q[3]
 t q[11]; //cycle: 9045 //t q[3]
 cx q[11],q[5]; //cycle: 9049 //cx q[3],q[12]
@@ -7565,8 +7565,8 @@ tdg q[5]; //cycle: 9057 //tdg q[12]
 tdg q[11]; //cycle: 9057 //tdg q[3]
 cx q[6],q[11]; //cycle: 9058 //cx q[4],q[3]
 cx q[5],q[6]; //cycle: 9060 //cx q[12],q[4]
-swp q[11],q[16]; //cycle: 9061
-swp q[0],q[5]; //cycle: 9062
+swap q[11],q[16]; //cycle: 9061
+swap q[0],q[5]; //cycle: 9062
 h q[6]; //cycle: 9062 //h q[4]
 t q[6]; //cycle: 9063 //t q[4]
 cx q[6],q[1]; //cycle: 9064 //cx q[4],q[11]
@@ -7574,13 +7574,13 @@ cx q[2],q[6]; //cycle: 9066 //cx q[5],q[4]
 cx q[5],q[11]; //cycle: 9068 //cx q[13],q[15]
 cx q[1],q[2]; //cycle: 9068 //cx q[11],q[5]
 tdg q[6]; //cycle: 9068 //tdg q[4]
-swp q[4],q[8]; //cycle: 9069
+swap q[4],q[8]; //cycle: 9069
 t q[11]; //cycle: 9070 //t q[15]
 t q[5]; //cycle: 9070 //t q[13]
 cx q[1],q[6]; //cycle: 9070 //cx q[11],q[4]
 t q[2]; //cycle: 9070 //t q[5]
-swp q[0],q[5]; //cycle: 9071
-swp q[11],q[16]; //cycle: 9071
+swap q[0],q[5]; //cycle: 9071
+swap q[11],q[16]; //cycle: 9071
 tdg q[1]; //cycle: 9072 //tdg q[11]
 tdg q[6]; //cycle: 9072 //tdg q[4]
 cx q[2],q[6]; //cycle: 9073 //cx q[5],q[4]
@@ -7588,7 +7588,7 @@ cx q[1],q[2]; //cycle: 9075 //cx q[11],q[5]
 cx q[11],q[5]; //cycle: 9077 //cx q[3],q[12]
 cx q[6],q[1]; //cycle: 9077 //cx q[4],q[11]
 h q[2]; //cycle: 9077 //h q[5]
-swp q[3],q[4]; //cycle: 9078
+swap q[3],q[4]; //cycle: 9078
 t q[2]; //cycle: 9078 //t q[5]
 h q[11]; //cycle: 9079 //h q[3]
 t q[1]; //cycle: 9079 //t q[11]
@@ -7598,24 +7598,24 @@ h q[6]; //cycle: 9079 //h q[4]
 t q[11]; //cycle: 9080 //t q[3]
 t q[6]; //cycle: 9080 //t q[4]
 cx q[3],q[2]; //cycle: 9084 //cx q[7],q[5]
-swp q[3],q[8]; //cycle: 9086
+swap q[3],q[8]; //cycle: 9086
 tdg q[2]; //cycle: 9086 //tdg q[5]
 cx q[7],q[8]; //cycle: 9092 //cx q[10],q[7]
 cx q[7],q[2]; //cycle: 9094 //cx q[10],q[5]
 t q[8]; //cycle: 9094 //t q[7]
 tdg q[7]; //cycle: 9096 //tdg q[10]
 tdg q[2]; //cycle: 9096 //tdg q[5]
-swp q[2],q[3]; //cycle: 9097
-swp q[11],q[12]; //cycle: 9098
+swap q[2],q[3]; //cycle: 9097
+swap q[11],q[12]; //cycle: 9098
 cx q[8],q[3]; //cycle: 9103 //cx q[7],q[5]
 cx q[11],q[5]; //cycle: 9104 //cx q[6],q[12]
 cx q[7],q[8]; //cycle: 9105 //cx q[10],q[7]
-swp q[2],q[3]; //cycle: 9106
+swap q[2],q[3]; //cycle: 9106
 h q[8]; //cycle: 9107 //h q[7]
 t q[8]; //cycle: 9108 //t q[7]
 cx q[8],q[3]; //cycle: 9112 //cx q[7],q[9]
 cx q[2],q[7]; //cycle: 9112 //cx q[5],q[10]
-swp q[12],q[16]; //cycle: 9113
+swap q[12],q[16]; //cycle: 9113
 cx q[4],q[8]; //cycle: 9114 //cx q[14],q[7]
 h q[2]; //cycle: 9114 //h q[5]
 t q[7]; //cycle: 9114 //t q[10]
@@ -7631,24 +7631,24 @@ cx q[4],q[8]; //cycle: 9121 //cx q[14],q[7]
 cx q[3],q[4]; //cycle: 9123 //cx q[9],q[14]
 cx q[8],q[3]; //cycle: 9125 //cx q[7],q[9]
 h q[4]; //cycle: 9125 //h q[14]
-swp q[1],q[7]; //cycle: 9126
+swap q[1],q[7]; //cycle: 9126
 t q[4]; //cycle: 9126 //t q[14]
 t q[3]; //cycle: 9127 //t q[9]
 t q[8]; //cycle: 9127 //t q[7]
-swp q[3],q[8]; //cycle: 9128
-swp q[2],q[7]; //cycle: 9132
+swap q[3],q[8]; //cycle: 9128
+swap q[2],q[7]; //cycle: 9132
 cx q[12],q[8]; //cycle: 9134 //cx q[15],q[9]
-swp q[3],q[4]; //cycle: 9135
+swap q[3],q[4]; //cycle: 9135
 cx q[7],q[12]; //cycle: 9138 //cx q[5],q[15]
 cx q[8],q[7]; //cycle: 9140 //cx q[9],q[5]
 tdg q[12]; //cycle: 9140 //tdg q[15]
-swp q[2],q[3]; //cycle: 9141
+swap q[2],q[3]; //cycle: 9141
 cx q[8],q[12]; //cycle: 9142 //cx q[9],q[15]
 t q[7]; //cycle: 9142 //t q[5]
 tdg q[8]; //cycle: 9144 //tdg q[9]
 tdg q[12]; //cycle: 9144 //tdg q[15]
 cx q[7],q[12]; //cycle: 9145 //cx q[5],q[15]
-swp q[1],q[2]; //cycle: 9147
+swap q[1],q[2]; //cycle: 9147
 cx q[8],q[7]; //cycle: 9147 //cx q[9],q[5]
 cx q[4],q[3]; //cycle: 9147 //cx q[7],q[11]
 cx q[12],q[8]; //cycle: 9149 //cx q[15],q[9]
@@ -7660,7 +7660,7 @@ t q[7]; //cycle: 9151 //t q[5]
 t q[12]; //cycle: 9152 //t q[15]
 cx q[12],q[13]; //cycle: 9153 //cx q[15],q[8]
 cx q[0],q[1]; //cycle: 9153 //cx q[13],q[14]
-swp q[2],q[7]; //cycle: 9154
+swap q[2],q[7]; //cycle: 9154
 tdg q[13]; //cycle: 9155 //tdg q[8]
 cx q[7],q[12]; //cycle: 9160 //cx q[10],q[15]
 cx q[7],q[13]; //cycle: 9162 //cx q[10],q[8]
@@ -7676,7 +7676,7 @@ h q[13]; //cycle: 9171 //h q[8]
 t q[7]; //cycle: 9171 //t q[10]
 t q[12]; //cycle: 9171 //t q[15]
 t q[13]; //cycle: 9172 //t q[8]
-swp q[8],q[13]; //cycle: 9173
+swap q[8],q[13]; //cycle: 9173
 cx q[8],q[4]; //cycle: 9179 //cx q[8],q[7]
 cx q[3],q[8]; //cycle: 9181 //cx q[11],q[8]
 tdg q[4]; //cycle: 9181 //tdg q[7]
@@ -7689,35 +7689,35 @@ cx q[3],q[8]; //cycle: 9188 //cx q[11],q[8]
 cx q[4],q[3]; //cycle: 9190 //cx q[7],q[11]
 h q[8]; //cycle: 9190 //h q[8]
 h q[8]; //cycle: 9191 //h q[8]
-swp q[11],q[12]; //cycle: 9192
+swap q[11],q[12]; //cycle: 9192
 h q[4]; //cycle: 9192 //h q[7]
 t q[3]; //cycle: 9192 //t q[11]
 t q[8]; //cycle: 9192 //t q[8]
 t q[4]; //cycle: 9193 //t q[7]
-swp q[4],q[8]; //cycle: 9194
+swap q[4],q[8]; //cycle: 9194
 cx q[8],q[12]; //cycle: 9200 //cx q[7],q[6]
-swp q[5],q[6]; //cycle: 9201
-swp q[7],q[8]; //cycle: 9202
+swap q[5],q[6]; //cycle: 9201
+swap q[7],q[8]; //cycle: 9202
 tdg q[12]; //cycle: 9202 //tdg q[6]
 cx q[6],q[7]; //cycle: 9208 //cx q[12],q[7]
-swp q[6],q[11]; //cycle: 9210
+swap q[6],q[11]; //cycle: 9210
 t q[7]; //cycle: 9210 //t q[7]
 cx q[11],q[12]; //cycle: 9216 //cx q[12],q[6]
 tdg q[11]; //cycle: 9218 //tdg q[12]
 tdg q[12]; //cycle: 9218 //tdg q[6]
 cx q[7],q[12]; //cycle: 9219 //cx q[7],q[6]
-swp q[11],q[12]; //cycle: 9221
+swap q[11],q[12]; //cycle: 9221
 cx q[12],q[7]; //cycle: 9227 //cx q[12],q[7]
 cx q[11],q[12]; //cycle: 9229 //cx q[6],q[12]
 h q[7]; //cycle: 9229 //h q[7]
-swp q[0],q[5]; //cycle: 9230
+swap q[0],q[5]; //cycle: 9230
 h q[7]; //cycle: 9230 //h q[7]
 h q[11]; //cycle: 9231 //h q[6]
 t q[12]; //cycle: 9231 //t q[12]
 t q[7]; //cycle: 9231 //t q[7]
 t q[11]; //cycle: 9232 //t q[6]
 cx q[11],q[5]; //cycle: 9236 //cx q[6],q[13]
-swp q[1],q[6]; //cycle: 9237
+swap q[1],q[6]; //cycle: 9237
 tdg q[5]; //cycle: 9238 //tdg q[13]
 cx q[6],q[11]; //cycle: 9243 //cx q[14],q[6]
 cx q[6],q[5]; //cycle: 9245 //cx q[14],q[13]
@@ -7733,30 +7733,30 @@ cx q[11],q[12]; //cycle: 9254 //cx q[6],q[12]
 t q[6]; //cycle: 9254 //t q[14]
 t q[5]; //cycle: 9254 //t q[13]
 cx q[5],q[6]; //cycle: 9255 //cx q[13],q[14]
-swp q[6],q[11]; //cycle: 9257
+swap q[6],q[11]; //cycle: 9257
 cx q[7],q[6]; //cycle: 9263 //cx q[7],q[6]
 cx q[12],q[7]; //cycle: 9265 //cx q[12],q[7]
 tdg q[6]; //cycle: 9265 //tdg q[6]
-swp q[11],q[12]; //cycle: 9267
+swap q[11],q[12]; //cycle: 9267
 t q[7]; //cycle: 9267 //t q[7]
 cx q[11],q[6]; //cycle: 9273 //cx q[12],q[6]
 tdg q[11]; //cycle: 9275 //tdg q[12]
 tdg q[6]; //cycle: 9275 //tdg q[6]
 cx q[7],q[6]; //cycle: 9276 //cx q[7],q[6]
-swp q[11],q[12]; //cycle: 9277
+swap q[11],q[12]; //cycle: 9277
 cx q[12],q[7]; //cycle: 9283 //cx q[12],q[7]
-swp q[2],q[3]; //cycle: 9284
-swp q[6],q[11]; //cycle: 9284
+swap q[2],q[3]; //cycle: 9284
+swap q[6],q[11]; //cycle: 9284
 h q[7]; //cycle: 9285 //h q[7]
 t q[7]; //cycle: 9286 //t q[7]
 cx q[11],q[12]; //cycle: 9290 //cx q[6],q[12]
 cx q[7],q[2]; //cycle: 9290 //cx q[7],q[11]
-swp q[7],q[8]; //cycle: 9292
+swap q[7],q[8]; //cycle: 9292
 t q[12]; //cycle: 9292 //t q[12]
 t q[11]; //cycle: 9292 //t q[6]
 cx q[11],q[12]; //cycle: 9293 //cx q[6],q[12]
 cx q[4],q[8]; //cycle: 9298 //cx q[8],q[7]
-swp q[2],q[3]; //cycle: 9299
+swap q[2],q[3]; //cycle: 9299
 tdg q[8]; //cycle: 9300 //tdg q[7]
 cx q[3],q[4]; //cycle: 9305 //cx q[11],q[8]
 cx q[3],q[8]; //cycle: 9307 //cx q[11],q[7]
@@ -7765,13 +7765,13 @@ tdg q[3]; //cycle: 9309 //tdg q[11]
 tdg q[8]; //cycle: 9309 //tdg q[7]
 cx q[4],q[8]; //cycle: 9310 //cx q[8],q[7]
 cx q[3],q[4]; //cycle: 9312 //cx q[11],q[8]
-swp q[7],q[8]; //cycle: 9313
+swap q[7],q[8]; //cycle: 9313
 h q[4]; //cycle: 9314 //h q[8]
 t q[4]; //cycle: 9315 //t q[8]
 cx q[4],q[8]; //cycle: 9319 //cx q[8],q[10]
-swp q[1],q[2]; //cycle: 9321
-swp q[3],q[4]; //cycle: 9321
-swp q[7],q[8]; //cycle: 9321
+swap q[1],q[2]; //cycle: 9321
+swap q[3],q[4]; //cycle: 9321
+swap q[7],q[8]; //cycle: 9321
 cx q[8],q[4]; //cycle: 9327 //cx q[7],q[11]
 cx q[2],q[3]; //cycle: 9327 //cx q[15],q[8]
 cx q[7],q[2]; //cycle: 9329 //cx q[10],q[15]
@@ -7780,14 +7780,14 @@ t q[4]; //cycle: 9329 //t q[11]
 t q[8]; //cycle: 9329 //t q[7]
 cx q[8],q[4]; //cycle: 9330 //cx q[7],q[11]
 t q[2]; //cycle: 9331 //t q[15]
-swp q[7],q[8]; //cycle: 9332
+swap q[7],q[8]; //cycle: 9332
 cx q[8],q[3]; //cycle: 9338 //cx q[10],q[8]
 tdg q[8]; //cycle: 9340 //tdg q[10]
 tdg q[3]; //cycle: 9340 //tdg q[8]
 cx q[2],q[3]; //cycle: 9341 //cx q[15],q[8]
-swp q[7],q[8]; //cycle: 9342
+swap q[7],q[8]; //cycle: 9342
 cx q[7],q[2]; //cycle: 9348 //cx q[10],q[15]
-swp q[7],q[13]; //cycle: 9350
+swap q[7],q[13]; //cycle: 9350
 h q[2]; //cycle: 9350 //h q[15]
 t q[2]; //cycle: 9351 //t q[15]
 cx q[2],q[7]; //cycle: 9356 //cx q[15],q[9]
@@ -7796,7 +7796,7 @@ cx q[7],q[1]; //cycle: 9360 //cx q[9],q[5]
 tdg q[2]; //cycle: 9360 //tdg q[15]
 cx q[7],q[2]; //cycle: 9362 //cx q[9],q[15]
 t q[1]; //cycle: 9362 //t q[5]
-swp q[3],q[8]; //cycle: 9363
+swap q[3],q[8]; //cycle: 9363
 tdg q[7]; //cycle: 9364 //tdg q[9]
 tdg q[2]; //cycle: 9364 //tdg q[15]
 cx q[1],q[2]; //cycle: 9365 //cx q[5],q[15]
@@ -7812,7 +7812,7 @@ t q[8]; //cycle: 9371 //t q[8]
 t q[7]; //cycle: 9371 //t q[9]
 t q[2]; //cycle: 9372 //t q[15]
 cx q[8],q[13]; //cycle: 9372 //cx q[8],q[10]
-swp q[2],q[7]; //cycle: 9373
+swap q[2],q[7]; //cycle: 9373
 cx q[7],q[8]; //cycle: 9379 //cx q[15],q[8]
 cx q[13],q[7]; //cycle: 9381 //cx q[10],q[15]
 tdg q[8]; //cycle: 9381 //tdg q[8]
@@ -7841,14 +7841,14 @@ cx q[4],q[8]; //cycle: 9403 //cx q[11],q[8]
 cx q[3],q[4]; //cycle: 9405 //cx q[7],q[11]
 h q[8]; //cycle: 9405 //h q[8]
 h q[8]; //cycle: 9406 //h q[8]
-swp q[6],q[11]; //cycle: 9407
+swap q[6],q[11]; //cycle: 9407
 h q[3]; //cycle: 9407 //h q[7]
 t q[4]; //cycle: 9407 //t q[11]
 t q[8]; //cycle: 9407 //t q[8]
 t q[3]; //cycle: 9408 //t q[7]
-swp q[2],q[3]; //cycle: 9409
+swap q[2],q[3]; //cycle: 9409
 cx q[2],q[6]; //cycle: 9415 //cx q[7],q[6]
-swp q[7],q[12]; //cycle: 9416
+swap q[7],q[12]; //cycle: 9416
 tdg q[6]; //cycle: 9417 //tdg q[6]
 cx q[7],q[2]; //cycle: 9422 //cx q[12],q[7]
 cx q[7],q[6]; //cycle: 9424 //cx q[12],q[6]
@@ -7892,7 +7892,7 @@ cx q[7],q[2]; //cycle: 9459 //cx q[12],q[7]
 cx q[6],q[7]; //cycle: 9461 //cx q[6],q[12]
 h q[2]; //cycle: 9461 //h q[7]
 t q[2]; //cycle: 9462 //t q[7]
-swp q[2],q[3]; //cycle: 9463
+swap q[2],q[3]; //cycle: 9463
 t q[7]; //cycle: 9463 //t q[12]
 t q[6]; //cycle: 9463 //t q[6]
 cx q[6],q[7]; //cycle: 9464 //cx q[6],q[12]
@@ -7922,7 +7922,7 @@ tdg q[13]; //cycle: 9492 //tdg q[10]
 tdg q[8]; //cycle: 9492 //tdg q[8]
 cx q[12],q[8]; //cycle: 9493 //cx q[15],q[8]
 cx q[13],q[12]; //cycle: 9495 //cx q[10],q[15]
-swp q[2],q[7]; //cycle: 9496
+swap q[2],q[7]; //cycle: 9496
 cx q[8],q[13]; //cycle: 9497 //cx q[8],q[10]
 h q[12]; //cycle: 9497 //h q[15]
 t q[12]; //cycle: 9498 //t q[15]
@@ -7930,10 +7930,10 @@ t q[13]; //cycle: 9499 //t q[10]
 t q[8]; //cycle: 9499 //t q[8]
 cx q[8],q[13]; //cycle: 9500 //cx q[8],q[10]
 cx q[12],q[7]; //cycle: 9502 //cx q[15],q[9]
-swp q[0],q[5]; //cycle: 9504
-swp q[11],q[12]; //cycle: 9504
+swap q[0],q[5]; //cycle: 9504
+swap q[11],q[12]; //cycle: 9504
 cx q[5],q[11]; //cycle: 9510 //cx q[4],q[15]
-swp q[6],q[7]; //cycle: 9511
+swap q[6],q[7]; //cycle: 9511
 tdg q[11]; //cycle: 9512 //tdg q[15]
 cx q[6],q[5]; //cycle: 9517 //cx q[9],q[4]
 cx q[6],q[11]; //cycle: 9519 //cx q[9],q[15]
@@ -7949,7 +7949,7 @@ t q[6]; //cycle: 9528 //t q[9]
 t q[5]; //cycle: 9528 //t q[4]
 h q[11]; //cycle: 9528 //h q[15]
 t q[11]; //cycle: 9529 //t q[15]
-swp q[11],q[12]; //cycle: 9530
+swap q[11],q[12]; //cycle: 9530
 cx q[12],q[8]; //cycle: 9536 //cx q[15],q[8]
 cx q[13],q[12]; //cycle: 9538 //cx q[10],q[15]
 tdg q[8]; //cycle: 9538 //tdg q[8]
@@ -7981,29 +7981,29 @@ h q[8]; //cycle: 9563 //h q[8]
 t q[4]; //cycle: 9564 //t q[11]
 t q[8]; //cycle: 9564 //t q[8]
 h q[3]; //cycle: 9564 //h q[7]
-swp q[7],q[8]; //cycle: 9565
+swap q[7],q[8]; //cycle: 9565
 t q[3]; //cycle: 9565 //t q[7]
 cx q[3],q[8]; //cycle: 9571 //cx q[7],q[6]
 cx q[2],q[3]; //cycle: 9573 //cx q[12],q[7]
 tdg q[8]; //cycle: 9573 //tdg q[6]
-swp q[2],q[7]; //cycle: 9575
+swap q[2],q[7]; //cycle: 9575
 t q[3]; //cycle: 9575 //t q[7]
 cx q[7],q[8]; //cycle: 9581 //cx q[12],q[6]
 tdg q[7]; //cycle: 9583 //tdg q[12]
 tdg q[8]; //cycle: 9583 //tdg q[6]
 cx q[3],q[8]; //cycle: 9584 //cx q[7],q[6]
-swp q[7],q[8]; //cycle: 9586
+swap q[7],q[8]; //cycle: 9586
 cx q[8],q[3]; //cycle: 9592 //cx q[12],q[7]
 cx q[7],q[8]; //cycle: 9594 //cx q[6],q[12]
 h q[3]; //cycle: 9594 //h q[7]
-swp q[0],q[1]; //cycle: 9595
+swap q[0],q[1]; //cycle: 9595
 h q[3]; //cycle: 9595 //h q[7]
 t q[8]; //cycle: 9596 //t q[12]
 t q[3]; //cycle: 9596 //t q[7]
 h q[7]; //cycle: 9596 //h q[6]
 t q[7]; //cycle: 9597 //t q[6]
 cx q[7],q[1]; //cycle: 9601 //cx q[6],q[13]
-swp q[6],q[11]; //cycle: 9602
+swap q[6],q[11]; //cycle: 9602
 tdg q[1]; //cycle: 9603 //tdg q[13]
 cx q[6],q[7]; //cycle: 9608 //cx q[14],q[6]
 cx q[6],q[1]; //cycle: 9610 //cx q[14],q[13]
@@ -8018,20 +8018,20 @@ t q[7]; //cycle: 9618 //t q[6]
 cx q[7],q[8]; //cycle: 9619 //cx q[6],q[12]
 t q[6]; //cycle: 9619 //t q[14]
 t q[1]; //cycle: 9619 //t q[13]
-swp q[2],q[3]; //cycle: 9620
+swap q[2],q[3]; //cycle: 9620
 cx q[1],q[6]; //cycle: 9620 //cx q[13],q[14]
 cx q[2],q[7]; //cycle: 9626 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 9628
+swap q[2],q[3]; //cycle: 9628
 tdg q[7]; //cycle: 9628 //tdg q[6]
 cx q[8],q[3]; //cycle: 9634 //cx q[12],q[7]
 cx q[8],q[7]; //cycle: 9636 //cx q[12],q[6]
 t q[3]; //cycle: 9636 //t q[7]
 tdg q[8]; //cycle: 9638 //tdg q[12]
 tdg q[7]; //cycle: 9638 //tdg q[6]
-swp q[2],q[7]; //cycle: 9639
+swap q[2],q[7]; //cycle: 9639
 cx q[3],q[2]; //cycle: 9645 //cx q[7],q[6]
 cx q[8],q[3]; //cycle: 9647 //cx q[12],q[7]
-swp q[7],q[8]; //cycle: 9649
+swap q[7],q[8]; //cycle: 9649
 h q[3]; //cycle: 9649 //h q[7]
 t q[3]; //cycle: 9650 //t q[7]
 cx q[3],q[4]; //cycle: 9651 //cx q[7],q[11]
@@ -8071,17 +8071,17 @@ cx q[12],q[11]; //cycle: 9683 //cx q[15],q[9]
 t q[13]; //cycle: 9683 //t q[10]
 t q[8]; //cycle: 9683 //t q[8]
 cx q[8],q[13]; //cycle: 9684 //cx q[8],q[10]
-swp q[5],q[11]; //cycle: 9685
+swap q[5],q[11]; //cycle: 9685
 cx q[11],q[12]; //cycle: 9691 //cx q[4],q[15]
 cx q[5],q[11]; //cycle: 9693 //cx q[9],q[4]
 tdg q[12]; //cycle: 9693 //tdg q[15]
 t q[11]; //cycle: 9695 //t q[4]
-swp q[11],q[12]; //cycle: 9696
+swap q[11],q[12]; //cycle: 9696
 cx q[5],q[11]; //cycle: 9702 //cx q[9],q[15]
 tdg q[5]; //cycle: 9704 //tdg q[9]
 tdg q[11]; //cycle: 9704 //tdg q[15]
 cx q[12],q[11]; //cycle: 9705 //cx q[4],q[15]
-swp q[5],q[11]; //cycle: 9707
+swap q[5],q[11]; //cycle: 9707
 cx q[11],q[12]; //cycle: 9713 //cx q[9],q[4]
 cx q[5],q[11]; //cycle: 9715 //cx q[15],q[9]
 h q[12]; //cycle: 9715 //h q[4]
@@ -8090,28 +8090,28 @@ t q[11]; //cycle: 9717 //t q[9]
 t q[12]; //cycle: 9717 //t q[4]
 h q[5]; //cycle: 9717 //h q[15]
 t q[5]; //cycle: 9718 //t q[15]
-swp q[5],q[6]; //cycle: 9719
-swp q[7],q[8]; //cycle: 9719
+swap q[5],q[6]; //cycle: 9719
+swap q[7],q[8]; //cycle: 9719
 cx q[6],q[7]; //cycle: 9725 //cx q[15],q[8]
 tdg q[7]; //cycle: 9727 //tdg q[8]
-swp q[7],q[13]; //cycle: 9728
+swap q[7],q[13]; //cycle: 9728
 cx q[7],q[6]; //cycle: 9734 //cx q[10],q[15]
 cx q[7],q[13]; //cycle: 9736 //cx q[10],q[8]
 t q[6]; //cycle: 9736 //t q[15]
 tdg q[7]; //cycle: 9738 //tdg q[10]
 tdg q[13]; //cycle: 9738 //tdg q[8]
-swp q[6],q[7]; //cycle: 9739
+swap q[6],q[7]; //cycle: 9739
 cx q[7],q[13]; //cycle: 9745 //cx q[15],q[8]
 cx q[6],q[7]; //cycle: 9747 //cx q[10],q[15]
 h q[7]; //cycle: 9749 //h q[15]
 h q[7]; //cycle: 9750 //h q[15]
 t q[7]; //cycle: 9751 //t q[15]
-swp q[6],q[7]; //cycle: 9752
+swap q[6],q[7]; //cycle: 9752
 cx q[13],q[7]; //cycle: 9758 //cx q[8],q[10]
 t q[7]; //cycle: 9760 //t q[10]
 h q[13]; //cycle: 9760 //h q[8]
 t q[13]; //cycle: 9761 //t q[8]
-swp q[8],q[13]; //cycle: 9762
+swap q[8],q[13]; //cycle: 9762
 cx q[8],q[3]; //cycle: 9768 //cx q[8],q[7]
 cx q[4],q[8]; //cycle: 9770 //cx q[11],q[8]
 tdg q[3]; //cycle: 9770 //tdg q[7]
@@ -8129,10 +8129,10 @@ t q[4]; //cycle: 9781 //t q[11]
 t q[8]; //cycle: 9781 //t q[8]
 t q[3]; //cycle: 9782 //t q[7]
 cx q[3],q[2]; //cycle: 9783 //cx q[7],q[6]
-swp q[3],q[8]; //cycle: 9785
+swap q[3],q[8]; //cycle: 9785
 tdg q[2]; //cycle: 9785 //tdg q[6]
 cx q[13],q[8]; //cycle: 9791 //cx q[12],q[7]
-swp q[2],q[7]; //cycle: 9792
+swap q[2],q[7]; //cycle: 9792
 t q[8]; //cycle: 9793 //t q[7]
 cx q[13],q[7]; //cycle: 9798 //cx q[12],q[6]
 tdg q[13]; //cycle: 9800 //tdg q[12]
@@ -8147,7 +8147,7 @@ t q[13]; //cycle: 9807 //t q[12]
 t q[8]; //cycle: 9807 //t q[7]
 t q[7]; //cycle: 9808 //t q[6]
 cx q[7],q[1]; //cycle: 9809 //cx q[6],q[13]
-swp q[5],q[6]; //cycle: 9811
+swap q[5],q[6]; //cycle: 9811
 tdg q[1]; //cycle: 9811 //tdg q[13]
 cx q[6],q[7]; //cycle: 9817 //cx q[14],q[6]
 cx q[6],q[1]; //cycle: 9819 //cx q[14],q[13]
@@ -8194,19 +8194,19 @@ t q[3]; //cycle: 9857 //t q[8]
 cx q[3],q[2]; //cycle: 9858 //cx q[8],q[10]
 t q[4]; //cycle: 9858 //t q[11]
 t q[8]; //cycle: 9858 //t q[7]
-swp q[5],q[6]; //cycle: 9859
+swap q[5],q[6]; //cycle: 9859
 cx q[8],q[4]; //cycle: 9859 //cx q[7],q[11]
-swp q[2],q[6]; //cycle: 9865
+swap q[2],q[6]; //cycle: 9865
 cx q[2],q[3]; //cycle: 9871 //cx q[15],q[8]
 cx q[6],q[2]; //cycle: 9873 //cx q[10],q[15]
 tdg q[3]; //cycle: 9873 //tdg q[8]
 t q[2]; //cycle: 9875 //t q[15]
-swp q[2],q[3]; //cycle: 9876
+swap q[2],q[3]; //cycle: 9876
 cx q[6],q[2]; //cycle: 9882 //cx q[10],q[8]
 tdg q[6]; //cycle: 9884 //tdg q[10]
 tdg q[2]; //cycle: 9884 //tdg q[8]
 cx q[3],q[2]; //cycle: 9885 //cx q[15],q[8]
-swp q[2],q[6]; //cycle: 9887
+swap q[2],q[6]; //cycle: 9887
 cx q[2],q[3]; //cycle: 9893 //cx q[10],q[15]
 cx q[6],q[2]; //cycle: 9895 //cx q[8],q[10]
 h q[3]; //cycle: 9895 //h q[15]
@@ -8214,23 +8214,23 @@ x q[3]; //cycle: 9896 //x q[15]
 t q[6]; //cycle: 9897 //t q[8]
 t q[2]; //cycle: 9897 //t q[10]
 t q[3]; //cycle: 9897 //t q[15]
-swp q[2],q[3]; //cycle: 9898
+swap q[2],q[3]; //cycle: 9898
 cx q[5],q[6]; //cycle: 9898 //cx q[14],q[8]
-swp q[11],q[12]; //cycle: 9899
+swap q[11],q[12]; //cycle: 9899
 cx q[0],q[5]; //cycle: 9900 //cx q[5],q[14]
-swp q[0],q[1]; //cycle: 9902
+swap q[0],q[1]; //cycle: 9902
 tdg q[5]; //cycle: 9902 //tdg q[14]
-swp q[3],q[8]; //cycle: 9908
+swap q[3],q[8]; //cycle: 9908
 cx q[6],q[1]; //cycle: 9908 //cx q[8],q[5]
 cx q[6],q[5]; //cycle: 9910 //cx q[8],q[14]
 t q[1]; //cycle: 9910 //t q[5]
-swp q[0],q[1]; //cycle: 9911
+swap q[0],q[1]; //cycle: 9911
 tdg q[6]; //cycle: 9912 //tdg q[8]
 tdg q[5]; //cycle: 9912 //tdg q[14]
 cx q[8],q[12]; //cycle: 9914 //cx q[10],q[9]
 cx q[0],q[5]; //cycle: 9917 //cx q[5],q[14]
 cx q[1],q[2]; //cycle: 9917 //cx q[13],q[15]
-swp q[5],q[6]; //cycle: 9919
+swap q[5],q[6]; //cycle: 9919
 cx q[5],q[0]; //cycle: 9925 //cx q[8],q[5]
 cx q[6],q[5]; //cycle: 9927 //cx q[14],q[8]
 h q[0]; //cycle: 9927 //h q[5]
@@ -8239,7 +8239,7 @@ h q[6]; //cycle: 9929 //h q[14]
 t q[5]; //cycle: 9929 //t q[8]
 t q[0]; //cycle: 9929 //t q[5]
 t q[6]; //cycle: 9930 //t q[14]
-swp q[6],q[7]; //cycle: 9931
+swap q[6],q[7]; //cycle: 9931
 cx q[7],q[8]; //cycle: 9937 //cx q[14],q[10]
 cx q[12],q[7]; //cycle: 9939 //cx q[9],q[14]
 tdg q[8]; //cycle: 9939 //tdg q[10]
@@ -8267,17 +8267,17 @@ cx q[8],q[3]; //cycle: 9959 //cx q[10],q[7]
 cx q[4],q[8]; //cycle: 9961 //cx q[11],q[10]
 cx q[3],q[4]; //cycle: 9963 //cx q[7],q[11]
 h q[8]; //cycle: 9963 //h q[10]
-swp q[2],q[6]; //cycle: 9964
+swap q[2],q[6]; //cycle: 9964
 h q[8]; //cycle: 9964 //h q[10]
 h q[3]; //cycle: 9965 //h q[7]
 t q[4]; //cycle: 9965 //t q[11]
 t q[8]; //cycle: 9965 //t q[10]
 t q[3]; //cycle: 9966 //t q[7]
 cx q[3],q[2]; //cycle: 9970 //cx q[7],q[6]
-swp q[3],q[8]; //cycle: 9972
+swap q[3],q[8]; //cycle: 9972
 tdg q[2]; //cycle: 9972 //tdg q[6]
 cx q[13],q[8]; //cycle: 9978 //cx q[12],q[7]
-swp q[2],q[7]; //cycle: 9979
+swap q[2],q[7]; //cycle: 9979
 t q[8]; //cycle: 9980 //t q[7]
 cx q[13],q[7]; //cycle: 9985 //cx q[12],q[6]
 tdg q[13]; //cycle: 9987 //tdg q[12]
@@ -8332,13 +8332,13 @@ tdg q[4]; //cycle: 10032 //tdg q[11]
 tdg q[8]; //cycle: 10032 //tdg q[7]
 cx q[3],q[8]; //cycle: 10033 //cx q[10],q[7]
 cx q[4],q[3]; //cycle: 10035 //cx q[11],q[10]
-swp q[8],q[12]; //cycle: 10036
+swap q[8],q[12]; //cycle: 10036
 h q[3]; //cycle: 10037 //h q[10]
 t q[3]; //cycle: 10038 //t q[10]
 cx q[3],q[8]; //cycle: 10042 //cx q[10],q[9]
-swp q[8],q[12]; //cycle: 10044
+swap q[8],q[12]; //cycle: 10044
 cx q[2],q[3]; //cycle: 10044 //cx q[14],q[10]
-swp q[2],q[7]; //cycle: 10046
+swap q[2],q[7]; //cycle: 10046
 tdg q[3]; //cycle: 10046 //tdg q[10]
 cx q[8],q[4]; //cycle: 10050 //cx q[7],q[11]
 t q[4]; //cycle: 10052 //t q[11]
@@ -8346,13 +8346,13 @@ t q[8]; //cycle: 10052 //t q[7]
 cx q[12],q[7]; //cycle: 10052 //cx q[9],q[14]
 cx q[8],q[4]; //cycle: 10053 //cx q[7],q[11]
 t q[7]; //cycle: 10054 //t q[14]
-swp q[3],q[8]; //cycle: 10055
+swap q[3],q[8]; //cycle: 10055
 cx q[12],q[8]; //cycle: 10061 //cx q[9],q[10]
 tdg q[12]; //cycle: 10063 //tdg q[9]
 tdg q[8]; //cycle: 10063 //tdg q[10]
 cx q[7],q[8]; //cycle: 10064 //cx q[14],q[10]
 cx q[12],q[7]; //cycle: 10066 //cx q[9],q[14]
-swp q[5],q[6]; //cycle: 10067
+swap q[5],q[6]; //cycle: 10067
 cx q[8],q[12]; //cycle: 10068 //cx q[10],q[9]
 h q[7]; //cycle: 10068 //h q[14]
 t q[7]; //cycle: 10069 //t q[14]
@@ -8360,7 +8360,7 @@ t q[12]; //cycle: 10070 //t q[9]
 t q[8]; //cycle: 10070 //t q[10]
 cx q[8],q[12]; //cycle: 10071 //cx q[10],q[9]
 cx q[7],q[6]; //cycle: 10073 //cx q[14],q[8]
-swp q[0],q[1]; //cycle: 10074
+swap q[0],q[1]; //cycle: 10074
 cx q[1],q[7]; //cycle: 10080 //cx q[5],q[14]
 cx q[6],q[1]; //cycle: 10082 //cx q[8],q[5]
 tdg q[7]; //cycle: 10082 //tdg q[14]
@@ -8372,7 +8372,7 @@ cx q[1],q[7]; //cycle: 10087 //cx q[5],q[14]
 cx q[6],q[1]; //cycle: 10089 //cx q[8],q[5]
 cx q[7],q[6]; //cycle: 10091 //cx q[14],q[8]
 h q[1]; //cycle: 10091 //h q[5]
-swp q[0],q[5]; //cycle: 10092
+swap q[0],q[5]; //cycle: 10092
 h q[1]; //cycle: 10092 //h q[5]
 t q[6]; //cycle: 10093 //t q[8]
 t q[1]; //cycle: 10093 //t q[5]
@@ -8411,10 +8411,10 @@ t q[4]; //cycle: 10123 //t q[11]
 t q[8]; //cycle: 10123 //t q[10]
 t q[3]; //cycle: 10124 //t q[7]
 cx q[3],q[2]; //cycle: 10125 //cx q[7],q[6]
-swp q[3],q[8]; //cycle: 10127
+swap q[3],q[8]; //cycle: 10127
 tdg q[2]; //cycle: 10127 //tdg q[6]
 cx q[13],q[8]; //cycle: 10133 //cx q[12],q[7]
-swp q[2],q[7]; //cycle: 10134
+swap q[2],q[7]; //cycle: 10134
 t q[8]; //cycle: 10135 //t q[7]
 cx q[13],q[7]; //cycle: 10140 //cx q[12],q[6]
 tdg q[13]; //cycle: 10142 //tdg q[12]
@@ -8423,14 +8423,14 @@ cx q[8],q[7]; //cycle: 10143 //cx q[7],q[6]
 cx q[13],q[8]; //cycle: 10145 //cx q[12],q[7]
 cx q[7],q[13]; //cycle: 10147 //cx q[6],q[12]
 h q[8]; //cycle: 10147 //h q[7]
-swp q[5],q[6]; //cycle: 10148
+swap q[5],q[6]; //cycle: 10148
 h q[8]; //cycle: 10148 //h q[7]
 h q[7]; //cycle: 10149 //h q[6]
 t q[13]; //cycle: 10149 //t q[12]
 t q[8]; //cycle: 10149 //t q[7]
 t q[7]; //cycle: 10150 //t q[6]
 cx q[7],q[6]; //cycle: 10154 //cx q[6],q[13]
-swp q[0],q[1]; //cycle: 10155
+swap q[0],q[1]; //cycle: 10155
 tdg q[6]; //cycle: 10156 //tdg q[13]
 cx q[1],q[7]; //cycle: 10161 //cx q[15],q[6]
 cx q[1],q[6]; //cycle: 10163 //cx q[15],q[13]
@@ -8449,7 +8449,7 @@ cx q[6],q[5]; //cycle: 10173 //cx q[13],q[8]
 cx q[8],q[7]; //cycle: 10174 //cx q[7],q[6]
 cx q[13],q[8]; //cycle: 10176 //cx q[12],q[7]
 tdg q[7]; //cycle: 10176 //tdg q[6]
-swp q[0],q[5]; //cycle: 10177
+swap q[0],q[5]; //cycle: 10177
 cx q[13],q[7]; //cycle: 10178 //cx q[12],q[6]
 t q[8]; //cycle: 10178 //t q[7]
 tdg q[13]; //cycle: 10180 //tdg q[12]
@@ -8466,7 +8466,7 @@ cx q[8],q[4]; //cycle: 10187 //cx q[7],q[11]
 t q[5]; //cycle: 10187 //t q[5]
 t q[13]; //cycle: 10187 //t q[12]
 t q[7]; //cycle: 10187 //t q[6]
-swp q[1],q[6]; //cycle: 10188
+swap q[1],q[6]; //cycle: 10188
 cx q[7],q[13]; //cycle: 10188 //cx q[6],q[12]
 cx q[3],q[8]; //cycle: 10189 //cx q[10],q[7]
 cx q[4],q[3]; //cycle: 10191 //cx q[11],q[10]
@@ -8479,18 +8479,18 @@ tdg q[8]; //cycle: 10195 //tdg q[7]
 cx q[3],q[8]; //cycle: 10196 //cx q[10],q[7]
 tdg q[0]; //cycle: 10196 //tdg q[8]
 tdg q[1]; //cycle: 10196 //tdg q[13]
-swp q[0],q[5]; //cycle: 10197
+swap q[0],q[5]; //cycle: 10197
 cx q[4],q[3]; //cycle: 10198 //cx q[11],q[10]
-swp q[8],q[12]; //cycle: 10199
+swap q[8],q[12]; //cycle: 10199
 h q[3]; //cycle: 10200 //h q[10]
 t q[3]; //cycle: 10201 //t q[10]
 cx q[0],q[1]; //cycle: 10203 //cx q[5],q[13]
 cx q[3],q[8]; //cycle: 10205 //cx q[10],q[9]
 cx q[5],q[0]; //cycle: 10205 //cx q[8],q[5]
-swp q[5],q[6]; //cycle: 10207
+swap q[5],q[6]; //cycle: 10207
 cx q[2],q[3]; //cycle: 10207 //cx q[14],q[10]
 h q[0]; //cycle: 10207 //h q[5]
-swp q[7],q[8]; //cycle: 10208
+swap q[7],q[8]; //cycle: 10208
 h q[0]; //cycle: 10208 //h q[5]
 tdg q[3]; //cycle: 10209 //tdg q[10]
 t q[0]; //cycle: 10209 //t q[5]
@@ -8498,10 +8498,10 @@ cx q[1],q[6]; //cycle: 10213 //cx q[13],q[8]
 cx q[7],q[2]; //cycle: 10214 //cx q[9],q[14]
 h q[1]; //cycle: 10215 //h q[13]
 t q[6]; //cycle: 10215 //t q[8]
-swp q[4],q[8]; //cycle: 10216
+swap q[4],q[8]; //cycle: 10216
 t q[2]; //cycle: 10216 //t q[14]
 t q[1]; //cycle: 10216 //t q[13]
-swp q[2],q[3]; //cycle: 10217
+swap q[2],q[3]; //cycle: 10217
 cx q[12],q[8]; //cycle: 10222 //cx q[7],q[11]
 cx q[7],q[2]; //cycle: 10223 //cx q[9],q[10]
 t q[8]; //cycle: 10224 //t q[11]
@@ -8510,9 +8510,9 @@ tdg q[7]; //cycle: 10225 //tdg q[9]
 tdg q[2]; //cycle: 10225 //tdg q[10]
 cx q[12],q[8]; //cycle: 10225 //cx q[7],q[11]
 cx q[3],q[2]; //cycle: 10226 //cx q[14],q[10]
-swp q[3],q[8]; //cycle: 10228
+swap q[3],q[8]; //cycle: 10228
 cx q[7],q[8]; //cycle: 10234 //cx q[9],q[14]
-swp q[5],q[6]; //cycle: 10236
+swap q[5],q[6]; //cycle: 10236
 cx q[2],q[7]; //cycle: 10236 //cx q[10],q[9]
 h q[8]; //cycle: 10236 //h q[14]
 t q[8]; //cycle: 10237 //t q[14]
@@ -8536,9 +8536,9 @@ t q[2]; //cycle: 10254 //t q[10]
 t q[1]; //cycle: 10254 //t q[13]
 t q[7]; //cycle: 10255 //t q[9]
 cx q[7],q[12]; //cycle: 10256 //cx q[9],q[7]
-swp q[3],q[8]; //cycle: 10257
+swap q[3],q[8]; //cycle: 10257
 tdg q[12]; //cycle: 10258 //tdg q[7]
-swp q[2],q[6]; //cycle: 10262
+swap q[2],q[6]; //cycle: 10262
 cx q[8],q[7]; //cycle: 10263 //cx q[11],q[9]
 cx q[8],q[12]; //cycle: 10265 //cx q[11],q[7]
 t q[7]; //cycle: 10265 //t q[9]
@@ -8553,7 +8553,7 @@ h q[7]; //cycle: 10273 //h q[9]
 h q[12]; //cycle: 10274 //h q[7]
 t q[8]; //cycle: 10274 //t q[11]
 t q[7]; //cycle: 10274 //t q[9]
-swp q[4],q[8]; //cycle: 10275
+swap q[4],q[8]; //cycle: 10275
 t q[12]; //cycle: 10275 //t q[7]
 cx q[12],q[8]; //cycle: 10281 //cx q[7],q[6]
 cx q[13],q[12]; //cycle: 10283 //cx q[12],q[7]
@@ -8572,20 +8572,20 @@ t q[13]; //cycle: 10294 //t q[12]
 t q[12]; //cycle: 10294 //t q[7]
 t q[8]; //cycle: 10295 //t q[6]
 cx q[8],q[3]; //cycle: 10296 //cx q[6],q[14]
-swp q[7],q[8]; //cycle: 10298
+swap q[7],q[8]; //cycle: 10298
 tdg q[3]; //cycle: 10298 //tdg q[14]
 cx q[2],q[7]; //cycle: 10304 //cx q[15],q[6]
 cx q[2],q[3]; //cycle: 10306 //cx q[15],q[14]
 t q[7]; //cycle: 10306 //t q[6]
 tdg q[2]; //cycle: 10308 //tdg q[15]
 tdg q[3]; //cycle: 10308 //tdg q[14]
-swp q[3],q[8]; //cycle: 10309
+swap q[3],q[8]; //cycle: 10309
 cx q[7],q[8]; //cycle: 10315 //cx q[6],q[14]
 cx q[2],q[7]; //cycle: 10317 //cx q[15],q[6]
 h q[7]; //cycle: 10319 //h q[6]
 t q[7]; //cycle: 10320 //t q[6]
 cx q[7],q[13]; //cycle: 10321 //cx q[6],q[12]
-swp q[2],q[3]; //cycle: 10322
+swap q[2],q[3]; //cycle: 10322
 cx q[12],q[7]; //cycle: 10323 //cx q[7],q[6]
 cx q[13],q[12]; //cycle: 10325 //cx q[12],q[7]
 tdg q[7]; //cycle: 10325 //tdg q[6]
@@ -8599,7 +8599,7 @@ t q[3]; //cycle: 10330 //t q[15]
 t q[8]; //cycle: 10330 //t q[14]
 cx q[8],q[3]; //cycle: 10331 //cx q[14],q[15]
 cx q[13],q[12]; //cycle: 10332 //cx q[12],q[7]
-swp q[4],q[8]; //cycle: 10333
+swap q[4],q[8]; //cycle: 10333
 cx q[7],q[13]; //cycle: 10334 //cx q[6],q[12]
 h q[12]; //cycle: 10334 //h q[7]
 t q[12]; //cycle: 10335 //t q[7]
@@ -8607,7 +8607,7 @@ t q[13]; //cycle: 10336 //t q[12]
 t q[7]; //cycle: 10336 //t q[6]
 cx q[7],q[13]; //cycle: 10337 //cx q[6],q[12]
 cx q[12],q[8]; //cycle: 10339 //cx q[7],q[11]
-swp q[2],q[7]; //cycle: 10340
+swap q[2],q[7]; //cycle: 10340
 cx q[7],q[12]; //cycle: 10346 //cx q[9],q[7]
 cx q[8],q[7]; //cycle: 10348 //cx q[11],q[9]
 tdg q[12]; //cycle: 10348 //tdg q[7]
@@ -8633,7 +8633,7 @@ tdg q[6]; //cycle: 10367 //tdg q[10]
 tdg q[7]; //cycle: 10367 //tdg q[9]
 cx q[1],q[7]; //cycle: 10368 //cx q[13],q[9]
 cx q[6],q[1]; //cycle: 10370 //cx q[10],q[13]
-swp q[0],q[5]; //cycle: 10371
+swap q[0],q[5]; //cycle: 10371
 cx q[7],q[6]; //cycle: 10372 //cx q[9],q[10]
 h q[1]; //cycle: 10372 //h q[13]
 t q[1]; //cycle: 10373 //t q[13]
@@ -8641,19 +8641,19 @@ t q[6]; //cycle: 10374 //t q[10]
 t q[7]; //cycle: 10374 //t q[9]
 cx q[7],q[6]; //cycle: 10375 //cx q[9],q[10]
 cx q[1],q[0]; //cycle: 10377 //cx q[13],q[8]
-swp q[0],q[5]; //cycle: 10379
+swap q[0],q[5]; //cycle: 10379
 cx q[0],q[1]; //cycle: 10385 //cx q[5],q[13]
 cx q[5],q[0]; //cycle: 10387 //cx q[8],q[5]
 tdg q[1]; //cycle: 10387 //tdg q[13]
-swp q[5],q[6]; //cycle: 10389
+swap q[5],q[6]; //cycle: 10389
 t q[0]; //cycle: 10389 //t q[5]
 cx q[6],q[1]; //cycle: 10395 //cx q[8],q[13]
 tdg q[6]; //cycle: 10397 //tdg q[8]
 tdg q[1]; //cycle: 10397 //tdg q[13]
 cx q[0],q[1]; //cycle: 10398 //cx q[5],q[13]
-swp q[5],q[6]; //cycle: 10401
+swap q[5],q[6]; //cycle: 10401
 cx q[5],q[0]; //cycle: 10407 //cx q[8],q[5]
-swp q[1],q[6]; //cycle: 10408
+swap q[1],q[6]; //cycle: 10408
 h q[0]; //cycle: 10409 //h q[5]
 h q[0]; //cycle: 10410 //h q[5]
 t q[0]; //cycle: 10411 //t q[5]
@@ -8692,7 +8692,7 @@ h q[7]; //cycle: 10445 //h q[9]
 h q[12]; //cycle: 10446 //h q[7]
 t q[8]; //cycle: 10446 //t q[11]
 t q[7]; //cycle: 10446 //t q[9]
-swp q[2],q[7]; //cycle: 10447
+swap q[2],q[7]; //cycle: 10447
 t q[12]; //cycle: 10447 //t q[7]
 cx q[12],q[7]; //cycle: 10453 //cx q[7],q[6]
 cx q[13],q[12]; //cycle: 10455 //cx q[12],q[7]
@@ -8705,7 +8705,7 @@ cx q[12],q[7]; //cycle: 10460 //cx q[7],q[6]
 cx q[13],q[12]; //cycle: 10462 //cx q[12],q[7]
 cx q[7],q[13]; //cycle: 10464 //cx q[6],q[12]
 h q[12]; //cycle: 10464 //h q[7]
-swp q[4],q[8]; //cycle: 10465
+swap q[4],q[8]; //cycle: 10465
 h q[12]; //cycle: 10465 //h q[7]
 h q[7]; //cycle: 10466 //h q[6]
 t q[13]; //cycle: 10466 //t q[12]
@@ -8713,13 +8713,13 @@ t q[12]; //cycle: 10466 //t q[7]
 t q[7]; //cycle: 10467 //t q[6]
 cx q[7],q[8]; //cycle: 10471 //cx q[6],q[14]
 tdg q[8]; //cycle: 10473 //tdg q[14]
-swp q[3],q[8]; //cycle: 10474
+swap q[3],q[8]; //cycle: 10474
 cx q[8],q[7]; //cycle: 10480 //cx q[15],q[6]
 cx q[8],q[3]; //cycle: 10482 //cx q[15],q[14]
 t q[7]; //cycle: 10482 //t q[6]
 tdg q[8]; //cycle: 10484 //tdg q[15]
 tdg q[3]; //cycle: 10484 //tdg q[14]
-swp q[7],q[8]; //cycle: 10485
+swap q[7],q[8]; //cycle: 10485
 cx q[8],q[3]; //cycle: 10491 //cx q[6],q[14]
 cx q[7],q[8]; //cycle: 10493 //cx q[15],q[6]
 h q[8]; //cycle: 10495 //h q[6]
@@ -8730,12 +8730,12 @@ cx q[13],q[12]; //cycle: 10501 //cx q[12],q[7]
 tdg q[8]; //cycle: 10501 //tdg q[6]
 cx q[13],q[8]; //cycle: 10503 //cx q[12],q[6]
 t q[12]; //cycle: 10503 //t q[7]
-swp q[2],q[7]; //cycle: 10504
+swap q[2],q[7]; //cycle: 10504
 tdg q[13]; //cycle: 10505 //tdg q[12]
 tdg q[8]; //cycle: 10505 //tdg q[6]
 cx q[12],q[8]; //cycle: 10506 //cx q[7],q[6]
 cx q[13],q[12]; //cycle: 10508 //cx q[12],q[7]
-swp q[4],q[8]; //cycle: 10509
+swap q[4],q[8]; //cycle: 10509
 cx q[3],q[2]; //cycle: 10510 //cx q[14],q[15]
 h q[12]; //cycle: 10510 //h q[7]
 t q[12]; //cycle: 10511 //t q[7]
@@ -8799,7 +8799,7 @@ t q[6]; //cycle: 10566 //t q[13]
 tdg q[1]; //cycle: 10568 //tdg q[10]
 tdg q[7]; //cycle: 10568 //tdg q[9]
 cx q[6],q[7]; //cycle: 10569 //cx q[13],q[9]
-swp q[8],q[13]; //cycle: 10570
+swap q[8],q[13]; //cycle: 10570
 cx q[1],q[6]; //cycle: 10571 //cx q[10],q[13]
 cx q[7],q[1]; //cycle: 10573 //cx q[9],q[10]
 h q[6]; //cycle: 10573 //h q[13]
@@ -8823,7 +8823,7 @@ cx q[7],q[12]; //cycle: 10584 //cx q[9],q[7]
 cx q[13],q[7]; //cycle: 10586 //cx q[11],q[9]
 cx q[12],q[13]; //cycle: 10588 //cx q[7],q[11]
 h q[7]; //cycle: 10588 //h q[9]
-swp q[4],q[8]; //cycle: 10589
+swap q[4],q[8]; //cycle: 10589
 h q[7]; //cycle: 10589 //h q[9]
 h q[12]; //cycle: 10590 //h q[7]
 t q[13]; //cycle: 10590 //t q[11]
@@ -8831,15 +8831,15 @@ t q[7]; //cycle: 10590 //t q[9]
 t q[12]; //cycle: 10591 //t q[7]
 cx q[12],q[8]; //cycle: 10595 //cx q[7],q[6]
 tdg q[8]; //cycle: 10597 //tdg q[6]
-swp q[4],q[8]; //cycle: 10598
+swap q[4],q[8]; //cycle: 10598
 cx q[8],q[12]; //cycle: 10604 //cx q[12],q[7]
 cx q[8],q[4]; //cycle: 10606 //cx q[12],q[6]
 t q[12]; //cycle: 10606 //t q[7]
 tdg q[8]; //cycle: 10608 //tdg q[12]
 tdg q[4]; //cycle: 10608 //tdg q[6]
-swp q[4],q[8]; //cycle: 10609
+swap q[4],q[8]; //cycle: 10609
 cx q[12],q[8]; //cycle: 10615 //cx q[7],q[6]
-swp q[4],q[8]; //cycle: 10617
+swap q[4],q[8]; //cycle: 10617
 cx q[8],q[12]; //cycle: 10623 //cx q[12],q[7]
 cx q[4],q[8]; //cycle: 10625 //cx q[6],q[12]
 h q[12]; //cycle: 10625 //h q[7]
@@ -8850,20 +8850,20 @@ t q[12]; //cycle: 10627 //t q[7]
 t q[4]; //cycle: 10628 //t q[6]
 cx q[4],q[3]; //cycle: 10629 //cx q[6],q[14]
 tdg q[3]; //cycle: 10631 //tdg q[14]
-swp q[2],q[3]; //cycle: 10632
+swap q[2],q[3]; //cycle: 10632
 cx q[3],q[4]; //cycle: 10638 //cx q[15],q[6]
 cx q[3],q[2]; //cycle: 10640 //cx q[15],q[14]
 t q[4]; //cycle: 10640 //t q[6]
 tdg q[3]; //cycle: 10642 //tdg q[15]
 tdg q[2]; //cycle: 10642 //tdg q[14]
-swp q[3],q[4]; //cycle: 10643
+swap q[3],q[4]; //cycle: 10643
 cx q[3],q[2]; //cycle: 10649 //cx q[6],q[14]
 cx q[4],q[3]; //cycle: 10651 //cx q[15],q[6]
 h q[3]; //cycle: 10653 //h q[6]
 t q[3]; //cycle: 10654 //t q[6]
 cx q[3],q[8]; //cycle: 10655 //cx q[6],q[12]
-swp q[3],q[4]; //cycle: 10657
-swp q[8],q[12]; //cycle: 10657
+swap q[3],q[4]; //cycle: 10657
+swap q[8],q[12]; //cycle: 10657
 cx q[2],q[3]; //cycle: 10663 //cx q[14],q[15]
 cx q[8],q[4]; //cycle: 10663 //cx q[7],q[6]
 t q[3]; //cycle: 10665 //t q[15]
@@ -8872,12 +8872,12 @@ cx q[12],q[8]; //cycle: 10665 //cx q[12],q[7]
 tdg q[4]; //cycle: 10665 //tdg q[6]
 cx q[2],q[3]; //cycle: 10666 //cx q[14],q[15]
 t q[8]; //cycle: 10667 //t q[7]
-swp q[4],q[8]; //cycle: 10668
+swap q[4],q[8]; //cycle: 10668
 cx q[12],q[8]; //cycle: 10674 //cx q[12],q[6]
 tdg q[12]; //cycle: 10676 //tdg q[12]
 tdg q[8]; //cycle: 10676 //tdg q[6]
 cx q[4],q[8]; //cycle: 10677 //cx q[7],q[6]
-swp q[4],q[8]; //cycle: 10679
+swap q[4],q[8]; //cycle: 10679
 cx q[12],q[8]; //cycle: 10685 //cx q[12],q[7]
 h q[8]; //cycle: 10687 //h q[7]
 t q[8]; //cycle: 10688 //t q[7]
@@ -8890,7 +8890,7 @@ t q[7]; //cycle: 10695 //t q[9]
 tdg q[13]; //cycle: 10697 //tdg q[11]
 tdg q[8]; //cycle: 10697 //tdg q[7]
 cx q[7],q[8]; //cycle: 10698 //cx q[9],q[7]
-swp q[4],q[8]; //cycle: 10700
+swap q[4],q[8]; //cycle: 10700
 cx q[13],q[7]; //cycle: 10700 //cx q[11],q[9]
 h q[7]; //cycle: 10702 //h q[9]
 t q[7]; //cycle: 10703 //t q[9]
@@ -8926,9 +8926,9 @@ cx q[11],q[6]; //cycle: 10728 //cx q[4],q[13]
 cx q[5],q[11]; //cycle: 10730 //cx q[8],q[4]
 cx q[6],q[5]; //cycle: 10732 //cx q[13],q[8]
 h q[11]; //cycle: 10732 //h q[4]
-swp q[4],q[8]; //cycle: 10733
+swap q[4],q[8]; //cycle: 10733
 h q[11]; //cycle: 10733 //h q[4]
-swp q[12],q[13]; //cycle: 10734
+swap q[12],q[13]; //cycle: 10734
 t q[5]; //cycle: 10734 //t q[8]
 t q[11]; //cycle: 10734 //t q[4]
 h q[6]; //cycle: 10734 //h q[13]
@@ -8973,23 +8973,23 @@ cx q[8],q[4]; //cycle: 10766 //cx q[7],q[6]
 cx q[13],q[8]; //cycle: 10768 //cx q[12],q[7]
 tdg q[4]; //cycle: 10768 //tdg q[6]
 t q[8]; //cycle: 10770 //t q[7]
-swp q[4],q[8]; //cycle: 10771
+swap q[4],q[8]; //cycle: 10771
 cx q[13],q[8]; //cycle: 10777 //cx q[12],q[6]
 tdg q[13]; //cycle: 10779 //tdg q[12]
 tdg q[8]; //cycle: 10779 //tdg q[6]
 cx q[4],q[8]; //cycle: 10780 //cx q[7],q[6]
-swp q[8],q[13]; //cycle: 10782
+swap q[8],q[13]; //cycle: 10782
 cx q[8],q[4]; //cycle: 10788 //cx q[12],q[7]
 cx q[13],q[8]; //cycle: 10790 //cx q[6],q[12]
 h q[4]; //cycle: 10790 //h q[7]
-swp q[2],q[7]; //cycle: 10791
+swap q[2],q[7]; //cycle: 10791
 h q[4]; //cycle: 10791 //h q[7]
 h q[13]; //cycle: 10792 //h q[6]
 t q[8]; //cycle: 10792 //t q[12]
 t q[4]; //cycle: 10792 //t q[7]
 t q[13]; //cycle: 10793 //t q[6]
 cx q[13],q[7]; //cycle: 10797 //cx q[6],q[14]
-swp q[3],q[8]; //cycle: 10798
+swap q[3],q[8]; //cycle: 10798
 tdg q[7]; //cycle: 10799 //tdg q[14]
 cx q[8],q[13]; //cycle: 10804 //cx q[15],q[6]
 cx q[8],q[7]; //cycle: 10806 //cx q[15],q[14]
@@ -9003,7 +9003,7 @@ h q[13]; //cycle: 10813 //h q[6]
 t q[13]; //cycle: 10814 //t q[6]
 t q[8]; //cycle: 10815 //t q[15]
 x q[7]; //cycle: 10815 //x q[14]
-swp q[8],q[13]; //cycle: 10816
+swap q[8],q[13]; //cycle: 10816
 t q[7]; //cycle: 10816 //t q[14]
 cx q[7],q[13]; //cycle: 10822 //cx q[14],q[15]
 cx q[8],q[3]; //cycle: 10822 //cx q[6],q[12]
@@ -9021,9 +9021,9 @@ h q[4]; //cycle: 10835 //h q[7]
 t q[4]; //cycle: 10836 //t q[7]
 t q[3]; //cycle: 10837 //t q[12]
 t q[8]; //cycle: 10837 //t q[6]
-swp q[4],q[8]; //cycle: 10838
+swap q[4],q[8]; //cycle: 10838
 cx q[8],q[12]; //cycle: 10844 //cx q[7],q[11]
-swp q[2],q[7]; //cycle: 10845
+swap q[2],q[7]; //cycle: 10845
 cx q[7],q[8]; //cycle: 10851 //cx q[9],q[7]
 cx q[12],q[7]; //cycle: 10853 //cx q[11],q[9]
 tdg q[8]; //cycle: 10853 //tdg q[7]
@@ -9035,7 +9035,7 @@ cx q[7],q[8]; //cycle: 10858 //cx q[9],q[7]
 cx q[12],q[7]; //cycle: 10860 //cx q[11],q[9]
 cx q[8],q[12]; //cycle: 10862 //cx q[7],q[11]
 h q[7]; //cycle: 10862 //h q[9]
-swp q[5],q[11]; //cycle: 10863
+swap q[5],q[11]; //cycle: 10863
 t q[7]; //cycle: 10863 //t q[9]
 cx q[7],q[1]; //cycle: 10864 //cx q[9],q[10]
 x q[12]; //cycle: 10864 //x q[11]
@@ -9048,7 +9048,7 @@ tdg q[7]; //cycle: 10868 //tdg q[9]
 cx q[12],q[11]; //cycle: 10869 //cx q[11],q[8]
 cx q[1],q[7]; //cycle: 10870 //cx q[10],q[9]
 t q[6]; //cycle: 10870 //t q[13]
-swp q[5],q[11]; //cycle: 10871
+swap q[5],q[11]; //cycle: 10871
 tdg q[1]; //cycle: 10872 //tdg q[10]
 tdg q[7]; //cycle: 10872 //tdg q[9]
 cx q[6],q[7]; //cycle: 10873 //cx q[13],q[9]
@@ -9063,20 +9063,20 @@ t q[7]; //cycle: 10879 //t q[9]
 t q[1]; //cycle: 10879 //t q[10]
 cx q[1],q[7]; //cycle: 10880 //cx q[10],q[9]
 t q[11]; //cycle: 10881 //t q[4]
-swp q[11],q[12]; //cycle: 10882
-swp q[3],q[4]; //cycle: 10885
-swp q[6],q[7]; //cycle: 10885
+swap q[11],q[12]; //cycle: 10882
+swap q[3],q[4]; //cycle: 10885
+swap q[6],q[7]; //cycle: 10885
 cx q[5],q[11]; //cycle: 10888 //cx q[8],q[11]
 tdg q[5]; //cycle: 10890 //tdg q[8]
 tdg q[11]; //cycle: 10890 //tdg q[11]
-swp q[2],q[7]; //cycle: 10891
-swp q[3],q[8]; //cycle: 10891
+swap q[2],q[7]; //cycle: 10891
+swap q[3],q[8]; //cycle: 10891
 cx q[12],q[11]; //cycle: 10891 //cx q[4],q[11]
-swp q[5],q[11]; //cycle: 10893
+swap q[5],q[11]; //cycle: 10893
 cx q[11],q[12]; //cycle: 10899 //cx q[8],q[4]
 cx q[5],q[11]; //cycle: 10901 //cx q[11],q[8]
 h q[12]; //cycle: 10901 //h q[4]
-swp q[0],q[1]; //cycle: 10902
+swap q[0],q[1]; //cycle: 10902
 h q[12]; //cycle: 10902 //h q[4]
 t q[11]; //cycle: 10903 //t q[8]
 t q[12]; //cycle: 10903 //t q[4]
@@ -9085,15 +9085,15 @@ t q[5]; //cycle: 10904 //t q[11]
 cx q[5],q[0]; //cycle: 10908 //cx q[11],q[10]
 cx q[6],q[5]; //cycle: 10910 //cx q[9],q[11]
 tdg q[0]; //cycle: 10910 //tdg q[10]
-swp q[2],q[3]; //cycle: 10911
-swp q[1],q[6]; //cycle: 10912
+swap q[2],q[3]; //cycle: 10911
+swap q[1],q[6]; //cycle: 10912
 t q[5]; //cycle: 10912 //t q[11]
 cx q[8],q[3]; //cycle: 10917 //cx q[6],q[13]
 cx q[1],q[0]; //cycle: 10918 //cx q[9],q[10]
 tdg q[1]; //cycle: 10920 //tdg q[9]
 tdg q[0]; //cycle: 10920 //tdg q[10]
 cx q[5],q[0]; //cycle: 10921 //cx q[11],q[10]
-swp q[0],q[1]; //cycle: 10923
+swap q[0],q[1]; //cycle: 10923
 cx q[0],q[5]; //cycle: 10929 //cx q[9],q[11]
 cx q[1],q[0]; //cycle: 10931 //cx q[10],q[9]
 h q[5]; //cycle: 10931 //h q[11]
@@ -9103,17 +9103,17 @@ t q[5]; //cycle: 10933 //t q[11]
 h q[1]; //cycle: 10933 //h q[10]
 t q[1]; //cycle: 10934 //t q[10]
 cx q[1],q[2]; //cycle: 10935 //cx q[10],q[7]
-swp q[4],q[8]; //cycle: 10936
-swp q[1],q[7]; //cycle: 10937
+swap q[4],q[8]; //cycle: 10936
+swap q[1],q[7]; //cycle: 10937
 tdg q[2]; //cycle: 10937 //tdg q[7]
 cx q[8],q[7]; //cycle: 10943 //cx q[12],q[10]
-swp q[3],q[8]; //cycle: 10945
+swap q[3],q[8]; //cycle: 10945
 t q[7]; //cycle: 10945 //t q[10]
 cx q[3],q[2]; //cycle: 10951 //cx q[12],q[7]
 tdg q[3]; //cycle: 10953 //tdg q[12]
 tdg q[2]; //cycle: 10953 //tdg q[7]
 cx q[7],q[2]; //cycle: 10954 //cx q[10],q[7]
-swp q[2],q[3]; //cycle: 10956
+swap q[2],q[3]; //cycle: 10956
 cx q[2],q[7]; //cycle: 10962 //cx q[12],q[10]
 cx q[3],q[2]; //cycle: 10964 //cx q[7],q[12]
 h q[7]; //cycle: 10964 //h q[10]
@@ -9133,13 +9133,13 @@ cx q[3],q[4]; //cycle: 10975 //cx q[7],q[6]
 cx q[8],q[3]; //cycle: 10977 //cx q[13],q[7]
 cx q[4],q[8]; //cycle: 10979 //cx q[6],q[13]
 h q[3]; //cycle: 10979 //h q[7]
-swp q[1],q[7]; //cycle: 10980
+swap q[1],q[7]; //cycle: 10980
 h q[3]; //cycle: 10980 //h q[7]
 h q[4]; //cycle: 10981 //h q[6]
 t q[8]; //cycle: 10981 //t q[13]
 t q[3]; //cycle: 10981 //t q[7]
 t q[4]; //cycle: 10982 //t q[6]
-swp q[4],q[8]; //cycle: 10983
+swap q[4],q[8]; //cycle: 10983
 cx q[8],q[7]; //cycle: 10989 //cx q[6],q[14]
 cx q[13],q[8]; //cycle: 10991 //cx q[15],q[6]
 tdg q[7]; //cycle: 10991 //tdg q[14]
@@ -9172,23 +9172,23 @@ cx q[3],q[2]; //cycle: 11017 //cx q[7],q[12]
 t q[4]; //cycle: 11017 //t q[13]
 t q[8]; //cycle: 11017 //t q[6]
 cx q[8],q[4]; //cycle: 11018 //cx q[6],q[13]
-swp q[1],q[2]; //cycle: 11019
+swap q[1],q[2]; //cycle: 11019
 cx q[2],q[3]; //cycle: 11025 //cx q[10],q[7]
 cx q[1],q[2]; //cycle: 11027 //cx q[12],q[10]
 tdg q[3]; //cycle: 11027 //tdg q[7]
 t q[2]; //cycle: 11029 //t q[10]
-swp q[2],q[3]; //cycle: 11030
+swap q[2],q[3]; //cycle: 11030
 cx q[1],q[2]; //cycle: 11036 //cx q[12],q[7]
 tdg q[1]; //cycle: 11038 //tdg q[12]
 tdg q[2]; //cycle: 11038 //tdg q[7]
 cx q[3],q[2]; //cycle: 11039 //cx q[10],q[7]
-swp q[2],q[3]; //cycle: 11041
+swap q[2],q[3]; //cycle: 11041
 cx q[1],q[2]; //cycle: 11047 //cx q[12],q[10]
-swp q[0],q[1]; //cycle: 11049
+swap q[0],q[1]; //cycle: 11049
 h q[2]; //cycle: 11049 //h q[10]
 t q[2]; //cycle: 11050 //t q[10]
 cx q[2],q[1]; //cycle: 11055 //cx q[10],q[9]
-swp q[5],q[6]; //cycle: 11056
+swap q[5],q[6]; //cycle: 11056
 cx q[6],q[2]; //cycle: 11062 //cx q[11],q[10]
 cx q[1],q[6]; //cycle: 11064 //cx q[9],q[11]
 tdg q[2]; //cycle: 11064 //tdg q[10]
@@ -9197,24 +9197,24 @@ t q[6]; //cycle: 11066 //t q[11]
 tdg q[1]; //cycle: 11068 //tdg q[9]
 tdg q[2]; //cycle: 11068 //tdg q[10]
 cx q[6],q[2]; //cycle: 11069 //cx q[11],q[10]
-swp q[2],q[3]; //cycle: 11071
+swap q[2],q[3]; //cycle: 11071
 cx q[1],q[6]; //cycle: 11071 //cx q[9],q[11]
-swp q[0],q[1]; //cycle: 11073
+swap q[0],q[1]; //cycle: 11073
 h q[6]; //cycle: 11073 //h q[11]
 t q[6]; //cycle: 11074 //t q[11]
 cx q[6],q[11]; //cycle: 11075 //cx q[11],q[8]
-swp q[7],q[12]; //cycle: 11076
+swap q[7],q[12]; //cycle: 11076
 cx q[2],q[1]; //cycle: 11079 //cx q[7],q[12]
 t q[1]; //cycle: 11081 //t q[12]
 t q[2]; //cycle: 11081 //t q[7]
 cx q[7],q[6]; //cycle: 11082 //cx q[4],q[11]
 cx q[2],q[1]; //cycle: 11082 //cx q[7],q[12]
-swp q[11],q[12]; //cycle: 11083
+swap q[11],q[12]; //cycle: 11083
 tdg q[6]; //cycle: 11084 //tdg q[11]
-swp q[0],q[1]; //cycle: 11085
-swp q[2],q[3]; //cycle: 11088
+swap q[0],q[1]; //cycle: 11085
+swap q[2],q[3]; //cycle: 11088
 cx q[12],q[7]; //cycle: 11089 //cx q[8],q[4]
-swp q[11],q[12]; //cycle: 11091
+swap q[11],q[12]; //cycle: 11091
 t q[7]; //cycle: 11091 //t q[4]
 cx q[2],q[1]; //cycle: 11094 //cx q[10],q[9]
 t q[1]; //cycle: 11096 //t q[9]
@@ -9224,7 +9224,7 @@ cx q[2],q[1]; //cycle: 11097 //cx q[10],q[9]
 tdg q[11]; //cycle: 11099 //tdg q[8]
 tdg q[6]; //cycle: 11099 //tdg q[11]
 cx q[7],q[6]; //cycle: 11100 //cx q[4],q[11]
-swp q[7],q[12]; //cycle: 11102
+swap q[7],q[12]; //cycle: 11102
 cx q[11],q[12]; //cycle: 11108 //cx q[8],q[4]
 cx q[6],q[11]; //cycle: 11110 //cx q[11],q[8]
 h q[12]; //cycle: 11110 //h q[4]
@@ -9250,17 +9250,17 @@ t q[1]; //cycle: 11127 //t q[9]
 t q[6]; //cycle: 11127 //t q[11]
 t q[2]; //cycle: 11128 //t q[10]
 cx q[2],q[3]; //cycle: 11129 //cx q[10],q[7]
-swp q[0],q[1]; //cycle: 11130
+swap q[0],q[1]; //cycle: 11130
 tdg q[3]; //cycle: 11131 //tdg q[7]
 cx q[1],q[2]; //cycle: 11136 //cx q[12],q[10]
 t q[2]; //cycle: 11138 //t q[10]
-swp q[1],q[2]; //cycle: 11139
+swap q[1],q[2]; //cycle: 11139
 cx q[2],q[3]; //cycle: 11145 //cx q[12],q[7]
 tdg q[2]; //cycle: 11147 //tdg q[12]
 tdg q[3]; //cycle: 11147 //tdg q[7]
-swp q[2],q[3]; //cycle: 11148
+swap q[2],q[3]; //cycle: 11148
 cx q[1],q[2]; //cycle: 11154 //cx q[10],q[7]
-swp q[2],q[3]; //cycle: 11156
+swap q[2],q[3]; //cycle: 11156
 cx q[2],q[1]; //cycle: 11162 //cx q[12],q[10]
 cx q[3],q[2]; //cycle: 11164 //cx q[7],q[12]
 h q[1]; //cycle: 11164 //h q[10]
@@ -9317,19 +9317,19 @@ cx q[3],q[2]; //cycle: 11211 //cx q[7],q[12]
 t q[4]; //cycle: 11211 //t q[13]
 t q[8]; //cycle: 11211 //t q[6]
 cx q[8],q[4]; //cycle: 11212 //cx q[6],q[13]
-swp q[1],q[2]; //cycle: 11213
+swap q[1],q[2]; //cycle: 11213
 cx q[2],q[3]; //cycle: 11219 //cx q[10],q[7]
 cx q[1],q[2]; //cycle: 11221 //cx q[12],q[10]
 tdg q[3]; //cycle: 11221 //tdg q[7]
 t q[2]; //cycle: 11223 //t q[10]
-swp q[2],q[3]; //cycle: 11224
+swap q[2],q[3]; //cycle: 11224
 cx q[1],q[2]; //cycle: 11230 //cx q[12],q[7]
 tdg q[1]; //cycle: 11232 //tdg q[12]
 tdg q[2]; //cycle: 11232 //tdg q[7]
 cx q[3],q[2]; //cycle: 11233 //cx q[10],q[7]
-swp q[2],q[3]; //cycle: 11235
+swap q[2],q[3]; //cycle: 11235
 cx q[1],q[2]; //cycle: 11241 //cx q[12],q[10]
-swp q[0],q[1]; //cycle: 11243
+swap q[0],q[1]; //cycle: 11243
 h q[2]; //cycle: 11243 //h q[10]
 t q[2]; //cycle: 11244 //t q[10]
 cx q[2],q[1]; //cycle: 11249 //cx q[10],q[9]
@@ -9348,50 +9348,50 @@ t q[6]; //cycle: 11263 //t q[11]
 t q[1]; //cycle: 11264 //t q[9]
 t q[2]; //cycle: 11264 //t q[10]
 cx q[6],q[1]; //cycle: 11265 //cx q[11],q[9]
-swp q[2],q[3]; //cycle: 11266
-swp q[0],q[1]; //cycle: 11267
+swap q[2],q[3]; //cycle: 11266
+swap q[0],q[1]; //cycle: 11267
 cx q[5],q[6]; //cycle: 11267 //cx q[5],q[11]
 tdg q[6]; //cycle: 11269 //tdg q[11]
 cx q[2],q[1]; //cycle: 11273 //cx q[7],q[12]
 cx q[0],q[5]; //cycle: 11273 //cx q[9],q[5]
-swp q[11],q[12]; //cycle: 11274
+swap q[11],q[12]; //cycle: 11274
 t q[5]; //cycle: 11275 //t q[5]
 t q[1]; //cycle: 11275 //t q[12]
 t q[2]; //cycle: 11275 //t q[7]
-swp q[5],q[6]; //cycle: 11276
+swap q[5],q[6]; //cycle: 11276
 cx q[2],q[1]; //cycle: 11276 //cx q[7],q[12]
-swp q[3],q[8]; //cycle: 11277
+swap q[3],q[8]; //cycle: 11277
 cx q[0],q[5]; //cycle: 11282 //cx q[9],q[11]
 cx q[12],q[8]; //cycle: 11283 //cx q[8],q[10]
 tdg q[0]; //cycle: 11284 //tdg q[9]
 tdg q[5]; //cycle: 11284 //tdg q[11]
 cx q[6],q[5]; //cycle: 11285 //cx q[5],q[11]
-swp q[1],q[6]; //cycle: 11287
+swap q[1],q[6]; //cycle: 11287
 cx q[0],q[1]; //cycle: 11293 //cx q[9],q[5]
 cx q[5],q[0]; //cycle: 11295 //cx q[11],q[9]
 h q[1]; //cycle: 11295 //h q[5]
-swp q[11],q[12]; //cycle: 11296
+swap q[11],q[12]; //cycle: 11296
 h q[1]; //cycle: 11296 //h q[5]
 h q[5]; //cycle: 11297 //h q[11]
 t q[0]; //cycle: 11297 //t q[9]
 t q[1]; //cycle: 11297 //t q[5]
 t q[5]; //cycle: 11298 //t q[11]
 cx q[5],q[11]; //cycle: 11302 //cx q[11],q[8]
-swp q[5],q[6]; //cycle: 11304
-swp q[7],q[8]; //cycle: 11304
+swap q[5],q[6]; //cycle: 11304
+swap q[7],q[8]; //cycle: 11304
 tdg q[11]; //cycle: 11304 //tdg q[8]
 cx q[7],q[6]; //cycle: 11310 //cx q[10],q[11]
-swp q[7],q[12]; //cycle: 11312
+swap q[7],q[12]; //cycle: 11312
 t q[6]; //cycle: 11312 //t q[11]
 cx q[12],q[11]; //cycle: 11318 //cx q[10],q[8]
 tdg q[12]; //cycle: 11320 //tdg q[10]
 tdg q[11]; //cycle: 11320 //tdg q[8]
 cx q[6],q[11]; //cycle: 11321 //cx q[11],q[8]
-swp q[6],q[7]; //cycle: 11323
+swap q[6],q[7]; //cycle: 11323
 cx q[12],q[7]; //cycle: 11329 //cx q[10],q[11]
 cx q[11],q[12]; //cycle: 11331 //cx q[8],q[10]
 h q[7]; //cycle: 11331 //h q[11]
-swp q[2],q[6]; //cycle: 11332
+swap q[2],q[6]; //cycle: 11332
 h q[7]; //cycle: 11332 //h q[11]
 h q[11]; //cycle: 11333 //h q[8]
 t q[12]; //cycle: 11333 //t q[10]
@@ -9408,16 +9408,16 @@ cx q[11],q[6]; //cycle: 11345 //cx q[8],q[7]
 cx q[5],q[11]; //cycle: 11347 //cx q[12],q[8]
 cx q[6],q[5]; //cycle: 11349 //cx q[7],q[12]
 h q[11]; //cycle: 11349 //h q[8]
-swp q[2],q[3]; //cycle: 11350
+swap q[2],q[3]; //cycle: 11350
 h q[11]; //cycle: 11350 //h q[8]
 h q[6]; //cycle: 11351 //h q[7]
 t q[5]; //cycle: 11351 //t q[12]
 t q[11]; //cycle: 11351 //t q[8]
 t q[6]; //cycle: 11352 //t q[7]
 cx q[6],q[2]; //cycle: 11356 //cx q[7],q[6]
-swp q[4],q[8]; //cycle: 11357
+swap q[4],q[8]; //cycle: 11357
 tdg q[2]; //cycle: 11358 //tdg q[6]
-swp q[7],q[8]; //cycle: 11363
+swap q[7],q[8]; //cycle: 11363
 cx q[7],q[6]; //cycle: 11369 //cx q[13],q[7]
 cx q[7],q[2]; //cycle: 11371 //cx q[13],q[6]
 t q[6]; //cycle: 11371 //t q[7]
@@ -9427,17 +9427,17 @@ cx q[6],q[2]; //cycle: 11374 //cx q[7],q[6]
 cx q[7],q[6]; //cycle: 11376 //cx q[13],q[7]
 cx q[2],q[7]; //cycle: 11378 //cx q[6],q[13]
 h q[6]; //cycle: 11378 //h q[7]
-swp q[3],q[4]; //cycle: 11379
+swap q[3],q[4]; //cycle: 11379
 h q[6]; //cycle: 11379 //h q[7]
 h q[2]; //cycle: 11380 //h q[6]
 t q[7]; //cycle: 11380 //t q[13]
 t q[6]; //cycle: 11380 //t q[7]
 t q[2]; //cycle: 11381 //t q[6]
 cx q[2],q[3]; //cycle: 11385 //cx q[6],q[14]
-swp q[2],q[7]; //cycle: 11387
+swap q[2],q[7]; //cycle: 11387
 tdg q[3]; //cycle: 11387 //tdg q[14]
 cx q[13],q[7]; //cycle: 11393 //cx q[15],q[6]
-swp q[3],q[8]; //cycle: 11394
+swap q[3],q[8]; //cycle: 11394
 t q[7]; //cycle: 11395 //t q[6]
 cx q[13],q[8]; //cycle: 11400 //cx q[15],q[14]
 tdg q[13]; //cycle: 11402 //tdg q[15]
@@ -9483,10 +9483,10 @@ t q[5]; //cycle: 11439 //t q[12]
 t q[6]; //cycle: 11439 //t q[7]
 cx q[11],q[12]; //cycle: 11439 //cx q[8],q[10]
 cx q[6],q[5]; //cycle: 11440 //cx q[7],q[12]
-swp q[2],q[3]; //cycle: 11442
-swp q[6],q[11]; //cycle: 11442
+swap q[2],q[3]; //cycle: 11442
+swap q[6],q[11]; //cycle: 11442
 cx q[2],q[6]; //cycle: 11448 //cx q[11],q[8]
-swp q[7],q[12]; //cycle: 11449
+swap q[7],q[12]; //cycle: 11449
 tdg q[6]; //cycle: 11450 //tdg q[8]
 cx q[7],q[2]; //cycle: 11455 //cx q[10],q[11]
 cx q[7],q[6]; //cycle: 11457 //cx q[10],q[8]
@@ -9495,7 +9495,7 @@ tdg q[7]; //cycle: 11459 //tdg q[10]
 tdg q[6]; //cycle: 11459 //tdg q[8]
 cx q[2],q[6]; //cycle: 11460 //cx q[11],q[8]
 cx q[7],q[2]; //cycle: 11462 //cx q[10],q[11]
-swp q[0],q[1]; //cycle: 11463
+swap q[0],q[1]; //cycle: 11463
 cx q[6],q[7]; //cycle: 11464 //cx q[8],q[10]
 h q[2]; //cycle: 11464 //h q[11]
 t q[2]; //cycle: 11465 //t q[11]
@@ -9503,33 +9503,33 @@ t q[6]; //cycle: 11466 //t q[8]
 t q[7]; //cycle: 11466 //t q[10]
 cx q[6],q[7]; //cycle: 11467 //cx q[8],q[10]
 cx q[2],q[1]; //cycle: 11469 //cx q[11],q[9]
-swp q[0],q[1]; //cycle: 11471
+swap q[0],q[1]; //cycle: 11471
 cx q[1],q[2]; //cycle: 11477 //cx q[5],q[11]
 cx q[0],q[1]; //cycle: 11479 //cx q[9],q[5]
 tdg q[2]; //cycle: 11479 //tdg q[11]
 t q[1]; //cycle: 11481 //t q[5]
-swp q[1],q[2]; //cycle: 11482
+swap q[1],q[2]; //cycle: 11482
 cx q[0],q[1]; //cycle: 11488 //cx q[9],q[11]
 tdg q[0]; //cycle: 11490 //tdg q[9]
 tdg q[1]; //cycle: 11490 //tdg q[11]
 cx q[2],q[1]; //cycle: 11491 //cx q[5],q[11]
-swp q[0],q[1]; //cycle: 11493
+swap q[0],q[1]; //cycle: 11493
 cx q[1],q[2]; //cycle: 11499 //cx q[9],q[5]
-swp q[7],q[13]; //cycle: 11500
+swap q[7],q[13]; //cycle: 11500
 cx q[0],q[1]; //cycle: 11501 //cx q[11],q[9]
 h q[2]; //cycle: 11501 //h q[5]
-swp q[5],q[6]; //cycle: 11502
+swap q[5],q[6]; //cycle: 11502
 h q[2]; //cycle: 11502 //h q[5]
 t q[2]; //cycle: 11503 //t q[5]
 t q[1]; //cycle: 11503 //t q[9]
 h q[0]; //cycle: 11503 //h q[11]
 t q[0]; //cycle: 11504 //t q[11]
 cx q[0],q[5]; //cycle: 11508 //cx q[11],q[8]
-swp q[7],q[13]; //cycle: 11509
-swp q[0],q[1]; //cycle: 11510
+swap q[7],q[13]; //cycle: 11509
+swap q[0],q[1]; //cycle: 11510
 tdg q[5]; //cycle: 11510 //tdg q[8]
 cx q[7],q[1]; //cycle: 11516 //cx q[10],q[11]
-swp q[5],q[6]; //cycle: 11517
+swap q[5],q[6]; //cycle: 11517
 t q[1]; //cycle: 11518 //t q[11]
 cx q[7],q[6]; //cycle: 11523 //cx q[10],q[8]
 tdg q[7]; //cycle: 11525 //tdg q[10]
@@ -9560,11 +9560,11 @@ t q[5]; //cycle: 11547 //t q[12]
 t q[6]; //cycle: 11547 //t q[8]
 t q[11]; //cycle: 11548 //t q[7]
 cx q[11],q[12]; //cycle: 11549 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 11550
-swp q[6],q[11]; //cycle: 11551
+swap q[2],q[3]; //cycle: 11550
+swap q[6],q[11]; //cycle: 11551
 tdg q[12]; //cycle: 11551 //tdg q[6]
 cx q[2],q[6]; //cycle: 11557 //cx q[13],q[7]
-swp q[7],q[12]; //cycle: 11558
+swap q[7],q[12]; //cycle: 11558
 t q[6]; //cycle: 11559 //t q[7]
 cx q[2],q[7]; //cycle: 11564 //cx q[13],q[6]
 tdg q[2]; //cycle: 11566 //tdg q[13]
@@ -9593,7 +9593,7 @@ t q[7]; //cycle: 11587 //t q[6]
 cx q[7],q[2]; //cycle: 11588 //cx q[6],q[13]
 x q[8]; //cycle: 11588 //x q[14]
 t q[13]; //cycle: 11588 //t q[15]
-swp q[0],q[1]; //cycle: 11589
+swap q[0],q[1]; //cycle: 11589
 t q[8]; //cycle: 11589 //t q[14]
 cx q[6],q[7]; //cycle: 11590 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 11592 //cx q[13],q[7]
@@ -9603,7 +9603,7 @@ t q[6]; //cycle: 11594 //t q[7]
 tdg q[2]; //cycle: 11596 //tdg q[13]
 tdg q[7]; //cycle: 11596 //tdg q[6]
 cx q[6],q[7]; //cycle: 11597 //cx q[7],q[6]
-swp q[1],q[7]; //cycle: 11599
+swap q[1],q[7]; //cycle: 11599
 cx q[2],q[6]; //cycle: 11599 //cx q[13],q[7]
 h q[6]; //cycle: 11601 //h q[7]
 t q[6]; //cycle: 11602 //t q[7]
@@ -9616,7 +9616,7 @@ tdg q[6]; //cycle: 11607 //tdg q[7]
 h q[1]; //cycle: 11607 //h q[6]
 t q[2]; //cycle: 11607 //t q[13]
 t q[1]; //cycle: 11608 //t q[6]
-swp q[1],q[7]; //cycle: 11609
+swap q[1],q[7]; //cycle: 11609
 cx q[5],q[6]; //cycle: 11609 //cx q[12],q[7]
 t q[11]; //cycle: 11609 //t q[8]
 tdg q[5]; //cycle: 11611 //tdg q[12]
@@ -9632,24 +9632,24 @@ tdg q[13]; //cycle: 11617 //tdg q[15]
 t q[6]; //cycle: 11618 //t q[7]
 cx q[11],q[12]; //cycle: 11618 //cx q[8],q[10]
 t q[5]; //cycle: 11618 //t q[12]
-swp q[0],q[5]; //cycle: 11619
+swap q[0],q[5]; //cycle: 11619
 t q[7]; //cycle: 11619 //t q[6]
-swp q[7],q[13]; //cycle: 11620
+swap q[7],q[13]; //cycle: 11620
 cx q[5],q[11]; //cycle: 11625 //cx q[11],q[8]
 cx q[1],q[7]; //cycle: 11626 //cx q[9],q[15]
 tdg q[11]; //cycle: 11627 //tdg q[8]
-swp q[11],q[12]; //cycle: 11628
+swap q[11],q[12]; //cycle: 11628
 tdg q[1]; //cycle: 11628 //tdg q[9]
 tdg q[7]; //cycle: 11628 //tdg q[15]
 cx q[13],q[7]; //cycle: 11629 //cx q[6],q[15]
-swp q[1],q[7]; //cycle: 11631
+swap q[1],q[7]; //cycle: 11631
 cx q[11],q[5]; //cycle: 11634 //cx q[10],q[11]
 cx q[11],q[12]; //cycle: 11636 //cx q[10],q[8]
 t q[5]; //cycle: 11636 //t q[11]
 cx q[7],q[13]; //cycle: 11637 //cx q[9],q[6]
 tdg q[11]; //cycle: 11638 //tdg q[10]
 tdg q[12]; //cycle: 11638 //tdg q[8]
-swp q[11],q[12]; //cycle: 11639
+swap q[11],q[12]; //cycle: 11639
 cx q[1],q[7]; //cycle: 11639 //cx q[15],q[9]
 h q[13]; //cycle: 11639 //h q[6]
 h q[13]; //cycle: 11640 //h q[6]
@@ -9658,25 +9658,25 @@ t q[13]; //cycle: 11641 //t q[6]
 h q[1]; //cycle: 11641 //h q[15]
 t q[1]; //cycle: 11642 //t q[15]
 cx q[5],q[11]; //cycle: 11645 //cx q[11],q[8]
-swp q[7],q[8]; //cycle: 11647
-swp q[11],q[12]; //cycle: 11647
-swp q[0],q[1]; //cycle: 11648
+swap q[7],q[8]; //cycle: 11647
+swap q[11],q[12]; //cycle: 11647
+swap q[0],q[1]; //cycle: 11648
 cx q[11],q[5]; //cycle: 11653 //cx q[10],q[11]
 cx q[1],q[7]; //cycle: 11654 //cx q[12],q[14]
 cx q[12],q[11]; //cycle: 11655 //cx q[8],q[10]
 h q[5]; //cycle: 11655 //h q[11]
-swp q[2],q[6]; //cycle: 11656
+swap q[2],q[6]; //cycle: 11656
 t q[5]; //cycle: 11656 //t q[11]
 x q[11]; //cycle: 11657 //x q[10]
 t q[12]; //cycle: 11657 //t q[8]
 t q[11]; //cycle: 11658 //t q[10]
 cx q[6],q[11]; //cycle: 11662 //cx q[13],q[10]
-swp q[0],q[5]; //cycle: 11663
+swap q[0],q[5]; //cycle: 11663
 cx q[5],q[6]; //cycle: 11669 //cx q[15],q[13]
 cx q[11],q[5]; //cycle: 11671 //cx q[10],q[15]
 tdg q[6]; //cycle: 11671 //tdg q[13]
-swp q[0],q[1]; //cycle: 11672
-swp q[7],q[12]; //cycle: 11672
+swap q[0],q[1]; //cycle: 11672
+swap q[7],q[12]; //cycle: 11672
 cx q[11],q[6]; //cycle: 11673 //cx q[10],q[13]
 t q[5]; //cycle: 11673 //t q[15]
 tdg q[11]; //cycle: 11675 //tdg q[10]
@@ -9706,20 +9706,20 @@ h q[6]; //cycle: 11696 //h q[13]
 t q[1]; //cycle: 11697 //t q[11]
 t q[6]; //cycle: 11697 //t q[13]
 h q[7]; //cycle: 11697 //h q[8]
-swp q[0],q[1]; //cycle: 11698
+swap q[0],q[1]; //cycle: 11698
 t q[7]; //cycle: 11698 //t q[8]
 cx q[7],q[1]; //cycle: 11704 //cx q[8],q[12]
 cx q[12],q[7]; //cycle: 11706 //cx q[14],q[8]
 tdg q[1]; //cycle: 11706 //tdg q[12]
 t q[7]; //cycle: 11708 //t q[8]
-swp q[7],q[12]; //cycle: 11709
+swap q[7],q[12]; //cycle: 11709
 cx q[7],q[1]; //cycle: 11715 //cx q[14],q[12]
 tdg q[1]; //cycle: 11717 //tdg q[12]
 tdg q[7]; //cycle: 11717 //tdg q[14]
-swp q[7],q[12]; //cycle: 11718
+swap q[7],q[12]; //cycle: 11718
 cx q[7],q[1]; //cycle: 11724 //cx q[8],q[12]
 cx q[12],q[7]; //cycle: 11726 //cx q[14],q[8]
-swp q[0],q[1]; //cycle: 11727
+swap q[0],q[1]; //cycle: 11727
 h q[7]; //cycle: 11728 //h q[8]
 t q[7]; //cycle: 11729 //t q[8]
 cx q[7],q[1]; //cycle: 11733 //cx q[8],q[11]
@@ -9731,13 +9731,13 @@ t q[6]; //cycle: 11739 //t q[13]
 tdg q[1]; //cycle: 11741 //tdg q[11]
 tdg q[7]; //cycle: 11741 //tdg q[8]
 cx q[6],q[7]; //cycle: 11742 //cx q[13],q[8]
-swp q[7],q[12]; //cycle: 11744
+swap q[7],q[12]; //cycle: 11744
 cx q[1],q[6]; //cycle: 11744 //cx q[11],q[13]
 h q[6]; //cycle: 11746 //h q[13]
 t q[6]; //cycle: 11747 //t q[13]
 cx q[6],q[11]; //cycle: 11748 //cx q[13],q[10]
 cx q[5],q[6]; //cycle: 11750 //cx q[15],q[13]
-swp q[1],q[7]; //cycle: 11752
+swap q[1],q[7]; //cycle: 11752
 cx q[11],q[5]; //cycle: 11752 //cx q[10],q[15]
 tdg q[6]; //cycle: 11752 //tdg q[13]
 cx q[11],q[6]; //cycle: 11754 //cx q[10],q[13]
@@ -9759,23 +9759,23 @@ cx q[0],q[1]; //cycle: 11761 //cx q[12],q[14]
 t q[5]; //cycle: 11762 //t q[15]
 t q[11]; //cycle: 11763 //t q[10]
 t q[6]; //cycle: 11763 //t q[13]
-swp q[8],q[12]; //cycle: 11764
+swap q[8],q[12]; //cycle: 11764
 cx q[6],q[11]; //cycle: 11764 //cx q[13],q[10]
-swp q[5],q[11]; //cycle: 11766
+swap q[5],q[11]; //cycle: 11766
 cx q[11],q[12]; //cycle: 11772 //cx q[15],q[9]
-swp q[12],q[13]; //cycle: 11774
+swap q[12],q[13]; //cycle: 11774
 cx q[12],q[11]; //cycle: 11780 //cx q[6],q[15]
 cx q[13],q[12]; //cycle: 11782 //cx q[9],q[6]
 tdg q[11]; //cycle: 11782 //tdg q[15]
 t q[12]; //cycle: 11784 //t q[6]
-swp q[11],q[12]; //cycle: 11785
+swap q[11],q[12]; //cycle: 11785
 cx q[13],q[12]; //cycle: 11791 //cx q[9],q[15]
 tdg q[13]; //cycle: 11793 //tdg q[9]
 tdg q[12]; //cycle: 11793 //tdg q[15]
 cx q[11],q[12]; //cycle: 11794 //cx q[6],q[15]
-swp q[12],q[13]; //cycle: 11796
+swap q[12],q[13]; //cycle: 11796
 cx q[12],q[11]; //cycle: 11802 //cx q[9],q[6]
-swp q[6],q[7]; //cycle: 11803
+swap q[6],q[7]; //cycle: 11803
 cx q[13],q[12]; //cycle: 11804 //cx q[15],q[9]
 h q[11]; //cycle: 11804 //h q[6]
 t q[11]; //cycle: 11805 //t q[6]
@@ -9783,17 +9783,17 @@ h q[13]; //cycle: 11806 //h q[15]
 t q[12]; //cycle: 11806 //t q[9]
 t q[13]; //cycle: 11807 //t q[15]
 cx q[13],q[7]; //cycle: 11809 //cx q[15],q[13]
-swp q[5],q[11]; //cycle: 11811
-swp q[12],q[13]; //cycle: 11811
+swap q[5],q[11]; //cycle: 11811
+swap q[12],q[13]; //cycle: 11811
 tdg q[7]; //cycle: 11811 //tdg q[13]
 cx q[11],q[12]; //cycle: 11817 //cx q[10],q[15]
-swp q[6],q[11]; //cycle: 11819
+swap q[6],q[11]; //cycle: 11819
 t q[12]; //cycle: 11819 //t q[15]
 cx q[6],q[7]; //cycle: 11825 //cx q[10],q[13]
 tdg q[6]; //cycle: 11827 //tdg q[10]
 tdg q[7]; //cycle: 11827 //tdg q[13]
 cx q[12],q[7]; //cycle: 11828 //cx q[15],q[13]
-swp q[11],q[12]; //cycle: 11830
+swap q[11],q[12]; //cycle: 11830
 cx q[6],q[11]; //cycle: 11836 //cx q[10],q[15]
 cx q[7],q[6]; //cycle: 11838 //cx q[13],q[10]
 h q[11]; //cycle: 11838 //h q[15]
@@ -9814,35 +9814,35 @@ cx q[12],q[7]; //cycle: 11851 //cx q[11],q[13]
 cx q[8],q[12]; //cycle: 11853 //cx q[8],q[11]
 h q[7]; //cycle: 11853 //h q[13]
 h q[7]; //cycle: 11854 //h q[13]
-swp q[0],q[1]; //cycle: 11855
+swap q[0],q[1]; //cycle: 11855
 h q[8]; //cycle: 11855 //h q[8]
 t q[12]; //cycle: 11855 //t q[11]
 t q[7]; //cycle: 11855 //t q[13]
 t q[8]; //cycle: 11856 //t q[8]
-swp q[7],q[8]; //cycle: 11857
+swap q[7],q[8]; //cycle: 11857
 cx q[7],q[1]; //cycle: 11863 //cx q[8],q[12]
 tdg q[1]; //cycle: 11865 //tdg q[12]
-swp q[0],q[1]; //cycle: 11866
+swap q[0],q[1]; //cycle: 11866
 cx q[1],q[7]; //cycle: 11872 //cx q[14],q[8]
 cx q[1],q[0]; //cycle: 11874 //cx q[14],q[12]
 t q[7]; //cycle: 11874 //t q[8]
 tdg q[1]; //cycle: 11876 //tdg q[14]
 tdg q[0]; //cycle: 11876 //tdg q[12]
-swp q[1],q[7]; //cycle: 11877
+swap q[1],q[7]; //cycle: 11877
 cx q[1],q[0]; //cycle: 11883 //cx q[8],q[12]
 cx q[7],q[1]; //cycle: 11885 //cx q[14],q[8]
-swp q[7],q[12]; //cycle: 11887
+swap q[7],q[12]; //cycle: 11887
 h q[1]; //cycle: 11887 //h q[8]
 t q[1]; //cycle: 11888 //t q[8]
 cx q[1],q[7]; //cycle: 11893 //cx q[8],q[11]
-swp q[7],q[8]; //cycle: 11895
-swp q[11],q[12]; //cycle: 11898
+swap q[7],q[8]; //cycle: 11895
+swap q[11],q[12]; //cycle: 11898
 cx q[7],q[1]; //cycle: 11901 //cx q[13],q[8]
 cx q[8],q[7]; //cycle: 11903 //cx q[11],q[13]
 tdg q[1]; //cycle: 11903 //tdg q[8]
-swp q[5],q[11]; //cycle: 11905
+swap q[5],q[11]; //cycle: 11905
 t q[7]; //cycle: 11905 //t q[13]
-swp q[1],q[7]; //cycle: 11906
+swap q[1],q[7]; //cycle: 11906
 cx q[0],q[5]; //cycle: 11911 //cx q[12],q[14]
 cx q[8],q[7]; //cycle: 11912 //cx q[11],q[8]
 t q[5]; //cycle: 11913 //t q[14]
@@ -9851,7 +9851,7 @@ cx q[0],q[5]; //cycle: 11914 //cx q[12],q[14]
 tdg q[8]; //cycle: 11914 //tdg q[11]
 tdg q[7]; //cycle: 11914 //tdg q[8]
 cx q[1],q[7]; //cycle: 11915 //cx q[13],q[8]
-swp q[7],q[8]; //cycle: 11917
+swap q[7],q[8]; //cycle: 11917
 cx q[7],q[1]; //cycle: 11923 //cx q[11],q[13]
 cx q[8],q[7]; //cycle: 11925 //cx q[8],q[11]
 h q[1]; //cycle: 11925 //h q[13]
@@ -9860,7 +9860,7 @@ cx q[1],q[6]; //cycle: 11927 //cx q[13],q[10]
 t q[7]; //cycle: 11927 //t q[11]
 t q[8]; //cycle: 11927 //t q[8]
 cx q[8],q[7]; //cycle: 11928 //cx q[8],q[11]
-swp q[7],q[12]; //cycle: 11930
+swap q[7],q[12]; //cycle: 11930
 cx q[7],q[1]; //cycle: 11936 //cx q[15],q[13]
 cx q[6],q[7]; //cycle: 11938 //cx q[10],q[15]
 tdg q[1]; //cycle: 11938 //tdg q[13]
@@ -9876,7 +9876,7 @@ t q[7]; //cycle: 11948 //t q[15]
 cx q[7],q[13]; //cycle: 11949 //cx q[15],q[9]
 t q[6]; //cycle: 11949 //t q[10]
 t q[1]; //cycle: 11949 //t q[13]
-swp q[4],q[8]; //cycle: 11950
+swap q[4],q[8]; //cycle: 11950
 cx q[1],q[6]; //cycle: 11950 //cx q[13],q[10]
 cx q[8],q[7]; //cycle: 11956 //cx q[4],q[15]
 cx q[13],q[8]; //cycle: 11958 //cx q[9],q[4]
@@ -9906,12 +9906,12 @@ cx q[6],q[7]; //cycle: 11980 //cx q[10],q[15]
 cx q[1],q[6]; //cycle: 11982 //cx q[13],q[10]
 h q[7]; //cycle: 11982 //h q[15]
 h q[7]; //cycle: 11983 //h q[15]
-swp q[4],q[8]; //cycle: 11984
+swap q[4],q[8]; //cycle: 11984
 t q[6]; //cycle: 11984 //t q[10]
 t q[7]; //cycle: 11984 //t q[15]
 h q[1]; //cycle: 11984 //h q[13]
 t q[1]; //cycle: 11985 //t q[13]
-swp q[1],q[7]; //cycle: 11986
+swap q[1],q[7]; //cycle: 11986
 cx q[7],q[8]; //cycle: 11992 //cx q[13],q[8]
 cx q[12],q[7]; //cycle: 11994 //cx q[11],q[13]
 tdg q[8]; //cycle: 11994 //tdg q[8]
@@ -9923,15 +9923,15 @@ cx q[7],q[8]; //cycle: 11999 //cx q[13],q[8]
 cx q[12],q[7]; //cycle: 12001 //cx q[11],q[13]
 cx q[8],q[12]; //cycle: 12003 //cx q[8],q[11]
 h q[7]; //cycle: 12003 //h q[13]
-swp q[0],q[1]; //cycle: 12004
+swap q[0],q[1]; //cycle: 12004
 h q[7]; //cycle: 12004 //h q[13]
 h q[8]; //cycle: 12005 //h q[8]
 t q[12]; //cycle: 12005 //t q[11]
 t q[7]; //cycle: 12005 //t q[13]
 t q[8]; //cycle: 12006 //t q[8]
-swp q[7],q[8]; //cycle: 12007
+swap q[7],q[8]; //cycle: 12007
 cx q[7],q[1]; //cycle: 12013 //cx q[8],q[12]
-swp q[5],q[6]; //cycle: 12014
+swap q[5],q[6]; //cycle: 12014
 tdg q[1]; //cycle: 12015 //tdg q[12]
 cx q[6],q[7]; //cycle: 12020 //cx q[14],q[8]
 cx q[6],q[1]; //cycle: 12022 //cx q[14],q[12]
@@ -9962,10 +9962,10 @@ t q[8]; //cycle: 12045 //t q[13]
 t q[12]; //cycle: 12046 //t q[11]
 t q[7]; //cycle: 12046 //t q[8]
 cx q[7],q[12]; //cycle: 12047 //cx q[8],q[11]
-swp q[5],q[6]; //cycle: 12049
-swp q[7],q[8]; //cycle: 12049
+swap q[5],q[6]; //cycle: 12049
+swap q[7],q[8]; //cycle: 12049
 cx q[7],q[6]; //cycle: 12055 //cx q[13],q[10]
-swp q[0],q[1]; //cycle: 12056
+swap q[0],q[1]; //cycle: 12056
 cx q[1],q[7]; //cycle: 12062 //cx q[15],q[13]
 cx q[6],q[1]; //cycle: 12064 //cx q[10],q[15]
 tdg q[7]; //cycle: 12064 //tdg q[13]
@@ -9981,9 +9981,9 @@ t q[1]; //cycle: 12074 //t q[15]
 t q[6]; //cycle: 12075 //t q[10]
 t q[7]; //cycle: 12075 //t q[13]
 cx q[7],q[6]; //cycle: 12076 //cx q[13],q[10]
-swp q[1],q[7]; //cycle: 12078
+swap q[1],q[7]; //cycle: 12078
 cx q[7],q[13]; //cycle: 12084 //cx q[15],q[9]
-swp q[4],q[8]; //cycle: 12085
+swap q[4],q[8]; //cycle: 12085
 cx q[8],q[7]; //cycle: 12091 //cx q[4],q[15]
 cx q[13],q[8]; //cycle: 12093 //cx q[9],q[4]
 tdg q[7]; //cycle: 12093 //tdg q[15]
@@ -9995,7 +9995,7 @@ cx q[8],q[7]; //cycle: 12098 //cx q[4],q[15]
 cx q[13],q[8]; //cycle: 12100 //cx q[9],q[4]
 cx q[7],q[13]; //cycle: 12102 //cx q[15],q[9]
 h q[8]; //cycle: 12102 //h q[4]
-swp q[5],q[11]; //cycle: 12103
+swap q[5],q[11]; //cycle: 12103
 h q[8]; //cycle: 12103 //h q[4]
 h q[7]; //cycle: 12104 //h q[15]
 t q[8]; //cycle: 12104 //t q[4]
@@ -10013,12 +10013,12 @@ cx q[6],q[7]; //cycle: 12115 //cx q[10],q[15]
 cx q[1],q[6]; //cycle: 12117 //cx q[13],q[10]
 h q[7]; //cycle: 12117 //h q[15]
 h q[7]; //cycle: 12118 //h q[15]
-swp q[4],q[8]; //cycle: 12119
+swap q[4],q[8]; //cycle: 12119
 h q[1]; //cycle: 12119 //h q[13]
 t q[6]; //cycle: 12119 //t q[10]
 t q[7]; //cycle: 12119 //t q[15]
 t q[1]; //cycle: 12120 //t q[13]
-swp q[1],q[7]; //cycle: 12121
+swap q[1],q[7]; //cycle: 12121
 cx q[7],q[8]; //cycle: 12127 //cx q[13],q[8]
 cx q[12],q[7]; //cycle: 12129 //cx q[11],q[13]
 tdg q[8]; //cycle: 12129 //tdg q[8]
@@ -10035,10 +10035,10 @@ h q[8]; //cycle: 12140 //h q[8]
 t q[12]; //cycle: 12140 //t q[11]
 t q[7]; //cycle: 12140 //t q[13]
 t q[8]; //cycle: 12141 //t q[8]
-swp q[0],q[1]; //cycle: 12142
-swp q[7],q[8]; //cycle: 12142
+swap q[0],q[1]; //cycle: 12142
+swap q[7],q[8]; //cycle: 12142
 cx q[7],q[1]; //cycle: 12148 //cx q[8],q[12]
-swp q[6],q[11]; //cycle: 12149
+swap q[6],q[11]; //cycle: 12149
 tdg q[1]; //cycle: 12150 //tdg q[12]
 cx q[6],q[7]; //cycle: 12155 //cx q[14],q[8]
 cx q[6],q[1]; //cycle: 12157 //cx q[14],q[12]
@@ -10065,15 +10065,15 @@ cx q[12],q[8]; //cycle: 12177 //cx q[11],q[13]
 cx q[7],q[12]; //cycle: 12179 //cx q[8],q[11]
 h q[8]; //cycle: 12179 //h q[13]
 t q[8]; //cycle: 12180 //t q[13]
-swp q[0],q[1]; //cycle: 12181
+swap q[0],q[1]; //cycle: 12181
 t q[7]; //cycle: 12181 //t q[8]
 t q[12]; //cycle: 12181 //t q[11]
-swp q[7],q[13]; //cycle: 12182
-swp q[11],q[12]; //cycle: 12182
+swap q[7],q[13]; //cycle: 12182
+swap q[11],q[12]; //cycle: 12182
 cx q[8],q[12]; //cycle: 12188 //cx q[13],q[10]
 cx q[6],q[7]; //cycle: 12188 //cx q[14],q[9]
 cx q[5],q[11]; //cycle: 12188 //cx q[6],q[11]
-swp q[1],q[7]; //cycle: 12190
+swap q[1],q[7]; //cycle: 12190
 cx q[7],q[8]; //cycle: 12196 //cx q[15],q[13]
 cx q[12],q[7]; //cycle: 12198 //cx q[10],q[15]
 tdg q[8]; //cycle: 12198 //tdg q[13]
@@ -10089,8 +10089,8 @@ t q[7]; //cycle: 12208 //t q[15]
 cx q[7],q[13]; //cycle: 12209 //cx q[15],q[8]
 t q[12]; //cycle: 12209 //t q[10]
 t q[8]; //cycle: 12209 //t q[13]
-swp q[4],q[8]; //cycle: 12210
-swp q[3],q[4]; //cycle: 12216
+swap q[4],q[8]; //cycle: 12210
+swap q[3],q[4]; //cycle: 12216
 cx q[8],q[7]; //cycle: 12216 //cx q[4],q[15]
 cx q[13],q[8]; //cycle: 12218 //cx q[8],q[4]
 tdg q[7]; //cycle: 12218 //tdg q[15]
@@ -10108,8 +10108,8 @@ t q[13]; //cycle: 12229 //t q[8]
 t q[8]; //cycle: 12229 //t q[4]
 t q[7]; //cycle: 12230 //t q[15]
 cx q[7],q[6]; //cycle: 12231 //cx q[15],q[14]
-swp q[2],q[3]; //cycle: 12232
-swp q[8],q[12]; //cycle: 12233
+swap q[2],q[3]; //cycle: 12232
+swap q[8],q[12]; //cycle: 12233
 cx q[1],q[7]; //cycle: 12233 //cx q[9],q[15]
 tdg q[6]; //cycle: 12233 //tdg q[14]
 cx q[1],q[6]; //cycle: 12235 //cx q[9],q[14]
@@ -10121,15 +10121,15 @@ cx q[3],q[8]; //cycle: 12239 //cx q[7],q[10]
 cx q[1],q[7]; //cycle: 12240 //cx q[9],q[15]
 cx q[6],q[1]; //cycle: 12242 //cx q[14],q[9]
 h q[7]; //cycle: 12242 //h q[15]
-swp q[2],q[3]; //cycle: 12243
+swap q[2],q[3]; //cycle: 12243
 h q[7]; //cycle: 12243 //h q[15]
 h q[6]; //cycle: 12244 //h q[14]
 t q[1]; //cycle: 12244 //t q[9]
 t q[7]; //cycle: 12244 //t q[15]
 t q[6]; //cycle: 12245 //t q[14]
-swp q[0],q[1]; //cycle: 12248
+swap q[0],q[1]; //cycle: 12248
 cx q[6],q[2]; //cycle: 12249 //cx q[14],q[7]
-swp q[7],q[8]; //cycle: 12250
+swap q[7],q[8]; //cycle: 12250
 tdg q[2]; //cycle: 12251 //tdg q[7]
 cx q[7],q[6]; //cycle: 12256 //cx q[10],q[14]
 cx q[7],q[2]; //cycle: 12258 //cx q[10],q[7]
@@ -10145,11 +10145,11 @@ h q[2]; //cycle: 12267 //h q[7]
 t q[7]; //cycle: 12267 //t q[10]
 t q[6]; //cycle: 12267 //t q[14]
 t q[2]; //cycle: 12268 //t q[7]
-swp q[2],q[6]; //cycle: 12269
+swap q[2],q[6]; //cycle: 12269
 cx q[6],q[5]; //cycle: 12275 //cx q[7],q[6]
 cx q[11],q[6]; //cycle: 12277 //cx q[11],q[7]
 tdg q[5]; //cycle: 12277 //tdg q[6]
-swp q[2],q[3]; //cycle: 12278
+swap q[2],q[3]; //cycle: 12278
 cx q[11],q[5]; //cycle: 12279 //cx q[11],q[6]
 t q[6]; //cycle: 12279 //t q[7]
 tdg q[11]; //cycle: 12281 //tdg q[11]
@@ -10164,7 +10164,7 @@ h q[5]; //cycle: 12288 //h q[6]
 t q[11]; //cycle: 12288 //t q[11]
 t q[6]; //cycle: 12288 //t q[7]
 t q[5]; //cycle: 12289 //t q[6]
-swp q[5],q[6]; //cycle: 12290
+swap q[5],q[6]; //cycle: 12290
 cx q[6],q[1]; //cycle: 12296 //cx q[6],q[12]
 cx q[2],q[6]; //cycle: 12298 //cx q[13],q[6]
 tdg q[1]; //cycle: 12298 //tdg q[12]
@@ -10190,33 +10190,33 @@ tdg q[11]; //cycle: 12317 //tdg q[11]
 tdg q[6]; //cycle: 12317 //tdg q[6]
 cx q[5],q[6]; //cycle: 12318 //cx q[7],q[6]
 cx q[11],q[5]; //cycle: 12320 //cx q[11],q[7]
-swp q[6],q[7]; //cycle: 12321
+swap q[6],q[7]; //cycle: 12321
 h q[5]; //cycle: 12322 //h q[7]
 t q[5]; //cycle: 12323 //t q[7]
-swp q[11],q[12]; //cycle: 12324
+swap q[11],q[12]; //cycle: 12324
 cx q[5],q[6]; //cycle: 12327 //cx q[7],q[10]
-swp q[2],q[3]; //cycle: 12328
-swp q[5],q[6]; //cycle: 12329
+swap q[2],q[3]; //cycle: 12328
+swap q[5],q[6]; //cycle: 12329
 cx q[7],q[12]; //cycle: 12330 //cx q[6],q[11]
 t q[12]; //cycle: 12332 //t q[11]
 t q[7]; //cycle: 12332 //t q[6]
 cx q[7],q[12]; //cycle: 12333 //cx q[6],q[11]
 cx q[2],q[6]; //cycle: 12335 //cx q[14],q[7]
 tdg q[6]; //cycle: 12337 //tdg q[7]
-swp q[5],q[6]; //cycle: 12338
+swap q[5],q[6]; //cycle: 12338
 cx q[6],q[2]; //cycle: 12344 //cx q[10],q[14]
 cx q[6],q[5]; //cycle: 12346 //cx q[10],q[7]
 t q[2]; //cycle: 12346 //t q[14]
 tdg q[6]; //cycle: 12348 //tdg q[10]
 tdg q[5]; //cycle: 12348 //tdg q[7]
-swp q[2],q[6]; //cycle: 12349
+swap q[2],q[6]; //cycle: 12349
 cx q[6],q[5]; //cycle: 12355 //cx q[14],q[7]
 cx q[2],q[6]; //cycle: 12357 //cx q[10],q[14]
-swp q[0],q[1]; //cycle: 12358
+swap q[0],q[1]; //cycle: 12358
 h q[6]; //cycle: 12359 //h q[14]
 t q[6]; //cycle: 12360 //t q[14]
 cx q[6],q[1]; //cycle: 12364 //cx q[14],q[9]
-swp q[7],q[8]; //cycle: 12365
+swap q[7],q[8]; //cycle: 12365
 cx q[7],q[6]; //cycle: 12371 //cx q[15],q[14]
 cx q[1],q[7]; //cycle: 12373 //cx q[9],q[15]
 tdg q[6]; //cycle: 12373 //tdg q[14]
@@ -10225,12 +10225,12 @@ t q[7]; //cycle: 12375 //t q[15]
 tdg q[1]; //cycle: 12377 //tdg q[9]
 tdg q[6]; //cycle: 12377 //tdg q[14]
 cx q[7],q[6]; //cycle: 12378 //cx q[15],q[14]
-swp q[5],q[6]; //cycle: 12380
+swap q[5],q[6]; //cycle: 12380
 cx q[1],q[7]; //cycle: 12380 //cx q[9],q[15]
 h q[7]; //cycle: 12382 //h q[15]
 t q[7]; //cycle: 12383 //t q[15]
 cx q[7],q[13]; //cycle: 12384 //cx q[15],q[8]
-swp q[11],q[12]; //cycle: 12385
+swap q[11],q[12]; //cycle: 12385
 cx q[6],q[2]; //cycle: 12386 //cx q[7],q[10]
 t q[2]; //cycle: 12388 //t q[10]
 t q[6]; //cycle: 12388 //t q[7]
@@ -10238,7 +10238,7 @@ cx q[6],q[2]; //cycle: 12389 //cx q[7],q[10]
 cx q[12],q[7]; //cycle: 12391 //cx q[4],q[15]
 cx q[13],q[12]; //cycle: 12393 //cx q[8],q[4]
 tdg q[7]; //cycle: 12393 //tdg q[15]
-swp q[5],q[6]; //cycle: 12394
+swap q[5],q[6]; //cycle: 12394
 cx q[13],q[7]; //cycle: 12395 //cx q[8],q[15]
 t q[12]; //cycle: 12395 //t q[4]
 tdg q[13]; //cycle: 12397 //tdg q[8]
@@ -10276,23 +10276,23 @@ cx q[6],q[5]; //cycle: 12421 //cx q[14],q[7]
 cx q[2],q[6]; //cycle: 12423 //cx q[10],q[14]
 tdg q[5]; //cycle: 12423 //tdg q[7]
 t q[6]; //cycle: 12425 //t q[14]
-swp q[5],q[6]; //cycle: 12426
+swap q[5],q[6]; //cycle: 12426
 cx q[2],q[6]; //cycle: 12432 //cx q[10],q[7]
 tdg q[2]; //cycle: 12434 //tdg q[10]
 tdg q[6]; //cycle: 12434 //tdg q[7]
 cx q[5],q[6]; //cycle: 12435 //cx q[14],q[7]
-swp q[2],q[6]; //cycle: 12437
+swap q[2],q[6]; //cycle: 12437
 cx q[6],q[5]; //cycle: 12443 //cx q[10],q[14]
 cx q[2],q[6]; //cycle: 12445 //cx q[7],q[10]
 h q[5]; //cycle: 12445 //h q[14]
-swp q[7],q[8]; //cycle: 12446
+swap q[7],q[8]; //cycle: 12446
 h q[5]; //cycle: 12446 //h q[14]
 t q[6]; //cycle: 12447 //t q[10]
 t q[5]; //cycle: 12447 //t q[14]
 h q[2]; //cycle: 12447 //h q[7]
 t q[2]; //cycle: 12448 //t q[7]
 cx q[2],q[7]; //cycle: 12452 //cx q[7],q[6]
-swp q[6],q[11]; //cycle: 12453
+swap q[6],q[11]; //cycle: 12453
 tdg q[7]; //cycle: 12454 //tdg q[6]
 cx q[6],q[2]; //cycle: 12459 //cx q[11],q[7]
 cx q[6],q[7]; //cycle: 12461 //cx q[11],q[6]
@@ -10303,14 +10303,14 @@ cx q[2],q[7]; //cycle: 12464 //cx q[7],q[6]
 cx q[6],q[2]; //cycle: 12466 //cx q[11],q[7]
 cx q[7],q[6]; //cycle: 12468 //cx q[6],q[11]
 h q[2]; //cycle: 12468 //h q[7]
-swp q[0],q[1]; //cycle: 12469
+swap q[0],q[1]; //cycle: 12469
 h q[2]; //cycle: 12469 //h q[7]
 h q[7]; //cycle: 12470 //h q[6]
 t q[6]; //cycle: 12470 //t q[11]
 t q[2]; //cycle: 12470 //t q[7]
 t q[7]; //cycle: 12471 //t q[6]
 cx q[7],q[1]; //cycle: 12475 //cx q[6],q[12]
-swp q[2],q[3]; //cycle: 12476
+swap q[2],q[3]; //cycle: 12476
 tdg q[1]; //cycle: 12477 //tdg q[12]
 cx q[2],q[7]; //cycle: 12482 //cx q[13],q[6]
 cx q[2],q[1]; //cycle: 12484 //cx q[13],q[12]
@@ -10326,7 +10326,7 @@ cx q[7],q[6]; //cycle: 12493 //cx q[6],q[11]
 t q[2]; //cycle: 12493 //t q[13]
 t q[1]; //cycle: 12493 //t q[12]
 cx q[1],q[2]; //cycle: 12494 //cx q[12],q[13]
-swp q[2],q[3]; //cycle: 12496
+swap q[2],q[3]; //cycle: 12496
 cx q[2],q[7]; //cycle: 12502 //cx q[7],q[6]
 cx q[6],q[2]; //cycle: 12504 //cx q[11],q[7]
 tdg q[7]; //cycle: 12504 //tdg q[6]
@@ -10342,7 +10342,7 @@ t q[2]; //cycle: 12514 //t q[7]
 t q[6]; //cycle: 12515 //t q[11]
 t q[7]; //cycle: 12515 //t q[6]
 cx q[7],q[6]; //cycle: 12516 //cx q[6],q[11]
-swp q[2],q[6]; //cycle: 12518
+swap q[2],q[6]; //cycle: 12518
 cx q[6],q[11]; //cycle: 12524 //cx q[7],q[10]
 cx q[5],q[6]; //cycle: 12526 //cx q[14],q[7]
 cx q[11],q[5]; //cycle: 12528 //cx q[10],q[14]
@@ -10359,11 +10359,11 @@ t q[5]; //cycle: 12538 //t q[14]
 cx q[5],q[0]; //cycle: 12539 //cx q[14],q[9]
 t q[11]; //cycle: 12539 //t q[10]
 t q[6]; //cycle: 12539 //t q[7]
-swp q[7],q[8]; //cycle: 12540
+swap q[7],q[8]; //cycle: 12540
 cx q[6],q[11]; //cycle: 12540 //cx q[7],q[10]
-swp q[5],q[6]; //cycle: 12542
+swap q[5],q[6]; //cycle: 12542
 cx q[7],q[6]; //cycle: 12548 //cx q[15],q[14]
-swp q[0],q[1]; //cycle: 12549
+swap q[0],q[1]; //cycle: 12549
 tdg q[6]; //cycle: 12550 //tdg q[14]
 cx q[1],q[7]; //cycle: 12555 //cx q[9],q[15]
 cx q[1],q[6]; //cycle: 12557 //cx q[9],q[14]
@@ -10378,7 +10378,7 @@ t q[7]; //cycle: 12565 //t q[15]
 cx q[7],q[13]; //cycle: 12566 //cx q[15],q[8]
 t q[1]; //cycle: 12566 //t q[9]
 t q[6]; //cycle: 12566 //t q[14]
-swp q[4],q[8]; //cycle: 12567
+swap q[4],q[8]; //cycle: 12567
 cx q[6],q[1]; //cycle: 12567 //cx q[14],q[9]
 cx q[8],q[7]; //cycle: 12573 //cx q[5],q[15]
 cx q[13],q[8]; //cycle: 12575 //cx q[8],q[5]
@@ -10423,14 +10423,14 @@ cx q[6],q[5]; //cycle: 12610 //cx q[14],q[7]
 cx q[11],q[6]; //cycle: 12612 //cx q[10],q[14]
 cx q[5],q[11]; //cycle: 12614 //cx q[7],q[10]
 h q[6]; //cycle: 12614 //h q[14]
-swp q[4],q[8]; //cycle: 12615
+swap q[4],q[8]; //cycle: 12615
 h q[6]; //cycle: 12615 //h q[14]
 h q[5]; //cycle: 12616 //h q[7]
 t q[11]; //cycle: 12616 //t q[10]
 t q[6]; //cycle: 12616 //t q[14]
 t q[5]; //cycle: 12617 //t q[7]
-swp q[5],q[6]; //cycle: 12621
-swp q[7],q[8]; //cycle: 12621
+swap q[5],q[6]; //cycle: 12621
+swap q[7],q[8]; //cycle: 12621
 cx q[6],q[7]; //cycle: 12627 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 12629 //cx q[11],q[7]
 tdg q[7]; //cycle: 12629 //tdg q[6]
@@ -10442,14 +10442,14 @@ cx q[6],q[7]; //cycle: 12634 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 12636 //cx q[11],q[7]
 cx q[7],q[2]; //cycle: 12638 //cx q[6],q[11]
 h q[6]; //cycle: 12638 //h q[7]
-swp q[0],q[1]; //cycle: 12639
+swap q[0],q[1]; //cycle: 12639
 h q[6]; //cycle: 12639 //h q[7]
 h q[7]; //cycle: 12640 //h q[6]
 t q[2]; //cycle: 12640 //t q[11]
 t q[6]; //cycle: 12640 //t q[7]
 t q[7]; //cycle: 12641 //t q[6]
 cx q[7],q[1]; //cycle: 12645 //cx q[6],q[12]
-swp q[2],q[3]; //cycle: 12646
+swap q[2],q[3]; //cycle: 12646
 tdg q[1]; //cycle: 12647 //tdg q[12]
 cx q[2],q[7]; //cycle: 12652 //cx q[13],q[6]
 cx q[2],q[1]; //cycle: 12654 //cx q[13],q[12]
@@ -10464,7 +10464,7 @@ t q[7]; //cycle: 12662 //t q[6]
 t q[2]; //cycle: 12663 //t q[13]
 t q[1]; //cycle: 12663 //t q[12]
 cx q[1],q[2]; //cycle: 12664 //cx q[12],q[13]
-swp q[2],q[3]; //cycle: 12666
+swap q[2],q[3]; //cycle: 12666
 cx q[7],q[2]; //cycle: 12672 //cx q[6],q[11]
 cx q[6],q[7]; //cycle: 12674 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 12676 //cx q[11],q[7]
@@ -10498,10 +10498,10 @@ cx q[5],q[0]; //cycle: 12702 //cx q[14],q[9]
 t q[11]; //cycle: 12702 //t q[10]
 t q[6]; //cycle: 12702 //t q[7]
 cx q[6],q[11]; //cycle: 12703 //cx q[7],q[10]
-swp q[5],q[6]; //cycle: 12705
-swp q[7],q[8]; //cycle: 12705
+swap q[5],q[6]; //cycle: 12705
+swap q[7],q[8]; //cycle: 12705
 cx q[7],q[6]; //cycle: 12711 //cx q[15],q[14]
-swp q[0],q[1]; //cycle: 12712
+swap q[0],q[1]; //cycle: 12712
 tdg q[6]; //cycle: 12713 //tdg q[14]
 cx q[1],q[7]; //cycle: 12718 //cx q[9],q[15]
 cx q[1],q[6]; //cycle: 12720 //cx q[9],q[14]
@@ -10516,7 +10516,7 @@ t q[7]; //cycle: 12728 //t q[15]
 cx q[7],q[13]; //cycle: 12729 //cx q[15],q[8]
 t q[1]; //cycle: 12729 //t q[9]
 t q[6]; //cycle: 12729 //t q[14]
-swp q[4],q[8]; //cycle: 12730
+swap q[4],q[8]; //cycle: 12730
 cx q[6],q[1]; //cycle: 12730 //cx q[14],q[9]
 cx q[8],q[7]; //cycle: 12736 //cx q[5],q[15]
 cx q[13],q[8]; //cycle: 12738 //cx q[8],q[5]
@@ -10561,14 +10561,14 @@ cx q[6],q[5]; //cycle: 12773 //cx q[14],q[7]
 cx q[11],q[6]; //cycle: 12775 //cx q[10],q[14]
 cx q[5],q[11]; //cycle: 12777 //cx q[7],q[10]
 h q[6]; //cycle: 12777 //h q[14]
-swp q[4],q[8]; //cycle: 12778
+swap q[4],q[8]; //cycle: 12778
 h q[6]; //cycle: 12778 //h q[14]
 h q[5]; //cycle: 12779 //h q[7]
 t q[11]; //cycle: 12779 //t q[10]
 t q[6]; //cycle: 12779 //t q[14]
 t q[5]; //cycle: 12780 //t q[7]
-swp q[5],q[6]; //cycle: 12782
-swp q[7],q[8]; //cycle: 12784
+swap q[5],q[6]; //cycle: 12782
+swap q[7],q[8]; //cycle: 12784
 cx q[6],q[7]; //cycle: 12790 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 12792 //cx q[11],q[7]
 tdg q[7]; //cycle: 12792 //tdg q[6]
@@ -10580,14 +10580,14 @@ cx q[6],q[7]; //cycle: 12797 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 12799 //cx q[11],q[7]
 cx q[7],q[2]; //cycle: 12801 //cx q[6],q[11]
 h q[6]; //cycle: 12801 //h q[7]
-swp q[0],q[1]; //cycle: 12802
+swap q[0],q[1]; //cycle: 12802
 h q[6]; //cycle: 12802 //h q[7]
 h q[7]; //cycle: 12803 //h q[6]
 t q[2]; //cycle: 12803 //t q[11]
 t q[6]; //cycle: 12803 //t q[7]
 t q[7]; //cycle: 12804 //t q[6]
 cx q[7],q[1]; //cycle: 12808 //cx q[6],q[12]
-swp q[2],q[3]; //cycle: 12809
+swap q[2],q[3]; //cycle: 12809
 tdg q[1]; //cycle: 12810 //tdg q[12]
 cx q[2],q[7]; //cycle: 12815 //cx q[13],q[6]
 cx q[2],q[1]; //cycle: 12817 //cx q[13],q[12]
@@ -10602,7 +10602,7 @@ t q[7]; //cycle: 12825 //t q[6]
 t q[2]; //cycle: 12826 //t q[13]
 t q[1]; //cycle: 12826 //t q[12]
 cx q[1],q[2]; //cycle: 12827 //cx q[12],q[13]
-swp q[2],q[3]; //cycle: 12829
+swap q[2],q[3]; //cycle: 12829
 cx q[7],q[2]; //cycle: 12835 //cx q[6],q[11]
 cx q[6],q[7]; //cycle: 12837 //cx q[7],q[6]
 cx q[2],q[6]; //cycle: 12839 //cx q[11],q[7]
@@ -10619,7 +10619,7 @@ t q[6]; //cycle: 12849 //t q[7]
 t q[7]; //cycle: 12850 //t q[6]
 t q[2]; //cycle: 12850 //t q[11]
 cx q[6],q[11]; //cycle: 12850 //cx q[7],q[10]
-swp q[2],q[7]; //cycle: 12852
+swap q[2],q[7]; //cycle: 12852
 cx q[5],q[6]; //cycle: 12852 //cx q[14],q[7]
 cx q[11],q[5]; //cycle: 12854 //cx q[10],q[14]
 tdg q[6]; //cycle: 12854 //tdg q[7]
@@ -10636,10 +10636,10 @@ t q[5]; //cycle: 12864 //t q[14]
 t q[6]; //cycle: 12865 //t q[7]
 t q[11]; //cycle: 12865 //t q[10]
 cx q[5],q[0]; //cycle: 12865 //cx q[14],q[9]
-swp q[7],q[8]; //cycle: 12866
-swp q[5],q[6]; //cycle: 12867
+swap q[7],q[8]; //cycle: 12866
+swap q[5],q[6]; //cycle: 12867
 cx q[7],q[6]; //cycle: 12873 //cx q[15],q[14]
-swp q[0],q[1]; //cycle: 12874
+swap q[0],q[1]; //cycle: 12874
 tdg q[6]; //cycle: 12875 //tdg q[14]
 cx q[1],q[7]; //cycle: 12880 //cx q[9],q[15]
 cx q[1],q[6]; //cycle: 12882 //cx q[9],q[14]
@@ -10655,18 +10655,18 @@ t q[6]; //cycle: 12891 //t q[14]
 t q[1]; //cycle: 12891 //t q[9]
 cx q[6],q[11]; //cycle: 12892 //cx q[14],q[10]
 cx q[7],q[1]; //cycle: 12892 //cx q[15],q[9]
-swp q[4],q[8]; //cycle: 12893
+swap q[4],q[8]; //cycle: 12893
 cx q[8],q[7]; //cycle: 12899 //cx q[5],q[15]
 tdg q[7]; //cycle: 12901 //tdg q[15]
-swp q[1],q[7]; //cycle: 12902
+swap q[1],q[7]; //cycle: 12902
 cx q[7],q[8]; //cycle: 12908 //cx q[9],q[5]
 cx q[7],q[1]; //cycle: 12910 //cx q[9],q[15]
 t q[8]; //cycle: 12910 //t q[5]
 tdg q[7]; //cycle: 12912 //tdg q[9]
 tdg q[1]; //cycle: 12912 //tdg q[15]
-swp q[1],q[7]; //cycle: 12913
+swap q[1],q[7]; //cycle: 12913
 cx q[8],q[7]; //cycle: 12919 //cx q[5],q[15]
-swp q[1],q[7]; //cycle: 12921
+swap q[1],q[7]; //cycle: 12921
 cx q[7],q[8]; //cycle: 12927 //cx q[9],q[5]
 cx q[1],q[7]; //cycle: 12929 //cx q[15],q[9]
 h q[8]; //cycle: 12929 //h q[5]
@@ -10677,19 +10677,19 @@ t q[8]; //cycle: 12931 //t q[5]
 t q[1]; //cycle: 12932 //t q[15]
 cx q[1],q[6]; //cycle: 12933 //cx q[15],q[14]
 tdg q[6]; //cycle: 12935 //tdg q[14]
-swp q[6],q[11]; //cycle: 12936
+swap q[6],q[11]; //cycle: 12936
 cx q[6],q[1]; //cycle: 12942 //cx q[10],q[15]
 cx q[6],q[11]; //cycle: 12944 //cx q[10],q[14]
 t q[1]; //cycle: 12944 //t q[15]
 tdg q[6]; //cycle: 12946 //tdg q[10]
 tdg q[11]; //cycle: 12946 //tdg q[14]
-swp q[6],q[11]; //cycle: 12947
+swap q[6],q[11]; //cycle: 12947
 cx q[1],q[6]; //cycle: 12953 //cx q[15],q[14]
-swp q[6],q[11]; //cycle: 12955
+swap q[6],q[11]; //cycle: 12955
 cx q[6],q[1]; //cycle: 12961 //cx q[10],q[15]
 cx q[11],q[6]; //cycle: 12963 //cx q[14],q[10]
 h q[1]; //cycle: 12963 //h q[15]
-swp q[12],q[13]; //cycle: 12964
+swap q[12],q[13]; //cycle: 12964
 h q[1]; //cycle: 12964 //h q[15]
 h q[11]; //cycle: 12965 //h q[14]
 t q[6]; //cycle: 12965 //t q[10]
@@ -10697,28 +10697,28 @@ t q[1]; //cycle: 12965 //t q[15]
 t q[11]; //cycle: 12966 //t q[14]
 cx q[11],q[12]; //cycle: 12970 //cx q[14],q[8]
 tdg q[12]; //cycle: 12972 //tdg q[8]
-swp q[4],q[8]; //cycle: 12973
-swp q[11],q[12]; //cycle: 12973
+swap q[4],q[8]; //cycle: 12973
+swap q[11],q[12]; //cycle: 12973
 cx q[8],q[12]; //cycle: 12979 //cx q[11],q[14]
 t q[12]; //cycle: 12981 //t q[14]
-swp q[11],q[12]; //cycle: 12982
+swap q[11],q[12]; //cycle: 12982
 cx q[8],q[12]; //cycle: 12988 //cx q[11],q[8]
 tdg q[8]; //cycle: 12990 //tdg q[11]
 tdg q[12]; //cycle: 12990 //tdg q[8]
 cx q[11],q[12]; //cycle: 12991 //cx q[14],q[8]
-swp q[8],q[12]; //cycle: 12993
+swap q[8],q[12]; //cycle: 12993
 cx q[12],q[11]; //cycle: 12999 //cx q[11],q[14]
 cx q[8],q[12]; //cycle: 13001 //cx q[8],q[11]
 h q[11]; //cycle: 13001 //h q[14]
 h q[11]; //cycle: 13002 //h q[14]
-swp q[0],q[1]; //cycle: 13003
+swap q[0],q[1]; //cycle: 13003
 h q[8]; //cycle: 13003 //h q[8]
 t q[12]; //cycle: 13003 //t q[11]
 t q[11]; //cycle: 13003 //t q[14]
 t q[8]; //cycle: 13004 //t q[8]
-swp q[7],q[8]; //cycle: 13005
+swap q[7],q[8]; //cycle: 13005
 cx q[7],q[1]; //cycle: 13011 //cx q[8],q[12]
-swp q[2],q[3]; //cycle: 13012
+swap q[2],q[3]; //cycle: 13012
 tdg q[1]; //cycle: 13013 //tdg q[12]
 cx q[2],q[7]; //cycle: 13018 //cx q[13],q[8]
 cx q[2],q[1]; //cycle: 13020 //cx q[13],q[12]
@@ -10734,17 +10734,17 @@ cx q[7],q[12]; //cycle: 13029 //cx q[8],q[11]
 t q[2]; //cycle: 13029 //t q[13]
 t q[1]; //cycle: 13029 //t q[12]
 cx q[1],q[2]; //cycle: 13030 //cx q[12],q[13]
-swp q[6],q[7]; //cycle: 13031
+swap q[6],q[7]; //cycle: 13031
 cx q[11],q[6]; //cycle: 13037 //cx q[14],q[8]
 cx q[12],q[11]; //cycle: 13039 //cx q[11],q[14]
 tdg q[6]; //cycle: 13039 //tdg q[8]
-swp q[7],q[12]; //cycle: 13041
+swap q[7],q[12]; //cycle: 13041
 t q[11]; //cycle: 13041 //t q[14]
 cx q[7],q[6]; //cycle: 13047 //cx q[11],q[8]
 tdg q[7]; //cycle: 13049 //tdg q[11]
 tdg q[6]; //cycle: 13049 //tdg q[8]
 cx q[11],q[6]; //cycle: 13050 //cx q[14],q[8]
-swp q[11],q[12]; //cycle: 13052
+swap q[11],q[12]; //cycle: 13052
 cx q[7],q[12]; //cycle: 13058 //cx q[11],q[14]
 cx q[6],q[7]; //cycle: 13060 //cx q[8],q[11]
 h q[12]; //cycle: 13060 //h q[14]
@@ -10753,10 +10753,10 @@ cx q[12],q[11]; //cycle: 13062 //cx q[14],q[10]
 t q[7]; //cycle: 13062 //t q[11]
 t q[6]; //cycle: 13062 //t q[8]
 cx q[6],q[7]; //cycle: 13063 //cx q[8],q[11]
-swp q[0],q[1]; //cycle: 13064
-swp q[7],q[12]; //cycle: 13065
+swap q[0],q[1]; //cycle: 13064
+swap q[7],q[12]; //cycle: 13065
 cx q[1],q[7]; //cycle: 13071 //cx q[15],q[14]
-swp q[6],q[11]; //cycle: 13072
+swap q[6],q[11]; //cycle: 13072
 tdg q[7]; //cycle: 13073 //tdg q[14]
 cx q[6],q[1]; //cycle: 13078 //cx q[10],q[15]
 cx q[6],q[7]; //cycle: 13080 //cx q[10],q[14]
@@ -10765,13 +10765,13 @@ tdg q[6]; //cycle: 13082 //tdg q[10]
 tdg q[7]; //cycle: 13082 //tdg q[14]
 cx q[1],q[7]; //cycle: 13083 //cx q[15],q[14]
 cx q[6],q[1]; //cycle: 13085 //cx q[10],q[15]
-swp q[7],q[8]; //cycle: 13086
+swap q[7],q[8]; //cycle: 13086
 h q[1]; //cycle: 13087 //h q[15]
 t q[1]; //cycle: 13088 //t q[15]
 cx q[1],q[7]; //cycle: 13092 //cx q[15],q[9]
-swp q[1],q[2]; //cycle: 13094
-swp q[3],q[4]; //cycle: 13094
-swp q[7],q[8]; //cycle: 13094
+swap q[1],q[2]; //cycle: 13094
+swap q[3],q[4]; //cycle: 13094
+swap q[7],q[8]; //cycle: 13094
 cx q[7],q[6]; //cycle: 13100 //cx q[14],q[10]
 cx q[3],q[2]; //cycle: 13100 //cx q[5],q[15]
 cx q[8],q[3]; //cycle: 13102 //cx q[9],q[5]
@@ -10780,12 +10780,12 @@ t q[6]; //cycle: 13102 //t q[10]
 t q[7]; //cycle: 13102 //t q[14]
 cx q[7],q[6]; //cycle: 13103 //cx q[14],q[10]
 t q[3]; //cycle: 13104 //t q[5]
-swp q[7],q[8]; //cycle: 13105
+swap q[7],q[8]; //cycle: 13105
 cx q[7],q[2]; //cycle: 13111 //cx q[9],q[15]
 tdg q[7]; //cycle: 13113 //tdg q[9]
 tdg q[2]; //cycle: 13113 //tdg q[15]
 cx q[3],q[2]; //cycle: 13114 //cx q[5],q[15]
-swp q[2],q[7]; //cycle: 13116
+swap q[2],q[7]; //cycle: 13116
 cx q[2],q[3]; //cycle: 13122 //cx q[9],q[5]
 cx q[7],q[2]; //cycle: 13124 //cx q[15],q[9]
 h q[3]; //cycle: 13124 //h q[5]
@@ -10798,12 +10798,12 @@ cx q[7],q[8]; //cycle: 13128 //cx q[15],q[14]
 cx q[6],q[7]; //cycle: 13130 //cx q[10],q[15]
 tdg q[8]; //cycle: 13130 //tdg q[14]
 t q[7]; //cycle: 13132 //t q[15]
-swp q[7],q[8]; //cycle: 13133
+swap q[7],q[8]; //cycle: 13133
 cx q[6],q[7]; //cycle: 13139 //cx q[10],q[14]
 tdg q[6]; //cycle: 13141 //tdg q[10]
 tdg q[7]; //cycle: 13141 //tdg q[14]
 cx q[8],q[7]; //cycle: 13142 //cx q[15],q[14]
-swp q[6],q[7]; //cycle: 13144
+swap q[6],q[7]; //cycle: 13144
 cx q[7],q[8]; //cycle: 13150 //cx q[10],q[15]
 cx q[6],q[7]; //cycle: 13152 //cx q[14],q[10]
 h q[8]; //cycle: 13152 //h q[15]
@@ -10813,27 +10813,27 @@ t q[7]; //cycle: 13154 //t q[10]
 t q[8]; //cycle: 13154 //t q[15]
 t q[6]; //cycle: 13155 //t q[14]
 cx q[6],q[11]; //cycle: 13156 //cx q[14],q[8]
-swp q[6],q[7]; //cycle: 13158
+swap q[6],q[7]; //cycle: 13158
 tdg q[11]; //cycle: 13158 //tdg q[8]
 cx q[12],q[7]; //cycle: 13164 //cx q[11],q[14]
 cx q[12],q[11]; //cycle: 13166 //cx q[11],q[8]
 t q[7]; //cycle: 13166 //t q[14]
-swp q[6],q[7]; //cycle: 13167
+swap q[6],q[7]; //cycle: 13167
 tdg q[12]; //cycle: 13168 //tdg q[11]
 tdg q[11]; //cycle: 13168 //tdg q[8]
 cx q[6],q[11]; //cycle: 13173 //cx q[14],q[8]
-swp q[6],q[7]; //cycle: 13175
+swap q[6],q[7]; //cycle: 13175
 cx q[12],q[7]; //cycle: 13181 //cx q[11],q[14]
 cx q[11],q[12]; //cycle: 13183 //cx q[8],q[11]
 h q[7]; //cycle: 13183 //h q[14]
-swp q[0],q[5]; //cycle: 13184
+swap q[0],q[5]; //cycle: 13184
 h q[7]; //cycle: 13184 //h q[14]
 h q[11]; //cycle: 13185 //h q[8]
 t q[12]; //cycle: 13185 //t q[11]
 t q[7]; //cycle: 13185 //t q[14]
 t q[11]; //cycle: 13186 //t q[8]
 cx q[11],q[5]; //cycle: 13190 //cx q[8],q[12]
-swp q[1],q[6]; //cycle: 13191
+swap q[1],q[6]; //cycle: 13191
 tdg q[5]; //cycle: 13192 //tdg q[12]
 cx q[6],q[11]; //cycle: 13197 //cx q[13],q[8]
 cx q[6],q[5]; //cycle: 13199 //cx q[13],q[12]
@@ -10849,26 +10849,26 @@ cx q[11],q[12]; //cycle: 13208 //cx q[8],q[11]
 x q[5]; //cycle: 13208 //x q[12]
 t q[6]; //cycle: 13208 //t q[13]
 t q[5]; //cycle: 13209 //t q[12]
-swp q[6],q[11]; //cycle: 13210
+swap q[6],q[11]; //cycle: 13210
 cx q[7],q[6]; //cycle: 13216 //cx q[14],q[8]
 cx q[12],q[7]; //cycle: 13218 //cx q[11],q[14]
 tdg q[6]; //cycle: 13218 //tdg q[8]
-swp q[11],q[12]; //cycle: 13220
+swap q[11],q[12]; //cycle: 13220
 t q[7]; //cycle: 13220 //t q[14]
 cx q[11],q[6]; //cycle: 13226 //cx q[11],q[8]
 tdg q[11]; //cycle: 13228 //tdg q[11]
 tdg q[6]; //cycle: 13228 //tdg q[8]
 cx q[7],q[6]; //cycle: 13229 //cx q[14],q[8]
-swp q[11],q[12]; //cycle: 13230
+swap q[11],q[12]; //cycle: 13230
 cx q[12],q[7]; //cycle: 13236 //cx q[11],q[14]
-swp q[11],q[12]; //cycle: 13238
+swap q[11],q[12]; //cycle: 13238
 h q[7]; //cycle: 13238 //h q[14]
 t q[7]; //cycle: 13239 //t q[14]
 cx q[7],q[1]; //cycle: 13240 //cx q[14],q[10]
 cx q[8],q[7]; //cycle: 13242 //cx q[15],q[14]
 cx q[6],q[11]; //cycle: 13244 //cx q[8],q[11]
 tdg q[7]; //cycle: 13244 //tdg q[14]
-swp q[1],q[7]; //cycle: 13245
+swap q[1],q[7]; //cycle: 13245
 t q[6]; //cycle: 13246 //t q[8]
 t q[11]; //cycle: 13246 //t q[11]
 cx q[7],q[8]; //cycle: 13251 //cx q[10],q[15]
@@ -10876,18 +10876,18 @@ cx q[7],q[1]; //cycle: 13253 //cx q[10],q[14]
 t q[8]; //cycle: 13253 //t q[15]
 tdg q[7]; //cycle: 13255 //tdg q[10]
 tdg q[1]; //cycle: 13255 //tdg q[14]
-swp q[7],q[8]; //cycle: 13256
+swap q[7],q[8]; //cycle: 13256
 cx q[7],q[1]; //cycle: 13262 //cx q[15],q[14]
 cx q[8],q[7]; //cycle: 13264 //cx q[10],q[15]
 h q[7]; //cycle: 13266 //h q[15]
 t q[7]; //cycle: 13267 //t q[15]
 cx q[7],q[6]; //cycle: 13268 //cx q[15],q[8]
-swp q[2],q[3]; //cycle: 13269
-swp q[11],q[12]; //cycle: 13272
+swap q[2],q[3]; //cycle: 13269
+swap q[11],q[12]; //cycle: 13272
 cx q[2],q[7]; //cycle: 13275 //cx q[5],q[15]
 cx q[6],q[2]; //cycle: 13277 //cx q[8],q[5]
 tdg q[7]; //cycle: 13277 //tdg q[15]
-swp q[3],q[8]; //cycle: 13278
+swap q[3],q[8]; //cycle: 13278
 cx q[6],q[7]; //cycle: 13279 //cx q[8],q[15]
 t q[2]; //cycle: 13279 //t q[5]
 tdg q[6]; //cycle: 13281 //tdg q[8]
@@ -10901,7 +10901,7 @@ h q[2]; //cycle: 13287 //h q[5]
 h q[7]; //cycle: 13288 //h q[15]
 t q[6]; //cycle: 13288 //t q[8]
 t q[2]; //cycle: 13288 //t q[5]
-swp q[2],q[3]; //cycle: 13289
+swap q[2],q[3]; //cycle: 13289
 t q[7]; //cycle: 13289 //t q[15]
 cx q[7],q[12]; //cycle: 13290 //cx q[15],q[11]
 cx q[8],q[7]; //cycle: 13292 //cx q[9],q[15]
@@ -10909,7 +10909,7 @@ tdg q[12]; //cycle: 13292 //tdg q[11]
 cx q[8],q[12]; //cycle: 13294 //cx q[9],q[11]
 t q[7]; //cycle: 13294 //t q[15]
 cx q[1],q[2]; //cycle: 13295 //cx q[14],q[10]
-swp q[5],q[6]; //cycle: 13296
+swap q[5],q[6]; //cycle: 13296
 tdg q[8]; //cycle: 13296 //tdg q[9]
 tdg q[12]; //cycle: 13296 //tdg q[11]
 cx q[7],q[12]; //cycle: 13297 //cx q[15],q[11]
@@ -10923,20 +10923,20 @@ h q[7]; //cycle: 13302 //h q[15]
 h q[12]; //cycle: 13303 //h q[11]
 t q[8]; //cycle: 13303 //t q[9]
 t q[7]; //cycle: 13303 //t q[15]
-swp q[2],q[7]; //cycle: 13304
+swap q[2],q[7]; //cycle: 13304
 t q[12]; //cycle: 13304 //t q[11]
-swp q[6],q[11]; //cycle: 13306
+swap q[6],q[11]; //cycle: 13306
 cx q[12],q[7]; //cycle: 13310 //cx q[11],q[10]
 cx q[11],q[12]; //cycle: 13312 //cx q[12],q[11]
 tdg q[7]; //cycle: 13312 //tdg q[10]
 cx q[6],q[1]; //cycle: 13312 //cx q[13],q[14]
-swp q[6],q[11]; //cycle: 13314
+swap q[6],q[11]; //cycle: 13314
 t q[12]; //cycle: 13314 //t q[11]
 cx q[6],q[7]; //cycle: 13320 //cx q[12],q[10]
 tdg q[6]; //cycle: 13322 //tdg q[12]
 tdg q[7]; //cycle: 13322 //tdg q[10]
 cx q[12],q[7]; //cycle: 13323 //cx q[11],q[10]
-swp q[6],q[7]; //cycle: 13325
+swap q[6],q[7]; //cycle: 13325
 cx q[7],q[12]; //cycle: 13331 //cx q[12],q[11]
 cx q[6],q[7]; //cycle: 13333 //cx q[10],q[12]
 h q[12]; //cycle: 13333 //h q[11]
@@ -10949,14 +10949,14 @@ cx q[6],q[11]; //cycle: 13337 //cx q[10],q[13]
 cx q[1],q[6]; //cycle: 13339 //cx q[14],q[10]
 tdg q[11]; //cycle: 13339 //tdg q[13]
 t q[6]; //cycle: 13341 //t q[10]
-swp q[6],q[11]; //cycle: 13342
+swap q[6],q[11]; //cycle: 13342
 cx q[1],q[6]; //cycle: 13348 //cx q[14],q[13]
 tdg q[1]; //cycle: 13350 //tdg q[14]
 tdg q[6]; //cycle: 13350 //tdg q[13]
 cx q[11],q[6]; //cycle: 13351 //cx q[10],q[13]
-swp q[1],q[6]; //cycle: 13353
+swap q[1],q[6]; //cycle: 13353
 cx q[6],q[11]; //cycle: 13359 //cx q[14],q[10]
-swp q[7],q[12]; //cycle: 13360
+swap q[7],q[12]; //cycle: 13360
 cx q[1],q[6]; //cycle: 13361 //cx q[13],q[14]
 h q[11]; //cycle: 13361 //h q[10]
 t q[11]; //cycle: 13362 //t q[10]
@@ -10964,22 +10964,22 @@ t q[6]; //cycle: 13363 //t q[14]
 t q[1]; //cycle: 13363 //t q[13]
 cx q[1],q[6]; //cycle: 13364 //cx q[13],q[14]
 cx q[11],q[12]; //cycle: 13366 //cx q[10],q[12]
-swp q[7],q[12]; //cycle: 13368
+swap q[7],q[12]; //cycle: 13368
 cx q[12],q[11]; //cycle: 13374 //cx q[11],q[10]
 cx q[7],q[12]; //cycle: 13376 //cx q[12],q[11]
 tdg q[11]; //cycle: 13376 //tdg q[10]
-swp q[6],q[7]; //cycle: 13378
+swap q[6],q[7]; //cycle: 13378
 t q[12]; //cycle: 13378 //t q[11]
 cx q[6],q[11]; //cycle: 13384 //cx q[12],q[10]
 tdg q[6]; //cycle: 13386 //tdg q[12]
 tdg q[11]; //cycle: 13386 //tdg q[10]
 cx q[12],q[11]; //cycle: 13387 //cx q[11],q[10]
-swp q[6],q[7]; //cycle: 13388
+swap q[6],q[7]; //cycle: 13388
 cx q[7],q[12]; //cycle: 13394 //cx q[12],q[11]
 h q[12]; //cycle: 13396 //h q[11]
 t q[12]; //cycle: 13397 //t q[11]
 cx q[12],q[8]; //cycle: 13398 //cx q[11],q[9]
-swp q[2],q[7]; //cycle: 13399
+swap q[2],q[7]; //cycle: 13399
 cx q[7],q[12]; //cycle: 13405 //cx q[15],q[11]
 cx q[8],q[7]; //cycle: 13407 //cx q[9],q[15]
 tdg q[12]; //cycle: 13407 //tdg q[11]
@@ -10989,7 +10989,7 @@ tdg q[8]; //cycle: 13411 //tdg q[9]
 tdg q[12]; //cycle: 13411 //tdg q[11]
 cx q[7],q[12]; //cycle: 13412 //cx q[15],q[11]
 cx q[8],q[7]; //cycle: 13414 //cx q[9],q[15]
-swp q[5],q[6]; //cycle: 13415
+swap q[5],q[6]; //cycle: 13415
 cx q[12],q[8]; //cycle: 13416 //cx q[11],q[9]
 h q[7]; //cycle: 13416 //h q[15]
 t q[7]; //cycle: 13417 //t q[15]
@@ -10997,7 +10997,7 @@ t q[8]; //cycle: 13418 //t q[9]
 t q[12]; //cycle: 13418 //t q[11]
 cx q[12],q[8]; //cycle: 13419 //cx q[11],q[9]
 cx q[7],q[6]; //cycle: 13421 //cx q[15],q[8]
-swp q[2],q[3]; //cycle: 13422
+swap q[2],q[3]; //cycle: 13422
 cx q[2],q[7]; //cycle: 13428 //cx q[5],q[15]
 cx q[6],q[2]; //cycle: 13430 //cx q[8],q[5]
 tdg q[7]; //cycle: 13430 //tdg q[15]
@@ -11013,10 +11013,10 @@ h q[2]; //cycle: 13440 //h q[5]
 t q[2]; //cycle: 13441 //t q[5]
 t q[6]; //cycle: 13441 //t q[8]
 h q[7]; //cycle: 13441 //h q[15]
-swp q[2],q[3]; //cycle: 13442
+swap q[2],q[3]; //cycle: 13442
 t q[7]; //cycle: 13442 //t q[15]
 cx q[7],q[12]; //cycle: 13443 //cx q[15],q[11]
-swp q[6],q[11]; //cycle: 13445
+swap q[6],q[11]; //cycle: 13445
 cx q[8],q[7]; //cycle: 13445 //cx q[9],q[15]
 tdg q[12]; //cycle: 13445 //tdg q[11]
 cx q[8],q[12]; //cycle: 13447 //cx q[9],q[11]
@@ -11036,7 +11036,7 @@ t q[8]; //cycle: 13456 //t q[9]
 t q[7]; //cycle: 13456 //t q[15]
 h q[12]; //cycle: 13456 //h q[11]
 t q[12]; //cycle: 13457 //t q[11]
-swp q[7],q[12]; //cycle: 13458
+swap q[7],q[12]; //cycle: 13458
 cx q[7],q[6]; //cycle: 13464 //cx q[11],q[10]
 cx q[2],q[7]; //cycle: 13466 //cx q[12],q[11]
 tdg q[6]; //cycle: 13466 //tdg q[10]
@@ -11056,13 +11056,13 @@ t q[6]; //cycle: 13478 //t q[10]
 cx q[6],q[1]; //cycle: 13479 //cx q[10],q[13]
 cx q[5],q[6]; //cycle: 13481 //cx q[14],q[10]
 tdg q[1]; //cycle: 13481 //tdg q[13]
-swp q[0],q[5]; //cycle: 13483
+swap q[0],q[5]; //cycle: 13483
 t q[6]; //cycle: 13483 //t q[10]
 cx q[0],q[1]; //cycle: 13489 //cx q[14],q[13]
 tdg q[0]; //cycle: 13491 //tdg q[14]
 tdg q[1]; //cycle: 13491 //tdg q[13]
 cx q[6],q[1]; //cycle: 13492 //cx q[10],q[13]
-swp q[0],q[5]; //cycle: 13493
+swap q[0],q[5]; //cycle: 13493
 cx q[5],q[6]; //cycle: 13499 //cx q[14],q[10]
 h q[6]; //cycle: 13501 //h q[10]
 t q[6]; //cycle: 13502 //t q[10]
@@ -11076,7 +11076,7 @@ tdg q[2]; //cycle: 13511 //tdg q[12]
 tdg q[6]; //cycle: 13511 //tdg q[10]
 cx q[7],q[6]; //cycle: 13512 //cx q[11],q[10]
 cx q[2],q[7]; //cycle: 13514 //cx q[12],q[11]
-swp q[5],q[6]; //cycle: 13515
+swap q[5],q[6]; //cycle: 13515
 h q[7]; //cycle: 13516 //h q[11]
 t q[7]; //cycle: 13517 //t q[11]
 cx q[7],q[8]; //cycle: 13518 //cx q[11],q[9]
@@ -11091,7 +11091,7 @@ t q[12]; //cycle: 13524 //t q[15]
 cx q[1],q[6]; //cycle: 13524 //cx q[13],q[14]
 tdg q[8]; //cycle: 13526 //tdg q[9]
 tdg q[7]; //cycle: 13526 //tdg q[11]
-swp q[5],q[6]; //cycle: 13527
+swap q[5],q[6]; //cycle: 13527
 cx q[12],q[7]; //cycle: 13527 //cx q[15],q[11]
 cx q[8],q[12]; //cycle: 13529 //cx q[9],q[15]
 cx q[7],q[8]; //cycle: 13531 //cx q[11],q[9]
@@ -11107,19 +11107,19 @@ t q[2]; //cycle: 13535 //t q[12]
 t q[6]; //cycle: 13535 //t q[10]
 cx q[6],q[2]; //cycle: 13536 //cx q[10],q[12]
 tdg q[12]; //cycle: 13537 //tdg q[15]
-swp q[11],q[12]; //cycle: 13538
+swap q[11],q[12]; //cycle: 13538
 cx q[12],q[13]; //cycle: 13544 //cx q[8],q[4]
 cx q[12],q[11]; //cycle: 13546 //cx q[8],q[15]
 t q[13]; //cycle: 13546 //t q[4]
 tdg q[12]; //cycle: 13548 //tdg q[8]
 tdg q[11]; //cycle: 13548 //tdg q[15]
-swp q[12],q[13]; //cycle: 13549
+swap q[12],q[13]; //cycle: 13549
 cx q[12],q[11]; //cycle: 13555 //cx q[4],q[15]
 cx q[13],q[12]; //cycle: 13557 //cx q[8],q[4]
 h q[12]; //cycle: 13559 //h q[4]
 h q[12]; //cycle: 13560 //h q[4]
 t q[12]; //cycle: 13561 //t q[4]
-swp q[11],q[12]; //cycle: 13562
+swap q[11],q[12]; //cycle: 13562
 cx q[12],q[13]; //cycle: 13568 //cx q[15],q[8]
 h q[12]; //cycle: 13570 //h q[15]
 t q[13]; //cycle: 13570 //t q[8]
@@ -11159,13 +11159,13 @@ t q[6]; //cycle: 13601 //t q[10]
 cx q[6],q[1]; //cycle: 13602 //cx q[10],q[13]
 cx q[5],q[6]; //cycle: 13604 //cx q[14],q[10]
 tdg q[1]; //cycle: 13604 //tdg q[13]
-swp q[0],q[5]; //cycle: 13606
+swap q[0],q[5]; //cycle: 13606
 t q[6]; //cycle: 13606 //t q[10]
 cx q[0],q[1]; //cycle: 13612 //cx q[14],q[13]
 tdg q[0]; //cycle: 13614 //tdg q[14]
 tdg q[1]; //cycle: 13614 //tdg q[13]
 cx q[6],q[1]; //cycle: 13615 //cx q[10],q[13]
-swp q[0],q[5]; //cycle: 13616
+swap q[0],q[5]; //cycle: 13616
 cx q[5],q[6]; //cycle: 13622 //cx q[14],q[10]
 h q[6]; //cycle: 13624 //h q[10]
 t q[6]; //cycle: 13625 //t q[10]
@@ -11178,7 +11178,7 @@ t q[7]; //cycle: 13632 //t q[11]
 tdg q[2]; //cycle: 13634 //tdg q[12]
 tdg q[6]; //cycle: 13634 //tdg q[10]
 cx q[7],q[6]; //cycle: 13635 //cx q[11],q[10]
-swp q[5],q[6]; //cycle: 13637
+swap q[5],q[6]; //cycle: 13637
 cx q[2],q[7]; //cycle: 13637 //cx q[12],q[11]
 h q[7]; //cycle: 13639 //h q[11]
 t q[7]; //cycle: 13640 //t q[11]
@@ -11196,7 +11196,7 @@ tdg q[8]; //cycle: 13649 //tdg q[9]
 tdg q[7]; //cycle: 13649 //tdg q[11]
 cx q[12],q[7]; //cycle: 13650 //cx q[15],q[11]
 cx q[8],q[12]; //cycle: 13652 //cx q[9],q[15]
-swp q[5],q[6]; //cycle: 13653
+swap q[5],q[6]; //cycle: 13653
 cx q[7],q[8]; //cycle: 13654 //cx q[11],q[9]
 h q[12]; //cycle: 13654 //h q[15]
 t q[12]; //cycle: 13655 //t q[15]
@@ -11207,7 +11207,7 @@ cx q[7],q[8]; //cycle: 13657 //cx q[11],q[9]
 cx q[11],q[12]; //cycle: 13658 //cx q[4],q[15]
 cx q[6],q[2]; //cycle: 13659 //cx q[10],q[12]
 tdg q[12]; //cycle: 13660 //tdg q[15]
-swp q[12],q[13]; //cycle: 13661
+swap q[12],q[13]; //cycle: 13661
 t q[2]; //cycle: 13661 //t q[12]
 t q[6]; //cycle: 13661 //t q[10]
 cx q[6],q[2]; //cycle: 13662 //cx q[10],q[12]
@@ -11216,9 +11216,9 @@ cx q[12],q[13]; //cycle: 13669 //cx q[8],q[15]
 t q[11]; //cycle: 13669 //t q[4]
 tdg q[12]; //cycle: 13671 //tdg q[8]
 tdg q[13]; //cycle: 13671 //tdg q[15]
-swp q[12],q[13]; //cycle: 13672
+swap q[12],q[13]; //cycle: 13672
 cx q[11],q[12]; //cycle: 13678 //cx q[4],q[15]
-swp q[12],q[13]; //cycle: 13680
+swap q[12],q[13]; //cycle: 13680
 cx q[12],q[11]; //cycle: 13686 //cx q[8],q[4]
 cx q[13],q[12]; //cycle: 13688 //cx q[15],q[8]
 h q[11]; //cycle: 13688 //h q[4]
@@ -11261,13 +11261,13 @@ t q[6]; //cycle: 13721 //t q[10]
 cx q[6],q[1]; //cycle: 13722 //cx q[10],q[13]
 cx q[5],q[6]; //cycle: 13724 //cx q[14],q[10]
 tdg q[1]; //cycle: 13724 //tdg q[13]
-swp q[0],q[5]; //cycle: 13726
+swap q[0],q[5]; //cycle: 13726
 t q[6]; //cycle: 13726 //t q[10]
 cx q[0],q[1]; //cycle: 13732 //cx q[14],q[13]
 tdg q[0]; //cycle: 13734 //tdg q[14]
 tdg q[1]; //cycle: 13734 //tdg q[13]
 cx q[6],q[1]; //cycle: 13735 //cx q[10],q[13]
-swp q[0],q[5]; //cycle: 13736
+swap q[0],q[5]; //cycle: 13736
 cx q[5],q[6]; //cycle: 13742 //cx q[14],q[10]
 h q[6]; //cycle: 13744 //h q[10]
 t q[6]; //cycle: 13745 //t q[10]
@@ -11280,7 +11280,7 @@ t q[7]; //cycle: 13752 //t q[11]
 tdg q[2]; //cycle: 13754 //tdg q[12]
 tdg q[6]; //cycle: 13754 //tdg q[10]
 cx q[7],q[6]; //cycle: 13755 //cx q[11],q[10]
-swp q[5],q[6]; //cycle: 13757
+swap q[5],q[6]; //cycle: 13757
 cx q[2],q[7]; //cycle: 13757 //cx q[12],q[11]
 h q[7]; //cycle: 13759 //h q[11]
 t q[7]; //cycle: 13760 //t q[11]
@@ -11294,7 +11294,7 @@ t q[1]; //cycle: 13765 //t q[13]
 cx q[1],q[6]; //cycle: 13766 //cx q[13],q[14]
 cx q[8],q[7]; //cycle: 13767 //cx q[9],q[11]
 t q[13]; //cycle: 13767 //t q[15]
-swp q[5],q[6]; //cycle: 13768
+swap q[5],q[6]; //cycle: 13768
 tdg q[8]; //cycle: 13769 //tdg q[9]
 tdg q[7]; //cycle: 13769 //tdg q[11]
 cx q[13],q[7]; //cycle: 13770 //cx q[15],q[11]
@@ -11310,17 +11310,17 @@ t q[2]; //cycle: 13776 //t q[12]
 t q[6]; //cycle: 13776 //t q[10]
 cx q[7],q[8]; //cycle: 13777 //cx q[11],q[9]
 cx q[6],q[2]; //cycle: 13777 //cx q[10],q[12]
-swp q[12],q[16]; //cycle: 13778
+swap q[12],q[16]; //cycle: 13778
 cx q[12],q[13]; //cycle: 13784 //cx q[3],q[15]
 cx q[16],q[12]; //cycle: 13786 //cx q[8],q[3]
 tdg q[13]; //cycle: 13786 //tdg q[15]
 t q[12]; //cycle: 13788 //t q[3]
-swp q[12],q[13]; //cycle: 13789
+swap q[12],q[13]; //cycle: 13789
 cx q[16],q[12]; //cycle: 13795 //cx q[8],q[15]
 tdg q[16]; //cycle: 13797 //tdg q[8]
 tdg q[12]; //cycle: 13797 //tdg q[15]
 cx q[13],q[12]; //cycle: 13798 //cx q[3],q[15]
-swp q[12],q[16]; //cycle: 13800
+swap q[12],q[16]; //cycle: 13800
 cx q[12],q[13]; //cycle: 13806 //cx q[8],q[3]
 cx q[16],q[12]; //cycle: 13808 //cx q[15],q[8]
 h q[13]; //cycle: 13808 //h q[3]
@@ -11329,7 +11329,7 @@ h q[16]; //cycle: 13810 //h q[15]
 t q[12]; //cycle: 13810 //t q[8]
 t q[13]; //cycle: 13810 //t q[3]
 t q[16]; //cycle: 13811 //t q[15]
-swp q[12],q[16]; //cycle: 13812
+swap q[12],q[16]; //cycle: 13812
 cx q[12],q[7]; //cycle: 13818 //cx q[15],q[11]
 cx q[8],q[12]; //cycle: 13820 //cx q[9],q[15]
 tdg q[7]; //cycle: 13820 //tdg q[11]
@@ -11365,13 +11365,13 @@ t q[6]; //cycle: 13847 //t q[10]
 cx q[6],q[1]; //cycle: 13848 //cx q[10],q[13]
 cx q[5],q[6]; //cycle: 13850 //cx q[14],q[10]
 tdg q[1]; //cycle: 13850 //tdg q[13]
-swp q[0],q[5]; //cycle: 13852
+swap q[0],q[5]; //cycle: 13852
 t q[6]; //cycle: 13852 //t q[10]
 cx q[0],q[1]; //cycle: 13858 //cx q[14],q[13]
 tdg q[0]; //cycle: 13860 //tdg q[14]
 tdg q[1]; //cycle: 13860 //tdg q[13]
 cx q[6],q[1]; //cycle: 13861 //cx q[10],q[13]
-swp q[0],q[5]; //cycle: 13862
+swap q[0],q[5]; //cycle: 13862
 cx q[5],q[6]; //cycle: 13868 //cx q[14],q[10]
 h q[6]; //cycle: 13870 //h q[10]
 t q[6]; //cycle: 13871 //t q[10]
@@ -11384,23 +11384,23 @@ t q[7]; //cycle: 13878 //t q[11]
 tdg q[2]; //cycle: 13880 //tdg q[12]
 tdg q[6]; //cycle: 13880 //tdg q[10]
 cx q[7],q[6]; //cycle: 13881 //cx q[11],q[10]
-swp q[0],q[1]; //cycle: 13883
-swp q[5],q[6]; //cycle: 13883
+swap q[0],q[1]; //cycle: 13883
+swap q[5],q[6]; //cycle: 13883
 cx q[2],q[7]; //cycle: 13883 //cx q[12],q[11]
 h q[7]; //cycle: 13885 //h q[11]
 t q[7]; //cycle: 13886 //t q[11]
 cx q[7],q[8]; //cycle: 13887 //cx q[11],q[9]
 cx q[12],q[7]; //cycle: 13889 //cx q[15],q[11]
-swp q[0],q[5]; //cycle: 13890
-swp q[2],q[6]; //cycle: 13890
+swap q[0],q[5]; //cycle: 13890
+swap q[2],q[6]; //cycle: 13890
 cx q[8],q[12]; //cycle: 13891 //cx q[9],q[15]
 tdg q[7]; //cycle: 13891 //tdg q[11]
 cx q[8],q[7]; //cycle: 13893 //cx q[9],q[11]
 t q[12]; //cycle: 13893 //t q[15]
 tdg q[8]; //cycle: 13895 //tdg q[9]
 tdg q[7]; //cycle: 13895 //tdg q[11]
-swp q[0],q[1]; //cycle: 13896
-swp q[5],q[6]; //cycle: 13896
+swap q[0],q[1]; //cycle: 13896
+swap q[5],q[6]; //cycle: 13896
 cx q[12],q[7]; //cycle: 13896 //cx q[15],q[11]
 cx q[8],q[12]; //cycle: 13898 //cx q[9],q[15]
 cx q[7],q[8]; //cycle: 13900 //cx q[11],q[9]
@@ -11416,16 +11416,16 @@ t q[6]; //cycle: 13904 //t q[13]
 cx q[13],q[12]; //cycle: 13904 //cx q[3],q[15]
 cx q[6],q[2]; //cycle: 13905 //cx q[13],q[14]
 tdg q[12]; //cycle: 13906 //tdg q[15]
-swp q[12],q[16]; //cycle: 13907
-swp q[0],q[1]; //cycle: 13910
-swp q[5],q[6]; //cycle: 13910
+swap q[12],q[16]; //cycle: 13907
+swap q[0],q[1]; //cycle: 13910
+swap q[5],q[6]; //cycle: 13910
 cx q[12],q[13]; //cycle: 13913 //cx q[8],q[3]
 cx q[12],q[16]; //cycle: 13915 //cx q[8],q[15]
 t q[13]; //cycle: 13915 //t q[3]
 tdg q[12]; //cycle: 13917 //tdg q[8]
 tdg q[16]; //cycle: 13917 //tdg q[15]
-swp q[0],q[1]; //cycle: 13918
-swp q[12],q[13]; //cycle: 13918
+swap q[0],q[1]; //cycle: 13918
+swap q[12],q[13]; //cycle: 13918
 cx q[1],q[6]; //cycle: 13924 //cx q[10],q[12]
 cx q[12],q[16]; //cycle: 13924 //cx q[3],q[15]
 t q[6]; //cycle: 13926 //t q[12]
@@ -11434,7 +11434,7 @@ cx q[13],q[12]; //cycle: 13926 //cx q[8],q[3]
 cx q[1],q[6]; //cycle: 13927 //cx q[10],q[12]
 h q[12]; //cycle: 13928 //h q[3]
 t q[12]; //cycle: 13929 //t q[3]
-swp q[12],q[16]; //cycle: 13930
+swap q[12],q[16]; //cycle: 13930
 cx q[12],q[13]; //cycle: 13936 //cx q[15],q[8]
 t q[13]; //cycle: 13938 //t q[8]
 h q[12]; //cycle: 13938 //h q[15]
@@ -11470,7 +11470,7 @@ h q[7]; //cycle: 13967 //h q[11]
 h q[1]; //cycle: 13968 //h q[10]
 t q[6]; //cycle: 13968 //t q[12]
 t q[7]; //cycle: 13968 //t q[11]
-swp q[5],q[6]; //cycle: 13969
+swap q[5],q[6]; //cycle: 13969
 t q[1]; //cycle: 13969 //t q[10]
 cx q[1],q[6]; //cycle: 13975 //cx q[10],q[13]
 cx q[2],q[1]; //cycle: 13977 //cx q[14],q[10]
@@ -11481,7 +11481,7 @@ tdg q[2]; //cycle: 13981 //tdg q[14]
 tdg q[6]; //cycle: 13981 //tdg q[13]
 cx q[1],q[6]; //cycle: 13982 //cx q[10],q[13]
 cx q[2],q[1]; //cycle: 13984 //cx q[14],q[10]
-swp q[5],q[6]; //cycle: 13985
+swap q[5],q[6]; //cycle: 13985
 h q[1]; //cycle: 13986 //h q[10]
 t q[1]; //cycle: 13987 //t q[10]
 cx q[1],q[6]; //cycle: 13991 //cx q[10],q[12]
@@ -11497,12 +11497,12 @@ cx q[6],q[7]; //cycle: 14002 //cx q[12],q[11]
 cx q[1],q[6]; //cycle: 14004 //cx q[10],q[12]
 h q[7]; //cycle: 14004 //h q[11]
 t q[7]; //cycle: 14005 //t q[11]
-swp q[3],q[4]; //cycle: 14006
-swp q[11],q[16]; //cycle: 14006
+swap q[3],q[4]; //cycle: 14006
+swap q[11],q[16]; //cycle: 14006
 cx q[7],q[8]; //cycle: 14006 //cx q[11],q[9]
 t q[1]; //cycle: 14006 //t q[10]
 t q[6]; //cycle: 14006 //t q[12]
-swp q[5],q[6]; //cycle: 14007
+swap q[5],q[6]; //cycle: 14007
 cx q[12],q[7]; //cycle: 14008 //cx q[15],q[11]
 cx q[8],q[12]; //cycle: 14010 //cx q[9],q[15]
 tdg q[7]; //cycle: 14010 //tdg q[11]
@@ -11517,28 +11517,28 @@ t q[2]; //cycle: 14015 //t q[14]
 t q[6]; //cycle: 14015 //t q[13]
 cx q[6],q[2]; //cycle: 14016 //cx q[13],q[14]
 cx q[8],q[12]; //cycle: 14017 //cx q[9],q[15]
-swp q[2],q[3]; //cycle: 14018
+swap q[2],q[3]; //cycle: 14018
 cx q[7],q[8]; //cycle: 14019 //cx q[11],q[9]
 h q[12]; //cycle: 14019 //h q[15]
 t q[12]; //cycle: 14020 //t q[15]
 cx q[12],q[13]; //cycle: 14021 //cx q[15],q[8]
 t q[8]; //cycle: 14021 //t q[9]
 t q[7]; //cycle: 14021 //t q[11]
-swp q[0],q[1]; //cycle: 14022
-swp q[4],q[8]; //cycle: 14022
+swap q[0],q[1]; //cycle: 14022
+swap q[4],q[8]; //cycle: 14022
 cx q[8],q[12]; //cycle: 14028 //cx q[5],q[15]
-swp q[1],q[7]; //cycle: 14029
-swp q[3],q[4]; //cycle: 14029
+swap q[1],q[7]; //cycle: 14029
+swap q[3],q[4]; //cycle: 14029
 cx q[13],q[8]; //cycle: 14030 //cx q[8],q[5]
 tdg q[12]; //cycle: 14030 //tdg q[15]
-swp q[11],q[16]; //cycle: 14031
+swap q[11],q[16]; //cycle: 14031
 cx q[13],q[12]; //cycle: 14032 //cx q[8],q[15]
 t q[8]; //cycle: 14032 //t q[5]
 tdg q[13]; //cycle: 14034 //tdg q[8]
 tdg q[12]; //cycle: 14034 //tdg q[15]
-swp q[2],q[3]; //cycle: 14035
+swap q[2],q[3]; //cycle: 14035
 cx q[8],q[12]; //cycle: 14035 //cx q[5],q[15]
-swp q[6],q[11]; //cycle: 14037
+swap q[6],q[11]; //cycle: 14037
 cx q[13],q[8]; //cycle: 14037 //cx q[8],q[5]
 cx q[12],q[13]; //cycle: 14039 //cx q[15],q[8]
 h q[8]; //cycle: 14039 //h q[5]
@@ -11550,19 +11550,19 @@ t q[8]; //cycle: 14041 //t q[5]
 t q[12]; //cycle: 14042 //t q[15]
 cx q[12],q[7]; //cycle: 14043 //cx q[15],q[7]
 cx q[6],q[1]; //cycle: 14043 //cx q[4],q[11]
-swp q[2],q[3]; //cycle: 14044
-swp q[0],q[1]; //cycle: 14045
-swp q[8],q[12]; //cycle: 14045
+swap q[2],q[3]; //cycle: 14044
+swap q[0],q[1]; //cycle: 14045
+swap q[8],q[12]; //cycle: 14045
 tdg q[7]; //cycle: 14045 //tdg q[7]
 cx q[3],q[8]; //cycle: 14051 //cx q[9],q[15]
 cx q[2],q[1]; //cycle: 14051 //cx q[6],q[10]
-swp q[2],q[3]; //cycle: 14053
+swap q[2],q[3]; //cycle: 14053
 t q[8]; //cycle: 14053 //t q[15]
 cx q[2],q[7]; //cycle: 14059 //cx q[9],q[7]
 tdg q[2]; //cycle: 14061 //tdg q[9]
 tdg q[7]; //cycle: 14061 //tdg q[7]
 cx q[8],q[7]; //cycle: 14062 //cx q[15],q[7]
-swp q[2],q[7]; //cycle: 14064
+swap q[2],q[7]; //cycle: 14064
 cx q[7],q[8]; //cycle: 14070 //cx q[9],q[15]
 cx q[2],q[7]; //cycle: 14072 //cx q[7],q[9]
 h q[8]; //cycle: 14072 //h q[15]
@@ -11575,12 +11575,12 @@ cx q[2],q[3]; //cycle: 14076 //cx q[7],q[6]
 cx q[1],q[2]; //cycle: 14078 //cx q[10],q[7]
 tdg q[3]; //cycle: 14078 //tdg q[6]
 t q[2]; //cycle: 14080 //t q[7]
-swp q[2],q[3]; //cycle: 14081
+swap q[2],q[3]; //cycle: 14081
 cx q[1],q[2]; //cycle: 14087 //cx q[10],q[6]
 tdg q[1]; //cycle: 14089 //tdg q[10]
 tdg q[2]; //cycle: 14089 //tdg q[6]
 cx q[3],q[2]; //cycle: 14090 //cx q[7],q[6]
-swp q[1],q[2]; //cycle: 14092
+swap q[1],q[2]; //cycle: 14092
 cx q[2],q[3]; //cycle: 14098 //cx q[10],q[7]
 cx q[1],q[2]; //cycle: 14100 //cx q[6],q[10]
 h q[3]; //cycle: 14100 //h q[7]
@@ -11592,25 +11592,25 @@ t q[1]; //cycle: 14103 //t q[6]
 cx q[1],q[6]; //cycle: 14104 //cx q[6],q[4]
 cx q[0],q[1]; //cycle: 14106 //cx q[11],q[6]
 tdg q[6]; //cycle: 14106 //tdg q[4]
-swp q[0],q[5]; //cycle: 14108
+swap q[0],q[5]; //cycle: 14108
 t q[1]; //cycle: 14108 //t q[6]
 cx q[5],q[6]; //cycle: 14114 //cx q[11],q[4]
 tdg q[5]; //cycle: 14116 //tdg q[11]
 tdg q[6]; //cycle: 14116 //tdg q[4]
 cx q[1],q[6]; //cycle: 14117 //cx q[6],q[4]
-swp q[0],q[5]; //cycle: 14118
+swap q[0],q[5]; //cycle: 14118
 cx q[0],q[1]; //cycle: 14124 //cx q[11],q[6]
-swp q[0],q[5]; //cycle: 14126
+swap q[0],q[5]; //cycle: 14126
 h q[1]; //cycle: 14126 //h q[6]
 h q[1]; //cycle: 14127 //h q[6]
 t q[1]; //cycle: 14128 //t q[6]
 cx q[6],q[5]; //cycle: 14132 //cx q[4],q[11]
-swp q[11],q[16]; //cycle: 14133
+swap q[11],q[16]; //cycle: 14133
 h q[6]; //cycle: 14134 //h q[4]
 t q[5]; //cycle: 14134 //t q[11]
 t q[6]; //cycle: 14135 //t q[4]
 cx q[6],q[11]; //cycle: 14139 //cx q[4],q[3]
-swp q[0],q[5]; //cycle: 14140
+swap q[0],q[5]; //cycle: 14140
 tdg q[11]; //cycle: 14141 //tdg q[3]
 cx q[5],q[6]; //cycle: 14146 //cx q[12],q[4]
 cx q[5],q[11]; //cycle: 14148 //cx q[12],q[3]
@@ -11627,9 +11627,9 @@ t q[5]; //cycle: 14157 //t q[12]
 t q[6]; //cycle: 14157 //t q[4]
 t q[11]; //cycle: 14158 //t q[3]
 cx q[11],q[16]; //cycle: 14159 //cx q[3],q[13]
-swp q[4],q[8]; //cycle: 14160
+swap q[4],q[8]; //cycle: 14160
 tdg q[16]; //cycle: 14161 //tdg q[13]
-swp q[8],q[12]; //cycle: 14166
+swap q[8],q[12]; //cycle: 14166
 cx q[12],q[11]; //cycle: 14172 //cx q[14],q[3]
 cx q[12],q[16]; //cycle: 14174 //cx q[14],q[13]
 t q[11]; //cycle: 14174 //t q[3]
@@ -11656,27 +11656,27 @@ cx q[5],q[6]; //cycle: 14194 //cx q[12],q[4]
 cx q[11],q[5]; //cycle: 14196 //cx q[3],q[12]
 h q[6]; //cycle: 14196 //h q[4]
 t q[6]; //cycle: 14197 //t q[4]
-swp q[1],q[6]; //cycle: 14198
+swap q[1],q[6]; //cycle: 14198
 t q[5]; //cycle: 14198 //t q[12]
 t q[11]; //cycle: 14198 //t q[3]
 cx q[11],q[5]; //cycle: 14199 //cx q[3],q[12]
 cx q[1],q[0]; //cycle: 14204 //cx q[4],q[11]
 cx q[6],q[1]; //cycle: 14206 //cx q[6],q[4]
 tdg q[1]; //cycle: 14208 //tdg q[4]
-swp q[0],q[1]; //cycle: 14209
+swap q[0],q[1]; //cycle: 14209
 cx q[1],q[6]; //cycle: 14215 //cx q[11],q[6]
 cx q[1],q[0]; //cycle: 14217 //cx q[11],q[4]
 t q[6]; //cycle: 14217 //t q[6]
 tdg q[1]; //cycle: 14219 //tdg q[11]
 tdg q[0]; //cycle: 14219 //tdg q[4]
-swp q[0],q[5]; //cycle: 14220
+swap q[0],q[5]; //cycle: 14220
 cx q[6],q[5]; //cycle: 14226 //cx q[6],q[4]
 cx q[1],q[6]; //cycle: 14228 //cx q[11],q[6]
 h q[6]; //cycle: 14230 //h q[6]
 t q[6]; //cycle: 14231 //t q[6]
 cx q[6],q[2]; //cycle: 14232 //cx q[6],q[10]
-swp q[0],q[1]; //cycle: 14233
-swp q[2],q[3]; //cycle: 14234
+swap q[0],q[1]; //cycle: 14233
+swap q[2],q[3]; //cycle: 14234
 cx q[5],q[0]; //cycle: 14239 //cx q[4],q[11]
 cx q[2],q[6]; //cycle: 14240 //cx q[7],q[6]
 t q[0]; //cycle: 14241 //t q[11]
@@ -11685,12 +11685,12 @@ cx q[3],q[2]; //cycle: 14242 //cx q[10],q[7]
 tdg q[6]; //cycle: 14242 //tdg q[6]
 cx q[5],q[0]; //cycle: 14242 //cx q[4],q[11]
 t q[2]; //cycle: 14244 //t q[7]
-swp q[2],q[6]; //cycle: 14245
+swap q[2],q[6]; //cycle: 14245
 cx q[3],q[2]; //cycle: 14251 //cx q[10],q[6]
 tdg q[3]; //cycle: 14253 //tdg q[10]
 tdg q[2]; //cycle: 14253 //tdg q[6]
 cx q[6],q[2]; //cycle: 14254 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 14256
+swap q[2],q[3]; //cycle: 14256
 cx q[2],q[6]; //cycle: 14262 //cx q[10],q[7]
 cx q[3],q[2]; //cycle: 14264 //cx q[6],q[10]
 h q[6]; //cycle: 14264 //h q[7]
@@ -11698,31 +11698,31 @@ t q[6]; //cycle: 14265 //t q[7]
 cx q[6],q[7]; //cycle: 14266 //cx q[7],q[9]
 t q[2]; //cycle: 14266 //t q[10]
 t q[3]; //cycle: 14266 //t q[6]
-swp q[4],q[8]; //cycle: 14267
+swap q[4],q[8]; //cycle: 14267
 cx q[3],q[2]; //cycle: 14267 //cx q[6],q[10]
-swp q[6],q[7]; //cycle: 14268
+swap q[6],q[7]; //cycle: 14268
 cx q[8],q[7]; //cycle: 14274 //cx q[15],q[7]
 tdg q[7]; //cycle: 14276 //tdg q[7]
-swp q[6],q[7]; //cycle: 14277
+swap q[6],q[7]; //cycle: 14277
 cx q[7],q[8]; //cycle: 14283 //cx q[9],q[15]
 cx q[7],q[6]; //cycle: 14285 //cx q[9],q[7]
 t q[8]; //cycle: 14285 //t q[15]
 tdg q[7]; //cycle: 14287 //tdg q[9]
 tdg q[6]; //cycle: 14287 //tdg q[7]
-swp q[7],q[8]; //cycle: 14288
+swap q[7],q[8]; //cycle: 14288
 cx q[7],q[6]; //cycle: 14294 //cx q[15],q[7]
 cx q[8],q[7]; //cycle: 14296 //cx q[9],q[15]
 h q[7]; //cycle: 14298 //h q[15]
 t q[7]; //cycle: 14299 //t q[15]
 cx q[7],q[13]; //cycle: 14300 //cx q[15],q[8]
-swp q[4],q[8]; //cycle: 14301
-swp q[3],q[4]; //cycle: 14307
+swap q[4],q[8]; //cycle: 14301
+swap q[3],q[4]; //cycle: 14307
 cx q[8],q[7]; //cycle: 14307 //cx q[5],q[15]
 cx q[13],q[8]; //cycle: 14309 //cx q[8],q[5]
 tdg q[7]; //cycle: 14309 //tdg q[15]
 cx q[13],q[7]; //cycle: 14311 //cx q[8],q[15]
 t q[8]; //cycle: 14311 //t q[5]
-swp q[2],q[3]; //cycle: 14313
+swap q[2],q[3]; //cycle: 14313
 tdg q[13]; //cycle: 14313 //tdg q[8]
 tdg q[7]; //cycle: 14313 //tdg q[15]
 cx q[8],q[7]; //cycle: 14314 //cx q[5],q[15]
@@ -11753,9 +11753,9 @@ t q[2]; //cycle: 14337 //t q[9]
 t q[7]; //cycle: 14337 //t q[15]
 h q[6]; //cycle: 14337 //h q[7]
 t q[6]; //cycle: 14338 //t q[7]
-swp q[3],q[4]; //cycle: 14339
-swp q[6],q[7]; //cycle: 14339
-swp q[7],q[8]; //cycle: 14345
+swap q[3],q[4]; //cycle: 14339
+swap q[6],q[7]; //cycle: 14339
+swap q[7],q[8]; //cycle: 14345
 cx q[8],q[3]; //cycle: 14351 //cx q[7],q[6]
 cx q[4],q[8]; //cycle: 14353 //cx q[10],q[7]
 tdg q[3]; //cycle: 14353 //tdg q[6]
@@ -11767,15 +11767,15 @@ cx q[8],q[3]; //cycle: 14358 //cx q[7],q[6]
 cx q[4],q[8]; //cycle: 14360 //cx q[10],q[7]
 cx q[3],q[4]; //cycle: 14362 //cx q[6],q[10]
 h q[8]; //cycle: 14362 //h q[7]
-swp q[5],q[6]; //cycle: 14363
+swap q[5],q[6]; //cycle: 14363
 h q[8]; //cycle: 14363 //h q[7]
 t q[4]; //cycle: 14364 //t q[10]
 t q[8]; //cycle: 14364 //t q[7]
 h q[3]; //cycle: 14364 //h q[6]
 t q[3]; //cycle: 14365 //t q[6]
-swp q[2],q[3]; //cycle: 14366
+swap q[2],q[3]; //cycle: 14366
 cx q[2],q[6]; //cycle: 14372 //cx q[6],q[4]
-swp q[0],q[1]; //cycle: 14373
+swap q[0],q[1]; //cycle: 14373
 tdg q[6]; //cycle: 14374 //tdg q[4]
 cx q[1],q[2]; //cycle: 14379 //cx q[11],q[6]
 cx q[1],q[6]; //cycle: 14381 //cx q[11],q[4]
@@ -11792,7 +11792,7 @@ t q[2]; //cycle: 14390 //t q[6]
 h q[6]; //cycle: 14390 //h q[4]
 t q[6]; //cycle: 14391 //t q[4]
 cx q[6],q[11]; //cycle: 14392 //cx q[4],q[3]
-swp q[0],q[5]; //cycle: 14393
+swap q[0],q[5]; //cycle: 14393
 tdg q[11]; //cycle: 14394 //tdg q[3]
 cx q[5],q[6]; //cycle: 14399 //cx q[12],q[4]
 cx q[5],q[11]; //cycle: 14401 //cx q[12],q[3]
@@ -11823,7 +11823,7 @@ t q[11]; //cycle: 14424 //t q[3]
 t q[16]; //cycle: 14425 //t q[13]
 t q[12]; //cycle: 14425 //t q[14]
 cx q[11],q[5]; //cycle: 14425 //cx q[3],q[12]
-swp q[12],q[16]; //cycle: 14426
+swap q[12],q[16]; //cycle: 14426
 cx q[6],q[11]; //cycle: 14427 //cx q[4],q[3]
 tdg q[11]; //cycle: 14429 //tdg q[3]
 cx q[5],q[6]; //cycle: 14429 //cx q[12],q[4]
@@ -11831,7 +11831,7 @@ cx q[5],q[11]; //cycle: 14431 //cx q[12],q[3]
 t q[6]; //cycle: 14431 //t q[4]
 tdg q[5]; //cycle: 14433 //tdg q[12]
 tdg q[11]; //cycle: 14433 //tdg q[3]
-swp q[8],q[12]; //cycle: 14434
+swap q[8],q[12]; //cycle: 14434
 cx q[6],q[11]; //cycle: 14434 //cx q[4],q[3]
 cx q[5],q[6]; //cycle: 14436 //cx q[12],q[4]
 cx q[11],q[5]; //cycle: 14438 //cx q[3],q[12]
@@ -11851,18 +11851,18 @@ tdg q[1]; //cycle: 14448 //tdg q[11]
 tdg q[6]; //cycle: 14448 //tdg q[4]
 cx q[2],q[6]; //cycle: 14449 //cx q[6],q[4]
 cx q[1],q[2]; //cycle: 14451 //cx q[11],q[6]
-swp q[3],q[4]; //cycle: 14452
+swap q[3],q[4]; //cycle: 14452
 cx q[6],q[1]; //cycle: 14453 //cx q[4],q[11]
 h q[2]; //cycle: 14453 //h q[6]
 t q[2]; //cycle: 14454 //t q[6]
 t q[6]; //cycle: 14455 //t q[4]
 t q[1]; //cycle: 14455 //t q[11]
-swp q[6],q[11]; //cycle: 14456
+swap q[6],q[11]; //cycle: 14456
 cx q[2],q[3]; //cycle: 14458 //cx q[6],q[10]
-swp q[2],q[7]; //cycle: 14460
+swap q[2],q[7]; //cycle: 14460
 cx q[6],q[1]; //cycle: 14462 //cx q[3],q[11]
 cx q[12],q[7]; //cycle: 14466 //cx q[7],q[6]
-swp q[3],q[8]; //cycle: 14467
+swap q[3],q[8]; //cycle: 14467
 tdg q[7]; //cycle: 14468 //tdg q[6]
 cx q[8],q[12]; //cycle: 14473 //cx q[10],q[7]
 cx q[8],q[7]; //cycle: 14475 //cx q[10],q[6]
@@ -11876,11 +11876,11 @@ h q[12]; //cycle: 14482 //h q[7]
 t q[12]; //cycle: 14483 //t q[7]
 h q[7]; //cycle: 14484 //h q[6]
 t q[8]; //cycle: 14484 //t q[10]
-swp q[4],q[8]; //cycle: 14485
+swap q[4],q[8]; //cycle: 14485
 t q[7]; //cycle: 14485 //t q[6]
 cx q[12],q[8]; //cycle: 14491 //cx q[7],q[9]
-swp q[0],q[1]; //cycle: 14492
-swp q[1],q[7]; //cycle: 14498
+swap q[0],q[1]; //cycle: 14492
+swap q[1],q[7]; //cycle: 14498
 cx q[7],q[12]; //cycle: 14504 //cx q[15],q[7]
 cx q[8],q[7]; //cycle: 14506 //cx q[9],q[15]
 tdg q[12]; //cycle: 14506 //tdg q[7]
@@ -11893,14 +11893,14 @@ cx q[8],q[7]; //cycle: 14513 //cx q[9],q[15]
 cx q[12],q[8]; //cycle: 14515 //cx q[7],q[9]
 h q[7]; //cycle: 14515 //h q[15]
 t q[7]; //cycle: 14516 //t q[15]
-swp q[2],q[3]; //cycle: 14517
+swap q[2],q[3]; //cycle: 14517
 t q[12]; //cycle: 14517 //t q[7]
 t q[8]; //cycle: 14517 //t q[9]
-swp q[4],q[8]; //cycle: 14518
+swap q[4],q[8]; //cycle: 14518
 cx q[12],q[13]; //cycle: 14518 //cx q[7],q[8]
-swp q[1],q[7]; //cycle: 14519
+swap q[1],q[7]; //cycle: 14519
 cx q[3],q[4]; //cycle: 14524 //cx q[5],q[9]
-swp q[1],q[6]; //cycle: 14525
+swap q[1],q[6]; //cycle: 14525
 cx q[7],q[12]; //cycle: 14525 //cx q[6],q[7]
 cx q[13],q[7]; //cycle: 14527 //cx q[8],q[6]
 tdg q[12]; //cycle: 14527 //tdg q[7]
@@ -11912,38 +11912,38 @@ cx q[7],q[12]; //cycle: 14532 //cx q[6],q[7]
 cx q[13],q[7]; //cycle: 14534 //cx q[8],q[6]
 cx q[12],q[13]; //cycle: 14536 //cx q[7],q[8]
 h q[7]; //cycle: 14536 //h q[6]
-swp q[3],q[8]; //cycle: 14537
+swap q[3],q[8]; //cycle: 14537
 h q[7]; //cycle: 14537 //h q[6]
 t q[13]; //cycle: 14538 //t q[8]
 t q[7]; //cycle: 14538 //t q[6]
 h q[12]; //cycle: 14538 //h q[7]
 t q[12]; //cycle: 14539 //t q[7]
-swp q[2],q[3]; //cycle: 14543
+swap q[2],q[3]; //cycle: 14543
 cx q[12],q[8]; //cycle: 14543 //cx q[7],q[5]
-swp q[11],q[16]; //cycle: 14545
+swap q[11],q[16]; //cycle: 14545
 tdg q[8]; //cycle: 14545 //tdg q[5]
-swp q[4],q[8]; //cycle: 14546
+swap q[4],q[8]; //cycle: 14546
 cx q[11],q[6]; //cycle: 14551 //cx q[14],q[15]
 cx q[8],q[12]; //cycle: 14552 //cx q[9],q[7]
-swp q[2],q[6]; //cycle: 14553
+swap q[2],q[6]; //cycle: 14553
 cx q[8],q[4]; //cycle: 14554 //cx q[9],q[5]
 t q[12]; //cycle: 14554 //t q[7]
 tdg q[8]; //cycle: 14556 //tdg q[9]
 tdg q[4]; //cycle: 14556 //tdg q[5]
-swp q[8],q[12]; //cycle: 14557
-swp q[6],q[11]; //cycle: 14560
+swap q[8],q[12]; //cycle: 14557
+swap q[6],q[11]; //cycle: 14560
 cx q[8],q[4]; //cycle: 14563 //cx q[7],q[5]
 cx q[12],q[8]; //cycle: 14565 //cx q[9],q[7]
 cx q[16],q[11]; //cycle: 14566 //cx q[4],q[10]
 h q[8]; //cycle: 14567 //h q[7]
 h q[8]; //cycle: 14568 //h q[7]
 t q[8]; //cycle: 14569 //t q[7]
-swp q[4],q[8]; //cycle: 14570
+swap q[4],q[8]; //cycle: 14570
 cx q[8],q[12]; //cycle: 14576 //cx q[5],q[9]
 t q[12]; //cycle: 14578 //t q[9]
 h q[8]; //cycle: 14578 //h q[5]
 t q[8]; //cycle: 14579 //t q[5]
-swp q[8],q[12]; //cycle: 14580
+swap q[8],q[12]; //cycle: 14580
 cx q[12],q[16]; //cycle: 14586 //cx q[5],q[4]
 cx q[11],q[12]; //cycle: 14588 //cx q[10],q[5]
 tdg q[16]; //cycle: 14588 //tdg q[4]
@@ -11960,10 +11960,10 @@ t q[11]; //cycle: 14599 //t q[10]
 t q[12]; //cycle: 14599 //t q[5]
 h q[16]; //cycle: 14599 //h q[4]
 t q[16]; //cycle: 14600 //t q[4]
-swp q[1],q[6]; //cycle: 14601
-swp q[11],q[16]; //cycle: 14601
+swap q[1],q[6]; //cycle: 14601
+swap q[11],q[16]; //cycle: 14601
 cx q[11],q[6]; //cycle: 14607 //cx q[4],q[3]
-swp q[0],q[5]; //cycle: 14608
+swap q[0],q[5]; //cycle: 14608
 tdg q[6]; //cycle: 14609 //tdg q[3]
 cx q[5],q[11]; //cycle: 14614 //cx q[11],q[4]
 cx q[5],q[6]; //cycle: 14616 //cx q[11],q[3]
@@ -11980,7 +11980,7 @@ t q[11]; //cycle: 14625 //t q[4]
 h q[6]; //cycle: 14625 //h q[3]
 t q[6]; //cycle: 14626 //t q[3]
 cx q[6],q[10]; //cycle: 14627 //cx q[3],q[2]
-swp q[0],q[5]; //cycle: 14628
+swap q[0],q[5]; //cycle: 14628
 tdg q[10]; //cycle: 14629 //tdg q[2]
 cx q[5],q[6]; //cycle: 14634 //cx q[12],q[3]
 cx q[5],q[10]; //cycle: 14636 //cx q[12],q[2]
@@ -11991,16 +11991,16 @@ cx q[6],q[10]; //cycle: 14639 //cx q[3],q[2]
 cx q[5],q[6]; //cycle: 14641 //cx q[12],q[3]
 cx q[10],q[5]; //cycle: 14643 //cx q[2],q[12]
 h q[6]; //cycle: 14643 //h q[3]
-swp q[8],q[9]; //cycle: 14644
+swap q[8],q[9]; //cycle: 14644
 h q[6]; //cycle: 14644 //h q[3]
 t q[5]; //cycle: 14645 //t q[12]
 t q[6]; //cycle: 14645 //t q[3]
 h q[10]; //cycle: 14645 //h q[2]
 t q[10]; //cycle: 14646 //t q[2]
-swp q[6],q[10]; //cycle: 14650
-swp q[7],q[8]; //cycle: 14650
+swap q[6],q[10]; //cycle: 14650
+swap q[7],q[8]; //cycle: 14650
 cx q[6],q[7]; //cycle: 14656 //cx q[2],q[1]
-swp q[2],q[3]; //cycle: 14657
+swap q[2],q[3]; //cycle: 14657
 tdg q[7]; //cycle: 14658 //tdg q[1]
 cx q[2],q[6]; //cycle: 14663 //cx q[13],q[2]
 cx q[2],q[7]; //cycle: 14665 //cx q[13],q[1]
@@ -12017,7 +12017,7 @@ t q[6]; //cycle: 14674 //t q[2]
 h q[7]; //cycle: 14674 //h q[1]
 t q[7]; //cycle: 14675 //t q[1]
 cx q[7],q[1]; //cycle: 14676 //cx q[1],q[14]
-swp q[2],q[3]; //cycle: 14677
+swap q[2],q[3]; //cycle: 14677
 tdg q[1]; //cycle: 14678 //tdg q[14]
 cx q[2],q[7]; //cycle: 14683 //cx q[15],q[1]
 cx q[2],q[1]; //cycle: 14685 //cx q[15],q[14]
@@ -12032,7 +12032,7 @@ t q[7]; //cycle: 14693 //t q[1]
 t q[2]; //cycle: 14694 //t q[15]
 t q[1]; //cycle: 14694 //t q[14]
 cx q[1],q[2]; //cycle: 14695 //cx q[14],q[15]
-swp q[2],q[3]; //cycle: 14697
+swap q[2],q[3]; //cycle: 14697
 cx q[7],q[2]; //cycle: 14703 //cx q[1],q[13]
 cx q[6],q[7]; //cycle: 14705 //cx q[2],q[1]
 cx q[2],q[6]; //cycle: 14707 //cx q[13],q[2]
@@ -12065,7 +12065,7 @@ t q[10]; //cycle: 14732 //t q[3]
 t q[5]; //cycle: 14733 //t q[12]
 t q[6]; //cycle: 14733 //t q[2]
 cx q[6],q[5]; //cycle: 14734 //cx q[2],q[12]
-swp q[0],q[5]; //cycle: 14736
+swap q[0],q[5]; //cycle: 14736
 cx q[10],q[5]; //cycle: 14742 //cx q[3],q[11]
 cx q[11],q[10]; //cycle: 14744 //cx q[4],q[3]
 cx q[5],q[11]; //cycle: 14746 //cx q[11],q[4]
@@ -12095,7 +12095,7 @@ cx q[16],q[12]; //cycle: 14768 //cx q[10],q[5]
 cx q[11],q[16]; //cycle: 14770 //cx q[4],q[10]
 h q[12]; //cycle: 14770 //h q[5]
 t q[12]; //cycle: 14771 //t q[5]
-swp q[8],q[12]; //cycle: 14772
+swap q[8],q[12]; //cycle: 14772
 t q[16]; //cycle: 14772 //t q[10]
 t q[11]; //cycle: 14772 //t q[4]
 cx q[11],q[16]; //cycle: 14773 //cx q[4],q[10]
@@ -12115,7 +12115,7 @@ t q[4]; //cycle: 14792 //t q[7]
 t q[9]; //cycle: 14793 //t q[9]
 t q[8]; //cycle: 14793 //t q[5]
 cx q[8],q[9]; //cycle: 14794 //cx q[5],q[9]
-swp q[4],q[8]; //cycle: 14796
+swap q[4],q[8]; //cycle: 14796
 cx q[8],q[13]; //cycle: 14802 //cx q[7],q[8]
 cx q[12],q[8]; //cycle: 14804 //cx q[6],q[7]
 cx q[13],q[12]; //cycle: 14806 //cx q[8],q[6]
@@ -12148,8 +12148,8 @@ t q[9]; //cycle: 14832 //t q[9]
 t q[8]; //cycle: 14832 //t q[7]
 h q[4]; //cycle: 14832 //h q[5]
 t q[4]; //cycle: 14833 //t q[5]
-swp q[4],q[8]; //cycle: 14834
-swp q[8],q[12]; //cycle: 14840
+swap q[4],q[8]; //cycle: 14834
+swap q[8],q[12]; //cycle: 14840
 cx q[12],q[11]; //cycle: 14846 //cx q[5],q[4]
 cx q[16],q[12]; //cycle: 14848 //cx q[10],q[5]
 tdg q[11]; //cycle: 14848 //tdg q[4]
@@ -12183,7 +12183,7 @@ t q[11]; //cycle: 14874 //t q[4]
 h q[10]; //cycle: 14874 //h q[3]
 t q[10]; //cycle: 14875 //t q[3]
 cx q[10],q[6]; //cycle: 14876 //cx q[3],q[2]
-swp q[0],q[5]; //cycle: 14877
+swap q[0],q[5]; //cycle: 14877
 tdg q[6]; //cycle: 14878 //tdg q[2]
 cx q[5],q[10]; //cycle: 14883 //cx q[12],q[3]
 cx q[5],q[6]; //cycle: 14885 //cx q[12],q[2]
@@ -12216,7 +12216,7 @@ t q[2]; //cycle: 14909 //t q[13]
 t q[6]; //cycle: 14909 //t q[2]
 t q[7]; //cycle: 14910 //t q[1]
 cx q[7],q[1]; //cycle: 14911 //cx q[1],q[14]
-swp q[2],q[3]; //cycle: 14912
+swap q[2],q[3]; //cycle: 14912
 tdg q[1]; //cycle: 14913 //tdg q[14]
 cx q[2],q[7]; //cycle: 14918 //cx q[15],q[1]
 cx q[2],q[1]; //cycle: 14920 //cx q[15],q[14]
@@ -12231,7 +12231,7 @@ t q[7]; //cycle: 14928 //t q[1]
 t q[2]; //cycle: 14929 //t q[15]
 t q[1]; //cycle: 14929 //t q[14]
 cx q[1],q[2]; //cycle: 14930 //cx q[14],q[15]
-swp q[2],q[3]; //cycle: 14932
+swap q[2],q[3]; //cycle: 14932
 cx q[7],q[2]; //cycle: 14938 //cx q[1],q[13]
 cx q[6],q[7]; //cycle: 14940 //cx q[2],q[1]
 cx q[2],q[6]; //cycle: 14942 //cx q[13],q[2]
@@ -12262,7 +12262,7 @@ h q[10]; //cycle: 14966 //h q[3]
 t q[10]; //cycle: 14967 //t q[3]
 t q[6]; //cycle: 14968 //t q[2]
 t q[5]; //cycle: 14968 //t q[12]
-swp q[0],q[5]; //cycle: 14969
+swap q[0],q[5]; //cycle: 14969
 cx q[10],q[5]; //cycle: 14975 //cx q[3],q[11]
 cx q[11],q[10]; //cycle: 14977 //cx q[4],q[3]
 cx q[5],q[11]; //cycle: 14979 //cx q[11],q[4]
@@ -12279,11 +12279,11 @@ t q[11]; //cycle: 14989 //t q[4]
 cx q[11],q[16]; //cycle: 14990 //cx q[4],q[10]
 t q[5]; //cycle: 14990 //t q[11]
 t q[10]; //cycle: 14990 //t q[3]
-swp q[5],q[6]; //cycle: 14992
+swap q[5],q[6]; //cycle: 14992
 cx q[12],q[11]; //cycle: 14992 //cx q[5],q[4]
 cx q[16],q[12]; //cycle: 14994 //cx q[10],q[5]
 tdg q[11]; //cycle: 14994 //tdg q[4]
-swp q[7],q[13]; //cycle: 14995
+swap q[7],q[13]; //cycle: 14995
 cx q[16],q[11]; //cycle: 14996 //cx q[10],q[4]
 t q[12]; //cycle: 14996 //t q[5]
 tdg q[16]; //cycle: 14998 //tdg q[10]
@@ -12291,40 +12291,40 @@ tdg q[11]; //cycle: 14998 //tdg q[4]
 cx q[12],q[11]; //cycle: 14999 //cx q[5],q[4]
 cx q[16],q[12]; //cycle: 15001 //cx q[10],q[5]
 cx q[6],q[7]; //cycle: 15001 //cx q[11],q[8]
-swp q[8],q[9]; //cycle: 15002
-swp q[2],q[6]; //cycle: 15003
+swap q[8],q[9]; //cycle: 15002
+swap q[2],q[6]; //cycle: 15003
 cx q[11],q[16]; //cycle: 15003 //cx q[4],q[10]
 h q[12]; //cycle: 15003 //h q[5]
-swp q[0],q[5]; //cycle: 15004
+swap q[0],q[5]; //cycle: 15004
 t q[12]; //cycle: 15004 //t q[5]
 t q[16]; //cycle: 15005 //t q[10]
 t q[11]; //cycle: 15005 //t q[4]
 cx q[12],q[8]; //cycle: 15008 //cx q[5],q[9]
 cx q[10],q[6]; //cycle: 15009 //cx q[3],q[13]
-swp q[4],q[8]; //cycle: 15010
+swap q[4],q[8]; //cycle: 15010
 cx q[11],q[5]; //cycle: 15010 //cx q[4],q[12]
 cx q[8],q[12]; //cycle: 15016 //cx q[7],q[5]
 cx q[4],q[8]; //cycle: 15018 //cx q[9],q[7]
 tdg q[12]; //cycle: 15018 //tdg q[5]
 t q[8]; //cycle: 15020 //t q[7]
-swp q[8],q[12]; //cycle: 15021
+swap q[8],q[12]; //cycle: 15021
 cx q[4],q[8]; //cycle: 15027 //cx q[9],q[5]
 tdg q[4]; //cycle: 15029 //tdg q[9]
 tdg q[8]; //cycle: 15029 //tdg q[5]
 cx q[12],q[8]; //cycle: 15030 //cx q[7],q[5]
-swp q[4],q[8]; //cycle: 15032
+swap q[4],q[8]; //cycle: 15032
 cx q[8],q[12]; //cycle: 15038 //cx q[9],q[7]
 cx q[4],q[8]; //cycle: 15040 //cx q[5],q[9]
 h q[12]; //cycle: 15040 //h q[7]
-swp q[2],q[3]; //cycle: 15041
+swap q[2],q[3]; //cycle: 15041
 t q[12]; //cycle: 15041 //t q[7]
 h q[4]; //cycle: 15042 //h q[5]
 t q[8]; //cycle: 15042 //t q[9]
 t q[4]; //cycle: 15043 //t q[5]
 cx q[12],q[8]; //cycle: 15043 //cx q[7],q[9]
-swp q[12],q[16]; //cycle: 15045
+swap q[12],q[16]; //cycle: 15045
 cx q[4],q[3]; //cycle: 15047 //cx q[5],q[11]
-swp q[7],q[8]; //cycle: 15048
+swap q[7],q[8]; //cycle: 15048
 tdg q[3]; //cycle: 15049 //tdg q[11]
 cx q[8],q[4]; //cycle: 15054 //cx q[8],q[5]
 cx q[8],q[3]; //cycle: 15056 //cx q[8],q[11]
@@ -12335,13 +12335,13 @@ cx q[4],q[3]; //cycle: 15059 //cx q[5],q[11]
 cx q[8],q[4]; //cycle: 15061 //cx q[8],q[5]
 cx q[3],q[8]; //cycle: 15063 //cx q[11],q[8]
 h q[4]; //cycle: 15063 //h q[5]
-swp q[12],q[16]; //cycle: 15064
+swap q[12],q[16]; //cycle: 15064
 h q[4]; //cycle: 15064 //h q[5]
 h q[3]; //cycle: 15065 //h q[11]
 t q[8]; //cycle: 15065 //t q[8]
 t q[4]; //cycle: 15065 //t q[5]
 t q[3]; //cycle: 15066 //t q[11]
-swp q[3],q[8]; //cycle: 15067
+swap q[3],q[8]; //cycle: 15067
 cx q[8],q[12]; //cycle: 15073 //cx q[11],q[7]
 cx q[7],q[8]; //cycle: 15075 //cx q[9],q[11]
 tdg q[12]; //cycle: 15075 //tdg q[7]
@@ -12357,21 +12357,21 @@ h q[8]; //cycle: 15085 //h q[11]
 h q[12]; //cycle: 15086 //h q[7]
 t q[7]; //cycle: 15086 //t q[9]
 t q[8]; //cycle: 15086 //t q[11]
-swp q[8],q[9]; //cycle: 15087
+swap q[8],q[9]; //cycle: 15087
 t q[12]; //cycle: 15087 //t q[7]
-swp q[12],q[16]; //cycle: 15088
+swap q[12],q[16]; //cycle: 15088
 cx q[8],q[12]; //cycle: 15094 //cx q[6],q[10]
-swp q[12],q[16]; //cycle: 15096
+swap q[12],q[16]; //cycle: 15096
 cx q[12],q[8]; //cycle: 15102 //cx q[7],q[6]
 cx q[16],q[12]; //cycle: 15104 //cx q[10],q[7]
 tdg q[8]; //cycle: 15104 //tdg q[6]
 t q[12]; //cycle: 15106 //t q[7]
-swp q[8],q[12]; //cycle: 15107
+swap q[8],q[12]; //cycle: 15107
 cx q[16],q[12]; //cycle: 15113 //cx q[10],q[6]
 tdg q[16]; //cycle: 15115 //tdg q[10]
 tdg q[12]; //cycle: 15115 //tdg q[6]
 cx q[8],q[12]; //cycle: 15116 //cx q[7],q[6]
-swp q[12],q[16]; //cycle: 15118
+swap q[12],q[16]; //cycle: 15118
 cx q[12],q[8]; //cycle: 15124 //cx q[10],q[7]
 cx q[16],q[12]; //cycle: 15126 //cx q[6],q[10]
 h q[8]; //cycle: 15126 //h q[7]
@@ -12382,19 +12382,19 @@ t q[8]; //cycle: 15128 //t q[7]
 t q[16]; //cycle: 15129 //t q[6]
 cx q[16],q[11]; //cycle: 15130 //cx q[6],q[4]
 tdg q[11]; //cycle: 15132 //tdg q[4]
-swp q[5],q[11]; //cycle: 15133
+swap q[5],q[11]; //cycle: 15133
 cx q[11],q[16]; //cycle: 15139 //cx q[12],q[6]
 cx q[11],q[5]; //cycle: 15141 //cx q[12],q[4]
 t q[16]; //cycle: 15141 //t q[6]
 tdg q[11]; //cycle: 15143 //tdg q[12]
 tdg q[5]; //cycle: 15143 //tdg q[4]
-swp q[11],q[16]; //cycle: 15144
+swap q[11],q[16]; //cycle: 15144
 cx q[11],q[5]; //cycle: 15150 //cx q[6],q[4]
 cx q[16],q[11]; //cycle: 15152 //cx q[12],q[6]
 h q[11]; //cycle: 15154 //h q[6]
 h q[11]; //cycle: 15155 //h q[6]
 t q[11]; //cycle: 15156 //t q[6]
-swp q[5],q[11]; //cycle: 15157
+swap q[5],q[11]; //cycle: 15157
 cx q[11],q[16]; //cycle: 15163 //cx q[4],q[12]
 h q[11]; //cycle: 15165 //h q[4]
 t q[16]; //cycle: 15165 //t q[12]
@@ -12415,7 +12415,7 @@ h q[10]; //cycle: 15180 //h q[3]
 t q[6]; //cycle: 15180 //t q[13]
 t q[11]; //cycle: 15180 //t q[4]
 t q[10]; //cycle: 15181 //t q[3]
-swp q[6],q[10]; //cycle: 15182
+swap q[6],q[10]; //cycle: 15182
 cx q[6],q[1]; //cycle: 15188 //cx q[3],q[14]
 cx q[2],q[6]; //cycle: 15190 //cx q[15],q[3]
 tdg q[1]; //cycle: 15190 //tdg q[14]
@@ -12450,25 +12450,25 @@ t q[6]; //cycle: 15216 //t q[3]
 cx q[6],q[10]; //cycle: 15217 //cx q[3],q[13]
 cx q[5],q[11]; //cycle: 15218 //cx q[6],q[4]
 tdg q[11]; //cycle: 15220 //tdg q[4]
-swp q[11],q[16]; //cycle: 15221
+swap q[11],q[16]; //cycle: 15221
 cx q[11],q[5]; //cycle: 15227 //cx q[12],q[6]
 cx q[11],q[16]; //cycle: 15229 //cx q[12],q[4]
 t q[5]; //cycle: 15229 //t q[6]
 tdg q[11]; //cycle: 15231 //tdg q[12]
 tdg q[16]; //cycle: 15231 //tdg q[4]
-swp q[5],q[11]; //cycle: 15232
+swap q[5],q[11]; //cycle: 15232
 cx q[11],q[16]; //cycle: 15238 //cx q[6],q[4]
 cx q[5],q[11]; //cycle: 15240 //cx q[12],q[6]
 h q[11]; //cycle: 15242 //h q[6]
 t q[11]; //cycle: 15243 //t q[6]
 cx q[11],q[12]; //cycle: 15244 //cx q[6],q[10]
-swp q[8],q[12]; //cycle: 15246
+swap q[8],q[12]; //cycle: 15246
 cx q[12],q[11]; //cycle: 15252 //cx q[7],q[6]
 cx q[8],q[12]; //cycle: 15254 //cx q[10],q[7]
 tdg q[11]; //cycle: 15254 //tdg q[6]
-swp q[11],q[16]; //cycle: 15255
+swap q[11],q[16]; //cycle: 15255
 t q[12]; //cycle: 15256 //t q[7]
-swp q[8],q[12]; //cycle: 15257
+swap q[8],q[12]; //cycle: 15257
 cx q[11],q[5]; //cycle: 15261 //cx q[4],q[12]
 cx q[12],q[16]; //cycle: 15263 //cx q[10],q[6]
 t q[5]; //cycle: 15263 //t q[12]
@@ -12476,13 +12476,13 @@ t q[11]; //cycle: 15263 //t q[4]
 cx q[11],q[5]; //cycle: 15264 //cx q[4],q[12]
 tdg q[12]; //cycle: 15265 //tdg q[10]
 tdg q[16]; //cycle: 15265 //tdg q[6]
-swp q[8],q[12]; //cycle: 15266
+swap q[8],q[12]; //cycle: 15266
 cx q[12],q[16]; //cycle: 15272 //cx q[7],q[6]
 cx q[8],q[12]; //cycle: 15274 //cx q[10],q[7]
 h q[12]; //cycle: 15276 //h q[7]
 t q[12]; //cycle: 15277 //t q[7]
 cx q[12],q[7]; //cycle: 15278 //cx q[7],q[9]
-swp q[8],q[9]; //cycle: 15279
+swap q[8],q[9]; //cycle: 15279
 cx q[8],q[12]; //cycle: 15285 //cx q[11],q[7]
 cx q[7],q[8]; //cycle: 15287 //cx q[9],q[11]
 tdg q[12]; //cycle: 15287 //tdg q[7]
@@ -12492,12 +12492,12 @@ tdg q[7]; //cycle: 15291 //tdg q[9]
 tdg q[12]; //cycle: 15291 //tdg q[7]
 cx q[8],q[12]; //cycle: 15292 //cx q[11],q[7]
 cx q[7],q[8]; //cycle: 15294 //cx q[9],q[11]
-swp q[12],q[16]; //cycle: 15295
+swap q[12],q[16]; //cycle: 15295
 h q[8]; //cycle: 15296 //h q[11]
 t q[8]; //cycle: 15297 //t q[11]
 cx q[8],q[3]; //cycle: 15298 //cx q[11],q[8]
 cx q[4],q[8]; //cycle: 15300 //cx q[5],q[11]
-swp q[12],q[16]; //cycle: 15302
+swap q[12],q[16]; //cycle: 15302
 cx q[3],q[4]; //cycle: 15302 //cx q[8],q[5]
 tdg q[8]; //cycle: 15302 //tdg q[11]
 cx q[3],q[8]; //cycle: 15304 //cx q[8],q[11]
@@ -12524,13 +12524,13 @@ t q[8]; //cycle: 15319 //t q[11]
 tdg q[7]; //cycle: 15321 //tdg q[9]
 tdg q[12]; //cycle: 15321 //tdg q[7]
 cx q[8],q[12]; //cycle: 15322 //cx q[11],q[7]
-swp q[12],q[16]; //cycle: 15324
+swap q[12],q[16]; //cycle: 15324
 cx q[7],q[8]; //cycle: 15324 //cx q[9],q[11]
 h q[8]; //cycle: 15326 //h q[11]
 h q[8]; //cycle: 15327 //h q[11]
 t q[8]; //cycle: 15328 //t q[11]
-swp q[7],q[12]; //cycle: 15330
-swp q[8],q[9]; //cycle: 15330
+swap q[7],q[12]; //cycle: 15330
+swap q[8],q[9]; //cycle: 15330
 cx q[7],q[8]; //cycle: 15336 //cx q[6],q[10]
 cx q[16],q[12]; //cycle: 15336 //cx q[7],q[9]
 t q[12]; //cycle: 15338 //t q[9]
@@ -12539,7 +12539,7 @@ t q[8]; //cycle: 15338 //t q[10]
 t q[7]; //cycle: 15338 //t q[6]
 t q[16]; //cycle: 15339 //t q[7]
 cx q[7],q[8]; //cycle: 15339 //cx q[6],q[10]
-swp q[12],q[16]; //cycle: 15340
+swap q[12],q[16]; //cycle: 15340
 cx q[12],q[7]; //cycle: 15346 //cx q[7],q[6]
 cx q[8],q[12]; //cycle: 15348 //cx q[10],q[7]
 tdg q[7]; //cycle: 15348 //tdg q[6]
@@ -12555,13 +12555,13 @@ h q[12]; //cycle: 15358 //h q[7]
 t q[8]; //cycle: 15359 //t q[10]
 t q[12]; //cycle: 15359 //t q[7]
 h q[7]; //cycle: 15359 //h q[6]
-swp q[11],q[12]; //cycle: 15360
+swap q[11],q[12]; //cycle: 15360
 t q[7]; //cycle: 15360 //t q[6]
 cx q[7],q[12]; //cycle: 15366 //cx q[6],q[4]
-swp q[6],q[7]; //cycle: 15368
+swap q[6],q[7]; //cycle: 15368
 tdg q[12]; //cycle: 15368 //tdg q[4]
 cx q[5],q[6]; //cycle: 15374 //cx q[12],q[6]
-swp q[11],q[12]; //cycle: 15375
+swap q[11],q[12]; //cycle: 15375
 t q[6]; //cycle: 15376 //t q[6]
 cx q[5],q[11]; //cycle: 15381 //cx q[12],q[4]
 tdg q[5]; //cycle: 15383 //tdg q[12]
@@ -12574,7 +12574,7 @@ h q[6]; //cycle: 15389 //h q[6]
 t q[5]; //cycle: 15390 //t q[12]
 t q[6]; //cycle: 15390 //t q[6]
 h q[11]; //cycle: 15390 //h q[4]
-swp q[6],q[7]; //cycle: 15391
+swap q[6],q[7]; //cycle: 15391
 t q[11]; //cycle: 15391 //t q[4]
 cx q[11],q[6]; //cycle: 15397 //cx q[4],q[3]
 cx q[10],q[11]; //cycle: 15399 //cx q[13],q[4]
@@ -12626,7 +12626,7 @@ cx q[11],q[5]; //cycle: 15440 //cx q[4],q[12]
 t q[10]; //cycle: 15440 //t q[13]
 t q[6]; //cycle: 15440 //t q[3]
 cx q[6],q[10]; //cycle: 15441 //cx q[3],q[13]
-swp q[6],q[7]; //cycle: 15443
+swap q[6],q[7]; //cycle: 15443
 cx q[6],q[11]; //cycle: 15449 //cx q[6],q[4]
 cx q[5],q[6]; //cycle: 15451 //cx q[12],q[6]
 tdg q[11]; //cycle: 15451 //tdg q[4]
@@ -12639,7 +12639,7 @@ cx q[5],q[6]; //cycle: 15458 //cx q[12],q[6]
 cx q[11],q[5]; //cycle: 15460 //cx q[4],q[12]
 h q[6]; //cycle: 15460 //h q[6]
 t q[6]; //cycle: 15461 //t q[6]
-swp q[6],q[7]; //cycle: 15462
+swap q[6],q[7]; //cycle: 15462
 t q[5]; //cycle: 15462 //t q[12]
 t q[11]; //cycle: 15462 //t q[4]
 cx q[11],q[5]; //cycle: 15463 //cx q[4],q[12]
@@ -12661,37 +12661,37 @@ x q[8]; //cycle: 15483 //x q[10]
 t q[7]; //cycle: 15483 //t q[6]
 t q[8]; //cycle: 15484 //t q[10]
 cx q[7],q[8]; //cycle: 15485 //cx q[6],q[10]
-swp q[8],q[9]; //cycle: 15487
+swap q[8],q[9]; //cycle: 15487
 cx q[8],q[12]; //cycle: 15493 //cx q[11],q[7]
 tdg q[12]; //cycle: 15495 //tdg q[7]
-swp q[12],q[16]; //cycle: 15496
+swap q[12],q[16]; //cycle: 15496
 cx q[12],q[8]; //cycle: 15502 //cx q[9],q[11]
 cx q[12],q[16]; //cycle: 15504 //cx q[9],q[7]
 t q[8]; //cycle: 15504 //t q[11]
 tdg q[12]; //cycle: 15506 //tdg q[9]
 tdg q[16]; //cycle: 15506 //tdg q[7]
-swp q[8],q[12]; //cycle: 15507
+swap q[8],q[12]; //cycle: 15507
 cx q[12],q[16]; //cycle: 15513 //cx q[11],q[7]
 cx q[8],q[12]; //cycle: 15515 //cx q[9],q[11]
 h q[12]; //cycle: 15517 //h q[11]
 t q[12]; //cycle: 15518 //t q[11]
-swp q[12],q[16]; //cycle: 15519
+swap q[12],q[16]; //cycle: 15519
 cx q[12],q[8]; //cycle: 15525 //cx q[7],q[9]
 h q[12]; //cycle: 15527 //h q[7]
 t q[8]; //cycle: 15527 //t q[9]
 t q[12]; //cycle: 15528 //t q[7]
 cx q[3],q[8]; //cycle: 15528 //cx q[8],q[9]
-swp q[8],q[12]; //cycle: 15530
+swap q[8],q[12]; //cycle: 15530
 cx q[8],q[3]; //cycle: 15536 //cx q[7],q[8]
 cx q[12],q[8]; //cycle: 15538 //cx q[9],q[7]
 tdg q[3]; //cycle: 15538 //tdg q[8]
 t q[8]; //cycle: 15540 //t q[7]
-swp q[3],q[8]; //cycle: 15541
+swap q[3],q[8]; //cycle: 15541
 cx q[12],q[8]; //cycle: 15547 //cx q[9],q[8]
 tdg q[12]; //cycle: 15549 //tdg q[9]
 tdg q[8]; //cycle: 15549 //tdg q[8]
 cx q[3],q[8]; //cycle: 15550 //cx q[7],q[8]
-swp q[8],q[12]; //cycle: 15552
+swap q[8],q[12]; //cycle: 15552
 cx q[8],q[3]; //cycle: 15558 //cx q[9],q[7]
 cx q[12],q[8]; //cycle: 15560 //cx q[8],q[9]
 h q[3]; //cycle: 15560 //h q[7]
@@ -12701,7 +12701,7 @@ t q[3]; //cycle: 15562 //t q[7]
 h q[12]; //cycle: 15562 //h q[8]
 t q[12]; //cycle: 15563 //t q[8]
 cx q[12],q[7]; //cycle: 15564 //cx q[8],q[6]
-swp q[8],q[9]; //cycle: 15565
+swap q[8],q[9]; //cycle: 15565
 tdg q[7]; //cycle: 15566 //tdg q[6]
 cx q[8],q[12]; //cycle: 15571 //cx q[10],q[8]
 cx q[8],q[7]; //cycle: 15573 //cx q[10],q[6]
@@ -12716,8 +12716,8 @@ h q[12]; //cycle: 15581 //h q[8]
 t q[8]; //cycle: 15582 //t q[10]
 t q[12]; //cycle: 15582 //t q[8]
 h q[7]; //cycle: 15582 //h q[6]
-swp q[4],q[8]; //cycle: 15583
-swp q[12],q[16]; //cycle: 15583
+swap q[4],q[8]; //cycle: 15583
+swap q[12],q[16]; //cycle: 15583
 t q[7]; //cycle: 15583 //t q[6]
 cx q[8],q[12]; //cycle: 15589 //cx q[5],q[11]
 cx q[7],q[8]; //cycle: 15591 //cx q[6],q[5]
@@ -12735,12 +12735,12 @@ h q[7]; //cycle: 15603 //h q[6]
 t q[12]; //cycle: 15604 //t q[11]
 t q[7]; //cycle: 15604 //t q[6]
 h q[8]; //cycle: 15604 //h q[5]
-swp q[11],q[12]; //cycle: 15605
+swap q[11],q[12]; //cycle: 15605
 t q[8]; //cycle: 15605 //t q[5]
 cx q[8],q[12]; //cycle: 15611 //cx q[5],q[4]
-swp q[5],q[6]; //cycle: 15612
+swap q[5],q[6]; //cycle: 15612
 tdg q[12]; //cycle: 15613 //tdg q[4]
-swp q[6],q[7]; //cycle: 15618
+swap q[6],q[7]; //cycle: 15618
 cx q[7],q[8]; //cycle: 15624 //cx q[12],q[5]
 cx q[7],q[12]; //cycle: 15626 //cx q[12],q[4]
 t q[8]; //cycle: 15626 //t q[5]
@@ -12755,7 +12755,7 @@ t q[7]; //cycle: 15635 //t q[12]
 t q[8]; //cycle: 15635 //t q[5]
 h q[12]; //cycle: 15635 //h q[4]
 t q[12]; //cycle: 15636 //t q[4]
-swp q[11],q[12]; //cycle: 15637
+swap q[11],q[12]; //cycle: 15637
 cx q[11],q[5]; //cycle: 15643 //cx q[4],q[3]
 cx q[10],q[11]; //cycle: 15645 //cx q[13],q[4]
 tdg q[5]; //cycle: 15645 //tdg q[3]
@@ -12772,7 +12772,7 @@ t q[10]; //cycle: 15656 //t q[13]
 t q[11]; //cycle: 15656 //t q[4]
 h q[5]; //cycle: 15656 //h q[3]
 t q[5]; //cycle: 15657 //t q[3]
-swp q[5],q[6]; //cycle: 15658
+swap q[5],q[6]; //cycle: 15658
 cx q[6],q[1]; //cycle: 15664 //cx q[3],q[14]
 cx q[2],q[6]; //cycle: 15666 //cx q[15],q[3]
 tdg q[1]; //cycle: 15666 //tdg q[14]
@@ -12801,7 +12801,7 @@ cx q[10],q[11]; //cycle: 15688 //cx q[13],q[4]
 cx q[6],q[10]; //cycle: 15690 //cx q[3],q[13]
 h q[11]; //cycle: 15690 //h q[4]
 t q[11]; //cycle: 15691 //t q[4]
-swp q[11],q[12]; //cycle: 15692
+swap q[11],q[12]; //cycle: 15692
 t q[10]; //cycle: 15692 //t q[13]
 t q[6]; //cycle: 15692 //t q[3]
 cx q[6],q[10]; //cycle: 15693 //cx q[3],q[13]
@@ -12815,13 +12815,13 @@ tdg q[7]; //cycle: 15706 //tdg q[12]
 tdg q[12]; //cycle: 15706 //tdg q[4]
 cx q[8],q[12]; //cycle: 15707 //cx q[5],q[4]
 cx q[7],q[8]; //cycle: 15709 //cx q[12],q[5]
-swp q[11],q[12]; //cycle: 15710
+swap q[11],q[12]; //cycle: 15710
 h q[8]; //cycle: 15711 //h q[5]
 t q[8]; //cycle: 15712 //t q[5]
 cx q[8],q[12]; //cycle: 15716 //cx q[5],q[11]
-swp q[5],q[6]; //cycle: 15718
-swp q[7],q[8]; //cycle: 15718
-swp q[11],q[12]; //cycle: 15720
+swap q[5],q[6]; //cycle: 15718
+swap q[7],q[8]; //cycle: 15718
+swap q[11],q[12]; //cycle: 15720
 cx q[6],q[7]; //cycle: 15724 //cx q[6],q[5]
 cx q[12],q[8]; //cycle: 15726 //cx q[4],q[12]
 cx q[11],q[6]; //cycle: 15726 //cx q[11],q[6]
@@ -12829,21 +12829,21 @@ tdg q[7]; //cycle: 15726 //tdg q[5]
 t q[6]; //cycle: 15728 //t q[6]
 t q[8]; //cycle: 15728 //t q[12]
 t q[12]; //cycle: 15728 //t q[4]
-swp q[6],q[7]; //cycle: 15729
+swap q[6],q[7]; //cycle: 15729
 cx q[12],q[8]; //cycle: 15729 //cx q[4],q[12]
 cx q[11],q[6]; //cycle: 15735 //cx q[11],q[5]
 tdg q[11]; //cycle: 15737 //tdg q[11]
 tdg q[6]; //cycle: 15737 //tdg q[5]
 cx q[7],q[6]; //cycle: 15738 //cx q[6],q[5]
-swp q[11],q[12]; //cycle: 15739
+swap q[11],q[12]; //cycle: 15739
 cx q[12],q[7]; //cycle: 15745 //cx q[11],q[6]
-swp q[4],q[8]; //cycle: 15746
+swap q[4],q[8]; //cycle: 15746
 h q[7]; //cycle: 15747 //h q[6]
 t q[7]; //cycle: 15748 //t q[6]
 cx q[7],q[8]; //cycle: 15752 //cx q[6],q[10]
-swp q[12],q[16]; //cycle: 15753
+swap q[12],q[16]; //cycle: 15753
 cx q[12],q[7]; //cycle: 15759 //cx q[8],q[6]
-swp q[11],q[16]; //cycle: 15760
+swap q[11],q[16]; //cycle: 15760
 cx q[8],q[12]; //cycle: 15761 //cx q[10],q[8]
 tdg q[7]; //cycle: 15761 //tdg q[6]
 cx q[8],q[7]; //cycle: 15763 //cx q[10],q[6]
@@ -12862,7 +12862,7 @@ t q[12]; //cycle: 15771 //t q[8]
 t q[8]; //cycle: 15772 //t q[10]
 t q[7]; //cycle: 15772 //t q[6]
 cx q[7],q[8]; //cycle: 15773 //cx q[6],q[10]
-swp q[8],q[12]; //cycle: 15775
+swap q[8],q[12]; //cycle: 15775
 cx q[8],q[9]; //cycle: 15781 //cx q[8],q[9]
 cx q[3],q[8]; //cycle: 15783 //cx q[7],q[8]
 cx q[9],q[3]; //cycle: 15785 //cx q[9],q[7]
@@ -12896,16 +12896,16 @@ t q[8]; //cycle: 15811 //t q[8]
 h q[7]; //cycle: 15811 //h q[6]
 t q[7]; //cycle: 15812 //t q[6]
 cx q[7],q[6]; //cycle: 15813 //cx q[6],q[5]
-swp q[7],q[12]; //cycle: 15815
+swap q[7],q[12]; //cycle: 15815
 tdg q[6]; //cycle: 15815 //tdg q[5]
 cx q[11],q[12]; //cycle: 15821 //cx q[11],q[6]
 cx q[11],q[6]; //cycle: 15823 //cx q[11],q[5]
 t q[12]; //cycle: 15823 //t q[6]
-swp q[7],q[12]; //cycle: 15824
+swap q[7],q[12]; //cycle: 15824
 tdg q[11]; //cycle: 15825 //tdg q[11]
 tdg q[6]; //cycle: 15825 //tdg q[5]
 cx q[7],q[6]; //cycle: 15830 //cx q[6],q[5]
-swp q[6],q[11]; //cycle: 15832
+swap q[6],q[11]; //cycle: 15832
 cx q[6],q[7]; //cycle: 15838 //cx q[11],q[6]
 cx q[11],q[6]; //cycle: 15840 //cx q[5],q[11]
 h q[7]; //cycle: 15840 //h q[6]
@@ -12915,17 +12915,17 @@ t q[7]; //cycle: 15842 //t q[6]
 h q[11]; //cycle: 15842 //h q[5]
 t q[11]; //cycle: 15843 //t q[5]
 cx q[11],q[16]; //cycle: 15844 //cx q[5],q[4]
-swp q[4],q[8]; //cycle: 15845
-swp q[11],q[12]; //cycle: 15846
+swap q[4],q[8]; //cycle: 15845
+swap q[11],q[12]; //cycle: 15846
 tdg q[16]; //cycle: 15846 //tdg q[4]
 cx q[8],q[12]; //cycle: 15852 //cx q[12],q[5]
 t q[12]; //cycle: 15854 //t q[5]
-swp q[12],q[16]; //cycle: 15855
+swap q[12],q[16]; //cycle: 15855
 cx q[8],q[12]; //cycle: 15861 //cx q[12],q[4]
 tdg q[8]; //cycle: 15863 //tdg q[12]
 tdg q[12]; //cycle: 15863 //tdg q[4]
 cx q[16],q[12]; //cycle: 15864 //cx q[5],q[4]
-swp q[8],q[12]; //cycle: 15866
+swap q[8],q[12]; //cycle: 15866
 cx q[12],q[16]; //cycle: 15872 //cx q[12],q[5]
 cx q[8],q[12]; //cycle: 15874 //cx q[4],q[12]
 h q[16]; //cycle: 15874 //h q[5]
@@ -12934,23 +12934,23 @@ t q[12]; //cycle: 15876 //t q[12]
 t q[16]; //cycle: 15876 //t q[5]
 h q[8]; //cycle: 15876 //h q[4]
 t q[8]; //cycle: 15877 //t q[4]
-swp q[5],q[6]; //cycle: 15878
-swp q[7],q[8]; //cycle: 15878
+swap q[5],q[6]; //cycle: 15878
+swap q[7],q[8]; //cycle: 15878
 cx q[7],q[6]; //cycle: 15884 //cx q[4],q[3]
 tdg q[6]; //cycle: 15886 //tdg q[3]
-swp q[6],q[10]; //cycle: 15887
+swap q[6],q[10]; //cycle: 15887
 cx q[6],q[7]; //cycle: 15893 //cx q[13],q[4]
 cx q[6],q[10]; //cycle: 15895 //cx q[13],q[3]
 t q[7]; //cycle: 15895 //t q[4]
 tdg q[6]; //cycle: 15897 //tdg q[13]
 tdg q[10]; //cycle: 15897 //tdg q[3]
-swp q[6],q[7]; //cycle: 15898
+swap q[6],q[7]; //cycle: 15898
 cx q[6],q[10]; //cycle: 15904 //cx q[4],q[3]
 cx q[7],q[6]; //cycle: 15906 //cx q[13],q[4]
 h q[6]; //cycle: 15908 //h q[4]
 h q[6]; //cycle: 15909 //h q[4]
 t q[6]; //cycle: 15910 //t q[4]
-swp q[6],q[10]; //cycle: 15911
+swap q[6],q[10]; //cycle: 15911
 cx q[6],q[7]; //cycle: 15917 //cx q[3],q[13]
 t q[7]; //cycle: 15919 //t q[13]
 h q[6]; //cycle: 15919 //h q[3]
@@ -12973,21 +12973,21 @@ t q[1]; //cycle: 15934 //t q[14]
 cx q[1],q[2]; //cycle: 15935 //cx q[14],q[15]
 cx q[10],q[6]; //cycle: 15936 //cx q[4],q[3]
 tdg q[6]; //cycle: 15938 //tdg q[3]
-swp q[6],q[7]; //cycle: 15939
+swap q[6],q[7]; //cycle: 15939
 cx q[6],q[10]; //cycle: 15945 //cx q[13],q[4]
 cx q[6],q[7]; //cycle: 15947 //cx q[13],q[3]
 t q[10]; //cycle: 15947 //t q[4]
 tdg q[6]; //cycle: 15949 //tdg q[13]
 tdg q[7]; //cycle: 15949 //tdg q[3]
-swp q[6],q[10]; //cycle: 15950
+swap q[6],q[10]; //cycle: 15950
 cx q[6],q[7]; //cycle: 15956 //cx q[4],q[3]
 cx q[10],q[6]; //cycle: 15958 //cx q[13],q[4]
-swp q[11],q[12]; //cycle: 15959
+swap q[11],q[12]; //cycle: 15959
 h q[6]; //cycle: 15960 //h q[4]
 t q[6]; //cycle: 15961 //t q[4]
 cx q[6],q[11]; //cycle: 15965 //cx q[4],q[12]
-swp q[6],q[10]; //cycle: 15967
-swp q[11],q[16]; //cycle: 15967
+swap q[6],q[10]; //cycle: 15967
+swap q[11],q[16]; //cycle: 15967
 cx q[7],q[6]; //cycle: 15973 //cx q[3],q[13]
 cx q[11],q[10]; //cycle: 15973 //cx q[5],q[4]
 cx q[16],q[11]; //cycle: 15975 //cx q[12],q[5]
@@ -12995,22 +12995,22 @@ tdg q[10]; //cycle: 15975 //tdg q[4]
 t q[6]; //cycle: 15975 //t q[13]
 t q[7]; //cycle: 15975 //t q[3]
 cx q[7],q[6]; //cycle: 15976 //cx q[3],q[13]
-swp q[15],q[16]; //cycle: 15977
+swap q[15],q[16]; //cycle: 15977
 t q[11]; //cycle: 15977 //t q[5]
 cx q[15],q[10]; //cycle: 15983 //cx q[12],q[4]
 tdg q[15]; //cycle: 15985 //tdg q[12]
 tdg q[10]; //cycle: 15985 //tdg q[4]
 cx q[11],q[10]; //cycle: 15986 //cx q[5],q[4]
-swp q[15],q[16]; //cycle: 15987
+swap q[15],q[16]; //cycle: 15987
 cx q[16],q[11]; //cycle: 15993 //cx q[12],q[5]
 h q[11]; //cycle: 15995 //h q[5]
 t q[11]; //cycle: 15996 //t q[5]
 cx q[11],q[5]; //cycle: 15997 //cx q[5],q[11]
-swp q[8],q[12]; //cycle: 15998
-swp q[10],q[15]; //cycle: 15999
-swp q[11],q[16]; //cycle: 15999
+swap q[8],q[12]; //cycle: 15998
+swap q[10],q[15]; //cycle: 15999
+swap q[11],q[16]; //cycle: 15999
 cx q[12],q[16]; //cycle: 16005 //cx q[6],q[5]
-swp q[5],q[11]; //cycle: 16006
+swap q[5],q[11]; //cycle: 16006
 tdg q[16]; //cycle: 16007 //tdg q[5]
 cx q[11],q[12]; //cycle: 16012 //cx q[11],q[6]
 cx q[11],q[16]; //cycle: 16014 //cx q[11],q[5]
@@ -13026,8 +13026,8 @@ cx q[12],q[8]; //cycle: 16023 //cx q[6],q[10]
 t q[11]; //cycle: 16023 //t q[11]
 t q[16]; //cycle: 16023 //t q[5]
 cx q[16],q[11]; //cycle: 16024 //cx q[5],q[11]
-swp q[4],q[8]; //cycle: 16025
-swp q[5],q[10]; //cycle: 16025
+swap q[4],q[8]; //cycle: 16025
+swap q[5],q[10]; //cycle: 16025
 cx q[15],q[10]; //cycle: 16031 //cx q[4],q[12]
 cx q[8],q[12]; //cycle: 16031 //cx q[8],q[6]
 cx q[4],q[8]; //cycle: 16033 //cx q[10],q[8]
@@ -13036,12 +13036,12 @@ t q[10]; //cycle: 16033 //t q[12]
 t q[15]; //cycle: 16033 //t q[4]
 cx q[15],q[10]; //cycle: 16034 //cx q[4],q[12]
 t q[8]; //cycle: 16035 //t q[8]
-swp q[8],q[12]; //cycle: 16036
+swap q[8],q[12]; //cycle: 16036
 cx q[4],q[8]; //cycle: 16042 //cx q[10],q[6]
 tdg q[4]; //cycle: 16044 //tdg q[10]
 tdg q[8]; //cycle: 16044 //tdg q[6]
 cx q[12],q[8]; //cycle: 16045 //cx q[8],q[6]
-swp q[4],q[8]; //cycle: 16047
+swap q[4],q[8]; //cycle: 16047
 cx q[8],q[12]; //cycle: 16053 //cx q[10],q[8]
 cx q[4],q[8]; //cycle: 16055 //cx q[6],q[10]
 h q[12]; //cycle: 16055 //h q[8]
@@ -13050,7 +13050,7 @@ h q[4]; //cycle: 16057 //h q[6]
 t q[8]; //cycle: 16057 //t q[10]
 t q[4]; //cycle: 16058 //t q[6]
 cx q[3],q[8]; //cycle: 16058 //cx q[7],q[10]
-swp q[8],q[12]; //cycle: 16060
+swap q[8],q[12]; //cycle: 16060
 cx q[8],q[9]; //cycle: 16066 //cx q[8],q[9]
 cx q[4],q[8]; //cycle: 16068 //cx q[6],q[8]
 cx q[9],q[4]; //cycle: 16070 //cx q[9],q[6]
@@ -13072,12 +13072,12 @@ cx q[8],q[3]; //cycle: 16083 //cx q[8],q[7]
 cx q[12],q[8]; //cycle: 16085 //cx q[10],q[8]
 tdg q[3]; //cycle: 16085 //tdg q[7]
 t q[8]; //cycle: 16087 //t q[8]
-swp q[3],q[8]; //cycle: 16088
+swap q[3],q[8]; //cycle: 16088
 cx q[12],q[8]; //cycle: 16094 //cx q[10],q[7]
 tdg q[12]; //cycle: 16096 //tdg q[10]
 tdg q[8]; //cycle: 16096 //tdg q[7]
 cx q[3],q[8]; //cycle: 16097 //cx q[8],q[7]
-swp q[8],q[12]; //cycle: 16099
+swap q[8],q[12]; //cycle: 16099
 cx q[8],q[3]; //cycle: 16105 //cx q[10],q[8]
 cx q[12],q[8]; //cycle: 16107 //cx q[7],q[10]
 h q[3]; //cycle: 16107 //h q[8]
@@ -13103,27 +13103,27 @@ t q[11]; //cycle: 16124 //t q[11]
 t q[12]; //cycle: 16124 //t q[7]
 t q[16]; //cycle: 16125 //t q[5]
 cx q[16],q[15]; //cycle: 16126 //cx q[5],q[4]
-swp q[11],q[16]; //cycle: 16128
+swap q[11],q[16]; //cycle: 16128
 tdg q[15]; //cycle: 16128 //tdg q[4]
 cx q[10],q[11]; //cycle: 16134 //cx q[12],q[5]
 cx q[10],q[15]; //cycle: 16136 //cx q[12],q[4]
 t q[11]; //cycle: 16136 //t q[5]
 tdg q[10]; //cycle: 16138 //tdg q[12]
 tdg q[15]; //cycle: 16138 //tdg q[4]
-swp q[15],q[16]; //cycle: 16139
+swap q[15],q[16]; //cycle: 16139
 cx q[11],q[16]; //cycle: 16145 //cx q[5],q[4]
 cx q[10],q[11]; //cycle: 16147 //cx q[12],q[5]
-swp q[10],q[15]; //cycle: 16149
+swap q[10],q[15]; //cycle: 16149
 h q[11]; //cycle: 16149 //h q[5]
 h q[11]; //cycle: 16150 //h q[5]
 t q[11]; //cycle: 16151 //t q[5]
 cx q[16],q[15]; //cycle: 16155 //cx q[4],q[12]
-swp q[7],q[12]; //cycle: 16156
+swap q[7],q[12]; //cycle: 16156
 h q[16]; //cycle: 16157 //h q[4]
 t q[15]; //cycle: 16157 //t q[12]
 t q[16]; //cycle: 16158 //t q[4]
 cx q[16],q[12]; //cycle: 16162 //cx q[4],q[3]
-swp q[6],q[11]; //cycle: 16163
+swap q[6],q[11]; //cycle: 16163
 tdg q[12]; //cycle: 16164 //tdg q[3]
 cx q[11],q[16]; //cycle: 16169 //cx q[13],q[4]
 cx q[11],q[12]; //cycle: 16171 //cx q[13],q[3]
@@ -13139,7 +13139,7 @@ h q[12]; //cycle: 16180 //h q[3]
 t q[11]; //cycle: 16180 //t q[13]
 t q[16]; //cycle: 16180 //t q[4]
 t q[12]; //cycle: 16181 //t q[3]
-swp q[7],q[12]; //cycle: 16182
+swap q[7],q[12]; //cycle: 16182
 cx q[7],q[1]; //cycle: 16188 //cx q[3],q[14]
 cx q[2],q[7]; //cycle: 16190 //cx q[15],q[3]
 tdg q[1]; //cycle: 16190 //tdg q[14]
@@ -13152,7 +13152,7 @@ cx q[2],q[7]; //cycle: 16197 //cx q[15],q[3]
 cx q[1],q[2]; //cycle: 16199 //cx q[14],q[15]
 h q[7]; //cycle: 16199 //h q[3]
 t q[7]; //cycle: 16200 //t q[3]
-swp q[7],q[12]; //cycle: 16201
+swap q[7],q[12]; //cycle: 16201
 t q[2]; //cycle: 16201 //t q[15]
 t q[1]; //cycle: 16201 //t q[14]
 cx q[1],q[2]; //cycle: 16202 //cx q[14],q[15]
@@ -13173,24 +13173,24 @@ cx q[16],q[15]; //cycle: 16222 //cx q[4],q[12]
 t q[11]; //cycle: 16222 //t q[13]
 t q[12]; //cycle: 16222 //t q[3]
 cx q[12],q[11]; //cycle: 16223 //cx q[3],q[13]
-swp q[6],q[11]; //cycle: 16225
+swap q[6],q[11]; //cycle: 16225
 cx q[11],q[16]; //cycle: 16231 //cx q[5],q[4]
-swp q[10],q[11]; //cycle: 16233
+swap q[10],q[11]; //cycle: 16233
 tdg q[16]; //cycle: 16233 //tdg q[4]
 cx q[15],q[10]; //cycle: 16239 //cx q[12],q[5]
 cx q[15],q[16]; //cycle: 16241 //cx q[12],q[4]
 t q[10]; //cycle: 16241 //t q[5]
 tdg q[15]; //cycle: 16243 //tdg q[12]
 tdg q[16]; //cycle: 16243 //tdg q[4]
-swp q[11],q[16]; //cycle: 16244
+swap q[11],q[16]; //cycle: 16244
 cx q[10],q[11]; //cycle: 16250 //cx q[5],q[4]
 cx q[15],q[10]; //cycle: 16252 //cx q[12],q[5]
-swp q[11],q[16]; //cycle: 16253
+swap q[11],q[16]; //cycle: 16253
 h q[10]; //cycle: 16254 //h q[5]
 t q[10]; //cycle: 16255 //t q[5]
 cx q[16],q[15]; //cycle: 16259 //cx q[4],q[12]
 cx q[10],q[11]; //cycle: 16259 //cx q[5],q[11]
-swp q[6],q[7]; //cycle: 16260
+swap q[6],q[7]; //cycle: 16260
 t q[15]; //cycle: 16261 //t q[12]
 t q[16]; //cycle: 16261 //t q[4]
 cx q[16],q[15]; //cycle: 16262 //cx q[4],q[12]
@@ -13203,7 +13203,7 @@ tdg q[11]; //cycle: 16272 //tdg q[11]
 tdg q[10]; //cycle: 16272 //tdg q[5]
 cx q[6],q[10]; //cycle: 16273 //cx q[7],q[5]
 cx q[11],q[6]; //cycle: 16275 //cx q[11],q[7]
-swp q[7],q[8]; //cycle: 16276
+swap q[7],q[8]; //cycle: 16276
 cx q[10],q[11]; //cycle: 16277 //cx q[5],q[11]
 h q[6]; //cycle: 16277 //h q[7]
 t q[6]; //cycle: 16278 //t q[7]
@@ -13211,7 +13211,7 @@ t q[11]; //cycle: 16279 //t q[11]
 t q[10]; //cycle: 16279 //t q[5]
 cx q[10],q[11]; //cycle: 16280 //cx q[5],q[11]
 cx q[6],q[7]; //cycle: 16282 //cx q[7],q[10]
-swp q[2],q[3]; //cycle: 16283
+swap q[2],q[3]; //cycle: 16283
 cx q[2],q[6]; //cycle: 16289 //cx q[8],q[7]
 cx q[7],q[2]; //cycle: 16291 //cx q[10],q[8]
 tdg q[6]; //cycle: 16291 //tdg q[7]
@@ -13224,7 +13224,7 @@ cx q[7],q[2]; //cycle: 16298 //cx q[10],q[8]
 cx q[6],q[7]; //cycle: 16300 //cx q[7],q[10]
 h q[2]; //cycle: 16300 //h q[8]
 t q[2]; //cycle: 16301 //t q[8]
-swp q[2],q[3]; //cycle: 16302
+swap q[2],q[3]; //cycle: 16302
 t q[7]; //cycle: 16302 //t q[10]
 t q[6]; //cycle: 16302 //t q[7]
 cx q[6],q[7]; //cycle: 16303 //cx q[7],q[10]
@@ -13238,7 +13238,7 @@ tdg q[9]; //cycle: 16316 //tdg q[9]
 tdg q[3]; //cycle: 16316 //tdg q[8]
 cx q[4],q[3]; //cycle: 16317 //cx q[6],q[8]
 cx q[9],q[4]; //cycle: 16319 //cx q[9],q[6]
-swp q[15],q[16]; //cycle: 16321
+swap q[15],q[16]; //cycle: 16321
 cx q[3],q[9]; //cycle: 16321 //cx q[8],q[9]
 h q[4]; //cycle: 16321 //h q[6]
 h q[4]; //cycle: 16322 //h q[6]
@@ -13246,7 +13246,7 @@ t q[9]; //cycle: 16323 //t q[9]
 h q[3]; //cycle: 16323 //h q[8]
 t q[4]; //cycle: 16323 //t q[6]
 t q[3]; //cycle: 16324 //t q[8]
-swp q[2],q[3]; //cycle: 16325
+swap q[2],q[3]; //cycle: 16325
 cx q[2],q[6]; //cycle: 16331 //cx q[8],q[7]
 cx q[7],q[2]; //cycle: 16333 //cx q[10],q[8]
 tdg q[6]; //cycle: 16333 //tdg q[7]
@@ -13280,16 +13280,16 @@ t q[6]; //cycle: 16359 //t q[7]
 h q[10]; //cycle: 16359 //h q[5]
 t q[10]; //cycle: 16360 //t q[5]
 cx q[10],q[15]; //cycle: 16361 //cx q[5],q[4]
-swp q[10],q[11]; //cycle: 16363
+swap q[10],q[11]; //cycle: 16363
 tdg q[15]; //cycle: 16363 //tdg q[4]
 cx q[16],q[11]; //cycle: 16369 //cx q[12],q[5]
 cx q[16],q[15]; //cycle: 16371 //cx q[12],q[4]
 t q[11]; //cycle: 16371 //t q[5]
-swp q[10],q[11]; //cycle: 16372
+swap q[10],q[11]; //cycle: 16372
 tdg q[16]; //cycle: 16373 //tdg q[12]
 tdg q[15]; //cycle: 16373 //tdg q[4]
 cx q[10],q[15]; //cycle: 16378 //cx q[5],q[4]
-swp q[15],q[16]; //cycle: 16380
+swap q[15],q[16]; //cycle: 16380
 cx q[15],q[10]; //cycle: 16386 //cx q[12],q[5]
 cx q[16],q[15]; //cycle: 16388 //cx q[4],q[12]
 h q[10]; //cycle: 16388 //h q[5]
@@ -13300,19 +13300,19 @@ t q[10]; //cycle: 16390 //t q[5]
 t q[16]; //cycle: 16391 //t q[4]
 cx q[16],q[12]; //cycle: 16392 //cx q[4],q[3]
 tdg q[12]; //cycle: 16394 //tdg q[3]
-swp q[8],q[12]; //cycle: 16395
+swap q[8],q[12]; //cycle: 16395
 cx q[12],q[16]; //cycle: 16401 //cx q[13],q[4]
 cx q[12],q[8]; //cycle: 16403 //cx q[13],q[3]
 t q[16]; //cycle: 16403 //t q[4]
 tdg q[12]; //cycle: 16405 //tdg q[13]
 tdg q[8]; //cycle: 16405 //tdg q[3]
-swp q[8],q[12]; //cycle: 16406
+swap q[8],q[12]; //cycle: 16406
 cx q[16],q[12]; //cycle: 16412 //cx q[4],q[3]
-swp q[8],q[12]; //cycle: 16414
+swap q[8],q[12]; //cycle: 16414
 cx q[12],q[16]; //cycle: 16420 //cx q[13],q[4]
 cx q[8],q[12]; //cycle: 16422 //cx q[3],q[13]
 h q[16]; //cycle: 16422 //h q[4]
-swp q[1],q[7]; //cycle: 16423
+swap q[1],q[7]; //cycle: 16423
 h q[16]; //cycle: 16423 //h q[4]
 h q[8]; //cycle: 16424 //h q[3]
 t q[12]; //cycle: 16424 //t q[13]
@@ -13321,19 +13321,19 @@ t q[8]; //cycle: 16425 //t q[3]
 cx q[8],q[7]; //cycle: 16429 //cx q[3],q[14]
 cx q[3],q[8]; //cycle: 16431 //cx q[15],q[3]
 tdg q[7]; //cycle: 16431 //tdg q[14]
-swp q[2],q[3]; //cycle: 16433
+swap q[2],q[3]; //cycle: 16433
 t q[8]; //cycle: 16433 //t q[3]
 cx q[2],q[7]; //cycle: 16439 //cx q[15],q[14]
 tdg q[2]; //cycle: 16441 //tdg q[15]
 tdg q[7]; //cycle: 16441 //tdg q[14]
 cx q[8],q[7]; //cycle: 16442 //cx q[3],q[14]
-swp q[2],q[3]; //cycle: 16443
+swap q[2],q[3]; //cycle: 16443
 cx q[3],q[8]; //cycle: 16449 //cx q[15],q[3]
 h q[8]; //cycle: 16451 //h q[3]
 t q[8]; //cycle: 16452 //t q[3]
-swp q[2],q[7]; //cycle: 16453
+swap q[2],q[7]; //cycle: 16453
 cx q[8],q[12]; //cycle: 16453 //cx q[3],q[13]
-swp q[12],q[16]; //cycle: 16455
+swap q[12],q[16]; //cycle: 16455
 cx q[2],q[3]; //cycle: 16459 //cx q[14],q[15]
 x q[2]; //cycle: 16461 //x q[14]
 t q[3]; //cycle: 16461 //t q[15]
@@ -13343,18 +13343,18 @@ cx q[2],q[3]; //cycle: 16463 //cx q[14],q[15]
 cx q[16],q[12]; //cycle: 16463 //cx q[13],q[4]
 tdg q[8]; //cycle: 16463 //tdg q[3]
 t q[12]; //cycle: 16465 //t q[4]
-swp q[8],q[12]; //cycle: 16466
+swap q[8],q[12]; //cycle: 16466
 cx q[16],q[12]; //cycle: 16472 //cx q[13],q[3]
 tdg q[16]; //cycle: 16474 //tdg q[13]
 tdg q[12]; //cycle: 16474 //tdg q[3]
 cx q[8],q[12]; //cycle: 16475 //cx q[4],q[3]
-swp q[8],q[12]; //cycle: 16477
+swap q[8],q[12]; //cycle: 16477
 cx q[16],q[12]; //cycle: 16483 //cx q[13],q[4]
-swp q[15],q[16]; //cycle: 16485
+swap q[15],q[16]; //cycle: 16485
 h q[12]; //cycle: 16485 //h q[4]
 t q[12]; //cycle: 16486 //t q[4]
 cx q[12],q[16]; //cycle: 16491 //cx q[4],q[12]
-swp q[10],q[11]; //cycle: 16492
+swap q[10],q[11]; //cycle: 16492
 cx q[11],q[12]; //cycle: 16498 //cx q[5],q[4]
 cx q[16],q[11]; //cycle: 16500 //cx q[12],q[5]
 tdg q[12]; //cycle: 16500 //tdg q[4]
@@ -13372,11 +13372,11 @@ x q[16]; //cycle: 16511 //x q[12]
 h q[12]; //cycle: 16511 //h q[4]
 t q[16]; //cycle: 16512 //t q[12]
 t q[12]; //cycle: 16512 //t q[4]
-swp q[15],q[16]; //cycle: 16513
+swap q[15],q[16]; //cycle: 16513
 cx q[6],q[11]; //cycle: 16513 //cx q[7],q[5]
 cx q[10],q[6]; //cycle: 16515 //cx q[11],q[7]
 tdg q[11]; //cycle: 16515 //tdg q[5]
-swp q[8],q[12]; //cycle: 16517
+swap q[8],q[12]; //cycle: 16517
 cx q[10],q[11]; //cycle: 16517 //cx q[11],q[5]
 t q[6]; //cycle: 16517 //t q[7]
 tdg q[10]; //cycle: 16519 //tdg q[11]
@@ -13393,10 +13393,10 @@ cx q[6],q[1]; //cycle: 16526 //cx q[7],q[10]
 t q[10]; //cycle: 16526 //t q[11]
 t q[16]; //cycle: 16526 //t q[13]
 h q[11]; //cycle: 16526 //h q[5]
-swp q[15],q[16]; //cycle: 16527
+swap q[15],q[16]; //cycle: 16527
 t q[11]; //cycle: 16527 //t q[5]
-swp q[3],q[9]; //cycle: 16528
-swp q[10],q[11]; //cycle: 16528
+swap q[3],q[9]; //cycle: 16528
+swap q[10],q[11]; //cycle: 16528
 cx q[7],q[6]; //cycle: 16528 //cx q[8],q[7]
 cx q[1],q[7]; //cycle: 16530 //cx q[10],q[8]
 tdg q[6]; //cycle: 16530 //tdg q[7]
@@ -13404,16 +13404,16 @@ cx q[1],q[6]; //cycle: 16532 //cx q[10],q[7]
 t q[7]; //cycle: 16532 //t q[8]
 tdg q[1]; //cycle: 16534 //tdg q[10]
 tdg q[6]; //cycle: 16534 //tdg q[7]
-swp q[2],q[3]; //cycle: 16535
+swap q[2],q[3]; //cycle: 16535
 cx q[7],q[6]; //cycle: 16535 //cx q[8],q[7]
-swp q[6],q[11]; //cycle: 16537
+swap q[6],q[11]; //cycle: 16537
 cx q[1],q[7]; //cycle: 16537 //cx q[10],q[8]
-swp q[12],q[16]; //cycle: 16538
+swap q[12],q[16]; //cycle: 16538
 h q[7]; //cycle: 16539 //h q[8]
 t q[7]; //cycle: 16540 //t q[8]
 cx q[6],q[2]; //cycle: 16543 //cx q[11],q[9]
 cx q[12],q[7]; //cycle: 16544 //cx q[12],q[8]
-swp q[6],q[11]; //cycle: 16545
+swap q[6],q[11]; //cycle: 16545
 cx q[8],q[12]; //cycle: 16546 //cx q[4],q[12]
 cx q[7],q[8]; //cycle: 16548 //cx q[8],q[4]
 tdg q[12]; //cycle: 16548 //tdg q[12]
@@ -13425,8 +13425,8 @@ tdg q[12]; //cycle: 16552 //tdg q[12]
 cx q[8],q[12]; //cycle: 16553 //cx q[4],q[12]
 t q[1]; //cycle: 16553 //t q[10]
 t q[6]; //cycle: 16553 //t q[7]
-swp q[1],q[6]; //cycle: 16554
-swp q[10],q[15]; //cycle: 16554
+swap q[1],q[6]; //cycle: 16554
+swap q[10],q[15]; //cycle: 16554
 cx q[7],q[8]; //cycle: 16555 //cx q[8],q[4]
 cx q[12],q[7]; //cycle: 16557 //cx q[12],q[8]
 h q[8]; //cycle: 16557 //h q[4]
@@ -13437,10 +13437,10 @@ t q[8]; //cycle: 16559 //t q[4]
 t q[12]; //cycle: 16560 //t q[12]
 cx q[6],q[10]; //cycle: 16560 //cx q[10],q[13]
 cx q[12],q[11]; //cycle: 16561 //cx q[12],q[11]
-swp q[7],q[12]; //cycle: 16563
+swap q[7],q[12]; //cycle: 16563
 tdg q[11]; //cycle: 16563 //tdg q[11]
 cx q[2],q[7]; //cycle: 16569 //cx q[9],q[12]
-swp q[6],q[11]; //cycle: 16570
+swap q[6],q[11]; //cycle: 16570
 t q[7]; //cycle: 16571 //t q[12]
 cx q[2],q[6]; //cycle: 16576 //cx q[9],q[11]
 tdg q[2]; //cycle: 16578 //tdg q[9]
@@ -13465,46 +13465,46 @@ cx q[6],q[11]; //cycle: 16594 //cx q[11],q[10]
 cx q[10],q[6]; //cycle: 16596 //cx q[13],q[11]
 cx q[11],q[10]; //cycle: 16598 //cx q[10],q[13]
 h q[6]; //cycle: 16598 //h q[11]
-swp q[3],q[8]; //cycle: 16599
+swap q[3],q[8]; //cycle: 16599
 h q[6]; //cycle: 16599 //h q[11]
 h q[11]; //cycle: 16600 //h q[10]
 t q[10]; //cycle: 16600 //t q[13]
 t q[6]; //cycle: 16600 //t q[11]
 t q[11]; //cycle: 16601 //t q[10]
-swp q[11],q[12]; //cycle: 16602
+swap q[11],q[12]; //cycle: 16602
 cx q[12],q[8]; //cycle: 16608 //cx q[10],q[14]
 tdg q[8]; //cycle: 16610 //tdg q[14]
-swp q[8],q[9]; //cycle: 16611
+swap q[8],q[9]; //cycle: 16611
 cx q[8],q[12]; //cycle: 16617 //cx q[15],q[10]
 cx q[8],q[9]; //cycle: 16619 //cx q[15],q[14]
 t q[12]; //cycle: 16619 //t q[10]
 tdg q[8]; //cycle: 16621 //tdg q[15]
 tdg q[9]; //cycle: 16621 //tdg q[14]
-swp q[8],q[12]; //cycle: 16622
+swap q[8],q[12]; //cycle: 16622
 cx q[8],q[9]; //cycle: 16628 //cx q[10],q[14]
 cx q[12],q[8]; //cycle: 16630 //cx q[15],q[10]
 h q[8]; //cycle: 16632 //h q[10]
-swp q[10],q[11]; //cycle: 16633
+swap q[10],q[11]; //cycle: 16633
 t q[8]; //cycle: 16633 //t q[10]
-swp q[8],q[12]; //cycle: 16634
+swap q[8],q[12]; //cycle: 16634
 cx q[9],q[8]; //cycle: 16640 //cx q[14],q[15]
 cx q[12],q[11]; //cycle: 16640 //cx q[10],q[13]
-swp q[7],q[12]; //cycle: 16642
+swap q[7],q[12]; //cycle: 16642
 t q[8]; //cycle: 16642 //t q[15]
 t q[9]; //cycle: 16642 //t q[14]
 cx q[9],q[8]; //cycle: 16643 //cx q[14],q[15]
 cx q[6],q[7]; //cycle: 16648 //cx q[11],q[10]
 cx q[11],q[6]; //cycle: 16650 //cx q[13],q[11]
 tdg q[7]; //cycle: 16650 //tdg q[10]
-swp q[11],q[12]; //cycle: 16652
+swap q[11],q[12]; //cycle: 16652
 t q[6]; //cycle: 16652 //t q[11]
 cx q[12],q[7]; //cycle: 16658 //cx q[13],q[10]
 tdg q[12]; //cycle: 16660 //tdg q[13]
 tdg q[7]; //cycle: 16660 //tdg q[10]
 cx q[6],q[7]; //cycle: 16661 //cx q[11],q[10]
-swp q[11],q[12]; //cycle: 16662
+swap q[11],q[12]; //cycle: 16662
 cx q[11],q[6]; //cycle: 16668 //cx q[13],q[11]
-swp q[7],q[12]; //cycle: 16669
+swap q[7],q[12]; //cycle: 16669
 h q[6]; //cycle: 16670 //h q[11]
 t q[6]; //cycle: 16671 //t q[11]
 cx q[6],q[2]; //cycle: 16672 //cx q[11],q[9]
@@ -13521,11 +13521,11 @@ tdg q[2]; //cycle: 16681 //tdg q[9]
 tdg q[6]; //cycle: 16681 //tdg q[11]
 cx q[7],q[6]; //cycle: 16682 //cx q[12],q[11]
 cx q[2],q[7]; //cycle: 16684 //cx q[9],q[12]
-swp q[6],q[10]; //cycle: 16685
+swap q[6],q[10]; //cycle: 16685
 h q[7]; //cycle: 16686 //h q[12]
 t q[7]; //cycle: 16687 //t q[12]
 cx q[7],q[6]; //cycle: 16691 //cx q[12],q[8]
-swp q[2],q[3]; //cycle: 16692
+swap q[2],q[3]; //cycle: 16692
 cx q[2],q[7]; //cycle: 16698 //cx q[4],q[12]
 cx q[6],q[2]; //cycle: 16700 //cx q[8],q[4]
 tdg q[7]; //cycle: 16700 //tdg q[12]
@@ -13541,8 +13541,8 @@ h q[2]; //cycle: 16710 //h q[4]
 h q[7]; //cycle: 16711 //h q[12]
 t q[2]; //cycle: 16711 //t q[4]
 t q[6]; //cycle: 16711 //t q[8]
-swp q[2],q[3]; //cycle: 16712
-swp q[6],q[10]; //cycle: 16712
+swap q[2],q[3]; //cycle: 16712
+swap q[6],q[10]; //cycle: 16712
 t q[7]; //cycle: 16712 //t q[12]
 cx q[6],q[2]; //cycle: 16718 //cx q[11],q[9]
 t q[2]; //cycle: 16720 //t q[9]
@@ -13563,22 +13563,22 @@ h q[7]; //cycle: 16735 //h q[12]
 h q[6]; //cycle: 16736 //h q[11]
 t q[2]; //cycle: 16736 //t q[9]
 t q[7]; //cycle: 16736 //t q[12]
-swp q[7],q[12]; //cycle: 16737
+swap q[7],q[12]; //cycle: 16737
 t q[6]; //cycle: 16737 //t q[11]
 cx q[6],q[7]; //cycle: 16743 //cx q[11],q[10]
 cx q[11],q[6]; //cycle: 16745 //cx q[13],q[11]
 tdg q[7]; //cycle: 16745 //tdg q[10]
-swp q[11],q[12]; //cycle: 16747
+swap q[11],q[12]; //cycle: 16747
 t q[6]; //cycle: 16747 //t q[11]
 cx q[12],q[7]; //cycle: 16753 //cx q[13],q[10]
 tdg q[12]; //cycle: 16755 //tdg q[13]
 tdg q[7]; //cycle: 16755 //tdg q[10]
 cx q[6],q[7]; //cycle: 16756 //cx q[11],q[10]
-swp q[7],q[12]; //cycle: 16758
+swap q[7],q[12]; //cycle: 16758
 cx q[7],q[6]; //cycle: 16764 //cx q[13],q[11]
 cx q[12],q[7]; //cycle: 16766 //cx q[10],q[13]
 h q[6]; //cycle: 16766 //h q[11]
-swp q[8],q[9]; //cycle: 16767
+swap q[8],q[9]; //cycle: 16767
 h q[6]; //cycle: 16767 //h q[11]
 h q[12]; //cycle: 16768 //h q[10]
 t q[7]; //cycle: 16768 //t q[13]
@@ -13586,20 +13586,20 @@ t q[6]; //cycle: 16768 //t q[11]
 t q[12]; //cycle: 16769 //t q[10]
 cx q[12],q[8]; //cycle: 16773 //cx q[10],q[14]
 tdg q[8]; //cycle: 16775 //tdg q[14]
-swp q[8],q[9]; //cycle: 16776
+swap q[8],q[9]; //cycle: 16776
 cx q[8],q[12]; //cycle: 16782 //cx q[15],q[10]
 cx q[8],q[9]; //cycle: 16784 //cx q[15],q[14]
 t q[12]; //cycle: 16784 //t q[10]
 tdg q[8]; //cycle: 16786 //tdg q[15]
 tdg q[9]; //cycle: 16786 //tdg q[14]
-swp q[8],q[12]; //cycle: 16787
+swap q[8],q[12]; //cycle: 16787
 cx q[8],q[9]; //cycle: 16793 //cx q[10],q[14]
 cx q[12],q[8]; //cycle: 16795 //cx q[15],q[10]
 h q[8]; //cycle: 16797 //h q[10]
 t q[8]; //cycle: 16798 //t q[10]
 cx q[8],q[7]; //cycle: 16799 //cx q[10],q[13]
-swp q[6],q[7]; //cycle: 16801
-swp q[8],q[12]; //cycle: 16801
+swap q[6],q[7]; //cycle: 16801
+swap q[8],q[12]; //cycle: 16801
 cx q[9],q[8]; //cycle: 16807 //cx q[14],q[15]
 cx q[7],q[12]; //cycle: 16807 //cx q[11],q[10]
 cx q[6],q[7]; //cycle: 16809 //cx q[13],q[11]
@@ -13607,13 +13607,13 @@ tdg q[12]; //cycle: 16809 //tdg q[10]
 t q[8]; //cycle: 16809 //t q[15]
 t q[9]; //cycle: 16809 //t q[14]
 cx q[9],q[8]; //cycle: 16810 //cx q[14],q[15]
-swp q[6],q[11]; //cycle: 16811
+swap q[6],q[11]; //cycle: 16811
 t q[7]; //cycle: 16811 //t q[11]
 cx q[11],q[12]; //cycle: 16817 //cx q[13],q[10]
 tdg q[11]; //cycle: 16819 //tdg q[13]
 tdg q[12]; //cycle: 16819 //tdg q[10]
 cx q[7],q[12]; //cycle: 16820 //cx q[11],q[10]
-swp q[6],q[7]; //cycle: 16822
+swap q[6],q[7]; //cycle: 16822
 cx q[11],q[6]; //cycle: 16828 //cx q[13],q[11]
 cx q[12],q[11]; //cycle: 16830 //cx q[10],q[13]
 h q[6]; //cycle: 16830 //h q[11]
@@ -13637,11 +13637,11 @@ t q[7]; //cycle: 16846 //t q[12]
 t q[2]; //cycle: 16847 //t q[9]
 t q[6]; //cycle: 16847 //t q[11]
 cx q[7],q[2]; //cycle: 16848 //cx q[12],q[9]
-swp q[4],q[8]; //cycle: 16849
-swp q[7],q[12]; //cycle: 16850
+swap q[4],q[8]; //cycle: 16849
+swap q[7],q[12]; //cycle: 16850
 cx q[8],q[12]; //cycle: 16856 //cx q[6],q[12]
 cx q[6],q[7]; //cycle: 16856 //cx q[11],q[10]
-swp q[2],q[7]; //cycle: 16858
+swap q[2],q[7]; //cycle: 16858
 tdg q[12]; //cycle: 16858 //tdg q[12]
 cx q[7],q[8]; //cycle: 16864 //cx q[9],q[6]
 cx q[7],q[12]; //cycle: 16866 //cx q[9],q[12]
@@ -13657,7 +13657,7 @@ h q[12]; //cycle: 16875 //h q[12]
 t q[7]; //cycle: 16875 //t q[9]
 t q[8]; //cycle: 16875 //t q[6]
 t q[12]; //cycle: 16876 //t q[12]
-swp q[7],q[12]; //cycle: 16877
+swap q[7],q[12]; //cycle: 16877
 cx q[7],q[6]; //cycle: 16883 //cx q[12],q[11]
 cx q[2],q[7]; //cycle: 16885 //cx q[10],q[12]
 tdg q[6]; //cycle: 16885 //tdg q[11]
@@ -13685,39 +13685,39 @@ cx q[6],q[10]; //cycle: 16905 //cx q[11],q[8]
 cx q[11],q[6]; //cycle: 16907 //cx q[13],q[11]
 cx q[10],q[11]; //cycle: 16909 //cx q[8],q[13]
 h q[6]; //cycle: 16909 //h q[11]
-swp q[3],q[9]; //cycle: 16910
+swap q[3],q[9]; //cycle: 16910
 h q[6]; //cycle: 16910 //h q[11]
 h q[10]; //cycle: 16911 //h q[8]
 t q[11]; //cycle: 16911 //t q[13]
 t q[6]; //cycle: 16911 //t q[11]
 t q[10]; //cycle: 16912 //t q[8]
-swp q[6],q[10]; //cycle: 16915
-swp q[2],q[3]; //cycle: 16916
+swap q[6],q[10]; //cycle: 16915
+swap q[2],q[3]; //cycle: 16916
 cx q[6],q[2]; //cycle: 16922 //cx q[8],q[14]
-swp q[4],q[8]; //cycle: 16923
-swp q[6],q[7]; //cycle: 16924
+swap q[4],q[8]; //cycle: 16923
+swap q[6],q[7]; //cycle: 16924
 tdg q[2]; //cycle: 16924 //tdg q[14]
 cx q[8],q[7]; //cycle: 16930 //cx q[15],q[8]
-swp q[3],q[8]; //cycle: 16932
+swap q[3],q[8]; //cycle: 16932
 t q[7]; //cycle: 16932 //t q[8]
 cx q[3],q[2]; //cycle: 16938 //cx q[15],q[14]
 tdg q[3]; //cycle: 16940 //tdg q[15]
 tdg q[2]; //cycle: 16940 //tdg q[14]
 cx q[7],q[2]; //cycle: 16941 //cx q[8],q[14]
-swp q[3],q[8]; //cycle: 16942
+swap q[3],q[8]; //cycle: 16942
 cx q[8],q[7]; //cycle: 16948 //cx q[15],q[8]
-swp q[2],q[3]; //cycle: 16949
-swp q[11],q[12]; //cycle: 16949
+swap q[2],q[3]; //cycle: 16949
+swap q[11],q[12]; //cycle: 16949
 h q[7]; //cycle: 16950 //h q[8]
 t q[7]; //cycle: 16951 //t q[8]
 cx q[3],q[8]; //cycle: 16955 //cx q[14],q[15]
 cx q[7],q[12]; //cycle: 16955 //cx q[8],q[13]
-swp q[6],q[7]; //cycle: 16957
+swap q[6],q[7]; //cycle: 16957
 t q[8]; //cycle: 16957 //t q[15]
 t q[3]; //cycle: 16957 //t q[14]
 cx q[3],q[8]; //cycle: 16958 //cx q[14],q[15]
 cx q[10],q[6]; //cycle: 16963 //cx q[11],q[8]
-swp q[11],q[12]; //cycle: 16964
+swap q[11],q[12]; //cycle: 16964
 tdg q[6]; //cycle: 16965 //tdg q[8]
 cx q[11],q[10]; //cycle: 16970 //cx q[13],q[11]
 cx q[11],q[6]; //cycle: 16972 //cx q[13],q[8]
@@ -13732,7 +13732,7 @@ t q[10]; //cycle: 16980 //t q[11]
 t q[11]; //cycle: 16981 //t q[13]
 t q[6]; //cycle: 16981 //t q[8]
 cx q[6],q[11]; //cycle: 16982 //cx q[8],q[13]
-swp q[6],q[10]; //cycle: 16984
+swap q[6],q[10]; //cycle: 16984
 cx q[6],q[2]; //cycle: 16990 //cx q[11],q[10]
 cx q[7],q[6]; //cycle: 16992 //cx q[12],q[11]
 cx q[2],q[7]; //cycle: 16994 //cx q[10],q[12]
@@ -13749,7 +13749,7 @@ t q[7]; //cycle: 17004 //t q[12]
 t q[2]; //cycle: 17005 //t q[10]
 t q[6]; //cycle: 17005 //t q[11]
 cx q[7],q[12]; //cycle: 17005 //cx q[12],q[9]
-swp q[4],q[8]; //cycle: 17006
+swap q[4],q[8]; //cycle: 17006
 cx q[6],q[2]; //cycle: 17006 //cx q[11],q[10]
 cx q[8],q[7]; //cycle: 17012 //cx q[6],q[12]
 cx q[12],q[8]; //cycle: 17014 //cx q[9],q[6]
@@ -13798,34 +13798,34 @@ h q[6]; //cycle: 17054 //h q[11]
 h q[10]; //cycle: 17055 //h q[8]
 t q[11]; //cycle: 17055 //t q[13]
 t q[6]; //cycle: 17055 //t q[11]
-swp q[2],q[3]; //cycle: 17056
+swap q[2],q[3]; //cycle: 17056
 t q[10]; //cycle: 17056 //t q[8]
-swp q[6],q[10]; //cycle: 17057
+swap q[6],q[10]; //cycle: 17057
 cx q[6],q[2]; //cycle: 17063 //cx q[8],q[14]
-swp q[4],q[8]; //cycle: 17065
-swp q[6],q[7]; //cycle: 17065
+swap q[4],q[8]; //cycle: 17065
+swap q[6],q[7]; //cycle: 17065
 tdg q[2]; //cycle: 17065 //tdg q[14]
 cx q[8],q[7]; //cycle: 17071 //cx q[15],q[8]
-swp q[3],q[8]; //cycle: 17073
+swap q[3],q[8]; //cycle: 17073
 t q[7]; //cycle: 17073 //t q[8]
 cx q[3],q[2]; //cycle: 17079 //cx q[15],q[14]
 tdg q[3]; //cycle: 17081 //tdg q[15]
 tdg q[2]; //cycle: 17081 //tdg q[14]
 cx q[7],q[2]; //cycle: 17082 //cx q[8],q[14]
-swp q[3],q[8]; //cycle: 17083
+swap q[3],q[8]; //cycle: 17083
 cx q[8],q[7]; //cycle: 17089 //cx q[15],q[8]
-swp q[2],q[3]; //cycle: 17090
-swp q[11],q[12]; //cycle: 17090
+swap q[2],q[3]; //cycle: 17090
+swap q[11],q[12]; //cycle: 17090
 h q[7]; //cycle: 17091 //h q[8]
 t q[7]; //cycle: 17092 //t q[8]
 cx q[3],q[8]; //cycle: 17096 //cx q[14],q[15]
 cx q[7],q[12]; //cycle: 17096 //cx q[8],q[13]
-swp q[6],q[7]; //cycle: 17098
+swap q[6],q[7]; //cycle: 17098
 t q[8]; //cycle: 17098 //t q[15]
 t q[3]; //cycle: 17098 //t q[14]
 cx q[3],q[8]; //cycle: 17099 //cx q[14],q[15]
 cx q[10],q[6]; //cycle: 17104 //cx q[11],q[8]
-swp q[11],q[12]; //cycle: 17105
+swap q[11],q[12]; //cycle: 17105
 tdg q[6]; //cycle: 17106 //tdg q[8]
 cx q[11],q[10]; //cycle: 17111 //cx q[13],q[11]
 cx q[11],q[6]; //cycle: 17113 //cx q[13],q[8]
@@ -13840,7 +13840,7 @@ t q[10]; //cycle: 17121 //t q[11]
 t q[11]; //cycle: 17122 //t q[13]
 t q[6]; //cycle: 17122 //t q[8]
 cx q[6],q[11]; //cycle: 17123 //cx q[8],q[13]
-swp q[6],q[10]; //cycle: 17125
+swap q[6],q[10]; //cycle: 17125
 cx q[6],q[2]; //cycle: 17131 //cx q[11],q[10]
 cx q[7],q[6]; //cycle: 17133 //cx q[12],q[11]
 cx q[2],q[7]; //cycle: 17135 //cx q[10],q[12]
@@ -13858,10 +13858,10 @@ cx q[7],q[12]; //cycle: 17146 //cx q[12],q[9]
 t q[2]; //cycle: 17146 //t q[10]
 t q[6]; //cycle: 17146 //t q[11]
 cx q[6],q[2]; //cycle: 17147 //cx q[11],q[10]
-swp q[10],q[15]; //cycle: 17148
-swp q[6],q[7]; //cycle: 17149
+swap q[10],q[15]; //cycle: 17148
+swap q[6],q[7]; //cycle: 17149
 cx q[10],q[6]; //cycle: 17155 //cx q[5],q[12]
-swp q[11],q[12]; //cycle: 17156
+swap q[11],q[12]; //cycle: 17156
 tdg q[6]; //cycle: 17157 //tdg q[12]
 cx q[11],q[10]; //cycle: 17162 //cx q[9],q[5]
 cx q[11],q[6]; //cycle: 17164 //cx q[9],q[12]
@@ -13889,14 +13889,14 @@ cx q[2],q[6]; //cycle: 17184 //cx q[10],q[12]
 cx q[7],q[2]; //cycle: 17186 //cx q[11],q[10]
 h q[6]; //cycle: 17186 //h q[12]
 h q[6]; //cycle: 17187 //h q[12]
-swp q[10],q[15]; //cycle: 17188
+swap q[10],q[15]; //cycle: 17188
 h q[7]; //cycle: 17188 //h q[11]
 t q[2]; //cycle: 17188 //t q[10]
 t q[6]; //cycle: 17188 //t q[12]
 t q[7]; //cycle: 17189 //t q[11]
-swp q[6],q[7]; //cycle: 17190
+swap q[6],q[7]; //cycle: 17190
 cx q[6],q[10]; //cycle: 17196 //cx q[11],q[8]
-swp q[11],q[12]; //cycle: 17197
+swap q[11],q[12]; //cycle: 17197
 tdg q[10]; //cycle: 17198 //tdg q[8]
 cx q[11],q[6]; //cycle: 17203 //cx q[13],q[11]
 cx q[11],q[10]; //cycle: 17205 //cx q[13],q[8]
@@ -13908,14 +13908,14 @@ cx q[11],q[6]; //cycle: 17210 //cx q[13],q[11]
 cx q[10],q[11]; //cycle: 17212 //cx q[8],q[13]
 h q[6]; //cycle: 17212 //h q[11]
 h q[6]; //cycle: 17213 //h q[11]
-swp q[2],q[3]; //cycle: 17214
+swap q[2],q[3]; //cycle: 17214
 h q[10]; //cycle: 17214 //h q[8]
 t q[11]; //cycle: 17214 //t q[13]
 t q[6]; //cycle: 17214 //t q[11]
 t q[10]; //cycle: 17215 //t q[8]
-swp q[6],q[10]; //cycle: 17216
+swap q[6],q[10]; //cycle: 17216
 cx q[6],q[2]; //cycle: 17222 //cx q[8],q[14]
-swp q[7],q[8]; //cycle: 17223
+swap q[7],q[8]; //cycle: 17223
 tdg q[2]; //cycle: 17224 //tdg q[14]
 cx q[7],q[6]; //cycle: 17229 //cx q[15],q[8]
 cx q[7],q[2]; //cycle: 17231 //cx q[15],q[14]
@@ -13940,16 +13940,16 @@ tdg q[11]; //cycle: 17248 //tdg q[13]
 tdg q[6]; //cycle: 17248 //tdg q[8]
 cx q[10],q[6]; //cycle: 17249 //cx q[11],q[8]
 cx q[11],q[10]; //cycle: 17251 //cx q[13],q[11]
-swp q[2],q[3]; //cycle: 17253
+swap q[2],q[3]; //cycle: 17253
 cx q[6],q[11]; //cycle: 17253 //cx q[8],q[13]
 h q[10]; //cycle: 17253 //h q[11]
 t q[10]; //cycle: 17254 //t q[11]
 t q[11]; //cycle: 17255 //t q[13]
 t q[6]; //cycle: 17255 //t q[8]
 cx q[6],q[11]; //cycle: 17256 //cx q[8],q[13]
-swp q[6],q[10]; //cycle: 17258
+swap q[6],q[10]; //cycle: 17258
 cx q[6],q[2]; //cycle: 17264 //cx q[11],q[10]
-swp q[7],q[8]; //cycle: 17265
+swap q[7],q[8]; //cycle: 17265
 cx q[7],q[6]; //cycle: 17271 //cx q[12],q[11]
 cx q[2],q[7]; //cycle: 17273 //cx q[10],q[12]
 tdg q[6]; //cycle: 17273 //tdg q[11]
@@ -13966,10 +13966,10 @@ cx q[7],q[12]; //cycle: 17284 //cx q[12],q[9]
 t q[2]; //cycle: 17284 //t q[10]
 t q[6]; //cycle: 17284 //t q[11]
 cx q[6],q[2]; //cycle: 17285 //cx q[11],q[10]
-swp q[6],q[7]; //cycle: 17287
-swp q[10],q[15]; //cycle: 17287
+swap q[6],q[7]; //cycle: 17287
+swap q[10],q[15]; //cycle: 17287
 cx q[10],q[6]; //cycle: 17293 //cx q[5],q[12]
-swp q[11],q[12]; //cycle: 17294
+swap q[11],q[12]; //cycle: 17294
 tdg q[6]; //cycle: 17295 //tdg q[12]
 cx q[11],q[10]; //cycle: 17300 //cx q[9],q[5]
 cx q[11],q[6]; //cycle: 17302 //cx q[9],q[12]
@@ -13996,14 +13996,14 @@ cx q[2],q[6]; //cycle: 17322 //cx q[10],q[12]
 cx q[7],q[2]; //cycle: 17324 //cx q[11],q[10]
 h q[6]; //cycle: 17324 //h q[12]
 h q[6]; //cycle: 17325 //h q[12]
-swp q[10],q[15]; //cycle: 17326
+swap q[10],q[15]; //cycle: 17326
 h q[7]; //cycle: 17326 //h q[11]
 t q[2]; //cycle: 17326 //t q[10]
 t q[6]; //cycle: 17326 //t q[12]
 t q[7]; //cycle: 17327 //t q[11]
-swp q[6],q[7]; //cycle: 17328
+swap q[6],q[7]; //cycle: 17328
 cx q[6],q[10]; //cycle: 17334 //cx q[11],q[8]
-swp q[11],q[12]; //cycle: 17335
+swap q[11],q[12]; //cycle: 17335
 tdg q[10]; //cycle: 17336 //tdg q[8]
 cx q[11],q[6]; //cycle: 17341 //cx q[13],q[11]
 cx q[11],q[10]; //cycle: 17343 //cx q[13],q[8]
@@ -14019,10 +14019,10 @@ h q[10]; //cycle: 17352 //h q[8]
 t q[11]; //cycle: 17352 //t q[13]
 t q[6]; //cycle: 17352 //t q[11]
 t q[10]; //cycle: 17353 //t q[8]
-swp q[2],q[3]; //cycle: 17354
-swp q[6],q[10]; //cycle: 17354
+swap q[2],q[3]; //cycle: 17354
+swap q[6],q[10]; //cycle: 17354
 cx q[6],q[2]; //cycle: 17360 //cx q[8],q[14]
-swp q[7],q[8]; //cycle: 17361
+swap q[7],q[8]; //cycle: 17361
 tdg q[2]; //cycle: 17362 //tdg q[14]
 cx q[7],q[6]; //cycle: 17367 //cx q[15],q[8]
 cx q[7],q[2]; //cycle: 17369 //cx q[15],q[14]
@@ -14039,7 +14039,7 @@ cx q[6],q[11]; //cycle: 17378 //cx q[8],q[13]
 t q[7]; //cycle: 17378 //t q[15]
 cx q[7],q[12]; //cycle: 17379 //cx q[15],q[9]
 cx q[10],q[6]; //cycle: 17380 //cx q[11],q[8]
-swp q[7],q[8]; //cycle: 17382
+swap q[7],q[8]; //cycle: 17382
 cx q[11],q[10]; //cycle: 17382 //cx q[13],q[11]
 tdg q[6]; //cycle: 17382 //tdg q[8]
 cx q[11],q[6]; //cycle: 17384 //cx q[13],q[8]
@@ -14052,12 +14052,12 @@ cx q[11],q[10]; //cycle: 17389 //cx q[13],q[11]
 tdg q[8]; //cycle: 17390 //tdg q[15]
 cx q[6],q[11]; //cycle: 17391 //cx q[8],q[13]
 h q[10]; //cycle: 17391 //h q[11]
-swp q[8],q[12]; //cycle: 17392
+swap q[8],q[12]; //cycle: 17392
 t q[10]; //cycle: 17392 //t q[11]
 t q[11]; //cycle: 17393 //t q[13]
 t q[6]; //cycle: 17393 //t q[8]
-swp q[2],q[3]; //cycle: 17394
-swp q[6],q[10]; //cycle: 17394
+swap q[2],q[3]; //cycle: 17394
+swap q[6],q[10]; //cycle: 17394
 cx q[8],q[4]; //cycle: 17398 //cx q[9],q[6]
 cx q[6],q[2]; //cycle: 17400 //cx q[11],q[10]
 cx q[8],q[12]; //cycle: 17400 //cx q[9],q[15]
@@ -14065,7 +14065,7 @@ t q[4]; //cycle: 17400 //t q[6]
 cx q[7],q[6]; //cycle: 17402 //cx q[12],q[11]
 tdg q[8]; //cycle: 17402 //tdg q[9]
 tdg q[12]; //cycle: 17402 //tdg q[15]
-swp q[4],q[8]; //cycle: 17403
+swap q[4],q[8]; //cycle: 17403
 cx q[2],q[7]; //cycle: 17404 //cx q[10],q[12]
 tdg q[6]; //cycle: 17404 //tdg q[11]
 cx q[2],q[6]; //cycle: 17406 //cx q[10],q[11]
@@ -14081,14 +14081,14 @@ h q[7]; //cycle: 17413 //h q[12]
 h q[8]; //cycle: 17413 //h q[6]
 h q[8]; //cycle: 17414 //h q[6]
 t q[7]; //cycle: 17414 //t q[12]
-swp q[7],q[12]; //cycle: 17415
+swap q[7],q[12]; //cycle: 17415
 t q[8]; //cycle: 17415 //t q[6]
 t q[2]; //cycle: 17415 //t q[10]
 t q[6]; //cycle: 17415 //t q[11]
-swp q[4],q[8]; //cycle: 17416
+swap q[4],q[8]; //cycle: 17416
 cx q[1],q[6]; //cycle: 17416 //cx q[7],q[11]
-swp q[6],q[10]; //cycle: 17418
-swp q[15],q[16]; //cycle: 17419
+swap q[6],q[10]; //cycle: 17418
+swap q[15],q[16]; //cycle: 17419
 cx q[7],q[8]; //cycle: 17422 //cx q[15],q[9]
 t q[8]; //cycle: 17424 //t q[9]
 h q[7]; //cycle: 17424 //h q[15]
@@ -14098,14 +14098,14 @@ cx q[16],q[12]; //cycle: 17425 //cx q[5],q[12]
 cx q[7],q[6]; //cycle: 17426 //cx q[15],q[8]
 cx q[2],q[7]; //cycle: 17428 //cx q[10],q[15]
 tdg q[6]; //cycle: 17428 //tdg q[8]
-swp q[11],q[12]; //cycle: 17429
+swap q[11],q[12]; //cycle: 17429
 cx q[2],q[6]; //cycle: 17430 //cx q[10],q[8]
 t q[7]; //cycle: 17430 //t q[15]
 tdg q[2]; //cycle: 17432 //tdg q[10]
 tdg q[6]; //cycle: 17432 //tdg q[8]
 cx q[7],q[6]; //cycle: 17433 //cx q[15],q[8]
 cx q[2],q[7]; //cycle: 17435 //cx q[10],q[15]
-swp q[3],q[8]; //cycle: 17437
+swap q[3],q[8]; //cycle: 17437
 cx q[6],q[2]; //cycle: 17437 //cx q[8],q[10]
 h q[7]; //cycle: 17437 //h q[15]
 h q[7]; //cycle: 17438 //h q[15]
@@ -14118,16 +14118,16 @@ cx q[12],q[8]; //cycle: 17443 //cx q[13],q[14]
 cx q[10],q[6]; //cycle: 17443 //cx q[11],q[8]
 tdg q[1]; //cycle: 17443 //tdg q[7]
 t q[6]; //cycle: 17445 //t q[8]
-swp q[1],q[6]; //cycle: 17446
+swap q[1],q[6]; //cycle: 17446
 cx q[10],q[6]; //cycle: 17452 //cx q[11],q[7]
 tdg q[10]; //cycle: 17454 //tdg q[11]
 tdg q[6]; //cycle: 17454 //tdg q[7]
 cx q[1],q[6]; //cycle: 17455 //cx q[8],q[7]
-swp q[6],q[10]; //cycle: 17457
+swap q[6],q[10]; //cycle: 17457
 cx q[6],q[1]; //cycle: 17463 //cx q[11],q[8]
 cx q[10],q[6]; //cycle: 17465 //cx q[7],q[11]
 h q[1]; //cycle: 17465 //h q[8]
-swp q[15],q[16]; //cycle: 17466
+swap q[15],q[16]; //cycle: 17466
 h q[1]; //cycle: 17466 //h q[8]
 t q[6]; //cycle: 17467 //t q[11]
 t q[1]; //cycle: 17467 //t q[8]
@@ -14136,13 +14136,13 @@ t q[10]; //cycle: 17468 //t q[7]
 cx q[10],q[15]; //cycle: 17472 //cx q[7],q[5]
 cx q[11],q[10]; //cycle: 17474 //cx q[12],q[7]
 tdg q[15]; //cycle: 17474 //tdg q[5]
-swp q[11],q[16]; //cycle: 17476
+swap q[11],q[16]; //cycle: 17476
 t q[10]; //cycle: 17476 //t q[7]
 cx q[16],q[15]; //cycle: 17482 //cx q[12],q[5]
 tdg q[16]; //cycle: 17484 //tdg q[12]
 tdg q[15]; //cycle: 17484 //tdg q[5]
 cx q[10],q[15]; //cycle: 17485 //cx q[7],q[5]
-swp q[15],q[16]; //cycle: 17487
+swap q[15],q[16]; //cycle: 17487
 cx q[15],q[10]; //cycle: 17493 //cx q[12],q[7]
 cx q[16],q[15]; //cycle: 17495 //cx q[5],q[12]
 h q[10]; //cycle: 17495 //h q[7]
@@ -14153,20 +14153,20 @@ t q[10]; //cycle: 17497 //t q[7]
 t q[16]; //cycle: 17498 //t q[5]
 cx q[16],q[12]; //cycle: 17499 //cx q[5],q[13]
 tdg q[12]; //cycle: 17501 //tdg q[13]
-swp q[8],q[12]; //cycle: 17502
+swap q[8],q[12]; //cycle: 17502
 cx q[12],q[16]; //cycle: 17508 //cx q[14],q[5]
 cx q[12],q[8]; //cycle: 17510 //cx q[14],q[13]
 t q[16]; //cycle: 17510 //t q[5]
 tdg q[12]; //cycle: 17512 //tdg q[14]
 tdg q[8]; //cycle: 17512 //tdg q[13]
-swp q[12],q[16]; //cycle: 17513
+swap q[12],q[16]; //cycle: 17513
 cx q[12],q[8]; //cycle: 17519 //cx q[5],q[13]
 cx q[16],q[12]; //cycle: 17521 //cx q[14],q[5]
-swp q[15],q[16]; //cycle: 17523
+swap q[15],q[16]; //cycle: 17523
 h q[12]; //cycle: 17523 //h q[5]
 t q[12]; //cycle: 17524 //t q[5]
 cx q[12],q[16]; //cycle: 17529 //cx q[5],q[12]
-swp q[10],q[11]; //cycle: 17530
+swap q[10],q[11]; //cycle: 17530
 cx q[11],q[12]; //cycle: 17536 //cx q[7],q[5]
 cx q[16],q[11]; //cycle: 17538 //cx q[12],q[7]
 tdg q[12]; //cycle: 17538 //tdg q[5]
@@ -14175,13 +14175,13 @@ t q[11]; //cycle: 17540 //t q[7]
 tdg q[16]; //cycle: 17542 //tdg q[12]
 tdg q[12]; //cycle: 17542 //tdg q[5]
 cx q[11],q[12]; //cycle: 17543 //cx q[7],q[5]
-swp q[8],q[12]; //cycle: 17545
+swap q[8],q[12]; //cycle: 17545
 cx q[16],q[11]; //cycle: 17545 //cx q[12],q[7]
 h q[11]; //cycle: 17547 //h q[7]
 t q[11]; //cycle: 17548 //t q[7]
 cx q[11],q[6]; //cycle: 17549 //cx q[7],q[11]
-swp q[1],q[6]; //cycle: 17551
-swp q[12],q[16]; //cycle: 17551
+swap q[1],q[6]; //cycle: 17551
+swap q[12],q[16]; //cycle: 17551
 cx q[16],q[15]; //cycle: 17557 //cx q[13],q[14]
 cx q[8],q[12]; //cycle: 17557 //cx q[5],q[12]
 cx q[6],q[11]; //cycle: 17557 //cx q[8],q[7]
@@ -14194,12 +14194,12 @@ t q[16]; //cycle: 17559 //t q[13]
 cx q[8],q[12]; //cycle: 17560 //cx q[5],q[12]
 cx q[16],q[15]; //cycle: 17560 //cx q[13],q[14]
 t q[6]; //cycle: 17561 //t q[8]
-swp q[6],q[11]; //cycle: 17562
+swap q[6],q[11]; //cycle: 17562
 cx q[1],q[6]; //cycle: 17568 //cx q[11],q[7]
 tdg q[1]; //cycle: 17570 //tdg q[11]
 tdg q[6]; //cycle: 17570 //tdg q[7]
 cx q[11],q[6]; //cycle: 17571 //cx q[8],q[7]
-swp q[6],q[11]; //cycle: 17573
+swap q[6],q[11]; //cycle: 17573
 cx q[1],q[6]; //cycle: 17579 //cx q[11],q[8]
 h q[6]; //cycle: 17581 //h q[8]
 t q[6]; //cycle: 17582 //t q[8]
@@ -14213,7 +14213,7 @@ tdg q[2]; //cycle: 17591 //tdg q[10]
 tdg q[6]; //cycle: 17591 //tdg q[8]
 cx q[7],q[6]; //cycle: 17592 //cx q[15],q[8]
 cx q[2],q[7]; //cycle: 17594 //cx q[10],q[15]
-swp q[3],q[8]; //cycle: 17595
+swap q[3],q[8]; //cycle: 17595
 cx q[6],q[2]; //cycle: 17596 //cx q[8],q[10]
 h q[7]; //cycle: 17596 //h q[15]
 t q[7]; //cycle: 17597 //t q[15]
@@ -14221,8 +14221,8 @@ t q[2]; //cycle: 17598 //t q[10]
 t q[6]; //cycle: 17598 //t q[8]
 cx q[6],q[2]; //cycle: 17599 //cx q[8],q[10]
 cx q[7],q[8]; //cycle: 17601 //cx q[15],q[9]
-swp q[6],q[11]; //cycle: 17602
-swp q[4],q[8]; //cycle: 17603
+swap q[6],q[11]; //cycle: 17602
+swap q[4],q[8]; //cycle: 17603
 cx q[6],q[1]; //cycle: 17608 //cx q[7],q[11]
 cx q[8],q[7]; //cycle: 17609 //cx q[6],q[15]
 t q[1]; //cycle: 17610 //t q[11]
@@ -14231,23 +14231,23 @@ cx q[4],q[8]; //cycle: 17611 //cx q[9],q[6]
 tdg q[7]; //cycle: 17611 //tdg q[15]
 cx q[6],q[1]; //cycle: 17611 //cx q[7],q[11]
 t q[8]; //cycle: 17613 //t q[6]
-swp q[7],q[8]; //cycle: 17614
+swap q[7],q[8]; //cycle: 17614
 cx q[4],q[8]; //cycle: 17620 //cx q[9],q[15]
 tdg q[4]; //cycle: 17622 //tdg q[9]
 tdg q[8]; //cycle: 17622 //tdg q[15]
 cx q[7],q[8]; //cycle: 17623 //cx q[6],q[15]
-swp q[4],q[8]; //cycle: 17625
+swap q[4],q[8]; //cycle: 17625
 cx q[8],q[7]; //cycle: 17631 //cx q[9],q[6]
 cx q[4],q[8]; //cycle: 17633 //cx q[15],q[9]
 h q[7]; //cycle: 17633 //h q[6]
-swp q[11],q[12]; //cycle: 17634
+swap q[11],q[12]; //cycle: 17634
 t q[7]; //cycle: 17634 //t q[6]
 t q[8]; //cycle: 17635 //t q[9]
 h q[4]; //cycle: 17635 //h q[15]
 t q[4]; //cycle: 17636 //t q[15]
-swp q[4],q[8]; //cycle: 17637
+swap q[4],q[8]; //cycle: 17637
 cx q[8],q[12]; //cycle: 17643 //cx q[15],q[8]
-swp q[2],q[7]; //cycle: 17644
+swap q[2],q[7]; //cycle: 17644
 tdg q[12]; //cycle: 17645 //tdg q[8]
 cx q[7],q[8]; //cycle: 17650 //cx q[10],q[15]
 cx q[7],q[12]; //cycle: 17652 //cx q[10],q[8]
@@ -14263,7 +14263,7 @@ t q[7]; //cycle: 17661 //t q[10]
 t q[8]; //cycle: 17661 //t q[15]
 h q[12]; //cycle: 17661 //h q[8]
 t q[12]; //cycle: 17662 //t q[8]
-swp q[7],q[12]; //cycle: 17663
+swap q[7],q[12]; //cycle: 17663
 cx q[7],q[6]; //cycle: 17669 //cx q[8],q[7]
 cx q[1],q[7]; //cycle: 17671 //cx q[11],q[8]
 tdg q[6]; //cycle: 17671 //tdg q[7]
@@ -14275,7 +14275,7 @@ cx q[7],q[6]; //cycle: 17676 //cx q[8],q[7]
 cx q[1],q[7]; //cycle: 17678 //cx q[11],q[8]
 cx q[6],q[1]; //cycle: 17680 //cx q[7],q[11]
 h q[7]; //cycle: 17680 //h q[8]
-swp q[2],q[3]; //cycle: 17681
+swap q[2],q[3]; //cycle: 17681
 h q[7]; //cycle: 17681 //h q[8]
 h q[6]; //cycle: 17682 //h q[7]
 t q[1]; //cycle: 17682 //t q[11]
@@ -14285,12 +14285,12 @@ cx q[6],q[2]; //cycle: 17687 //cx q[7],q[5]
 cx q[11],q[6]; //cycle: 17689 //cx q[12],q[7]
 tdg q[2]; //cycle: 17689 //tdg q[5]
 t q[6]; //cycle: 17691 //t q[7]
-swp q[2],q[6]; //cycle: 17692
+swap q[2],q[6]; //cycle: 17692
 cx q[11],q[6]; //cycle: 17698 //cx q[12],q[5]
 tdg q[11]; //cycle: 17700 //tdg q[12]
 tdg q[6]; //cycle: 17700 //tdg q[5]
 cx q[2],q[6]; //cycle: 17701 //cx q[7],q[5]
-swp q[6],q[11]; //cycle: 17703
+swap q[6],q[11]; //cycle: 17703
 cx q[6],q[2]; //cycle: 17709 //cx q[12],q[7]
 cx q[11],q[6]; //cycle: 17711 //cx q[5],q[12]
 h q[2]; //cycle: 17711 //h q[7]
@@ -14300,21 +14300,21 @@ t q[6]; //cycle: 17713 //t q[12]
 t q[2]; //cycle: 17713 //t q[7]
 t q[11]; //cycle: 17714 //t q[5]
 cx q[11],q[16]; //cycle: 17715 //cx q[5],q[13]
-swp q[10],q[11]; //cycle: 17717
+swap q[10],q[11]; //cycle: 17717
 tdg q[16]; //cycle: 17717 //tdg q[13]
 cx q[15],q[10]; //cycle: 17723 //cx q[14],q[5]
 cx q[15],q[16]; //cycle: 17725 //cx q[14],q[13]
 t q[10]; //cycle: 17725 //t q[5]
 tdg q[15]; //cycle: 17727 //tdg q[14]
 tdg q[16]; //cycle: 17727 //tdg q[13]
-swp q[11],q[16]; //cycle: 17728
+swap q[11],q[16]; //cycle: 17728
 cx q[10],q[11]; //cycle: 17734 //cx q[5],q[13]
 cx q[15],q[10]; //cycle: 17736 //cx q[14],q[5]
 h q[10]; //cycle: 17738 //h q[5]
 t q[10]; //cycle: 17739 //t q[5]
 cx q[10],q[6]; //cycle: 17740 //cx q[5],q[12]
-swp q[2],q[6]; //cycle: 17742
-swp q[11],q[16]; //cycle: 17744
+swap q[2],q[6]; //cycle: 17742
+swap q[11],q[16]; //cycle: 17744
 cx q[6],q[10]; //cycle: 17748 //cx q[7],q[5]
 cx q[16],q[15]; //cycle: 17750 //cx q[13],q[14]
 cx q[2],q[6]; //cycle: 17750 //cx q[12],q[7]
@@ -14322,12 +14322,12 @@ tdg q[10]; //cycle: 17750 //tdg q[5]
 t q[15]; //cycle: 17752 //t q[14]
 t q[16]; //cycle: 17752 //t q[13]
 t q[6]; //cycle: 17752 //t q[7]
-swp q[2],q[6]; //cycle: 17753
+swap q[2],q[6]; //cycle: 17753
 cx q[16],q[15]; //cycle: 17753 //cx q[13],q[14]
 cx q[6],q[10]; //cycle: 17759 //cx q[12],q[5]
 tdg q[6]; //cycle: 17761 //tdg q[12]
 tdg q[10]; //cycle: 17761 //tdg q[5]
-swp q[2],q[6]; //cycle: 17762
+swap q[2],q[6]; //cycle: 17762
 cx q[6],q[10]; //cycle: 17768 //cx q[7],q[5]
 cx q[2],q[6]; //cycle: 17770 //cx q[12],q[7]
 h q[6]; //cycle: 17772 //h q[7]
@@ -14352,7 +14352,7 @@ cx q[6],q[1]; //cycle: 17790 //cx q[7],q[11]
 cx q[8],q[7]; //cycle: 17791 //cx q[15],q[8]
 cx q[12],q[8]; //cycle: 17793 //cx q[10],q[15]
 tdg q[7]; //cycle: 17793 //tdg q[8]
-swp q[6],q[10]; //cycle: 17794
+swap q[6],q[10]; //cycle: 17794
 cx q[12],q[7]; //cycle: 17795 //cx q[10],q[8]
 t q[8]; //cycle: 17795 //t q[15]
 tdg q[12]; //cycle: 17797 //tdg q[10]
@@ -14371,26 +14371,26 @@ cx q[8],q[4]; //cycle: 17804 //cx q[15],q[9]
 t q[12]; //cycle: 17804 //t q[10]
 t q[7]; //cycle: 17804 //t q[8]
 cx q[7],q[12]; //cycle: 17805 //cx q[8],q[10]
-swp q[6],q[7]; //cycle: 17807
+swap q[6],q[7]; //cycle: 17807
 cx q[7],q[8]; //cycle: 17813 //cx q[5],q[15]
 tdg q[8]; //cycle: 17815 //tdg q[15]
-swp q[4],q[8]; //cycle: 17816
+swap q[4],q[8]; //cycle: 17816
 cx q[8],q[7]; //cycle: 17822 //cx q[9],q[5]
 cx q[8],q[4]; //cycle: 17824 //cx q[9],q[15]
 t q[7]; //cycle: 17824 //t q[5]
 tdg q[8]; //cycle: 17826 //tdg q[9]
 tdg q[4]; //cycle: 17826 //tdg q[15]
-swp q[7],q[8]; //cycle: 17827
+swap q[7],q[8]; //cycle: 17827
 cx q[8],q[4]; //cycle: 17833 //cx q[5],q[15]
 cx q[7],q[8]; //cycle: 17835 //cx q[9],q[5]
 h q[8]; //cycle: 17837 //h q[5]
 h q[8]; //cycle: 17838 //h q[5]
 t q[8]; //cycle: 17839 //t q[5]
-swp q[4],q[8]; //cycle: 17840
+swap q[4],q[8]; //cycle: 17840
 cx q[8],q[7]; //cycle: 17846 //cx q[15],q[9]
 h q[8]; //cycle: 17848 //h q[15]
 t q[7]; //cycle: 17848 //t q[9]
-swp q[6],q[7]; //cycle: 17849
+swap q[6],q[7]; //cycle: 17849
 t q[8]; //cycle: 17849 //t q[15]
 cx q[8],q[7]; //cycle: 17855 //cx q[15],q[8]
 cx q[12],q[8]; //cycle: 17857 //cx q[10],q[15]
@@ -14403,7 +14403,7 @@ cx q[8],q[7]; //cycle: 17862 //cx q[15],q[8]
 cx q[12],q[8]; //cycle: 17864 //cx q[10],q[15]
 cx q[7],q[12]; //cycle: 17866 //cx q[8],q[10]
 h q[8]; //cycle: 17866 //h q[15]
-swp q[6],q[10]; //cycle: 17867
+swap q[6],q[10]; //cycle: 17867
 h q[8]; //cycle: 17867 //h q[15]
 h q[7]; //cycle: 17868 //h q[8]
 t q[12]; //cycle: 17868 //t q[10]
@@ -14425,28 +14425,28 @@ h q[6]; //cycle: 17886 //h q[7]
 t q[1]; //cycle: 17886 //t q[11]
 t q[7]; //cycle: 17886 //t q[8]
 t q[6]; //cycle: 17887 //t q[7]
-swp q[2],q[6]; //cycle: 17888
+swap q[2],q[6]; //cycle: 17888
 cx q[2],q[3]; //cycle: 17894 //cx q[7],q[6]
 cx q[6],q[2]; //cycle: 17896 //cx q[12],q[7]
 tdg q[3]; //cycle: 17896 //tdg q[6]
 t q[2]; //cycle: 17898 //t q[7]
-swp q[2],q[3]; //cycle: 17899
+swap q[2],q[3]; //cycle: 17899
 cx q[6],q[2]; //cycle: 17905 //cx q[12],q[6]
 tdg q[6]; //cycle: 17907 //tdg q[12]
 tdg q[2]; //cycle: 17907 //tdg q[6]
 cx q[3],q[2]; //cycle: 17908 //cx q[7],q[6]
-swp q[2],q[6]; //cycle: 17910
+swap q[2],q[6]; //cycle: 17910
 cx q[2],q[3]; //cycle: 17916 //cx q[12],q[7]
 cx q[6],q[2]; //cycle: 17918 //cx q[6],q[12]
 h q[3]; //cycle: 17918 //h q[7]
-swp q[11],q[16]; //cycle: 17919
+swap q[11],q[16]; //cycle: 17919
 h q[3]; //cycle: 17919 //h q[7]
 h q[6]; //cycle: 17920 //h q[6]
 t q[2]; //cycle: 17920 //t q[12]
 t q[3]; //cycle: 17920 //t q[7]
 t q[6]; //cycle: 17921 //t q[6]
 cx q[6],q[11]; //cycle: 17925 //cx q[6],q[13]
-swp q[10],q[15]; //cycle: 17926
+swap q[10],q[15]; //cycle: 17926
 tdg q[11]; //cycle: 17927 //tdg q[13]
 cx q[10],q[6]; //cycle: 17932 //cx q[14],q[6]
 cx q[10],q[11]; //cycle: 17934 //cx q[14],q[13]
@@ -14462,17 +14462,17 @@ t q[10]; //cycle: 17943 //t q[14]
 t q[11]; //cycle: 17943 //t q[13]
 cx q[6],q[2]; //cycle: 17943 //cx q[6],q[12]
 cx q[11],q[10]; //cycle: 17944 //cx q[13],q[14]
-swp q[2],q[3]; //cycle: 17945
+swap q[2],q[3]; //cycle: 17945
 cx q[2],q[6]; //cycle: 17951 //cx q[7],q[6]
 cx q[3],q[2]; //cycle: 17953 //cx q[12],q[7]
 tdg q[6]; //cycle: 17953 //tdg q[6]
 t q[2]; //cycle: 17955 //t q[7]
-swp q[2],q[6]; //cycle: 17956
+swap q[2],q[6]; //cycle: 17956
 cx q[3],q[2]; //cycle: 17962 //cx q[12],q[6]
 tdg q[3]; //cycle: 17964 //tdg q[12]
 tdg q[2]; //cycle: 17964 //tdg q[6]
 cx q[6],q[2]; //cycle: 17965 //cx q[7],q[6]
-swp q[2],q[6]; //cycle: 17967
+swap q[2],q[6]; //cycle: 17967
 cx q[3],q[2]; //cycle: 17973 //cx q[12],q[7]
 h q[2]; //cycle: 17975 //h q[7]
 t q[2]; //cycle: 17976 //t q[7]
@@ -14494,7 +14494,7 @@ t q[2]; //cycle: 17992 //t q[7]
 cx q[7],q[12]; //cycle: 17992 //cx q[8],q[10]
 cx q[2],q[1]; //cycle: 17993 //cx q[7],q[11]
 cx q[8],q[7]; //cycle: 17994 //cx q[15],q[8]
-swp q[2],q[3]; //cycle: 17995
+swap q[2],q[3]; //cycle: 17995
 cx q[12],q[8]; //cycle: 17996 //cx q[10],q[15]
 tdg q[7]; //cycle: 17996 //tdg q[8]
 cx q[12],q[7]; //cycle: 17998 //cx q[10],q[8]
@@ -14506,7 +14506,7 @@ cx q[8],q[7]; //cycle: 18001 //cx q[15],q[8]
 t q[2]; //cycle: 18003 //t q[12]
 t q[6]; //cycle: 18003 //t q[6]
 cx q[12],q[8]; //cycle: 18003 //cx q[10],q[15]
-swp q[15],q[16]; //cycle: 18004
+swap q[15],q[16]; //cycle: 18004
 cx q[6],q[2]; //cycle: 18004 //cx q[6],q[12]
 cx q[7],q[12]; //cycle: 18005 //cx q[8],q[10]
 h q[8]; //cycle: 18005 //h q[15]
@@ -14514,29 +14514,29 @@ t q[8]; //cycle: 18006 //t q[15]
 t q[7]; //cycle: 18007 //t q[8]
 t q[12]; //cycle: 18007 //t q[10]
 cx q[7],q[12]; //cycle: 18008 //cx q[8],q[10]
-swp q[12],q[16]; //cycle: 18010
+swap q[12],q[16]; //cycle: 18010
 cx q[8],q[12]; //cycle: 18016 //cx q[15],q[9]
 cx q[4],q[8]; //cycle: 18018 //cx q[5],q[15]
 tdg q[8]; //cycle: 18020 //tdg q[15]
-swp q[8],q[12]; //cycle: 18021
+swap q[8],q[12]; //cycle: 18021
 cx q[8],q[4]; //cycle: 18027 //cx q[9],q[5]
 cx q[8],q[12]; //cycle: 18029 //cx q[9],q[15]
 t q[4]; //cycle: 18029 //t q[5]
 tdg q[8]; //cycle: 18031 //tdg q[9]
 tdg q[12]; //cycle: 18031 //tdg q[15]
-swp q[4],q[8]; //cycle: 18032
+swap q[4],q[8]; //cycle: 18032
 cx q[8],q[12]; //cycle: 18038 //cx q[5],q[15]
 cx q[4],q[8]; //cycle: 18040 //cx q[9],q[5]
 h q[8]; //cycle: 18042 //h q[5]
 h q[8]; //cycle: 18043 //h q[5]
 t q[8]; //cycle: 18044 //t q[5]
-swp q[8],q[12]; //cycle: 18045
+swap q[8],q[12]; //cycle: 18045
 cx q[8],q[4]; //cycle: 18051 //cx q[15],q[9]
 t q[4]; //cycle: 18053 //t q[9]
 h q[8]; //cycle: 18053 //h q[15]
 t q[8]; //cycle: 18054 //t q[15]
 cx q[8],q[7]; //cycle: 18055 //cx q[15],q[8]
-swp q[12],q[16]; //cycle: 18056
+swap q[12],q[16]; //cycle: 18056
 tdg q[7]; //cycle: 18057 //tdg q[8]
 cx q[12],q[8]; //cycle: 18062 //cx q[10],q[15]
 cx q[12],q[7]; //cycle: 18064 //cx q[10],q[8]
@@ -14551,18 +14551,18 @@ h q[8]; //cycle: 18072 //h q[15]
 h q[7]; //cycle: 18073 //h q[8]
 t q[12]; //cycle: 18073 //t q[10]
 t q[8]; //cycle: 18073 //t q[15]
-swp q[3],q[8]; //cycle: 18074
+swap q[3],q[8]; //cycle: 18074
 t q[7]; //cycle: 18074 //t q[8]
 cx q[7],q[8]; //cycle: 18080 //cx q[8],q[7]
 cx q[1],q[7]; //cycle: 18082 //cx q[11],q[8]
 tdg q[8]; //cycle: 18082 //tdg q[7]
 t q[7]; //cycle: 18084 //t q[8]
-swp q[7],q[8]; //cycle: 18085
+swap q[7],q[8]; //cycle: 18085
 cx q[1],q[7]; //cycle: 18091 //cx q[11],q[7]
 tdg q[1]; //cycle: 18093 //tdg q[11]
 tdg q[7]; //cycle: 18093 //tdg q[7]
 cx q[8],q[7]; //cycle: 18094 //cx q[8],q[7]
-swp q[1],q[7]; //cycle: 18096
+swap q[1],q[7]; //cycle: 18096
 cx q[7],q[8]; //cycle: 18102 //cx q[11],q[8]
 cx q[1],q[7]; //cycle: 18104 //cx q[7],q[11]
 h q[8]; //cycle: 18104 //h q[8]
@@ -14619,22 +14619,22 @@ cx q[1],q[7]; //cycle: 18151 //cx q[7],q[11]
 t q[2]; //cycle: 18151 //t q[12]
 t q[6]; //cycle: 18151 //t q[6]
 cx q[6],q[2]; //cycle: 18152 //cx q[6],q[12]
-swp q[7],q[8]; //cycle: 18153
+swap q[7],q[8]; //cycle: 18153
 cx q[7],q[1]; //cycle: 18159 //cx q[8],q[7]
 cx q[8],q[7]; //cycle: 18161 //cx q[11],q[8]
 tdg q[1]; //cycle: 18161 //tdg q[7]
 t q[7]; //cycle: 18163 //t q[8]
-swp q[7],q[8]; //cycle: 18164
+swap q[7],q[8]; //cycle: 18164
 cx q[7],q[1]; //cycle: 18170 //cx q[11],q[7]
 tdg q[7]; //cycle: 18172 //tdg q[11]
 tdg q[1]; //cycle: 18172 //tdg q[7]
-swp q[7],q[8]; //cycle: 18173
+swap q[7],q[8]; //cycle: 18173
 cx q[7],q[1]; //cycle: 18179 //cx q[8],q[7]
 cx q[8],q[7]; //cycle: 18181 //cx q[11],q[8]
 h q[7]; //cycle: 18183 //h q[8]
 t q[7]; //cycle: 18184 //t q[8]
 cx q[7],q[12]; //cycle: 18185 //cx q[8],q[10]
-swp q[3],q[8]; //cycle: 18186
+swap q[3],q[8]; //cycle: 18186
 cx q[8],q[7]; //cycle: 18192 //cx q[15],q[8]
 cx q[12],q[8]; //cycle: 18194 //cx q[10],q[15]
 tdg q[7]; //cycle: 18194 //tdg q[8]
@@ -14658,7 +14658,7 @@ cx q[4],q[8]; //cycle: 18211 //cx q[9],q[15]
 t q[9]; //cycle: 18211 //t q[4]
 tdg q[4]; //cycle: 18213 //tdg q[9]
 tdg q[8]; //cycle: 18213 //tdg q[15]
-swp q[2],q[3]; //cycle: 18214
+swap q[2],q[3]; //cycle: 18214
 cx q[9],q[8]; //cycle: 18214 //cx q[4],q[15]
 cx q[4],q[9]; //cycle: 18216 //cx q[9],q[4]
 cx q[8],q[4]; //cycle: 18218 //cx q[15],q[9]
@@ -14705,7 +14705,7 @@ t q[2]; //cycle: 18250 //t q[11]
 t q[7]; //cycle: 18250 //t q[8]
 t q[1]; //cycle: 18251 //t q[7]
 cx q[1],q[6]; //cycle: 18252 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 18253
+swap q[2],q[3]; //cycle: 18253
 tdg q[6]; //cycle: 18254 //tdg q[6]
 cx q[2],q[1]; //cycle: 18259 //cx q[12],q[7]
 cx q[2],q[6]; //cycle: 18261 //cx q[12],q[6]
@@ -14752,7 +14752,7 @@ t q[1]; //cycle: 18299 //t q[7]
 t q[2]; //cycle: 18300 //t q[12]
 t q[6]; //cycle: 18300 //t q[6]
 cx q[6],q[2]; //cycle: 18301 //cx q[6],q[12]
-swp q[2],q[3]; //cycle: 18303
+swap q[2],q[3]; //cycle: 18303
 cx q[1],q[2]; //cycle: 18309 //cx q[7],q[11]
 cx q[7],q[1]; //cycle: 18311 //cx q[8],q[7]
 cx q[2],q[7]; //cycle: 18313 //cx q[11],q[8]
@@ -14834,7 +14834,7 @@ t q[2]; //cycle: 18384 //t q[11]
 t q[7]; //cycle: 18384 //t q[8]
 t q[1]; //cycle: 18385 //t q[7]
 cx q[1],q[6]; //cycle: 18386 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 18387
+swap q[2],q[3]; //cycle: 18387
 tdg q[6]; //cycle: 18388 //tdg q[6]
 cx q[2],q[1]; //cycle: 18393 //cx q[12],q[7]
 cx q[2],q[6]; //cycle: 18395 //cx q[12],q[6]
@@ -14861,7 +14861,7 @@ cx q[6],q[11]; //cycle: 18413 //cx q[6],q[13]
 cx q[10],q[6]; //cycle: 18415 //cx q[14],q[6]
 cx q[11],q[10]; //cycle: 18417 //cx q[13],q[14]
 h q[6]; //cycle: 18417 //h q[6]
-swp q[7],q[8]; //cycle: 18418
+swap q[7],q[8]; //cycle: 18418
 t q[6]; //cycle: 18418 //t q[6]
 t q[11]; //cycle: 18419 //t q[13]
 t q[10]; //cycle: 18419 //t q[14]
@@ -14877,11 +14877,11 @@ cx q[1],q[6]; //cycle: 18428 //cx q[7],q[6]
 cx q[2],q[1]; //cycle: 18430 //cx q[12],q[7]
 cx q[6],q[2]; //cycle: 18432 //cx q[6],q[12]
 h q[1]; //cycle: 18432 //h q[7]
-swp q[7],q[8]; //cycle: 18433
+swap q[7],q[8]; //cycle: 18433
 t q[1]; //cycle: 18433 //t q[7]
 t q[2]; //cycle: 18434 //t q[12]
 t q[6]; //cycle: 18434 //t q[6]
-swp q[2],q[3]; //cycle: 18435
+swap q[2],q[3]; //cycle: 18435
 cx q[6],q[11]; //cycle: 18435 //cx q[6],q[13]
 cx q[1],q[2]; //cycle: 18441 //cx q[7],q[11]
 cx q[7],q[1]; //cycle: 18443 //cx q[8],q[7]
@@ -14899,7 +14899,7 @@ t q[7]; //cycle: 18455 //t q[8]
 cx q[7],q[12]; //cycle: 18456 //cx q[8],q[10]
 t q[2]; //cycle: 18456 //t q[11]
 t q[1]; //cycle: 18456 //t q[7]
-swp q[2],q[3]; //cycle: 18458
+swap q[2],q[3]; //cycle: 18458
 cx q[8],q[7]; //cycle: 18458 //cx q[15],q[8]
 cx q[12],q[8]; //cycle: 18460 //cx q[10],q[15]
 tdg q[7]; //cycle: 18460 //tdg q[8]
@@ -14910,7 +14910,7 @@ tdg q[7]; //cycle: 18464 //tdg q[8]
 cx q[3],q[4]; //cycle: 18464 //cx q[11],q[9]
 cx q[8],q[7]; //cycle: 18465 //cx q[15],q[8]
 cx q[12],q[8]; //cycle: 18467 //cx q[10],q[15]
-swp q[6],q[10]; //cycle: 18468
+swap q[6],q[10]; //cycle: 18468
 cx q[7],q[12]; //cycle: 18469 //cx q[8],q[10]
 h q[8]; //cycle: 18469 //h q[15]
 t q[8]; //cycle: 18470 //t q[15]
@@ -14918,22 +14918,22 @@ x q[12]; //cycle: 18471 //x q[10]
 t q[7]; //cycle: 18471 //t q[8]
 cx q[2],q[7]; //cycle: 18472 //cx q[12],q[8]
 t q[12]; //cycle: 18472 //t q[10]
-swp q[11],q[16]; //cycle: 18473
-swp q[2],q[6]; //cycle: 18474
-swp q[7],q[12]; //cycle: 18474
+swap q[11],q[16]; //cycle: 18473
+swap q[2],q[6]; //cycle: 18474
+swap q[7],q[12]; //cycle: 18474
 cx q[11],q[6]; //cycle: 18480 //cx q[5],q[12]
 cx q[1],q[7]; //cycle: 18480 //cx q[7],q[10]
-swp q[2],q[3]; //cycle: 18482
+swap q[2],q[3]; //cycle: 18482
 cx q[12],q[11]; //cycle: 18482 //cx q[8],q[5]
 tdg q[6]; //cycle: 18482 //tdg q[12]
-swp q[7],q[12]; //cycle: 18484
+swap q[7],q[12]; //cycle: 18484
 t q[11]; //cycle: 18484 //t q[5]
 cx q[3],q[8]; //cycle: 18488 //cx q[14],q[15]
 cx q[7],q[6]; //cycle: 18490 //cx q[8],q[12]
 tdg q[7]; //cycle: 18492 //tdg q[8]
 tdg q[6]; //cycle: 18492 //tdg q[12]
 cx q[11],q[6]; //cycle: 18493 //cx q[5],q[12]
-swp q[6],q[7]; //cycle: 18495
+swap q[6],q[7]; //cycle: 18495
 cx q[6],q[11]; //cycle: 18501 //cx q[8],q[5]
 cx q[7],q[6]; //cycle: 18503 //cx q[12],q[8]
 h q[11]; //cycle: 18503 //h q[5]
@@ -14943,10 +14943,10 @@ t q[6]; //cycle: 18505 //t q[8]
 t q[11]; //cycle: 18505 //t q[5]
 t q[7]; //cycle: 18506 //t q[12]
 cx q[7],q[2]; //cycle: 18507 //cx q[12],q[11]
-swp q[7],q[8]; //cycle: 18509
+swap q[7],q[8]; //cycle: 18509
 tdg q[2]; //cycle: 18509 //tdg q[11]
 cx q[4],q[8]; //cycle: 18515 //cx q[9],q[12]
-swp q[2],q[3]; //cycle: 18516
+swap q[2],q[3]; //cycle: 18516
 t q[8]; //cycle: 18517 //t q[12]
 cx q[4],q[3]; //cycle: 18522 //cx q[9],q[11]
 tdg q[4]; //cycle: 18524 //tdg q[9]
@@ -14955,17 +14955,17 @@ cx q[8],q[3]; //cycle: 18525 //cx q[12],q[11]
 cx q[4],q[8]; //cycle: 18527 //cx q[9],q[12]
 cx q[3],q[4]; //cycle: 18529 //cx q[11],q[9]
 h q[8]; //cycle: 18529 //h q[12]
-swp q[1],q[2]; //cycle: 18530
+swap q[1],q[2]; //cycle: 18530
 h q[8]; //cycle: 18530 //h q[12]
 h q[3]; //cycle: 18531 //h q[11]
 t q[4]; //cycle: 18531 //t q[9]
 t q[8]; //cycle: 18531 //t q[12]
 t q[3]; //cycle: 18532 //t q[11]
 cx q[3],q[2]; //cycle: 18536 //cx q[11],q[7]
-swp q[3],q[8]; //cycle: 18538
+swap q[3],q[8]; //cycle: 18538
 tdg q[2]; //cycle: 18538 //tdg q[7]
 cx q[12],q[8]; //cycle: 18544 //cx q[10],q[11]
-swp q[2],q[7]; //cycle: 18545
+swap q[2],q[7]; //cycle: 18545
 t q[8]; //cycle: 18546 //t q[11]
 cx q[12],q[7]; //cycle: 18551 //cx q[10],q[7]
 tdg q[12]; //cycle: 18553 //tdg q[10]
@@ -14974,17 +14974,17 @@ cx q[8],q[7]; //cycle: 18554 //cx q[11],q[7]
 cx q[12],q[8]; //cycle: 18556 //cx q[10],q[11]
 cx q[7],q[12]; //cycle: 18558 //cx q[7],q[10]
 h q[8]; //cycle: 18558 //h q[11]
-swp q[6],q[10]; //cycle: 18559
+swap q[6],q[10]; //cycle: 18559
 h q[8]; //cycle: 18559 //h q[11]
 h q[7]; //cycle: 18560 //h q[7]
 t q[12]; //cycle: 18560 //t q[10]
 t q[8]; //cycle: 18560 //t q[11]
 t q[7]; //cycle: 18561 //t q[7]
 cx q[7],q[6]; //cycle: 18565 //cx q[7],q[6]
-swp q[7],q[12]; //cycle: 18567
+swap q[7],q[12]; //cycle: 18567
 tdg q[6]; //cycle: 18567 //tdg q[6]
 cx q[16],q[12]; //cycle: 18573 //cx q[13],q[7]
-swp q[6],q[11]; //cycle: 18574
+swap q[6],q[11]; //cycle: 18574
 t q[12]; //cycle: 18575 //t q[7]
 cx q[16],q[11]; //cycle: 18580 //cx q[13],q[6]
 tdg q[16]; //cycle: 18582 //tdg q[13]
@@ -14998,7 +14998,7 @@ h q[11]; //cycle: 18589 //h q[6]
 t q[16]; //cycle: 18589 //t q[13]
 t q[12]; //cycle: 18589 //t q[7]
 t q[11]; //cycle: 18590 //t q[6]
-swp q[6],q[11]; //cycle: 18591
+swap q[6],q[11]; //cycle: 18591
 cx q[6],q[1]; //cycle: 18597 //cx q[6],q[14]
 cx q[2],q[6]; //cycle: 18599 //cx q[15],q[6]
 tdg q[1]; //cycle: 18599 //tdg q[14]
@@ -15011,7 +15011,7 @@ cx q[2],q[6]; //cycle: 18606 //cx q[15],q[6]
 cx q[1],q[2]; //cycle: 18608 //cx q[14],q[15]
 h q[6]; //cycle: 18608 //h q[6]
 t q[6]; //cycle: 18609 //t q[6]
-swp q[6],q[11]; //cycle: 18610
+swap q[6],q[11]; //cycle: 18610
 t q[2]; //cycle: 18610 //t q[15]
 t q[1]; //cycle: 18610 //t q[14]
 cx q[1],q[2]; //cycle: 18611 //cx q[14],q[15]
@@ -15057,39 +15057,39 @@ tdg q[4]; //cycle: 18654 //tdg q[9]
 tdg q[8]; //cycle: 18654 //tdg q[11]
 cx q[3],q[8]; //cycle: 18655 //cx q[12],q[11]
 cx q[4],q[3]; //cycle: 18657 //cx q[9],q[12]
-swp q[6],q[10]; //cycle: 18659
+swap q[6],q[10]; //cycle: 18659
 cx q[8],q[4]; //cycle: 18659 //cx q[11],q[9]
 h q[3]; //cycle: 18659 //h q[12]
 t q[3]; //cycle: 18660 //t q[12]
-swp q[2],q[3]; //cycle: 18661
+swap q[2],q[3]; //cycle: 18661
 t q[4]; //cycle: 18661 //t q[9]
 t q[8]; //cycle: 18661 //t q[11]
 cx q[8],q[4]; //cycle: 18662 //cx q[11],q[9]
 cx q[2],q[6]; //cycle: 18667 //cx q[12],q[8]
-swp q[6],q[10]; //cycle: 18669
+swap q[6],q[10]; //cycle: 18669
 cx q[6],q[2]; //cycle: 18675 //cx q[5],q[12]
 cx q[10],q[6]; //cycle: 18677 //cx q[8],q[5]
 tdg q[2]; //cycle: 18677 //tdg q[12]
 t q[6]; //cycle: 18679 //t q[5]
-swp q[2],q[6]; //cycle: 18680
+swap q[2],q[6]; //cycle: 18680
 cx q[10],q[6]; //cycle: 18686 //cx q[8],q[12]
 tdg q[10]; //cycle: 18688 //tdg q[8]
 tdg q[6]; //cycle: 18688 //tdg q[12]
 cx q[2],q[6]; //cycle: 18689 //cx q[5],q[12]
-swp q[6],q[10]; //cycle: 18691
+swap q[6],q[10]; //cycle: 18691
 cx q[6],q[2]; //cycle: 18697 //cx q[8],q[5]
-swp q[3],q[4]; //cycle: 18699
+swap q[3],q[4]; //cycle: 18699
 h q[2]; //cycle: 18699 //h q[5]
 cx q[10],q[6]; //cycle: 18699 //cx q[12],q[8]
 t q[2]; //cycle: 18700 //t q[5]
 h q[10]; //cycle: 18701 //h q[12]
 x q[6]; //cycle: 18701 //x q[8]
-swp q[7],q[8]; //cycle: 18702
+swap q[7],q[8]; //cycle: 18702
 t q[10]; //cycle: 18702 //t q[12]
 t q[6]; //cycle: 18702 //t q[8]
-swp q[6],q[10]; //cycle: 18703
+swap q[6],q[10]; //cycle: 18703
 cx q[6],q[7]; //cycle: 18709 //cx q[12],q[11]
-swp q[2],q[3]; //cycle: 18710
+swap q[2],q[3]; //cycle: 18710
 tdg q[7]; //cycle: 18711 //tdg q[11]
 cx q[2],q[6]; //cycle: 18716 //cx q[9],q[12]
 cx q[2],q[7]; //cycle: 18718 //cx q[9],q[11]
@@ -15132,18 +15132,18 @@ cx q[12],q[11]; //cycle: 18751 //cx q[7],q[6]
 cx q[16],q[12]; //cycle: 18753 //cx q[13],q[7]
 cx q[11],q[16]; //cycle: 18755 //cx q[6],q[13]
 h q[12]; //cycle: 18755 //h q[7]
-swp q[1],q[6]; //cycle: 18756
+swap q[1],q[6]; //cycle: 18756
 h q[12]; //cycle: 18756 //h q[7]
 h q[11]; //cycle: 18757 //h q[6]
 t q[16]; //cycle: 18757 //t q[13]
 t q[12]; //cycle: 18757 //t q[7]
 t q[11]; //cycle: 18758 //t q[6]
 cx q[11],q[6]; //cycle: 18762 //cx q[6],q[14]
-swp q[4],q[8]; //cycle: 18763
-swp q[11],q[12]; //cycle: 18764
+swap q[4],q[8]; //cycle: 18763
+swap q[11],q[12]; //cycle: 18764
 tdg q[6]; //cycle: 18764 //tdg q[14]
 cx q[8],q[12]; //cycle: 18770 //cx q[15],q[6]
-swp q[6],q[7]; //cycle: 18771
+swap q[6],q[7]; //cycle: 18771
 t q[12]; //cycle: 18772 //t q[6]
 cx q[8],q[7]; //cycle: 18777 //cx q[15],q[14]
 tdg q[8]; //cycle: 18779 //tdg q[15]
@@ -15171,11 +15171,11 @@ h q[11]; //cycle: 18799 //h q[7]
 t q[11]; //cycle: 18800 //t q[7]
 t q[16]; //cycle: 18801 //t q[13]
 t q[12]; //cycle: 18801 //t q[6]
-swp q[4],q[8]; //cycle: 18802
-swp q[11],q[12]; //cycle: 18802
+swap q[4],q[8]; //cycle: 18802
+swap q[11],q[12]; //cycle: 18802
 cx q[12],q[8]; //cycle: 18808 //cx q[7],q[10]
 cx q[11],q[10]; //cycle: 18808 //cx q[6],q[8]
-swp q[6],q[7]; //cycle: 18809
+swap q[6],q[7]; //cycle: 18809
 cx q[7],q[12]; //cycle: 18815 //cx q[11],q[7]
 cx q[8],q[7]; //cycle: 18817 //cx q[10],q[11]
 tdg q[12]; //cycle: 18817 //tdg q[7]
@@ -15195,11 +15195,11 @@ t q[12]; //cycle: 18829 //t q[7]
 cx q[9],q[8]; //cycle: 18829 //cx q[4],q[10]
 cx q[1],q[7]; //cycle: 18830 //cx q[12],q[11]
 cx q[12],q[11]; //cycle: 18830 //cx q[7],q[6]
-swp q[12],q[16]; //cycle: 18832
+swap q[12],q[16]; //cycle: 18832
 cx q[2],q[1]; //cycle: 18832 //cx q[9],q[12]
 tdg q[7]; //cycle: 18832 //tdg q[11]
 tdg q[11]; //cycle: 18832 //tdg q[6]
-swp q[10],q[11]; //cycle: 18833
+swap q[10],q[11]; //cycle: 18833
 cx q[2],q[7]; //cycle: 18834 //cx q[9],q[11]
 t q[1]; //cycle: 18834 //t q[12]
 tdg q[2]; //cycle: 18836 //tdg q[9]
@@ -15212,7 +15212,7 @@ cx q[7],q[2]; //cycle: 18841 //cx q[11],q[9]
 h q[1]; //cycle: 18841 //h q[12]
 cx q[11],q[10]; //cycle: 18841 //cx q[8],q[6]
 t q[16]; //cycle: 18841 //t q[7]
-swp q[15],q[16]; //cycle: 18842
+swap q[15],q[16]; //cycle: 18842
 x q[1]; //cycle: 18842 //x q[12]
 t q[1]; //cycle: 18843 //t q[12]
 tdg q[11]; //cycle: 18843 //tdg q[8]
@@ -15221,12 +15221,12 @@ t q[2]; //cycle: 18843 //t q[9]
 t q[7]; //cycle: 18843 //t q[11]
 cx q[0],q[1]; //cycle: 18844 //cx q[2],q[12]
 cx q[3],q[2]; //cycle: 18844 //cx q[5],q[9]
-swp q[7],q[12]; //cycle: 18845
+swap q[7],q[12]; //cycle: 18845
 cx q[15],q[10]; //cycle: 18848 //cx q[7],q[6]
-swp q[11],q[16]; //cycle: 18849
+swap q[11],q[16]; //cycle: 18849
 cx q[16],q[15]; //cycle: 18855 //cx q[8],q[7]
 cx q[11],q[12]; //cycle: 18855 //cx q[3],q[11]
-swp q[11],q[16]; //cycle: 18857
+swap q[11],q[16]; //cycle: 18857
 h q[15]; //cycle: 18857 //h q[7]
 h q[15]; //cycle: 18858 //h q[7]
 t q[15]; //cycle: 18859 //t q[7]
@@ -15234,19 +15234,19 @@ cx q[10],q[11]; //cycle: 18863 //cx q[6],q[8]
 t q[11]; //cycle: 18865 //t q[8]
 h q[10]; //cycle: 18865 //h q[6]
 t q[10]; //cycle: 18866 //t q[6]
-swp q[2],q[3]; //cycle: 18867
-swp q[6],q[10]; //cycle: 18867
+swap q[2],q[3]; //cycle: 18867
+swap q[6],q[10]; //cycle: 18867
 cx q[6],q[2]; //cycle: 18873 //cx q[6],q[5]
 tdg q[2]; //cycle: 18875 //tdg q[5]
-swp q[2],q[3]; //cycle: 18876
+swap q[2],q[3]; //cycle: 18876
 cx q[2],q[6]; //cycle: 18882 //cx q[9],q[6]
 cx q[2],q[3]; //cycle: 18884 //cx q[9],q[5]
 t q[6]; //cycle: 18884 //t q[6]
 tdg q[2]; //cycle: 18886 //tdg q[9]
 tdg q[3]; //cycle: 18886 //tdg q[5]
-swp q[2],q[3]; //cycle: 18887
+swap q[2],q[3]; //cycle: 18887
 cx q[6],q[2]; //cycle: 18893 //cx q[6],q[5]
-swp q[2],q[3]; //cycle: 18895
+swap q[2],q[3]; //cycle: 18895
 cx q[2],q[6]; //cycle: 18901 //cx q[9],q[6]
 cx q[3],q[2]; //cycle: 18903 //cx q[5],q[9]
 h q[6]; //cycle: 18903 //h q[6]
@@ -15271,31 +15271,31 @@ t q[8]; //cycle: 18920 //t q[10]
 t q[3]; //cycle: 18920 //t q[5]
 h q[9]; //cycle: 18920 //h q[4]
 t q[9]; //cycle: 18921 //t q[4]
-swp q[8],q[9]; //cycle: 18922
-swp q[12],q[16]; //cycle: 18922
+swap q[8],q[9]; //cycle: 18922
+swap q[12],q[16]; //cycle: 18922
 cx q[8],q[12]; //cycle: 18928 //cx q[4],q[3]
 tdg q[12]; //cycle: 18930 //tdg q[3]
-swp q[12],q[16]; //cycle: 18931
+swap q[12],q[16]; //cycle: 18931
 cx q[12],q[8]; //cycle: 18937 //cx q[11],q[4]
 cx q[12],q[16]; //cycle: 18939 //cx q[11],q[3]
 t q[8]; //cycle: 18939 //t q[4]
 tdg q[12]; //cycle: 18941 //tdg q[11]
 tdg q[16]; //cycle: 18941 //tdg q[3]
-swp q[8],q[12]; //cycle: 18942
+swap q[8],q[12]; //cycle: 18942
 cx q[12],q[16]; //cycle: 18948 //cx q[4],q[3]
 cx q[8],q[12]; //cycle: 18950 //cx q[11],q[4]
 h q[12]; //cycle: 18952 //h q[4]
 h q[12]; //cycle: 18953 //h q[4]
 t q[12]; //cycle: 18954 //t q[4]
-swp q[8],q[12]; //cycle: 18955
+swap q[8],q[12]; //cycle: 18955
 cx q[16],q[12]; //cycle: 18961 //cx q[3],q[11]
-swp q[0],q[5]; //cycle: 18962
+swap q[0],q[5]; //cycle: 18962
 h q[16]; //cycle: 18963 //h q[3]
 t q[12]; //cycle: 18963 //t q[11]
 t q[16]; //cycle: 18964 //t q[3]
-swp q[11],q[16]; //cycle: 18965
+swap q[11],q[16]; //cycle: 18965
 cx q[11],q[5]; //cycle: 18971 //cx q[3],q[2]
-swp q[1],q[6]; //cycle: 18972
+swap q[1],q[6]; //cycle: 18972
 tdg q[5]; //cycle: 18973 //tdg q[2]
 cx q[6],q[11]; //cycle: 18978 //cx q[12],q[3]
 cx q[6],q[5]; //cycle: 18980 //cx q[12],q[2]
@@ -15307,48 +15307,48 @@ cx q[6],q[11]; //cycle: 18985 //cx q[12],q[3]
 cx q[5],q[6]; //cycle: 18987 //cx q[2],q[12]
 h q[11]; //cycle: 18987 //h q[3]
 h q[11]; //cycle: 18988 //h q[3]
-swp q[12],q[13]; //cycle: 18989
+swap q[12],q[13]; //cycle: 18989
 h q[5]; //cycle: 18989 //h q[2]
 t q[6]; //cycle: 18989 //t q[12]
 t q[11]; //cycle: 18989 //t q[3]
 t q[5]; //cycle: 18990 //t q[2]
-swp q[5],q[11]; //cycle: 18991
+swap q[5],q[11]; //cycle: 18991
 cx q[11],q[12]; //cycle: 18997 //cx q[2],q[1]
-swp q[6],q[11]; //cycle: 18999
+swap q[6],q[11]; //cycle: 18999
 tdg q[12]; //cycle: 18999 //tdg q[1]
 cx q[7],q[6]; //cycle: 19005 //cx q[13],q[2]
 cx q[7],q[12]; //cycle: 19007 //cx q[13],q[1]
 t q[6]; //cycle: 19007 //t q[2]
-swp q[6],q[11]; //cycle: 19008
+swap q[6],q[11]; //cycle: 19008
 tdg q[7]; //cycle: 19009 //tdg q[13]
 tdg q[12]; //cycle: 19009 //tdg q[1]
 cx q[11],q[12]; //cycle: 19014 //cx q[2],q[1]
-swp q[7],q[12]; //cycle: 19016
+swap q[7],q[12]; //cycle: 19016
 cx q[12],q[11]; //cycle: 19022 //cx q[13],q[2]
 cx q[7],q[12]; //cycle: 19024 //cx q[1],q[13]
 h q[11]; //cycle: 19024 //h q[2]
-swp q[6],q[10]; //cycle: 19025
+swap q[6],q[10]; //cycle: 19025
 h q[11]; //cycle: 19025 //h q[2]
 h q[7]; //cycle: 19026 //h q[1]
 t q[12]; //cycle: 19026 //t q[13]
 t q[11]; //cycle: 19026 //t q[2]
 t q[7]; //cycle: 19027 //t q[1]
 cx q[7],q[6]; //cycle: 19031 //cx q[1],q[14]
-swp q[4],q[8]; //cycle: 19032
+swap q[4],q[8]; //cycle: 19032
 tdg q[6]; //cycle: 19033 //tdg q[14]
 cx q[8],q[7]; //cycle: 19038 //cx q[15],q[1]
 t q[7]; //cycle: 19040 //t q[1]
-swp q[6],q[7]; //cycle: 19041
+swap q[6],q[7]; //cycle: 19041
 cx q[8],q[7]; //cycle: 19047 //cx q[15],q[14]
 tdg q[8]; //cycle: 19049 //tdg q[15]
 tdg q[7]; //cycle: 19049 //tdg q[14]
 cx q[6],q[7]; //cycle: 19050 //cx q[1],q[14]
-swp q[6],q[7]; //cycle: 19052
+swap q[6],q[7]; //cycle: 19052
 cx q[8],q[7]; //cycle: 19058 //cx q[15],q[1]
 h q[7]; //cycle: 19060 //h q[1]
 t q[7]; //cycle: 19061 //t q[1]
 cx q[7],q[12]; //cycle: 19062 //cx q[1],q[13]
-swp q[6],q[7]; //cycle: 19064
+swap q[6],q[7]; //cycle: 19064
 cx q[7],q[8]; //cycle: 19070 //cx q[14],q[15]
 cx q[11],q[6]; //cycle: 19070 //cx q[2],q[1]
 cx q[12],q[11]; //cycle: 19072 //cx q[13],q[2]
@@ -15357,14 +15357,14 @@ t q[8]; //cycle: 19072 //t q[15]
 t q[7]; //cycle: 19072 //t q[14]
 cx q[7],q[8]; //cycle: 19073 //cx q[14],q[15]
 t q[11]; //cycle: 19074 //t q[2]
-swp q[7],q[12]; //cycle: 19075
+swap q[7],q[12]; //cycle: 19075
 cx q[7],q[6]; //cycle: 19081 //cx q[13],q[1]
 tdg q[7]; //cycle: 19083 //tdg q[13]
 tdg q[6]; //cycle: 19083 //tdg q[1]
 cx q[11],q[6]; //cycle: 19084 //cx q[2],q[1]
-swp q[7],q[12]; //cycle: 19085
+swap q[7],q[12]; //cycle: 19085
 cx q[12],q[11]; //cycle: 19091 //cx q[13],q[2]
-swp q[6],q[7]; //cycle: 19093
+swap q[6],q[7]; //cycle: 19093
 h q[11]; //cycle: 19093 //h q[2]
 t q[11]; //cycle: 19094 //t q[2]
 cx q[11],q[10]; //cycle: 19095 //cx q[2],q[12]
@@ -15384,29 +15384,29 @@ cx q[10],q[5]; //cycle: 19106 //cx q[12],q[3]
 cx q[11],q[10]; //cycle: 19108 //cx q[2],q[12]
 h q[5]; //cycle: 19108 //h q[3]
 t q[5]; //cycle: 19109 //t q[3]
-swp q[5],q[6]; //cycle: 19110
-swp q[7],q[13]; //cycle: 19110
+swap q[5],q[6]; //cycle: 19110
+swap q[7],q[13]; //cycle: 19110
 t q[10]; //cycle: 19110 //t q[12]
 t q[11]; //cycle: 19110 //t q[2]
 cx q[11],q[10]; //cycle: 19111 //cx q[2],q[12]
 cx q[6],q[7]; //cycle: 19116 //cx q[3],q[11]
-swp q[2],q[6]; //cycle: 19118
-swp q[3],q[4]; //cycle: 19118
+swap q[2],q[6]; //cycle: 19118
+swap q[3],q[4]; //cycle: 19118
 cx q[3],q[2]; //cycle: 19124 //cx q[4],q[3]
-swp q[3],q[8]; //cycle: 19126
+swap q[3],q[8]; //cycle: 19126
 tdg q[2]; //cycle: 19126 //tdg q[3]
 cx q[7],q[8]; //cycle: 19132 //cx q[11],q[4]
 cx q[7],q[2]; //cycle: 19134 //cx q[11],q[3]
 t q[8]; //cycle: 19134 //t q[4]
 tdg q[7]; //cycle: 19136 //tdg q[11]
 tdg q[2]; //cycle: 19136 //tdg q[3]
-swp q[2],q[3]; //cycle: 19137
+swap q[2],q[3]; //cycle: 19137
 cx q[8],q[3]; //cycle: 19143 //cx q[4],q[3]
 cx q[7],q[8]; //cycle: 19145 //cx q[11],q[4]
 h q[8]; //cycle: 19147 //h q[4]
 t q[8]; //cycle: 19148 //t q[4]
 cx q[8],q[9]; //cycle: 19149 //cx q[4],q[10]
-swp q[2],q[7]; //cycle: 19151
+swap q[2],q[7]; //cycle: 19151
 cx q[4],q[8]; //cycle: 19151 //cx q[5],q[4]
 cx q[9],q[4]; //cycle: 19153 //cx q[10],q[5]
 tdg q[8]; //cycle: 19153 //tdg q[4]
@@ -15423,11 +15423,11 @@ cx q[3],q[2]; //cycle: 19160 //cx q[3],q[11]
 cx q[8],q[9]; //cycle: 19162 //cx q[4],q[10]
 h q[4]; //cycle: 19162 //h q[5]
 t q[4]; //cycle: 19163 //t q[5]
-swp q[3],q[4]; //cycle: 19164
+swap q[3],q[4]; //cycle: 19164
 t q[9]; //cycle: 19164 //t q[10]
 t q[8]; //cycle: 19164 //t q[4]
 cx q[8],q[9]; //cycle: 19165 //cx q[4],q[10]
-swp q[2],q[3]; //cycle: 19170
+swap q[2],q[3]; //cycle: 19170
 cx q[2],q[6]; //cycle: 19176 //cx q[5],q[9]
 cx q[1],q[2]; //cycle: 19178 //cx q[6],q[5]
 cx q[6],q[1]; //cycle: 19180 //cx q[9],q[6]
@@ -15443,11 +15443,11 @@ h q[1]; //cycle: 19189 //h q[6]
 t q[1]; //cycle: 19190 //t q[6]
 t q[6]; //cycle: 19191 //t q[9]
 t q[2]; //cycle: 19191 //t q[5]
-swp q[11],q[16]; //cycle: 19192
+swap q[11],q[16]; //cycle: 19192
 cx q[2],q[6]; //cycle: 19192 //cx q[5],q[9]
-swp q[1],q[6]; //cycle: 19194
+swap q[1],q[6]; //cycle: 19194
 cx q[6],q[11]; //cycle: 19200 //cx q[6],q[8]
-swp q[10],q[15]; //cycle: 19201
+swap q[10],q[15]; //cycle: 19201
 cx q[10],q[6]; //cycle: 19207 //cx q[7],q[6]
 cx q[11],q[10]; //cycle: 19209 //cx q[8],q[7]
 tdg q[6]; //cycle: 19209 //tdg q[6]
@@ -15480,7 +15480,7 @@ h q[2]; //cycle: 19235 //h q[5]
 t q[1]; //cycle: 19235 //t q[9]
 t q[6]; //cycle: 19235 //t q[6]
 t q[2]; //cycle: 19236 //t q[5]
-swp q[2],q[3]; //cycle: 19237
+swap q[2],q[3]; //cycle: 19237
 cx q[3],q[8]; //cycle: 19243 //cx q[5],q[4]
 cx q[9],q[3]; //cycle: 19245 //cx q[10],q[5]
 tdg q[8]; //cycle: 19245 //tdg q[4]
@@ -15498,7 +15498,7 @@ t q[9]; //cycle: 19256 //t q[10]
 t q[3]; //cycle: 19256 //t q[5]
 t q[8]; //cycle: 19257 //t q[4]
 cx q[8],q[4]; //cycle: 19258 //cx q[4],q[3]
-swp q[2],q[3]; //cycle: 19259
+swap q[2],q[3]; //cycle: 19259
 tdg q[4]; //cycle: 19260 //tdg q[3]
 cx q[3],q[8]; //cycle: 19265 //cx q[11],q[4]
 cx q[3],q[4]; //cycle: 19267 //cx q[11],q[3]
@@ -15509,25 +15509,25 @@ cx q[8],q[4]; //cycle: 19270 //cx q[4],q[3]
 cx q[3],q[8]; //cycle: 19272 //cx q[11],q[4]
 cx q[4],q[3]; //cycle: 19274 //cx q[3],q[11]
 h q[8]; //cycle: 19274 //h q[4]
-swp q[12],q[16]; //cycle: 19275
+swap q[12],q[16]; //cycle: 19275
 h q[8]; //cycle: 19275 //h q[4]
 h q[4]; //cycle: 19276 //h q[3]
 t q[3]; //cycle: 19276 //t q[11]
 t q[8]; //cycle: 19276 //t q[4]
 t q[4]; //cycle: 19277 //t q[3]
-swp q[4],q[8]; //cycle: 19278
+swap q[4],q[8]; //cycle: 19278
 cx q[8],q[12]; //cycle: 19284 //cx q[3],q[2]
 tdg q[12]; //cycle: 19286 //tdg q[2]
-swp q[8],q[12]; //cycle: 19287
-swp q[15],q[16]; //cycle: 19287
+swap q[8],q[12]; //cycle: 19287
+swap q[15],q[16]; //cycle: 19287
 cx q[16],q[12]; //cycle: 19293 //cx q[12],q[3]
 t q[12]; //cycle: 19295 //t q[3]
-swp q[8],q[12]; //cycle: 19296
+swap q[8],q[12]; //cycle: 19296
 cx q[16],q[12]; //cycle: 19302 //cx q[12],q[2]
 tdg q[16]; //cycle: 19304 //tdg q[12]
 tdg q[12]; //cycle: 19304 //tdg q[2]
 cx q[8],q[12]; //cycle: 19305 //cx q[3],q[2]
-swp q[12],q[16]; //cycle: 19307
+swap q[12],q[16]; //cycle: 19307
 cx q[12],q[8]; //cycle: 19313 //cx q[12],q[3]
 cx q[16],q[12]; //cycle: 19315 //cx q[2],q[12]
 h q[8]; //cycle: 19315 //h q[3]
@@ -15535,33 +15535,33 @@ h q[8]; //cycle: 19316 //h q[3]
 h q[16]; //cycle: 19317 //h q[2]
 t q[12]; //cycle: 19317 //t q[12]
 t q[8]; //cycle: 19317 //t q[3]
-swp q[12],q[13]; //cycle: 19318
+swap q[12],q[13]; //cycle: 19318
 t q[16]; //cycle: 19318 //t q[2]
 cx q[16],q[12]; //cycle: 19324 //cx q[2],q[1]
 cx q[15],q[16]; //cycle: 19326 //cx q[13],q[2]
 tdg q[12]; //cycle: 19326 //tdg q[1]
 t q[16]; //cycle: 19328 //t q[2]
-swp q[12],q[16]; //cycle: 19329
+swap q[12],q[16]; //cycle: 19329
 cx q[15],q[16]; //cycle: 19335 //cx q[13],q[1]
 tdg q[15]; //cycle: 19337 //tdg q[13]
 tdg q[16]; //cycle: 19337 //tdg q[1]
 cx q[12],q[16]; //cycle: 19338 //cx q[2],q[1]
-swp q[15],q[16]; //cycle: 19340
+swap q[15],q[16]; //cycle: 19340
 cx q[16],q[12]; //cycle: 19346 //cx q[13],q[2]
 cx q[15],q[16]; //cycle: 19348 //cx q[1],q[13]
 h q[12]; //cycle: 19348 //h q[2]
-swp q[5],q[10]; //cycle: 19349
+swap q[5],q[10]; //cycle: 19349
 h q[12]; //cycle: 19349 //h q[2]
 h q[15]; //cycle: 19350 //h q[1]
 t q[16]; //cycle: 19350 //t q[13]
 t q[12]; //cycle: 19350 //t q[2]
 t q[15]; //cycle: 19351 //t q[1]
 cx q[15],q[10]; //cycle: 19355 //cx q[1],q[14]
-swp q[7],q[12]; //cycle: 19356
-swp q[15],q[16]; //cycle: 19357
+swap q[7],q[12]; //cycle: 19356
+swap q[15],q[16]; //cycle: 19357
 tdg q[10]; //cycle: 19357 //tdg q[14]
 cx q[12],q[16]; //cycle: 19363 //cx q[15],q[1]
-swp q[10],q[11]; //cycle: 19364
+swap q[10],q[11]; //cycle: 19364
 t q[16]; //cycle: 19365 //t q[1]
 cx q[12],q[11]; //cycle: 19370 //cx q[15],q[14]
 tdg q[12]; //cycle: 19372 //tdg q[15]
@@ -15575,13 +15575,13 @@ t q[12]; //cycle: 19379 //t q[15]
 t q[11]; //cycle: 19379 //t q[14]
 cx q[16],q[15]; //cycle: 19379 //cx q[1],q[13]
 cx q[11],q[12]; //cycle: 19380 //cx q[14],q[15]
-swp q[12],q[16]; //cycle: 19382
+swap q[12],q[16]; //cycle: 19382
 cx q[7],q[12]; //cycle: 19388 //cx q[2],q[1]
-swp q[10],q[15]; //cycle: 19389
-swp q[6],q[7]; //cycle: 19390
+swap q[10],q[15]; //cycle: 19389
+swap q[6],q[7]; //cycle: 19390
 tdg q[12]; //cycle: 19390 //tdg q[1]
 cx q[10],q[6]; //cycle: 19396 //cx q[13],q[2]
-swp q[11],q[12]; //cycle: 19397
+swap q[11],q[12]; //cycle: 19397
 t q[6]; //cycle: 19398 //t q[2]
 cx q[10],q[11]; //cycle: 19403 //cx q[13],q[1]
 tdg q[10]; //cycle: 19405 //tdg q[13]
@@ -15591,7 +15591,7 @@ cx q[10],q[6]; //cycle: 19408 //cx q[13],q[2]
 cx q[11],q[10]; //cycle: 19410 //cx q[1],q[13]
 h q[6]; //cycle: 19410 //h q[2]
 t q[6]; //cycle: 19411 //t q[2]
-swp q[6],q[7]; //cycle: 19412
+swap q[6],q[7]; //cycle: 19412
 t q[10]; //cycle: 19412 //t q[13]
 t q[11]; //cycle: 19412 //t q[1]
 cx q[11],q[10]; //cycle: 19413 //cx q[1],q[13]
@@ -15628,7 +15628,7 @@ t q[3]; //cycle: 19448 //t q[11]
 t q[8]; //cycle: 19448 //t q[3]
 cx q[4],q[9]; //cycle: 19448 //cx q[4],q[10]
 cx q[8],q[3]; //cycle: 19449 //cx q[3],q[11]
-swp q[2],q[3]; //cycle: 19451
+swap q[2],q[3]; //cycle: 19451
 cx q[3],q[4]; //cycle: 19457 //cx q[5],q[4]
 cx q[9],q[3]; //cycle: 19459 //cx q[10],q[5]
 tdg q[4]; //cycle: 19459 //tdg q[4]
@@ -15638,7 +15638,7 @@ tdg q[9]; //cycle: 19463 //tdg q[10]
 tdg q[4]; //cycle: 19463 //tdg q[4]
 cx q[3],q[4]; //cycle: 19464 //cx q[5],q[4]
 cx q[9],q[3]; //cycle: 19466 //cx q[10],q[5]
-swp q[1],q[2]; //cycle: 19467
+swap q[1],q[2]; //cycle: 19467
 cx q[4],q[9]; //cycle: 19468 //cx q[4],q[10]
 h q[3]; //cycle: 19468 //h q[5]
 t q[3]; //cycle: 19469 //t q[5]
@@ -15646,25 +15646,25 @@ t q[9]; //cycle: 19470 //t q[10]
 t q[4]; //cycle: 19470 //t q[4]
 cx q[4],q[9]; //cycle: 19471 //cx q[4],q[10]
 cx q[3],q[2]; //cycle: 19473 //cx q[5],q[9]
-swp q[2],q[3]; //cycle: 19475
+swap q[2],q[3]; //cycle: 19475
 cx q[6],q[2]; //cycle: 19481 //cx q[6],q[5]
 tdg q[2]; //cycle: 19483 //tdg q[5]
-swp q[2],q[3]; //cycle: 19484
+swap q[2],q[3]; //cycle: 19484
 cx q[2],q[6]; //cycle: 19490 //cx q[9],q[6]
 cx q[2],q[3]; //cycle: 19492 //cx q[9],q[5]
 t q[6]; //cycle: 19492 //t q[6]
 tdg q[2]; //cycle: 19494 //tdg q[9]
 tdg q[3]; //cycle: 19494 //tdg q[5]
-swp q[2],q[6]; //cycle: 19495
+swap q[2],q[6]; //cycle: 19495
 cx q[2],q[3]; //cycle: 19501 //cx q[6],q[5]
 cx q[6],q[2]; //cycle: 19503 //cx q[9],q[6]
 h q[2]; //cycle: 19505 //h q[6]
 h q[2]; //cycle: 19506 //h q[6]
 t q[2]; //cycle: 19507 //t q[6]
-swp q[2],q[6]; //cycle: 19508
+swap q[2],q[6]; //cycle: 19508
 cx q[3],q[2]; //cycle: 19514 //cx q[5],q[9]
 cx q[6],q[5]; //cycle: 19514 //cx q[6],q[7]
-swp q[10],q[15]; //cycle: 19515
+swap q[10],q[15]; //cycle: 19515
 t q[2]; //cycle: 19516 //t q[9]
 t q[3]; //cycle: 19516 //t q[5]
 tdg q[5]; //cycle: 19516 //tdg q[7]
@@ -15678,24 +15678,24 @@ cx q[6],q[5]; //cycle: 19526 //cx q[6],q[7]
 cx q[10],q[6]; //cycle: 19528 //cx q[8],q[6]
 cx q[5],q[10]; //cycle: 19530 //cx q[7],q[8]
 h q[6]; //cycle: 19530 //h q[6]
-swp q[2],q[3]; //cycle: 19531
+swap q[2],q[3]; //cycle: 19531
 h q[6]; //cycle: 19531 //h q[6]
 t q[10]; //cycle: 19532 //t q[8]
 t q[6]; //cycle: 19532 //t q[6]
 h q[5]; //cycle: 19532 //h q[7]
 t q[5]; //cycle: 19533 //t q[7]
-swp q[5],q[6]; //cycle: 19534
+swap q[5],q[6]; //cycle: 19534
 cx q[6],q[2]; //cycle: 19540 //cx q[7],q[5]
 tdg q[2]; //cycle: 19542 //tdg q[5]
-swp q[2],q[3]; //cycle: 19543
+swap q[2],q[3]; //cycle: 19543
 cx q[2],q[6]; //cycle: 19549 //cx q[9],q[7]
 cx q[2],q[3]; //cycle: 19551 //cx q[9],q[5]
 t q[6]; //cycle: 19551 //t q[7]
 tdg q[2]; //cycle: 19553 //tdg q[9]
 tdg q[3]; //cycle: 19553 //tdg q[5]
-swp q[2],q[3]; //cycle: 19554
+swap q[2],q[3]; //cycle: 19554
 cx q[6],q[2]; //cycle: 19560 //cx q[7],q[5]
-swp q[2],q[3]; //cycle: 19562
+swap q[2],q[3]; //cycle: 19562
 cx q[2],q[6]; //cycle: 19568 //cx q[9],q[7]
 cx q[3],q[2]; //cycle: 19570 //cx q[5],q[9]
 h q[6]; //cycle: 19570 //h q[7]
@@ -15721,17 +15721,17 @@ t q[9]; //cycle: 19587 //t q[10]
 t q[3]; //cycle: 19587 //t q[5]
 t q[4]; //cycle: 19588 //t q[4]
 cx q[4],q[8]; //cycle: 19589 //cx q[4],q[3]
-swp q[1],q[2]; //cycle: 19590
-swp q[3],q[4]; //cycle: 19591
+swap q[1],q[2]; //cycle: 19590
+swap q[3],q[4]; //cycle: 19591
 tdg q[8]; //cycle: 19591 //tdg q[3]
 cx q[2],q[3]; //cycle: 19597 //cx q[11],q[4]
-swp q[2],q[7]; //cycle: 19599
+swap q[2],q[7]; //cycle: 19599
 t q[3]; //cycle: 19599 //t q[4]
 cx q[7],q[8]; //cycle: 19605 //cx q[11],q[3]
 tdg q[7]; //cycle: 19607 //tdg q[11]
 tdg q[8]; //cycle: 19607 //tdg q[3]
 cx q[3],q[8]; //cycle: 19608 //cx q[4],q[3]
-swp q[7],q[8]; //cycle: 19610
+swap q[7],q[8]; //cycle: 19610
 cx q[8],q[3]; //cycle: 19616 //cx q[11],q[4]
 cx q[7],q[8]; //cycle: 19618 //cx q[3],q[11]
 h q[3]; //cycle: 19618 //h q[4]
@@ -15744,33 +15744,33 @@ cx q[7],q[2]; //cycle: 19622 //cx q[3],q[2]
 cx q[13],q[7]; //cycle: 19624 //cx q[12],q[3]
 tdg q[2]; //cycle: 19624 //tdg q[2]
 t q[7]; //cycle: 19626 //t q[3]
-swp q[2],q[7]; //cycle: 19627
+swap q[2],q[7]; //cycle: 19627
 cx q[13],q[7]; //cycle: 19633 //cx q[12],q[2]
 tdg q[13]; //cycle: 19635 //tdg q[12]
 tdg q[7]; //cycle: 19635 //tdg q[2]
 cx q[2],q[7]; //cycle: 19636 //cx q[3],q[2]
-swp q[7],q[13]; //cycle: 19638
+swap q[7],q[13]; //cycle: 19638
 cx q[7],q[2]; //cycle: 19644 //cx q[12],q[3]
 cx q[13],q[7]; //cycle: 19646 //cx q[2],q[12]
 h q[2]; //cycle: 19646 //h q[3]
-swp q[11],q[12]; //cycle: 19647
+swap q[11],q[12]; //cycle: 19647
 h q[2]; //cycle: 19647 //h q[3]
 h q[13]; //cycle: 19648 //h q[2]
 t q[7]; //cycle: 19648 //t q[12]
 t q[2]; //cycle: 19648 //t q[3]
 t q[13]; //cycle: 19649 //t q[2]
 cx q[13],q[12]; //cycle: 19653 //cx q[2],q[1]
-swp q[15],q[16]; //cycle: 19654
+swap q[15],q[16]; //cycle: 19654
 tdg q[12]; //cycle: 19655 //tdg q[1]
-swp q[12],q[13]; //cycle: 19656
+swap q[12],q[13]; //cycle: 19656
 cx q[16],q[12]; //cycle: 19662 //cx q[13],q[2]
 t q[12]; //cycle: 19664 //t q[2]
-swp q[12],q[13]; //cycle: 19665
+swap q[12],q[13]; //cycle: 19665
 cx q[16],q[12]; //cycle: 19671 //cx q[13],q[1]
 tdg q[16]; //cycle: 19673 //tdg q[13]
 tdg q[12]; //cycle: 19673 //tdg q[1]
 cx q[13],q[12]; //cycle: 19674 //cx q[2],q[1]
-swp q[12],q[16]; //cycle: 19676
+swap q[12],q[16]; //cycle: 19676
 cx q[12],q[13]; //cycle: 19682 //cx q[13],q[2]
 cx q[16],q[12]; //cycle: 19684 //cx q[1],q[13]
 h q[13]; //cycle: 19684 //h q[2]
@@ -15782,26 +15782,26 @@ t q[16]; //cycle: 19687 //t q[1]
 cx q[16],q[11]; //cycle: 19688 //cx q[1],q[14]
 cx q[15],q[16]; //cycle: 19690 //cx q[15],q[1]
 tdg q[11]; //cycle: 19690 //tdg q[14]
-swp q[10],q[15]; //cycle: 19692
+swap q[10],q[15]; //cycle: 19692
 t q[16]; //cycle: 19692 //t q[1]
 cx q[10],q[11]; //cycle: 19698 //cx q[15],q[14]
 tdg q[10]; //cycle: 19700 //tdg q[15]
 tdg q[11]; //cycle: 19700 //tdg q[14]
 cx q[16],q[11]; //cycle: 19701 //cx q[1],q[14]
-swp q[10],q[15]; //cycle: 19702
+swap q[10],q[15]; //cycle: 19702
 cx q[15],q[16]; //cycle: 19708 //cx q[15],q[1]
 h q[16]; //cycle: 19710 //h q[1]
 t q[16]; //cycle: 19711 //t q[1]
 cx q[16],q[12]; //cycle: 19712 //cx q[1],q[13]
-swp q[10],q[15]; //cycle: 19714
-swp q[11],q[16]; //cycle: 19714
-swp q[12],q[13]; //cycle: 19714
+swap q[10],q[15]; //cycle: 19714
+swap q[11],q[16]; //cycle: 19714
+swap q[12],q[13]; //cycle: 19714
 cx q[12],q[11]; //cycle: 19720 //cx q[2],q[1]
 cx q[13],q[12]; //cycle: 19722 //cx q[13],q[2]
 tdg q[11]; //cycle: 19722 //tdg q[1]
-swp q[15],q[16]; //cycle: 19723
+swap q[15],q[16]; //cycle: 19723
 t q[12]; //cycle: 19724 //t q[2]
-swp q[11],q[12]; //cycle: 19725
+swap q[11],q[12]; //cycle: 19725
 cx q[15],q[10]; //cycle: 19729 //cx q[14],q[15]
 t q[10]; //cycle: 19731 //t q[15]
 t q[15]; //cycle: 19731 //t q[14]
@@ -15810,12 +15810,12 @@ cx q[15],q[10]; //cycle: 19732 //cx q[14],q[15]
 tdg q[13]; //cycle: 19733 //tdg q[13]
 tdg q[12]; //cycle: 19733 //tdg q[1]
 cx q[11],q[12]; //cycle: 19734 //cx q[2],q[1]
-swp q[12],q[13]; //cycle: 19736
+swap q[12],q[13]; //cycle: 19736
 cx q[12],q[11]; //cycle: 19742 //cx q[13],q[2]
 cx q[13],q[12]; //cycle: 19744 //cx q[1],q[13]
 h q[11]; //cycle: 19744 //h q[2]
 t q[11]; //cycle: 19745 //t q[2]
-swp q[6],q[11]; //cycle: 19746
+swap q[6],q[11]; //cycle: 19746
 t q[12]; //cycle: 19746 //t q[13]
 t q[13]; //cycle: 19746 //t q[1]
 cx q[13],q[12]; //cycle: 19747 //cx q[1],q[13]
@@ -15832,24 +15832,24 @@ cx q[7],q[2]; //cycle: 19763 //cx q[12],q[3]
 cx q[6],q[7]; //cycle: 19765 //cx q[2],q[12]
 h q[2]; //cycle: 19765 //h q[3]
 t q[2]; //cycle: 19766 //t q[3]
-swp q[2],q[3]; //cycle: 19767
+swap q[2],q[3]; //cycle: 19767
 t q[7]; //cycle: 19767 //t q[12]
 t q[6]; //cycle: 19767 //t q[2]
 cx q[6],q[7]; //cycle: 19768 //cx q[2],q[12]
 cx q[3],q[8]; //cycle: 19773 //cx q[3],q[11]
 cx q[2],q[3]; //cycle: 19775 //cx q[4],q[3]
-swp q[2],q[7]; //cycle: 19777
+swap q[2],q[7]; //cycle: 19777
 tdg q[3]; //cycle: 19777 //tdg q[3]
 cx q[8],q[7]; //cycle: 19783 //cx q[11],q[4]
 cx q[8],q[3]; //cycle: 19785 //cx q[11],q[3]
 t q[7]; //cycle: 19785 //t q[4]
 tdg q[8]; //cycle: 19787 //tdg q[11]
 tdg q[3]; //cycle: 19787 //tdg q[3]
-swp q[7],q[8]; //cycle: 19788
+swap q[7],q[8]; //cycle: 19788
 cx q[8],q[3]; //cycle: 19794 //cx q[4],q[3]
 cx q[7],q[8]; //cycle: 19796 //cx q[11],q[4]
 h q[8]; //cycle: 19798 //h q[4]
-swp q[2],q[7]; //cycle: 19799
+swap q[2],q[7]; //cycle: 19799
 t q[8]; //cycle: 19799 //t q[4]
 cx q[8],q[9]; //cycle: 19800 //cx q[4],q[10]
 cx q[4],q[8]; //cycle: 19802 //cx q[5],q[4]
@@ -15865,19 +15865,19 @@ tdg q[9]; //cycle: 19808 //tdg q[10]
 tdg q[8]; //cycle: 19808 //tdg q[4]
 cx q[4],q[8]; //cycle: 19809 //cx q[5],q[4]
 cx q[9],q[4]; //cycle: 19811 //cx q[10],q[5]
-swp q[1],q[2]; //cycle: 19813
+swap q[1],q[2]; //cycle: 19813
 cx q[8],q[9]; //cycle: 19813 //cx q[4],q[10]
 h q[4]; //cycle: 19813 //h q[5]
 t q[4]; //cycle: 19814 //t q[5]
-swp q[3],q[4]; //cycle: 19815
+swap q[3],q[4]; //cycle: 19815
 t q[9]; //cycle: 19815 //t q[10]
 t q[8]; //cycle: 19815 //t q[4]
 cx q[8],q[9]; //cycle: 19816 //cx q[4],q[10]
 cx q[3],q[2]; //cycle: 19821 //cx q[5],q[9]
-swp q[3],q[8]; //cycle: 19823
-swp q[11],q[12]; //cycle: 19823
+swap q[3],q[8]; //cycle: 19823
+swap q[11],q[12]; //cycle: 19823
 cx q[12],q[8]; //cycle: 19829 //cx q[7],q[5]
-swp q[2],q[7]; //cycle: 19830
+swap q[2],q[7]; //cycle: 19830
 tdg q[8]; //cycle: 19831 //tdg q[5]
 cx q[7],q[12]; //cycle: 19836 //cx q[9],q[7]
 cx q[7],q[8]; //cycle: 19838 //cx q[9],q[5]
@@ -15892,7 +15892,7 @@ t q[12]; //cycle: 19846 //t q[7]
 cx q[12],q[16]; //cycle: 19847 //cx q[7],q[8]
 t q[7]; //cycle: 19847 //t q[9]
 t q[8]; //cycle: 19847 //t q[5]
-swp q[5],q[11]; //cycle: 19848
+swap q[5],q[11]; //cycle: 19848
 cx q[8],q[7]; //cycle: 19848 //cx q[5],q[9]
 cx q[11],q[12]; //cycle: 19854 //cx q[6],q[7]
 cx q[16],q[11]; //cycle: 19856 //cx q[8],q[6]
@@ -15944,16 +15944,16 @@ t q[8]; //cycle: 19897 //t q[5]
 h q[3]; //cycle: 19897 //h q[4]
 t q[3]; //cycle: 19898 //t q[4]
 cx q[3],q[4]; //cycle: 19899 //cx q[4],q[3]
-swp q[1],q[2]; //cycle: 19900
+swap q[1],q[2]; //cycle: 19900
 tdg q[4]; //cycle: 19901 //tdg q[3]
 cx q[2],q[3]; //cycle: 19906 //cx q[11],q[4]
 t q[3]; //cycle: 19908 //t q[4]
-swp q[3],q[4]; //cycle: 19909
+swap q[3],q[4]; //cycle: 19909
 cx q[2],q[3]; //cycle: 19915 //cx q[11],q[3]
 tdg q[2]; //cycle: 19917 //tdg q[11]
 tdg q[3]; //cycle: 19917 //tdg q[3]
 cx q[4],q[3]; //cycle: 19918 //cx q[4],q[3]
-swp q[2],q[3]; //cycle: 19920
+swap q[2],q[3]; //cycle: 19920
 cx q[3],q[4]; //cycle: 19926 //cx q[11],q[4]
 cx q[2],q[3]; //cycle: 19928 //cx q[3],q[11]
 h q[4]; //cycle: 19928 //h q[4]
@@ -15973,7 +15973,7 @@ cx q[2],q[6]; //cycle: 19939 //cx q[3],q[2]
 cx q[1],q[2]; //cycle: 19941 //cx q[12],q[3]
 cx q[6],q[1]; //cycle: 19943 //cx q[2],q[12]
 h q[2]; //cycle: 19943 //h q[3]
-swp q[7],q[13]; //cycle: 19944
+swap q[7],q[13]; //cycle: 19944
 h q[2]; //cycle: 19944 //h q[3]
 h q[6]; //cycle: 19945 //h q[2]
 t q[1]; //cycle: 19945 //t q[12]
@@ -15983,16 +15983,16 @@ cx q[6],q[7]; //cycle: 19950 //cx q[2],q[1]
 cx q[5],q[6]; //cycle: 19952 //cx q[13],q[2]
 tdg q[7]; //cycle: 19952 //tdg q[1]
 t q[6]; //cycle: 19954 //t q[2]
-swp q[6],q[7]; //cycle: 19955
+swap q[6],q[7]; //cycle: 19955
 cx q[5],q[6]; //cycle: 19961 //cx q[13],q[1]
 tdg q[5]; //cycle: 19963 //tdg q[13]
 tdg q[6]; //cycle: 19963 //tdg q[1]
 cx q[7],q[6]; //cycle: 19964 //cx q[2],q[1]
-swp q[5],q[6]; //cycle: 19966
+swap q[5],q[6]; //cycle: 19966
 cx q[6],q[7]; //cycle: 19972 //cx q[13],q[2]
 cx q[5],q[6]; //cycle: 19974 //cx q[1],q[13]
 h q[7]; //cycle: 19974 //h q[2]
-swp q[10],q[15]; //cycle: 19975
+swap q[10],q[15]; //cycle: 19975
 h q[7]; //cycle: 19975 //h q[2]
 h q[5]; //cycle: 19976 //h q[1]
 t q[6]; //cycle: 19976 //t q[13]
@@ -16000,20 +16000,20 @@ t q[7]; //cycle: 19976 //t q[2]
 t q[5]; //cycle: 19977 //t q[1]
 cx q[5],q[10]; //cycle: 19981 //cx q[1],q[14]
 tdg q[10]; //cycle: 19983 //tdg q[14]
-swp q[10],q[15]; //cycle: 19984
+swap q[10],q[15]; //cycle: 19984
 cx q[10],q[5]; //cycle: 19990 //cx q[15],q[1]
 cx q[10],q[15]; //cycle: 19992 //cx q[15],q[14]
 t q[5]; //cycle: 19992 //t q[1]
 tdg q[10]; //cycle: 19994 //tdg q[15]
 tdg q[15]; //cycle: 19994 //tdg q[14]
-swp q[5],q[10]; //cycle: 19995
+swap q[5],q[10]; //cycle: 19995
 cx q[10],q[15]; //cycle: 20001 //cx q[1],q[14]
 cx q[5],q[10]; //cycle: 20003 //cx q[15],q[1]
 h q[10]; //cycle: 20005 //h q[1]
 t q[10]; //cycle: 20006 //t q[1]
 cx q[10],q[6]; //cycle: 20007 //cx q[1],q[13]
-swp q[5],q[10]; //cycle: 20009
-swp q[6],q[7]; //cycle: 20009
+swap q[5],q[10]; //cycle: 20009
+swap q[6],q[7]; //cycle: 20009
 cx q[15],q[10]; //cycle: 20015 //cx q[14],q[15]
 cx q[6],q[5]; //cycle: 20015 //cx q[2],q[1]
 x q[10]; //cycle: 20017 //x q[15]
@@ -16023,12 +16023,12 @@ tdg q[5]; //cycle: 20017 //tdg q[1]
 t q[10]; //cycle: 20018 //t q[15]
 cx q[15],q[10]; //cycle: 20019 //cx q[14],q[15]
 t q[6]; //cycle: 20019 //t q[2]
-swp q[5],q[6]; //cycle: 20020
+swap q[5],q[6]; //cycle: 20020
 cx q[7],q[6]; //cycle: 20026 //cx q[13],q[1]
 tdg q[7]; //cycle: 20028 //tdg q[13]
 tdg q[6]; //cycle: 20028 //tdg q[1]
 cx q[5],q[6]; //cycle: 20029 //cx q[2],q[1]
-swp q[5],q[6]; //cycle: 20031
+swap q[5],q[6]; //cycle: 20031
 cx q[7],q[6]; //cycle: 20037 //cx q[13],q[2]
 h q[6]; //cycle: 20039 //h q[2]
 t q[6]; //cycle: 20040 //t q[2]
@@ -16044,23 +16044,23 @@ cx q[2],q[6]; //cycle: 20050 //cx q[3],q[2]
 cx q[1],q[2]; //cycle: 20052 //cx q[12],q[3]
 cx q[6],q[1]; //cycle: 20054 //cx q[2],q[12]
 h q[2]; //cycle: 20054 //h q[3]
-swp q[4],q[8]; //cycle: 20055
+swap q[4],q[8]; //cycle: 20055
 t q[2]; //cycle: 20055 //t q[3]
 x q[1]; //cycle: 20056 //x q[12]
 cx q[2],q[3]; //cycle: 20056 //cx q[3],q[11]
 t q[6]; //cycle: 20056 //t q[2]
 t q[1]; //cycle: 20057 //t q[12]
-swp q[2],q[7]; //cycle: 20058
+swap q[2],q[7]; //cycle: 20058
 cx q[8],q[7]; //cycle: 20064 //cx q[4],q[3]
 cx q[3],q[8]; //cycle: 20066 //cx q[11],q[4]
 tdg q[7]; //cycle: 20066 //tdg q[3]
-swp q[2],q[3]; //cycle: 20068
+swap q[2],q[3]; //cycle: 20068
 t q[8]; //cycle: 20068 //t q[4]
-swp q[5],q[6]; //cycle: 20072
+swap q[5],q[6]; //cycle: 20072
 cx q[2],q[7]; //cycle: 20074 //cx q[11],q[3]
 tdg q[2]; //cycle: 20076 //tdg q[11]
 tdg q[7]; //cycle: 20076 //tdg q[3]
-swp q[2],q[3]; //cycle: 20077
+swap q[2],q[3]; //cycle: 20077
 cx q[8],q[7]; //cycle: 20077 //cx q[4],q[3]
 cx q[6],q[2]; //cycle: 20083 //cx q[1],q[13]
 cx q[3],q[8]; //cycle: 20083 //cx q[11],q[4]
@@ -16069,7 +16069,7 @@ t q[2]; //cycle: 20085 //t q[13]
 t q[6]; //cycle: 20085 //t q[1]
 t q[8]; //cycle: 20086 //t q[4]
 cx q[8],q[9]; //cycle: 20087 //cx q[4],q[10]
-swp q[2],q[7]; //cycle: 20089
+swap q[2],q[7]; //cycle: 20089
 cx q[4],q[8]; //cycle: 20089 //cx q[5],q[4]
 cx q[9],q[4]; //cycle: 20091 //cx q[10],q[5]
 tdg q[8]; //cycle: 20091 //tdg q[4]
@@ -16083,34 +16083,34 @@ t q[3]; //cycle: 20097 //t q[11]
 t q[2]; //cycle: 20097 //t q[3]
 cx q[9],q[4]; //cycle: 20098 //cx q[10],q[5]
 cx q[2],q[7]; //cycle: 20098 //cx q[3],q[13]
-swp q[8],q[13]; //cycle: 20099
-swp q[9],q[14]; //cycle: 20100
+swap q[8],q[13]; //cycle: 20099
+swap q[9],q[14]; //cycle: 20100
 h q[4]; //cycle: 20100 //h q[5]
 t q[4]; //cycle: 20101 //t q[5]
 cx q[4],q[8]; //cycle: 20105 //cx q[5],q[9]
 cx q[13],q[14]; //cycle: 20106 //cx q[4],q[10]
-swp q[8],q[12]; //cycle: 20107
+swap q[8],q[12]; //cycle: 20107
 t q[14]; //cycle: 20108 //t q[10]
 t q[13]; //cycle: 20108 //t q[4]
-swp q[1],q[7]; //cycle: 20109
+swap q[1],q[7]; //cycle: 20109
 cx q[8],q[4]; //cycle: 20113 //cx q[7],q[5]
 cx q[12],q[8]; //cycle: 20115 //cx q[9],q[7]
 tdg q[4]; //cycle: 20115 //tdg q[5]
 cx q[13],q[7]; //cycle: 20115 //cx q[4],q[12]
 t q[8]; //cycle: 20117 //t q[7]
-swp q[4],q[8]; //cycle: 20118
+swap q[4],q[8]; //cycle: 20118
 cx q[12],q[8]; //cycle: 20124 //cx q[9],q[5]
 tdg q[12]; //cycle: 20126 //tdg q[9]
 tdg q[8]; //cycle: 20126 //tdg q[5]
 cx q[4],q[8]; //cycle: 20127 //cx q[7],q[5]
-swp q[8],q[12]; //cycle: 20129
+swap q[8],q[12]; //cycle: 20129
 cx q[8],q[4]; //cycle: 20135 //cx q[9],q[7]
 cx q[12],q[8]; //cycle: 20137 //cx q[5],q[9]
 h q[4]; //cycle: 20137 //h q[7]
 t q[4]; //cycle: 20138 //t q[7]
 t q[8]; //cycle: 20139 //t q[9]
 t q[12]; //cycle: 20139 //t q[5]
-swp q[8],q[12]; //cycle: 20140
+swap q[8],q[12]; //cycle: 20140
 cx q[16],q[12]; //cycle: 20146 //cx q[8],q[9]
 cx q[8],q[3]; //cycle: 20146 //cx q[5],q[11]
 cx q[11],q[16]; //cycle: 20148 //cx q[6],q[8]
@@ -16118,7 +16118,7 @@ cx q[12],q[11]; //cycle: 20150 //cx q[9],q[6]
 tdg q[16]; //cycle: 20150 //tdg q[8]
 cx q[12],q[16]; //cycle: 20152 //cx q[9],q[8]
 t q[11]; //cycle: 20152 //t q[6]
-swp q[4],q[9]; //cycle: 20153
+swap q[4],q[9]; //cycle: 20153
 tdg q[12]; //cycle: 20154 //tdg q[9]
 tdg q[16]; //cycle: 20154 //tdg q[8]
 cx q[11],q[16]; //cycle: 20155 //cx q[6],q[8]
@@ -16131,10 +16131,10 @@ h q[16]; //cycle: 20161 //h q[8]
 t q[12]; //cycle: 20161 //t q[9]
 t q[11]; //cycle: 20161 //t q[6]
 t q[16]; //cycle: 20162 //t q[8]
-swp q[8],q[9]; //cycle: 20163
-swp q[12],q[16]; //cycle: 20163
+swap q[8],q[9]; //cycle: 20163
+swap q[12],q[16]; //cycle: 20163
 cx q[12],q[8]; //cycle: 20169 //cx q[8],q[7]
-swp q[13],q[14]; //cycle: 20170
+swap q[13],q[14]; //cycle: 20170
 tdg q[8]; //cycle: 20171 //tdg q[7]
 cx q[13],q[12]; //cycle: 20176 //cx q[10],q[8]
 cx q[13],q[8]; //cycle: 20178 //cx q[10],q[7]
@@ -16167,10 +16167,10 @@ t q[3]; //cycle: 20202 //t q[11]
 t q[8]; //cycle: 20202 //t q[7]
 t q[9]; //cycle: 20203 //t q[5]
 cx q[9],q[14]; //cycle: 20204 //cx q[5],q[4]
-swp q[8],q[9]; //cycle: 20206
+swap q[8],q[9]; //cycle: 20206
 tdg q[14]; //cycle: 20206 //tdg q[4]
 cx q[7],q[8]; //cycle: 20212 //cx q[12],q[5]
-swp q[13],q[14]; //cycle: 20213
+swap q[13],q[14]; //cycle: 20213
 t q[8]; //cycle: 20214 //t q[5]
 cx q[7],q[13]; //cycle: 20219 //cx q[12],q[4]
 tdg q[7]; //cycle: 20221 //tdg q[12]
@@ -16184,7 +16184,7 @@ h q[13]; //cycle: 20228 //h q[4]
 t q[7]; //cycle: 20228 //t q[12]
 t q[8]; //cycle: 20228 //t q[5]
 t q[13]; //cycle: 20229 //t q[4]
-swp q[7],q[13]; //cycle: 20230
+swap q[7],q[13]; //cycle: 20230
 cx q[7],q[2]; //cycle: 20236 //cx q[4],q[3]
 cx q[1],q[7]; //cycle: 20238 //cx q[13],q[4]
 tdg q[2]; //cycle: 20238 //tdg q[3]
@@ -16200,23 +16200,23 @@ h q[7]; //cycle: 20248 //h q[4]
 h q[2]; //cycle: 20249 //h q[3]
 t q[1]; //cycle: 20249 //t q[13]
 t q[7]; //cycle: 20249 //t q[4]
-swp q[10],q[15]; //cycle: 20250
+swap q[10],q[15]; //cycle: 20250
 t q[2]; //cycle: 20250 //t q[3]
-swp q[2],q[6]; //cycle: 20251
+swap q[2],q[6]; //cycle: 20251
 cx q[6],q[10]; //cycle: 20257 //cx q[3],q[14]
 tdg q[10]; //cycle: 20259 //tdg q[14]
-swp q[10],q[15]; //cycle: 20260
+swap q[10],q[15]; //cycle: 20260
 cx q[10],q[6]; //cycle: 20266 //cx q[15],q[3]
 cx q[10],q[15]; //cycle: 20268 //cx q[15],q[14]
 t q[6]; //cycle: 20268 //t q[3]
 tdg q[10]; //cycle: 20270 //tdg q[15]
 tdg q[15]; //cycle: 20270 //tdg q[14]
-swp q[6],q[10]; //cycle: 20271
+swap q[6],q[10]; //cycle: 20271
 cx q[10],q[15]; //cycle: 20277 //cx q[3],q[14]
 cx q[6],q[10]; //cycle: 20279 //cx q[15],q[3]
 h q[10]; //cycle: 20281 //h q[3]
 t q[10]; //cycle: 20282 //t q[3]
-swp q[6],q[10]; //cycle: 20283
+swap q[6],q[10]; //cycle: 20283
 cx q[15],q[10]; //cycle: 20289 //cx q[14],q[15]
 cx q[6],q[1]; //cycle: 20289 //cx q[3],q[13]
 cx q[7],q[6]; //cycle: 20291 //cx q[4],q[3]
@@ -16270,9 +16270,9 @@ cx q[9],q[14]; //cycle: 20334 //cx q[7],q[10]
 t q[3]; //cycle: 20334 //t q[11]
 t q[8]; //cycle: 20334 //t q[5]
 cx q[8],q[3]; //cycle: 20335 //cx q[5],q[11]
-swp q[8],q[9]; //cycle: 20337
+swap q[8],q[9]; //cycle: 20337
 cx q[12],q[8]; //cycle: 20343 //cx q[8],q[7]
-swp q[13],q[14]; //cycle: 20344
+swap q[13],q[14]; //cycle: 20344
 tdg q[8]; //cycle: 20345 //tdg q[7]
 cx q[13],q[12]; //cycle: 20350 //cx q[10],q[8]
 cx q[13],q[8]; //cycle: 20352 //cx q[10],q[7]
@@ -16336,9 +16336,9 @@ h q[9]; //cycle: 20406 //h q[5]
 t q[3]; //cycle: 20406 //t q[11]
 t q[8]; //cycle: 20406 //t q[7]
 t q[9]; //cycle: 20407 //t q[5]
-swp q[8],q[9]; //cycle: 20408
+swap q[8],q[9]; //cycle: 20408
 cx q[8],q[7]; //cycle: 20414 //cx q[5],q[4]
-swp q[13],q[14]; //cycle: 20415
+swap q[13],q[14]; //cycle: 20415
 tdg q[7]; //cycle: 20416 //tdg q[4]
 cx q[13],q[8]; //cycle: 20421 //cx q[12],q[5]
 cx q[13],q[7]; //cycle: 20423 //cx q[12],q[4]
@@ -16365,7 +16365,7 @@ cx q[7],q[6]; //cycle: 20441 //cx q[4],q[3]
 cx q[1],q[7]; //cycle: 20443 //cx q[13],q[4]
 cx q[6],q[1]; //cycle: 20445 //cx q[3],q[13]
 h q[7]; //cycle: 20445 //h q[4]
-swp q[10],q[15]; //cycle: 20446
+swap q[10],q[15]; //cycle: 20446
 h q[7]; //cycle: 20446 //h q[4]
 h q[6]; //cycle: 20447 //h q[3]
 t q[1]; //cycle: 20447 //t q[13]
@@ -16373,18 +16373,18 @@ t q[7]; //cycle: 20447 //t q[4]
 t q[6]; //cycle: 20448 //t q[3]
 cx q[6],q[10]; //cycle: 20452 //cx q[3],q[14]
 tdg q[10]; //cycle: 20454 //tdg q[14]
-swp q[10],q[15]; //cycle: 20455
+swap q[10],q[15]; //cycle: 20455
 cx q[10],q[6]; //cycle: 20461 //cx q[15],q[3]
 cx q[10],q[15]; //cycle: 20463 //cx q[15],q[14]
 t q[6]; //cycle: 20463 //t q[3]
 tdg q[10]; //cycle: 20465 //tdg q[15]
 tdg q[15]; //cycle: 20465 //tdg q[14]
-swp q[6],q[10]; //cycle: 20466
+swap q[6],q[10]; //cycle: 20466
 cx q[10],q[15]; //cycle: 20472 //cx q[3],q[14]
 cx q[6],q[10]; //cycle: 20474 //cx q[15],q[3]
 h q[10]; //cycle: 20476 //h q[3]
 t q[10]; //cycle: 20477 //t q[3]
-swp q[6],q[10]; //cycle: 20478
+swap q[6],q[10]; //cycle: 20478
 cx q[15],q[10]; //cycle: 20484 //cx q[14],q[15]
 cx q[6],q[1]; //cycle: 20484 //cx q[3],q[13]
 t q[10]; //cycle: 20486 //t q[15]
@@ -16420,7 +16420,7 @@ t q[8]; //cycle: 20513 //t q[5]
 t q[13]; //cycle: 20514 //t q[12]
 cx q[8],q[3]; //cycle: 20514 //cx q[5],q[11]
 h q[7]; //cycle: 20514 //h q[4]
-swp q[6],q[10]; //cycle: 20515
+swap q[6],q[10]; //cycle: 20515
 t q[7]; //cycle: 20515 //t q[4]
 cx q[9],q[8]; //cycle: 20516 //cx q[7],q[5]
 cx q[3],q[9]; //cycle: 20518 //cx q[11],q[7]
@@ -16437,9 +16437,9 @@ t q[9]; //cycle: 20528 //t q[7]
 cx q[9],q[14]; //cycle: 20529 //cx q[7],q[10]
 t q[3]; //cycle: 20529 //t q[11]
 t q[8]; //cycle: 20529 //t q[5]
-swp q[8],q[9]; //cycle: 20531
+swap q[8],q[9]; //cycle: 20531
 cx q[12],q[8]; //cycle: 20537 //cx q[8],q[7]
-swp q[13],q[14]; //cycle: 20538
+swap q[13],q[14]; //cycle: 20538
 tdg q[8]; //cycle: 20539 //tdg q[7]
 cx q[13],q[12]; //cycle: 20544 //cx q[10],q[8]
 cx q[13],q[8]; //cycle: 20546 //cx q[10],q[7]
@@ -16456,25 +16456,25 @@ h q[8]; //cycle: 20555 //h q[7]
 t q[13]; //cycle: 20556 //t q[10]
 t q[8]; //cycle: 20556 //t q[7]
 cx q[14],q[13]; //cycle: 20557 //cx q[12],q[10]
-swp q[3],q[8]; //cycle: 20558
-swp q[12],q[16]; //cycle: 20558
-swp q[11],q[17]; //cycle: 20559
-swp q[14],q[18]; //cycle: 20559
+swap q[3],q[8]; //cycle: 20558
+swap q[12],q[16]; //cycle: 20558
+swap q[11],q[17]; //cycle: 20559
+swap q[14],q[18]; //cycle: 20559
 cx q[12],q[8]; //cycle: 20564 //cx q[9],q[11]
 cx q[17],q[18]; //cycle: 20565 //cx q[6],q[12]
-swp q[11],q[16]; //cycle: 20566
-swp q[12],q[13]; //cycle: 20566
+swap q[11],q[16]; //cycle: 20566
+swap q[12],q[13]; //cycle: 20566
 tdg q[18]; //cycle: 20567 //tdg q[12]
-swp q[6],q[11]; //cycle: 20572
+swap q[6],q[11]; //cycle: 20572
 cx q[12],q[17]; //cycle: 20572 //cx q[10],q[6]
-swp q[12],q[13]; //cycle: 20574
+swap q[12],q[13]; //cycle: 20574
 t q[17]; //cycle: 20574 //t q[6]
 cx q[6],q[1]; //cycle: 20578 //cx q[8],q[13]
 cx q[13],q[18]; //cycle: 20580 //cx q[10],q[12]
 tdg q[13]; //cycle: 20582 //tdg q[10]
 tdg q[18]; //cycle: 20582 //tdg q[12]
 cx q[17],q[18]; //cycle: 20583 //cx q[6],q[12]
-swp q[13],q[18]; //cycle: 20585
+swap q[13],q[18]; //cycle: 20585
 cx q[18],q[17]; //cycle: 20591 //cx q[10],q[6]
 cx q[13],q[18]; //cycle: 20593 //cx q[12],q[10]
 h q[17]; //cycle: 20593 //h q[6]
@@ -16499,7 +16499,7 @@ h q[12]; //cycle: 20610 //h q[9]
 t q[8]; //cycle: 20610 //t q[11]
 t q[13]; //cycle: 20610 //t q[12]
 t q[12]; //cycle: 20611 //t q[9]
-swp q[7],q[12]; //cycle: 20612
+swap q[7],q[12]; //cycle: 20612
 cx q[7],q[6]; //cycle: 20618 //cx q[9],q[8]
 cx q[1],q[7]; //cycle: 20620 //cx q[13],q[9]
 tdg q[6]; //cycle: 20620 //tdg q[8]
@@ -16511,7 +16511,7 @@ cx q[7],q[6]; //cycle: 20625 //cx q[9],q[8]
 cx q[1],q[7]; //cycle: 20627 //cx q[13],q[9]
 cx q[6],q[1]; //cycle: 20629 //cx q[8],q[13]
 h q[7]; //cycle: 20629 //h q[9]
-swp q[10],q[15]; //cycle: 20630
+swap q[10],q[15]; //cycle: 20630
 h q[7]; //cycle: 20630 //h q[9]
 h q[6]; //cycle: 20631 //h q[8]
 t q[1]; //cycle: 20631 //t q[13]
@@ -16565,17 +16565,17 @@ cx q[13],q[18]; //cycle: 20679 //cx q[12],q[10]
 t q[8]; //cycle: 20679 //t q[11]
 t q[7]; //cycle: 20679 //t q[9]
 cx q[7],q[8]; //cycle: 20680 //cx q[9],q[11]
-swp q[12],q[13]; //cycle: 20681
+swap q[12],q[13]; //cycle: 20681
 cx q[17],q[12]; //cycle: 20687 //cx q[6],q[12]
 cx q[18],q[17]; //cycle: 20689 //cx q[10],q[6]
 tdg q[12]; //cycle: 20689 //tdg q[12]
-swp q[13],q[18]; //cycle: 20691
+swap q[13],q[18]; //cycle: 20691
 t q[17]; //cycle: 20691 //t q[6]
 cx q[13],q[12]; //cycle: 20697 //cx q[10],q[12]
 tdg q[13]; //cycle: 20699 //tdg q[10]
 tdg q[12]; //cycle: 20699 //tdg q[12]
 cx q[17],q[12]; //cycle: 20700 //cx q[6],q[12]
-swp q[12],q[13]; //cycle: 20702
+swap q[12],q[13]; //cycle: 20702
 cx q[12],q[17]; //cycle: 20708 //cx q[10],q[6]
 cx q[13],q[12]; //cycle: 20710 //cx q[12],q[10]
 h q[17]; //cycle: 20710 //h q[6]
@@ -16665,8 +16665,8 @@ cx q[13],q[12]; //cycle: 20787 //cx q[12],q[10]
 t q[8]; //cycle: 20787 //t q[11]
 t q[7]; //cycle: 20788 //t q[9]
 cx q[1],q[7]; //cycle: 20789 //cx q[13],q[9]
-swp q[2],q[3]; //cycle: 20790
-swp q[6],q[7]; //cycle: 20792
+swap q[2],q[3]; //cycle: 20790
+swap q[6],q[7]; //cycle: 20792
 cx q[2],q[1]; //cycle: 20796 //cx q[7],q[13]
 cx q[6],q[2]; //cycle: 20798 //cx q[9],q[7]
 tdg q[1]; //cycle: 20798 //tdg q[13]
@@ -16684,7 +16684,7 @@ h q[1]; //cycle: 20809 //h q[13]
 t q[6]; //cycle: 20809 //t q[9]
 t q[2]; //cycle: 20809 //t q[7]
 t q[1]; //cycle: 20810 //t q[13]
-swp q[1],q[7]; //cycle: 20811
+swap q[1],q[7]; //cycle: 20811
 cx q[7],q[13]; //cycle: 20817 //cx q[13],q[12]
 cx q[12],q[7]; //cycle: 20819 //cx q[10],q[13]
 tdg q[13]; //cycle: 20819 //tdg q[12]
@@ -16700,7 +16700,7 @@ h q[7]; //cycle: 20829 //h q[13]
 h q[13]; //cycle: 20830 //h q[12]
 t q[12]; //cycle: 20830 //t q[10]
 t q[7]; //cycle: 20830 //t q[13]
-swp q[1],q[7]; //cycle: 20831
+swap q[1],q[7]; //cycle: 20831
 t q[13]; //cycle: 20831 //t q[12]
 cx q[13],q[7]; //cycle: 20837 //cx q[12],q[8]
 cx q[8],q[13]; //cycle: 20839 //cx q[11],q[12]
@@ -16718,7 +16718,7 @@ h q[7]; //cycle: 20850 //h q[8]
 t q[8]; //cycle: 20850 //t q[11]
 t q[13]; //cycle: 20850 //t q[12]
 t q[7]; //cycle: 20851 //t q[8]
-swp q[6],q[7]; //cycle: 20852
+swap q[6],q[7]; //cycle: 20852
 cx q[6],q[10]; //cycle: 20858 //cx q[8],q[14]
 cx q[11],q[6]; //cycle: 20860 //cx q[15],q[8]
 tdg q[10]; //cycle: 20860 //tdg q[14]
@@ -16731,7 +16731,7 @@ cx q[11],q[6]; //cycle: 20867 //cx q[15],q[8]
 cx q[10],q[11]; //cycle: 20869 //cx q[14],q[15]
 h q[6]; //cycle: 20869 //h q[8]
 t q[6]; //cycle: 20870 //t q[8]
-swp q[6],q[7]; //cycle: 20871
+swap q[6],q[7]; //cycle: 20871
 t q[11]; //cycle: 20871 //t q[15]
 t q[10]; //cycle: 20871 //t q[14]
 cx q[10],q[11]; //cycle: 20872 //cx q[14],q[15]
@@ -16752,7 +16752,7 @@ t q[8]; //cycle: 20892 //t q[11]
 t q[7]; //cycle: 20892 //t q[8]
 cx q[13],q[12]; //cycle: 20892 //cx q[12],q[10]
 cx q[7],q[8]; //cycle: 20893 //cx q[8],q[11]
-swp q[1],q[7]; //cycle: 20895
+swap q[1],q[7]; //cycle: 20895
 cx q[7],q[13]; //cycle: 20901 //cx q[13],q[12]
 cx q[12],q[7]; //cycle: 20903 //cx q[10],q[13]
 tdg q[13]; //cycle: 20903 //tdg q[12]
@@ -16799,7 +16799,7 @@ h q[7]; //cycle: 20943 //h q[13]
 t q[12]; //cycle: 20944 //t q[10]
 t q[7]; //cycle: 20944 //t q[13]
 h q[13]; //cycle: 20944 //h q[12]
-swp q[1],q[7]; //cycle: 20945
+swap q[1],q[7]; //cycle: 20945
 t q[13]; //cycle: 20945 //t q[12]
 cx q[13],q[7]; //cycle: 20951 //cx q[12],q[8]
 cx q[8],q[13]; //cycle: 20953 //cx q[11],q[12]
@@ -16817,7 +16817,7 @@ h q[7]; //cycle: 20964 //h q[8]
 t q[8]; //cycle: 20964 //t q[11]
 t q[13]; //cycle: 20964 //t q[12]
 t q[7]; //cycle: 20965 //t q[8]
-swp q[6],q[7]; //cycle: 20966
+swap q[6],q[7]; //cycle: 20966
 cx q[6],q[10]; //cycle: 20972 //cx q[8],q[14]
 cx q[11],q[6]; //cycle: 20974 //cx q[15],q[8]
 tdg q[10]; //cycle: 20974 //tdg q[14]
@@ -16832,7 +16832,7 @@ h q[6]; //cycle: 20983 //h q[8]
 t q[6]; //cycle: 20984 //t q[8]
 t q[11]; //cycle: 20985 //t q[15]
 t q[10]; //cycle: 20985 //t q[14]
-swp q[6],q[7]; //cycle: 20986
+swap q[6],q[7]; //cycle: 20986
 cx q[7],q[8]; //cycle: 20992 //cx q[8],q[11]
 cx q[13],q[7]; //cycle: 20994 //cx q[12],q[8]
 cx q[8],q[13]; //cycle: 20996 //cx q[11],q[12]
@@ -16849,9 +16849,9 @@ t q[13]; //cycle: 21006 //t q[12]
 cx q[13],q[12]; //cycle: 21007 //cx q[12],q[10]
 t q[7]; //cycle: 21007 //t q[8]
 t q[8]; //cycle: 21007 //t q[11]
-swp q[7],q[12]; //cycle: 21009
+swap q[7],q[12]; //cycle: 21009
 cx q[11],q[12]; //cycle: 21015 //cx q[15],q[8]
-swp q[6],q[7]; //cycle: 21016
+swap q[6],q[7]; //cycle: 21016
 cx q[17],q[11]; //cycle: 21017 //cx q[6],q[15]
 cx q[12],q[17]; //cycle: 21019 //cx q[8],q[6]
 tdg q[11]; //cycle: 21019 //tdg q[15]
@@ -16861,7 +16861,7 @@ cx q[8],q[7]; //cycle: 21022 //cx q[11],q[9]
 tdg q[12]; //cycle: 21023 //tdg q[8]
 tdg q[11]; //cycle: 21023 //tdg q[15]
 cx q[17],q[11]; //cycle: 21024 //cx q[6],q[15]
-swp q[7],q[13]; //cycle: 21026
+swap q[7],q[13]; //cycle: 21026
 cx q[12],q[17]; //cycle: 21026 //cx q[8],q[6]
 cx q[11],q[12]; //cycle: 21028 //cx q[15],q[8]
 h q[17]; //cycle: 21028 //h q[6]
@@ -16870,7 +16870,7 @@ h q[11]; //cycle: 21030 //h q[15]
 t q[12]; //cycle: 21030 //t q[8]
 t q[17]; //cycle: 21030 //t q[6]
 t q[11]; //cycle: 21031 //t q[15]
-swp q[11],q[12]; //cycle: 21032
+swap q[11],q[12]; //cycle: 21032
 cx q[1],q[7]; //cycle: 21032 //cx q[13],q[12]
 cx q[6],q[1]; //cycle: 21034 //cx q[10],q[13]
 tdg q[7]; //cycle: 21034 //tdg q[12]
@@ -16895,10 +16895,10 @@ t q[6]; //cycle: 21045 //t q[10]
 t q[7]; //cycle: 21045 //t q[12]
 cx q[2],q[6]; //cycle: 21046 //cx q[7],q[10]
 cx q[13],q[12]; //cycle: 21047 //cx q[9],q[15]
-swp q[1],q[6]; //cycle: 21049
+swap q[1],q[6]; //cycle: 21049
 cx q[8],q[13]; //cycle: 21049 //cx q[11],q[9]
 h q[12]; //cycle: 21049 //h q[15]
-swp q[2],q[3]; //cycle: 21050
+swap q[2],q[3]; //cycle: 21050
 h q[12]; //cycle: 21050 //h q[15]
 h q[8]; //cycle: 21051 //h q[11]
 t q[13]; //cycle: 21051 //t q[9]
@@ -16906,18 +16906,18 @@ t q[12]; //cycle: 21051 //t q[15]
 t q[8]; //cycle: 21052 //t q[11]
 cx q[6],q[10]; //cycle: 21055 //cx q[13],q[14]
 cx q[8],q[3]; //cycle: 21056 //cx q[11],q[7]
-swp q[1],q[7]; //cycle: 21057
+swap q[1],q[7]; //cycle: 21057
 tdg q[3]; //cycle: 21058 //tdg q[7]
 cx q[7],q[8]; //cycle: 21063 //cx q[10],q[11]
-swp q[2],q[7]; //cycle: 21065
+swap q[2],q[7]; //cycle: 21065
 t q[8]; //cycle: 21065 //t q[11]
-swp q[8],q[9]; //cycle: 21066
+swap q[8],q[9]; //cycle: 21066
 cx q[2],q[3]; //cycle: 21071 //cx q[10],q[7]
 tdg q[2]; //cycle: 21073 //tdg q[10]
 tdg q[3]; //cycle: 21073 //tdg q[7]
 cx q[9],q[3]; //cycle: 21074 //cx q[11],q[7]
-swp q[2],q[3]; //cycle: 21076
-swp q[7],q[8]; //cycle: 21079
+swap q[2],q[3]; //cycle: 21076
+swap q[7],q[8]; //cycle: 21079
 cx q[3],q[9]; //cycle: 21082 //cx q[10],q[11]
 cx q[2],q[3]; //cycle: 21084 //cx q[7],q[10]
 h q[9]; //cycle: 21084 //h q[11]
@@ -16945,13 +16945,13 @@ t q[2]; //cycle: 21101 //t q[7]
 t q[7]; //cycle: 21102 //t q[5]
 cx q[7],q[6]; //cycle: 21103 //cx q[5],q[13]
 tdg q[6]; //cycle: 21105 //tdg q[13]
-swp q[6],q[10]; //cycle: 21106
+swap q[6],q[10]; //cycle: 21106
 cx q[6],q[7]; //cycle: 21112 //cx q[14],q[5]
 cx q[6],q[10]; //cycle: 21114 //cx q[14],q[13]
 t q[7]; //cycle: 21114 //t q[5]
 tdg q[6]; //cycle: 21116 //tdg q[14]
 tdg q[10]; //cycle: 21116 //tdg q[13]
-swp q[6],q[7]; //cycle: 21117
+swap q[6],q[7]; //cycle: 21117
 cx q[6],q[10]; //cycle: 21123 //cx q[5],q[13]
 cx q[7],q[6]; //cycle: 21125 //cx q[14],q[5]
 h q[6]; //cycle: 21127 //h q[5]
@@ -16973,13 +16973,13 @@ cx q[2],q[3]; //cycle: 21144 //cx q[7],q[10]
 t q[1]; //cycle: 21144 //t q[12]
 t q[6]; //cycle: 21144 //t q[5]
 cx q[6],q[1]; //cycle: 21145 //cx q[5],q[12]
-swp q[3],q[9]; //cycle: 21146
-swp q[6],q[10]; //cycle: 21152
+swap q[3],q[9]; //cycle: 21146
+swap q[6],q[10]; //cycle: 21152
 cx q[3],q[2]; //cycle: 21152 //cx q[11],q[7]
 cx q[9],q[3]; //cycle: 21154 //cx q[10],q[11]
 tdg q[2]; //cycle: 21154 //tdg q[7]
 t q[3]; //cycle: 21156 //t q[11]
-swp q[2],q[3]; //cycle: 21157
+swap q[2],q[3]; //cycle: 21157
 cx q[6],q[7]; //cycle: 21158 //cx q[13],q[14]
 t q[7]; //cycle: 21160 //t q[14]
 t q[6]; //cycle: 21160 //t q[13]
@@ -16988,12 +16988,12 @@ cx q[9],q[3]; //cycle: 21163 //cx q[10],q[7]
 tdg q[9]; //cycle: 21165 //tdg q[10]
 tdg q[3]; //cycle: 21165 //tdg q[7]
 cx q[2],q[3]; //cycle: 21166 //cx q[11],q[7]
-swp q[3],q[9]; //cycle: 21168
+swap q[3],q[9]; //cycle: 21168
 cx q[3],q[2]; //cycle: 21174 //cx q[10],q[11]
 cx q[9],q[3]; //cycle: 21176 //cx q[7],q[10]
 h q[2]; //cycle: 21176 //h q[11]
 t q[2]; //cycle: 21177 //t q[11]
-swp q[2],q[7]; //cycle: 21178
+swap q[2],q[7]; //cycle: 21178
 t q[3]; //cycle: 21178 //t q[10]
 t q[9]; //cycle: 21178 //t q[7]
 cx q[9],q[3]; //cycle: 21179 //cx q[7],q[10]
@@ -17023,7 +17023,7 @@ tdg q[11]; //cycle: 21207 //tdg q[8]
 tdg q[12]; //cycle: 21207 //tdg q[15]
 cx q[17],q[12]; //cycle: 21208 //cx q[6],q[15]
 cx q[11],q[17]; //cycle: 21210 //cx q[8],q[6]
-swp q[1],q[6]; //cycle: 21211
+swap q[1],q[6]; //cycle: 21211
 cx q[12],q[11]; //cycle: 21212 //cx q[15],q[8]
 h q[17]; //cycle: 21212 //h q[6]
 t q[17]; //cycle: 21213 //t q[6]
@@ -17046,7 +17046,7 @@ h q[7]; //cycle: 21229 //h q[11]
 t q[13]; //cycle: 21229 //t q[9]
 t q[12]; //cycle: 21229 //t q[15]
 t q[7]; //cycle: 21230 //t q[11]
-swp q[7],q[8]; //cycle: 21231
+swap q[7],q[8]; //cycle: 21231
 cx q[8],q[9]; //cycle: 21237 //cx q[11],q[7]
 cx q[3],q[8]; //cycle: 21239 //cx q[10],q[11]
 tdg q[9]; //cycle: 21239 //tdg q[7]
@@ -17058,16 +17058,16 @@ cx q[8],q[9]; //cycle: 21244 //cx q[11],q[7]
 cx q[3],q[8]; //cycle: 21246 //cx q[10],q[11]
 cx q[9],q[3]; //cycle: 21248 //cx q[7],q[10]
 h q[8]; //cycle: 21248 //h q[11]
-swp q[10],q[11]; //cycle: 21249
+swap q[10],q[11]; //cycle: 21249
 h q[8]; //cycle: 21249 //h q[11]
 h q[9]; //cycle: 21250 //h q[7]
 t q[3]; //cycle: 21250 //t q[10]
 t q[8]; //cycle: 21250 //t q[11]
 t q[9]; //cycle: 21251 //t q[7]
-swp q[8],q[9]; //cycle: 21255
-swp q[11],q[12]; //cycle: 21255
+swap q[8],q[9]; //cycle: 21255
+swap q[11],q[12]; //cycle: 21255
 cx q[8],q[12]; //cycle: 21261 //cx q[7],q[5]
-swp q[6],q[7]; //cycle: 21262
+swap q[6],q[7]; //cycle: 21262
 tdg q[12]; //cycle: 21263 //tdg q[5]
 cx q[7],q[8]; //cycle: 21268 //cx q[12],q[7]
 cx q[7],q[12]; //cycle: 21270 //cx q[12],q[5]
@@ -17083,7 +17083,7 @@ h q[12]; //cycle: 21279 //h q[5]
 t q[7]; //cycle: 21279 //t q[12]
 t q[8]; //cycle: 21279 //t q[7]
 t q[12]; //cycle: 21280 //t q[5]
-swp q[7],q[12]; //cycle: 21281
+swap q[7],q[12]; //cycle: 21281
 cx q[7],q[1]; //cycle: 21287 //cx q[5],q[13]
 cx q[2],q[7]; //cycle: 21289 //cx q[14],q[5]
 tdg q[1]; //cycle: 21289 //tdg q[13]
@@ -17126,7 +17126,7 @@ tdg q[3]; //cycle: 21323 //tdg q[10]
 tdg q[8]; //cycle: 21323 //tdg q[7]
 cx q[9],q[8]; //cycle: 21324 //cx q[11],q[7]
 cx q[3],q[9]; //cycle: 21326 //cx q[10],q[11]
-swp q[13],q[14]; //cycle: 21327
+swap q[13],q[14]; //cycle: 21327
 cx q[8],q[3]; //cycle: 21328 //cx q[7],q[10]
 h q[9]; //cycle: 21328 //h q[11]
 t q[9]; //cycle: 21329 //t q[11]
@@ -17134,10 +17134,10 @@ t q[3]; //cycle: 21330 //t q[10]
 t q[8]; //cycle: 21330 //t q[7]
 cx q[8],q[3]; //cycle: 21331 //cx q[7],q[10]
 cx q[9],q[14]; //cycle: 21333 //cx q[11],q[9]
-swp q[8],q[9]; //cycle: 21335
-swp q[11],q[12]; //cycle: 21335
+swap q[8],q[9]; //cycle: 21335
+swap q[11],q[12]; //cycle: 21335
 cx q[12],q[8]; //cycle: 21341 //cx q[15],q[11]
-swp q[13],q[14]; //cycle: 21342
+swap q[13],q[14]; //cycle: 21342
 tdg q[8]; //cycle: 21343 //tdg q[11]
 cx q[13],q[12]; //cycle: 21348 //cx q[9],q[15]
 cx q[13],q[8]; //cycle: 21350 //cx q[9],q[11]
@@ -17146,7 +17146,7 @@ tdg q[13]; //cycle: 21352 //tdg q[9]
 tdg q[8]; //cycle: 21352 //tdg q[11]
 cx q[12],q[8]; //cycle: 21353 //cx q[15],q[11]
 cx q[13],q[12]; //cycle: 21355 //cx q[9],q[15]
-swp q[10],q[11]; //cycle: 21356
+swap q[10],q[11]; //cycle: 21356
 cx q[8],q[13]; //cycle: 21357 //cx q[11],q[9]
 h q[12]; //cycle: 21357 //h q[15]
 t q[12]; //cycle: 21358 //t q[15]
@@ -17155,16 +17155,16 @@ t q[8]; //cycle: 21359 //t q[11]
 cx q[8],q[13]; //cycle: 21360 //cx q[11],q[9]
 cx q[12],q[11]; //cycle: 21362 //cx q[15],q[8]
 cx q[7],q[12]; //cycle: 21364 //cx q[5],q[15]
-swp q[6],q[7]; //cycle: 21366
+swap q[6],q[7]; //cycle: 21366
 tdg q[12]; //cycle: 21366 //tdg q[15]
 cx q[11],q[6]; //cycle: 21372 //cx q[8],q[5]
 cx q[11],q[12]; //cycle: 21374 //cx q[8],q[15]
 t q[6]; //cycle: 21374 //t q[5]
-swp q[6],q[7]; //cycle: 21375
+swap q[6],q[7]; //cycle: 21375
 tdg q[11]; //cycle: 21376 //tdg q[8]
 tdg q[12]; //cycle: 21376 //tdg q[15]
 cx q[7],q[12]; //cycle: 21381 //cx q[5],q[15]
-swp q[6],q[7]; //cycle: 21383
+swap q[6],q[7]; //cycle: 21383
 cx q[11],q[6]; //cycle: 21389 //cx q[8],q[5]
 cx q[12],q[11]; //cycle: 21391 //cx q[15],q[8]
 h q[6]; //cycle: 21391 //h q[5]
@@ -17205,22 +17205,22 @@ h q[9]; //cycle: 21423 //h q[7]
 t q[3]; //cycle: 21423 //t q[10]
 t q[8]; //cycle: 21423 //t q[11]
 t q[9]; //cycle: 21424 //t q[7]
-swp q[8],q[9]; //cycle: 21425
-swp q[12],q[17]; //cycle: 21425
+swap q[8],q[9]; //cycle: 21425
+swap q[12],q[17]; //cycle: 21425
 cx q[8],q[12]; //cycle: 21431 //cx q[7],q[6]
-swp q[6],q[10]; //cycle: 21432
-swp q[7],q[8]; //cycle: 21433
+swap q[6],q[10]; //cycle: 21432
+swap q[7],q[8]; //cycle: 21433
 tdg q[12]; //cycle: 21433 //tdg q[6]
 cx q[6],q[7]; //cycle: 21439 //cx q[12],q[7]
 t q[7]; //cycle: 21441 //t q[7]
-swp q[7],q[12]; //cycle: 21442
+swap q[7],q[12]; //cycle: 21442
 cx q[6],q[7]; //cycle: 21448 //cx q[12],q[6]
 tdg q[6]; //cycle: 21450 //tdg q[12]
 tdg q[7]; //cycle: 21450 //tdg q[6]
 cx q[12],q[7]; //cycle: 21451 //cx q[7],q[6]
-swp q[6],q[11]; //cycle: 21452
+swap q[6],q[11]; //cycle: 21452
 cx q[11],q[12]; //cycle: 21458 //cx q[12],q[7]
-swp q[6],q[11]; //cycle: 21460
+swap q[6],q[11]; //cycle: 21460
 h q[12]; //cycle: 21460 //h q[7]
 h q[12]; //cycle: 21461 //h q[7]
 t q[12]; //cycle: 21462 //t q[7]
@@ -17245,27 +17245,27 @@ t q[1]; //cycle: 21483 //t q[13]
 cx q[7],q[6]; //cycle: 21483 //cx q[6],q[12]
 cx q[1],q[2]; //cycle: 21484 //cx q[13],q[14]
 cx q[12],q[7]; //cycle: 21485 //cx q[7],q[6]
-swp q[11],q[12]; //cycle: 21487
+swap q[11],q[12]; //cycle: 21487
 tdg q[7]; //cycle: 21487 //tdg q[6]
 cx q[6],q[11]; //cycle: 21493 //cx q[12],q[7]
 cx q[6],q[7]; //cycle: 21495 //cx q[12],q[6]
 t q[11]; //cycle: 21495 //t q[7]
 tdg q[6]; //cycle: 21497 //tdg q[12]
 tdg q[7]; //cycle: 21497 //tdg q[6]
-swp q[6],q[11]; //cycle: 21498
+swap q[6],q[11]; //cycle: 21498
 cx q[6],q[7]; //cycle: 21504 //cx q[7],q[6]
 cx q[11],q[6]; //cycle: 21506 //cx q[12],q[7]
-swp q[2],q[3]; //cycle: 21507
-swp q[7],q[12]; //cycle: 21507
+swap q[2],q[3]; //cycle: 21507
+swap q[7],q[12]; //cycle: 21507
 h q[6]; //cycle: 21508 //h q[7]
 t q[6]; //cycle: 21509 //t q[7]
 cx q[12],q[11]; //cycle: 21513 //cx q[6],q[12]
 cx q[6],q[2]; //cycle: 21513 //cx q[7],q[10]
-swp q[8],q[9]; //cycle: 21514
+swap q[8],q[9]; //cycle: 21514
 t q[11]; //cycle: 21515 //t q[12]
 t q[12]; //cycle: 21515 //t q[6]
 cx q[12],q[11]; //cycle: 21516 //cx q[6],q[12]
-swp q[7],q[8]; //cycle: 21520
+swap q[7],q[8]; //cycle: 21520
 cx q[7],q[6]; //cycle: 21526 //cx q[11],q[7]
 cx q[2],q[7]; //cycle: 21528 //cx q[10],q[11]
 tdg q[6]; //cycle: 21528 //tdg q[7]
@@ -17281,7 +17281,7 @@ t q[7]; //cycle: 21538 //t q[11]
 cx q[7],q[13]; //cycle: 21539 //cx q[11],q[9]
 t q[2]; //cycle: 21539 //t q[10]
 t q[6]; //cycle: 21539 //t q[7]
-swp q[12],q[17]; //cycle: 21540
+swap q[12],q[17]; //cycle: 21540
 cx q[6],q[2]; //cycle: 21540 //cx q[7],q[10]
 cx q[12],q[7]; //cycle: 21546 //cx q[15],q[11]
 cx q[13],q[12]; //cycle: 21548 //cx q[9],q[15]
@@ -17298,19 +17298,19 @@ t q[12]; //cycle: 21558 //t q[15]
 cx q[12],q[8]; //cycle: 21559 //cx q[15],q[8]
 t q[13]; //cycle: 21559 //t q[9]
 t q[7]; //cycle: 21559 //t q[11]
-swp q[10],q[11]; //cycle: 21560
+swap q[10],q[11]; //cycle: 21560
 cx q[7],q[13]; //cycle: 21560 //cx q[11],q[9]
 cx q[11],q[12]; //cycle: 21566 //cx q[5],q[15]
 tdg q[12]; //cycle: 21568 //tdg q[15]
-swp q[8],q[12]; //cycle: 21569
+swap q[8],q[12]; //cycle: 21569
 cx q[12],q[11]; //cycle: 21575 //cx q[8],q[5]
 cx q[12],q[8]; //cycle: 21577 //cx q[8],q[15]
 t q[11]; //cycle: 21577 //t q[5]
 tdg q[12]; //cycle: 21579 //tdg q[8]
 tdg q[8]; //cycle: 21579 //tdg q[15]
-swp q[8],q[12]; //cycle: 21580
+swap q[8],q[12]; //cycle: 21580
 cx q[11],q[12]; //cycle: 21586 //cx q[5],q[15]
-swp q[8],q[12]; //cycle: 21588
+swap q[8],q[12]; //cycle: 21588
 cx q[12],q[11]; //cycle: 21594 //cx q[8],q[5]
 cx q[8],q[12]; //cycle: 21596 //cx q[15],q[8]
 h q[11]; //cycle: 21596 //h q[5]
@@ -17346,7 +17346,7 @@ cx q[7],q[6]; //cycle: 21622 //cx q[11],q[7]
 cx q[2],q[7]; //cycle: 21624 //cx q[10],q[11]
 cx q[6],q[2]; //cycle: 21626 //cx q[7],q[10]
 h q[7]; //cycle: 21626 //h q[11]
-swp q[11],q[17]; //cycle: 21627
+swap q[11],q[17]; //cycle: 21627
 h q[7]; //cycle: 21627 //h q[11]
 t q[2]; //cycle: 21628 //t q[10]
 t q[7]; //cycle: 21628 //t q[11]
@@ -17368,9 +17368,9 @@ h q[11]; //cycle: 21646 //h q[6]
 t q[10]; //cycle: 21646 //t q[12]
 t q[6]; //cycle: 21646 //t q[7]
 t q[11]; //cycle: 21647 //t q[6]
-swp q[6],q[11]; //cycle: 21648
+swap q[6],q[11]; //cycle: 21648
 cx q[6],q[1]; //cycle: 21654 //cx q[6],q[13]
-swp q[2],q[3]; //cycle: 21655
+swap q[2],q[3]; //cycle: 21655
 tdg q[1]; //cycle: 21656 //tdg q[13]
 cx q[2],q[6]; //cycle: 21661 //cx q[14],q[6]
 cx q[2],q[1]; //cycle: 21663 //cx q[14],q[13]
@@ -17397,12 +17397,12 @@ cx q[11],q[6]; //cycle: 21681 //cx q[7],q[6]
 cx q[10],q[11]; //cycle: 21683 //cx q[12],q[7]
 cx q[6],q[10]; //cycle: 21685 //cx q[6],q[12]
 h q[11]; //cycle: 21685 //h q[7]
-swp q[2],q[3]; //cycle: 21686
+swap q[2],q[3]; //cycle: 21686
 t q[11]; //cycle: 21686 //t q[7]
 t q[10]; //cycle: 21687 //t q[12]
 t q[6]; //cycle: 21687 //t q[6]
 cx q[6],q[10]; //cycle: 21688 //cx q[6],q[12]
-swp q[6],q[11]; //cycle: 21690
+swap q[6],q[11]; //cycle: 21690
 cx q[6],q[2]; //cycle: 21696 //cx q[7],q[10]
 cx q[7],q[6]; //cycle: 21698 //cx q[11],q[7]
 cx q[2],q[7]; //cycle: 21700 //cx q[10],q[11]
@@ -17436,7 +17436,7 @@ cx q[8],q[12]; //cycle: 21726 //cx q[15],q[8]
 t q[13]; //cycle: 21726 //t q[9]
 t q[7]; //cycle: 21726 //t q[11]
 cx q[7],q[13]; //cycle: 21727 //cx q[11],q[9]
-swp q[13],q[18]; //cycle: 21729
+swap q[13],q[18]; //cycle: 21729
 cx q[13],q[8]; //cycle: 21735 //cx q[4],q[15]
 cx q[12],q[13]; //cycle: 21737 //cx q[8],q[4]
 tdg q[8]; //cycle: 21737 //tdg q[15]
@@ -17454,7 +17454,7 @@ t q[13]; //cycle: 21748 //t q[4]
 h q[8]; //cycle: 21748 //h q[15]
 t q[8]; //cycle: 21749 //t q[15]
 cx q[8],q[7]; //cycle: 21750 //cx q[15],q[11]
-swp q[13],q[18]; //cycle: 21751
+swap q[13],q[18]; //cycle: 21751
 tdg q[7]; //cycle: 21752 //tdg q[11]
 cx q[13],q[8]; //cycle: 21757 //cx q[9],q[15]
 cx q[13],q[7]; //cycle: 21759 //cx q[9],q[11]
@@ -17502,9 +17502,9 @@ h q[11]; //cycle: 21798 //h q[6]
 t q[10]; //cycle: 21798 //t q[12]
 t q[6]; //cycle: 21798 //t q[7]
 t q[11]; //cycle: 21799 //t q[6]
-swp q[6],q[11]; //cycle: 21800
+swap q[6],q[11]; //cycle: 21800
 cx q[6],q[1]; //cycle: 21806 //cx q[6],q[13]
-swp q[2],q[3]; //cycle: 21807
+swap q[2],q[3]; //cycle: 21807
 tdg q[1]; //cycle: 21808 //tdg q[13]
 cx q[2],q[6]; //cycle: 21813 //cx q[14],q[6]
 cx q[2],q[1]; //cycle: 21815 //cx q[14],q[13]
@@ -17534,9 +17534,9 @@ h q[11]; //cycle: 21837 //h q[7]
 t q[11]; //cycle: 21838 //t q[7]
 t q[10]; //cycle: 21839 //t q[12]
 t q[6]; //cycle: 21839 //t q[6]
-swp q[2],q[3]; //cycle: 21840
+swap q[2],q[3]; //cycle: 21840
 cx q[6],q[10]; //cycle: 21840 //cx q[6],q[12]
-swp q[6],q[11]; //cycle: 21842
+swap q[6],q[11]; //cycle: 21842
 cx q[6],q[2]; //cycle: 21848 //cx q[7],q[10]
 cx q[7],q[6]; //cycle: 21850 //cx q[11],q[7]
 cx q[2],q[7]; //cycle: 21852 //cx q[10],q[11]
@@ -17570,7 +17570,7 @@ cx q[8],q[12]; //cycle: 21878 //cx q[15],q[8]
 t q[13]; //cycle: 21878 //t q[9]
 t q[7]; //cycle: 21878 //t q[11]
 cx q[7],q[13]; //cycle: 21879 //cx q[11],q[9]
-swp q[13],q[18]; //cycle: 21881
+swap q[13],q[18]; //cycle: 21881
 cx q[13],q[8]; //cycle: 21887 //cx q[4],q[15]
 cx q[12],q[13]; //cycle: 21889 //cx q[8],q[4]
 tdg q[8]; //cycle: 21889 //tdg q[15]
@@ -17587,7 +17587,7 @@ h q[8]; //cycle: 21900 //h q[15]
 t q[12]; //cycle: 21900 //t q[8]
 t q[8]; //cycle: 21901 //t q[15]
 cx q[8],q[7]; //cycle: 21902 //cx q[15],q[11]
-swp q[13],q[18]; //cycle: 21903
+swap q[13],q[18]; //cycle: 21903
 tdg q[7]; //cycle: 21904 //tdg q[11]
 cx q[13],q[8]; //cycle: 21909 //cx q[9],q[15]
 cx q[13],q[7]; //cycle: 21911 //cx q[9],q[11]
@@ -17635,9 +17635,9 @@ h q[11]; //cycle: 21950 //h q[6]
 t q[10]; //cycle: 21950 //t q[12]
 t q[6]; //cycle: 21950 //t q[7]
 t q[11]; //cycle: 21951 //t q[6]
-swp q[6],q[11]; //cycle: 21952
+swap q[6],q[11]; //cycle: 21952
 cx q[6],q[1]; //cycle: 21958 //cx q[6],q[13]
-swp q[2],q[3]; //cycle: 21959
+swap q[2],q[3]; //cycle: 21959
 tdg q[1]; //cycle: 21960 //tdg q[13]
 cx q[2],q[6]; //cycle: 21965 //cx q[14],q[6]
 cx q[2],q[1]; //cycle: 21967 //cx q[14],q[13]
@@ -17648,7 +17648,7 @@ cx q[6],q[1]; //cycle: 21970 //cx q[6],q[13]
 cx q[2],q[6]; //cycle: 21972 //cx q[14],q[6]
 cx q[1],q[2]; //cycle: 21974 //cx q[13],q[14]
 h q[6]; //cycle: 21974 //h q[6]
-swp q[7],q[12]; //cycle: 21975
+swap q[7],q[12]; //cycle: 21975
 t q[6]; //cycle: 21975 //t q[6]
 cx q[6],q[10]; //cycle: 21976 //cx q[6],q[12]
 t q[2]; //cycle: 21976 //t q[14]
@@ -17659,8 +17659,8 @@ tdg q[6]; //cycle: 21980 //tdg q[6]
 cx q[2],q[7]; //cycle: 21981 //cx q[14],q[8]
 cx q[10],q[6]; //cycle: 21982 //cx q[12],q[6]
 t q[11]; //cycle: 21982 //t q[7]
-swp q[2],q[7]; //cycle: 21983
-swp q[12],q[17]; //cycle: 21983
+swap q[2],q[7]; //cycle: 21983
+swap q[12],q[17]; //cycle: 21983
 tdg q[10]; //cycle: 21984 //tdg q[12]
 tdg q[6]; //cycle: 21984 //tdg q[6]
 cx q[11],q[6]; //cycle: 21985 //cx q[7],q[6]
@@ -17669,51 +17669,51 @@ cx q[6],q[10]; //cycle: 21989 //cx q[6],q[12]
 h q[11]; //cycle: 21989 //h q[7]
 cx q[12],q[7]; //cycle: 21989 //cx q[5],q[14]
 t q[11]; //cycle: 21990 //t q[7]
-swp q[3],q[8]; //cycle: 21991
-swp q[11],q[12]; //cycle: 21991
+swap q[3],q[8]; //cycle: 21991
+swap q[11],q[12]; //cycle: 21991
 tdg q[7]; //cycle: 21991 //tdg q[14]
 t q[10]; //cycle: 21991 //t q[12]
 t q[6]; //cycle: 21991 //t q[6]
 cx q[6],q[10]; //cycle: 21992 //cx q[6],q[12]
-swp q[2],q[6]; //cycle: 21994
+swap q[2],q[6]; //cycle: 21994
 cx q[12],q[8]; //cycle: 21997 //cx q[7],q[10]
 cx q[17],q[12]; //cycle: 21999 //cx q[11],q[7]
 cx q[6],q[11]; //cycle: 22000 //cx q[8],q[5]
 tdg q[12]; //cycle: 22001 //tdg q[7]
-swp q[8],q[12]; //cycle: 22002
+swap q[8],q[12]; //cycle: 22002
 cx q[6],q[7]; //cycle: 22002 //cx q[8],q[14]
 t q[11]; //cycle: 22002 //t q[5]
 tdg q[6]; //cycle: 22004 //tdg q[8]
 tdg q[7]; //cycle: 22004 //tdg q[14]
-swp q[6],q[11]; //cycle: 22005
+swap q[6],q[11]; //cycle: 22005
 cx q[12],q[17]; //cycle: 22008 //cx q[10],q[11]
 cx q[12],q[8]; //cycle: 22010 //cx q[10],q[7]
 t q[17]; //cycle: 22010 //t q[11]
 cx q[6],q[7]; //cycle: 22011 //cx q[5],q[14]
 tdg q[12]; //cycle: 22012 //tdg q[10]
 tdg q[8]; //cycle: 22012 //tdg q[7]
-swp q[12],q[17]; //cycle: 22013
+swap q[12],q[17]; //cycle: 22013
 cx q[11],q[6]; //cycle: 22013 //cx q[8],q[5]
 h q[6]; //cycle: 22015 //h q[5]
 h q[6]; //cycle: 22016 //h q[5]
 t q[6]; //cycle: 22017 //t q[5]
 cx q[12],q[8]; //cycle: 22019 //cx q[11],q[7]
-swp q[6],q[7]; //cycle: 22020
+swap q[6],q[7]; //cycle: 22020
 cx q[17],q[12]; //cycle: 22021 //cx q[10],q[11]
 h q[12]; //cycle: 22023 //h q[11]
 t q[12]; //cycle: 22024 //t q[11]
 cx q[12],q[13]; //cycle: 22025 //cx q[11],q[9]
-swp q[3],q[8]; //cycle: 22026
+swap q[3],q[8]; //cycle: 22026
 cx q[6],q[11]; //cycle: 22026 //cx q[14],q[8]
 h q[6]; //cycle: 22028 //h q[14]
 t q[11]; //cycle: 22028 //t q[8]
-swp q[11],q[17]; //cycle: 22029
+swap q[11],q[17]; //cycle: 22029
 t q[6]; //cycle: 22029 //t q[14]
-swp q[2],q[3]; //cycle: 22032
+swap q[2],q[3]; //cycle: 22032
 cx q[8],q[12]; //cycle: 22032 //cx q[15],q[11]
 cx q[13],q[8]; //cycle: 22034 //cx q[9],q[15]
 tdg q[12]; //cycle: 22034 //tdg q[11]
-swp q[6],q[11]; //cycle: 22035
+swap q[6],q[11]; //cycle: 22035
 cx q[13],q[12]; //cycle: 22036 //cx q[9],q[11]
 t q[8]; //cycle: 22036 //t q[15]
 tdg q[13]; //cycle: 22038 //tdg q[9]
@@ -17725,18 +17725,18 @@ cx q[12],q[13]; //cycle: 22043 //cx q[11],q[9]
 h q[8]; //cycle: 22043 //h q[15]
 t q[6]; //cycle: 22043 //t q[10]
 t q[2]; //cycle: 22043 //t q[7]
-swp q[6],q[7]; //cycle: 22044
+swap q[6],q[7]; //cycle: 22044
 t q[8]; //cycle: 22044 //t q[15]
 t q[13]; //cycle: 22045 //t q[9]
 t q[12]; //cycle: 22045 //t q[11]
 cx q[7],q[13]; //cycle: 22050 //cx q[10],q[9]
-swp q[11],q[12]; //cycle: 22051
+swap q[11],q[12]; //cycle: 22051
 cx q[12],q[7]; //cycle: 22057 //cx q[14],q[10]
 cx q[13],q[12]; //cycle: 22059 //cx q[9],q[14]
 tdg q[7]; //cycle: 22059 //tdg q[10]
 cx q[13],q[7]; //cycle: 22061 //cx q[9],q[10]
 t q[12]; //cycle: 22061 //t q[14]
-swp q[6],q[11]; //cycle: 22062
+swap q[6],q[11]; //cycle: 22062
 tdg q[13]; //cycle: 22063 //tdg q[9]
 tdg q[7]; //cycle: 22063 //tdg q[10]
 cx q[12],q[7]; //cycle: 22064 //cx q[14],q[10]
@@ -17765,19 +17765,19 @@ h q[2]; //cycle: 22085 //h q[7]
 t q[6]; //cycle: 22085 //t q[11]
 t q[7]; //cycle: 22085 //t q[10]
 t q[2]; //cycle: 22086 //t q[7]
-swp q[7],q[8]; //cycle: 22087
+swap q[7],q[8]; //cycle: 22087
 cx q[2],q[3]; //cycle: 22087 //cx q[7],q[6]
-swp q[6],q[10]; //cycle: 22088
+swap q[6],q[10]; //cycle: 22088
 tdg q[3]; //cycle: 22089 //tdg q[6]
 cx q[1],q[7]; //cycle: 22093 //cx q[13],q[15]
 cx q[6],q[2]; //cycle: 22094 //cx q[12],q[7]
 t q[2]; //cycle: 22096 //t q[7]
-swp q[2],q[3]; //cycle: 22097
+swap q[2],q[3]; //cycle: 22097
 cx q[6],q[2]; //cycle: 22103 //cx q[12],q[6]
 tdg q[6]; //cycle: 22105 //tdg q[12]
 tdg q[2]; //cycle: 22105 //tdg q[6]
 cx q[3],q[2]; //cycle: 22106 //cx q[7],q[6]
-swp q[2],q[6]; //cycle: 22108
+swap q[2],q[6]; //cycle: 22108
 cx q[2],q[3]; //cycle: 22114 //cx q[12],q[7]
 cx q[6],q[2]; //cycle: 22116 //cx q[6],q[12]
 h q[3]; //cycle: 22116 //h q[7]
@@ -17802,17 +17802,17 @@ t q[7]; //cycle: 22133 //t q[15]
 t q[1]; //cycle: 22133 //t q[13]
 cx q[6],q[2]; //cycle: 22133 //cx q[6],q[12]
 cx q[1],q[7]; //cycle: 22134 //cx q[13],q[15]
-swp q[2],q[3]; //cycle: 22135
+swap q[2],q[3]; //cycle: 22135
 cx q[2],q[6]; //cycle: 22141 //cx q[7],q[6]
 cx q[3],q[2]; //cycle: 22143 //cx q[12],q[7]
 tdg q[6]; //cycle: 22143 //tdg q[6]
 t q[2]; //cycle: 22145 //t q[7]
-swp q[2],q[6]; //cycle: 22146
+swap q[2],q[6]; //cycle: 22146
 cx q[3],q[2]; //cycle: 22152 //cx q[12],q[6]
 tdg q[3]; //cycle: 22154 //tdg q[12]
 tdg q[2]; //cycle: 22154 //tdg q[6]
 cx q[6],q[2]; //cycle: 22155 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 22157
+swap q[2],q[3]; //cycle: 22157
 cx q[2],q[6]; //cycle: 22163 //cx q[12],q[7]
 cx q[3],q[2]; //cycle: 22165 //cx q[6],q[12]
 h q[6]; //cycle: 22165 //h q[7]
@@ -17820,26 +17820,26 @@ t q[6]; //cycle: 22166 //t q[7]
 cx q[6],q[10]; //cycle: 22167 //cx q[7],q[11]
 t q[2]; //cycle: 22167 //t q[12]
 t q[3]; //cycle: 22167 //t q[6]
-swp q[7],q[8]; //cycle: 22168
+swap q[7],q[8]; //cycle: 22168
 cx q[3],q[2]; //cycle: 22168 //cx q[6],q[12]
 cx q[7],q[6]; //cycle: 22174 //cx q[10],q[7]
 tdg q[6]; //cycle: 22176 //tdg q[7]
-swp q[6],q[10]; //cycle: 22177
+swap q[6],q[10]; //cycle: 22177
 cx q[6],q[7]; //cycle: 22183 //cx q[11],q[10]
 cx q[6],q[10]; //cycle: 22185 //cx q[11],q[7]
 t q[7]; //cycle: 22185 //t q[10]
 tdg q[6]; //cycle: 22187 //tdg q[11]
 tdg q[10]; //cycle: 22187 //tdg q[7]
-swp q[6],q[7]; //cycle: 22188
+swap q[6],q[7]; //cycle: 22188
 cx q[6],q[10]; //cycle: 22194 //cx q[10],q[7]
 cx q[7],q[6]; //cycle: 22196 //cx q[11],q[10]
-swp q[7],q[13]; //cycle: 22198
+swap q[7],q[13]; //cycle: 22198
 h q[6]; //cycle: 22198 //h q[10]
 t q[6]; //cycle: 22199 //t q[10]
 cx q[6],q[7]; //cycle: 22204 //cx q[10],q[9]
-swp q[11],q[12]; //cycle: 22205
-swp q[6],q[10]; //cycle: 22206
-swp q[6],q[7]; //cycle: 22212
+swap q[11],q[12]; //cycle: 22205
+swap q[6],q[10]; //cycle: 22206
+swap q[6],q[7]; //cycle: 22212
 cx q[11],q[10]; //cycle: 22212 //cx q[14],q[10]
 tdg q[10]; //cycle: 22214 //tdg q[10]
 cx q[7],q[13]; //cycle: 22218 //cx q[7],q[11]
@@ -17891,31 +17891,31 @@ h q[11]; //cycle: 22258 //h q[14]
 t q[6]; //cycle: 22259 //t q[9]
 t q[11]; //cycle: 22259 //t q[14]
 h q[10]; //cycle: 22259 //h q[10]
-swp q[6],q[7]; //cycle: 22260
+swap q[6],q[7]; //cycle: 22260
 t q[10]; //cycle: 22260 //t q[10]
 cx q[10],q[6]; //cycle: 22266 //cx q[10],q[7]
-swp q[10],q[11]; //cycle: 22268
-swp q[12],q[13]; //cycle: 22268
+swap q[10],q[11]; //cycle: 22268
+swap q[12],q[13]; //cycle: 22268
 tdg q[6]; //cycle: 22268 //tdg q[7]
 cx q[12],q[11]; //cycle: 22274 //cx q[11],q[10]
 t q[11]; //cycle: 22276 //t q[10]
-swp q[6],q[11]; //cycle: 22277
+swap q[6],q[11]; //cycle: 22277
 cx q[12],q[11]; //cycle: 22283 //cx q[11],q[7]
 tdg q[12]; //cycle: 22285 //tdg q[11]
 tdg q[11]; //cycle: 22285 //tdg q[7]
 cx q[6],q[11]; //cycle: 22286 //cx q[10],q[7]
-swp q[11],q[12]; //cycle: 22288
+swap q[11],q[12]; //cycle: 22288
 cx q[11],q[6]; //cycle: 22294 //cx q[11],q[10]
 cx q[12],q[11]; //cycle: 22296 //cx q[7],q[11]
 h q[6]; //cycle: 22296 //h q[10]
-swp q[3],q[8]; //cycle: 22297
+swap q[3],q[8]; //cycle: 22297
 h q[6]; //cycle: 22297 //h q[10]
 t q[11]; //cycle: 22298 //t q[11]
 t q[6]; //cycle: 22298 //t q[10]
 h q[12]; //cycle: 22298 //h q[7]
 t q[12]; //cycle: 22299 //t q[7]
 cx q[12],q[8]; //cycle: 22303 //cx q[7],q[6]
-swp q[2],q[7]; //cycle: 22304
+swap q[2],q[7]; //cycle: 22304
 tdg q[8]; //cycle: 22305 //tdg q[6]
 cx q[7],q[12]; //cycle: 22310 //cx q[12],q[7]
 cx q[7],q[8]; //cycle: 22312 //cx q[12],q[6]
@@ -17931,9 +17931,9 @@ h q[8]; //cycle: 22321 //h q[6]
 t q[7]; //cycle: 22321 //t q[12]
 t q[12]; //cycle: 22321 //t q[7]
 t q[8]; //cycle: 22322 //t q[6]
-swp q[7],q[8]; //cycle: 22323
+swap q[7],q[8]; //cycle: 22323
 cx q[7],q[1]; //cycle: 22329 //cx q[6],q[13]
-swp q[2],q[3]; //cycle: 22330
+swap q[2],q[3]; //cycle: 22330
 tdg q[1]; //cycle: 22331 //tdg q[13]
 cx q[2],q[7]; //cycle: 22336 //cx q[15],q[6]
 cx q[2],q[1]; //cycle: 22338 //cx q[15],q[13]
@@ -17965,24 +17965,24 @@ cx q[12],q[11]; //cycle: 22362 //cx q[7],q[11]
 t q[8]; //cycle: 22362 //t q[12]
 t q[7]; //cycle: 22362 //t q[6]
 cx q[7],q[8]; //cycle: 22363 //cx q[6],q[12]
-swp q[11],q[12]; //cycle: 22364
+swap q[11],q[12]; //cycle: 22364
 cx q[6],q[11]; //cycle: 22370 //cx q[10],q[7]
-swp q[6],q[7]; //cycle: 22372
+swap q[6],q[7]; //cycle: 22372
 tdg q[11]; //cycle: 22372 //tdg q[7]
 cx q[12],q[7]; //cycle: 22378 //cx q[11],q[10]
 cx q[12],q[11]; //cycle: 22380 //cx q[11],q[7]
 t q[7]; //cycle: 22380 //t q[10]
 tdg q[12]; //cycle: 22382 //tdg q[11]
 tdg q[11]; //cycle: 22382 //tdg q[7]
-swp q[6],q[11]; //cycle: 22383
+swap q[6],q[11]; //cycle: 22383
 cx q[7],q[6]; //cycle: 22389 //cx q[10],q[7]
 cx q[12],q[7]; //cycle: 22391 //cx q[11],q[10]
-swp q[2],q[3]; //cycle: 22392
+swap q[2],q[3]; //cycle: 22392
 h q[7]; //cycle: 22393 //h q[10]
 t q[7]; //cycle: 22394 //t q[10]
 cx q[7],q[2]; //cycle: 22398 //cx q[10],q[9]
-swp q[6],q[10]; //cycle: 22399
-swp q[10],q[11]; //cycle: 22405
+swap q[6],q[10]; //cycle: 22399
+swap q[10],q[11]; //cycle: 22405
 cx q[6],q[7]; //cycle: 22405 //cx q[14],q[10]
 cx q[2],q[6]; //cycle: 22407 //cx q[9],q[14]
 tdg q[7]; //cycle: 22407 //tdg q[10]
@@ -18003,11 +18003,11 @@ t q[2]; //cycle: 22418 //t q[9]
 t q[7]; //cycle: 22418 //t q[10]
 cx q[1],q[6]; //cycle: 22418 //cx q[13],q[14]
 cx q[3],q[2]; //cycle: 22419 //cx q[15],q[9]
-swp q[12],q[17]; //cycle: 22420
-swp q[3],q[8]; //cycle: 22421
+swap q[12],q[17]; //cycle: 22420
+swap q[3],q[8]; //cycle: 22421
 cx q[12],q[7]; //cycle: 22426 //cx q[8],q[10]
 cx q[13],q[8]; //cycle: 22427 //cx q[5],q[15]
-swp q[2],q[7]; //cycle: 22428
+swap q[2],q[7]; //cycle: 22428
 tdg q[8]; //cycle: 22429 //tdg q[15]
 cx q[7],q[13]; //cycle: 22434 //cx q[9],q[5]
 cx q[7],q[8]; //cycle: 22436 //cx q[9],q[15]
@@ -18024,10 +18024,10 @@ t q[7]; //cycle: 22445 //t q[9]
 t q[13]; //cycle: 22445 //t q[5]
 t q[8]; //cycle: 22446 //t q[15]
 cx q[8],q[12]; //cycle: 22447 //cx q[15],q[8]
-swp q[2],q[3]; //cycle: 22449
-swp q[7],q[8]; //cycle: 22449
+swap q[2],q[3]; //cycle: 22449
+swap q[7],q[8]; //cycle: 22449
 tdg q[12]; //cycle: 22449 //tdg q[8]
-swp q[3],q[8]; //cycle: 22455
+swap q[3],q[8]; //cycle: 22455
 cx q[8],q[7]; //cycle: 22461 //cx q[10],q[15]
 cx q[8],q[12]; //cycle: 22463 //cx q[10],q[8]
 t q[7]; //cycle: 22463 //t q[15]
@@ -18059,7 +18059,7 @@ t q[17]; //cycle: 22487 //t q[11]
 t q[12]; //cycle: 22487 //t q[8]
 t q[11]; //cycle: 22488 //t q[7]
 cx q[11],q[10]; //cycle: 22489 //cx q[7],q[6]
-swp q[2],q[6]; //cycle: 22490
+swap q[2],q[6]; //cycle: 22490
 tdg q[10]; //cycle: 22491 //tdg q[6]
 cx q[6],q[11]; //cycle: 22496 //cx q[12],q[7]
 cx q[6],q[10]; //cycle: 22498 //cx q[12],q[6]
@@ -18075,7 +18075,7 @@ h q[10]; //cycle: 22507 //h q[6]
 t q[6]; //cycle: 22507 //t q[12]
 t q[11]; //cycle: 22507 //t q[7]
 t q[10]; //cycle: 22508 //t q[6]
-swp q[6],q[10]; //cycle: 22509
+swap q[6],q[10]; //cycle: 22509
 cx q[6],q[1]; //cycle: 22515 //cx q[6],q[13]
 cx q[2],q[6]; //cycle: 22517 //cx q[14],q[6]
 tdg q[1]; //cycle: 22517 //tdg q[13]
@@ -18139,7 +18139,7 @@ t q[7]; //cycle: 22572 //t q[15]
 t q[8]; //cycle: 22573 //t q[10]
 t q[12]; //cycle: 22573 //t q[8]
 cx q[12],q[8]; //cycle: 22574 //cx q[8],q[10]
-swp q[3],q[8]; //cycle: 22576
+swap q[3],q[8]; //cycle: 22576
 cx q[7],q[8]; //cycle: 22582 //cx q[15],q[9]
 cx q[13],q[7]; //cycle: 22584 //cx q[5],q[15]
 cx q[8],q[13]; //cycle: 22586 //cx q[9],q[5]
@@ -18158,7 +18158,7 @@ t q[8]; //cycle: 22597 //t q[9]
 t q[13]; //cycle: 22597 //t q[5]
 t q[7]; //cycle: 22598 //t q[15]
 cx q[7],q[12]; //cycle: 22599 //cx q[15],q[8]
-swp q[3],q[8]; //cycle: 22600
+swap q[3],q[8]; //cycle: 22600
 tdg q[12]; //cycle: 22601 //tdg q[8]
 cx q[8],q[7]; //cycle: 22606 //cx q[10],q[15]
 cx q[8],q[12]; //cycle: 22608 //cx q[10],q[8]
@@ -18233,7 +18233,7 @@ cx q[11],q[6]; //cycle: 22671 //cx q[7],q[6]
 cx q[10],q[11]; //cycle: 22673 //cx q[12],q[7]
 cx q[6],q[10]; //cycle: 22675 //cx q[6],q[12]
 h q[11]; //cycle: 22675 //h q[7]
-swp q[7],q[8]; //cycle: 22676
+swap q[7],q[8]; //cycle: 22676
 t q[11]; //cycle: 22676 //t q[7]
 t q[10]; //cycle: 22677 //t q[12]
 cx q[11],q[17]; //cycle: 22677 //cx q[7],q[11]
@@ -18272,17 +18272,17 @@ cx q[8],q[3]; //cycle: 22707 //cx q[15],q[9]
 cx q[12],q[17]; //cycle: 22708 //cx q[8],q[11]
 cx q[13],q[8]; //cycle: 22709 //cx q[5],q[15]
 tdg q[8]; //cycle: 22711 //tdg q[15]
-swp q[3],q[8]; //cycle: 22712
+swap q[3],q[8]; //cycle: 22712
 cx q[8],q[13]; //cycle: 22718 //cx q[9],q[5]
-swp q[6],q[10]; //cycle: 22720
+swap q[6],q[10]; //cycle: 22720
 cx q[8],q[3]; //cycle: 22720 //cx q[9],q[15]
 t q[13]; //cycle: 22720 //t q[5]
 tdg q[8]; //cycle: 22722 //tdg q[9]
 tdg q[3]; //cycle: 22722 //tdg q[15]
-swp q[3],q[8]; //cycle: 22723
+swap q[3],q[8]; //cycle: 22723
 cx q[6],q[7]; //cycle: 22726 //cx q[12],q[10]
 cx q[13],q[8]; //cycle: 22729 //cx q[5],q[15]
-swp q[3],q[8]; //cycle: 22731
+swap q[3],q[8]; //cycle: 22731
 cx q[8],q[13]; //cycle: 22737 //cx q[9],q[5]
 cx q[3],q[8]; //cycle: 22739 //cx q[15],q[9]
 h q[13]; //cycle: 22739 //h q[5]
@@ -18291,7 +18291,7 @@ h q[3]; //cycle: 22741 //h q[15]
 t q[8]; //cycle: 22741 //t q[9]
 t q[13]; //cycle: 22741 //t q[5]
 t q[3]; //cycle: 22742 //t q[15]
-swp q[2],q[3]; //cycle: 22743
+swap q[2],q[3]; //cycle: 22743
 cx q[2],q[6]; //cycle: 22749 //cx q[15],q[12]
 cx q[7],q[2]; //cycle: 22751 //cx q[10],q[15]
 tdg q[6]; //cycle: 22751 //tdg q[12]
@@ -18308,7 +18308,7 @@ h q[6]; //cycle: 22762 //h q[12]
 t q[7]; //cycle: 22762 //t q[10]
 t q[2]; //cycle: 22762 //t q[15]
 t q[6]; //cycle: 22763 //t q[12]
-swp q[6],q[11]; //cycle: 22764
+swap q[6],q[11]; //cycle: 22764
 cx q[11],q[12]; //cycle: 22770 //cx q[12],q[8]
 cx q[17],q[11]; //cycle: 22772 //cx q[11],q[12]
 tdg q[12]; //cycle: 22772 //tdg q[8]
@@ -18320,14 +18320,14 @@ cx q[11],q[12]; //cycle: 22777 //cx q[12],q[8]
 cx q[17],q[11]; //cycle: 22779 //cx q[11],q[12]
 cx q[12],q[17]; //cycle: 22781 //cx q[8],q[11]
 h q[11]; //cycle: 22781 //h q[12]
-swp q[1],q[7]; //cycle: 22782
+swap q[1],q[7]; //cycle: 22782
 h q[11]; //cycle: 22782 //h q[12]
 h q[12]; //cycle: 22783 //h q[8]
 t q[17]; //cycle: 22783 //t q[11]
 t q[11]; //cycle: 22783 //t q[12]
 t q[12]; //cycle: 22784 //t q[8]
 cx q[12],q[7]; //cycle: 22788 //cx q[8],q[13]
-swp q[3],q[8]; //cycle: 22789
+swap q[3],q[8]; //cycle: 22789
 tdg q[7]; //cycle: 22790 //tdg q[13]
 cx q[8],q[12]; //cycle: 22795 //cx q[14],q[8]
 cx q[8],q[7]; //cycle: 22797 //cx q[14],q[13]
@@ -18355,7 +18355,7 @@ cx q[17],q[11]; //cycle: 22817 //cx q[11],q[12]
 cx q[12],q[17]; //cycle: 22819 //cx q[8],q[11]
 h q[11]; //cycle: 22819 //h q[12]
 t q[11]; //cycle: 22820 //t q[12]
-swp q[6],q[11]; //cycle: 22821
+swap q[6],q[11]; //cycle: 22821
 t q[17]; //cycle: 22821 //t q[11]
 t q[12]; //cycle: 22821 //t q[8]
 cx q[12],q[17]; //cycle: 22822 //cx q[8],q[11]
@@ -18376,9 +18376,9 @@ cx q[2],q[3]; //cycle: 22842 //cx q[15],q[9]
 t q[1]; //cycle: 22842 //t q[10]
 t q[6]; //cycle: 22842 //t q[12]
 cx q[6],q[1]; //cycle: 22843 //cx q[12],q[10]
-swp q[2],q[7]; //cycle: 22844
+swap q[2],q[7]; //cycle: 22844
 cx q[13],q[7]; //cycle: 22850 //cx q[5],q[15]
-swp q[3],q[8]; //cycle: 22851
+swap q[3],q[8]; //cycle: 22851
 tdg q[7]; //cycle: 22852 //tdg q[15]
 cx q[8],q[13]; //cycle: 22857 //cx q[9],q[5]
 cx q[8],q[7]; //cycle: 22859 //cx q[9],q[15]
@@ -18409,7 +18409,7 @@ h q[6]; //cycle: 22883 //h q[12]
 t q[1]; //cycle: 22883 //t q[10]
 t q[7]; //cycle: 22883 //t q[15]
 t q[6]; //cycle: 22884 //t q[12]
-swp q[6],q[11]; //cycle: 22885
+swap q[6],q[11]; //cycle: 22885
 cx q[11],q[12]; //cycle: 22891 //cx q[12],q[8]
 cx q[17],q[11]; //cycle: 22893 //cx q[11],q[12]
 tdg q[12]; //cycle: 22893 //tdg q[8]
@@ -18421,14 +18421,14 @@ cx q[11],q[12]; //cycle: 22898 //cx q[12],q[8]
 cx q[17],q[11]; //cycle: 22900 //cx q[11],q[12]
 cx q[12],q[17]; //cycle: 22902 //cx q[8],q[11]
 h q[11]; //cycle: 22902 //h q[12]
-swp q[2],q[7]; //cycle: 22903
+swap q[2],q[7]; //cycle: 22903
 h q[11]; //cycle: 22903 //h q[12]
 h q[12]; //cycle: 22904 //h q[8]
 t q[17]; //cycle: 22904 //t q[11]
 t q[11]; //cycle: 22904 //t q[12]
 t q[12]; //cycle: 22905 //t q[8]
 cx q[12],q[7]; //cycle: 22909 //cx q[8],q[13]
-swp q[3],q[8]; //cycle: 22910
+swap q[3],q[8]; //cycle: 22910
 tdg q[7]; //cycle: 22911 //tdg q[13]
 cx q[8],q[12]; //cycle: 22916 //cx q[14],q[8]
 cx q[8],q[7]; //cycle: 22918 //cx q[14],q[13]
@@ -18440,7 +18440,7 @@ cx q[8],q[12]; //cycle: 22923 //cx q[14],q[8]
 cx q[7],q[8]; //cycle: 22925 //cx q[13],q[14]
 h q[12]; //cycle: 22925 //h q[8]
 t q[12]; //cycle: 22926 //t q[8]
-swp q[2],q[3]; //cycle: 22927
+swap q[2],q[3]; //cycle: 22927
 cx q[12],q[17]; //cycle: 22927 //cx q[8],q[11]
 x q[8]; //cycle: 22927 //x q[14]
 t q[7]; //cycle: 22927 //t q[13]
@@ -18455,21 +18455,21 @@ tdg q[17]; //cycle: 22935 //tdg q[11]
 tdg q[12]; //cycle: 22935 //tdg q[8]
 cx q[11],q[12]; //cycle: 22936 //cx q[12],q[8]
 cx q[17],q[11]; //cycle: 22938 //cx q[11],q[12]
-swp q[1],q[6]; //cycle: 22939
+swap q[1],q[6]; //cycle: 22939
 cx q[12],q[17]; //cycle: 22940 //cx q[8],q[11]
 h q[11]; //cycle: 22940 //h q[12]
 t q[11]; //cycle: 22941 //t q[12]
 t q[12]; //cycle: 22942 //t q[8]
 t q[17]; //cycle: 22942 //t q[11]
 cx q[11],q[6]; //cycle: 22945 //cx q[12],q[10]
-swp q[2],q[7]; //cycle: 22946
-swp q[3],q[8]; //cycle: 22947
-swp q[11],q[12]; //cycle: 22947
+swap q[2],q[7]; //cycle: 22946
+swap q[3],q[8]; //cycle: 22947
+swap q[11],q[12]; //cycle: 22947
 cx q[8],q[12]; //cycle: 22953 //cx q[15],q[12]
-swp q[6],q[7]; //cycle: 22954
+swap q[6],q[7]; //cycle: 22954
 tdg q[12]; //cycle: 22955 //tdg q[12]
 cx q[7],q[8]; //cycle: 22960 //cx q[10],q[15]
-swp q[11],q[17]; //cycle: 22962
+swap q[11],q[17]; //cycle: 22962
 cx q[7],q[12]; //cycle: 22962 //cx q[10],q[12]
 t q[8]; //cycle: 22962 //t q[15]
 tdg q[7]; //cycle: 22964 //tdg q[10]
@@ -18485,7 +18485,7 @@ t q[7]; //cycle: 22971 //t q[10]
 cx q[3],q[8]; //cycle: 22971 //cx q[14],q[15]
 cx q[12],q[17]; //cycle: 22972 //cx q[12],q[8]
 cx q[1],q[7]; //cycle: 22972 //cx q[7],q[10]
-swp q[10],q[11]; //cycle: 22973
+swap q[10],q[11]; //cycle: 22973
 cx q[11],q[12]; //cycle: 22979 //cx q[6],q[12]
 cx q[17],q[11]; //cycle: 22981 //cx q[8],q[6]
 tdg q[12]; //cycle: 22981 //tdg q[12]
@@ -18502,7 +18502,7 @@ h q[12]; //cycle: 22992 //h q[12]
 t q[17]; //cycle: 22992 //t q[8]
 t q[11]; //cycle: 22992 //t q[6]
 t q[12]; //cycle: 22993 //t q[12]
-swp q[11],q[12]; //cycle: 22994
+swap q[11],q[12]; //cycle: 22994
 cx q[11],q[10]; //cycle: 23000 //cx q[12],q[11]
 cx q[6],q[11]; //cycle: 23002 //cx q[9],q[12]
 tdg q[10]; //cycle: 23002 //tdg q[11]
@@ -18519,7 +18519,7 @@ h q[10]; //cycle: 23013 //h q[11]
 t q[6]; //cycle: 23013 //t q[9]
 t q[11]; //cycle: 23013 //t q[12]
 t q[10]; //cycle: 23014 //t q[11]
-swp q[6],q[10]; //cycle: 23015
+swap q[6],q[10]; //cycle: 23015
 cx q[6],q[1]; //cycle: 23021 //cx q[11],q[7]
 cx q[7],q[6]; //cycle: 23023 //cx q[10],q[11]
 tdg q[1]; //cycle: 23023 //tdg q[7]
@@ -18535,7 +18535,7 @@ h q[6]; //cycle: 23033 //h q[11]
 h q[1]; //cycle: 23034 //h q[7]
 t q[7]; //cycle: 23034 //t q[10]
 t q[6]; //cycle: 23034 //t q[11]
-swp q[7],q[13]; //cycle: 23035
+swap q[7],q[13]; //cycle: 23035
 t q[1]; //cycle: 23035 //t q[7]
 cx q[1],q[7]; //cycle: 23041 //cx q[7],q[5]
 cx q[2],q[1]; //cycle: 23043 //cx q[13],q[7]
@@ -18552,20 +18552,20 @@ h q[1]; //cycle: 23053 //h q[7]
 h q[7]; //cycle: 23054 //h q[5]
 t q[2]; //cycle: 23054 //t q[13]
 t q[1]; //cycle: 23054 //t q[7]
-swp q[2],q[3]; //cycle: 23055
+swap q[2],q[3]; //cycle: 23055
 t q[7]; //cycle: 23055 //t q[5]
 cx q[7],q[2]; //cycle: 23061 //cx q[5],q[14]
 cx q[8],q[7]; //cycle: 23063 //cx q[15],q[5]
 tdg q[2]; //cycle: 23063 //tdg q[14]
-swp q[3],q[8]; //cycle: 23065
+swap q[3],q[8]; //cycle: 23065
 t q[7]; //cycle: 23065 //t q[5]
 cx q[3],q[2]; //cycle: 23071 //cx q[15],q[14]
 tdg q[3]; //cycle: 23073 //tdg q[15]
 tdg q[2]; //cycle: 23073 //tdg q[14]
 cx q[7],q[2]; //cycle: 23074 //cx q[5],q[14]
-swp q[3],q[8]; //cycle: 23075
+swap q[3],q[8]; //cycle: 23075
 cx q[8],q[7]; //cycle: 23081 //cx q[15],q[5]
-swp q[2],q[3]; //cycle: 23082
+swap q[2],q[3]; //cycle: 23082
 h q[7]; //cycle: 23083 //h q[5]
 t q[7]; //cycle: 23084 //t q[5]
 cx q[3],q[8]; //cycle: 23088 //cx q[14],q[15]
@@ -18582,7 +18582,7 @@ tdg q[2]; //cycle: 23096 //tdg q[13]
 tdg q[7]; //cycle: 23096 //tdg q[5]
 cx q[1],q[7]; //cycle: 23097 //cx q[7],q[5]
 cx q[2],q[1]; //cycle: 23099 //cx q[13],q[7]
-swp q[7],q[13]; //cycle: 23100
+swap q[7],q[13]; //cycle: 23100
 h q[1]; //cycle: 23101 //h q[7]
 t q[1]; //cycle: 23102 //t q[7]
 cx q[1],q[7]; //cycle: 23106 //cx q[7],q[10]
@@ -18641,7 +18641,7 @@ t q[11]; //cycle: 23157 //t q[12]
 tdg q[10]; //cycle: 23159 //tdg q[9]
 tdg q[6]; //cycle: 23159 //tdg q[11]
 cx q[11],q[6]; //cycle: 23160 //cx q[12],q[11]
-swp q[2],q[7]; //cycle: 23161
+swap q[2],q[7]; //cycle: 23161
 cx q[10],q[11]; //cycle: 23162 //cx q[9],q[12]
 cx q[6],q[10]; //cycle: 23164 //cx q[11],q[9]
 h q[11]; //cycle: 23164 //h q[12]
@@ -18670,28 +18670,28 @@ h q[1]; //cycle: 23181 //h q[7]
 t q[2]; //cycle: 23181 //t q[10]
 t q[6]; //cycle: 23181 //t q[11]
 t q[1]; //cycle: 23182 //t q[7]
-swp q[1],q[7]; //cycle: 23183
+swap q[1],q[7]; //cycle: 23183
 cx q[7],q[13]; //cycle: 23189 //cx q[7],q[5]
 cx q[1],q[7]; //cycle: 23191 //cx q[13],q[7]
 tdg q[13]; //cycle: 23191 //tdg q[5]
 t q[7]; //cycle: 23193 //t q[7]
-swp q[7],q[13]; //cycle: 23194
+swap q[7],q[13]; //cycle: 23194
 cx q[1],q[7]; //cycle: 23200 //cx q[13],q[5]
 tdg q[1]; //cycle: 23202 //tdg q[13]
 tdg q[7]; //cycle: 23202 //tdg q[5]
 cx q[13],q[7]; //cycle: 23203 //cx q[7],q[5]
-swp q[1],q[7]; //cycle: 23205
+swap q[1],q[7]; //cycle: 23205
 cx q[7],q[13]; //cycle: 23211 //cx q[13],q[7]
 cx q[1],q[7]; //cycle: 23213 //cx q[5],q[13]
 h q[13]; //cycle: 23213 //h q[7]
-swp q[2],q[3]; //cycle: 23214
+swap q[2],q[3]; //cycle: 23214
 h q[13]; //cycle: 23214 //h q[7]
 h q[1]; //cycle: 23215 //h q[5]
 t q[7]; //cycle: 23215 //t q[13]
 t q[13]; //cycle: 23215 //t q[7]
 t q[1]; //cycle: 23216 //t q[5]
 cx q[1],q[2]; //cycle: 23220 //cx q[5],q[14]
-swp q[7],q[8]; //cycle: 23221
+swap q[7],q[8]; //cycle: 23221
 tdg q[2]; //cycle: 23222 //tdg q[14]
 cx q[7],q[1]; //cycle: 23227 //cx q[15],q[5]
 cx q[7],q[2]; //cycle: 23229 //cx q[15],q[14]
@@ -18706,7 +18706,7 @@ t q[1]; //cycle: 23237 //t q[5]
 t q[7]; //cycle: 23238 //t q[15]
 t q[2]; //cycle: 23238 //t q[14]
 cx q[2],q[7]; //cycle: 23239 //cx q[14],q[15]
-swp q[1],q[7]; //cycle: 23241
+swap q[1],q[7]; //cycle: 23241
 cx q[7],q[8]; //cycle: 23247 //cx q[5],q[13]
 cx q[13],q[7]; //cycle: 23249 //cx q[7],q[5]
 cx q[8],q[13]; //cycle: 23251 //cx q[13],q[7]
@@ -18719,26 +18719,26 @@ cx q[13],q[7]; //cycle: 23256 //cx q[7],q[5]
 cx q[8],q[13]; //cycle: 23258 //cx q[13],q[7]
 cx q[7],q[8]; //cycle: 23260 //cx q[5],q[13]
 h q[13]; //cycle: 23260 //h q[7]
-swp q[11],q[12]; //cycle: 23261
+swap q[11],q[12]; //cycle: 23261
 t q[13]; //cycle: 23261 //t q[7]
 h q[7]; //cycle: 23262 //h q[5]
 t q[8]; //cycle: 23262 //t q[13]
-swp q[3],q[8]; //cycle: 23263
+swap q[3],q[8]; //cycle: 23263
 t q[7]; //cycle: 23263 //t q[5]
 cx q[13],q[8]; //cycle: 23269 //cx q[7],q[10]
-swp q[6],q[7]; //cycle: 23270
+swap q[6],q[7]; //cycle: 23270
 cx q[7],q[13]; //cycle: 23276 //cx q[11],q[7]
 cx q[8],q[7]; //cycle: 23278 //cx q[10],q[11]
 tdg q[13]; //cycle: 23278 //tdg q[7]
-swp q[6],q[11]; //cycle: 23280
+swap q[6],q[11]; //cycle: 23280
 cx q[8],q[13]; //cycle: 23280 //cx q[10],q[7]
 t q[7]; //cycle: 23280 //t q[11]
 tdg q[8]; //cycle: 23282 //tdg q[10]
 tdg q[13]; //cycle: 23282 //tdg q[7]
 cx q[7],q[13]; //cycle: 23283 //cx q[11],q[7]
 cx q[8],q[7]; //cycle: 23285 //cx q[10],q[11]
-swp q[2],q[3]; //cycle: 23286
-swp q[6],q[10]; //cycle: 23286
+swap q[2],q[3]; //cycle: 23286
+swap q[6],q[10]; //cycle: 23286
 cx q[13],q[8]; //cycle: 23287 //cx q[7],q[10]
 h q[7]; //cycle: 23287 //h q[11]
 t q[7]; //cycle: 23288 //t q[11]
@@ -18747,12 +18747,12 @@ t q[13]; //cycle: 23289 //t q[7]
 cx q[13],q[8]; //cycle: 23290 //cx q[7],q[10]
 cx q[7],q[6]; //cycle: 23292 //cx q[11],q[9]
 cx q[12],q[7]; //cycle: 23294 //cx q[12],q[11]
-swp q[6],q[10]; //cycle: 23295
-swp q[11],q[12]; //cycle: 23296
+swap q[6],q[10]; //cycle: 23295
+swap q[11],q[12]; //cycle: 23296
 tdg q[7]; //cycle: 23296 //tdg q[11]
 cx q[6],q[2]; //cycle: 23301 //cx q[6],q[13]
 cx q[10],q[11]; //cycle: 23302 //cx q[9],q[12]
-swp q[6],q[7]; //cycle: 23303
+swap q[6],q[7]; //cycle: 23303
 t q[11]; //cycle: 23304 //t q[12]
 cx q[10],q[6]; //cycle: 23309 //cx q[9],q[11]
 tdg q[10]; //cycle: 23311 //tdg q[9]
@@ -18798,7 +18798,7 @@ t q[10]; //cycle: 23348 //t q[9]
 t q[11]; //cycle: 23348 //t q[12]
 h q[6]; //cycle: 23348 //h q[11]
 t q[6]; //cycle: 23349 //t q[11]
-swp q[6],q[7]; //cycle: 23350
+swap q[6],q[7]; //cycle: 23350
 cx q[7],q[13]; //cycle: 23356 //cx q[11],q[7]
 cx q[8],q[7]; //cycle: 23358 //cx q[10],q[11]
 tdg q[13]; //cycle: 23358 //tdg q[7]
@@ -18815,7 +18815,7 @@ t q[8]; //cycle: 23369 //t q[10]
 t q[7]; //cycle: 23369 //t q[11]
 h q[13]; //cycle: 23369 //h q[7]
 t q[13]; //cycle: 23370 //t q[7]
-swp q[7],q[13]; //cycle: 23371
+swap q[7],q[13]; //cycle: 23371
 cx q[7],q[6]; //cycle: 23377 //cx q[7],q[6]
 cx q[2],q[7]; //cycle: 23379 //cx q[13],q[7]
 tdg q[6]; //cycle: 23379 //tdg q[6]
@@ -18831,7 +18831,7 @@ h q[7]; //cycle: 23389 //h q[7]
 t q[2]; //cycle: 23390 //t q[13]
 t q[7]; //cycle: 23390 //t q[7]
 h q[6]; //cycle: 23390 //h q[6]
-swp q[2],q[3]; //cycle: 23391
+swap q[2],q[3]; //cycle: 23391
 t q[6]; //cycle: 23391 //t q[6]
 cx q[6],q[2]; //cycle: 23397 //cx q[6],q[14]
 cx q[1],q[6]; //cycle: 23399 //cx q[15],q[6]
@@ -18842,7 +18842,7 @@ tdg q[1]; //cycle: 23403 //tdg q[15]
 tdg q[2]; //cycle: 23403 //tdg q[14]
 cx q[6],q[2]; //cycle: 23404 //cx q[6],q[14]
 cx q[1],q[6]; //cycle: 23406 //cx q[15],q[6]
-swp q[2],q[3]; //cycle: 23407
+swap q[2],q[3]; //cycle: 23407
 h q[6]; //cycle: 23408 //h q[6]
 t q[6]; //cycle: 23409 //t q[6]
 cx q[6],q[2]; //cycle: 23413 //cx q[6],q[13]
@@ -18869,14 +18869,14 @@ cx q[8],q[7]; //cycle: 23434 //cx q[10],q[7]
 t q[13]; //cycle: 23434 //t q[11]
 tdg q[8]; //cycle: 23436 //tdg q[10]
 tdg q[7]; //cycle: 23436 //tdg q[7]
-swp q[2],q[3]; //cycle: 23437
+swap q[2],q[3]; //cycle: 23437
 cx q[13],q[7]; //cycle: 23437 //cx q[11],q[7]
 cx q[8],q[13]; //cycle: 23439 //cx q[10],q[11]
 cx q[7],q[8]; //cycle: 23441 //cx q[7],q[10]
 h q[13]; //cycle: 23441 //h q[11]
 t q[13]; //cycle: 23442 //t q[11]
-swp q[10],q[11]; //cycle: 23443
-swp q[12],q[13]; //cycle: 23443
+swap q[10],q[11]; //cycle: 23443
+swap q[12],q[13]; //cycle: 23443
 cx q[2],q[1]; //cycle: 23443 //cx q[14],q[15]
 t q[8]; //cycle: 23443 //t q[10]
 t q[7]; //cycle: 23443 //t q[7]
@@ -18885,27 +18885,27 @@ t q[1]; //cycle: 23445 //t q[15]
 t q[2]; //cycle: 23445 //t q[14]
 cx q[2],q[1]; //cycle: 23446 //cx q[14],q[15]
 cx q[12],q[11]; //cycle: 23449 //cx q[11],q[9]
-swp q[10],q[11]; //cycle: 23451
+swap q[10],q[11]; //cycle: 23451
 cx q[11],q[12]; //cycle: 23457 //cx q[12],q[11]
 cx q[10],q[11]; //cycle: 23459 //cx q[9],q[12]
 tdg q[12]; //cycle: 23459 //tdg q[11]
 t q[11]; //cycle: 23461 //t q[12]
-swp q[10],q[11]; //cycle: 23462
+swap q[10],q[11]; //cycle: 23462
 cx q[11],q[12]; //cycle: 23468 //cx q[9],q[11]
 tdg q[11]; //cycle: 23470 //tdg q[9]
 tdg q[12]; //cycle: 23470 //tdg q[11]
-swp q[10],q[11]; //cycle: 23471
+swap q[10],q[11]; //cycle: 23471
 cx q[11],q[12]; //cycle: 23477 //cx q[12],q[11]
 cx q[10],q[11]; //cycle: 23479 //cx q[9],q[12]
 h q[11]; //cycle: 23481 //h q[12]
 t q[11]; //cycle: 23482 //t q[12]
 cx q[11],q[17]; //cycle: 23483 //cx q[12],q[8]
-swp q[12],q[13]; //cycle: 23484
-swp q[6],q[10]; //cycle: 23487
+swap q[12],q[13]; //cycle: 23484
+swap q[6],q[10]; //cycle: 23487
 cx q[12],q[11]; //cycle: 23490 //cx q[5],q[12]
 cx q[17],q[12]; //cycle: 23492 //cx q[8],q[5]
 tdg q[11]; //cycle: 23492 //tdg q[12]
-swp q[6],q[7]; //cycle: 23493
+swap q[6],q[7]; //cycle: 23493
 cx q[17],q[11]; //cycle: 23494 //cx q[8],q[12]
 t q[12]; //cycle: 23494 //t q[5]
 tdg q[17]; //cycle: 23496 //tdg q[8]
@@ -18922,7 +18922,7 @@ cx q[13],q[7]; //cycle: 23502 //cx q[11],q[9]
 t q[17]; //cycle: 23503 //t q[8]
 h q[11]; //cycle: 23503 //h q[12]
 t q[11]; //cycle: 23504 //t q[12]
-swp q[11],q[12]; //cycle: 23505
+swap q[11],q[12]; //cycle: 23505
 cx q[12],q[13]; //cycle: 23511 //cx q[12],q[11]
 cx q[7],q[12]; //cycle: 23513 //cx q[9],q[12]
 tdg q[13]; //cycle: 23513 //tdg q[11]
@@ -18938,7 +18938,7 @@ h q[12]; //cycle: 23523 //h q[12]
 h q[13]; //cycle: 23524 //h q[11]
 t q[7]; //cycle: 23524 //t q[9]
 t q[12]; //cycle: 23524 //t q[12]
-swp q[6],q[7]; //cycle: 23525
+swap q[6],q[7]; //cycle: 23525
 t q[13]; //cycle: 23525 //t q[11]
 cx q[13],q[7]; //cycle: 23531 //cx q[11],q[7]
 cx q[8],q[13]; //cycle: 23533 //cx q[10],q[11]
@@ -18951,14 +18951,14 @@ cx q[13],q[7]; //cycle: 23538 //cx q[11],q[7]
 cx q[8],q[13]; //cycle: 23540 //cx q[10],q[11]
 cx q[7],q[8]; //cycle: 23542 //cx q[7],q[10]
 h q[13]; //cycle: 23542 //h q[11]
-swp q[6],q[10]; //cycle: 23543
+swap q[6],q[10]; //cycle: 23543
 h q[13]; //cycle: 23543 //h q[11]
 h q[7]; //cycle: 23544 //h q[7]
 t q[8]; //cycle: 23544 //t q[10]
 t q[13]; //cycle: 23544 //t q[11]
 t q[7]; //cycle: 23545 //t q[7]
 cx q[7],q[6]; //cycle: 23549 //cx q[7],q[6]
-swp q[2],q[3]; //cycle: 23550
+swap q[2],q[3]; //cycle: 23550
 tdg q[6]; //cycle: 23551 //tdg q[6]
 cx q[2],q[7]; //cycle: 23556 //cx q[13],q[7]
 cx q[2],q[6]; //cycle: 23558 //cx q[13],q[6]
@@ -18973,7 +18973,7 @@ h q[7]; //cycle: 23566 //h q[7]
 h q[6]; //cycle: 23567 //h q[6]
 t q[2]; //cycle: 23567 //t q[13]
 t q[7]; //cycle: 23567 //t q[7]
-swp q[2],q[3]; //cycle: 23568
+swap q[2],q[3]; //cycle: 23568
 t q[6]; //cycle: 23568 //t q[6]
 cx q[6],q[2]; //cycle: 23574 //cx q[6],q[14]
 cx q[1],q[6]; //cycle: 23576 //cx q[15],q[6]
@@ -18984,7 +18984,7 @@ tdg q[1]; //cycle: 23580 //tdg q[15]
 tdg q[2]; //cycle: 23580 //tdg q[14]
 cx q[6],q[2]; //cycle: 23581 //cx q[6],q[14]
 cx q[1],q[6]; //cycle: 23583 //cx q[15],q[6]
-swp q[2],q[3]; //cycle: 23584
+swap q[2],q[3]; //cycle: 23584
 h q[6]; //cycle: 23585 //h q[6]
 t q[6]; //cycle: 23586 //t q[6]
 cx q[6],q[2]; //cycle: 23590 //cx q[6],q[13]
@@ -19003,8 +19003,8 @@ t q[7]; //cycle: 23604 //t q[7]
 t q[6]; //cycle: 23605 //t q[6]
 t q[2]; //cycle: 23605 //t q[13]
 cx q[7],q[8]; //cycle: 23605 //cx q[7],q[10]
-swp q[2],q[3]; //cycle: 23606
-swp q[15],q[16]; //cycle: 23607
+swap q[2],q[3]; //cycle: 23606
+swap q[15],q[16]; //cycle: 23607
 cx q[13],q[7]; //cycle: 23607 //cx q[11],q[7]
 cx q[8],q[13]; //cycle: 23609 //cx q[10],q[11]
 tdg q[7]; //cycle: 23609 //tdg q[7]
@@ -19013,26 +19013,26 @@ t q[13]; //cycle: 23611 //t q[11]
 cx q[2],q[1]; //cycle: 23612 //cx q[14],q[15]
 tdg q[8]; //cycle: 23613 //tdg q[10]
 tdg q[7]; //cycle: 23613 //tdg q[7]
-swp q[12],q[16]; //cycle: 23614
+swap q[12],q[16]; //cycle: 23614
 t q[1]; //cycle: 23614 //t q[15]
 t q[2]; //cycle: 23614 //t q[14]
 cx q[13],q[7]; //cycle: 23614 //cx q[11],q[7]
 cx q[2],q[1]; //cycle: 23615 //cx q[14],q[15]
 cx q[8],q[13]; //cycle: 23616 //cx q[10],q[11]
-swp q[10],q[11]; //cycle: 23617
+swap q[10],q[11]; //cycle: 23617
 cx q[7],q[8]; //cycle: 23618 //cx q[7],q[10]
 h q[13]; //cycle: 23618 //h q[11]
 t q[13]; //cycle: 23619 //t q[11]
-swp q[12],q[13]; //cycle: 23620
+swap q[12],q[13]; //cycle: 23620
 h q[7]; //cycle: 23620 //h q[7]
 t q[8]; //cycle: 23620 //t q[10]
 t q[7]; //cycle: 23621 //t q[7]
-swp q[6],q[10]; //cycle: 23626
+swap q[6],q[10]; //cycle: 23626
 cx q[12],q[11]; //cycle: 23626 //cx q[11],q[9]
 cx q[16],q[12]; //cycle: 23628 //cx q[12],q[11]
 tdg q[12]; //cycle: 23630 //tdg q[11]
 cx q[11],q[16]; //cycle: 23630 //cx q[9],q[12]
-swp q[7],q[8]; //cycle: 23632
+swap q[7],q[8]; //cycle: 23632
 cx q[11],q[12]; //cycle: 23632 //cx q[9],q[11]
 t q[16]; //cycle: 23632 //t q[12]
 tdg q[11]; //cycle: 23634 //tdg q[9]
@@ -19042,22 +19042,22 @@ cx q[11],q[16]; //cycle: 23637 //cx q[9],q[12]
 cx q[6],q[7]; //cycle: 23638 //cx q[5],q[10]
 cx q[12],q[11]; //cycle: 23639 //cx q[11],q[9]
 h q[16]; //cycle: 23639 //h q[12]
-swp q[13],q[18]; //cycle: 23640
+swap q[13],q[18]; //cycle: 23640
 t q[16]; //cycle: 23640 //t q[12]
 cx q[16],q[17]; //cycle: 23641 //cx q[12],q[8]
 t q[11]; //cycle: 23641 //t q[9]
 t q[12]; //cycle: 23641 //t q[11]
-swp q[8],q[12]; //cycle: 23642
+swap q[8],q[12]; //cycle: 23642
 cx q[10],q[11]; //cycle: 23642 //cx q[6],q[9]
-swp q[3],q[9]; //cycle: 23646
-swp q[13],q[18]; //cycle: 23646
+swap q[3],q[9]; //cycle: 23646
+swap q[13],q[18]; //cycle: 23646
 cx q[12],q[16]; //cycle: 23648 //cx q[7],q[12]
 cx q[17],q[12]; //cycle: 23650 //cx q[8],q[7]
 tdg q[16]; //cycle: 23650 //tdg q[12]
 cx q[17],q[16]; //cycle: 23652 //cx q[8],q[12]
 t q[12]; //cycle: 23652 //t q[7]
-swp q[9],q[14]; //cycle: 23653
-swp q[13],q[18]; //cycle: 23653
+swap q[9],q[14]; //cycle: 23653
+swap q[13],q[18]; //cycle: 23653
 tdg q[17]; //cycle: 23654 //tdg q[8]
 tdg q[16]; //cycle: 23654 //tdg q[12]
 cx q[12],q[16]; //cycle: 23655 //cx q[7],q[12]
@@ -19066,7 +19066,7 @@ cx q[16],q[17]; //cycle: 23659 //cx q[12],q[8]
 h q[12]; //cycle: 23659 //h q[7]
 cx q[13],q[8]; //cycle: 23659 //cx q[4],q[11]
 cx q[18],q[14]; //cycle: 23659 //cx q[3],q[13]
-swp q[10],q[15]; //cycle: 23660
+swap q[10],q[15]; //cycle: 23660
 h q[12]; //cycle: 23660 //h q[7]
 h q[16]; //cycle: 23661 //h q[12]
 t q[17]; //cycle: 23661 //t q[8]
@@ -19075,13 +19075,13 @@ t q[16]; //cycle: 23662 //t q[12]
 cx q[16],q[15]; //cycle: 23666 //cx q[12],q[6]
 cx q[11],q[16]; //cycle: 23668 //cx q[9],q[12]
 tdg q[15]; //cycle: 23668 //tdg q[6]
-swp q[10],q[11]; //cycle: 23670
+swap q[10],q[11]; //cycle: 23670
 t q[16]; //cycle: 23670 //t q[12]
 cx q[10],q[15]; //cycle: 23676 //cx q[9],q[6]
 tdg q[10]; //cycle: 23678 //tdg q[9]
 tdg q[15]; //cycle: 23678 //tdg q[6]
 cx q[16],q[15]; //cycle: 23679 //cx q[12],q[6]
-swp q[10],q[15]; //cycle: 23681
+swap q[10],q[15]; //cycle: 23681
 cx q[15],q[16]; //cycle: 23687 //cx q[9],q[12]
 cx q[10],q[15]; //cycle: 23689 //cx q[6],q[9]
 h q[16]; //cycle: 23689 //h q[12]
@@ -19092,15 +19092,15 @@ t q[16]; //cycle: 23691 //t q[12]
 t q[10]; //cycle: 23692 //t q[6]
 cx q[10],q[6]; //cycle: 23693 //cx q[6],q[5]
 tdg q[6]; //cycle: 23695 //tdg q[5]
-swp q[6],q[7]; //cycle: 23696
+swap q[6],q[7]; //cycle: 23696
 cx q[6],q[10]; //cycle: 23702 //cx q[10],q[6]
 cx q[6],q[7]; //cycle: 23704 //cx q[10],q[5]
 t q[10]; //cycle: 23704 //t q[6]
 tdg q[6]; //cycle: 23706 //tdg q[10]
 tdg q[7]; //cycle: 23706 //tdg q[5]
-swp q[6],q[7]; //cycle: 23707
+swap q[6],q[7]; //cycle: 23707
 cx q[10],q[6]; //cycle: 23713 //cx q[6],q[5]
-swp q[6],q[7]; //cycle: 23715
+swap q[6],q[7]; //cycle: 23715
 cx q[6],q[10]; //cycle: 23721 //cx q[10],q[6]
 cx q[7],q[6]; //cycle: 23723 //cx q[5],q[10]
 h q[10]; //cycle: 23723 //h q[6]
@@ -19141,22 +19141,22 @@ h q[18]; //cycle: 23755 //h q[3]
 t q[14]; //cycle: 23755 //t q[13]
 t q[13]; //cycle: 23755 //t q[4]
 t q[18]; //cycle: 23756 //t q[3]
-swp q[2],q[7]; //cycle: 23757
-swp q[13],q[18]; //cycle: 23757
+swap q[2],q[7]; //cycle: 23757
+swap q[13],q[18]; //cycle: 23757
 cx q[13],q[7]; //cycle: 23763 //cx q[3],q[14]
 tdg q[7]; //cycle: 23765 //tdg q[14]
-swp q[1],q[7]; //cycle: 23766
+swap q[1],q[7]; //cycle: 23766
 cx q[7],q[13]; //cycle: 23772 //cx q[15],q[3]
 cx q[7],q[1]; //cycle: 23774 //cx q[15],q[14]
 t q[13]; //cycle: 23774 //t q[3]
 tdg q[7]; //cycle: 23776 //tdg q[15]
 tdg q[1]; //cycle: 23776 //tdg q[14]
-swp q[7],q[13]; //cycle: 23777
+swap q[7],q[13]; //cycle: 23777
 cx q[7],q[1]; //cycle: 23783 //cx q[3],q[14]
 cx q[13],q[7]; //cycle: 23785 //cx q[15],q[3]
 h q[7]; //cycle: 23787 //h q[3]
 t q[7]; //cycle: 23788 //t q[3]
-swp q[7],q[13]; //cycle: 23789
+swap q[7],q[13]; //cycle: 23789
 cx q[1],q[7]; //cycle: 23795 //cx q[14],q[15]
 cx q[13],q[14]; //cycle: 23795 //cx q[3],q[13]
 cx q[18],q[13]; //cycle: 23797 //cx q[4],q[3]
@@ -19171,49 +19171,49 @@ tdg q[14]; //cycle: 23803 //tdg q[13]
 tdg q[13]; //cycle: 23803 //tdg q[3]
 cx q[18],q[13]; //cycle: 23804 //cx q[4],q[3]
 cx q[14],q[18]; //cycle: 23806 //cx q[13],q[4]
-swp q[8],q[13]; //cycle: 23807
-swp q[9],q[14]; //cycle: 23808
+swap q[8],q[13]; //cycle: 23807
+swap q[9],q[14]; //cycle: 23808
 h q[18]; //cycle: 23808 //h q[4]
 t q[18]; //cycle: 23809 //t q[4]
 cx q[18],q[13]; //cycle: 23813 //cx q[4],q[11]
 cx q[8],q[9]; //cycle: 23814 //cx q[3],q[13]
-swp q[2],q[7]; //cycle: 23815
-swp q[13],q[18]; //cycle: 23815
+swap q[2],q[7]; //cycle: 23815
+swap q[13],q[18]; //cycle: 23815
 t q[9]; //cycle: 23816 //t q[13]
 t q[8]; //cycle: 23816 //t q[3]
 cx q[8],q[9]; //cycle: 23817 //cx q[3],q[13]
 cx q[7],q[13]; //cycle: 23821 //cx q[5],q[4]
 tdg q[13]; //cycle: 23823 //tdg q[4]
-swp q[13],q[18]; //cycle: 23824
+swap q[13],q[18]; //cycle: 23824
 cx q[13],q[7]; //cycle: 23830 //cx q[11],q[5]
 cx q[13],q[18]; //cycle: 23832 //cx q[11],q[4]
 t q[7]; //cycle: 23832 //t q[5]
 tdg q[13]; //cycle: 23834 //tdg q[11]
 tdg q[18]; //cycle: 23834 //tdg q[4]
-swp q[7],q[13]; //cycle: 23835
+swap q[7],q[13]; //cycle: 23835
 cx q[13],q[18]; //cycle: 23841 //cx q[5],q[4]
 cx q[7],q[13]; //cycle: 23843 //cx q[11],q[5]
-swp q[6],q[7]; //cycle: 23845
+swap q[6],q[7]; //cycle: 23845
 h q[13]; //cycle: 23845 //h q[5]
 t q[13]; //cycle: 23846 //t q[5]
 cx q[13],q[7]; //cycle: 23851 //cx q[5],q[10]
-swp q[10],q[11]; //cycle: 23852
-swp q[12],q[13]; //cycle: 23853
-swp q[6],q[7]; //cycle: 23855
+swap q[10],q[11]; //cycle: 23852
+swap q[12],q[13]; //cycle: 23853
+swap q[6],q[7]; //cycle: 23855
 cx q[11],q[12]; //cycle: 23859 //cx q[6],q[5]
-swp q[13],q[18]; //cycle: 23861
+swap q[13],q[18]; //cycle: 23861
 cx q[6],q[11]; //cycle: 23861 //cx q[10],q[6]
 tdg q[12]; //cycle: 23861 //tdg q[5]
-swp q[6],q[7]; //cycle: 23863
+swap q[6],q[7]; //cycle: 23863
 t q[11]; //cycle: 23863 //t q[6]
 cx q[7],q[12]; //cycle: 23869 //cx q[10],q[5]
 tdg q[7]; //cycle: 23871 //tdg q[10]
 tdg q[12]; //cycle: 23871 //tdg q[5]
-swp q[6],q[7]; //cycle: 23872
+swap q[6],q[7]; //cycle: 23872
 cx q[11],q[12]; //cycle: 23872 //cx q[6],q[5]
 cx q[13],q[7]; //cycle: 23878 //cx q[4],q[11]
 cx q[6],q[11]; //cycle: 23878 //cx q[10],q[6]
-swp q[10],q[15]; //cycle: 23879
+swap q[10],q[15]; //cycle: 23879
 h q[11]; //cycle: 23880 //h q[6]
 t q[7]; //cycle: 23880 //t q[11]
 t q[13]; //cycle: 23880 //t q[4]
@@ -19221,18 +19221,18 @@ t q[11]; //cycle: 23881 //t q[6]
 cx q[13],q[7]; //cycle: 23881 //cx q[4],q[11]
 cx q[11],q[10]; //cycle: 23885 //cx q[6],q[9]
 cx q[16],q[11]; //cycle: 23887 //cx q[12],q[6]
-swp q[10],q[15]; //cycle: 23888
+swap q[10],q[15]; //cycle: 23888
 tdg q[11]; //cycle: 23889 //tdg q[6]
-swp q[6],q[11]; //cycle: 23892
+swap q[6],q[11]; //cycle: 23892
 cx q[15],q[16]; //cycle: 23894 //cx q[9],q[12]
-swp q[10],q[15]; //cycle: 23896
+swap q[10],q[15]; //cycle: 23896
 t q[16]; //cycle: 23896 //t q[12]
 cx q[12],q[11]; //cycle: 23898 //cx q[5],q[10]
 t q[11]; //cycle: 23900 //t q[10]
 t q[12]; //cycle: 23900 //t q[5]
 cx q[12],q[11]; //cycle: 23901 //cx q[5],q[10]
 cx q[10],q[6]; //cycle: 23902 //cx q[9],q[6]
-swp q[11],q[16]; //cycle: 23903
+swap q[11],q[16]; //cycle: 23903
 tdg q[10]; //cycle: 23904 //tdg q[9]
 tdg q[6]; //cycle: 23904 //tdg q[6]
 cx q[11],q[6]; //cycle: 23909 //cx q[12],q[6]
@@ -19244,18 +19244,18 @@ cx q[11],q[17]; //cycle: 23915 //cx q[12],q[8]
 t q[10]; //cycle: 23915 //t q[9]
 t q[6]; //cycle: 23915 //t q[6]
 cx q[6],q[10]; //cycle: 23916 //cx q[6],q[9]
-swp q[11],q[17]; //cycle: 23917
+swap q[11],q[17]; //cycle: 23917
 cx q[18],q[17]; //cycle: 23923 //cx q[7],q[12]
 tdg q[17]; //cycle: 23925 //tdg q[12]
-swp q[11],q[17]; //cycle: 23926
+swap q[11],q[17]; //cycle: 23926
 cx q[17],q[18]; //cycle: 23932 //cx q[8],q[7]
 cx q[17],q[11]; //cycle: 23934 //cx q[8],q[12]
 t q[18]; //cycle: 23934 //t q[7]
 tdg q[17]; //cycle: 23936 //tdg q[8]
 tdg q[11]; //cycle: 23936 //tdg q[12]
-swp q[11],q[17]; //cycle: 23937
+swap q[11],q[17]; //cycle: 23937
 cx q[18],q[17]; //cycle: 23943 //cx q[7],q[12]
-swp q[11],q[17]; //cycle: 23945
+swap q[11],q[17]; //cycle: 23945
 cx q[17],q[18]; //cycle: 23951 //cx q[8],q[7]
 cx q[11],q[17]; //cycle: 23953 //cx q[12],q[8]
 h q[18]; //cycle: 23953 //h q[7]
@@ -19280,7 +19280,7 @@ h q[6]; //cycle: 23970 //h q[6]
 t q[10]; //cycle: 23970 //t q[9]
 t q[11]; //cycle: 23970 //t q[12]
 t q[6]; //cycle: 23971 //t q[6]
-swp q[6],q[11]; //cycle: 23972
+swap q[6],q[11]; //cycle: 23972
 cx q[11],q[12]; //cycle: 23978 //cx q[6],q[5]
 cx q[16],q[11]; //cycle: 23980 //cx q[10],q[6]
 tdg q[12]; //cycle: 23980 //tdg q[5]
@@ -19314,17 +19314,17 @@ t q[7]; //cycle: 24006 //t q[11]
 t q[12]; //cycle: 24006 //t q[5]
 t q[13]; //cycle: 24007 //t q[4]
 cx q[13],q[8]; //cycle: 24008 //cx q[4],q[3]
-swp q[13],q[14]; //cycle: 24010
+swap q[13],q[14]; //cycle: 24010
 tdg q[8]; //cycle: 24010 //tdg q[3]
 cx q[9],q[14]; //cycle: 24016 //cx q[13],q[4]
 cx q[9],q[8]; //cycle: 24018 //cx q[13],q[3]
 t q[14]; //cycle: 24018 //t q[4]
 tdg q[9]; //cycle: 24020 //tdg q[13]
 tdg q[8]; //cycle: 24020 //tdg q[3]
-swp q[8],q[13]; //cycle: 24021
+swap q[8],q[13]; //cycle: 24021
 cx q[14],q[13]; //cycle: 24027 //cx q[4],q[3]
 cx q[9],q[14]; //cycle: 24029 //cx q[13],q[4]
-swp q[8],q[9]; //cycle: 24031
+swap q[8],q[9]; //cycle: 24031
 h q[14]; //cycle: 24031 //h q[4]
 h q[14]; //cycle: 24032 //h q[4]
 t q[14]; //cycle: 24033 //t q[4]
@@ -19332,7 +19332,7 @@ cx q[13],q[8]; //cycle: 24037 //cx q[3],q[13]
 h q[13]; //cycle: 24039 //h q[3]
 t q[8]; //cycle: 24039 //t q[13]
 t q[13]; //cycle: 24040 //t q[3]
-swp q[7],q[13]; //cycle: 24041
+swap q[7],q[13]; //cycle: 24041
 cx q[7],q[1]; //cycle: 24047 //cx q[3],q[14]
 cx q[2],q[7]; //cycle: 24049 //cx q[15],q[3]
 tdg q[1]; //cycle: 24049 //tdg q[14]
@@ -19348,7 +19348,7 @@ t q[7]; //cycle: 24059 //t q[3]
 cx q[7],q[8]; //cycle: 24060 //cx q[3],q[13]
 x q[1]; //cycle: 24060 //x q[14]
 x q[2]; //cycle: 24060 //x q[15]
-swp q[13],q[14]; //cycle: 24061
+swap q[13],q[14]; //cycle: 24061
 t q[2]; //cycle: 24061 //t q[15]
 t q[1]; //cycle: 24061 //t q[14]
 cx q[1],q[2]; //cycle: 24062 //cx q[14],q[15]
@@ -19371,18 +19371,18 @@ t q[8]; //cycle: 24081 //t q[13]
 cx q[3],q[8]; //cycle: 24082 //cx q[1],q[13]
 cx q[12],q[13]; //cycle: 24082 //cx q[5],q[4]
 tdg q[13]; //cycle: 24084 //tdg q[4]
-swp q[13],q[14]; //cycle: 24085
+swap q[13],q[14]; //cycle: 24085
 cx q[13],q[12]; //cycle: 24091 //cx q[11],q[5]
 cx q[13],q[14]; //cycle: 24093 //cx q[11],q[4]
 t q[12]; //cycle: 24093 //t q[5]
 tdg q[13]; //cycle: 24095 //tdg q[11]
 tdg q[14]; //cycle: 24095 //tdg q[4]
-swp q[12],q[13]; //cycle: 24096
+swap q[12],q[13]; //cycle: 24096
 cx q[13],q[14]; //cycle: 24102 //cx q[5],q[4]
 cx q[12],q[13]; //cycle: 24104 //cx q[11],q[5]
 h q[13]; //cycle: 24106 //h q[5]
 t q[13]; //cycle: 24107 //t q[5]
-swp q[12],q[13]; //cycle: 24108
+swap q[12],q[13]; //cycle: 24108
 cx q[14],q[13]; //cycle: 24114 //cx q[4],q[11]
 cx q[12],q[16]; //cycle: 24114 //cx q[5],q[10]
 t q[14]; //cycle: 24116 //t q[4]
@@ -19403,15 +19403,15 @@ t q[11]; //cycle: 24128 //t q[6]
 t q[12]; //cycle: 24129 //t q[5]
 t q[16]; //cycle: 24129 //t q[10]
 cx q[11],q[10]; //cycle: 24129 //cx q[6],q[9]
-swp q[13],q[14]; //cycle: 24130
-swp q[16],q[17]; //cycle: 24130
+swap q[13],q[14]; //cycle: 24130
+swap q[16],q[17]; //cycle: 24130
 cx q[6],q[11]; //cycle: 24131 //cx q[12],q[6]
 cx q[10],q[6]; //cycle: 24133 //cx q[9],q[12]
 tdg q[11]; //cycle: 24133 //tdg q[6]
 cx q[10],q[11]; //cycle: 24135 //cx q[9],q[6]
 t q[6]; //cycle: 24135 //t q[12]
-swp q[12],q[13]; //cycle: 24136
-swp q[17],q[18]; //cycle: 24136
+swap q[12],q[13]; //cycle: 24136
+swap q[17],q[18]; //cycle: 24136
 tdg q[10]; //cycle: 24137 //tdg q[9]
 tdg q[11]; //cycle: 24137 //tdg q[6]
 cx q[6],q[11]; //cycle: 24138 //cx q[12],q[6]
@@ -19422,9 +19422,9 @@ t q[6]; //cycle: 24143 //t q[12]
 t q[10]; //cycle: 24144 //t q[9]
 cx q[5],q[6]; //cycle: 24144 //cx q[2],q[12]
 h q[11]; //cycle: 24144 //h q[6]
-swp q[7],q[13]; //cycle: 24145
+swap q[7],q[13]; //cycle: 24145
 t q[11]; //cycle: 24145 //t q[6]
-swp q[6],q[10]; //cycle: 24146
+swap q[6],q[10]; //cycle: 24146
 cx q[11],q[17]; //cycle: 24146 //cx q[6],q[7]
 cx q[16],q[11]; //cycle: 24148 //cx q[8],q[6]
 tdg q[17]; //cycle: 24148 //tdg q[7]
@@ -19433,12 +19433,12 @@ t q[11]; //cycle: 24150 //t q[6]
 tdg q[16]; //cycle: 24152 //tdg q[8]
 tdg q[17]; //cycle: 24152 //tdg q[7]
 cx q[7],q[6]; //cycle: 24152 //cx q[5],q[9]
-swp q[13],q[18]; //cycle: 24153
+swap q[13],q[18]; //cycle: 24153
 cx q[11],q[17]; //cycle: 24153 //cx q[6],q[7]
 cx q[16],q[11]; //cycle: 24155 //cx q[8],q[6]
 cx q[17],q[16]; //cycle: 24157 //cx q[7],q[8]
 h q[11]; //cycle: 24157 //h q[6]
-swp q[7],q[12]; //cycle: 24158
+swap q[7],q[12]; //cycle: 24158
 h q[11]; //cycle: 24158 //h q[6]
 h q[17]; //cycle: 24159 //h q[7]
 t q[16]; //cycle: 24159 //t q[8]
@@ -19446,7 +19446,7 @@ t q[11]; //cycle: 24159 //t q[6]
 t q[17]; //cycle: 24160 //t q[7]
 cx q[17],q[12]; //cycle: 24164 //cx q[7],q[5]
 cx q[7],q[13]; //cycle: 24164 //cx q[4],q[10]
-swp q[6],q[11]; //cycle: 24165
+swap q[6],q[11]; //cycle: 24165
 tdg q[12]; //cycle: 24166 //tdg q[5]
 cx q[11],q[17]; //cycle: 24171 //cx q[9],q[7]
 cx q[11],q[12]; //cycle: 24173 //cx q[9],q[5]
@@ -19478,7 +19478,7 @@ h q[7]; //cycle: 24197 //h q[4]
 t q[13]; //cycle: 24197 //t q[10]
 t q[12]; //cycle: 24197 //t q[5]
 t q[7]; //cycle: 24198 //t q[4]
-swp q[7],q[13]; //cycle: 24199
+swap q[7],q[13]; //cycle: 24199
 cx q[13],q[18]; //cycle: 24205 //cx q[4],q[3]
 cx q[14],q[13]; //cycle: 24207 //cx q[11],q[4]
 tdg q[18]; //cycle: 24207 //tdg q[3]
@@ -19491,35 +19491,35 @@ cx q[14],q[13]; //cycle: 24214 //cx q[11],q[4]
 cx q[18],q[14]; //cycle: 24216 //cx q[3],q[11]
 h q[13]; //cycle: 24216 //h q[4]
 h q[13]; //cycle: 24217 //h q[4]
-swp q[5],q[11]; //cycle: 24218
+swap q[5],q[11]; //cycle: 24218
 h q[18]; //cycle: 24218 //h q[3]
 t q[14]; //cycle: 24218 //t q[11]
 t q[13]; //cycle: 24218 //t q[4]
 t q[18]; //cycle: 24219 //t q[3]
-swp q[17],q[18]; //cycle: 24220
+swap q[17],q[18]; //cycle: 24220
 cx q[17],q[11]; //cycle: 24226 //cx q[3],q[2]
 tdg q[11]; //cycle: 24228 //tdg q[2]
-swp q[10],q[11]; //cycle: 24229
+swap q[10],q[11]; //cycle: 24229
 cx q[11],q[17]; //cycle: 24235 //cx q[12],q[3]
 cx q[11],q[10]; //cycle: 24237 //cx q[12],q[2]
 t q[17]; //cycle: 24237 //t q[3]
 tdg q[11]; //cycle: 24239 //tdg q[12]
 tdg q[10]; //cycle: 24239 //tdg q[2]
-swp q[11],q[17]; //cycle: 24240
+swap q[11],q[17]; //cycle: 24240
 cx q[11],q[10]; //cycle: 24246 //cx q[3],q[2]
 cx q[17],q[11]; //cycle: 24248 //cx q[12],q[3]
 h q[11]; //cycle: 24250 //h q[3]
 h q[11]; //cycle: 24251 //h q[3]
 t q[11]; //cycle: 24252 //t q[3]
-swp q[10],q[11]; //cycle: 24253
+swap q[10],q[11]; //cycle: 24253
 cx q[11],q[17]; //cycle: 24259 //cx q[2],q[12]
 h q[11]; //cycle: 24261 //h q[2]
 t q[17]; //cycle: 24261 //t q[12]
-swp q[2],q[3]; //cycle: 24262
+swap q[2],q[3]; //cycle: 24262
 t q[11]; //cycle: 24262 //t q[2]
-swp q[6],q[11]; //cycle: 24263
+swap q[6],q[11]; //cycle: 24263
 cx q[6],q[2]; //cycle: 24269 //cx q[2],q[1]
-swp q[7],q[8]; //cycle: 24270
+swap q[7],q[8]; //cycle: 24270
 tdg q[2]; //cycle: 24271 //tdg q[1]
 cx q[7],q[6]; //cycle: 24276 //cx q[13],q[2]
 cx q[7],q[2]; //cycle: 24278 //cx q[13],q[1]
@@ -19539,12 +19539,12 @@ cx q[2],q[1]; //cycle: 24289 //cx q[1],q[14]
 cx q[3],q[2]; //cycle: 24291 //cx q[15],q[1]
 tdg q[1]; //cycle: 24291 //tdg q[14]
 t q[2]; //cycle: 24293 //t q[1]
-swp q[1],q[2]; //cycle: 24294
+swap q[1],q[2]; //cycle: 24294
 cx q[3],q[2]; //cycle: 24300 //cx q[15],q[14]
 tdg q[3]; //cycle: 24302 //tdg q[15]
 tdg q[2]; //cycle: 24302 //tdg q[14]
 cx q[1],q[2]; //cycle: 24303 //cx q[1],q[14]
-swp q[1],q[2]; //cycle: 24305
+swap q[1],q[2]; //cycle: 24305
 cx q[3],q[2]; //cycle: 24311 //cx q[15],q[1]
 h q[2]; //cycle: 24313 //h q[1]
 t q[2]; //cycle: 24314 //t q[1]
@@ -19557,9 +19557,9 @@ t q[6]; //cycle: 24321 //t q[2]
 tdg q[7]; //cycle: 24323 //tdg q[13]
 tdg q[2]; //cycle: 24323 //tdg q[1]
 cx q[6],q[2]; //cycle: 24324 //cx q[2],q[1]
-swp q[2],q[3]; //cycle: 24326
+swap q[2],q[3]; //cycle: 24326
 cx q[7],q[6]; //cycle: 24326 //cx q[13],q[2]
-swp q[11],q[17]; //cycle: 24327
+swap q[11],q[17]; //cycle: 24327
 h q[6]; //cycle: 24328 //h q[2]
 t q[6]; //cycle: 24329 //t q[2]
 cx q[1],q[2]; //cycle: 24332 //cx q[14],q[15]
@@ -19572,12 +19572,12 @@ cx q[11],q[10]; //cycle: 24337 //cx q[12],q[3]
 tdg q[6]; //cycle: 24337 //tdg q[2]
 cx q[11],q[6]; //cycle: 24339 //cx q[12],q[2]
 t q[10]; //cycle: 24339 //t q[3]
-swp q[2],q[3]; //cycle: 24341
+swap q[2],q[3]; //cycle: 24341
 tdg q[11]; //cycle: 24341 //tdg q[12]
 tdg q[6]; //cycle: 24341 //tdg q[2]
 cx q[10],q[6]; //cycle: 24342 //cx q[3],q[2]
 cx q[11],q[10]; //cycle: 24344 //cx q[12],q[3]
-swp q[14],q[18]; //cycle: 24345
+swap q[14],q[18]; //cycle: 24345
 cx q[6],q[11]; //cycle: 24346 //cx q[2],q[12]
 h q[10]; //cycle: 24346 //h q[3]
 cx q[2],q[7]; //cycle: 24347 //cx q[1],q[13]
@@ -19588,10 +19588,10 @@ cx q[6],q[11]; //cycle: 24349 //cx q[2],q[12]
 t q[7]; //cycle: 24349 //t q[13]
 t q[2]; //cycle: 24349 //t q[1]
 cx q[2],q[7]; //cycle: 24350 //cx q[1],q[13]
-swp q[10],q[11]; //cycle: 24351
-swp q[17],q[18]; //cycle: 24351
+swap q[10],q[11]; //cycle: 24351
+swap q[17],q[18]; //cycle: 24351
 cx q[11],q[17]; //cycle: 24357 //cx q[3],q[11]
-swp q[12],q[13]; //cycle: 24358
+swap q[12],q[13]; //cycle: 24358
 cx q[12],q[11]; //cycle: 24364 //cx q[4],q[3]
 cx q[17],q[12]; //cycle: 24366 //cx q[11],q[4]
 tdg q[11]; //cycle: 24366 //tdg q[3]
@@ -19617,43 +19617,43 @@ tdg q[8]; //cycle: 24385 //tdg q[10]
 tdg q[12]; //cycle: 24385 //tdg q[4]
 cx q[13],q[12]; //cycle: 24386 //cx q[5],q[4]
 cx q[8],q[13]; //cycle: 24388 //cx q[10],q[5]
-swp q[5],q[11]; //cycle: 24389
+swap q[5],q[11]; //cycle: 24389
 cx q[12],q[8]; //cycle: 24390 //cx q[4],q[10]
 h q[13]; //cycle: 24390 //h q[5]
 t q[13]; //cycle: 24391 //t q[5]
 t q[8]; //cycle: 24392 //t q[10]
 t q[12]; //cycle: 24392 //t q[4]
 cx q[12],q[8]; //cycle: 24393 //cx q[4],q[10]
-swp q[11],q[12]; //cycle: 24395
+swap q[11],q[12]; //cycle: 24395
 cx q[13],q[12]; //cycle: 24401 //cx q[5],q[9]
 cx q[14],q[13]; //cycle: 24403 //cx q[7],q[5]
 tdg q[13]; //cycle: 24405 //tdg q[5]
-swp q[12],q[13]; //cycle: 24406
+swap q[12],q[13]; //cycle: 24406
 cx q[13],q[14]; //cycle: 24412 //cx q[9],q[7]
 cx q[13],q[12]; //cycle: 24414 //cx q[9],q[5]
 t q[14]; //cycle: 24414 //t q[7]
 tdg q[13]; //cycle: 24416 //tdg q[9]
 tdg q[12]; //cycle: 24416 //tdg q[5]
-swp q[13],q[14]; //cycle: 24417
+swap q[13],q[14]; //cycle: 24417
 cx q[13],q[12]; //cycle: 24423 //cx q[7],q[5]
 cx q[14],q[13]; //cycle: 24425 //cx q[9],q[7]
-swp q[12],q[16]; //cycle: 24426
+swap q[12],q[16]; //cycle: 24426
 h q[13]; //cycle: 24427 //h q[7]
 t q[13]; //cycle: 24428 //t q[7]
-swp q[16],q[17]; //cycle: 24432
+swap q[16],q[17]; //cycle: 24432
 cx q[13],q[12]; //cycle: 24432 //cx q[7],q[8]
 cx q[18],q[13]; //cycle: 24434 //cx q[6],q[7]
 tdg q[13]; //cycle: 24436 //tdg q[7]
-swp q[12],q[13]; //cycle: 24437
+swap q[12],q[13]; //cycle: 24437
 cx q[13],q[18]; //cycle: 24443 //cx q[8],q[6]
 cx q[13],q[12]; //cycle: 24445 //cx q[8],q[7]
 t q[18]; //cycle: 24445 //t q[6]
-swp q[17],q[18]; //cycle: 24446
+swap q[17],q[18]; //cycle: 24446
 tdg q[13]; //cycle: 24447 //tdg q[8]
 tdg q[12]; //cycle: 24447 //tdg q[7]
 cx q[18],q[14]; //cycle: 24452 //cx q[5],q[9]
 cx q[17],q[12]; //cycle: 24452 //cx q[6],q[7]
-swp q[12],q[13]; //cycle: 24454
+swap q[12],q[13]; //cycle: 24454
 t q[14]; //cycle: 24454 //t q[9]
 t q[18]; //cycle: 24454 //t q[5]
 cx q[18],q[14]; //cycle: 24455 //cx q[5],q[9]
@@ -19676,17 +19676,17 @@ cx q[13],q[18]; //cycle: 24473 //cx q[7],q[5]
 cx q[14],q[13]; //cycle: 24475 //cx q[9],q[7]
 cx q[18],q[14]; //cycle: 24477 //cx q[5],q[9]
 h q[13]; //cycle: 24477 //h q[7]
-swp q[11],q[17]; //cycle: 24478
+swap q[11],q[17]; //cycle: 24478
 h q[13]; //cycle: 24478 //h q[7]
 t q[14]; //cycle: 24479 //t q[9]
 t q[13]; //cycle: 24479 //t q[7]
 h q[18]; //cycle: 24479 //h q[5]
 t q[18]; //cycle: 24480 //t q[5]
 cx q[18],q[17]; //cycle: 24484 //cx q[5],q[4]
-swp q[13],q[18]; //cycle: 24486
+swap q[13],q[18]; //cycle: 24486
 tdg q[17]; //cycle: 24486 //tdg q[4]
 cx q[8],q[13]; //cycle: 24492 //cx q[10],q[5]
-swp q[12],q[17]; //cycle: 24493
+swap q[12],q[17]; //cycle: 24493
 t q[13]; //cycle: 24494 //t q[5]
 cx q[8],q[12]; //cycle: 24499 //cx q[10],q[4]
 tdg q[8]; //cycle: 24501 //tdg q[10]
@@ -19695,7 +19695,7 @@ cx q[13],q[12]; //cycle: 24502 //cx q[5],q[4]
 cx q[8],q[13]; //cycle: 24504 //cx q[10],q[5]
 cx q[12],q[8]; //cycle: 24506 //cx q[4],q[10]
 h q[13]; //cycle: 24506 //h q[5]
-swp q[5],q[11]; //cycle: 24507
+swap q[5],q[11]; //cycle: 24507
 h q[13]; //cycle: 24507 //h q[5]
 t q[8]; //cycle: 24508 //t q[10]
 t q[13]; //cycle: 24508 //t q[5]
@@ -19753,12 +19753,12 @@ cx q[2],q[1]; //cycle: 24558 //cx q[1],q[14]
 cx q[3],q[2]; //cycle: 24560 //cx q[15],q[1]
 tdg q[1]; //cycle: 24560 //tdg q[14]
 t q[2]; //cycle: 24562 //t q[1]
-swp q[1],q[2]; //cycle: 24563
+swap q[1],q[2]; //cycle: 24563
 cx q[3],q[2]; //cycle: 24569 //cx q[15],q[14]
 tdg q[3]; //cycle: 24571 //tdg q[15]
 tdg q[2]; //cycle: 24571 //tdg q[14]
 cx q[1],q[2]; //cycle: 24572 //cx q[1],q[14]
-swp q[1],q[2]; //cycle: 24574
+swap q[1],q[2]; //cycle: 24574
 cx q[3],q[2]; //cycle: 24580 //cx q[15],q[1]
 h q[2]; //cycle: 24582 //h q[1]
 t q[2]; //cycle: 24583 //t q[1]
@@ -19778,7 +19778,7 @@ t q[6]; //cycle: 24598 //t q[2]
 t q[7]; //cycle: 24599 //t q[13]
 cx q[6],q[10]; //cycle: 24599 //cx q[2],q[12]
 t q[2]; //cycle: 24599 //t q[1]
-swp q[2],q[3]; //cycle: 24600
+swap q[2],q[3]; //cycle: 24600
 cx q[11],q[6]; //cycle: 24601 //cx q[3],q[2]
 cx q[10],q[11]; //cycle: 24603 //cx q[12],q[3]
 tdg q[6]; //cycle: 24603 //tdg q[2]
@@ -19813,10 +19813,10 @@ t q[12]; //cycle: 24628 //t q[4]
 cx q[12],q[8]; //cycle: 24629 //cx q[4],q[10]
 t q[16]; //cycle: 24629 //t q[11]
 t q[11]; //cycle: 24629 //t q[3]
-swp q[6],q[7]; //cycle: 24630
+swap q[6],q[7]; //cycle: 24630
 cx q[16],q[17]; //cycle: 24630 //cx q[11],q[8]
 cx q[13],q[12]; //cycle: 24631 //cx q[5],q[4]
-swp q[5],q[11]; //cycle: 24632
+swap q[5],q[11]; //cycle: 24632
 cx q[8],q[13]; //cycle: 24633 //cx q[10],q[5]
 tdg q[12]; //cycle: 24633 //tdg q[4]
 cx q[8],q[12]; //cycle: 24635 //cx q[10],q[4]
@@ -19852,7 +19852,7 @@ h q[11]; //cycle: 24650 //h q[6]
 h q[16]; //cycle: 24651 //h q[11]
 t q[17]; //cycle: 24651 //t q[8]
 t q[11]; //cycle: 24651 //t q[6]
-swp q[11],q[12]; //cycle: 24652
+swap q[11],q[12]; //cycle: 24652
 tdg q[14]; //cycle: 24652 //tdg q[9]
 tdg q[13]; //cycle: 24652 //tdg q[5]
 t q[16]; //cycle: 24652 //t q[11]
@@ -19866,19 +19866,19 @@ t q[14]; //cycle: 24659 //t q[9]
 t q[13]; //cycle: 24659 //t q[5]
 cx q[18],q[14]; //cycle: 24660 //cx q[7],q[9]
 cx q[13],q[8]; //cycle: 24660 //cx q[5],q[10]
-swp q[17],q[18]; //cycle: 24662
+swap q[17],q[18]; //cycle: 24662
 cx q[16],q[17]; //cycle: 24668 //cx q[11],q[7]
-swp q[13],q[14]; //cycle: 24669
-swp q[12],q[16]; //cycle: 24670
+swap q[13],q[14]; //cycle: 24669
+swap q[12],q[16]; //cycle: 24670
 tdg q[17]; //cycle: 24670 //tdg q[7]
 cx q[13],q[12]; //cycle: 24676 //cx q[9],q[11]
-swp q[13],q[18]; //cycle: 24678
+swap q[13],q[18]; //cycle: 24678
 t q[12]; //cycle: 24678 //t q[11]
 cx q[18],q[17]; //cycle: 24684 //cx q[9],q[7]
 tdg q[18]; //cycle: 24686 //tdg q[9]
 tdg q[17]; //cycle: 24686 //tdg q[7]
 cx q[12],q[17]; //cycle: 24687 //cx q[11],q[7]
-swp q[17],q[18]; //cycle: 24689
+swap q[17],q[18]; //cycle: 24689
 cx q[17],q[12]; //cycle: 24695 //cx q[9],q[11]
 cx q[18],q[17]; //cycle: 24697 //cx q[7],q[9]
 h q[12]; //cycle: 24697 //h q[11]
@@ -19888,7 +19888,7 @@ t q[17]; //cycle: 24699 //t q[9]
 t q[12]; //cycle: 24699 //t q[11]
 t q[18]; //cycle: 24700 //t q[7]
 cx q[18],q[14]; //cycle: 24701 //cx q[7],q[5]
-swp q[8],q[13]; //cycle: 24702
+swap q[8],q[13]; //cycle: 24702
 tdg q[14]; //cycle: 24703 //tdg q[5]
 cx q[13],q[18]; //cycle: 24708 //cx q[10],q[7]
 cx q[13],q[14]; //cycle: 24710 //cx q[10],q[5]
@@ -19903,21 +19903,21 @@ h q[18]; //cycle: 24718 //h q[7]
 h q[14]; //cycle: 24719 //h q[5]
 t q[13]; //cycle: 24719 //t q[10]
 t q[18]; //cycle: 24719 //t q[7]
-swp q[11],q[12]; //cycle: 24720
+swap q[11],q[12]; //cycle: 24720
 t q[14]; //cycle: 24720 //t q[5]
-swp q[13],q[14]; //cycle: 24721
+swap q[13],q[14]; //cycle: 24721
 cx q[13],q[12]; //cycle: 24727 //cx q[5],q[4]
-swp q[6],q[10]; //cycle: 24729
-swp q[7],q[13]; //cycle: 24729
+swap q[6],q[10]; //cycle: 24729
+swap q[7],q[13]; //cycle: 24729
 tdg q[12]; //cycle: 24729 //tdg q[4]
 cx q[6],q[7]; //cycle: 24735 //cx q[12],q[5]
-swp q[6],q[11]; //cycle: 24737
+swap q[6],q[11]; //cycle: 24737
 t q[7]; //cycle: 24737 //t q[5]
 cx q[11],q[12]; //cycle: 24743 //cx q[12],q[4]
 tdg q[11]; //cycle: 24745 //tdg q[12]
 tdg q[12]; //cycle: 24745 //tdg q[4]
 cx q[7],q[12]; //cycle: 24746 //cx q[5],q[4]
-swp q[11],q[12]; //cycle: 24748
+swap q[11],q[12]; //cycle: 24748
 cx q[12],q[7]; //cycle: 24754 //cx q[12],q[5]
 cx q[11],q[12]; //cycle: 24756 //cx q[4],q[12]
 h q[7]; //cycle: 24756 //h q[5]
@@ -19942,7 +19942,7 @@ h q[5]; //cycle: 24773 //h q[3]
 t q[10]; //cycle: 24773 //t q[13]
 t q[11]; //cycle: 24773 //t q[4]
 t q[5]; //cycle: 24774 //t q[3]
-swp q[5],q[6]; //cycle: 24775
+swap q[5],q[6]; //cycle: 24775
 cx q[6],q[1]; //cycle: 24781 //cx q[3],q[14]
 cx q[2],q[6]; //cycle: 24783 //cx q[15],q[3]
 tdg q[1]; //cycle: 24783 //tdg q[14]
@@ -19975,24 +19975,24 @@ cx q[11],q[12]; //cycle: 24809 //cx q[4],q[12]
 t q[10]; //cycle: 24809 //t q[13]
 t q[6]; //cycle: 24809 //t q[3]
 cx q[6],q[10]; //cycle: 24810 //cx q[3],q[13]
-swp q[7],q[12]; //cycle: 24811
+swap q[7],q[12]; //cycle: 24811
 cx q[12],q[11]; //cycle: 24817 //cx q[5],q[4]
 cx q[7],q[12]; //cycle: 24819 //cx q[12],q[5]
 tdg q[11]; //cycle: 24819 //tdg q[4]
-swp q[6],q[7]; //cycle: 24821
+swap q[6],q[7]; //cycle: 24821
 t q[12]; //cycle: 24821 //t q[5]
 cx q[6],q[11]; //cycle: 24827 //cx q[12],q[4]
 tdg q[6]; //cycle: 24829 //tdg q[12]
 tdg q[11]; //cycle: 24829 //tdg q[4]
 cx q[12],q[11]; //cycle: 24830 //cx q[5],q[4]
-swp q[6],q[7]; //cycle: 24831
+swap q[6],q[7]; //cycle: 24831
 cx q[7],q[12]; //cycle: 24837 //cx q[12],q[5]
-swp q[13],q[14]; //cycle: 24838
+swap q[13],q[14]; //cycle: 24838
 h q[12]; //cycle: 24839 //h q[5]
 t q[12]; //cycle: 24840 //t q[5]
-swp q[6],q[11]; //cycle: 24843
+swap q[6],q[11]; //cycle: 24843
 cx q[12],q[13]; //cycle: 24844 //cx q[5],q[10]
-swp q[12],q[17]; //cycle: 24846
+swap q[12],q[17]; //cycle: 24846
 cx q[6],q[7]; //cycle: 24849 //cx q[4],q[12]
 t q[7]; //cycle: 24851 //t q[12]
 t q[6]; //cycle: 24851 //t q[4]
@@ -20000,13 +20000,13 @@ cx q[18],q[17]; //cycle: 24852 //cx q[7],q[5]
 cx q[6],q[7]; //cycle: 24852 //cx q[4],q[12]
 cx q[13],q[18]; //cycle: 24854 //cx q[10],q[7]
 tdg q[17]; //cycle: 24854 //tdg q[5]
-swp q[12],q[13]; //cycle: 24856
+swap q[12],q[13]; //cycle: 24856
 t q[18]; //cycle: 24856 //t q[7]
 cx q[12],q[17]; //cycle: 24862 //cx q[10],q[5]
 tdg q[12]; //cycle: 24864 //tdg q[10]
 tdg q[17]; //cycle: 24864 //tdg q[5]
 cx q[18],q[17]; //cycle: 24865 //cx q[7],q[5]
-swp q[12],q[17]; //cycle: 24867
+swap q[12],q[17]; //cycle: 24867
 cx q[17],q[18]; //cycle: 24873 //cx q[10],q[7]
 cx q[12],q[17]; //cycle: 24875 //cx q[5],q[10]
 h q[18]; //cycle: 24875 //h q[7]
@@ -20015,10 +20015,10 @@ cx q[18],q[13]; //cycle: 24877 //cx q[7],q[9]
 t q[17]; //cycle: 24877 //t q[10]
 t q[12]; //cycle: 24877 //t q[5]
 cx q[12],q[17]; //cycle: 24878 //cx q[5],q[10]
-swp q[5],q[11]; //cycle: 24880
-swp q[17],q[18]; //cycle: 24880
+swap q[5],q[11]; //cycle: 24880
+swap q[17],q[18]; //cycle: 24880
 cx q[11],q[17]; //cycle: 24886 //cx q[11],q[7]
-swp q[12],q[13]; //cycle: 24887
+swap q[12],q[13]; //cycle: 24887
 tdg q[17]; //cycle: 24888 //tdg q[7]
 cx q[12],q[11]; //cycle: 24893 //cx q[9],q[11]
 cx q[12],q[17]; //cycle: 24895 //cx q[9],q[7]
@@ -20033,7 +20033,7 @@ t q[11]; //cycle: 24903 //t q[11]
 t q[12]; //cycle: 24904 //t q[9]
 t q[17]; //cycle: 24904 //t q[7]
 cx q[17],q[12]; //cycle: 24905 //cx q[7],q[9]
-swp q[8],q[12]; //cycle: 24907
+swap q[8],q[12]; //cycle: 24907
 cx q[11],q[12]; //cycle: 24913 //cx q[11],q[8]
 cx q[16],q[11]; //cycle: 24915 //cx q[6],q[11]
 cx q[12],q[16]; //cycle: 24917 //cx q[8],q[6]
@@ -20052,7 +20052,7 @@ h q[11]; //cycle: 24928 //h q[11]
 cx q[16],q[12]; //cycle: 24929 //cx q[6],q[8]
 t q[11]; //cycle: 24929 //t q[11]
 cx q[11],q[17]; //cycle: 24930 //cx q[11],q[7]
-swp q[8],q[12]; //cycle: 24931
+swap q[8],q[12]; //cycle: 24931
 tdg q[17]; //cycle: 24932 //tdg q[7]
 cx q[12],q[11]; //cycle: 24937 //cx q[9],q[11]
 cx q[12],q[17]; //cycle: 24939 //cx q[9],q[7]
@@ -20067,29 +20067,29 @@ h q[11]; //cycle: 24947 //h q[11]
 t q[12]; //cycle: 24948 //t q[9]
 t q[11]; //cycle: 24948 //t q[11]
 h q[17]; //cycle: 24948 //h q[7]
-swp q[12],q[13]; //cycle: 24949
+swap q[12],q[13]; //cycle: 24949
 t q[17]; //cycle: 24949 //t q[7]
 cx q[17],q[12]; //cycle: 24955 //cx q[7],q[5]
 cx q[18],q[17]; //cycle: 24957 //cx q[10],q[7]
 tdg q[12]; //cycle: 24957 //tdg q[5]
 t q[17]; //cycle: 24959 //t q[7]
-swp q[12],q[17]; //cycle: 24960
+swap q[12],q[17]; //cycle: 24960
 cx q[18],q[17]; //cycle: 24966 //cx q[10],q[5]
 tdg q[18]; //cycle: 24968 //tdg q[10]
 tdg q[17]; //cycle: 24968 //tdg q[5]
 cx q[12],q[17]; //cycle: 24969 //cx q[7],q[5]
-swp q[12],q[13]; //cycle: 24971
+swap q[12],q[13]; //cycle: 24971
 cx q[18],q[13]; //cycle: 24977 //cx q[10],q[7]
 cx q[17],q[18]; //cycle: 24979 //cx q[5],q[10]
 h q[13]; //cycle: 24979 //h q[7]
-swp q[6],q[11]; //cycle: 24980
+swap q[6],q[11]; //cycle: 24980
 h q[13]; //cycle: 24980 //h q[7]
 h q[17]; //cycle: 24981 //h q[5]
 t q[18]; //cycle: 24981 //t q[10]
 t q[13]; //cycle: 24981 //t q[7]
 t q[17]; //cycle: 24982 //t q[5]
 cx q[17],q[11]; //cycle: 24986 //cx q[5],q[4]
-swp q[7],q[12]; //cycle: 24987
+swap q[7],q[12]; //cycle: 24987
 tdg q[11]; //cycle: 24988 //tdg q[4]
 cx q[12],q[17]; //cycle: 24993 //cx q[12],q[5]
 cx q[12],q[11]; //cycle: 24995 //cx q[12],q[4]
@@ -20121,7 +20121,7 @@ h q[5]; //cycle: 25019 //h q[3]
 t q[10]; //cycle: 25019 //t q[13]
 t q[11]; //cycle: 25019 //t q[4]
 t q[5]; //cycle: 25020 //t q[3]
-swp q[5],q[6]; //cycle: 25021
+swap q[5],q[6]; //cycle: 25021
 cx q[6],q[1]; //cycle: 25027 //cx q[3],q[14]
 cx q[2],q[6]; //cycle: 25029 //cx q[15],q[3]
 tdg q[1]; //cycle: 25029 //tdg q[14]
@@ -20154,14 +20154,14 @@ t q[11]; //cycle: 25054 //t q[4]
 x q[10]; //cycle: 25055 //x q[13]
 t q[6]; //cycle: 25055 //t q[3]
 cx q[11],q[12]; //cycle: 25055 //cx q[4],q[12]
-swp q[2],q[3]; //cycle: 25056
+swap q[2],q[3]; //cycle: 25056
 t q[10]; //cycle: 25056 //t q[13]
 cx q[17],q[11]; //cycle: 25057 //cx q[5],q[4]
 cx q[12],q[17]; //cycle: 25059 //cx q[12],q[5]
 tdg q[11]; //cycle: 25059 //tdg q[4]
 cx q[12],q[11]; //cycle: 25061 //cx q[12],q[4]
 t q[17]; //cycle: 25061 //t q[5]
-swp q[2],q[6]; //cycle: 25063
+swap q[2],q[6]; //cycle: 25063
 tdg q[12]; //cycle: 25063 //tdg q[12]
 tdg q[11]; //cycle: 25063 //tdg q[4]
 cx q[17],q[11]; //cycle: 25064 //cx q[5],q[4]
@@ -20173,19 +20173,19 @@ t q[17]; //cycle: 25069 //t q[5]
 t q[11]; //cycle: 25070 //t q[4]
 t q[12]; //cycle: 25070 //t q[12]
 cx q[17],q[18]; //cycle: 25070 //cx q[5],q[10]
-swp q[12],q[17]; //cycle: 25072
-swp q[14],q[18]; //cycle: 25074
+swap q[12],q[17]; //cycle: 25072
+swap q[14],q[18]; //cycle: 25074
 cx q[13],q[12]; //cycle: 25078 //cx q[7],q[5]
 cx q[18],q[17]; //cycle: 25080 //cx q[2],q[12]
 cx q[14],q[13]; //cycle: 25080 //cx q[10],q[7]
 tdg q[12]; //cycle: 25080 //tdg q[5]
 t q[13]; //cycle: 25082 //t q[7]
-swp q[12],q[13]; //cycle: 25083
+swap q[12],q[13]; //cycle: 25083
 cx q[14],q[13]; //cycle: 25089 //cx q[10],q[5]
 tdg q[14]; //cycle: 25091 //tdg q[10]
 tdg q[13]; //cycle: 25091 //tdg q[5]
 cx q[12],q[13]; //cycle: 25092 //cx q[7],q[5]
-swp q[13],q[14]; //cycle: 25094
+swap q[13],q[14]; //cycle: 25094
 cx q[13],q[12]; //cycle: 25100 //cx q[10],q[7]
 cx q[14],q[13]; //cycle: 25102 //cx q[5],q[10]
 h q[12]; //cycle: 25102 //h q[7]
@@ -20193,13 +20193,13 @@ t q[12]; //cycle: 25103 //t q[7]
 cx q[12],q[7]; //cycle: 25104 //cx q[7],q[9]
 x q[13]; //cycle: 25104 //x q[10]
 t q[14]; //cycle: 25104 //t q[5]
-swp q[5],q[11]; //cycle: 25105
+swap q[5],q[11]; //cycle: 25105
 t q[13]; //cycle: 25105 //t q[10]
 cx q[11],q[12]; //cycle: 25111 //cx q[11],q[7]
-swp q[6],q[7]; //cycle: 25112
-swp q[5],q[11]; //cycle: 25113
+swap q[6],q[7]; //cycle: 25112
+swap q[5],q[11]; //cycle: 25113
 tdg q[12]; //cycle: 25113 //tdg q[7]
-swp q[11],q[12]; //cycle: 25119
+swap q[11],q[12]; //cycle: 25119
 cx q[6],q[5]; //cycle: 25119 //cx q[9],q[11]
 t q[5]; //cycle: 25121 //t q[11]
 cx q[6],q[11]; //cycle: 25125 //cx q[9],q[7]
@@ -20213,17 +20213,17 @@ h q[5]; //cycle: 25132 //h q[11]
 t q[5]; //cycle: 25133 //t q[11]
 h q[11]; //cycle: 25134 //h q[7]
 t q[6]; //cycle: 25134 //t q[9]
-swp q[13],q[14]; //cycle: 25135
+swap q[13],q[14]; //cycle: 25135
 t q[11]; //cycle: 25135 //t q[7]
 cx q[11],q[16]; //cycle: 25136 //cx q[7],q[6]
-swp q[6],q[7]; //cycle: 25137
-swp q[8],q[12]; //cycle: 25137
+swap q[6],q[7]; //cycle: 25137
+swap q[8],q[12]; //cycle: 25137
 tdg q[16]; //cycle: 25138 //tdg q[6]
 cx q[12],q[11]; //cycle: 25143 //cx q[8],q[7]
 cx q[13],q[7]; //cycle: 25143 //cx q[5],q[9]
 cx q[12],q[16]; //cycle: 25145 //cx q[8],q[6]
 t q[11]; //cycle: 25145 //t q[7]
-swp q[5],q[6]; //cycle: 25146
+swap q[5],q[6]; //cycle: 25146
 tdg q[12]; //cycle: 25147 //tdg q[8]
 tdg q[16]; //cycle: 25147 //tdg q[6]
 cx q[11],q[16]; //cycle: 25148 //cx q[7],q[6]
@@ -20236,7 +20236,7 @@ t q[12]; //cycle: 25154 //t q[8]
 t q[11]; //cycle: 25154 //t q[7]
 h q[16]; //cycle: 25154 //h q[6]
 t q[16]; //cycle: 25155 //t q[6]
-swp q[12],q[16]; //cycle: 25156
+swap q[12],q[16]; //cycle: 25156
 cx q[12],q[13]; //cycle: 25162 //cx q[6],q[5]
 cx q[7],q[12]; //cycle: 25164 //cx q[9],q[6]
 tdg q[13]; //cycle: 25164 //tdg q[5]
@@ -20256,13 +20256,13 @@ t q[13]; //cycle: 25176 //t q[5]
 cx q[13],q[8]; //cycle: 25177 //cx q[5],q[4]
 cx q[14],q[13]; //cycle: 25179 //cx q[10],q[5]
 tdg q[8]; //cycle: 25179 //tdg q[4]
-swp q[9],q[14]; //cycle: 25181
+swap q[9],q[14]; //cycle: 25181
 t q[13]; //cycle: 25181 //t q[5]
 cx q[9],q[8]; //cycle: 25187 //cx q[10],q[4]
 tdg q[9]; //cycle: 25189 //tdg q[10]
 tdg q[8]; //cycle: 25189 //tdg q[4]
 cx q[13],q[8]; //cycle: 25190 //cx q[5],q[4]
-swp q[13],q[14]; //cycle: 25192
+swap q[13],q[14]; //cycle: 25192
 cx q[9],q[14]; //cycle: 25198 //cx q[10],q[5]
 cx q[8],q[9]; //cycle: 25200 //cx q[4],q[10]
 h q[14]; //cycle: 25200 //h q[5]
@@ -20271,7 +20271,7 @@ t q[9]; //cycle: 25202 //t q[10]
 t q[14]; //cycle: 25202 //t q[5]
 h q[8]; //cycle: 25202 //h q[4]
 t q[8]; //cycle: 25203 //t q[4]
-swp q[7],q[8]; //cycle: 25204
+swap q[7],q[8]; //cycle: 25204
 cx q[7],q[2]; //cycle: 25210 //cx q[4],q[3]
 cx q[6],q[7]; //cycle: 25212 //cx q[11],q[4]
 tdg q[2]; //cycle: 25212 //tdg q[3]
@@ -20283,15 +20283,15 @@ cx q[7],q[2]; //cycle: 25217 //cx q[4],q[3]
 cx q[6],q[7]; //cycle: 25219 //cx q[11],q[4]
 cx q[2],q[6]; //cycle: 25221 //cx q[3],q[11]
 h q[7]; //cycle: 25221 //h q[4]
-swp q[13],q[18]; //cycle: 25222
+swap q[13],q[18]; //cycle: 25222
 h q[7]; //cycle: 25222 //h q[4]
 h q[2]; //cycle: 25223 //h q[3]
 t q[6]; //cycle: 25223 //t q[11]
 t q[7]; //cycle: 25223 //t q[4]
 t q[2]; //cycle: 25224 //t q[3]
-swp q[2],q[7]; //cycle: 25225
+swap q[2],q[7]; //cycle: 25225
 cx q[7],q[13]; //cycle: 25231 //cx q[3],q[2]
-swp q[12],q[17]; //cycle: 25232
+swap q[12],q[17]; //cycle: 25232
 tdg q[13]; //cycle: 25233 //tdg q[2]
 cx q[12],q[7]; //cycle: 25238 //cx q[12],q[3]
 cx q[12],q[13]; //cycle: 25240 //cx q[12],q[2]
@@ -20307,8 +20307,8 @@ h q[13]; //cycle: 25249 //h q[2]
 t q[12]; //cycle: 25249 //t q[12]
 t q[7]; //cycle: 25249 //t q[3]
 t q[13]; //cycle: 25250 //t q[2]
-swp q[12],q[13]; //cycle: 25251
-swp q[11],q[12]; //cycle: 25257
+swap q[12],q[13]; //cycle: 25251
+swap q[11],q[12]; //cycle: 25257
 cx q[11],q[5]; //cycle: 25263 //cx q[2],q[1]
 cx q[10],q[11]; //cycle: 25265 //cx q[13],q[2]
 tdg q[5]; //cycle: 25265 //tdg q[1]
@@ -20325,9 +20325,9 @@ h q[5]; //cycle: 25276 //h q[1]
 t q[10]; //cycle: 25276 //t q[13]
 t q[11]; //cycle: 25276 //t q[2]
 t q[5]; //cycle: 25277 //t q[1]
-swp q[5],q[6]; //cycle: 25278
+swap q[5],q[6]; //cycle: 25278
 cx q[6],q[1]; //cycle: 25284 //cx q[1],q[14]
-swp q[2],q[3]; //cycle: 25285
+swap q[2],q[3]; //cycle: 25285
 tdg q[1]; //cycle: 25286 //tdg q[14]
 cx q[2],q[6]; //cycle: 25291 //cx q[15],q[1]
 cx q[2],q[1]; //cycle: 25293 //cx q[15],q[14]
@@ -20355,7 +20355,7 @@ cx q[10],q[11]; //cycle: 25313 //cx q[13],q[2]
 cx q[6],q[10]; //cycle: 25315 //cx q[1],q[13]
 h q[11]; //cycle: 25315 //h q[2]
 t q[11]; //cycle: 25316 //t q[2]
-swp q[11],q[12]; //cycle: 25317
+swap q[11],q[12]; //cycle: 25317
 t q[10]; //cycle: 25317 //t q[13]
 t q[6]; //cycle: 25317 //t q[1]
 cx q[6],q[10]; //cycle: 25318 //cx q[1],q[13]
@@ -20369,7 +20369,7 @@ tdg q[13]; //cycle: 25331 //tdg q[12]
 tdg q[12]; //cycle: 25331 //tdg q[2]
 cx q[7],q[12]; //cycle: 25332 //cx q[3],q[2]
 cx q[13],q[7]; //cycle: 25334 //cx q[12],q[3]
-swp q[5],q[6]; //cycle: 25335
+swap q[5],q[6]; //cycle: 25335
 cx q[12],q[13]; //cycle: 25336 //cx q[2],q[12]
 h q[7]; //cycle: 25336 //h q[3]
 t q[7]; //cycle: 25337 //t q[3]
@@ -20377,7 +20377,7 @@ t q[13]; //cycle: 25338 //t q[12]
 t q[12]; //cycle: 25338 //t q[2]
 cx q[12],q[13]; //cycle: 25339 //cx q[2],q[12]
 cx q[7],q[6]; //cycle: 25341 //cx q[3],q[11]
-swp q[2],q[3]; //cycle: 25342
+swap q[2],q[3]; //cycle: 25342
 cx q[2],q[7]; //cycle: 25348 //cx q[4],q[3]
 tdg q[7]; //cycle: 25350 //tdg q[3]
 cx q[6],q[2]; //cycle: 25350 //cx q[11],q[4]
@@ -20387,7 +20387,7 @@ tdg q[6]; //cycle: 25354 //tdg q[11]
 tdg q[7]; //cycle: 25354 //tdg q[3]
 cx q[2],q[7]; //cycle: 25355 //cx q[4],q[3]
 cx q[6],q[2]; //cycle: 25357 //cx q[11],q[4]
-swp q[3],q[9]; //cycle: 25358
+swap q[3],q[9]; //cycle: 25358
 cx q[7],q[6]; //cycle: 25359 //cx q[3],q[11]
 h q[2]; //cycle: 25359 //h q[4]
 t q[2]; //cycle: 25360 //t q[4]
@@ -20395,10 +20395,10 @@ t q[6]; //cycle: 25361 //t q[11]
 t q[7]; //cycle: 25361 //t q[3]
 cx q[7],q[6]; //cycle: 25362 //cx q[3],q[11]
 cx q[2],q[3]; //cycle: 25364 //cx q[4],q[10]
-swp q[2],q[7]; //cycle: 25366
-swp q[13],q[14]; //cycle: 25366
+swap q[2],q[7]; //cycle: 25366
+swap q[13],q[14]; //cycle: 25366
 cx q[13],q[7]; //cycle: 25372 //cx q[5],q[4]
-swp q[3],q[8]; //cycle: 25373
+swap q[3],q[8]; //cycle: 25373
 tdg q[7]; //cycle: 25374 //tdg q[4]
 cx q[8],q[13]; //cycle: 25379 //cx q[10],q[5]
 cx q[8],q[7]; //cycle: 25381 //cx q[10],q[4]
@@ -20413,9 +20413,9 @@ t q[13]; //cycle: 25389 //t q[5]
 t q[8]; //cycle: 25390 //t q[10]
 t q[7]; //cycle: 25390 //t q[4]
 cx q[7],q[8]; //cycle: 25391 //cx q[4],q[10]
-swp q[3],q[8]; //cycle: 25393
+swap q[3],q[8]; //cycle: 25393
 cx q[13],q[8]; //cycle: 25399 //cx q[5],q[9]
-swp q[12],q[17]; //cycle: 25400
+swap q[12],q[17]; //cycle: 25400
 cx q[12],q[13]; //cycle: 25406 //cx q[6],q[5]
 cx q[8],q[12]; //cycle: 25408 //cx q[9],q[6]
 tdg q[13]; //cycle: 25408 //tdg q[5]
@@ -20465,7 +20465,7 @@ t q[12]; //cycle: 25449 //t q[6]
 h q[13]; //cycle: 25449 //h q[5]
 t q[13]; //cycle: 25450 //t q[5]
 cx q[13],q[7]; //cycle: 25451 //cx q[5],q[4]
-swp q[3],q[8]; //cycle: 25452
+swap q[3],q[8]; //cycle: 25452
 tdg q[7]; //cycle: 25453 //tdg q[4]
 cx q[8],q[13]; //cycle: 25458 //cx q[10],q[5]
 cx q[8],q[7]; //cycle: 25460 //cx q[10],q[4]
@@ -20492,15 +20492,15 @@ cx q[7],q[2]; //cycle: 25478 //cx q[4],q[3]
 cx q[6],q[7]; //cycle: 25480 //cx q[11],q[4]
 cx q[2],q[6]; //cycle: 25482 //cx q[3],q[11]
 h q[7]; //cycle: 25482 //h q[4]
-swp q[12],q[17]; //cycle: 25483
+swap q[12],q[17]; //cycle: 25483
 h q[7]; //cycle: 25483 //h q[4]
 t q[6]; //cycle: 25484 //t q[11]
 t q[7]; //cycle: 25484 //t q[4]
 h q[2]; //cycle: 25484 //h q[3]
 t q[2]; //cycle: 25485 //t q[3]
-swp q[2],q[7]; //cycle: 25486
+swap q[2],q[7]; //cycle: 25486
 cx q[7],q[12]; //cycle: 25492 //cx q[3],q[2]
-swp q[13],q[14]; //cycle: 25493
+swap q[13],q[14]; //cycle: 25493
 tdg q[12]; //cycle: 25494 //tdg q[2]
 cx q[13],q[7]; //cycle: 25499 //cx q[12],q[3]
 cx q[13],q[12]; //cycle: 25501 //cx q[12],q[2]
@@ -20511,7 +20511,7 @@ cx q[7],q[12]; //cycle: 25504 //cx q[3],q[2]
 cx q[13],q[7]; //cycle: 25506 //cx q[12],q[3]
 cx q[12],q[13]; //cycle: 25508 //cx q[2],q[12]
 h q[7]; //cycle: 25508 //h q[3]
-swp q[5],q[11]; //cycle: 25509
+swap q[5],q[11]; //cycle: 25509
 h q[7]; //cycle: 25509 //h q[3]
 t q[13]; //cycle: 25510 //t q[12]
 t q[7]; //cycle: 25510 //t q[3]
@@ -20519,15 +20519,15 @@ h q[12]; //cycle: 25510 //h q[2]
 t q[12]; //cycle: 25511 //t q[2]
 cx q[12],q[11]; //cycle: 25515 //cx q[2],q[1]
 tdg q[11]; //cycle: 25517 //tdg q[1]
-swp q[10],q[11]; //cycle: 25518
+swap q[10],q[11]; //cycle: 25518
 cx q[11],q[12]; //cycle: 25524 //cx q[13],q[2]
 cx q[11],q[10]; //cycle: 25526 //cx q[13],q[1]
 t q[12]; //cycle: 25526 //t q[2]
 tdg q[11]; //cycle: 25528 //tdg q[13]
 tdg q[10]; //cycle: 25528 //tdg q[1]
-swp q[10],q[11]; //cycle: 25529
+swap q[10],q[11]; //cycle: 25529
 cx q[12],q[11]; //cycle: 25535 //cx q[2],q[1]
-swp q[10],q[11]; //cycle: 25537
+swap q[10],q[11]; //cycle: 25537
 cx q[11],q[12]; //cycle: 25543 //cx q[13],q[2]
 cx q[10],q[11]; //cycle: 25545 //cx q[1],q[13]
 h q[12]; //cycle: 25545 //h q[2]
@@ -20536,11 +20536,11 @@ h q[10]; //cycle: 25547 //h q[1]
 t q[11]; //cycle: 25547 //t q[13]
 t q[12]; //cycle: 25547 //t q[2]
 t q[10]; //cycle: 25548 //t q[1]
-swp q[6],q[10]; //cycle: 25549
+swap q[6],q[10]; //cycle: 25549
 cx q[6],q[1]; //cycle: 25555 //cx q[1],q[14]
-swp q[8],q[9]; //cycle: 25556
+swap q[8],q[9]; //cycle: 25556
 tdg q[1]; //cycle: 25557 //tdg q[14]
-swp q[7],q[8]; //cycle: 25562
+swap q[7],q[8]; //cycle: 25562
 cx q[7],q[6]; //cycle: 25568 //cx q[15],q[1]
 cx q[7],q[1]; //cycle: 25570 //cx q[15],q[14]
 t q[6]; //cycle: 25570 //t q[1]
@@ -20555,19 +20555,19 @@ t q[7]; //cycle: 25579 //t q[15]
 t q[1]; //cycle: 25579 //t q[14]
 cx q[6],q[11]; //cycle: 25579 //cx q[1],q[13]
 cx q[1],q[7]; //cycle: 25580 //cx q[14],q[15]
-swp q[6],q[7]; //cycle: 25582
+swap q[6],q[7]; //cycle: 25582
 cx q[12],q[7]; //cycle: 25588 //cx q[2],q[1]
 cx q[11],q[12]; //cycle: 25590 //cx q[13],q[2]
 tdg q[7]; //cycle: 25590 //tdg q[1]
-swp q[6],q[11]; //cycle: 25592
+swap q[6],q[11]; //cycle: 25592
 t q[12]; //cycle: 25592 //t q[2]
 cx q[6],q[7]; //cycle: 25598 //cx q[13],q[1]
 tdg q[6]; //cycle: 25600 //tdg q[13]
 tdg q[7]; //cycle: 25600 //tdg q[1]
 cx q[12],q[7]; //cycle: 25601 //cx q[2],q[1]
-swp q[6],q[11]; //cycle: 25602
+swap q[6],q[11]; //cycle: 25602
 cx q[11],q[12]; //cycle: 25608 //cx q[13],q[2]
-swp q[6],q[7]; //cycle: 25610
+swap q[6],q[7]; //cycle: 25610
 h q[12]; //cycle: 25610 //h q[2]
 t q[12]; //cycle: 25611 //t q[2]
 cx q[12],q[13]; //cycle: 25612 //cx q[2],q[12]
@@ -20586,9 +20586,9 @@ cx q[8],q[12]; //cycle: 25621 //cx q[3],q[2]
 cx q[13],q[8]; //cycle: 25623 //cx q[12],q[3]
 cx q[12],q[13]; //cycle: 25625 //cx q[2],q[12]
 h q[8]; //cycle: 25625 //h q[3]
-swp q[6],q[10]; //cycle: 25626
+swap q[6],q[10]; //cycle: 25626
 t q[8]; //cycle: 25626 //t q[3]
-swp q[7],q[8]; //cycle: 25627
+swap q[7],q[8]; //cycle: 25627
 t q[13]; //cycle: 25627 //t q[12]
 t q[12]; //cycle: 25627 //t q[2]
 cx q[12],q[13]; //cycle: 25628 //cx q[2],q[12]
@@ -20602,7 +20602,7 @@ tdg q[6]; //cycle: 25641 //tdg q[11]
 tdg q[7]; //cycle: 25641 //tdg q[3]
 cx q[2],q[7]; //cycle: 25642 //cx q[4],q[3]
 cx q[6],q[2]; //cycle: 25644 //cx q[11],q[4]
-swp q[3],q[9]; //cycle: 25645
+swap q[3],q[9]; //cycle: 25645
 cx q[7],q[6]; //cycle: 25646 //cx q[3],q[11]
 h q[2]; //cycle: 25646 //h q[4]
 t q[2]; //cycle: 25647 //t q[4]
@@ -20610,10 +20610,10 @@ t q[6]; //cycle: 25648 //t q[11]
 t q[7]; //cycle: 25648 //t q[3]
 cx q[7],q[6]; //cycle: 25649 //cx q[3],q[11]
 cx q[2],q[3]; //cycle: 25651 //cx q[4],q[10]
-swp q[2],q[7]; //cycle: 25653
-swp q[13],q[14]; //cycle: 25653
+swap q[2],q[7]; //cycle: 25653
+swap q[13],q[14]; //cycle: 25653
 cx q[13],q[7]; //cycle: 25659 //cx q[5],q[4]
-swp q[3],q[8]; //cycle: 25660
+swap q[3],q[8]; //cycle: 25660
 tdg q[7]; //cycle: 25661 //tdg q[4]
 cx q[8],q[13]; //cycle: 25666 //cx q[10],q[5]
 cx q[8],q[7]; //cycle: 25668 //cx q[10],q[4]
@@ -20622,7 +20622,7 @@ tdg q[8]; //cycle: 25670 //tdg q[10]
 tdg q[7]; //cycle: 25670 //tdg q[4]
 cx q[13],q[7]; //cycle: 25671 //cx q[5],q[4]
 cx q[8],q[13]; //cycle: 25673 //cx q[10],q[5]
-swp q[9],q[14]; //cycle: 25674
+swap q[9],q[14]; //cycle: 25674
 cx q[7],q[8]; //cycle: 25675 //cx q[4],q[10]
 h q[13]; //cycle: 25675 //h q[5]
 t q[13]; //cycle: 25676 //t q[5]
@@ -20630,7 +20630,7 @@ t q[8]; //cycle: 25677 //t q[10]
 t q[7]; //cycle: 25677 //t q[4]
 cx q[7],q[8]; //cycle: 25678 //cx q[4],q[10]
 cx q[13],q[14]; //cycle: 25680 //cx q[5],q[9]
-swp q[17],q[18]; //cycle: 25681
+swap q[17],q[18]; //cycle: 25681
 cx q[18],q[13]; //cycle: 25687 //cx q[6],q[5]
 cx q[14],q[18]; //cycle: 25689 //cx q[9],q[6]
 tdg q[13]; //cycle: 25689 //tdg q[5]
@@ -20640,14 +20640,14 @@ tdg q[14]; //cycle: 25693 //tdg q[9]
 tdg q[13]; //cycle: 25693 //tdg q[5]
 cx q[18],q[13]; //cycle: 25694 //cx q[6],q[5]
 cx q[14],q[18]; //cycle: 25696 //cx q[9],q[6]
-swp q[5],q[11]; //cycle: 25698
+swap q[5],q[11]; //cycle: 25698
 cx q[13],q[14]; //cycle: 25698 //cx q[5],q[9]
 h q[18]; //cycle: 25698 //h q[6]
 h q[18]; //cycle: 25699 //h q[6]
 t q[18]; //cycle: 25700 //t q[6]
 t q[14]; //cycle: 25700 //t q[9]
 t q[13]; //cycle: 25700 //t q[5]
-swp q[17],q[18]; //cycle: 25701
+swap q[17],q[18]; //cycle: 25701
 cx q[13],q[14]; //cycle: 25701 //cx q[5],q[9]
 cx q[17],q[11]; //cycle: 25707 //cx q[6],q[7]
 cx q[16],q[17]; //cycle: 25709 //cx q[8],q[6]
@@ -20660,24 +20660,24 @@ cx q[17],q[11]; //cycle: 25714 //cx q[6],q[7]
 cx q[16],q[17]; //cycle: 25716 //cx q[8],q[6]
 cx q[11],q[16]; //cycle: 25718 //cx q[7],q[8]
 h q[17]; //cycle: 25718 //h q[6]
-swp q[12],q[13]; //cycle: 25719
+swap q[12],q[13]; //cycle: 25719
 h q[17]; //cycle: 25719 //h q[6]
 h q[11]; //cycle: 25720 //h q[7]
 t q[16]; //cycle: 25720 //t q[8]
 t q[17]; //cycle: 25720 //t q[6]
 t q[11]; //cycle: 25721 //t q[7]
 cx q[11],q[12]; //cycle: 25725 //cx q[7],q[5]
-swp q[14],q[18]; //cycle: 25726
-swp q[11],q[17]; //cycle: 25727
+swap q[14],q[18]; //cycle: 25726
+swap q[11],q[17]; //cycle: 25727
 tdg q[12]; //cycle: 25727 //tdg q[5]
 cx q[18],q[17]; //cycle: 25733 //cx q[9],q[7]
-swp q[13],q[18]; //cycle: 25735
+swap q[13],q[18]; //cycle: 25735
 t q[17]; //cycle: 25735 //t q[7]
 cx q[13],q[12]; //cycle: 25741 //cx q[9],q[5]
 tdg q[13]; //cycle: 25743 //tdg q[9]
 tdg q[12]; //cycle: 25743 //tdg q[5]
 cx q[17],q[12]; //cycle: 25744 //cx q[7],q[5]
-swp q[17],q[18]; //cycle: 25746
+swap q[17],q[18]; //cycle: 25746
 cx q[13],q[18]; //cycle: 25752 //cx q[9],q[7]
 cx q[12],q[13]; //cycle: 25754 //cx q[5],q[9]
 h q[18]; //cycle: 25754 //h q[7]
@@ -20718,10 +20718,10 @@ h q[2]; //cycle: 25786 //h q[3]
 t q[6]; //cycle: 25786 //t q[11]
 t q[7]; //cycle: 25786 //t q[4]
 t q[2]; //cycle: 25787 //t q[3]
-swp q[2],q[7]; //cycle: 25788
-swp q[12],q[17]; //cycle: 25788
+swap q[2],q[7]; //cycle: 25788
+swap q[12],q[17]; //cycle: 25788
 cx q[7],q[12]; //cycle: 25794 //cx q[3],q[2]
-swp q[8],q[9]; //cycle: 25795
+swap q[8],q[9]; //cycle: 25795
 tdg q[12]; //cycle: 25796 //tdg q[2]
 cx q[8],q[7]; //cycle: 25801 //cx q[12],q[3]
 cx q[8],q[12]; //cycle: 25803 //cx q[12],q[2]
@@ -20737,7 +20737,7 @@ h q[12]; //cycle: 25812 //h q[2]
 t q[8]; //cycle: 25812 //t q[12]
 t q[7]; //cycle: 25812 //t q[3]
 t q[12]; //cycle: 25813 //t q[2]
-swp q[11],q[12]; //cycle: 25814
+swap q[11],q[12]; //cycle: 25814
 cx q[11],q[10]; //cycle: 25820 //cx q[2],q[1]
 cx q[5],q[11]; //cycle: 25822 //cx q[13],q[2]
 tdg q[10]; //cycle: 25822 //tdg q[1]
@@ -20754,9 +20754,9 @@ h q[10]; //cycle: 25833 //h q[1]
 t q[5]; //cycle: 25833 //t q[13]
 t q[11]; //cycle: 25833 //t q[2]
 t q[10]; //cycle: 25834 //t q[1]
-swp q[6],q[10]; //cycle: 25835
+swap q[6],q[10]; //cycle: 25835
 cx q[6],q[1]; //cycle: 25841 //cx q[1],q[14]
-swp q[2],q[3]; //cycle: 25842
+swap q[2],q[3]; //cycle: 25842
 tdg q[1]; //cycle: 25843 //tdg q[14]
 cx q[2],q[6]; //cycle: 25848 //cx q[15],q[1]
 cx q[2],q[1]; //cycle: 25850 //cx q[15],q[14]
@@ -20784,7 +20784,7 @@ cx q[5],q[11]; //cycle: 25870 //cx q[13],q[2]
 cx q[6],q[5]; //cycle: 25872 //cx q[1],q[13]
 h q[11]; //cycle: 25872 //h q[2]
 t q[11]; //cycle: 25873 //t q[2]
-swp q[11],q[12]; //cycle: 25874
+swap q[11],q[12]; //cycle: 25874
 t q[5]; //cycle: 25874 //t q[13]
 t q[6]; //cycle: 25874 //t q[1]
 cx q[6],q[5]; //cycle: 25875 //cx q[1],q[13]
@@ -20798,7 +20798,7 @@ tdg q[8]; //cycle: 25888 //tdg q[12]
 tdg q[12]; //cycle: 25888 //tdg q[2]
 cx q[7],q[12]; //cycle: 25889 //cx q[3],q[2]
 cx q[8],q[7]; //cycle: 25891 //cx q[12],q[3]
-swp q[6],q[10]; //cycle: 25892
+swap q[6],q[10]; //cycle: 25892
 cx q[12],q[8]; //cycle: 25893 //cx q[2],q[12]
 h q[7]; //cycle: 25893 //h q[3]
 t q[7]; //cycle: 25894 //t q[3]
@@ -20806,7 +20806,7 @@ t q[8]; //cycle: 25895 //t q[12]
 t q[12]; //cycle: 25895 //t q[2]
 cx q[12],q[8]; //cycle: 25896 //cx q[2],q[12]
 cx q[7],q[6]; //cycle: 25898 //cx q[3],q[11]
-swp q[2],q[3]; //cycle: 25899
+swap q[2],q[3]; //cycle: 25899
 cx q[2],q[7]; //cycle: 25905 //cx q[4],q[3]
 cx q[6],q[2]; //cycle: 25907 //cx q[11],q[4]
 tdg q[7]; //cycle: 25907 //tdg q[3]
@@ -20816,7 +20816,7 @@ tdg q[6]; //cycle: 25911 //tdg q[11]
 tdg q[7]; //cycle: 25911 //tdg q[3]
 cx q[2],q[7]; //cycle: 25912 //cx q[4],q[3]
 cx q[6],q[2]; //cycle: 25914 //cx q[11],q[4]
-swp q[3],q[9]; //cycle: 25915
+swap q[3],q[9]; //cycle: 25915
 cx q[7],q[6]; //cycle: 25916 //cx q[3],q[11]
 h q[2]; //cycle: 25916 //h q[4]
 t q[2]; //cycle: 25917 //t q[4]
@@ -20824,10 +20824,10 @@ t q[6]; //cycle: 25918 //t q[11]
 t q[7]; //cycle: 25918 //t q[3]
 cx q[7],q[6]; //cycle: 25919 //cx q[3],q[11]
 cx q[2],q[3]; //cycle: 25921 //cx q[4],q[10]
-swp q[2],q[7]; //cycle: 25923
-swp q[12],q[17]; //cycle: 25923
+swap q[2],q[7]; //cycle: 25923
+swap q[12],q[17]; //cycle: 25923
 cx q[12],q[7]; //cycle: 25929 //cx q[5],q[4]
-swp q[3],q[8]; //cycle: 25930
+swap q[3],q[8]; //cycle: 25930
 tdg q[7]; //cycle: 25931 //tdg q[4]
 cx q[8],q[12]; //cycle: 25936 //cx q[10],q[5]
 cx q[8],q[7]; //cycle: 25938 //cx q[10],q[4]
@@ -20843,19 +20843,19 @@ cx q[12],q[13]; //cycle: 25947 //cx q[5],q[9]
 t q[8]; //cycle: 25947 //t q[10]
 t q[7]; //cycle: 25947 //t q[4]
 cx q[7],q[8]; //cycle: 25948 //cx q[4],q[10]
-swp q[13],q[18]; //cycle: 25949
+swap q[13],q[18]; //cycle: 25949
 cx q[13],q[12]; //cycle: 25955 //cx q[7],q[5]
 cx q[18],q[13]; //cycle: 25957 //cx q[9],q[7]
 tdg q[12]; //cycle: 25957 //tdg q[5]
-swp q[17],q[18]; //cycle: 25959
+swap q[17],q[18]; //cycle: 25959
 t q[13]; //cycle: 25959 //t q[7]
 cx q[17],q[12]; //cycle: 25965 //cx q[9],q[5]
 tdg q[17]; //cycle: 25967 //tdg q[9]
 tdg q[12]; //cycle: 25967 //tdg q[5]
 cx q[13],q[12]; //cycle: 25968 //cx q[7],q[5]
-swp q[12],q[13]; //cycle: 25970
+swap q[12],q[13]; //cycle: 25970
 cx q[17],q[12]; //cycle: 25976 //cx q[9],q[7]
-swp q[13],q[18]; //cycle: 25978
+swap q[13],q[18]; //cycle: 25978
 h q[12]; //cycle: 25978 //h q[7]
 t q[12]; //cycle: 25979 //t q[7]
 cx q[12],q[16]; //cycle: 25980 //cx q[7],q[8]
@@ -20874,19 +20874,19 @@ cx q[11],q[12]; //cycle: 25989 //cx q[6],q[7]
 cx q[16],q[11]; //cycle: 25991 //cx q[8],q[6]
 cx q[12],q[16]; //cycle: 25993 //cx q[7],q[8]
 h q[11]; //cycle: 25993 //h q[6]
-swp q[13],q[18]; //cycle: 25994
+swap q[13],q[18]; //cycle: 25994
 h q[12]; //cycle: 25995 //h q[7]
 t q[12]; //cycle: 25996 //t q[7]
 cx q[12],q[13]; //cycle: 26000 //cx q[7],q[5]
 cx q[17],q[12]; //cycle: 26002 //cx q[9],q[7]
 tdg q[13]; //cycle: 26002 //tdg q[5]
-swp q[17],q[18]; //cycle: 26004
+swap q[17],q[18]; //cycle: 26004
 t q[12]; //cycle: 26004 //t q[7]
 cx q[18],q[13]; //cycle: 26010 //cx q[9],q[5]
 tdg q[18]; //cycle: 26012 //tdg q[9]
 tdg q[13]; //cycle: 26012 //tdg q[5]
 cx q[12],q[13]; //cycle: 26013 //cx q[7],q[5]
-swp q[12],q[17]; //cycle: 26015
+swap q[12],q[17]; //cycle: 26015
 cx q[18],q[17]; //cycle: 26021 //cx q[9],q[7]
 cx q[13],q[18]; //cycle: 26023 //cx q[5],q[9]
 h q[17]; //cycle: 26023 //h q[7]
@@ -20927,9 +20927,9 @@ t q[6]; //cycle: 26055 //t q[11]
 t q[7]; //cycle: 26055 //t q[4]
 h q[2]; //cycle: 26055 //h q[3]
 t q[2]; //cycle: 26056 //t q[3]
-swp q[2],q[7]; //cycle: 26057
+swap q[2],q[7]; //cycle: 26057
 cx q[7],q[12]; //cycle: 26063 //cx q[3],q[2]
-swp q[3],q[8]; //cycle: 26064
+swap q[3],q[8]; //cycle: 26064
 tdg q[12]; //cycle: 26065 //tdg q[2]
 cx q[8],q[7]; //cycle: 26070 //cx q[12],q[3]
 cx q[8],q[12]; //cycle: 26072 //cx q[12],q[2]
@@ -20945,7 +20945,7 @@ t q[8]; //cycle: 26081 //t q[12]
 t q[7]; //cycle: 26081 //t q[3]
 h q[12]; //cycle: 26081 //h q[2]
 t q[12]; //cycle: 26082 //t q[2]
-swp q[11],q[12]; //cycle: 26083
+swap q[11],q[12]; //cycle: 26083
 cx q[11],q[10]; //cycle: 26089 //cx q[2],q[1]
 cx q[5],q[11]; //cycle: 26091 //cx q[13],q[2]
 tdg q[10]; //cycle: 26091 //tdg q[1]
@@ -20962,11 +20962,11 @@ h q[10]; //cycle: 26102 //h q[1]
 t q[5]; //cycle: 26102 //t q[13]
 t q[11]; //cycle: 26102 //t q[2]
 t q[10]; //cycle: 26103 //t q[1]
-swp q[6],q[10]; //cycle: 26104
+swap q[6],q[10]; //cycle: 26104
 cx q[6],q[1]; //cycle: 26110 //cx q[1],q[14]
-swp q[3],q[9]; //cycle: 26111
+swap q[3],q[9]; //cycle: 26111
 tdg q[1]; //cycle: 26112 //tdg q[14]
-swp q[2],q[3]; //cycle: 26117
+swap q[2],q[3]; //cycle: 26117
 cx q[2],q[6]; //cycle: 26123 //cx q[15],q[1]
 cx q[2],q[1]; //cycle: 26125 //cx q[15],q[14]
 t q[6]; //cycle: 26125 //t q[1]
@@ -20990,7 +20990,7 @@ cx q[5],q[11]; //cycle: 26145 //cx q[13],q[2]
 cx q[6],q[5]; //cycle: 26147 //cx q[1],q[13]
 h q[11]; //cycle: 26147 //h q[2]
 t q[11]; //cycle: 26148 //t q[2]
-swp q[11],q[12]; //cycle: 26149
+swap q[11],q[12]; //cycle: 26149
 cx q[12],q[8]; //cycle: 26155 //cx q[2],q[12]
 cx q[7],q[12]; //cycle: 26157 //cx q[3],q[2]
 cx q[8],q[7]; //cycle: 26159 //cx q[12],q[3]
@@ -21001,12 +21001,12 @@ tdg q[8]; //cycle: 26163 //tdg q[12]
 tdg q[12]; //cycle: 26163 //tdg q[2]
 cx q[7],q[12]; //cycle: 26164 //cx q[3],q[2]
 cx q[8],q[7]; //cycle: 26166 //cx q[12],q[3]
-swp q[6],q[10]; //cycle: 26167
+swap q[6],q[10]; //cycle: 26167
 cx q[12],q[8]; //cycle: 26168 //cx q[2],q[12]
 h q[7]; //cycle: 26168 //h q[3]
 t q[7]; //cycle: 26169 //t q[3]
 cx q[7],q[6]; //cycle: 26173 //cx q[3],q[11]
-swp q[2],q[3]; //cycle: 26174
+swap q[2],q[3]; //cycle: 26174
 cx q[2],q[7]; //cycle: 26180 //cx q[4],q[3]
 cx q[6],q[2]; //cycle: 26182 //cx q[11],q[4]
 tdg q[7]; //cycle: 26182 //tdg q[3]
@@ -21019,9 +21019,9 @@ cx q[6],q[2]; //cycle: 26189 //cx q[11],q[4]
 cx q[7],q[6]; //cycle: 26191 //cx q[3],q[11]
 h q[2]; //cycle: 26191 //h q[4]
 t q[2]; //cycle: 26192 //t q[4]
-swp q[2],q[3]; //cycle: 26193
+swap q[2],q[3]; //cycle: 26193
 cx q[3],q[9]; //cycle: 26199 //cx q[4],q[10]
-swp q[8],q[13]; //cycle: 26200
+swap q[8],q[13]; //cycle: 26200
 cx q[8],q[3]; //cycle: 26206 //cx q[5],q[4]
 cx q[9],q[8]; //cycle: 26208 //cx q[10],q[5]
 tdg q[3]; //cycle: 26208 //tdg q[4]
@@ -21031,12 +21031,12 @@ tdg q[9]; //cycle: 26212 //tdg q[10]
 tdg q[3]; //cycle: 26212 //tdg q[4]
 cx q[8],q[3]; //cycle: 26213 //cx q[5],q[4]
 cx q[9],q[8]; //cycle: 26215 //cx q[10],q[5]
-swp q[13],q[18]; //cycle: 26216
+swap q[13],q[18]; //cycle: 26216
 cx q[3],q[9]; //cycle: 26217 //cx q[4],q[10]
 h q[8]; //cycle: 26217 //h q[5]
 t q[8]; //cycle: 26218 //t q[5]
 cx q[8],q[13]; //cycle: 26222 //cx q[5],q[9]
-swp q[12],q[17]; //cycle: 26223
+swap q[12],q[17]; //cycle: 26223
 cx q[12],q[8]; //cycle: 26229 //cx q[7],q[5]
 cx q[13],q[12]; //cycle: 26231 //cx q[9],q[7]
 tdg q[8]; //cycle: 26231 //tdg q[5]
