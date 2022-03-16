@@ -11,8 +11,26 @@ MapperBuilder::MapperBuilder() :
 	CostFunc(std::unique_ptr<toqm::CostFunc>(new toqm::CXFrontier())),
 	Latency(std::unique_ptr<toqm::Latency>(new toqm::Latency_1_2_6())),
 	NodeMod(nullptr),
-	Filter1(std::unique_ptr<toqm::Filter>(new toqm::HashFilter())),
-	Filter2(std::unique_ptr<toqm::Filter>(new toqm::HashFilter2())) {}
+	Filter1(nullptr),
+	Filter2(nullptr) {}
+
+MapperBuilder MapperBuilder::forSmallCircuits() {
+	MapperBuilder builder {};
+	builder.CostFunc = std::unique_ptr<toqm::CostFunc>(new CXFrontier());
+	builder.Filter1 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter);
+	builder.Filter2 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter2);
+
+	return std::move(builder);
+}
+
+MapperBuilder MapperBuilder::forLargeCircuits() {
+	MapperBuilder builder {};
+	builder.CostFunc = std::unique_ptr<toqm::CostFunc>(new CXFrontier());
+	builder.Filter1 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter);
+	builder.Filter2 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter2);
+
+	return std::move(builder);
+}
 
 std::unique_ptr<toqm::ToqmMapper> MapperBuilder::build() {
 	return std::unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(

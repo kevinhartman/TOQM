@@ -21,6 +21,9 @@ public:
 	MapperBuilder();
 	std::unique_ptr<toqm::ToqmMapper> build();
 
+	static MapperBuilder forSmallCircuits();
+	static MapperBuilder forLargeCircuits();
+
 	// Public fields to configure builder
 	std::unique_ptr<toqm::Queue> Queue;
 	std::unique_ptr<toqm::Expander> Expander;
