@@ -454,8 +454,7 @@ int main(int argc, char ** argv) {
 			}
 		}
 	}
-	
-	toqm::ToqmMapper::setVerbose(false);
+
 	auto mapper = std::unique_ptr<toqm::ToqmMapper>(new toqm::ToqmMapper(
 			*nodes,
 			move(ex),
@@ -465,6 +464,10 @@ int main(int argc, char ** argv) {
 			move(filters)));
 	
 	mapper->setRetainPopped(retainPopped);
+
+	if (toqm::_verbose) {
+		toqm::ToqmMapper::setVerbose(true);
+	}
 	
 	if (use_specified_init_mapping == 0) {
 		// No initial mapping. An empty mapping indicates this to libtoqm.
