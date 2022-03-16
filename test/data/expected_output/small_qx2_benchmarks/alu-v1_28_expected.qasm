@@ -18,7 +18,7 @@ cx q[2],q[1]; //cycle: 9 //cx q[4],q[1]
 tdg q[0]; //cycle: 9 //tdg q[2]
 cx q[2],q[0]; //cycle: 11 //cx q[4],q[2]
 t q[1]; //cycle: 11 //t q[1]
-swp q[1],q[2]; //cycle: 13
+swap q[1],q[2]; //cycle: 13
 tdg q[0]; //cycle: 13 //tdg q[2]
 cx q[2],q[0]; //cycle: 19 //cx q[1],q[2]
 tdg q[1]; //cycle: 19 //tdg q[4]

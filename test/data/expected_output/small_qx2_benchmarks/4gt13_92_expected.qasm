@@ -38,7 +38,7 @@ tdg q[0]; //cycle: 26 //tdg q[3]
 tdg q[1]; //cycle: 26 //tdg q[2]
 cx q[2],q[1]; //cycle: 27 //cx q[4],q[2]
 cx q[0],q[2]; //cycle: 29 //cx q[3],q[4]
-swp q[0],q[1]; //cycle: 31
+swap q[0],q[1]; //cycle: 31
 h q[2]; //cycle: 31 //h q[4]
 t q[2]; //cycle: 32 //t q[4]
 cx q[2],q[4]; //cycle: 33 //cx q[4],q[1]

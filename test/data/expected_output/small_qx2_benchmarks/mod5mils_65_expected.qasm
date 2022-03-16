@@ -24,9 +24,9 @@ cx q[2],q[1]; //cycle: 15 //cx q[3],q[4]
 cx q[0],q[2]; //cycle: 17 //cx q[0],q[3]
 h q[1]; //cycle: 17 //h q[4]
 h q[1]; //cycle: 18 //h q[4]
-swp q[2],q[4]; //cycle: 19
+swap q[2],q[4]; //cycle: 19
 t q[1]; //cycle: 19 //t q[4]
-swp q[1],q[2]; //cycle: 25
+swap q[1],q[2]; //cycle: 25
 t q[4]; //cycle: 25 //t q[3]
 cx q[3],q[4]; //cycle: 26 //cx q[2],q[3]
 cx q[2],q[3]; //cycle: 31 //cx q[4],q[2]

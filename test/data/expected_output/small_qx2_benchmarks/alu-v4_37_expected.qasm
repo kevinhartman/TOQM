@@ -11,7 +11,7 @@ t q[2]; //cycle: 2 //t q[3]
 t q[1]; //cycle: 2 //t q[1]
 t q[4]; //cycle: 2 //t q[4]
 cx q[1],q[2]; //cycle: 3 //cx q[1],q[3]
-swp q[3],q[4]; //cycle: 3
+swap q[3],q[4]; //cycle: 3
 h q[0]; //cycle: 3 //h q[2]
 t q[0]; //cycle: 4 //t q[2]
 cx q[0],q[1]; //cycle: 5 //cx q[2],q[1]
@@ -19,7 +19,7 @@ cx q[2],q[0]; //cycle: 7 //cx q[3],q[2]
 tdg q[1]; //cycle: 7 //tdg q[1]
 cx q[2],q[1]; //cycle: 9 //cx q[3],q[1]
 t q[0]; //cycle: 9 //t q[2]
-swp q[0],q[2]; //cycle: 11
+swap q[0],q[2]; //cycle: 11
 tdg q[1]; //cycle: 11 //tdg q[1]
 cx q[2],q[1]; //cycle: 17 //cx q[2],q[1]
 tdg q[0]; //cycle: 17 //tdg q[3]

@@ -9,7 +9,7 @@ h q[4]; //cycle: 0 //h q[0]
 t q[4]; //cycle: 1 //t q[0]
 cx q[2],q[1]; //cycle: 2 //cx q[1],q[2]
 cx q[0],q[1]; //cycle: 4 //cx q[3],q[2]
-swp q[2],q[3]; //cycle: 4
+swap q[2],q[3]; //cycle: 4
 cx q[1],q[0]; //cycle: 6 //cx q[2],q[3]
 cx q[2],q[0]; //cycle: 10 //cx q[4],q[3]
 t q[3]; //cycle: 10 //t q[1]
