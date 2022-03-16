@@ -32,6 +32,7 @@ public:
 	std::unique_ptr<toqm::NodeMod> NodeMod;
 	std::unique_ptr<toqm::Filter> Filter1;
 	std::unique_ptr<toqm::Filter> Filter2;
+	int RetainPopped {};
 
 private:
 	std::vector<std::unique_ptr<toqm::NodeMod>> NodeMods() const;
