@@ -110,7 +110,7 @@ TEST_CASE("Large circuits, IBM Tokyo, 1Q: 1 cycles, 2Q: 2 cycles, SWAP: 6 cycles
 	auto circuit = MapperUtils::parseQasm2(circuit_istream);
 
 	auto mapper = toqm::test::MapperBuilder::forLargeCircuits().build();
-	auto result = mapper->run(circuit->gateOperations(), circuit->numQubits(), coupling_map);
+	auto result = mapper->run(circuit->gateOperations(), circuit->numQubits(), coupling_map, 0);
 
 	std::stringstream outQasm {};
 	circuit->toQasm2(outQasm, *result);
