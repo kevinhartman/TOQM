@@ -102,10 +102,10 @@ rz(0.00305) q[11]; //cycle: 84 //rz(0.00305) q[0]
 rz(0.01225) q[6]; //cycle: 84 //rz(0.01225) q[1]
 cx q[11],q[12]; //cycle: 85 //cx q[0],q[9]
 cx q[6],q[5]; //cycle: 85 //cx q[1],q[8]
-h q[11]; //cycle: 87 //h q[0]
 rz(-0.00615) q[6]; //cycle: 87 //rz(-0.00615) q[1]
 cx q[1],q[0]; //cycle: 87 //cx q[2],q[6]
 cx q[7],q[2]; //cycle: 87 //cx q[3],q[5]
+h q[11]; //cycle: 87 //h q[0]
 rz(0.09815) q[1]; //cycle: 89 //rz(0.09815) q[2]
 rz(0.3927) q[7]; //cycle: 89 //rz(0.3927) q[3]
 cx q[1],q[0]; //cycle: 90 //cx q[2],q[6]
@@ -132,9 +132,9 @@ rz(-0.3927) q[3]; //cycle: 102 //rz(-0.3927) q[4]
 h q[2]; //cycle: 102 //h q[5]
 rz(-0.7854) q[2]; //cycle: 103 //rz(-0.7854) q[5]
 swap q[5],q[6]; //cycle: 104
-h q[10]; //cycle: 104 //h q[1]
 rz(-0.02455) q[7]; //cycle: 104 //rz(-0.02455) q[2]
 rz(-0.09815) q[1]; //cycle: 104 //rz(-0.09815) q[3]
+h q[10]; //cycle: 104 //h q[1]
 swap q[0],q[1]; //cycle: 105
 swap q[2],q[3]; //cycle: 105
 cx q[7],q[6]; //cycle: 110 //cx q[2],q[8]
@@ -151,82 +151,81 @@ swap q[5],q[6]; //cycle: 116
 rz(-0.0491) q[0]; //cycle: 116 //rz(-0.0491) q[3]
 rz(-0.19635) q[2]; //cycle: 116 //rz(-0.19635) q[4]
 swap q[1],q[2]; //cycle: 117
-swap q[11],q[12]; //cycle: 118
+swap q[11],q[12]; //cycle: 119
 cx q[0],q[5]; //cycle: 122 //cx q[3],q[8]
 cx q[1],q[6]; //cycle: 123 //cx q[4],q[7]
 cx q[3],q[2]; //cycle: 123 //cx q[5],q[6]
-cx q[7],q[12]; //cycle: 124 //cx q[2],q[9]
 rz(0.0491) q[0]; //cycle: 124 //rz(0.0491) q[3]
+cx q[7],q[12]; //cycle: 125 //cx q[2],q[9]
 cx q[0],q[5]; //cycle: 125 //cx q[3],q[8]
 rz(0.19635) q[1]; //cycle: 125 //rz(0.19635) q[4]
 rz(0.7854) q[3]; //cycle: 125 //rz(0.7854) q[5]
-swap q[11],q[12]; //cycle: 126
-rz(0.01225) q[7]; //cycle: 126 //rz(0.01225) q[2]
 cx q[1],q[6]; //cycle: 126 //cx q[4],q[7]
 cx q[3],q[2]; //cycle: 126 //cx q[5],q[6]
+swap q[11],q[12]; //cycle: 127
+rz(0.01225) q[7]; //cycle: 127 //rz(0.01225) q[2]
 rz(-0.02455) q[0]; //cycle: 127 //rz(-0.02455) q[3]
+swap q[0],q[5]; //cycle: 128
 swap q[6],q[7]; //cycle: 128
 rz(-0.09815) q[1]; //cycle: 128 //rz(-0.09815) q[4]
 rz(-0.3927) q[3]; //cycle: 128 //rz(-0.3927) q[5]
 h q[2]; //cycle: 128 //h q[6]
-swap q[0],q[5]; //cycle: 129
 swap q[3],q[8]; //cycle: 129
 rz(-0.7854) q[2]; //cycle: 129 //rz(-0.7854) q[6]
 cx q[6],q[11]; //cycle: 134 //cx q[2],q[9]
-cx q[1],q[0]; //cycle: 135 //cx q[4],q[8]
+cx q[1],q[0]; //cycle: 134 //cx q[4],q[8]
 cx q[8],q[7]; //cycle: 135 //cx q[5],q[7]
-h q[6]; //cycle: 136 //h q[2]
 cx q[5],q[11]; //cycle: 136 //cx q[3],q[9]
-rz(0.09815) q[1]; //cycle: 137 //rz(0.09815) q[4]
+rz(0.09815) q[1]; //cycle: 136 //rz(0.09815) q[4]
+h q[6]; //cycle: 136 //h q[2]
+cx q[1],q[0]; //cycle: 137 //cx q[4],q[8]
 rz(0.3927) q[8]; //cycle: 137 //rz(0.3927) q[5]
 rz(0.02455) q[5]; //cycle: 138 //rz(0.02455) q[3]
-cx q[1],q[0]; //cycle: 138 //cx q[4],q[8]
 cx q[8],q[7]; //cycle: 138 //cx q[5],q[7]
 cx q[5],q[11]; //cycle: 139 //cx q[3],q[9]
-rz(-0.0491) q[1]; //cycle: 140 //rz(-0.0491) q[4]
+rz(-0.0491) q[1]; //cycle: 139 //rz(-0.0491) q[4]
+swap q[0],q[1]; //cycle: 140
 rz(-0.19635) q[8]; //cycle: 140 //rz(-0.19635) q[5]
 cx q[2],q[7]; //cycle: 140 //cx q[6],q[7]
 h q[5]; //cycle: 141 //h q[3]
-swap q[0],q[1]; //cycle: 142
+swap q[5],q[11]; //cycle: 142
 swap q[7],q[8]; //cycle: 142
 rz(0.7854) q[2]; //cycle: 142 //rz(0.7854) q[6]
 swap q[2],q[3]; //cycle: 144
-swap q[5],q[11]; //cycle: 144
+cx q[0],q[5]; //cycle: 148 //cx q[4],q[9]
 cx q[7],q[1]; //cycle: 148 //cx q[5],q[8]
-cx q[0],q[5]; //cycle: 150 //cx q[4],q[9]
+rz(0.0491) q[0]; //cycle: 150 //rz(0.0491) q[4]
 rz(0.19635) q[7]; //cycle: 150 //rz(0.19635) q[5]
 cx q[3],q[8]; //cycle: 150 //cx q[6],q[7]
+cx q[0],q[5]; //cycle: 151 //cx q[4],q[9]
 cx q[7],q[1]; //cycle: 151 //cx q[5],q[8]
-h q[8]; //cycle: 152 //h q[7]
-rz(0.0491) q[0]; //cycle: 152 //rz(0.0491) q[4]
 rz(-0.3927) q[3]; //cycle: 152 //rz(-0.3927) q[6]
-swap q[2],q[3]; //cycle: 153
-rz(-0.7854) q[8]; //cycle: 153 //rz(-0.7854) q[7]
-cx q[0],q[5]; //cycle: 153 //cx q[4],q[9]
+h q[8]; //cycle: 152 //h q[7]
+swap q[5],q[6]; //cycle: 153
 rz(-0.09815) q[7]; //cycle: 153 //rz(-0.09815) q[5]
-swap q[6],q[7]; //cycle: 154
-h q[0]; //cycle: 155 //h q[4]
-cx q[2],q[1]; //cycle: 159 //cx q[6],q[8]
-cx q[6],q[5]; //cycle: 160 //cx q[5],q[9]
-rz(0.3927) q[2]; //cycle: 161 //rz(0.3927) q[6]
-cx q[2],q[1]; //cycle: 162 //cx q[6],q[8]
-rz(0.09815) q[6]; //cycle: 162 //rz(0.09815) q[5]
-cx q[6],q[5]; //cycle: 163 //cx q[5],q[9]
-swap q[7],q[8]; //cycle: 164
-rz(-0.19635) q[2]; //cycle: 164 //rz(-0.19635) q[6]
-h q[6]; //cycle: 165 //h q[5]
-swap q[5],q[6]; //cycle: 166
-cx q[7],q[1]; //cycle: 170 //cx q[7],q[8]
-cx q[2],q[6]; //cycle: 172 //cx q[6],q[9]
-rz(0.7854) q[7]; //cycle: 172 //rz(0.7854) q[7]
-cx q[7],q[1]; //cycle: 173 //cx q[7],q[8]
-rz(0.19635) q[2]; //cycle: 174 //rz(0.19635) q[6]
-cx q[2],q[6]; //cycle: 175 //cx q[6],q[9]
-rz(-0.3927) q[7]; //cycle: 175 //rz(-0.3927) q[7]
-h q[1]; //cycle: 175 //h q[8]
-rz(-0.7854) q[1]; //cycle: 176 //rz(-0.7854) q[8]
+rz(-0.7854) q[8]; //cycle: 153 //rz(-0.7854) q[7]
+h q[0]; //cycle: 153 //h q[4]
+swap q[2],q[3]; //cycle: 155
+cx q[7],q[6]; //cycle: 159 //cx q[5],q[9]
+rz(0.09815) q[7]; //cycle: 161 //rz(0.09815) q[5]
+cx q[2],q[1]; //cycle: 161 //cx q[6],q[8]
+cx q[7],q[6]; //cycle: 162 //cx q[5],q[9]
+rz(0.3927) q[2]; //cycle: 163 //rz(0.3927) q[6]
+cx q[2],q[1]; //cycle: 164 //cx q[6],q[8]
+h q[7]; //cycle: 164 //h q[5]
+swap q[7],q[8]; //cycle: 165
+rz(-0.19635) q[2]; //cycle: 166 //rz(-0.19635) q[6]
+cx q[2],q[6]; //cycle: 167 //cx q[6],q[9]
+rz(0.19635) q[2]; //cycle: 169 //rz(0.19635) q[6]
+cx q[2],q[6]; //cycle: 170 //cx q[6],q[9]
+cx q[7],q[1]; //cycle: 171 //cx q[7],q[8]
+h q[2]; //cycle: 172 //h q[6]
+rz(0.7854) q[7]; //cycle: 173 //rz(0.7854) q[7]
+cx q[7],q[1]; //cycle: 174 //cx q[7],q[8]
+rz(-0.3927) q[7]; //cycle: 176 //rz(-0.3927) q[7]
+h q[1]; //cycle: 176 //h q[8]
 cx q[7],q[6]; //cycle: 177 //cx q[7],q[9]
-h q[2]; //cycle: 177 //h q[6]
+rz(-0.7854) q[1]; //cycle: 177 //rz(-0.7854) q[8]
 rz(0.3927) q[7]; //cycle: 179 //rz(0.3927) q[7]
 cx q[7],q[6]; //cycle: 180 //cx q[7],q[9]
 cx q[1],q[6]; //cycle: 182 //cx q[8],q[9]
@@ -237,8 +236,8 @@ h q[6]; //cycle: 187 //h q[9]
 h q[1]; //cycle: 187 //h q[8]
 h q[6]; //cycle: 188 //h q[9]
 //200 original gates
-//232 gates in generated circuit
+//231 gates in generated circuit
 //97 ideal depth (cycles)
 //189 depth of generated circuit
-//97254 nodes popped from queue for processing.
-//1311 nodes remain in queue.
+//98872 nodes popped from queue for processing.
+//1904 nodes remain in queue.
