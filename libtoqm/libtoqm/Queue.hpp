@@ -29,7 +29,7 @@ public:
 	virtual std::shared_ptr<Node> pop() = 0;
 	
 	///Return number of elements in queue
-	virtual int size() = 0;
+	virtual size_t size() = 0;
 	
 	///Push a node into the priority queue
 	///Return false iff this fails for any reason

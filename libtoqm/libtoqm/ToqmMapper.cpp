@@ -540,7 +540,7 @@ struct ToqmMapper::Impl {
 		}
 		
 		// Create a vector from the scheduled gates stack for the result
-		auto & gates = finalNode->scheduled;
+		auto gates = finalNode->scheduled;
 		std::vector<ScheduledGateOp> scheduled_final {};
 		scheduled_final.reserve(gates->size);
 		
@@ -548,8 +548,8 @@ struct ToqmMapper::Impl {
 		for (int i = 0; i < gate_count; i++) {
 			assert(gates->size > 0);
 			
-			auto & sg = gates->value;
-			auto & g = gates->value->gate;
+			const auto & sg = gates->value;
+			const auto & g = gates->value->gate;
 			
 			scheduled_final.push_back(ScheduledGateOp{
 					GateOp(g->uid, g->name, g->control, g->target),
@@ -577,7 +577,7 @@ struct ToqmMapper::Impl {
 		
 		auto result = std::unique_ptr<ToqmResult>(new ToqmResult{
 				std::move(scheduled_final),
-				nodes->size(),
+				(int)nodes->size(),
 				env->numPhysicalQubits,
 				env->numLogicalQubits,
 				std::move(laq_final),

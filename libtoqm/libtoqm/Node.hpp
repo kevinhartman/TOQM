@@ -2,8 +2,8 @@
 #define NODE_HPP
 
 #include "GateNode.hpp"
-#include "LinkedStack.hpp"
 #include "ScheduledGate.hpp"
+#include "ScheduledGateStack.hpp"
 
 #include <cassert>
 #include <iostream>
@@ -21,8 +21,6 @@ class Queue;
 const int MAX_QUBITS = 20;
 //extern int GLOBALCOUNTER;
 
-using ScheduledGateStack = LinkedStack<std::shared_ptr<ScheduledGate>>;
-
 struct SortByGateNode
 {
 	bool operator ()(const GateNode* lhs, const GateNode* rhs) const
@@ -34,7 +32,7 @@ struct SortByGateNode
 class Node {
 public:
 	Environment & env;//object with functions/data shared by all nodes
-	std::shared_ptr<Node> parent;//node from which this one expanded
+	Node * parent;//node from which this one expanded
 	int cycle {};//current cycle
 	int cost {};//the node's cost (in cycles)
 	int cost2 = 0;//used as tiebreaker in some places
@@ -90,7 +88,7 @@ public:
 	bool scheduleGate(GateNode* gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
-	static std::unique_ptr<Node> prepChild(const std::shared_ptr<Node>& parent);
+	static std::unique_ptr<Node> prepChild(Node* parent);
 
 private:
 	void scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset);

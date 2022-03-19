@@ -125,7 +125,7 @@ public:
 	std::shared_ptr<Node> pop() override {
 		numPopped++;
 		
-		auto ret = nodes.top();
+		std::shared_ptr<Node> ret = nodes.top();
 		nodes.pop();
 		
 		//std::cerr << "Debug message: popped node with cost " << ret->cost << "\n";
@@ -149,7 +149,7 @@ public:
 		return ret;
 	}
 	
-	int size() override {
+	size_t size() override {
 		return nodes.size();
 	}
 	

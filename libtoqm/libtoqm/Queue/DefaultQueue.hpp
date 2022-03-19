@@ -28,7 +28,7 @@ private:
 		}
 	};
 	
-	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpDefaultQueue> nodes;
+	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpDefaultQueue> nodes {};
 	
 	bool pushNode(const std::shared_ptr<Node>& newNode) override {
 		nodes.push(newNode);
@@ -67,7 +67,7 @@ public:
 		auto ret = nodes.top();
 		nodes.pop();
 		
-		if(!ret->readyGates.size()) {
+		if(ret->readyGates.empty()) {
 			assert(ret->numUnscheduledGates == 0);
 			bool done = true;
 			if(done) {
@@ -85,7 +85,7 @@ public:
 		return ret;
 	}
 	
-	int size() override {
+	size_t size() override {
 		return nodes.size();
 	}
 	
