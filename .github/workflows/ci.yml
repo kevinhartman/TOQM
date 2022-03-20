@@ -17,10 +17,11 @@ jobs:
       - run: vcpkg install catch2
       - run: |
           mkdir build && cd build
-          cmake -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
           make all
           ctest --timeout 3000
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: catch2
           path: ./build/Testing/Temporary/
