@@ -7,8 +7,10 @@ namespace toqm {
 ScheduledGateStack::ScheduledGateStack() = default;
 
 ScheduledGateStack::~ScheduledGateStack() {
-	while (this->next != nullptr && this->next.use_count() == 1) {
-		this->next = this->next->next;
+	std::shared_ptr<ScheduledGateStack> ptr = std::move(this->next);
+
+	while (ptr && ptr.use_count() == 1) {
+		ptr = std::move(ptr->next);
 	}
 }
 

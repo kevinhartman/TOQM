@@ -21,8 +21,8 @@ public:
 	static std::unique_ptr<ScheduledGateStack> push(const std::shared_ptr<ScheduledGateStack> & head, const std::shared_ptr<ScheduledGate>& newVal);
 
 private:
-	ScheduledGateStack(const std::shared_ptr<ScheduledGate> & value, const std::shared_ptr<ScheduledGateStack> & next, int size)
-		: value(value), next(next), size(size) {}
+	ScheduledGateStack(std::shared_ptr<ScheduledGate>  value, std::shared_ptr<ScheduledGateStack>  next, int size)
+		: value(std::move(value)), next(std::move(next)), size(size) {}
 };
 
 }
