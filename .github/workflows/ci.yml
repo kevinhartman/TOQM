@@ -16,13 +16,6 @@ jobs:
       - uses: actions/checkout@v2
       - run: vcpkg install catch2
 
-      - name: test access to core dump directory
-        run: |
-          sudo chmod -R +rwx /cores/*
-          sudo touch /cores/test
-          ls /cores
-          sudo rm /cores/test
-
       - name: Build
         run: |
           mkdir build && cd build
@@ -38,16 +31,15 @@ jobs:
         if: always()
         run: |
           sudo chmod -R +rwx /cores/*
-          sudo touch /cores/test
-          ls /cores
-          sudo rm /cores/test
+          mkdir cores
+          cp -r /cores/* ./cores
 
       - name: Upload core dumps
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: crashes
-          path: /cores
+          path: ./cores
       - name: Upload catch2 logs
         uses: actions/upload-artifact@v3
         if: always()
