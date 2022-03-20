@@ -15,12 +15,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: vcpkg install catch2
-      - run: |
+      - name: Build
+        run: |
           mkdir build && cd build
-          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+          cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
           make all
-          ctest --timeout 3000
-      - uses: actions/upload-artifact@v3
+      - name: Test
+        run: |
+          cd build
+          ulimit -c unlimited
+          sudo ctest --timeout 3000
+          sudo chmod -R +rwx /cores/*
+      - name: Upload core dumps
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: crashes
+          path: /cores
+      - name: Upload catch2 logs
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: catch2
