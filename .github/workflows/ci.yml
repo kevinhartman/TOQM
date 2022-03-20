@@ -24,6 +24,14 @@ jobs:
           mkdir build && cd build
           cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
           make all
+
+      - name: Upload build
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build
+          path: ./build
+          
       - name: Test
         run: |
           cd build
@@ -43,6 +51,7 @@ jobs:
         with:
           name: crashes
           path: ./cores
+
       - name: Upload catch2 logs
         uses: actions/upload-artifact@v3
         if: always()
