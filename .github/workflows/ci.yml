@@ -15,6 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: vcpkg install catch2
+
+      - name: test access to core dump directory
+        run: |
+          sudo chmod -R +rwx /cores/*
+          sudo touch /cores/test
+          ls /cores
+          sudo rm /cores/test
+
       - name: Build
         run: |
           mkdir build && cd build
@@ -25,7 +33,15 @@ jobs:
           cd build
           ulimit -c unlimited
           sudo ctest --timeout 3000
+
+      - name: chmod cores
+        if: always()
+        run: |
           sudo chmod -R +rwx /cores/*
+          sudo touch /cores/test
+          ls /cores
+          sudo rm /cores/test
+
       - name: Upload core dumps
         if: always()
         uses: actions/upload-artifact@v3
