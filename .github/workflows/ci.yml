@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [ windows-latest, macos-latest, ubuntu-latest ]
+        platform: [ macos-latest, ubuntu-latest ]
     runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
       - name: Build
         run: |
           mkdir build && cd build
-          cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
           make all
 
       - name: Upload build
@@ -34,28 +34,14 @@ jobs:
           path: ./build
 
       - name: Test
+        if: matrix.os == 'ubuntu-latest'
         run: |
           cd build
-          ulimit -c unlimited
-          sudo ctest --timeout 3000
-
-      - name: chmod cores
-        if: always()
-        run: |
-          sudo chmod -R +rwx /cores/*
-          mkdir cores
-          cp -r /cores/* ./cores
-
-      - name: Upload core dumps
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: crashes
-          path: ./cores
+          ctest --timeout 3000
 
       - name: Upload catch2 logs
         uses: actions/upload-artifact@v3
-        if: always()
+        if: matrix.os == 'ubuntu-latest'
         with:
           name: catch2
           path: ./build/Testing/Temporary/
