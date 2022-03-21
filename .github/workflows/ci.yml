@@ -11,13 +11,14 @@ on:
 jobs:
   build:
     name: Build and test
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ windows-latest, macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
       - run: vcpkg install catch2
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
       - name: Build
         run: |
@@ -31,7 +32,7 @@ jobs:
         with:
           name: build
           path: ./build
-          
+
       - name: Test
         run: |
           cd build
