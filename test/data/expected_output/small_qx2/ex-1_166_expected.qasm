@@ -27,8 +27,8 @@ x q[0]; //cycle: 20 //x q[0]
 //19 gates in generated circuit
 //21 ideal depth (cycles)
 //21 depth of generated circuit
-//26 nodes popped from queue for processing.
-//117 nodes remain in queue.
-//HashFilter filtered 80 total nodes.
-//HashFilter2 filtered 0 total nodes.
-//HashFilter2 marked 0 total nodes.
+//46 nodes popped from queue for processing.
+//184 nodes remain in queue.
+//HashFilter filtered 86 total nodes.
+//HashFilter2 filtered 51 total nodes.
+//HashFilter2 marked 37 total nodes.

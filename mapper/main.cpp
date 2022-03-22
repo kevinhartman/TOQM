@@ -5,6 +5,7 @@
 #include <cassert>
 #include <iostream>
 #include <fstream>
+#include <limits>
 #include <memory>
 #include <vector>
 #include <functional>

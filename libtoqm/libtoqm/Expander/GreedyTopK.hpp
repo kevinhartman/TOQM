@@ -15,17 +15,26 @@ namespace toqm {
 class GreedyTopK : public Expander {
 private:
 	unsigned int K = 0;
+
+	using PriotityQueueType = std::tuple<std::size_t, std::shared_ptr<Node>>;
 	
 	struct CmpNodeCost {
-		//REMINDER: I reversed the cost function here so I could remove inferior nodes on the fly, maintaining a smaller priority queue of only K nodes
-		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
+		// REMINDER: I reversed the cost function here so I could remove inferior nodes on the fly,
+		// maintaining a smaller priority queue of only K nodes
+		bool operator()(const PriotityQueueType& lhs, const PriotityQueueType& rhs) const {
+			auto lhs_node = std::get<1>(lhs);
+			auto rhs_node = std::get<1>(rhs);
+
 			//tiebreaker:
-			if(lhs->cost == rhs->cost) {
-				return lhs->cost2 <= rhs->cost2;
+			if(lhs_node->cost == rhs_node->cost) {
+				if (lhs_node->cost2 != rhs_node->cost2) {
+					return lhs_node->cost2 < rhs_node->cost2;
+				}
+
+				return std::get<0>(lhs) > std::get<0>(rhs);
 			}
 			
-			//lower cost is better
-			return lhs->cost < rhs->cost;
+			return lhs_node->cost < rhs_node->cost;
 		}
 	};
 
@@ -263,7 +272,8 @@ public:
 			}
 		}
 		
-		std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpNodeCost> tempNodes;
+		std::priority_queue<PriotityQueueType, std::vector<PriotityQueueType>, CmpNodeCost> tempNodes;
+		std::size_t numPushed = 0;
 		
 		assert(possibleGates.size() < 64); //or else I need to do this differently
 		unsigned long long numIters = 1LL << possibleGates.size();
@@ -302,7 +312,7 @@ public:
 				//		delete child;
 				//	}
 				//} else {
-					tempNodes.push(child);
+					tempNodes.push(std::make_tuple(numPushed++, child));
 					
 					//If priority queue is overfilled, delete extra node:
 					if(tempNodes.size() > this->K) {
@@ -317,7 +327,7 @@ public:
 			//Push top K into main priority queue
 			long counter = this->K;
 			while(counter > 0 && !tempNodes.empty()) {
-				auto child = tempNodes.top();
+				auto child = std::get<1>(tempNodes.top());
 				tempNodes.pop();
 				if(nodes.push(child)) {
 					counter--;

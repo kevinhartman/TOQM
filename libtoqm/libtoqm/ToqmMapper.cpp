@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <sstream>
+#include <limits>
 
 #include "CostFunc.hpp"
 #include "Environment.hpp"

@@ -20,7 +20,7 @@ private:
 
 protected:
 	std::shared_ptr<Node> bestFinalNode = nullptr;
-	int numPushed = 0, numFiltered = 0, numPopped = 0;
+	std::size_t numPushed = 0, numFiltered = 0, numPopped = 0;
 
 public:
 	virtual ~Queue() = default;

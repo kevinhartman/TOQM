@@ -6,6 +6,7 @@
 #include <queue>
 #include <vector>
 #include <iostream>
+#include <tuple>
 
 namespace toqm {
 
@@ -14,24 +15,31 @@ extern bool _verbose;
 //This queue uses std::priority_queue
 class DefaultQueue : public Queue {
 private:
+	using PriotityQueueType = std::tuple<std::size_t, std::shared_ptr<Node>>;
+
 	struct CmpDefaultQueue {
-		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
+		bool operator()(const PriotityQueueType & lhs, const PriotityQueueType & rhs) const {
+			auto lhs_node = std::get<1>(lhs);
+			auto rhs_node = std::get<1>(rhs);
+
 			//tiebreaker:
-			if(lhs->cost == rhs->cost) {
+			if(lhs_node->cost == rhs_node->cost) {
+				// Favor pushed most recently.
+				return std::get<0>(lhs) < std::get<0>(rhs);
 				//return lhs->scheduled->size > rhs->scheduled->size;
 				//return lhs->numUnscheduledGates > rhs->numUnscheduledGates;
 				//return lhs->cycle < rhs->cycle;
 			}
 			
 			//lower cost is better
-			return lhs->cost > rhs->cost;
+			return lhs_node->cost > rhs_node->cost;
 		}
 	};
 	
-	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpDefaultQueue> nodes {};
+	std::priority_queue<PriotityQueueType, std::vector<PriotityQueueType>, CmpDefaultQueue> nodes {};
 	
 	bool pushNode(const std::shared_ptr<Node>& newNode) override {
-		nodes.push(newNode);
+		nodes.push(std::make_tuple(numPushed, newNode));
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
 				garbage = newNode->numUnscheduledGates;
@@ -64,7 +72,7 @@ public:
 	std::shared_ptr<Node> pop() override {
 		numPopped++;
 		
-		auto ret = nodes.top();
+		auto ret = std::get<1>(nodes.top());
 		nodes.pop();
 		
 		if(ret->readyGates.empty()) {
