@@ -47,21 +47,3 @@ do
   echo "Done in $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec."
 done
 
-#find "$SMALL_CIRCUITS_DIR" -type f -exec sh -c \
-#    "$MAPPER_EXECUTABLE \$1 $COUPLINGS_DIR/qx2.txt \
-#        -defaults \
-#        -latency Latency_1_2_6 \
-#        -filter HashFilter \
-#        -filter HashFilter2 \
-#        -pureSwapDiameter \
-#    > $EXPECTED_SMALL_QX2_DIR/\$(basename \$1 .qasm)_expected.qasm" -- {} \;
-
-#find "$LARGE_CIRCUITS_DIR" -type f -exec sh -c \
-#    '$MAPPER_EXECUTABLE $1 $COUPLINGS_DIR/tokyo.txt \
-#        -defaults \
-#        -latency Latency_1_2_6 \
-#        -expander GreedyTopK 10 \
-#        -queue TrimSlowNodes 2000 1000 \
-#        -nodeMod GreedyMapper \
-#        -retain 1 \
-#    > "$EXPECTED_LARGE_TOKYO_DIR/$(basename $1 .qasm)_expected.qasm"' -- {} \;

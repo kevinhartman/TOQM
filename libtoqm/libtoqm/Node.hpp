@@ -21,6 +21,11 @@ class Queue;
 const int MAX_QUBITS = 20;
 //extern int GLOBALCOUNTER;
 
+/**
+ * Used to sort gate nodes by their UID first, and secondarily by
+ * their pointer's memory address if UID is not unique (in which
+ * case the ordering will be non-deterministic!).
+ */
 struct SortByGateNode
 {
 	bool operator ()(const GateNode* lhs, const GateNode* rhs) const
