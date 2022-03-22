@@ -62,7 +62,7 @@ public:
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
 						GateNode * sw = env.possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] < 0) {
-							std::shared_ptr<Node> n1 = Node::prepChild(n);
+							std::shared_ptr<Node> n1 = Node::prepChild(n.get());
 							n1->cycle--;
 							n1->laq[g->control] = sw->control;
 							n1->laq[g->target] = sw->target;
@@ -73,7 +73,7 @@ public:
 								numAdded++;
 							}
 							
-							std::shared_ptr<Node> n2 = Node::prepChild(n);
+							std::shared_ptr<Node> n2 = Node::prepChild(n.get());
 							n2->cycle--;
 							n2->laq[g->control] = sw->target;
 							n2->laq[g->target] = sw->control;
@@ -90,7 +90,7 @@ public:
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
 						auto & sw = env.possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] == g->target) {
-							std::shared_ptr<Node> n1 = Node::prepChild(n);
+							std::shared_ptr<Node> n1 = Node::prepChild(n.get());
 							n1->cycle--;
 							n1->laq[g->control] = sw->control;
 							n1->qal[sw->control] = g->control;
@@ -100,7 +100,7 @@ public:
 								numAdded++;
 							}
 						} else if(n->qal[sw->target] < 0 && n->qal[sw->control] == g->target) {
-							std::shared_ptr<Node> n1 = Node::prepChild(n);
+							std::shared_ptr<Node> n1 = Node::prepChild(n.get());
 							n1->cycle--;
 							n1->laq[g->control] = sw->target;
 							n1->qal[sw->target] = g->control;
@@ -116,7 +116,7 @@ public:
 					for(unsigned int x = 0; x < env.couplings.size(); x++) {
 						auto & sw = env.possibleSwaps[x];
 						if(n->qal[sw->control] < 0 && n->qal[sw->target] == g->control) {
-							std::shared_ptr<Node> n1 = Node::prepChild(n);
+							std::shared_ptr<Node> n1 = Node::prepChild(n.get());
 							n1->cycle--;
 							n1->laq[g->target] = sw->control;
 							n1->qal[sw->control] = g->target;
@@ -126,7 +126,7 @@ public:
 								numAdded++;
 							}
 						} else if(n->qal[sw->target] < 0 && n->qal[sw->control] == g->control) {
-							std::shared_ptr<Node> n1 = Node::prepChild(n);
+							std::shared_ptr<Node> n1 = Node::prepChild(n.get());
 							n1->cycle--;
 							n1->laq[g->target] = sw->target;
 							n1->qal[sw->target] = g->target;
@@ -180,7 +180,7 @@ public:
 			}
 		}
 		
-		std::shared_ptr<Node> child = Node::prepChild(node);
+		std::shared_ptr<Node> child = Node::prepChild(node.get());
 		int numgatesscheduled = 0;
 		
 		//schedule the gates

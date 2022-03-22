@@ -22,7 +22,6 @@ set(HEADER_LIST
         "Latency/Latency_1_2_6.hpp"
         "Latency/Latency_1_3.hpp"
         "Latency/Table.hpp"
-        "LinkedStack.hpp"
         "Node.hpp"
         "NodeMod.hpp"
         "NodeMod/GreedyMapper.hpp"
@@ -30,12 +29,14 @@ set(HEADER_LIST
         "Queue/DefaultQueue.hpp"
         "Queue/TrimSlowNodes.hpp"
         "ScheduledGate.hpp"
+        "ScheduledGateStack.hpp"
         "ToqmMapper.hpp")
 
 # Make an automatic library - will be static or dynamic based on user setting
 add_library(toqm
         Node.cpp
         ToqmMapper.cpp
+        ScheduledGateStack.cpp
         ${HEADER_LIST})
 
 # We need this directory, and users of our library will need it too

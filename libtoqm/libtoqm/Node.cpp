@@ -236,7 +236,7 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 }
 
 //prepares a new child node (without scheduling any more gates)
-std::unique_ptr<Node> Node::prepChild(const std::shared_ptr<Node>& parent) {
+std::unique_ptr<Node> Node::prepChild(Node* parent) {
 	auto child = std::unique_ptr<Node>(new Node(parent->env));
 	child->numUnscheduledGates = parent->numUnscheduledGates;
 	child->parent = parent;

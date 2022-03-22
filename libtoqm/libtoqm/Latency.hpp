@@ -1,6 +1,7 @@
 #ifndef LATENCY_HPP
 #define LATENCY_HPP
 
+#include <memory>
 #include <string>
 
 namespace toqm {

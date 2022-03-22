@@ -232,7 +232,7 @@ public:
 		assert(possibleGates.size() < 64); //or else I need to do this differently
 		unsigned long long numIters = 1LL << possibleGates.size();
 		for(unsigned long long x = 0; x < numIters; x++) {
-			std::shared_ptr<Node> child = Node::prepChild(node);
+			std::shared_ptr<Node> child = Node::prepChild(node.get());
 			bool good = true;
 			//Schedule a unique subset of {swaps and 2-qubit gates}:
 			for(unsigned int y = 0; good && y < possibleGates.size(); y++) {

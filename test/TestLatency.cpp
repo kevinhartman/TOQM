@@ -59,11 +59,11 @@ TEST_CASE("Latency table can be configured to behave like simple latencies.", "[
 	REQUIRE(table->getLatency("cx", 2, -1, -1) == simple->getLatency("cx", 2, -1, -1));
 	REQUIRE(table->getLatency("swap", 2, -1, -1) == simple->getLatency("swap", 2, -1, -1));
 
-	MapperBuilder simple_mapper{};
+	auto simple_mapper = MapperBuilder::forSmallCircuits();
 	simple_mapper.Latency = std::move(simple);
 	auto simple_result = simple_mapper.build()->run(gates, 7, coupling_map);
 
-	MapperBuilder table_mapper{};
+	auto table_mapper = MapperBuilder::forSmallCircuits();
 	table_mapper.Latency = std::move(table);
 	auto table_result = table_mapper.build()->run(gates, 7, coupling_map);
 
@@ -93,7 +93,7 @@ TEST_CASE("Test 0-latency instructions work as expected.", "[latency]") {
 
 	auto table = std::unique_ptr<toqm::Latency>(new toqm::Table(latencies));
 
-	MapperBuilder mapper{};
+	auto mapper = MapperBuilder::forSmallCircuits();
 	mapper.Latency = std::move(table);
 
 	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map, 0);
@@ -133,7 +133,7 @@ TEST_CASE("Test 0-latency instructions at start of circuit.", "[latency]") {
 
 	auto table = std::unique_ptr<toqm::Latency>(new toqm::Table(latencies));
 
-	MapperBuilder mapper{};
+	auto mapper = MapperBuilder::forSmallCircuits();
 	mapper.Latency = std::move(table);
 
 	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map, 0);

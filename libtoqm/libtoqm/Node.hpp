@@ -2,12 +2,14 @@
 #define NODE_HPP
 
 #include "GateNode.hpp"
-#include "LinkedStack.hpp"
 #include "ScheduledGate.hpp"
-#include <set>
+#include "ScheduledGateStack.hpp"
+
 #include <cassert>
 #include <iostream>
 #include <memory>
+#include <set>
+#include <tuple>
 
 namespace toqm {
 
@@ -19,12 +21,23 @@ class Queue;
 const int MAX_QUBITS = 20;
 //extern int GLOBALCOUNTER;
 
-using ScheduledGateStack = LinkedStack<std::shared_ptr<ScheduledGate>>;
+/**
+ * Used to sort gate nodes by their UID first, and secondarily by
+ * their pointer's memory address if UID is not unique (in which
+ * case the ordering will be non-deterministic!).
+ */
+struct SortByGateNode
+{
+	bool operator ()(const GateNode* lhs, const GateNode* rhs) const
+	{
+		return std::tie(lhs->uid, lhs) < std::tie(rhs->uid, rhs);
+	}
+};
 
 class Node {
 public:
 	Environment & env;//object with functions/data shared by all nodes
-	std::shared_ptr<Node> parent;//node from which this one expanded
+	Node * parent;//node from which this one expanded
 	int cycle {};//current cycle
 	int cost {};//the node's cost (in cycles)
 	int cost2 = 0;//used as tiebreaker in some places
@@ -49,8 +62,8 @@ public:
 		if(cycles < 0) return 0;
 		return cycles;
 	}
-	
-	std::set<GateNode*> readyGates;//set of gates in DAG whose parents have already been scheduled
+
+	std::set<GateNode*, SortByGateNode> readyGates;//set of gates in DAG whose parents have already been scheduled
 	
 	std::shared_ptr<ScheduledGateStack> scheduled{};//list of scheduled gates. Warning: this linked list's data overlaps with the same list in parent node
 	
@@ -80,7 +93,7 @@ public:
 	bool scheduleGate(GateNode* gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
-	static std::unique_ptr<Node> prepChild(const std::shared_ptr<Node>& parent);
+	static std::unique_ptr<Node> prepChild(Node* parent);
 
 private:
 	void scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset);

@@ -466,16 +466,16 @@ std::unique_ptr<QasmObject> QasmObject::fromQasm2(std::istream & infile) {
 
 void QasmObject::toQasm2(std::ostream & out, const toqm::ToqmResult & result) const {
 	//Print out the initial mapping:
-	std::cout << "//Note: initial mapping (logical qubit at each location): ";
+	out << "//Note: initial mapping (logical qubit at each location): ";
 	for(int x = 0; x < result.numPhysicalQubits; x++) {
-		std::cout << (int) result.inferredQal[x] << ", ";
+		out << (int) result.inferredQal[x] << ", ";
 	}
-	std::cout << "\n";
-	std::cout << "//Note: initial mapping (location of each logical qubit): ";
+	out << "\n";
+	out << "//Note: initial mapping (location of each logical qubit): ";
 	for(int x = 0; x < result.numLogicalQubits; x++) {
-		std::cout << (int) result.inferredLaq[x] << ", ";
+		out << (int) result.inferredLaq[x] << ", ";
 	}
-	std::cout << "\n";
+	out << "\n";
 	
 	//Print the OPENQASM output:
 	out << "OPENQASM " << impl->QASM_version << ";\n";
@@ -498,14 +498,14 @@ void QasmObject::toQasm2(std::ostream & out, const toqm::ToqmResult & result) co
 	
 	//if(verbose) {
 		//Print some metadata about the input & output:
-		std::cout << "//" << impl->gate_ops.size() << " original gates\n";
-		std::cout << "//" << result.scheduledGates.size() << " gates in generated circuit\n";
-		std::cout << "//" << result.idealCycles << " ideal depth (cycles)\n";
-		std::cout << "//" << numCycles
+		out << "//" << impl->gate_ops.size() << " original gates\n";
+		out << "//" << result.scheduledGates.size() << " gates in generated circuit\n";
+		out << "//" << result.idealCycles << " ideal depth (cycles)\n";
+		out << "//" << numCycles
 				  << " depth of generated circuit\n"; //" (and costFunc reports " << finalNode->cost << ")\n";
-		std::cout << "//" << (result.numPopped - 1) << " nodes popped from queue for processing.\n";
-		std::cout << "//" << result.remainingInQueue << " nodes remain in queue.\n";
-		std::cout << result.filterStats;
+		out << "//" << (result.numPopped - 1) << " nodes popped from queue for processing.\n";
+		out << "//" << result.remainingInQueue << " nodes remain in queue.\n";
+		out << result.filterStats;
 	//}
 
 }

@@ -39,6 +39,11 @@ public:
 					assert(sg->gate->control == x);
 					actualQubit = node.laq[sg->gate->control];
 				}
+
+				// keha: added to avoid indexing into pathLength and next2BitGate with -1
+				if(actualQubit < 0) {
+					continue;
+				}
 				
 				//get path length to next 2-qubit gate along this qubit:
 				pathLength[actualQubit] = node.busyCycles(actualQubit);

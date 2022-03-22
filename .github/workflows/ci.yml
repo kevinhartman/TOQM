@@ -11,12 +11,23 @@ on:
 jobs:
   build:
     name: Build and test
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [ macos-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v2
       - run: vcpkg install catch2
-      - run: |
+
+      - name: Build
+        run: |
           mkdir build && cd build
-          cmake -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
+          cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=/usr/local/share/vcpkg/scripts/buildsystems/vcpkg.cmake ..
           make all
-          make test
+
+      - name: Test
+        if: runner.os == 'Linux'
+        run: |
+          cd build
+          ctest --timeout 3000

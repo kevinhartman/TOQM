@@ -7,6 +7,7 @@
 #include <utility>
 #include <vector>
 #include <sstream>
+#include <limits>
 
 #include "CostFunc.hpp"
 #include "Environment.hpp"
@@ -132,7 +133,7 @@ void
 buildDependencyGraph(const std::vector<GateOp> & gates,
 					 std::size_t maxQubits,
 					 const Latency & lat,
-					 std::set<GateNode*> & firstGates,
+					 std::set<GateNode*, SortByGateNode> & firstGates,
 					 int & numQubits,
 					 Environment& env,
 					 int & idealCycles) {
@@ -275,7 +276,7 @@ struct ToqmMapper::Impl {
 		env->couplings = coupling_map.edges;
 		env->numPhysicalQubits = coupling_map.numPhysicalQubits;
 		
-		std::set<GateNode*> firstGates;
+		std::set<GateNode*, SortByGateNode> firstGates;
 		int idealCycles = -1;
 		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
@@ -540,7 +541,7 @@ struct ToqmMapper::Impl {
 		}
 		
 		// Create a vector from the scheduled gates stack for the result
-		auto & gates = finalNode->scheduled;
+		auto gates = finalNode->scheduled;
 		std::vector<ScheduledGateOp> scheduled_final {};
 		scheduled_final.reserve(gates->size);
 		
@@ -548,8 +549,8 @@ struct ToqmMapper::Impl {
 		for (int i = 0; i < gate_count; i++) {
 			assert(gates->size > 0);
 			
-			auto & sg = gates->value;
-			auto & g = gates->value->gate;
+			const auto & sg = gates->value;
+			const auto & g = gates->value->gate;
 			
 			scheduled_final.push_back(ScheduledGateOp{
 					GateOp(g->uid, g->name, g->control, g->target),
@@ -577,7 +578,7 @@ struct ToqmMapper::Impl {
 		
 		auto result = std::unique_ptr<ToqmResult>(new ToqmResult{
 				std::move(scheduled_final),
-				nodes->size(),
+				(int)nodes->size(),
 				env->numPhysicalQubits,
 				env->numLogicalQubits,
 				std::move(laq_final),

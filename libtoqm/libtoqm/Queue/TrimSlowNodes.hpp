@@ -20,45 +20,60 @@ class TrimSlowNodes : public Queue {
 private:
 	unsigned int maxSize = 1000;
 	unsigned int targetSize = 500;
-	
+
+	using PriotityQueueType = std::tuple<std::size_t, std::shared_ptr<Node>>;
+
 	struct CmpCost {
-		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
+		bool operator()(const PriotityQueueType& lhs, const PriotityQueueType& rhs) const {
+			auto lhs_node = std::get<1>(lhs);
+			auto rhs_node = std::get<1>(rhs);
+
 			//tiebreaker:
-			if(lhs->cost == rhs->cost) {
+			if(lhs_node->cost == rhs_node->cost) {
+				// Favor pushed most recently.
+				return std::get<0>(lhs) < std::get<0>(rhs);
 				//return lhs->scheduled->size > rhs->scheduled->size;
 				//return lhs->numUnscheduledGates > rhs->numUnscheduledGates;
 				//return lhs->cycle < rhs->cycle;
 			}
 			
 			//lower cost is better
-			return lhs->cost > rhs->cost;
+			return lhs_node->cost > rhs_node->cost;
 		}
 	};
 	
 	struct CmpProgress {
-		bool operator()(const std::shared_ptr<Node>& lhs, const std::shared_ptr<Node>& rhs) const {
+		bool operator()(const PriotityQueueType& lhs, const PriotityQueueType& rhs) const {
+			auto lhs_node = std::get<1>(lhs);
+			auto rhs_node = std::get<1>(rhs);
+
 			//tiebreaker:
-			if(lhs->numUnscheduledGates == rhs->numUnscheduledGates) {
-				return lhs->cost > rhs->cost;
+			if(lhs_node->numUnscheduledGates == rhs_node->numUnscheduledGates) {
+				if (lhs_node->cost != rhs_node->cost) {
+					return lhs_node->cost > rhs_node->cost;
+				}
+
+				// Favor pushed most recently.
+				return std::get<0>(lhs) < std::get<0>(rhs);
 			}
 			
 			//fewer not-yet-scheduled gates is better
-			return lhs->numUnscheduledGates > rhs->numUnscheduledGates;
+			return lhs_node->numUnscheduledGates > rhs_node->numUnscheduledGates;
 		}
 	};
 	
 	/**
 	 * The queue containing the nodes
 	 */
-	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpCost> nodes;
+	std::priority_queue<PriotityQueueType, std::vector<PriotityQueueType>, CmpCost> nodes;
 	
 	/**
 	 * A temporary queue used to organize nodes by progress through the original circuit
 	 */
-	std::priority_queue<std::shared_ptr<Node>, std::vector<std::shared_ptr<Node>>, CmpProgress> tempQueue;
+	std::priority_queue<PriotityQueueType, std::vector<PriotityQueueType>, CmpProgress> tempQueue;
 	
 	bool pushNode(const std::shared_ptr<Node>& newNode) override {
-		nodes.push(newNode);
+		nodes.push(std::make_tuple(numPushed, newNode));
 		if(_verbose) {
 			if(newNode->numUnscheduledGates < garbage) {
 				garbage = newNode->numUnscheduledGates;
@@ -98,7 +113,7 @@ private:
 			}
 			//Delete the rest of the nodes
 			while(!tempQueue.empty()) {
-				auto n = tempQueue.top();
+				auto n = std::get<1>(tempQueue.top());
 				tempQueue.pop();
 				n->env.deleteRecord(*n);
 			}
@@ -125,7 +140,7 @@ public:
 	std::shared_ptr<Node> pop() override {
 		numPopped++;
 		
-		auto ret = nodes.top();
+		std::shared_ptr<Node> ret = std::get<1>(nodes.top());
 		nodes.pop();
 		
 		//std::cerr << "Debug message: popped node with cost " << ret->cost << "\n";
@@ -149,7 +164,7 @@ public:
 		return ret;
 	}
 	
-	int size() override {
+	size_t size() override {
 		return nodes.size();
 	}
 	
