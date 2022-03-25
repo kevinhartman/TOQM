@@ -10,6 +10,8 @@
 #include <utility>
 #include <tuple>
 #include <iostream>
+#include <sstream>
+#include <exception>
 
 namespace toqm {
 
@@ -153,9 +155,12 @@ public:
 		}
 		
 		//Crash
-		std::cerr << "FATAL ERROR: could not find any valid latency for specified " << gateName << " gate.\n";
-		std::cerr << "\t" << numQubits << "\t" << gateName << "\t" << target << "\t" << control << "\n";
-		exit(1);
+		std::stringstream ss;
+		ss << "FATAL ERROR: could not find any valid latency for specified " << gateName << " gate.\n";
+		ss << "\t" << numQubits << "\t" << gateName << "\t" << target << "\t" << control << "\n";
+		std::cerr << ss.str();
+		
+		throw std::runtime_error(ss.str());
 	}
 	
 	std::unique_ptr<Latency> clone() const override {

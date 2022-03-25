@@ -18,6 +18,7 @@ Node::Node(Environment& environment) : env(environment) {
 		laq[x] = x;
 		lastNonSwapGate[x] = NULL;
 		lastGate[x] = NULL;
+		lastNonZeroLatencyGate[x] = NULL;
 	}
 	this->cost = 0;
 	this->dead = false;
@@ -46,6 +47,9 @@ bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
 			physicalTarget = laq[physicalTarget];
 		}
 	}
+
+	// TODO: allow 0 latency gates to be scheduled even if busy cycles > 0.
+	//auto latency = env.latency.getLatency(gate->name, (physicalControl >= 0 ? 2 : 1), physicalTarget, physicalControl);
 
 	int busyControl = this->busyCycles(physicalControl);
 	if(physicalControl >= 0 && busyControl > 0 && busyControl > (int) timeOffset) {
@@ -147,6 +151,9 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 	
 	if(physicalControl >= 0) {
 		this->lastGate[physicalControl] = sg.get();
+		if (sg->latency != 0) {
+			this->lastNonZeroLatencyGate[physicalControl] = sg.get();
+		}
 	}
 	if(sg->gate->control >= 0 && !isSwap) {
 		this->lastNonSwapGate[sg->gate->control] = sg.get();
@@ -154,6 +161,9 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 	
 	if(physicalTarget >= 0) {
 		this->lastGate[physicalTarget] = sg.get();
+		if (sg->latency != 0) {
+			this->lastNonZeroLatencyGate[physicalTarget] = sg.get();
+		}
 	}
 	if(sg->gate->target >= 0 && !isSwap) {
 		this->lastNonSwapGate[sg->gate->target] = sg.get();
@@ -199,6 +209,12 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 		// in the current cycle.
 		auto gnPhysicalControl = gn->control >= 0 ? laq[gn->control] : -1;
 		auto gnPhysicalTarget = laq[gn->target];
+
+		if (gnPhysicalControl >= 0 && env.couplings.count(std::make_pair(gnPhysicalControl, gnPhysicalTarget)) <= 0) {
+			// Cannot schedule it now, since it's not compatible with the current layout.
+			continue;
+		}
+
 		auto latency = env.latency.getLatency(gn->name, gnPhysicalControl >= 0 ? 2 : 1, gnPhysicalTarget, gnPhysicalControl);
 
 		// Special case for cycle == 0.
@@ -248,6 +264,7 @@ std::unique_ptr<Node> Node::prepChild(Node* parent) {
 		child->laq[x] = parent->laq[x];
 		child->lastNonSwapGate[x] = parent->lastNonSwapGate[x];
 		child->lastGate[x] = parent->lastGate[x];
+		child->lastNonZeroLatencyGate[x] = parent->lastNonZeroLatencyGate[x];
 	}
 	child->cost = 0;//Remember to calculate cost in expander, *after* it's done scheduling new gates for this node //child->cost = env->cost->getCost(child);
 	
