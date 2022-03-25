@@ -53,10 +53,12 @@ public:
 	
 	ScheduledGate* lastNonSwapGate[MAX_QUBITS]{};//last scheduled non-swap gate per LOGICAL qubit
 	ScheduledGate* lastGate[MAX_QUBITS]{};//last scheduled gate per PHYSICAL qubit
+	ScheduledGate* lastNonZeroLatencyGate[MAX_QUBITS]{};//last non-zero latency scheduled gate per PHYSICAL qubit
+
 	
 	//the number of cycles until the specified physical qubit is available
 	inline int busyCycles(int physicalQubit) const {
-		auto & sg = this->lastGate[physicalQubit];
+		auto & sg = this->lastNonZeroLatencyGate[physicalQubit];
 		if(!sg) return 0;
 		int cycles = sg->cycle + sg->latency - this->cycle;
 		if(cycles < 0) return 0;

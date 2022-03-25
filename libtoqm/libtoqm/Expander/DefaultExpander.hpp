@@ -120,7 +120,10 @@ public:
 			
 			if(good) {
 				int latency = node->env.latency.getLatency(g->name, (control >= 0 ? 2 : 1), target, control);
-				if(latency == 1) {
+				// keha: added latency == 0 to support case when 0-latency
+				// gate is at front of circuit or couldn't be scheduled immediately mid-circuit
+				// due to incompatible current layout.
+				if(latency == 1 || latency == 0) {
 					singleCycleGates.push_back(g);
 				} else {
 					possibleGates.push_back(g);
