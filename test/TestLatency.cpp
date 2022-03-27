@@ -59,11 +59,11 @@ TEST_CASE("Latency table can be configured to behave like simple latencies.", "[
 	REQUIRE(table->getLatency("cx", 2, -1, -1) == simple->getLatency("cx", 2, -1, -1));
 	REQUIRE(table->getLatency("swap", 2, -1, -1) == simple->getLatency("swap", 2, -1, -1));
 
-	auto simple_mapper = MapperBuilder::forSmallCircuits();
+	auto simple_mapper = MapperBuilder::forSmallCircuits(false);
 	simple_mapper.Latency = std::move(simple);
 	auto simple_result = simple_mapper.build()->run(gates, 7, coupling_map);
 
-	auto table_mapper = MapperBuilder::forSmallCircuits();
+	auto table_mapper = MapperBuilder::forSmallCircuits(false);
 	table_mapper.Latency = std::move(table);
 	auto table_result = table_mapper.build()->run(gates, 7, coupling_map);
 
@@ -93,10 +93,10 @@ TEST_CASE("Test 0-latency instructions work as expected.", "[latency]") {
 
 	auto table = std::unique_ptr<toqm::Latency>(new toqm::Table(latencies));
 
-	auto mapper = MapperBuilder::forSmallCircuits();
+	auto mapper = MapperBuilder::forSmallCircuits(false);
 	mapper.Latency = std::move(table);
 
-	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map, 0);
+	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map);
 
 	// Require order is the same, since this is the only valid ordering for this circuit.
 	REQUIRE(result->scheduledGates[0].gateOp.uid == 0);
@@ -133,10 +133,10 @@ TEST_CASE("Test 0-latency instructions at start of circuit.", "[latency]") {
 
 	auto table = std::unique_ptr<toqm::Latency>(new toqm::Table(latencies));
 
-	auto mapper = MapperBuilder::forSmallCircuits();
+	auto mapper = MapperBuilder::forSmallCircuits(false);
 	mapper.Latency = std::move(table);
 
-	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map, 0);
+	auto result = mapper.build()->run(gates, coupling_map.numPhysicalQubits, coupling_map);
 
 	std::cout << result->scheduledGates;
 

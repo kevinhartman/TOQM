@@ -14,19 +14,21 @@ MapperBuilder::MapperBuilder() :
 	Filter1(nullptr),
 	Filter2(nullptr) {}
 
-MapperBuilder MapperBuilder::forSmallCircuits() {
+MapperBuilder MapperBuilder::forSmallCircuits(bool layout) {
 	MapperBuilder builder {};
 	builder.Filter1 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter);
 	builder.Filter2 = std::unique_ptr<toqm::Filter>(new toqm::HashFilter2);
+	builder.InitialSearchCycles = layout ? -1 : 0;
 
 	return std::move(builder);
 }
 
-MapperBuilder MapperBuilder::forLargeCircuits() {
+MapperBuilder MapperBuilder::forLargeCircuits(bool layout) {
 	MapperBuilder builder {};
 	builder.Queue = std::unique_ptr<toqm::Queue>(new TrimSlowNodes(2000, 1000));
 	builder.Expander = std::unique_ptr<toqm::Expander>(new GreedyTopK(10));
 	builder.NodeMod = std::unique_ptr<toqm::NodeMod>(new toqm::GreedyMapper());
+	builder.InitialSearchCycles = layout ? -1 : 0;
 	builder.RetainPopped = 1;
 
 	return std::move(builder);
@@ -39,7 +41,8 @@ std::unique_ptr<toqm::ToqmMapper> MapperBuilder::build() {
 			this->CostFunc->clone(),
 			this->Latency->clone(),
 			this->NodeMods(),
-			this->Filters()));
+			this->Filters(),
+			this->InitialSearchCycles));
 
 	if (RetainPopped) {
 		mapper->setRetainPopped(RetainPopped);
