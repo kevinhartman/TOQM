@@ -10,6 +10,7 @@
 #include <iostream>
 #include <queue>
 #include <stdexcept>
+#include <sstream>
 
 namespace toqm {
 
