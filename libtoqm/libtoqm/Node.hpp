@@ -18,7 +18,7 @@ class Environment;
 class Queue;
 
 //Warning: you may need to run make clean after changing MAX_QUBITS
-const int MAX_QUBITS = 20;
+const int MAX_QUBITS = 127;
 //extern int GLOBALCOUNTER;
 
 /**
