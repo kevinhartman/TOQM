@@ -8,6 +8,8 @@
 #include <cassert>
 #include <vector>
 #include <iostream>
+#include <stdexcept>
+#include <sstream>
 
 namespace toqm {
 
@@ -231,8 +233,12 @@ public:
 			//Reminder: this line caused problems when I tried placing it before looking at swaps
 			return true;
 		}
-		
-		assert(possibleGates.size() < 64); //or else I need to do this differently
+
+		if (possibleGates.size() >= 64) {
+			// TODO: modify approach to support >= 64 gates.
+			throw std::runtime_error("FATAL ERROR: current implementation cannot handle more than 63 possible gates.");
+		}
+
 		unsigned long long numIters = 1LL << possibleGates.size();
 		for(unsigned long long x = 0; x < numIters; x++) {
 			std::shared_ptr<Node> child = Node::prepChild(node.get());
@@ -241,9 +247,9 @@ public:
 			for(unsigned int y = 0; good && y < possibleGates.size(); y++) {
 				if(x & (1LL << y)) {
 					if(node->cycle >= -1) {
-						good = good && child->scheduleGate(possibleGates[y]);
+						good = child->scheduleGate(possibleGates[y]);
 					} else {//keha: should we assert that this is a swap gate?
-						good = good && child->swapQubits(possibleGates[y]->target, possibleGates[y]->control);
+						good = child->swapQubits(possibleGates[y]->target, possibleGates[y]->control);
 					}
 				}
 			}

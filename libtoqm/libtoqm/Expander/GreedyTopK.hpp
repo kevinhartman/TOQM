@@ -9,6 +9,8 @@
 #include <vector>
 #include <iostream>
 #include <queue>
+#include <stdexcept>
+#include <sstream>
 
 namespace toqm {
 
@@ -275,7 +277,11 @@ public:
 		std::priority_queue<PriotityQueueType, std::vector<PriotityQueueType>, CmpNodeCost> tempNodes;
 		std::size_t numPushed = 0;
 		
-		assert(possibleGates.size() < 64); //or else I need to do this differently
+		if (possibleGates.size() >= 64) {
+			// TODO: modify approach to support >= 64 gates.
+			throw std::runtime_error("FATAL ERROR: current implementation cannot handle more than 63 possible gates.");
+		}
+
 		unsigned long long numIters = 1LL << possibleGates.size();
 		
 		for(unsigned long long x = 0; x < numIters; x++) {

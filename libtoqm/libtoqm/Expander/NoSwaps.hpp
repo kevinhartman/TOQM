@@ -186,7 +186,8 @@ public:
 		//schedule the gates
 		for(auto & possibleGate : possibleGates) {
 			if(node->cycle >= -1) {
-				assert(child->scheduleGate(possibleGate));
+				auto res = child->scheduleGate(possibleGate);
+				assert(res);
 				numgatesscheduled++;
 			} else {
 				assert(false);

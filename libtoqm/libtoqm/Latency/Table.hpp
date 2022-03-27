@@ -11,7 +11,7 @@
 #include <tuple>
 #include <iostream>
 #include <sstream>
-#include <exception>
+#include <stdexcept>
 
 namespace toqm {
 
@@ -93,17 +93,34 @@ private:
 	void buildTable(const std::vector<LatencyDescription> & entries) {
 		char * token;
 		for (const auto & e : entries) {
+			auto fail = [&e](const std::string& msg) {
+				std::stringstream ss {};
+				ss << msg << " " << "Description: " << e.type << " " << e.control << " " << e.target << " " << e.latency;
+				throw std::runtime_error(ss.str());
+			};
+
+			if (e.latency < 0) {
+				fail("Latency must be >= 0 for all gates.");
+			}
 			
 			//Don't allow entries where physical qubits are only partially specified:
-			assert(e.numQubits < 2 || (e.target != -1 && e.control != -1) || e.target == e.control);
+			bool partiallySpecified = e.numQubits >= 2 && (e.target == -1 || e.control == -1) && e.target != e.control;
+			if (partiallySpecified) {
+				fail("Latency description must specify both qubits or neither (for optimistic latency).");
+			}
 
 			// keha: 0-latency swaps are not supported.
-			assert(!(e.type == "swap" || e.type == "SWAP") || e.latency > 0);
+			if ((e.type == "swap" || e.type == "SWAP") && e.latency == 0) {
+				fail("SWAP gates with 0-latency are not supported.");
+			}
 			
 			//Don't allow duplicate entries
 			auto latenciesKey = LatencyTableKey {e.type, e.numQubits, e.target, e.control};
 			auto search = latencies.find(latenciesKey);
-			assert(search == latencies.end());
+
+			if (search != latencies.end()) {
+				fail("Duplicate latency description.");
+			}
 			
 			latencies.emplace(latenciesKey, e.latency);
 			
@@ -158,8 +175,7 @@ public:
 		std::stringstream ss;
 		ss << "FATAL ERROR: could not find any valid latency for specified " << gateName << " gate.\n";
 		ss << "\t" << numQubits << "\t" << gateName << "\t" << target << "\t" << control << "\n";
-		std::cerr << ss.str();
-		
+
 		throw std::runtime_error(ss.str());
 	}
 	
