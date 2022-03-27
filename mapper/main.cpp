@@ -462,7 +462,8 @@ int main(int argc, char ** argv) {
 			move(cf),
 			move(lat),
 			move(mods),
-			move(filters)));
+			move(filters),
+			initialSearchCycles));
 	
 	mapper->setRetainPopped(retainPopped);
 
@@ -494,7 +495,7 @@ int main(int argc, char ** argv) {
 	auto couplingMap = MapperUtils::parseCouplingMap(couplingMapFile);
 	
 	// invoke TOQM algo
-	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap, initialSearchCycles, init_qal);
+	auto result = mapper->run(qasm->gateOperations(), qasm->numQubits(), couplingMap, init_qal);
 	
 	// write new qasm to std::cout
 	qasm->toQasm2(std::cout, *result);

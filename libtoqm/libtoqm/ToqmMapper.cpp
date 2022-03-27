@@ -255,10 +255,11 @@ struct ToqmMapper::Impl {
 	std::unique_ptr<Latency> latency;
 	std::vector<std::unique_ptr<NodeMod>> node_mods;
 	std::vector<std::unique_ptr<Filter>> filters;
+	int initialSearchCycles;
 	int retainPopped;
 	
 	std::unique_ptr<ToqmResult>
-	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map, int initialSearchCycles, std::vector<char> init_qal) const {
+	run(const std::vector<GateOp> & gate_ops, std::size_t num_qubits, const CouplingMap & coupling_map, std::vector<char> init_qal) const {
 		// create fresh deep copy of filters for run
 		std::vector<std::unique_ptr<Filter>> run_filters;
 		run_filters.reserve(filters.size());
@@ -301,6 +302,7 @@ struct ToqmMapper::Impl {
 		calcDistances(env->couplingDistances, env->numPhysicalQubits);
 		
 		// If initial search cycles is not user-specified, set it to "diameter".
+		int initialSearchCycles = this->initialSearchCycles;
 		if(initialSearchCycles < 0) {
 			int diameter = 0;
 			for(int x = 0; x < env->numPhysicalQubits - 1; x++) {
@@ -603,9 +605,10 @@ ToqmMapper::ToqmMapper(const Queue& node_queue,
 					   std::unique_ptr<CostFunc> cost_func,
 					   std::unique_ptr<Latency> latency,
 					   std::vector<std::unique_ptr<NodeMod>> node_mods,
-					   std::vector<std::unique_ptr<Filter>> filters)
+					   std::vector<std::unique_ptr<Filter>> filters,
+					   int initial_search_cycles)
 		: impl(new Impl{node_queue.clone(), std::move(expander), std::move(cost_func), std::move(latency),
-						std::move(node_mods), std::move(filters), 0}) {}
+						std::move(node_mods), std::move(filters), initial_search_cycles, 0}) {}
 
 ToqmMapper::~ToqmMapper() = default;
 
@@ -619,18 +622,11 @@ void ToqmMapper::setVerbose(bool verbose) {
 
 std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits,
 											const CouplingMap & coupling_map) const {
-	// -1 initial search cycles indicates we should `diameter` cycles
-	// to do a full search for the best initial layout.
-	return impl->run(gates, num_qubits, coupling_map, -1, {});
+	return impl->run(gates, num_qubits, coupling_map, {});
 }
 
 std::unique_ptr<ToqmResult>
-ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles) const {
-	return impl->run(gates, num_qubits, coupling_map, initial_search_cycles, {});
-}
-
-std::unique_ptr<ToqmResult>
-ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<int> & init_qal) const {
+ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, const std::vector<int> & init_qal) const {
 	// TODO: port entire codebase to use std::vector<size_t> for QAL/LAQ and remove this.
 	// 	This is only here so the ToqmMapper interface can be ideal to start.
 	std::vector<char> init_qal_c {};
@@ -640,7 +636,7 @@ ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const
 		init_qal_c.push_back((char)x);
 	}
 	
-	return impl->run(gates, num_qubits, coupling_map, initial_search_cycles, std::move(init_qal_c));
+	return impl->run(gates, num_qubits, coupling_map, std::move(init_qal_c));
 }
 
 

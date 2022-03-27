@@ -41,6 +41,9 @@ public:
 	 * @param node_mods A sequence of `NodeMod` implementations.
 	 * @param filters A sequence of `Filter` implementations used to prune
 	 * redundant or otherwise uninteresting nodes from the search space.
+	 * @param initial_search_cycles If non-zero, uses this many cycles to find
+	 * an initial layout. If `-1`, uses the longest path between any two nodes
+	 * without going through any given node more than once.
 	 */
 	explicit ToqmMapper(
 			const Queue & node_queue,
@@ -48,7 +51,8 @@ public:
 			std::unique_ptr<CostFunc> cost_func,
 			std::unique_ptr<Latency> latency,
 			std::vector<std::unique_ptr<NodeMod>> node_mods,
-			std::vector<std::unique_ptr<Filter>> filters
+			std::vector<std::unique_ptr<Filter>> filters,
+			int initial_search_cycles
 	);
 	
 	/**
@@ -68,9 +72,8 @@ public:
 	
 	/**
 	 * Run the TOQM algorithm.
-	 * The initial layout is determined automatically using a cycle limit
-	 * equal to the diameter of the couping map, and is available in the
-	 * result.
+	 * If this instance was configured to perform layout, the determined
+	 * layout will be available in the result.
 	 * @param gates The topologically ordered gates that define the circuit.
 	 * @param num_qubits
 	 * @param coupling_map The coupling map describing the target hardware.
@@ -84,33 +87,18 @@ public:
 	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map) const;
 	
 	/**
-	 * Run the TOQM algorithm.
-	 * The initial layout is determined automatically using the specified cycle limit,
-	 * and is available in the result.
-	 * @param gates
-	 * @param num_qubits
-	 * @param coupling_map
-	 * @param initial_search_cycles The number of cycles. If `-1`, uses the
-	 * longest path between any two nodes without going through any given node more
-	 * than once (this is a complete search and is the max value that can have an
-	 * effect).
-	 * @return
-	 */
-	std::unique_ptr<ToqmResult>
-	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles) const;
-	
-	/**
 	 * Run the TOQM algorithm using the specified initial layout.
-	 * @param gates
+	 * If this instance was configured to perform layout, the layout
+	 * is determined using the specified initial layout as a starting point,
+	 * and will be available in the result.
+	 * @param gates The topologically ordered gates that define the circuit.
 	 * @param num_qubits
-	 * @param coupling_map
-	 * @param initial_search_cycles If non-zero, the initial layout is determined automatically
-	 * with `init_qal` as a starting point, using up to this many cycles.
-	 * @param init_qal
+	 * @param coupling_map The coupling map describing the target hardware.
+	 * @param init_qal An initial layout, mapping physical qubits to virtual.
 	 * @return
 	 */
 	std::unique_ptr<ToqmResult>
-	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, int initial_search_cycles, const std::vector<int> & init_qal) const;
+	run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, const std::vector<int> & init_qal) const;
 
 private:
 	class Impl;

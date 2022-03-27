@@ -21,8 +21,8 @@ public:
 	MapperBuilder();
 	std::unique_ptr<toqm::ToqmMapper> build();
 
-	static MapperBuilder forSmallCircuits();
-	static MapperBuilder forLargeCircuits();
+	static MapperBuilder forSmallCircuits(bool layout);
+	static MapperBuilder forLargeCircuits(bool layout);
 
 	// Public fields to configure builder
 	std::unique_ptr<toqm::Queue> Queue;
@@ -32,6 +32,7 @@ public:
 	std::unique_ptr<toqm::NodeMod> NodeMod;
 	std::unique_ptr<toqm::Filter> Filter1;
 	std::unique_ptr<toqm::Filter> Filter2;
+	int InitialSearchCycles {};
 	int RetainPopped {};
 
 private:
