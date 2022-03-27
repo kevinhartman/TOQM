@@ -8,6 +8,7 @@
 #include <vector>
 #include <sstream>
 #include <limits>
+#include <stdexcept>
 
 #include "CostFunc.hpp"
 #include "Environment.hpp"
@@ -176,9 +177,12 @@ buildDependencyGraph(const std::vector<GateOp> & gates,
 		if(v->target >= numQubits) {
 			numQubits = v->target + 1;
 		}
-		
-		// TODO: move to input validation of `gates` for `ToqmMapper::run`.
-		assert(v->control != v->target);
+
+		if (v->control == v->target) {
+			std::stringstream ss {};
+			ss << "Invalid gate (control == target): " << v->name << " " << v->control << " " << v->target;
+			throw std::runtime_error(ss.str());
+		}
 		
 		//set parents, and adjust lastGatePerQubit
 		if(v->control >= 0) {
@@ -210,7 +214,11 @@ buildDependencyGraph(const std::vector<GateOp> & gates,
 		}
 	}
 	
-	assert(numQubits <= maxQubits);
+	if (numQubits > maxQubits) {
+		std::stringstream ss {};
+		ss << "Circuit uses more than " << maxQubits << " qubits.";
+		throw std::runtime_error(ss.str());
+	}
 	
 	//set critical path lengths starting from each gate
 	idealCycles = setCriticality(lastGatePerQubit, numQubits);
@@ -281,7 +289,12 @@ struct ToqmMapper::Impl {
 		int idealCycles = -1;
 		buildDependencyGraph(gate_ops, num_qubits, *latency, firstGates, env->numLogicalQubits, *env, idealCycles);
 		
-		assert(env->numPhysicalQubits >= env->numLogicalQubits);
+		if (env->numPhysicalQubits < env->numLogicalQubits) {
+			std::stringstream ss {};
+			ss << "Coupling map has " << env->numPhysicalQubits
+			   << " qubits but circuit uses " << env->numLogicalQubits << " qubits.";
+			throw std::runtime_error(ss.str());
+		}
 		
 		// Calculate distances between physical qubits in coupling map (min 1, max numPhysicalQubits-1)
 		// First, initialize all pairs to max.
@@ -371,22 +384,8 @@ struct ToqmMapper::Impl {
 		root->cost = cost_func->getCost(*root);
 		
 		auto nodes = nodes_queue->clone();
-		nodes->push(root); // TODO: should Queue own all nodes, only?
+		nodes->push(root);
 
-//    // TODO: is this needed? why delete filters that the user didn't select?
-//    //Cleanup filters before I start messing things up:
-//    for (int x = 0; x < NUMFILTERS; x++) {
-//        bool del = true;
-//        for (unsigned int y = 0; y < env->filters.size(); y++) {
-//            if (env->filters[y] == std::get<0>(FILTERS[x])) {
-//                del = false;
-//                break;
-//            }
-//        }
-//        if (del) {
-//            delete std::get<0>(FILTERS[x]);
-//        }
-//    }
 		env->resetFilters();
 		
 		//Pop nodes from the queue until we're done:
@@ -396,7 +395,9 @@ struct ToqmMapper::Impl {
 		int counter = 0;
 		std::deque<std::shared_ptr<Node>> oldNodes;
 		while(notDone) {
-			assert(nodes->size() > 0);
+			if (nodes->size() <= 0) {
+				throw std::runtime_error("No mapping found using current configuration.");
+			}
 			
 			while(retainPopped && oldNodes.size() > retainPopped) {
 				auto pop = oldNodes.front();
@@ -475,7 +476,9 @@ struct ToqmMapper::Impl {
 				}
 				
 				std::cin >> counter;//pause the program after (counter) steps
-				if(counter < 0) exit(1);
+				if(counter < 0) {
+					throw std::runtime_error("Invalid user-specified input from stdin.");
+				}
 			}
 			
 			notDone = expander->expand(*nodes, n);
@@ -494,18 +497,7 @@ struct ToqmMapper::Impl {
 			inferredQal[x] = finalNode->qal[x];
 			inferredLaq[x] = finalNode->laq[x];
 		}
-		/*
-		std::cerr << "//Note: qubit mapping at end (location of each logical qubit): ";
-		for(int x = 0; x < env->numLogicalQubits; x++) {
-			std::cerr << (int)inferredLaq[x] << ", ";
-		}
-		std::cerr << "\n";
-		std::cerr << "//Note: qubit mapping at end (logical qubit at each location): ";
-		for(int x = 0; x < env->numPhysicalQubits; x++) {
-			std::cerr << (int)inferredQal[x] << ", ";
-		}
-		std::cerr << "\n";
-		*/
+
 		while(sg->size > 0) {
 			if(sg->value->gate->control >= 0) {
 				if((!sg->value->gate->name.compare("swap")) || (!sg->value->gate->name.compare("SWAP"))) {
@@ -592,8 +584,6 @@ struct ToqmMapper::Impl {
 		});
 		
 		// Cleanup
-		// TODO: migrate Environment to smart pointers
-		//delete [] env->possibleSwaps;
 		delete [] env->couplingDistances;
 		
 		return result;
@@ -627,12 +617,24 @@ std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> & gates, s
 
 std::unique_ptr<ToqmResult>
 ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, const std::vector<int> & init_qal) const {
+	static_assert(std::numeric_limits<char>::max() <= MAX_QUBITS);
+
+	std::stringstream tooManyBits {};
+	tooManyBits
+			<< "Initial layout length and max value size must be less than " << MAX_QUBITS - 1 << ".";
+
+	if (init_qal.size() > MAX_QUBITS - 1) {
+		throw std::runtime_error(tooManyBits.str());
+	}
+
 	// TODO: port entire codebase to use std::vector<size_t> for QAL/LAQ and remove this.
 	// 	This is only here so the ToqmMapper interface can be ideal to start.
 	std::vector<char> init_qal_c {};
 	init_qal_c.reserve(init_qal.size());
 	for (auto x : init_qal) {
-		assert(x <= std::numeric_limits<char>::max());
+		if (x > MAX_QUBITS - 1) {
+			throw std::runtime_error(tooManyBits.str());
+		}
 		init_qal_c.push_back((char)x);
 	}
 	

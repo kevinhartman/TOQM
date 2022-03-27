@@ -6,6 +6,8 @@
 #include <cassert>
 #include <iostream>
 #include <string>
+#include <stdexcept>
+#include <sstream>
 
 namespace toqm {
 
@@ -171,10 +173,11 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 	
 	if(!isSwap) {
 		if(this->readyGates.erase(gate) != 1) {
-			std::cerr << "FATAL ERROR: unable to remove scheduled gate from ready list.\n";
-			std::cerr << "\tGate name: " << gate->name << "\n";
-			std::cerr << "\tTime offset: " << timeOffset << "\n";
-			assert(false);
+			std::stringstream ss {};
+			ss << "FATAL ERROR: unable to remove scheduled gate from ready list.\n";
+			ss << "\tGate name: " << gate->name << "\n";
+			ss << "\tTime offset: " << timeOffset << "\n";
+			throw std::runtime_error(ss.str());
 		}
 		this->numUnscheduledGates--;
 	}
