@@ -213,6 +213,14 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 		auto gnPhysicalControl = gn->control >= 0 ? laq[gn->control] : -1;
 		auto gnPhysicalTarget = laq[gn->target];
 
+		auto unmappedTarget = gnPhysicalTarget < 0;
+		auto unmappedControl = gnPhysicalControl < 0 && gn->control >= 0;
+		
+		if (unmappedTarget || unmappedControl) {
+			// Cannot schedule now since its virtual qubits aren't mapped.
+			continue;
+		}
+		
 		if (gnPhysicalControl >= 0 && env.couplings.count(std::make_pair(gnPhysicalControl, gnPhysicalTarget)) <= 0) {
 			// Cannot schedule it now, since it's not compatible with the current layout.
 			continue;
