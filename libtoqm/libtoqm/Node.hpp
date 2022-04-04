@@ -87,17 +87,39 @@ public:
 		std::swap(qal[physicalControl], qal[physicalTarget]);
 		return true;
 	}
-	
-	//schedule a gate, or return false if it conflicts with an active gate
-	//the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
-	//the timeOffset can be used if we want to schedule a gate to start X cycles in the future
-	//this function adjusts qubit map when scheduling a swap
+
+	/**
+	 * Schedule a gate, or return false if it conflicts with an active gate,
+	 * or is not compatible with the coupling map.
+	 *
+	 * If gate is zero-latency for its mapped physical qubits, it will not
+	 * conflict with an active gate.
+	 *
+	 * If gate is 2Q, its qubits must be mapped to physical qubits in the
+	 * current layout. If 1Q, gate's target does not need to be mapped.
+	 * However, we can't tell if such a gate is zero-latency, so in such
+	 * a case, active gates will conflict.
+	 *
+	 * This function updates this node's layout / qubit map when scheduling
+	 * swaps.
+	 *
+	 * @param gate The gate to schedule. Physical qubits on which to schedule
+	 * the gate are determined by the mapping of the gate's logical qubits in this
+	 * node's current layout. In the case of swaps, gate's qubits should be given
+	 * as physical qubits rather than logical.
+	 * @param timeOffset Schedule the gate timeOffset cycles in the future.
+	 * @return True if the gate was scheduled, false otherwise.
+	 */
 	bool scheduleGate(GateNode* gate, unsigned int timeOffset = 0);
 	
 	//prepares a new child node (without scheduling any more gates)
 	static std::unique_ptr<Node> prepChild(Node* parent);
 
 private:
+	/**
+	 * Schedule gate on the designated physical target and control bits at the designated offset.
+	 * Scheduling validation is NOT performed!
+	 */
 	void scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset);
 };
 
