@@ -617,7 +617,7 @@ std::unique_ptr<ToqmResult> ToqmMapper::run(const std::vector<GateOp> & gates, s
 
 std::unique_ptr<ToqmResult>
 ToqmMapper::run(const std::vector<GateOp> & gates, std::size_t num_qubits, const CouplingMap & coupling_map, const std::vector<int> & init_qal) const {
-	static_assert(std::numeric_limits<char>::max() <= MAX_QUBITS);
+	static_assert(std::numeric_limits<char>::max() <= MAX_QUBITS, "MAX_QUBITS exceeds qubit type size.");
 
 	std::stringstream tooManyBits {};
 	tooManyBits

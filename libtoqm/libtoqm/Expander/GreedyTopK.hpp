@@ -54,8 +54,8 @@ public:
 		unsigned int nodesSize = nodes.size();
 		int numQubits = node->env.numPhysicalQubits;
 		
-		auto occupied = std::vector<bool>(numQubits);
-		auto onReadyFrontier = std::vector<bool>(numQubits);
+		auto occupied = std::vector<bool>(numQubits); // physical qubits used already by guaranteed gates
+		auto onReadyFrontier = std::vector<bool>(numQubits); // physical qubits on the ready gates frontier.
 		bool hasBusyQubits = false;
 		for(int x = 0; x < numQubits; x++) {
 			occupied[x] = false;
@@ -71,13 +71,13 @@ public:
 			CXFrontier[x] = nullptr;
 		}
 		for(auto g : node->readyGates) {
-				if(g->control >= 0) {
+			if(g->control >= 0) {
 				CXFrontier[g->target] = g;
 				CXFrontier[g->control] = g;
 			}
 		}
 		for(auto g : node->readyGates) {
-				if(g->control < 0) {
+			if(g->control < 0) {
 				g = g->nextTargetCNOT;
 				if(g) {
 					if(!CXFrontier[g->control]) {
@@ -97,15 +97,15 @@ public:
 		std::vector<GateNode*> guaranteedGates;
 		for(auto iter = node->readyGates.begin(); iter != node->readyGates.end(); iter++) {
 			auto & g = *iter;
-			int target = (g->target < 0) ? -1 : node->laq[g->target];
-			int control = (g->control < 0) ? -1 : node->laq[g->control];
+			int physicalTarget = (g->target < 0) ? -1 : node->laq[g->target];
+			int physicalControl = (g->control < 0) ? -1 : node->laq[g->control];
 			
 			bool good = (node->cycle >= -1);
 			//bool dependsOnSomething = false;
 			
-			if(control >= 0) {//gate has a control qubit
-				onReadyFrontier[control] = true;
-				int busy = node->busyCycles(control);
+			if(physicalControl >= 0) {//gate has a physicalControl qubit
+				onReadyFrontier[physicalControl] = true;
+				int busy = node->busyCycles(physicalControl);
 				if(busy) {
 					//dependsOnSomething = true;
 					if(busy > 1) {
@@ -114,9 +114,9 @@ public:
 				}
 			}
 			
-			if(target >= 0) {//gate has a target qubit
-				onReadyFrontier[target] = true;
-				int busy = node->busyCycles(target);
+			if(physicalTarget >= 0) {//gate has a physicalTarget qubit
+				onReadyFrontier[physicalTarget] = true;
+				int busy = node->busyCycles(physicalTarget);
 				if(busy) {
 					//dependsOnSomething = true;
 					if(busy > 1) {
@@ -125,9 +125,9 @@ public:
 				}
 			}
 			
-			if(good && control >= 0 && target >= 0) {//gate has 2 qubits
-				if(node->env.couplings.count(std::make_pair(target, control)) <= 0) {
-					if(node->env.couplings.count(std::make_pair(control, target)) <= 0) {
+			if(good && physicalControl >= 0 && physicalTarget >= 0) {//gate has 2 qubits
+				if(node->env.couplings.count(std::make_pair(physicalTarget, physicalControl)) <= 0) {
+					if(node->env.couplings.count(std::make_pair(physicalControl, physicalTarget)) <= 0) {
 						good = false;
 					}
 				}
@@ -136,12 +136,12 @@ public:
 			if(good) {
 				guaranteedGates.push_back(g);
 
-				if(target >= 0) {
-					occupied[target] = true;
+				if(physicalTarget >= 0) {
+					occupied[physicalTarget] = true;
 				}
 
-				if(control >= 0) {
-					occupied[control] = true;
+				if(physicalControl >= 0) {
+					occupied[physicalControl] = true;
 				}
 			}
 		}
@@ -207,7 +207,9 @@ public:
 				usesLogicalQubit = true;
 			}
 			good = good && usesLogicalQubit;
-			
+
+			// check if qubits for this swap would actually get used by the remaining
+			// gates. If not, mark it as bad.
 			bool usesUsefulLogicalQubit = false;
 			if(good) {
 				if(logicalTarget >= 0) {

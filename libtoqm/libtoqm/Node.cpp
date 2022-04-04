@@ -32,10 +32,6 @@ bool isSwapGate(const GateNode * gate) {
 	return gate->name == "swap" || gate->name == "SWAP";
 }
 
-//schedule a gate, or return false if it conflicts with an active gate
-//the gate parameter uses logical qubits (except in swaps); this function determines physical locations based on prior swaps
-//the timeOffset can be used if we want to schedule a gate to start X cycles in the future
-//this function adjusts qubit map when scheduling a swap
 bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
 	bool isSwap = isSwapGate(gate);
 
@@ -50,32 +46,55 @@ bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
 		}
 	}
 
-	// TODO: allow 0 latency gates to be scheduled even if busy cycles > 0.
-	//auto latency = env.latency.getLatency(gate->name, (physicalControl >= 0 ? 2 : 1), physicalTarget, physicalControl);
+	// If a control is specified, make sure the current layout maps it to
+	// a physical qubit.
+	// If control is present but unmapped, we have a problem because we might
+	// schedule a 2q gate on physical bits that aren't connected.
+	bool mappedControl = gate->control < 0 || physicalControl >= 0;
+	assert(mappedControl);
 
-	int busyControl = this->busyCycles(physicalControl);
-	if(physicalControl >= 0 && busyControl > 0 && busyControl > (int) timeOffset) {
-		return false;
+	if (physicalControl >= 0) {
+		assert(physicalTarget >= 0);
+		assert(env.couplings.count(std::make_pair(physicalControl, physicalTarget)) > 0
+			   || env.couplings.count(std::make_pair(physicalTarget, physicalControl)) > 0);
 	}
-	int busyTarget = this->busyCycles(physicalTarget);
-	if(physicalTarget >= 0 && busyTarget > 0 && busyTarget > (int) timeOffset) {
-		return false;
+
+	// A 1q gate might be scheduled even if the current layout doesn't map its
+	// target to a physical qubit (we can map it retro-actively).
+	int latency = -1;
+	if (physicalTarget >= 0) {
+		// We can check the latency of this gate, since it's fully mapped
+		// to physical qubits.
+		latency = env.latency.getLatency(gate->name, (gate->control >= 0 ? 2 : 1), physicalTarget, physicalControl);
 	}
 
-	this->scheduleGate(gate, physicalTarget, physicalControl, timeOffset);
-	return true;
-}
+	if (latency != 0) {
+		// Gate is not known to be zero-latency, so we should only schedule it
+		// if physical qubits aren't busy, or it is a 1q gate with a target
+		// that isn't currently mapped to a specific physical qubit.
 
-/**
- * Schedule gate on the designated physical target and control bits at the designated offset.
- * Scheduling validation is NOT performed!
- * @param gate
- * @param physicalTarget
- * @param physicalControl
- * @param timeOffset
- */
-void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset) {
-	bool isSwap = isSwapGate(gate);
+		if (physicalControl >= 0) {
+			int busyControl = this->busyCycles(physicalControl);
+			if(busyControl > 0 && busyControl > (int) timeOffset) {
+				return false;
+			}
+		}
+
+		if (physicalTarget >= 0) {
+			int busyTarget = this->busyCycles(physicalTarget);
+			if(busyTarget > 0 && busyTarget > (int) timeOffset) {
+				return false;
+			}
+		}
+	}
+
+	// Gate will be scheduled.
+
+	if (latency == -1) {
+		// If latency is -1 here, we are scheduling a 1q gate whose
+		// target is not yet mapped. Get the optimistic latency.
+		latency = env.latency.getLatency(gate->name, (gate->control >= 0 ? 2 : 1), physicalTarget, physicalControl);
+	}
 
 	std::vector<GateNode *> unblockedGates {};
 	unblockedGates.reserve(2);
@@ -148,8 +167,7 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 	auto sg = std::shared_ptr<ScheduledGate>(new ScheduledGate(gate, this->cycle + timeOffset));
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
-	sg->latency = env.latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
-										  sg->physicalControl);
+	sg->latency = latency;
 	
 	if(physicalControl >= 0) {
 		this->lastGate[physicalControl] = sg.get();
@@ -208,50 +226,31 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 			continue;
 		}
 
-		// Determine if this newly unblocked gate should be scheduled immediately
-		// in the current cycle.
-		auto gnPhysicalControl = gn->control >= 0 ? laq[gn->control] : -1;
-		auto gnPhysicalTarget = laq[gn->target];
-
-		if (gnPhysicalControl >= 0 && env.couplings.count(std::make_pair(gnPhysicalControl, gnPhysicalTarget)) <= 0) {
-			// Cannot schedule it now, since it's not compatible with the current layout.
+		bool is2QGate = gn->control >= 0;
+		bool controlNotMappedAnd2Q = is2QGate && laq[gn->control] < 0;
+		bool targetNotMapped = laq[gn->target] < 0;
+		if (controlNotMappedAnd2Q || targetNotMapped) {
+			// Can't schedule this now since physical qubits aren't mapped.
 			continue;
 		}
 
-		auto latency = env.latency.getLatency(gn->name, gnPhysicalControl >= 0 ? 2 : 1, gnPhysicalTarget, gnPhysicalControl);
-
-		// Special case for cycle == 0.
-		// In the 0th cycle only, the unblocked gate's bits might only
-		// have 0-duration gates scheduled on them so far.
-		// In that case, we should always schedule it immediately even
-		// if it has a non-zero duration, else it'll incorrectly end
-		// up in cycle 1.
-		bool emptyFirstCycles = true;
-		if (cycle == 0) {
-			// Determine if a non-zero duration instruction has already been scheduled
-			// on these bits.
-			auto sgs = scheduled.get();
-			while (sgs->value) {
-				auto usesControl = gnPhysicalControl >= 0 && (sgs->value->physicalControl == gnPhysicalControl || sgs->value->physicalTarget == gnPhysicalControl);
-				auto usesTarget = sgs->value->physicalControl == gnPhysicalTarget || sgs->value->physicalTarget == gnPhysicalTarget;
-
-				if ((usesControl || usesTarget) && sgs->value->cycle == 0 && sgs->value->latency > 0) {
-					emptyFirstCycles = false;
-					break;
+		if (is2QGate) {
+			if(env.couplings.count(std::make_pair(laq[gn->control], laq[gn->target])) <= 0) {
+				if(env.couplings.count(std::make_pair(laq[gn->target], laq[gn->control])) <= 0) {
+					// Cannot schedule gate now since its qubits aren't connected
+					// in the current mapping.
+					continue;
 				}
-
-				sgs = sgs->next.get();
 			}
-		} else {
-			emptyFirstCycles = false;
 		}
 
-		if (latency == 0 || emptyFirstCycles) {
-			// 0-latency gate, or 0th cycle special case.
-			// Recursively schedule this gate in the same cycle as the gate that unblocked it.
-			this->scheduleGate(gn, gnPhysicalTarget, gnPhysicalControl, timeOffset);
-		}
+		// Try to recursively schedule this gate in the same cycle as the gate that unblocked it.
+		// This will only work if it's 0-latency or only 0-latency gates have been scheduled on
+		// its qubits this cycle so far.
+		this->scheduleGate(gn, timeOffset);
 	}
+
+	return true;
 }
 
 //prepares a new child node (without scheduling any more gates)
