@@ -55,26 +55,20 @@ bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
 
 	if (physicalControl >= 0) {
 		assert(physicalTarget >= 0);
-
-		if (env.couplings.count(std::make_pair(physicalControl, physicalTarget)) <= 0) {
-			if (env.couplings.count(std::make_pair(physicalTarget, physicalControl)) <= 0) {
-				// Cannot schedule 2q gate on unconnected qubits!
-				return false;
-			}
-		}
+		assert(env.couplings.count(std::make_pair(physicalControl, physicalTarget)) > 0
+			   || env.couplings.count(std::make_pair(physicalTarget, physicalControl)) > 0);
 	}
 
 	// A 1q gate might be scheduled even if the current layout doesn't map its
 	// target to a physical qubit (we can map it retro-actively).
-	bool knownZeroLatency = false;
+	int latency = -1;
 	if (physicalTarget >= 0) {
 		// We can check the latency of this gate, since it's fully mapped
 		// to physical qubits.
-		auto latency = env.latency.getLatency(gate->name, (gate->control >= 0 ? 2 : 1), physicalTarget, physicalControl);
-		knownZeroLatency = latency == 0;
+		latency = env.latency.getLatency(gate->name, (gate->control >= 0 ? 2 : 1), physicalTarget, physicalControl);
 	}
 
-	if (!knownZeroLatency) {
+	if (latency != 0) {
 		// Gate is not known to be zero-latency, so we should only schedule it
 		// if physical qubits aren't busy, or it is a 1q gate with a target
 		// that isn't currently mapped to a specific physical qubit.
@@ -94,12 +88,13 @@ bool Node::scheduleGate(GateNode* gate, unsigned int timeOffset) {
 		}
 	}
 
-	this->scheduleGate(gate, physicalTarget, physicalControl, timeOffset);
-	return true;
-}
+	// Gate will be scheduled.
 
-void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset) {
-	bool isSwap = isSwapGate(gate);
+	if (latency == -1) {
+		// If latency is -1 here, we are scheduling a 1q gate whose
+		// target is not yet mapped. Get the optimistic latency.
+		latency = env.latency.getLatency(gate->name, (gate->control >= 0 ? 2 : 1), physicalTarget, physicalControl);
+	}
 
 	std::vector<GateNode *> unblockedGates {};
 	unblockedGates.reserve(2);
@@ -172,8 +167,7 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 	auto sg = std::shared_ptr<ScheduledGate>(new ScheduledGate(gate, this->cycle + timeOffset));
 	sg->physicalControl = physicalControl;
 	sg->physicalTarget = physicalTarget;
-	sg->latency = env.latency.getLatency(sg->gate->name, (sg->physicalControl >= 0 ? 2 : 1), sg->physicalTarget,
-										  sg->physicalControl);
+	sg->latency = latency;
 	
 	if(physicalControl >= 0) {
 		this->lastGate[physicalControl] = sg.get();
@@ -232,20 +226,31 @@ void Node::scheduleGate(GateNode* gate, int physicalTarget, int physicalControl,
 			continue;
 		}
 
-		bool mappedControlOrSingleQ = gn->control < 0 || laq[gn->control] >= 0;
-		bool mappedTarget = laq[gn->target] >= 0;
-		if (!mappedControlOrSingleQ || !mappedTarget) {
-			// Can't schedule this now since it's 2q and either the control
-			// or target isn't mapped.
+		bool is2QGate = gn->control >= 0;
+		bool controlNotMappedAnd2Q = is2QGate && laq[gn->control] < 0;
+		bool targetNotMapped = laq[gn->target] < 0;
+		if (controlNotMappedAnd2Q || targetNotMapped) {
+			// Can't schedule this now since physical qubits aren't mapped.
 			continue;
 		}
 
+		if (is2QGate) {
+			if(env.couplings.count(std::make_pair(laq[gn->control], laq[gn->target])) <= 0) {
+				if(env.couplings.count(std::make_pair(laq[gn->target], laq[gn->control])) <= 0) {
+					// Cannot schedule gate now since its qubits aren't connected
+					// in the current mapping.
+					continue;
+				}
+			}
+		}
+
 		// Try to recursively schedule this gate in the same cycle as the gate that unblocked it.
-		// This will only work if both:
-		// 1) it's 0-latency or only 0-latency gates have been scheduled on its qubits this cycle so far.
-		// 2) it is compatible with the current layout.
+		// This will only work if it's 0-latency or only 0-latency gates have been scheduled on
+		// its qubits this cycle so far.
 		this->scheduleGate(gn, timeOffset);
 	}
+
+	return true;
 }
 
 //prepares a new child node (without scheduling any more gates)

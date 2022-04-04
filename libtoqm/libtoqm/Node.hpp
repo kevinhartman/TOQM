@@ -89,16 +89,23 @@ public:
 	}
 
 	/**
-	 * Schedule a gate, or return false if it conflicts with an active gate,
-	 * or is not compatible with the coupling map.
+	 * Schedule a gate, or return false if it conflicts with an active gate.
 	 *
-	 * If gate is zero-latency for its mapped physical qubits, it will not
+	 * The gate must be compatible with the coupling map, given the node's
+	 * current layout.
+	 *
+	 * If gate is zero-latency given the current layout, it will not
 	 * conflict with an active gate.
 	 *
 	 * If gate is 2Q, its qubits must be mapped to physical qubits in the
 	 * current layout. If 1Q, gate's target does not need to be mapped.
 	 * However, we can't tell if such a gate is zero-latency, so in such
 	 * a case, active gates will conflict.
+	 *
+	 * If scheduling this gate unblocks dependent gates, they will be
+	 * scheduled as well iff they are known to be zero-latency, and they
+	 * are both fully mapped and do not conflict with the coupling map, given
+	 * the current layout.
 	 *
 	 * This function updates this node's layout / qubit map when scheduling
 	 * swaps.
@@ -114,13 +121,6 @@ public:
 	
 	//prepares a new child node (without scheduling any more gates)
 	static std::unique_ptr<Node> prepChild(Node* parent);
-
-private:
-	/**
-	 * Schedule gate on the designated physical target and control bits at the designated offset.
-	 * Scheduling validation is NOT performed!
-	 */
-	void scheduleGate(GateNode* gate, int physicalTarget, int physicalControl, unsigned int timeOffset);
 };
 
 }
